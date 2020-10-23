@@ -23,12 +23,15 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: SonarQube scan
-        uses: SonarSource/sonarcloud-github-action@v1.4
+        uses: sonarsource/sonarcloud-github-action@master
         with:
           projectBaseDir: ./
+        args: >
+          -Dsonar.organization=edenmind
+          -Dsonar.projectKey=edenmind_OpenArabic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}  
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
