@@ -1,0 +1,7 @@
+.vscode/launch.json
+.vscode/tasks.json
+api/.vscode/launch.json
+api/.vscode/settings.json
+api/.vscode/tasks.json
+api/appsettings.Development.json
+api/appsettings.json

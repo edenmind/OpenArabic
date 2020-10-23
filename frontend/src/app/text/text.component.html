@@ -1,0 +1,28 @@
+<div class="grid-container">
+    <div class="row center" *ngIf="!text.title">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="center row" *ngIf="text.title">
+        <h1 class="title">
+            {{ text.title }}
+            <p>
+                <a href="/author/{{ text.author }}" class="text-decoration-none"><small class="author-by">&mdash; {{ text.author }} &mdash;</small></a
+        >
+        <a
+          href="/text-form/{{ text.textId }}"
+          class="text-decoration-none"
+          *ngIf="auth.user$ | async as user"
+          ><small class="author-by" matRipple> (edit)</small></a
+        >
+      </p>
+    </h1>
+  </div>
+
+  <div
+    class="row"
+    *ngFor="let sentence of text.sentences"
+    style="display: grid"
+  >
+    <app-text-row [sentence]="sentence"></app-text-row>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container">
+    <h1 class="top-margin" *ngIf="!model.textId">Add Text</h1>
+    <h1 class="top-margin" *ngIf="model.textId">Edit Text</h1>
+
+    <mat-tab-group mat-align-tabs="start">
+        <!-- METADATA -->
+        <form class="example-form" class="example-form">
+            <mat-tab label="Information">
+                <mat-form-field class="col-6 spacing">
+                    <mat-label>Title</mat-label>
+                    <input matInput [(ngModel)]="model.title" name="title" type="text" />
+                </mat-form-field>
+                <mat-form-field class="col-6 spacing">
+                    <mat-label>Author</mat-label>
+                    <mat-select [(ngModel)]="model.author" name="author">
+                        <div *ngFor="let author of authors">
+                            <mat-option [value]="author"> {{ author }}</mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="col-6 spacing">
+                    <mat-label>Category</mat-label>
+                    <mat-select [(ngModel)]="model.category" name="category">
+                        <div *ngFor="let category of categories">
+                            <mat-option [value]="category"> {{ category }}</mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="col-6 spacing">
+                    <mat-label>Status</mat-label>
+                    <mat-select [(ngModel)]="model.status" name="status">
+                        <div *ngFor="let status of statuses">
+                            <mat-option [value]="status"> {{ status }}</mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+            </mat-tab>
+        </form>
+
+        <!-- PARAGRAPHS -->
+        <mat-tab label="Paragraphs">
+            <div>
+                <div class="col-6" style="float: left">
+                    <mat-form-field appearance="fill" class="full-width spacing">
+                        <mat-label>Arabic</mat-label>
+                        <textarea matInput Rows="35" class="arabic" name="arabicParagraph" [(ngModel)]="model.arabicParagraph" (ngModelChange)="updatePreview()"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" style="float: right">
+                    <mat-form-field appearance="fill" class="full-width spacing">
+                        <mat-label>English</mat-label>
+                        <textarea matInput Rows="35" class="english" name="englishParagraph" [(ngModel)]="model.englishParagraph" (ngModelChange)="updatePreview()"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Preview">
+            <div *ngFor="let sentence of sentences" style="display: grid">
+                <app-text-row [sentence]="sentence"></app-text-row>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+    <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="onSubmit()">
+    Submit
+  </button>
+
+    <button class="button-margin" matRipple mat-raised-button color="warn" *ngIf="model.textId" (click)="deleteText()">
+    Delete
+  </button>
+</div>

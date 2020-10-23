@@ -1,0 +1,19 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
+.arabic {
+    direction: rtl;
+    text-align: right;
+    font-size: x-large;
+    line-height: 150%;
+    width: 50%;
+    float: left;
+    padding: 15px;
+}
+
+.english {
+    direction: ltr;
+    text-align: left;
+    line-height: 150%;
+    width: 50%;
+    float: right;
+    padding: 15px;
+}
