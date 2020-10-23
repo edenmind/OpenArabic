@@ -35,12 +35,12 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v1
         with:
-          creds: $ {{ secrets.AZURE_CREDENTIALS }}
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
           enable-AzPSSession: true
       - name: Set target AKS cluster 
         uses: Azure/aks-set-context@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: edenmind-aks
           resource-group: edenmind-aks-resources
       - name: Deploy API and Frontend to AKS     
