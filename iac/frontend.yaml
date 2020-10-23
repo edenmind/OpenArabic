@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: docker.io/therealedenmind/oa-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  type: NodePort
+  ports:
+    - port: 8090
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: frontend
+---
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: frontend
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  spec:
+    rules:
+      - host: openarabic.io
+        http:
+          paths:
+            - path: /
+              backend:
+                serviceName: frontend
+                servicePort: 8090
