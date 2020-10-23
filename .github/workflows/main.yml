@@ -34,7 +34,6 @@ jobs:
           file: ./api/Dockerfile
           tags: therealedenmind/oa-api:latest
           context: ./api
-          push: true
         
       - name: Build and push Frontend
         uses: docker/build-push-action@v2.0.0
@@ -42,5 +41,4 @@ jobs:
           file: ./frontend/Dockerfile
           tags: therealedenmind/oa-frontend:latest
           context: ./frontend
-          push: true
           
