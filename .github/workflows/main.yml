@@ -22,15 +22,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: SonarQube scan API
+      - name: SonarQube scan
         uses: SonarSource/sonarcloud-github-action@v1.4
         with:
-          projectBaseDir: ./api
-      
-      - name: SonarQube scan Frontend
-        uses: SonarSource/sonarcloud-github-action@v1.4
-        with:
-          projectBaseDir: ./frontend
+          projectBaseDir: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}  
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
