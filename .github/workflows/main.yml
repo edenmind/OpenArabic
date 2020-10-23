@@ -1,39 +1,23 @@
-# This is a basic workflow to help you get started with Actions
+name: Build, Push and Deploy
 
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2   
-         
+      - name: Chek out source
+        uses: actions/checkout@v2     
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
-      
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      
       - name: Docker Login
         uses: docker/login-action@v1.6.0
         with:
-          username: therealedenmind
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-              
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}    
       - name: Build and push API
         uses: docker/build-push-action@v2.0.0
         with:
@@ -41,7 +25,6 @@ jobs:
           tags: therealedenmind/oa-api:latest
           context: ./api
           push: true
-        
       - name: Build and push Frontend
         uses: docker/build-push-action@v2.0.0
         with:
@@ -49,28 +32,23 @@ jobs:
           tags: therealedenmind/oa-frontend:latest
           context: ./frontend
           push: true
-          
       - name: Azure Login
         uses: Azure/login@v1
         with:
           creds: $ {{ secrets.AZURE_CREDENTIALS }}
           enable-AzPSSession: true
-          
       - name: Set target AKS cluster 
-      - uses: Azure/aks-set-context@v1
+        uses: Azure/aks-set-context@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          cluster-name: edenmind
-          resource-group: edenmind-rg
-      
+          cluster-name: edenmind-aks
+          resource-group: edenmind-aks-resources
       - name: Deploy API and Frontend to AKS     
-      - uses: Azure/k8s-deploy@v1
+        uses: Azure/k8s-deploy@v1
         with:
           manifests: |
             ./iac/frontend.yml
             ./iac/api.yml
           images: |
-            therealedenmind/oa-frontend:latest
-            therealedenmind/oa-api:latest
-      
-
+            docker.io/therealedenmind/oa-frontend:latest
+            docker.io/therealedenmind/oa-api:latest
