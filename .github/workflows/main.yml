@@ -20,19 +20,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      
-      - name: SonarQube scan
-        uses: sonarsource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: ./
-          args: >
-            -Dsonar.organization=edenmind
-            -Dsonar.projectKey=edenmind_OpenArabic 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
-          
+      - uses: actions/checkout@v2   
+         
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       
@@ -61,3 +50,27 @@ jobs:
           context: ./frontend
           push: true
           
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          creds: $ {{ secrets.AZURE_CREDENTIALS }}
+          enable-AzPSSession: true
+          
+      - name: Set target AKS cluster 
+      - uses: Azure/aks-set-context@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          cluster-name: edenmind
+          resource-group: edenmind-rg
+      
+      - name: Deploy API and Frontend to AKS     
+      - uses: Azure/k8s-deploy@v1
+        with:
+          manifests: |
+            ./iac/frontend.yml
+            ./iac/api.yml
+          images: |
+            therealedenmind/oa-frontend:latest
+            therealedenmind/oa-api:latest
+      
+
