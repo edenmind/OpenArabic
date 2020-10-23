@@ -26,12 +26,13 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@master
         with:
           projectBaseDir: ./
+          args: >
+            -Dsonar.organization=edenmind
+            -Dsonar.projectKey=edenmind_OpenArabic 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
-          SONAR_ORGANIZATION: edenmind
-          SONAR_PROJECTKEY: edenmind_OpenArabic 
-
+          
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       
