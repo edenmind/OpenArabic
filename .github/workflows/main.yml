@@ -41,6 +41,8 @@ jobs:
           file: ./api/Dockerfile
           # List of tags
           tags: latest
+          # Build's context is the set of files located in the specified PATH or URL
+          context: ./api 
         
       - name: Build and push Frontend
         uses: docker/build-push-action@v2.0.0
@@ -49,4 +51,6 @@ jobs:
           file: ./frontend/Dockerfile
           # List of tags
           tags: latest
+          # Build's context is the set of files located in the specified PATH or URL
+          context: ./frontend
           
