@@ -21,36 +21,26 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
       
       - name: Docker Login
         uses: docker/login-action@v1.6.0
         with:
-          # Username used to log against the Docker registry
           username: therealedenmind
-          # Password or personal access token used to log against the Docker registry
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
               
       - name: Build and push API
         uses: docker/build-push-action@v2.0.0
         with:
-          # Path to the Dockerfile
           file: ./api/Dockerfile
-          # List of tags
-          tags: latest
-          # Build's context is the set of files located in the specified PATH or URL
-          context: ./api 
+          tags: therealedenmind/oa-api:latest
+          context: ./api
+          push: true
         
       - name: Build and push Frontend
         uses: docker/build-push-action@v2.0.0
         with:
-          # Path to the Dockerfile
           file: ./frontend/Dockerfile
-          # List of tags
-          tags: latest
-          # Build's context is the set of files located in the specified PATH or URL
+          tags: therealedenmind/oa-frontend:latest
           context: ./frontend
+          push: true
           
