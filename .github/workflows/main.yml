@@ -32,7 +32,7 @@ jobs:
           # Username used to log against the Docker registry
           username: therealedenmind
           # Password or personal access token used to log against the Docker registry
-          password: # optional
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
               
       - name: Build and push API
         uses: docker/build-push-action@v2.0.0
