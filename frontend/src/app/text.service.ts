@@ -4,12 +4,13 @@ import { Text } from './text';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, concatMap } from 'rxjs/operators';
 import { AuthService } from '@auth0/auth0-angular';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TextService {
-  private textsUrl = 'https://localhost:5001/api/texts';
+  private textsUrl = environment.api + '/api/texts';
   private httpClientAnonymous: HttpClient;
 
   httpOptions = {
@@ -33,7 +34,8 @@ export class TextService {
   ): Observable<Text[]> {
     console.log('getting texts');
     var sectionedUrl =
-      'https://localhost:5001/api/texts/?pageSize=' +
+      environment.api +
+      '/api/texts/?pageSize=' +
       pageSize +
       '&pageNumber=' +
       pageNumber;
@@ -76,7 +78,7 @@ export class TextService {
   /** PUT: update the hero on the server */
   updateText(text: Text): Observable<Text> {
     console.log('text id to update: ' + text.textId);
-    var sectionedUrl = 'https://localhost:5001/api/texts' + '/' + text.textId;
+    var sectionedUrl = environment.api + '/api/texts' + '/' + text.textId;
     return this.http.put(sectionedUrl, text, this.httpOptions).pipe(
       tap((_) => this.log(`updated text id=${text.textId}`)),
       catchError(this.handleError<any>('updateText'))

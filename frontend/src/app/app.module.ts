@@ -35,6 +35,7 @@ import { TextRowComponent } from './text-row/text-row.component';
 import { AuthButtonComponent } from './auth-button/auth-button.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutComponent } from './about/about.component';
+import { environment } from '../environments/environment';
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -61,7 +62,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
       clientId: 'FG7Or6kDf25ovG6BxKKL77o0v3fmBRcU',
 
       // Request this audience at user authentication time
-      audience: 'https://localhost:5001/',
+      audience: environment.audience,
 
       // Request this scope at user authentication time
       // scope: 'read:current_user',
@@ -71,10 +72,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
         allowedList: [
           {
             // Match any request that starts 'https://dev-7yb6kp7f.eu.auth0.com/api/v2/' (note the asterisk)
-            uri: 'https://localhost:5001/*',
+            uri: environment.api + '/*',
             tokenOptions: {
               // The attached token should target this audience
-              audience: 'https://localhost:5001/',
+              audience: environment.audience,
 
               // The attached token should have these scopes
               // scope: 'read:current_user',
