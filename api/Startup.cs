@@ -26,15 +26,18 @@ namespace api
         public static void ConfigureServices(IServiceCollection services)
         {
 
+            var authority = Environment.GetEnvironmentVariable("ASPNETCORE_AUTHORITY");
+            var audience = Environment.GetEnvironmentVariable("ASPNETCORE_AUDIENCE");
+            var origins = Environment.GetEnvironmentVariable("ASPNETCORE_ORIGINS");
+            var connectionString = Environment.GetEnvironmentVariable("ASPNETCORE_CONNECTION_STRING");
 
-            var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
             services.AddDbContext<ApiContext>(opt => opt.UseSqlServer(connectionString));
             services.AddControllers();
             services.AddCors(options =>
             {
                 options.AddPolicy(name: MyAllowSpecificOrigins, builder =>
                    {
-                       builder.WithOrigins("http://localhost:4200", "https://localhost:4200");
+                       builder.WithOrigins(origins);
                        builder.AllowAnyMethod();
                        builder.AllowAnyHeader();
                    });
@@ -51,8 +54,8 @@ namespace api
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
-                options.Authority = "https://dev-7yb6kp7f.eu.auth0.com/";
-                options.Audience = "https://localhost:5001/";
+                options.Authority = authority;
+                options.Audience = audience;
             });
             services.AddAuthorization();
 
