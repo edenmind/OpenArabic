@@ -1,14 +1,19 @@
 name: Build and Push
 
+env:
+  REGISTRY_NAME: docker.io/therealedenmind/
+  CLUSTER_NAME: edenmind-aks
+  CLUSTER_RESOURCE_GROUP: edenmind-aks-resources
+
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Chek out source
-        uses: actions/checkout@v2     
+        uses: actions/checkout@v2
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -17,7 +22,7 @@ jobs:
         uses: docker/login-action@v1.6.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}    
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build and push API
         uses: docker/build-push-action@v2.0.0
         with:
@@ -32,18 +37,18 @@ jobs:
           tags: therealedenmind/oa-frontend:latest
           context: ./frontend
           push: true
-      - name: Set target AKS cluster 
+      - name: Set target AKS cluster
         uses: Azure/aks-set-context@v1
         with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
-          cluster-name: edenmind-aks
-          resource-group: edenmind-aks-resources
-      - name: Deploy API and Frontend to AKS     
+          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+          cluster-name: ${{ env.CLUSTER_NAME }}
+          resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
+      - name: Deploy API and Frontend to AKS
         uses: Azure/k8s-deploy@v1
         with:
           manifests: |
             ./iac/frontend.yaml
             ./iac/api.yaml
           images: |
-            docker.io/therealedenmind/oa-frontend:latest
-            docker.io/therealedenmind/oa-api:latest:  
+            ${{ env.REGISTRY_NAME }}/oa-frontend:latest
+            ${{ env.REGISTRY_NAME }}/oa-api:latest
