@@ -17,11 +17,18 @@ spec:
       containers:
         - name: database
           image: mcr.microsoft.com/mssql/server:2019-latest
+          env:
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: database-credentials
+                  key: SA_PASSWORD
+            - name: ACCEPT_EULA
+              value: "Y"
           imagePullPolicy: Always
           ports:
             - containerPort: 1433
               protocol: TCP
-
 ---
 apiVersion: v1
 kind: Service
