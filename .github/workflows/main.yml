@@ -51,4 +51,4 @@ jobs:
             ./iac/api.yaml
           images: |
             docker.io/therealedenmind/oa-frontend:latest
-            docker.io/therealedenmind/oa-api:latest:  
+            docker.io/therealedenmind/oa-api:latest
