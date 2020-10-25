@@ -14,3 +14,4 @@ iac/sensitive/api.yaml
 iac/sensitive/database.yaml
 iac/sensitive/frontend.yaml
 iac/database.yaml
+frontend/src/environments/environment.ts
