@@ -32,7 +32,7 @@ jobs:
           tags: therealedenmind/oa-frontend:latest
           context: ./frontend
           push: true
-            - name: Set target AKS cluster 
+      - name: Set target AKS cluster 
         uses: Azure/aks-set-context@v1
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
