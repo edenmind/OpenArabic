@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ${ env.FRONTEND_TAG }
+          image: ${env.FRONTEND_TAG}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
