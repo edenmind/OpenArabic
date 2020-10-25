@@ -1,7 +1,7 @@
 name: Build and Push
 
 env:
-  REGISTRY_NAME: docker.io/therealedenmind/
+  REGISTRY_NAME: docker.io/therealedenmind
   CLUSTER_NAME: edenmind-aks
   CLUSTER_RESOURCE_GROUP: edenmind-aks-resources
 
@@ -64,8 +64,6 @@ jobs:
       - name: Replace sha tag for containers
         uses: cschleiden/replace-tokens@v1
         with:
-          tokenPrefix: "${"
-          tokenSuffix: "}"
           files: '["./iac/*.yaml"]'
         env:
           API_TAG: therealedenmind/oa-api:${{ github.sha }}
@@ -77,6 +75,3 @@ jobs:
           manifests: |
             ./iac/frontend.yaml
             ./iac/api.yaml
-          images: |
-            ${{ env.REGISTRY_NAME }}/oa-frontend:${{ github.sha }}
-            ${{ env.REGISTRY_NAME }}/oa-api:${{ github.sha }}

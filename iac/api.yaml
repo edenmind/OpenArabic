@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: ${env.API_TAG}
+          image: #{API_TAG}#
           env:
             - name: ASPNETCORE_AUTHORITY
               valueFrom:
