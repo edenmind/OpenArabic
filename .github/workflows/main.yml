@@ -27,14 +27,14 @@ jobs:
         uses: docker/build-push-action@v2.0.0
         with:
           file: ./api/Dockerfile
-          tags: therealedenmind/oa-api:latest
+          tags: therealedenmind/oa-api:${{ github.sha }}
           context: ./api
           push: true
       - name: Build and push Frontend
         uses: docker/build-push-action@v2.0.0
         with:
           file: ./frontend/Dockerfile
-          tags: therealedenmind/oa-frontend:latest
+          tags: therealedenmind/oa-frontend:${{ github.sha }}
           context: ./frontend
           push: true
       - name: Set target AKS cluster
@@ -50,5 +50,5 @@ jobs:
             ./iac/frontend.yaml
             ./iac/api.yaml
           images: |
-            ${{ env.REGISTRY_NAME }}/oa-frontend:latest
-            ${{ env.REGISTRY_NAME }}/oa-api:latest
+            ${{ env.REGISTRY_NAME }}/oa-frontend:${{ github.sha }}
+            ${{ env.REGISTRY_NAME }}/oa-api:${{ github.sha }}
