@@ -29,13 +29,13 @@ spec:
           ports:
             - containerPort: 1433
               protocol: TCP
-      volumeMounts:
-        - mountPath: /var/opt/mssql
-          name: volume
-    volumes:
-      - name: volume
-        persistentVolumeClaim:
-          claimName: database-azurefile
+          volumeMounts:
+          - name: volume
+            mountPath: "/var/opt/mssql"
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: database-azurefile
 ---
 apiVersion: v1
 kind: Service
