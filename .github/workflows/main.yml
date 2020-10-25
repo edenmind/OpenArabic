@@ -77,3 +77,6 @@ jobs:
           manifests: |
             ./iac/frontend.yaml
             ./iac/api.yaml
+          images: |
+            ${{ env.REGISTRY_NAME }}/oa-frontend:${{ github.sha }}
+            ${{ env.REGISTRY_NAME }}/oa-api:${{ github.sha }}
