@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
     this.category = this.activeRoute.snapshot.paramMap.get('category');
     this.author = this.activeRoute.snapshot.paramMap.get('author');
 
-    this.breakPoint = window.innerWidth <= 400 ? 1 : 3;
+    this.breakPoint = window.innerWidth <= 1200 ? 1 : 3;
 
     if (this.category) {
       //show categories
