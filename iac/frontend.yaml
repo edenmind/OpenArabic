@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ${{ env.REGISTRY_NAME }}/oa-frontend:${{ github.sha }}
+          image: ${ env.REGISTRY_NAME }/oa-frontend:${ github.sha }
           imagePullPolicy: Always
           ports:
             - containerPort: 80

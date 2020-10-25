@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: ${{ env.REGISTRY_NAME }}/oa-api:${{ github.sha }}
+          image: ${ env.REGISTRY_NAME }/oa-api:${ github.sha }
           env:
             - name: ASPNETCORE_AUTHORITY
               valueFrom:
