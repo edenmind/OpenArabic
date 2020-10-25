@@ -37,6 +37,7 @@ namespace api.Controllers
                 .Take(pageSize)
                 .Include(s => s.Sentences)
                 .Where(t => t.Category.Contains(category))
+                .OrderByDescending(t => t.CreatedAt)
                 .ToListAsync();
             }
 
@@ -47,6 +48,7 @@ namespace api.Controllers
                 .Take(pageSize)
                 .Include(s => s.Sentences)
                 .Where(t => t.Author.Contains(author))
+                .OrderByDescending(t => t.CreatedAt)
                 .ToListAsync();
             }
 
@@ -54,6 +56,7 @@ namespace api.Controllers
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .Include(s => s.Sentences)
+            .OrderByDescending(t => t.CreatedAt)
             .ToListAsync();
         }
 
