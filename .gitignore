@@ -13,3 +13,4 @@ iac/.terraform/plugins/registry.terraform.io/hashicorp/azurerm/2.33.0/windows_am
 iac/sensitive/api.yaml
 iac/sensitive/database.yaml
 iac/sensitive/frontend.yaml
+iac/database.yaml
