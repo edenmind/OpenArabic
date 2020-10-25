@@ -4,6 +4,8 @@ env:
   REGISTRY_NAME: docker.io/therealedenmind/
   CLUSTER_NAME: edenmind-aks
   CLUSTER_RESOURCE_GROUP: edenmind-aks-resources
+  API_TAG: ${{ env.REGISTRY_NAME }}/oa-api:${{ github.sha }}
+  FRONTEND_TAG: ${{ env.REGISTRY_NAME }}/oa-frontend:${{ github.sha }}
 
 on:
   push:
