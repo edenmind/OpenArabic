@@ -14,15 +14,19 @@ jobs:
     steps:
       - name: Chek out source
         uses: actions/checkout@v2
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+
       - name: Docker Login
         uses: docker/login-action@v1.6.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
       - name: Build and push API
         uses: docker/build-push-action@v2.0.0
         with:
@@ -30,6 +34,7 @@ jobs:
           tags: therealedenmind/oa-api:${{ github.sha }}
           context: ./api
           push: true
+
       - name: Build and push Frontend
         uses: docker/build-push-action@v2.0.0
         with:
@@ -37,12 +42,14 @@ jobs:
           tags: therealedenmind/oa-frontend:${{ github.sha }}
           context: ./frontend
           push: true
+
       - name: Set target AKS cluster
         uses: Azure/aks-set-context@v1
         with:
           creds: "${{ secrets.AZURE_CREDENTIALS }}"
           cluster-name: ${{ env.CLUSTER_NAME }}
           resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
+
       - name: Create secret in Kubernetes cluster
         uses: Azure/k8s-create-secret@v1.1
         with:
@@ -53,6 +60,14 @@ jobs:
             --from-literal=ASPNETCORE_AUDIENCE=${{ secrets.ASPNETCORE_AUDIENCE }}
             --from-literal=ASPNETCORE_ORIGINS=${{ secrets.ASPNETCORE_ORIGINS }} 
             --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
+
+      - name: Replace sha tag for containers
+        uses: cschleiden/replace-tokens@v1
+        with:
+          tokenPrefix: "${"
+          tokenSuffix: "}"
+          files: '["./iac/*.yaml"]'
+
       - name: Deploy API and Frontend to AKS
         uses: Azure/k8s-deploy@v1
         with:
