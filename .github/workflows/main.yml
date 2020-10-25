@@ -68,8 +68,8 @@ jobs:
           tokenSuffix: "}"
           files: '["./iac/*.yaml"]'
         env:
-          API_TAG: ${{ env.REGISTRY_NAME }}/oa-api:${{ github.sha }}
-          FRONTEND_TAG: ${{ env.REGISTRY_NAME }}/oa-frontend:${{ github.sha }}
+          API_TAG: therealedenmind/oa-api:${{ github.sha }}
+          FRONTEND_TAG: therealedenmind/oa-frontend:${{ github.sha }}
 
       - name: Deploy API and Frontend to AKS
         uses: Azure/k8s-deploy@v1
