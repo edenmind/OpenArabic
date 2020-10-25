@@ -32,7 +32,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8090
+    - port: 8080
       protocol: TCP
       targetPort: 80
   selector:
@@ -44,12 +44,13 @@ metadata:
   name: frontend
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-  spec:
-    rules:
-      - host: openarabic.io
-        http:
-          paths:
-            - path: /
-              backend:
-                serviceName: frontend
-                servicePort: 8090
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: openarabic.io
+      http:
+        paths:
+          - path: /(.*)
+            backend:
+              serviceName: frontend
+              servicePort: 8080

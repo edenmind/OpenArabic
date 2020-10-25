@@ -10,3 +10,6 @@ iac/variables.tf
 *.tfstate
 iac/.terraform/plugins/selections.json
 iac/.terraform/plugins/registry.terraform.io/hashicorp/azurerm/2.33.0/windows_amd64/terraform-provider-azurerm_v2.33.0_x5.exe
+iac/sensitive/api.yaml
+iac/sensitive/database.yaml
+iac/sensitive/frontend.yaml

@@ -19,9 +19,8 @@ spec:
           image: docker.io/therealedenmind/oa-api:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8090
+            - containerPort: 80
               protocol: TCP
-
 ---
 apiVersion: v1
 kind: Service
@@ -34,7 +33,7 @@ spec:
   ports:
     - port: 8090
       protocol: TCP
-      targetPort: 8090
+      targetPort: 80
   selector:
     app: api
 ---
@@ -44,12 +43,12 @@ metadata:
   name: api
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-  spec:
-    rules:
-      - host: api.openarabic.io
-        http:
-          paths:
-            - path: /
-              backend:
-                serviceName: api
-                servicePort: 8090
+spec:
+  rules:
+    - host: api.openarabic.io
+      http:
+        paths:
+          - path: /(.*)
+            backend:
+              serviceName: api
+              servicePort: 8090

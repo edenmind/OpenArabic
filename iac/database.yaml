@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+  labels:
+    app: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+        - name: database
+          image: mcr.microsoft.com/mssql/server:2019-latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 1433
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: database
+  labels:
+    app: database
+spec:
+  type: NodePort
+  ports:
+    - port: 1433
+      protocol: TCP
+      targetPort: 1433
+  selector:
+    app: database

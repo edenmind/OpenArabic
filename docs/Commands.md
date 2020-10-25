@@ -61,8 +61,8 @@
 ## Generate interface
 `ng g interface <name>`
 
-
-
-
-
 # Dotnet
+
+# Kubernetes
+## Forward a port
+`kubectl port-forward pod/database-8946d9d74-td28h 1433:1433`
