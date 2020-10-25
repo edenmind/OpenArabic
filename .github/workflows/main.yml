@@ -49,10 +49,10 @@ jobs:
           secret-type: generic
           secret-name: api-credentials
           arguments: |
-            --from-literal=ASPNETCORE_AUTHORITY=${{ secret.ASPNETCORE_AUTHORITY }}
-            --from-literal=ASPNETCORE_AUDIENCE=${{ secret.ASPNETCORE_AUDIENCE }}
-            --from-literal=ASPNETCORE_ORIGINS=${{ secret.ASPNETCORE_ORIGINS }} 
-            --from-literal=ASPNETCORE_CONNECTION_STRING=${{ secret.ASPNETCORE_CONNECTION_STRING }}
+            --from-literal=ASPNETCORE_AUTHORITY=${{ secrets.ASPNETCORE_AUTHORITY }}
+            --from-literal=ASPNETCORE_AUDIENCE=${{ secrets.ASPNETCORE_AUDIENCE }}
+            --from-literal=ASPNETCORE_ORIGINS=${{ secrets.ASPNETCORE_ORIGINS }} 
+            --from-literal=ASPNETCORE_CONNECTION_STRING=${{ secrets.ASPNETCORE_CONNECTION_STRING }}
       - name: Deploy API and Frontend to AKS
         uses: Azure/k8s-deploy@v1
         with:
