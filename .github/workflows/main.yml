@@ -81,8 +81,8 @@ jobs:
         uses: cschleiden/replace-tokens@v1
         with:
           files: '["./frontend/src/app/footer/footer.component.html"]'
-          tokenPrefix: "#("
-          tokenSuffix: ")#"
+          tokenPrefix: '#('
+          tokenSuffix: ')#'
         env:
           SHA_LINK: ${{ github.sha }}
           SHA_TEXT: ${{ github.sha }}
