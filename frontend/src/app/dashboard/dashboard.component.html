@@ -15,11 +15,11 @@
 
                 <mat-card-content class="dashboard-card-content">
                     <div>
-                        <p dir="ltr" *ngIf="card.sentences?.length">
-                            {{ card.sentences[0].english + "..." | slice: 0:200 }}
+                        <p dir="ltr" *ngIf="card.sentences?.length > 1">
+                            {{ card.sentences[0].english + card.sentences[1].english + "..." | slice: 0:200 }}
                         </p>
-                        <p dir="rtl" *ngIf="card.sentences?.length">
-                            {{ card.sentences[0].arabic + "..." | slice: 0:220 }}
+                        <p dir="rtl" *ngIf="card.sentences?.length > 1">
+                            {{ card.sentences[0].arabic + card.sentences[1].arabic + "..." | slice: 0:220 }}
                         </p>
                         <p class="time-ago">{{ card.timeAgo }}</p>
                         <mat-chip-list aria-label="Category">
