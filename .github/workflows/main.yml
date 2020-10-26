@@ -77,6 +77,17 @@ jobs:
           API_TAG: therealedenmind/oa-api:${{ github.sha }}
           FRONTEND_TAG: therealedenmind/oa-frontend:${{ github.sha }}
 
+      - name: Replace sha in footer
+        uses: cschleiden/replace-tokens@v1
+        with:
+          files: '["./frontend/src/app/footer/footer.component.html"]'
+          tokenPrefix: "(#"
+          tokenSuffix: "#)"
+        env:
+          SHA: ${{ github.sha }}
+
+      #|SHA|#
+
       - name: Deploy API, Frontend and Database to AKS
         uses: Azure/k8s-deploy@v1
         with:
