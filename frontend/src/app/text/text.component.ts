@@ -4,6 +4,7 @@ import { Text } from '../text';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '@auth0/auth0-angular';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-text',
@@ -18,7 +19,8 @@ export class TextComponent implements OnInit {
   constructor(
     private textService: TextService,
     private route: ActivatedRoute,
-    public auth: AuthService
+    private auth: AuthService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +29,12 @@ export class TextComponent implements OnInit {
     if (this.id) {
       this.subscription = this.textService
         .getText(this.id)
-        .subscribe((text) => (this.text = text));
+        .subscribe(
+          (text) => (
+            (this.text = text),
+            this.titleService.setTitle(text.title + ' | ' + text.author)
+          )
+        );
     }
   }
 
