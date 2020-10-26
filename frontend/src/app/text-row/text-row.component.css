@@ -7,13 +7,16 @@
     width: 50%;
     float: left;
     padding: 15px;
+    vertical-align: middle;
 }
 
 .english {
     direction: ltr;
     text-align: left;
+    font-size: large;
     line-height: 150%;
     width: 50%;
     float: right;
     padding: 15px;
+    vertical-align: middle;
 }
