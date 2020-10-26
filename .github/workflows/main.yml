@@ -80,9 +80,9 @@ jobs:
       - name: Replace sha in footer
         uses: cschleiden/replace-tokens@v1
         with:
-          files: '["./frontend/src/app/footer/footer.component.html"]'
-          tokenPrefix: '#('
-          tokenSuffix: ')#'
+          files: '["./frontend/src/app/footer/*.html"]'
+          tokenPrefix: "["
+          tokenSuffix: "]"
         env:
           SHA_LINK: ${{ github.sha }}
           SHA_TEXT: ${{ github.sha }}
