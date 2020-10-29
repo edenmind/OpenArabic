@@ -4,10 +4,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthorService {
-  authors = ['Taqī ad-Dīn Aḥmad Ibn Taymiyyah', 'Ibn Qayyim al-Jawziyya'];
+  authors = [
+    'Ibn Taymiyyah',
+    'Ibn Qayyim al-Jawziyya',
+    'Ibn Rajab al-Hanbali',
+    'Imam Nawawī',
+    'Muhammad al-Bukhari',
+    'Ibn Kathīr',
+    'Ibn Ḥajar al-ʿAsqalānī',
+    'Abu Abdullah Al-Qurtubi',
+  ];
 
   GetAuthors() {
-    return this.authors;
+    var sorted = this.authors.sort();
+    return sorted;
   }
 
   constructor() {}

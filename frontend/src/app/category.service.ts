@@ -4,10 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CategoryService {
-  categories = ['Fiqh', 'Aqîdah', 'Minhadj', 'Tafsir'];
+  categories = [
+    'Fiqh',
+    'Aqîdah',
+    'Minhadj',
+    'Tafsir',
+    'Tawhîd',
+    'Hadîth',
+    'Quran',
+    'Ibadah',
+    'Adab',
+    'Ilm',
+    'Sîrah',
+  ];
 
   GetCategories() {
-    return this.categories;
+    var sorted = this.categories.sort();
+    return sorted;
   }
 
   constructor() {}
