@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   rows = 1;
   hidden = false;
 
+  showSpinner: boolean = true;
   pageNumber: number;
   pageSize: number;
 
@@ -44,17 +45,23 @@ export class DashboardComponent implements OnInit {
       //show categories
       this.subscription = this.textService
         .getTexts('empty', this.category, this.pageSize, this.pageNumber)
-        .subscribe((texts) => (this.texts = texts));
+        .subscribe(
+          (texts) => ((this.texts = texts), (this.showSpinner = false))
+        );
     } else if (this.author) {
       //show authors
       this.subscription = this.textService
         .getTexts(this.author, 'empty', this.pageSize, this.pageNumber)
-        .subscribe((texts) => (this.texts = texts));
+        .subscribe(
+          (texts) => ((this.texts = texts), (this.showSpinner = false))
+        );
     } else {
       //show everything
       this.subscription = this.textService
         .getTexts('empty', 'empty', this.pageSize, this.pageNumber)
-        .subscribe((texts) => (this.texts = texts));
+        .subscribe(
+          (texts) => ((this.texts = texts), (this.showSpinner = false))
+        );
     }
   }
 

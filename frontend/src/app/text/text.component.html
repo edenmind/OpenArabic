@@ -1,8 +1,7 @@
-<div *ngIf="showSpinner">
-    <p>Spinner...</p>
-    <mat-progress-spinner> </mat-progress-spinner>
-</div>
 <div class="grid-container">
+    <div *ngIf="showSpinner" class="center row">
+        <mat-spinner> </mat-spinner>
+    </div>
     <div class="center row" *ngIf="!showSpinner">
         <h1 class="title">
             {{ text.title }}
@@ -18,12 +17,13 @@
       </p>
     </h1>
   </div>
-
-  <div
-    class="row"
-    *ngFor="let sentence of text.sentences"
-    style="display: grid"
-  >
-    <app-text-row [sentence]="sentence"></app-text-row>
+  <div *ngIf="!showSpinner">
+    <div
+      class="row"
+      *ngFor="let sentence of text.sentences"
+      style="display: grid"
+    >
+      <app-text-row [sentence]="sentence"></app-text-row>
+    </div>
   </div>
 </div>

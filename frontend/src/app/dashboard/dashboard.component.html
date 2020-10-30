@@ -1,9 +1,9 @@
 <div class="grid-container">
-    <div class="row center" *ngIf="!texts">
+    <div class="row center" *ngIf="showSpinner">
         <mat-spinner></mat-spinner>
     </div>
 
-    <mat-grid-list [cols]="breakPoint" rowHeight="350px" *ngIf="texts" (window:resize)="onResize($event)">
+    <mat-grid-list [cols]="breakPoint" rowHeight="350px" *ngIf="!showSpinner" (window:resize)="onResize($event)">
         <mat-grid-tile *ngFor="let card of texts" [colspan]="1" [rowspan]="1">
             <mat-card matRipple class="dashboard-card" (click)="openCard(card.textId)">
                 <mat-card-header>
