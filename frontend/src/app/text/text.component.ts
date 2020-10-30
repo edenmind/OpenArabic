@@ -15,6 +15,7 @@ export class TextComponent implements OnInit {
   text: Text;
   id: string;
   subscription: Subscription;
+  showSpinner = true;
 
   constructor(
     private textService: TextService,
@@ -27,14 +28,13 @@ export class TextComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log('id: ' + this.id);
     if (this.id) {
-      this.subscription = this.textService
-        .getText(this.id)
-        .subscribe(
-          (text) => (
-            (this.text = text),
-            this.titleService.setTitle(text.title + ' | ' + text.author)
-          )
-        );
+      this.subscription = this.textService.getText(this.id).subscribe((text) =>
+        setTimeout(() => {
+          (this.text = text),
+            this.titleService.setTitle(text.title + ' | ' + text.author),
+            (this.showSpinner = false);
+        }, 5000)
+      );
     }
   }
 

@@ -1,8 +1,9 @@
+<div *ngIf="showSpinner">
+    <p>Spinner...</p>
+    <mat-progress-spinner> </mat-progress-spinner>
+</div>
 <div class="grid-container">
-    <div class="row center" *ngIf="!text.title">
-        <mat-spinner></mat-spinner>
-    </div>
-    <div class="center row" *ngIf="text.title">
+    <div class="center row" *ngIf="!showSpinner">
         <h1 class="title">
             {{ text.title }}
             <p>
