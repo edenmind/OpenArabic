@@ -37,6 +37,7 @@ namespace api.Controllers
                 .Take(pageSize)
                 .Include(s => s.Sentences)
                 .Where(t => t.Category.Contains(category))
+                .Where(t => t.Status.Equals("Published"))
                 .OrderByDescending(t => t.CreatedAt)
                 .ToListAsync();
             }
