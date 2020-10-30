@@ -2,6 +2,11 @@
     margin: 20px;
 }
 
+.center {
+    justify-content: center;
+    text-align: center;
+}
+
 .dashboard-card {
     position: absolute;
     top: 15px;
