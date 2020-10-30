@@ -84,7 +84,7 @@ export class TextFormComponent implements OnInit, OnChanges {
 
     if (!this.model.textId) {
       this.textService.addText(this.model).subscribe((text) => {
-        this.auth.user$.subscribe((u) => (this.model.editor = u.email));
+        this.auth.user$.subscribe((u) => (text.editor = u.email));
         this.model = text;
         this.openSnackBar(
           'The text has been added with id: ' + this.model.textId + '.',
