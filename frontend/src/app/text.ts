@@ -3,7 +3,8 @@ export class Text {
   textId: number;
   title: string;
   author: string;
-  category: String;
+  category: string;
+  source: string;
   sentences: Sentence[];
   createdAt: Date;
   timeAgo: string;

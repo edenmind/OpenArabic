@@ -19,7 +19,7 @@
 `dotnet ef migrations add InitialCreate`
 
 ## Set PS env
-`$env:CONNECTION_STRING = 'Server=localhost;Database=openarabic;User Id=sa;Password=Unsecure1!;'`
+`$env:ASPNETCORE_CONNECTION_STRING = 'Server=localhost;Database=openarabic;User Id=sa;Password=Unsecure1!;'`
 Get prod password from pod and switch to 127.0.0.1 instead of localhost.
 
 ## Apply migration to datbase
