@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { TextService } from '../text.service';
 import { Text } from '../text';
 import { Router, ActivatedRoute } from '@angular/router';
