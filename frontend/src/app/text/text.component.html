@@ -29,4 +29,30 @@
       <app-text-row [sentence]="sentence"></app-text-row>
     </div>
   </div>
+  <hr />
+
+  <div class="center row">
+    <a
+      mat-button
+      href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{
+        id
+      }}"
+      target="_blank"
+      color="accent"
+      style="text-decoration: none"
+      >Share on Facebook</a
+    >
+  </div>
+  <div class="center row">
+    <a
+      mat-button
+      href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{
+        id
+      }}&text=&via="
+      target="_blank"
+      color="accent"
+      style="text-decoration: none"
+      >Share on Twitter</a
+    >
+  </div>
 </div>
