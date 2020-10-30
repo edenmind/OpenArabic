@@ -7,6 +7,8 @@ import { AuthorService } from '../author.service';
 import { CategoryService } from '../category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { StatusService } from '../status.service';
+import { AuthService } from '@auth0/auth0-angular';
+import { async } from 'rxjs';
 
 @Component({
   selector: 'app-text-form',
@@ -17,6 +19,7 @@ export class TextFormComponent implements OnInit, OnChanges {
   constructor(
     private textService: TextService,
     private authorService: AuthorService,
+    private auth: AuthService,
     private statusService: StatusService,
     private categoryService: CategoryService,
     private activatedRoute: ActivatedRoute,
@@ -78,8 +81,10 @@ export class TextFormComponent implements OnInit, OnChanges {
 
   onSubmit() {
     console.log('Submitted!');
+
     if (!this.model.textId) {
       this.textService.addText(this.model).subscribe((text) => {
+        this.auth.user$.subscribe((u) => (this.model.editor = u.email));
         this.model = text;
         this.openSnackBar(
           'The text has been added with id: ' + this.model.textId + '.',

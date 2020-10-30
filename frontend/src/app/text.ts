@@ -3,6 +3,7 @@ export class Text {
   textId: number;
   title: string;
   author: string;
+  editor: string;
   category: string;
   source: string;
   sentences: Sentence[];
