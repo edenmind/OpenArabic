@@ -23,17 +23,47 @@
       </p>
     </h1>
   </div>
-  <div *ngIf="!showSpinner">
-    <div
-      class="row"
-      *ngFor="let sentence of text.sentences"
-      style="display: grid"
-    >
-      <app-text-row [sentence]="sentence"></app-text-row>
-    </div>
-  </div>
-  <hr />
 
+  <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
+    <mat-tab label="Bilingual">
+      <div *ngFor="let sentence of text.sentences" style="display: grid">
+        <app-text-row
+          [sentence]="sentence"
+          [language]="'bilingual'"
+        ></app-text-row>
+      </div>
+    </mat-tab>
+    <mat-tab label="Arabic">
+      <div style="display: grid; justify-content: center">
+        <div
+          *ngFor="let sentence of text.sentences"
+          style="justify-content: right"
+        >
+          <app-text-row
+            [sentence]="sentence"
+            [language]="'arabic'"
+          ></app-text-row>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Engish">
+      <div style="display: grid; justify-content: center">
+        <div
+          *ngFor="let sentence of text.sentences"
+          style="display: grid; justify-content: left"
+        >
+          <app-text-row
+            [sentence]="sentence"
+            [language]="'english'"
+          ></app-text-row>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+  <!-- SHARE -->
+
+  <hr />
   <div class="center row">
     <a
       mat-button

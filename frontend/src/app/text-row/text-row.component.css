@@ -19,3 +19,23 @@
     padding: 15px;
     vertical-align: middle;
 }
+
+.arabic-single {
+    justify-content: right;
+    direction: rtl;
+    text-align: right;
+    font-size: x-large;
+    line-height: 150%;
+    max-width: 800px;
+    padding: 15px;
+}
+
+.english-single {
+    justify-content: left;
+    direction: ltr;
+    text-align: left;
+    font-size: large;
+    line-height: 150%;
+    max-width: 800px;
+    padding: 15px;
+}

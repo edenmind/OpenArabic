@@ -9,6 +9,8 @@ import { Sentence } from '../sentence';
 export class TextRowComponent implements OnInit {
   @Input()
   sentence: Sentence;
+  @Input()
+  language: string;
 
   constructor() {}
 
