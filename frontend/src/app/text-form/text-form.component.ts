@@ -30,13 +30,9 @@ export class TextFormComponent implements OnInit, OnChanges {
     private snackBar: MatSnackBar,
     private route: Router
   ) {}
-  ngOnChanges(changes: SimpleChanges): void {
-    this.englishSentences = this.splitParagraphToSentences(
-      this.model.englishParagraph
-    );
-    this.arabicSentences = this.splitParagraphToSentences(
-      this.model.arabicParagraph
-    );
+  ngOnChanges(): void {
+    this.englishSentences = this.splitSentences(this.model.englishParagraph);
+    this.arabicSentences = this.splitSentences(this.model.arabicParagraph);
     console.log('a change occoured');
   }
 
@@ -47,12 +43,15 @@ export class TextFormComponent implements OnInit, OnChanges {
   categories = this.categoryService.GetCategories();
 
   sentences: Sentence[] = new Array();
+
   englishSentences: string[];
   arabicSentences: string[];
 
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  arabicWords: string[];
+  englishWords: string[];
 
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  arabicWordsMatch: string[][] = new Array();
+  englishWordsMatch: string[][] = new Array();
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -72,12 +71,9 @@ export class TextFormComponent implements OnInit, OnChanges {
   }
 
   updatePreview() {
-    var englishSentences = this.splitParagraphToSentences(
-      this.model.englishParagraph
-    );
-    var arabicSentences = this.splitParagraphToSentences(
-      this.model.arabicParagraph
-    );
+    console.log('Updating preview.');
+    var englishSentences = this.splitSentences(this.model.englishParagraph);
+    var arabicSentences = this.splitSentences(this.model.arabicParagraph);
 
     if (englishSentences.length != arabicSentences.length) {
       console.log('Number of sentences does not match!');
@@ -92,6 +88,13 @@ export class TextFormComponent implements OnInit, OnChanges {
         this.sentences.push(sentence);
       }
       this.model.sentences = this.sentences;
+
+      this.arabicWords = this.splitWords(this.sentences[0].arabic);
+      this.englishWords = this.splitWords(this.sentences[0].english);
+
+      for (let index = 0; index < this.englishWords.length; index++) {
+        this.englishWordsMatch[index] = new Array();
+      }
     }
   }
 
@@ -129,9 +132,14 @@ export class TextFormComponent implements OnInit, OnChanges {
     this.route.navigate(['/']);
   }
 
-  splitParagraphToSentences(paragraph: string): string[] {
+  splitSentences(paragraph: string): string[] {
     var sentences = paragraph.split('*');
     return sentences;
+  }
+
+  splitWords(paragraph: string): string[] {
+    var words = paragraph.split(' ');
+    return words;
   }
 
   newText() {
