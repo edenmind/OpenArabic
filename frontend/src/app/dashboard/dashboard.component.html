@@ -1,36 +1,34 @@
-<div class="grid-container">
-    <div class="row center" *ngIf="showSpinner">
-        <mat-spinner></mat-spinner>
-    </div>
-    <div *ngIf="!showSpinner">
-        <mat-grid-list [cols]="breakPoint" rowHeight="350px" (window:resize)="onResize($event)">
-            <mat-grid-tile *ngFor="let card of texts" [colspan]="1" [rowspan]="1">
-                <mat-card matRipple class="dashboard-card" (click)="openCard(card.textId)">
-                    <mat-card-header>
-                        <mat-card-title>
-                            {{ card.title }}
-                        </mat-card-title>
-                        <mat-card-subtitle>{{ card.author }}</mat-card-subtitle>
-                    </mat-card-header>
+<div class="row center" *ngIf="showSpinner">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!showSpinner">
+    <mat-grid-list [cols]="breakPoint" rowHeight="350px" (window:resize)="onResize($event)">
+        <mat-grid-tile *ngFor="let card of texts" [colspan]="1" [rowspan]="1">
+            <mat-card matRipple class="dashboard-card" (click)="openCard(card.textId)">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{ card.title }}
+                    </mat-card-title>
+                    <mat-card-subtitle>{{ card.author }}</mat-card-subtitle>
+                </mat-card-header>
 
-                    <mat-card-content class="dashboard-card-content">
-                        <div>
-                            <p dir="ltr" *ngIf="card.sentences?.length > 1">
-                                {{ card.sentences[0].english + card.sentences[1].english + "..." | slice: 0:180 }}
-                            </p>
-                            <p dir="rtl" *ngIf="card.sentences?.length > 1">
-                                {{ card.sentences[0].arabic + card.sentences[1].arabic + "..." | slice: 0:200 }}
-                            </p>
-                            <p class="time-ago">{{ card.timeAgo }}</p>
-                            <mat-chip-list aria-label="Category">
-                                <mat-chip color="accent" selected>{{ card.category }}</mat-chip>
-                            </mat-chip-list>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-paginator [length]="texts.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]">
-        </mat-paginator>
-    </div>
+                <mat-card-content class="dashboard-card-content">
+                    <div>
+                        <p dir="ltr" *ngIf="card.sentences?.length > 1">
+                            {{ card.sentences[0].english + card.sentences[1].english | slice: 0:180 }}...
+                        </p>
+                        <p dir="rtl" *ngIf="card.sentences?.length > 1">
+                            {{ card.sentences[0].arabic + card.sentences[1].arabic | slice: 0:200 }}...
+                        </p>
+                        <p class="time-ago">{{ card.timeAgo }}</p>
+                        <mat-chip-list aria-label="Category">
+                            <mat-chip color="accent" selected>{{ card.category }}</mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-paginator [length]="texts.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
 </div>

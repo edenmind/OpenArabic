@@ -36,6 +36,7 @@ import { AuthButtonComponent } from './auth-button/auth-button.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutComponent } from './about/about.component';
 import { environment } from '../environments/environment';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -96,6 +97,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
       { path: '**', component: PageNotFoundComponent },
     ]),
     HttpClientModule,
+    DragDropModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
