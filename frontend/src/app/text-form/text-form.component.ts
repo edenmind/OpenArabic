@@ -13,6 +13,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { exit } from 'process';
 
 @Component({
   selector: 'app-text-form',
@@ -44,14 +45,13 @@ export class TextFormComponent implements OnInit, OnChanges {
 
   sentences: Sentence[] = new Array();
 
-  englishSentences: string[];
-  arabicSentences: string[];
+  englishSentences: string[] = new Array();
+  arabicSentences: string[] = new Array();
 
-  arabicWords: string[];
-  englishWords: string[];
+  arabicWords: string[][] = new Array();
+  englishWords: string[][] = new Array();
 
-  arabicWordsMatch: string[][] = new Array();
-  englishWordsMatch: string[][] = new Array();
+  englishWordsMatch: string[][][] = new Array();
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -80,6 +80,7 @@ export class TextFormComponent implements OnInit, OnChanges {
     } else {
       console.log('Number of sentences do match!');
       this.sentences = [];
+
       for (let index = 0; index < englishSentences.length; index++) {
         var sentence = new Sentence();
         sentence.arabic = arabicSentences[index];
@@ -89,11 +90,27 @@ export class TextFormComponent implements OnInit, OnChanges {
       }
       this.model.sentences = this.sentences;
 
-      this.arabicWords = this.splitWords(this.sentences[0].arabic);
-      this.englishWords = this.splitWords(this.sentences[0].english);
+      for (let index = 0; index < this.model.sentences.length; index++) {
+        console.log('splitting words');
+        this.arabicWords[index] = this.splitWords(
+          this.model.sentences[index].arabic
+        );
+        this.englishWords[index] = this.splitWords(
+          this.model.sentences[index].english
+        );
+      }
+
+      console.log('english word: ' + this.englishWords.length);
 
       for (let index = 0; index < this.englishWords.length; index++) {
         this.englishWordsMatch[index] = new Array();
+        for (
+          let index2 = 0;
+          index2 < this.englishWords[index].length;
+          index2++
+        ) {
+          this.englishWordsMatch[index][index2] = new Array();
+        }
       }
     }
   }
