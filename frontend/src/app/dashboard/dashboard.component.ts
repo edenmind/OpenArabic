@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   showSpinner: boolean = true;
   pageNumber: number;
-  pageSize: number;
+  pageSize: number = 25;
 
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;

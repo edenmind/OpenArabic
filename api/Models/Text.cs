@@ -18,6 +18,7 @@ namespace api.Models
         public string ArabicParagraph { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<Sentence> Sentences { get; set; }
+        public List<Words> WordByWord { get; set; }
         public string TimeAgo => Helpers.TimeAgo.GetTimeAgo(CreatedAt);
 
     }

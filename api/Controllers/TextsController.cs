@@ -68,6 +68,7 @@ namespace api.Controllers
         {
             var text = await _context.Texts
             .Include(s => s.Sentences)
+            .Include(w => w.WordByWord)
             .Where(t => t.TextId == id)
             .FirstAsync();
 

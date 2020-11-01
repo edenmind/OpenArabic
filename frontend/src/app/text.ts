@@ -1,4 +1,5 @@
 import { Sentence } from './sentence';
+import { Words } from './words';
 export class Text {
   textId: number;
   title: string;
@@ -12,4 +13,5 @@ export class Text {
   status: string;
   englishParagraph: string;
   arabicParagraph: string;
+  wordByWord: Words[];
 }

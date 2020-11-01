@@ -58,6 +58,24 @@
       </div>
     </mat-tab>
 
+    <mat-tab label="Word-by-Word">
+      <br />
+      <div style="display: grid; justify-content: center">
+        <div
+          *ngFor="let sentence of text.wordByWord"
+          style="
+            display: grid;
+            justify-content: left;
+            font-size: large;
+            line-height: 150%;
+          "
+        >
+          {{ sentence.wordList }}
+          <hr />
+        </div>
+      </div>
+    </mat-tab>
+
     <p class="center author-by">
       <small
         >Source: <i>{{ text.source }}</i></small

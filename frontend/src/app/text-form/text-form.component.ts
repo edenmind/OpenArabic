@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Text } from '../text';
+import { Words } from '../words';
 import { Sentence } from '../sentence';
 import { TextService } from '../text.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -52,6 +53,7 @@ export class TextFormComponent implements OnInit, OnChanges {
   englishWords: string[][] = new Array();
 
   englishWordsMatch: string[][][] = new Array();
+  arabicWordsMatch: string[][][] = new Array();
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -102,14 +104,14 @@ export class TextFormComponent implements OnInit, OnChanges {
 
       console.log('english word: ' + this.englishWords.length);
 
-      for (let index = 0; index < this.englishWords.length; index++) {
-        this.englishWordsMatch[index] = new Array();
+      for (let index = 0; index < this.arabicWords.length; index++) {
+        this.arabicWordsMatch[index] = new Array();
         for (
           let index2 = 0;
-          index2 < this.englishWords[index].length;
+          index2 < this.arabicWords[index].length;
           index2++
         ) {
-          this.englishWordsMatch[index][index2] = new Array();
+          this.arabicWordsMatch[index][index2] = new Array();
         }
       }
     }
@@ -124,8 +126,35 @@ export class TextFormComponent implements OnInit, OnChanges {
     }
   }
 
+  addBiWords() {
+    this.model.wordByWord = new Array();
+    for (let index = 0; index < this.arabicWordsMatch.length; index++) {
+      var wordByWord: Words = new Words();
+      for (
+        let index2 = 0;
+        index2 < this.arabicWordsMatch[index].length;
+        index2++
+      ) {
+        wordByWord.wordList =
+          wordByWord.wordList + this.arabicWords[index][index2] + ' ';
+        for (
+          let index3 = 0;
+          index3 < this.arabicWordsMatch[index][index2].length;
+          index3++
+        ) {
+          wordByWord.wordList =
+            wordByWord.wordList +
+            this.arabicWordsMatch[index][index2][index3] +
+            ' ';
+        }
+      }
+      wordByWord.wordList = wordByWord.wordList.replace('undefined', '');
+      this.model.wordByWord[index] = wordByWord;
+    }
+  }
+
   onSubmit() {
-    console.log('Submitted!');
+    this.addBiWords();
 
     if (!this.model.textId) {
       this.auth.user$.subscribe((u) => (this.model.editor = u.email));

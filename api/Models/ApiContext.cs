@@ -8,5 +8,6 @@ namespace api.Models
 
         public DbSet<Text> Texts { get; set; }
         public DbSet<Sentence> Sentences { get; set; }
+        public DbSet<Words> Words { get; set; }
     }
 }

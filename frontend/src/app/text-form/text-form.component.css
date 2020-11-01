@@ -39,14 +39,14 @@
 .example-container {
     width: 400px;
     max-width: 100%;
-    margin: 0 25px 25px 0;
+    margin: 0 10px 10px 0;
     display: inline-block;
     vertical-align: top;
 }
 
 .example-list {
     border: solid 1px #ccc;
-    min-height: 30px;
+    min-height: 25px;
     background: white;
     border-radius: 4px;
     overflow: hidden;
@@ -64,7 +64,7 @@
     box-sizing: border-box;
     cursor: move;
     background: white;
-    font-size: 21px;
+    font-size: 15px;
 }
 
 .cdk-drag-preview {
