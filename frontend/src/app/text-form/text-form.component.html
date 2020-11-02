@@ -50,13 +50,15 @@
                 <div class="col-6" style="float: left">
                     <mat-form-field appearance="fill" class="full-width spacing">
                         <mat-label>Arabic</mat-label>
-                        <textarea matInput Rows="35" class="arabic" name="arabicParagraph" [(ngModel)]="model.arabicParagraph" (ngModelChange)="updatePreview()"></textarea>
+                        <textarea matInput Rows="35" class="arabic" name="arabicParagraph"
+                            [(ngModel)]="model.arabicParagraph" (ngModelChange)="updatePreview()"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="col-6" style="float: right">
                     <mat-form-field appearance="fill" class="full-width spacing">
                         <mat-label>English</mat-label>
-                        <textarea matInput Rows="35" class="english" name="englishParagraph" [(ngModel)]="model.englishParagraph" (ngModelChange)="updatePreview()"></textarea>
+                        <textarea matInput Rows="35" class="english" name="englishParagraph"
+                            [(ngModel)]="model.englishParagraph" (ngModelChange)="updatePreview()"></textarea>
                     </mat-form-field>
                 </div>
             </div>
@@ -76,7 +78,8 @@
                         <div class="example-container">
                             <h5>English Sentence: {{ indexOfsentence }}</h5>
 
-                            <div cdkDropList [cdkDropListData]="englishWords[indexOfsentence]" class="example-list" (cdkDropListDropped)="drop($event)">
+                            <div cdkDropList [cdkDropListData]="englishWords[indexOfsentence]" class="example-list"
+                                (cdkDropListDropped)="drop($event)">
                                 <div class="example-box" *ngFor="let item of englishWords[indexOfsentence]" cdkDrag>
                                     {{ item }}
                                 </div>
@@ -86,21 +89,14 @@
 
                     <div style="width: 50%; float: right">
                         <h5>Arabic Sentence: {{ indexOfsentence }}</h5>
-                        <div *ngFor="
-                let item of arabicWords[indexOfsentence];
-                let indexOfelement = index
-              ">
+                        <div *ngFor="let item of arabicWords[indexOfsentence];let indexOfelement = index">
                             <div class="example-container">
                                 <span style="font-size: 20px"> {{ item }}</span>
 
-                                <div cdkDropList [cdkDropListData]="
-                    arabicWordsMatch[indexOfsentence][indexOfelement]
-                  " class="example-list" (cdkDropListDropped)="drop($event)">
-                                    <div class="example-box" *ngFor="
-                      let word of arabicWordsMatch[indexOfsentence][
-                        indexOfelement
-                      ]
-                    " cdkDrag>
+                                <div cdkDropList [cdkDropListData]="arabicWordsMatch[indexOfsentence][indexOfelement]"
+                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                    <div class="example-box"
+                                        *ngFor="let word of arabicWordsMatch[indexOfsentence][indexOfelement]" cdkDrag>
                                         {{ word }}
                                     </div>
                                 </div>
@@ -117,14 +113,11 @@
         <mat-tab label="Words Preview">
             <br />
             <div *ngFor="let sentence of arabicWordsMatch; let sentenceIndex = index">
-                <span *ngFor="
-            let words of arabicWordsMatch[sentenceIndex];
-            let wordsIndex = index
-          ">
-          <span>{{ arabicWords[sentenceIndex][wordsIndex] }}</span>
-                <span *ngFor="let word of arabicWordsMatch[sentenceIndex][wordsIndex]">
-            {{ word }}
-          </span>
+                <span *ngFor="let words of arabicWordsMatch[sentenceIndex];let wordsIndex = index">
+                    <span>{{ arabicWords[sentenceIndex][wordsIndex] }}</span>
+                    <span *ngFor="let word of arabicWordsMatch[sentenceIndex][wordsIndex]">
+                        {{ word }}
+                    </span>
                 </span>
                 <hr />
             </div>
@@ -132,10 +125,10 @@
     </mat-tab-group>
 
     <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="onSubmit()">
-    Submit
-  </button>
+        Submit
+    </button>
 
     <button class="button-margin" matRipple mat-raised-button color="warn" *ngIf="model.textId" (click)="deleteText()">
-    Delete
-  </button>
+        Delete
+    </button>
 </div>

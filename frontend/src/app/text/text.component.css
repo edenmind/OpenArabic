@@ -1,24 +1,24 @@
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
 .grid-container {
-    margin: 25px;
+  margin: 25px;
 }
 
 .author-by {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    padding-bottom: 55px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  padding-bottom: 55px;
 }
 
 .title {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .center {
-    justify-content: center;
-    text-align: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .white-link {
-    color: #ffff;
-    text-decoration: none;
+  color: #ffff;
+  text-decoration: none;
 }

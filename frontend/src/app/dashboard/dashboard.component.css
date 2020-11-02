@@ -1,32 +1,32 @@
 .grid-container {
-    margin: 20px;
+  margin: 20px;
 }
 
 .center {
-    justify-content: center;
-    text-align: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .dashboard-card {
-    position: absolute;
-    top: 15px;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    /* max-width: 485px; */
-    cursor: pointer;
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  /* max-width: 485px; */
+  cursor: pointer;
 }
 
 .time-ago {
-    font-size: smaller;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
-    text-align: right;
+  font-size: smaller;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
 }
 
 .cardList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }

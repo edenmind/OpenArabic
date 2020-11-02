@@ -1,41 +1,41 @@
 .arabic {
-    direction: rtl;
-    text-align: right;
-    font-size: x-large;
-    line-height: 150%;
-    width: 50%;
-    float: left;
-    padding: 15px;
-    vertical-align: middle;
+  direction: rtl;
+  text-align: right;
+  font-size: x-large;
+  line-height: 150%;
+  width: 50%;
+  float: left;
+  padding: 15px;
+  vertical-align: middle;
 }
 
 .english {
-    direction: ltr;
-    text-align: left;
-    font-size: large;
-    line-height: 150%;
-    width: 50%;
-    float: right;
-    padding: 15px;
-    vertical-align: middle;
+  direction: ltr;
+  text-align: left;
+  font-size: large;
+  line-height: 150%;
+  width: 50%;
+  float: right;
+  padding: 15px;
+  vertical-align: middle;
 }
 
 .arabic-single {
-    justify-content: right;
-    direction: rtl;
-    text-align: right;
-    font-size: x-large;
-    line-height: 150%;
-    max-width: 800px;
-    padding: 15px;
+  justify-content: right;
+  direction: rtl;
+  text-align: right;
+  font-size: x-large;
+  line-height: 150%;
+  max-width: 800px;
+  padding: 15px;
 }
 
 .english-single {
-    justify-content: left;
-    direction: ltr;
-    text-align: left;
-    font-size: large;
-    line-height: 150%;
-    max-width: 800px;
-    padding: 15px;
+  justify-content: left;
+  direction: ltr;
+  text-align: left;
+  font-size: large;
+  line-height: 150%;
+  max-width: 800px;
+  padding: 15px;
 }
