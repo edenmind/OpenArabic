@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-text',
   templateUrl: './text.component.html',
-  styleUrls: ['./text.component.css'],
+  styleUrls: ['./text.component.css', '../shared/common.css'],
 })
 export class TextComponent implements OnInit {
   text: Text;

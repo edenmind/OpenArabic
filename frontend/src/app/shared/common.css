@@ -1,0 +1,17 @@
+.icon {
+  vertical-align: middle;
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+.grid-container {
+  margin: 25px;
+}
+
+.white-link {
+  color: #ffff;
+  text-decoration: none;
+}

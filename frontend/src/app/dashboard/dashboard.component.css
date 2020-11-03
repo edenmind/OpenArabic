@@ -1,19 +1,9 @@
-.grid-container {
-  margin: 20px;
-}
-
-.center {
-  justify-content: center;
-  text-align: center;
-}
-
 .dashboard-card {
   position: absolute;
   top: 15px;
   bottom: 15px;
   left: 15px;
   right: 15px;
-  /* max-width: 485px; */
   cursor: pointer;
 }
 

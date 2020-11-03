@@ -1,6 +1,6 @@
-<div class="row center" *ngIf="showSpinner">
+<div class="grid-container center" *ngIf="showSpinner">
     <br /><br />
-    <mat-spinner></mat-spinner>
+    <mat-spinner class="center"></mat-spinner>
 </div>
 <div *ngIf="!showSpinner">
     <mat-grid-list [cols]="breakPoint" rowHeight="350px" (window:resize)="onResize($event)">

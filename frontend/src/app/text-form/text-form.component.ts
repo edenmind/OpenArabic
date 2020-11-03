@@ -19,7 +19,7 @@ import { exit } from 'process';
 @Component({
   selector: 'app-text-form',
   templateUrl: './text-form.component.html',
-  styleUrls: ['./text-form.component.css'],
+  styleUrls: ['./text-form.component.css', '../shared/common.css'],
 })
 export class TextFormComponent implements OnInit, OnChanges {
   constructor(

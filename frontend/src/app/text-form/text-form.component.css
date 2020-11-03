@@ -1,6 +1,4 @@
-.top-margin {
-  margin-top: 20px;
-}
+@import url("https://unpkg.com/bootstrap@4.5.2/dist/css/bootstrap.min.css");
 
 .button-margin {
   margin: 8px 8px 8px 0;

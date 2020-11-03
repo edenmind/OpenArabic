@@ -4,7 +4,7 @@ import { Sentence } from '../models/sentence';
 @Component({
   selector: 'app-text-row',
   templateUrl: './text-row.component.html',
-  styleUrls: ['./text-row.component.css'],
+  styleUrls: ['./text-row.component.css', '../shared/common.css'],
 })
 export class TextRowComponent implements OnInit {
   @Input()

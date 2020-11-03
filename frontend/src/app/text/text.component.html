@@ -1,19 +1,18 @@
 <div class="grid-container">
   <div *ngIf="showSpinner" class="center">
     <br /><br />
-    <mat-spinner> </mat-spinner>
+    <mat-spinner class="center"> </mat-spinner>
   </div>
   <div class="center" *ngIf="!showSpinner">
-    <h1 class="title">
-      {{ text.title }}
-      <p>
-        <a href="/author/{{ text.author }}" class="text-decoration-none"><small class="author-by">&mdash;
-            {{ text.author }} &mdash;</small></a>
-        <a href="/text-form/{{ text.textId }}" class="text-decoration-none" *ngIf="auth.user$ | async as user">
-          <small class="author-by" matRipple *ngIf="user.email == text.editor">
-            (edit)</small></a>
-      </p>
-    </h1>
+    <h1 class="title"> {{ text.title }} </h1>
+    <p>
+      <a href="/author/{{ text.author }}">
+        <span class="author-by">&mdash; {{ text.author }} &mdash;</span>
+      </a>
+      <a href="/text-form/{{ text.textId }}" *ngIf="auth.user$ | async as user">
+        <span class="author-by" matRipple *ngIf="user.email == text.editor">(edit)</span>
+      </a>
+    </p>
   </div>
 
   <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
@@ -29,14 +28,6 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab label="Engish">
-      <div style="display: grid; justify-content: center">
-        <div *ngFor="let sentence of text.sentences" style="display: grid; justify-content: left">
-          <app-text-row [sentence]="sentence" [language]="'english'"></app-text-row>
-        </div>
-      </div>
-    </mat-tab>
-
     <mat-tab label="Vocabulary">
       <br />
       <div style="display: grid; justify-content: center">
@@ -44,10 +35,16 @@
             display: grid;
             justify-content: left;
             font-size: large;
-            line-height: 150%;
-          ">
+            line-height: 150%;">
           {{ sentence.wordList }}
           <hr />
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Engish">
+      <div style="display: grid; justify-content: center">
+        <div *ngFor="let sentence of text.sentences" style="display: grid; justify-content: left">
+          <app-text-row [sentence]="sentence" [language]="'english'"></app-text-row>
         </div>
       </div>
     </mat-tab>
