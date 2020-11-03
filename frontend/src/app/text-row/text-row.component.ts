@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Sentence } from '../sentence';
+import { Sentence } from '../models/sentence';
 
 @Component({
   selector: 'app-text-row',

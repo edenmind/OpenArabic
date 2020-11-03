@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TextService } from '../text.service';
-import { Text } from '../text';
+import { TextService } from '../services/text.service';
+import { Text } from '../models/text';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 

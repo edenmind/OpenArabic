@@ -1,13 +1,13 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Text } from '../text';
-import { Words } from '../words';
-import { Sentence } from '../sentence';
-import { TextService } from '../text.service';
+import { Text } from '../models/text';
+import { Words } from '../models/words';
+import { Sentence } from '../models/sentence';
+import { TextService } from '../services/text.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthorService } from '../author.service';
-import { CategoryService } from '../category.service';
+import { AuthorService } from '../services/author.service';
+import { CategoryService } from '../services/category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { StatusService } from '../status.service';
+import { StatusService } from '../services/status.service';
 import { AuthService } from '@auth0/auth0-angular';
 import {
   CdkDragDrop,

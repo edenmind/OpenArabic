@@ -1,10 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpBackend } from '@angular/common/http';
-import { Text } from './text';
+import { Text } from '../models/text';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, concatMap } from 'rxjs/operators';
 import { AuthService } from '@auth0/auth0-angular';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
