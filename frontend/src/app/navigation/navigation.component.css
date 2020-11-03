@@ -1,32 +1,32 @@
 .sidenav-container {
-    height: 100%;
+  height: 100%;
 }
 
 .sidenav {
-    width: 200px;
+  width: 200px;
 }
 
 .sidenav .mat-toolbar {
-    background: inherit;
+  background: inherit;
 }
 
 .mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .title {
-    color: #ffffff;
-    text-decoration: none;
-    vertical-align: middle;
+  color: #ffffff;
+  text-decoration: none;
+  vertical-align: middle;
 }
 
 .icon {
-    vertical-align: middle;
-    margin-bottom: 5px;
+  vertical-align: middle;
+  margin-bottom: 5px;
 }

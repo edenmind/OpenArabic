@@ -1,9 +1,9 @@
 <div class="grid-container">
-  <div *ngIf="showSpinner" class="center row">
+  <div *ngIf="showSpinner" class="center">
     <br /><br />
     <mat-spinner> </mat-spinner>
   </div>
-  <div class="center row" *ngIf="!showSpinner">
+  <div class="center" *ngIf="!showSpinner">
     <h1 class="title">
       {{ text.title }}
       <p>
@@ -60,11 +60,11 @@
   <!-- SHARE -->
 
   <hr />
-  <div class="center row">
+  <div class="center">
     <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank"
       color="accent" style="text-decoration: none">Share on Facebook</a>
   </div>
-  <div class="center row">
+  <div class="center">
     <a mat-button href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{id}}&text=&via="
       target="_blank" color="accent" style="text-decoration: none">Share on Twitter</a>
   </div>
