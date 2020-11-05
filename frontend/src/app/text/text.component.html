@@ -17,41 +17,35 @@
 
   <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
     <mat-tab label="Bilingual">
-      <div *ngFor="let sentence of text.sentences" style="display: grid">
+      <div *ngFor="let sentence of text.sentences" class="tab-space">
         <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
       </div>
     </mat-tab>
     <mat-tab label="Arabic">
-      <div style="display: grid; justify-content: center">
-        <div *ngFor="let sentence of text.sentences" style="justify-content: right">
+      <div class="tab-space">
+        <div *ngFor="let sentence of text.sentences" class="arabic">
           <app-text-row [sentence]="sentence" [language]="'arabic'"></app-text-row>
         </div>
       </div>
     </mat-tab>
     <mat-tab label="Vocabulary">
       <br />
-      <div style="display: grid; justify-content: center">
-        <div *ngFor="let sentence of text.wordByWord" style="
-            display: grid;
-            justify-content: left;
-            font-size: large;
-            line-height: 150%;">
+      <div class="tab-space center">
+        <div *ngFor="let sentence of text.wordByWord" class="word-by-word">
           {{ sentence.wordList }}
           <hr />
         </div>
       </div>
     </mat-tab>
     <mat-tab label="Engish">
-      <div style="display: grid; justify-content: center">
-        <div *ngFor="let sentence of text.sentences" style="display: grid; justify-content: left">
+      <div class="tab-space center">
+        <div *ngFor="let sentence of text.sentences" class="english">
           <app-text-row [sentence]="sentence" [language]="'english'"></app-text-row>
         </div>
       </div>
     </mat-tab>
 
-    <p class="center author-by">
-      <small>Source: <i>{{ text.source }}</i></small>
-    </p>
+    <p class="center author-by">{{ text.source }}</p>
   </mat-tab-group>
 
   <!-- SHARE -->
@@ -59,10 +53,10 @@
   <hr />
   <div class="center">
     <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank"
-      color="accent" style="text-decoration: none">Share on Facebook</a>
+      color="accent" class="simple-link">Share on Facebook</a>
   </div>
   <div class="center">
     <a mat-button href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{id}}&text=&via="
-      target="_blank" color="accent" style="text-decoration: none">Share on Twitter</a>
+      target="_blank" color="accent" class="simple-link">Share on Twitter</a>
   </div>
 </div>

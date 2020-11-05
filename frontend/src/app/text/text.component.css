@@ -6,8 +6,30 @@
   padding-bottom: 55px;
   font-size: small;
   text-decoration: none;
+  font-style: italic;
 }
 
 .title {
   font-weight: 500;
+}
+
+.tab-space {
+  padding-top: 25px;
+  display: grid;
+}
+
+.arabic {
+  justify-content: right;
+}
+
+.english {
+  display: grid;
+  justify-content: left;
+}
+
+.word-by-word {
+  display: grid;
+  justify-content: left;
+  font-size: large;
+  line-height: 150%;
 }
