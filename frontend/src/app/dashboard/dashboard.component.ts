@@ -11,28 +11,27 @@ import { Subscription } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
   texts: Text[];
-  cols = 1;
-  rows = 1;
-  hidden = false;
 
+  cols: number = 1;
+  rows: number = 1;
+
+  badgeHidden: boolean = false;
   showSpinner: boolean = true;
+
   pageNumber: number;
   pageSize: number = 25;
 
-  toggleBadgeVisibility() {
-    this.hidden = !this.hidden;
-  }
+  author: string;
+  category: string;
+  subscription: Subscription;
+
+  breakPoint: number;
 
   constructor(
     private textService: TextService,
     private route: Router,
     private activeRoute: ActivatedRoute
   ) {}
-
-  author: string;
-  category: string;
-  subscription: Subscription;
-  breakPoint: number;
 
   ngOnInit(): void {
     this.category = this.activeRoute.snapshot.paramMap.get('category');
@@ -64,12 +63,16 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  openCard(id: number): void {
-    this.route.navigate(['/text/', id]);
-  }
-
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  toggleBadgeVisibility() {
+    this.badgeHidden = !this.badgeHidden;
+  }
+
+  openCard(id: number): void {
+    this.route.navigate(['/text/', id]);
   }
 
   onResize(event) {
