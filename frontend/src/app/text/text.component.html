@@ -9,8 +9,8 @@
       <a href="/author/{{ text.author }}">
         <span class="author-by">&mdash; {{ text.author }} &mdash;</span>
       </a>
-      <a href="/text-form/{{ text.textId }}" *ngIf="auth.user$ | async as user">
-        <span class="author-by" matRipple *ngIf="user.email == text.editor">(edit)</span>
+      <a href="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user">
+        <span class="author-by" matRipple *ngIf="user.email == text.editor"> (edit)</span>
       </a>
     </p>
   </div>

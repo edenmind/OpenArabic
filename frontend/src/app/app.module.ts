@@ -10,7 +10,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { TextComponent } from './text/text.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { TextFormComponent } from './text-form/text-form.component';
+import { TextEditComponent } from './text-edit/text-edit.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -46,7 +46,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AppComponent,
     TextComponent,
     PageNotFoundComponent,
-    TextFormComponent,
+    TextEditComponent,
     FooterComponent,
     NavigationComponent,
     DashboardComponent,
@@ -87,9 +87,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     }),
     RouterModule.forRoot([
       { path: 'about', component: AboutComponent },
-      { path: 'text-form/:id', component: TextFormComponent },
+      { path: 'text-edit/:id', component: TextEditComponent },
       { path: 'text/:id', component: TextComponent },
-      { path: 'text-form', component: TextFormComponent },
+      { path: 'text-edit', component: TextEditComponent },
       { path: 'texts', component: TextComponent },
       { path: 'category/:category', component: DashboardComponent },
       { path: 'author/:author', component: DashboardComponent },

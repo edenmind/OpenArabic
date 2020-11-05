@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextFormComponent } from './text-form.component';
+import { TextEditComponent } from './text-edit.component';
 
 describe('TextFormComponent', () => {
-  let component: TextFormComponent;
-  let fixture: ComponentFixture<TextFormComponent>;
+  let component: TextEditComponent;
+  let fixture: ComponentFixture<TextEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextFormComponent ]
-    })
-    .compileComponents();
+      declarations: [TextEditComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TextFormComponent);
+    fixture = TestBed.createComponent(TextEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

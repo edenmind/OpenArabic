@@ -18,10 +18,10 @@ import { exit } from 'process';
 
 @Component({
   selector: 'app-text-form',
-  templateUrl: './text-form.component.html',
-  styleUrls: ['./text-form.component.css', '../shared/common.css'],
+  templateUrl: './text-edit.component.html',
+  styleUrls: ['./text-edit.component.css', '../shared/common.css'],
 })
-export class TextFormComponent implements OnInit, OnChanges {
+export class TextEditComponent implements OnInit, OnChanges {
   constructor(
     private textService: TextService,
     private authorService: AuthorService,
