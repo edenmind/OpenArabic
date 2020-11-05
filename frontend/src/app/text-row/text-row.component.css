@@ -3,9 +3,9 @@
   text-align: right;
   font-size: x-large;
   line-height: 150%;
-  width: 50%;
+  width: 48%;
   float: left;
-  padding: 15px;
+  margin: 10px;
   vertical-align: middle;
 }
 
@@ -14,9 +14,9 @@
   text-align: left;
   font-size: large;
   line-height: 150%;
-  width: 50%;
+  width: 48%;
   float: right;
-  padding: 15px;
+  margin: 10px;
   vertical-align: middle;
 }
 
