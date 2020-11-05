@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '@auth0/auth0-angular';
 import { Title } from '@angular/platform-browser';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-text',
@@ -16,6 +17,7 @@ export class TextComponent implements OnInit {
   id: string;
   subscription: Subscription;
   showSpinner = true;
+  spinnerColor: ThemePalette = 'accent';
 
   constructor(
     private textService: TextService,

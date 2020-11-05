@@ -3,6 +3,7 @@ import { TextService } from '../services/text.service';
 import { Text } from '../models/text';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,6 +27,7 @@ export class DashboardComponent implements OnInit {
   subscription: Subscription;
 
   breakPoint: number;
+  spinnerColor: ThemePalette = 'accent';
 
   constructor(
     private textService: TextService,

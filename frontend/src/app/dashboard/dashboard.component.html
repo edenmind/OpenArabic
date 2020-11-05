@@ -1,7 +1,5 @@
-<div class="align-middle" *ngIf="showSpinner">
-    <br /><br />
-    <mat-spinner class="align-middle"></mat-spinner>
-</div>
+<mat-spinner [color]="spinnerColor" class="spanner" *ngIf="showSpinner"></mat-spinner>
+
 <div *ngIf="!showSpinner">
     <mat-grid-list [cols]="breakPoint" rowHeight="350px" (window:resize)="onResize($event)">
         <mat-grid-tile *ngFor="let card of texts" [colspan]="1" [rowspan]="1">

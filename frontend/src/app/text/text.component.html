@@ -1,7 +1,6 @@
 <div class="grid-container">
-  <div *ngIf="showSpinner" class="align-middle">
-    <br /><br />
-    <mat-spinner class="align-middle"> </mat-spinner>
+  <div *ngIf="showSpinner">
+    <mat-spinner [color]="spinnerColor" class="spanner"> </mat-spinner>
   </div>
   <div class="center" *ngIf="!showSpinner">
     <h1 class="title"> {{ text.title }} </h1>
