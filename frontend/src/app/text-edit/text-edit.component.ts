@@ -31,14 +31,10 @@ export class TextEditComponent implements OnInit, OnChanges {
     private snackBar: MatSnackBar,
     private route: Router
   ) {}
-  ngOnChanges(): void {
-    this.englishSentences = this.splitSentences(this.model.englishParagraph);
-    this.arabicSentences = this.splitSentences(this.model.arabicParagraph);
-    console.log('a change occoured');
-  }
 
   model = new Text();
   id: string;
+
   authors = this.authorService.GetAuthors();
   statuses = this.statusService.GetStatuses();
   categories = this.categoryService.GetCategories();
@@ -53,6 +49,11 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   englishWordsMatch: string[][][] = new Array();
   arabicWordsMatch: string[][][] = new Array();
+
+  ngOnChanges(): void {
+    this.englishSentences = this.splitSentences(this.model.englishParagraph);
+    this.arabicSentences = this.splitSentences(this.model.arabicParagraph);
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -72,24 +73,17 @@ export class TextEditComponent implements OnInit, OnChanges {
   }
 
   updatePreview() {
-    console.log('Updating preview.');
+    // Get english and arabic sentences from view
     var englishSentences = this.splitSentences(this.model.englishParagraph);
     var arabicSentences = this.splitSentences(this.model.arabicParagraph);
 
     if (englishSentences.length != arabicSentences.length) {
       console.log('Number of sentences does not match!');
     } else {
-      console.log('Number of sentences do match!');
-      this.sentences = [];
-
-      for (let index = 0; index < englishSentences.length; index++) {
-        var sentence = new Sentence();
-        sentence.arabic = arabicSentences[index];
-        sentence.english = englishSentences[index];
-
-        this.sentences.push(sentence);
-      }
-      this.model.sentences = this.sentences;
+      this.model.sentences = this.combineSentences(
+        englishSentences,
+        arabicSentences
+      );
 
       for (let index = 0; index < this.model.sentences.length; index++) {
         console.log('splitting words');
@@ -114,6 +108,21 @@ export class TextEditComponent implements OnInit, OnChanges {
         }
       }
     }
+  }
+
+  private combineSentences(
+    englishSentences: string[],
+    arabicSentences: string[]
+  ): Sentence[] {
+    var sentences: Sentence[] = new Array();
+    for (let index = 0; index < englishSentences.length; index++) {
+      var sentence = new Sentence();
+      sentence.arabic = arabicSentences[index];
+      sentence.english = englishSentences[index];
+
+      sentences.push(sentence);
+    }
+    return sentences;
   }
 
   ngOnInit(): void {

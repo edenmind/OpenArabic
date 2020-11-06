@@ -65,7 +65,7 @@
         </mat-tab>
 
         <mat-tab label="Paragraph Preview">
-            <div *ngFor="let sentence of sentences" style="display: grid">
+            <div *ngFor="let sentence of model.sentences" style="display: grid">
                 <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
             </div>
         </mat-tab>
@@ -73,7 +73,7 @@
         <mat-tab label="Words">
             <br />
             <div style="display: grid">
-                <div cdkDropListGroup *ngFor="let sentence of sentences; let indexOfsentence = index">
+                <div cdkDropListGroup *ngFor="let sentence of model.sentences; let indexOfsentence = index">
                     <div style="width: 50%; float: left">
                         <div class="example-container">
                             <h5>English Sentence: {{ indexOfsentence }}</h5>
