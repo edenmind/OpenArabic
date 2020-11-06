@@ -3,11 +3,11 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
     <mat-toolbar>Categories</mat-toolbar>
     <mat-nav-list *ngFor="let category of categories">
-      <a mat-list-item matRipple href="/category/{{ category }}" class="text-decoration-none">{{ category }}</a>
+      <a mat-list-item matRipple routerLink="/category/{{ category }}" class="text-decoration-none">{{ category }}</a>
     </mat-nav-list>
     <mat-divider></mat-divider>
     <mat-nav-list>
-      <a mat-list-item matRipple href="/about" class="text-decoration-none">About</a>
+      <a mat-list-item matRipple routerLink="/about" class="text-decoration-none">About</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -15,11 +15,11 @@
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span> <a href="/" class="title" matRipple>Open Arabic</a> </span>
+      <span> <a routerLink="/" class="title" matRipple>Open Arabic</a> </span>
       <span class="spacer"></span>
 
       <button mat-icon-button *ngIf="auth.user$ | async as user">
-        <a href="/text-edit" class="title">
+        <a routerLink="/text-edit" class="title">
           <mat-icon class="icon">note_add</mat-icon>
         </a>
       </button>

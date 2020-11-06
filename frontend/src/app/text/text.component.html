@@ -5,10 +5,10 @@
   <div class="center" *ngIf="!showSpinner">
     <h1 class="title"> {{ text.title }} </h1>
     <p>
-      <a href="/author/{{ text.author }}" class="simple-link">
-        <span class="author-by">&mdash; {{ text.author }} &mdash;</span>
+      <a routerLink="/author/{{ text.author }}" class="simple-link">
+        <h4 class="author-by">&mdash; {{ text.author }} &mdash;</h4>
       </a>
-      <a href="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
+      <a routerLink="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
         <span class="author-by" matRipple *ngIf="user.email == text.editor"> (edit)</span>
       </a>
     </p>
@@ -49,7 +49,8 @@
 
   <!-- SHARE -->
 
-  <br><br><br>
+  <mat-divider class="mat-padding"></mat-divider>
+
   <div class="center">
     <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank"
       color="accent" class="simple-link">Share on Facebook</a>

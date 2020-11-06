@@ -20,6 +20,10 @@
   text-decoration: none;
 }
 
+.link-color {
+  color: #ce93d8;
+}
+
 .spanner {
   margin: 55px auto;
 }

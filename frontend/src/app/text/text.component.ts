@@ -22,7 +22,7 @@ export class TextComponent implements OnInit {
   constructor(
     private textService: TextService,
     private route: ActivatedRoute,
-    private auth: AuthService,
+    public auth: AuthService,
     private titleService: Title
   ) {}
 

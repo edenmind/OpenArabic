@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Text } from '../models/text';
 import { Words } from '../models/words';
 import { Sentence } from '../models/sentence';
@@ -14,7 +14,6 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { exit } from 'process';
 
 @Component({
   selector: 'app-text-form',

@@ -1,8 +1,5 @@
 .author-by {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  padding-bottom: 55px;
-  font-size: small;
   text-decoration: none;
 }
 
@@ -29,4 +26,9 @@
   justify-content: left;
   font-size: large;
   line-height: 150%;
+}
+
+.mat-padding {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }

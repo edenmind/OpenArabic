@@ -21,7 +21,9 @@
                         </p>
                         <p class="time-ago">{{ card.timeAgo }}</p>
                         <mat-chip-list aria-label="Category">
-                            <mat-chip color="accent" selected>{{ card.category }}</mat-chip>
+                            <a routerLink="/category/{{ card.category }}" class="simple-link">
+                                <mat-chip color="accent" selected>{{ card.category }}</mat-chip>
+                            </a>
                         </mat-chip-list>
                     </div>
                 </mat-card-content>
