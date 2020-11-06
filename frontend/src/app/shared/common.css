@@ -2,6 +2,10 @@
   vertical-align: middle;
 }
 
+.title {
+  font-weight: 500;
+}
+
 .center {
   justify-content: center;
   text-align: center;
