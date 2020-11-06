@@ -47,8 +47,7 @@ export class TextEditComponent implements OnInit, OnChanges {
   arabicWords: string[][] = new Array();
   englishWords: string[][] = new Array();
 
-  englishWordsMatch: string[][][] = new Array();
-  arabicWordsMatch: string[][][] = new Array();
+  englishWordsMatched: string[][][] = new Array();
 
   ngOnChanges(): void {
     this.englishSentences = this.splitSentences(this.model.englishParagraph);
@@ -74,19 +73,24 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   updatePreview() {
     // Get english and arabic sentences from view
+    this.arabicWords = [];
+    this.englishWords = [];
+    this.englishWordsMatched = [];
+
     var englishSentences = this.splitSentences(this.model.englishParagraph);
     var arabicSentences = this.splitSentences(this.model.arabicParagraph);
 
     if (englishSentences.length != arabicSentences.length) {
       console.log('Number of sentences does not match!');
     } else {
+      // Combine eng and ar sentences into one array
       this.model.sentences = this.combineSentences(
         englishSentences,
         arabicSentences
       );
 
+      // Split words into arabics and english
       for (let index = 0; index < this.model.sentences.length; index++) {
-        console.log('splitting words');
         this.arabicWords[index] = this.splitWords(
           this.model.sentences[index].arabic
         );
@@ -95,16 +99,15 @@ export class TextEditComponent implements OnInit, OnChanges {
         );
       }
 
-      console.log('english word: ' + this.englishWords.length);
-
+      // Create a arabic wordlist
       for (let index = 0; index < this.arabicWords.length; index++) {
-        this.arabicWordsMatch[index] = new Array();
+        this.englishWordsMatched[index] = new Array();
         for (
           let index2 = 0;
           index2 < this.arabicWords[index].length;
           index2++
         ) {
-          this.arabicWordsMatch[index][index2] = new Array();
+          this.englishWordsMatched[index][index2] = new Array();
         }
       }
     }
@@ -136,28 +139,15 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   addBiWords() {
     this.model.wordByWord = new Array();
-    for (let index = 0; index < this.arabicWordsMatch.length; index++) {
-      var wordByWord: Words = new Words();
-      for (
-        let index2 = 0;
-        index2 < this.arabicWordsMatch[index].length;
-        index2++
-      ) {
-        wordByWord.wordList =
-          wordByWord.wordList + this.arabicWords[index][index2] + ' ';
-        for (
-          let index3 = 0;
-          index3 < this.arabicWordsMatch[index][index2].length;
-          index3++
-        ) {
-          wordByWord.wordList =
-            wordByWord.wordList +
-            this.arabicWordsMatch[index][index2][index3] +
-            ' ';
-        }
+
+    for (let index = 0; index < this.model.sentences.length; index++) {
+      for (let index2 = 0; index2 < this.arabicWords[index].length; index2++) {
+        var word: Words = new Words();
+        word.arabic = this.arabicWords[index][index2];
+        word.english = this.englishWordsMatched[index][index2].join(' ');
+
+        this.model.wordByWord.push(word);
       }
-      wordByWord.wordList = wordByWord.wordList.replace('undefined', '');
-      this.model.wordByWord[index] = wordByWord;
     }
   }
 

@@ -80,8 +80,8 @@
 
                             <div cdkDropList [cdkDropListData]="englishWords[indexOfsentence]" class="example-list"
                                 (cdkDropListDropped)="drop($event)">
-                                <div class="example-box" *ngFor="let item of englishWords[indexOfsentence]" cdkDrag>
-                                    {{ item }}
+                                <div class="example-box" *ngFor="let word of englishWords[indexOfsentence]" cdkDrag>
+                                    {{ word }}
                                 </div>
                             </div>
                         </div>
@@ -93,10 +93,12 @@
                             <div class="example-container">
                                 <span style="font-size: 20px"> {{ item }}</span>
 
-                                <div cdkDropList [cdkDropListData]="arabicWordsMatch[indexOfsentence][indexOfelement]"
+                                <div cdkDropList
+                                    [cdkDropListData]="englishWordsMatched[indexOfsentence][indexOfelement]"
                                     class="example-list" (cdkDropListDropped)="drop($event)">
                                     <div class="example-box"
-                                        *ngFor="let word of arabicWordsMatch[indexOfsentence][indexOfelement]" cdkDrag>
+                                        *ngFor="let word of englishWordsMatched[indexOfsentence][indexOfelement]"
+                                        cdkDrag>
                                         {{ word }}
                                     </div>
                                 </div>
@@ -112,13 +114,8 @@
 
         <mat-tab label="Words Preview">
             <br />
-            <div *ngFor="let sentence of arabicWordsMatch; let sentenceIndex = index">
-                <span *ngFor="let words of arabicWordsMatch[sentenceIndex];let wordsIndex = index">
-                    <span>{{ arabicWords[sentenceIndex][wordsIndex] }}</span>
-                    <span *ngFor="let word of arabicWordsMatch[sentenceIndex][wordsIndex]">
-                        {{ word }}
-                    </span>
-                </span>
+            <div *ngFor="let word of model.wordByWord;">
+                {{word.arabic}} {{word.english}}
                 <hr />
             </div>
         </mat-tab>
@@ -126,6 +123,10 @@
 
     <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="onSubmit()">
         Submit
+    </button>
+
+    <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="addBiWords()">
+        Create vocabulary
     </button>
 
     <button class="button-margin" matRipple mat-raised-button color="warn" *ngIf="model.textId" (click)="deleteText()">
