@@ -1,6 +1,15 @@
 <mat-spinner [color]="spinnerColor" class="spanner" *ngIf="showSpinner"></mat-spinner>
 
 <div *ngIf="!showSpinner">
+
+    <mat-card class="center" *ngIf="isStartPage()">
+        <h1 class="mat-display-1 title-padding">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ‎</h1>
+        <h3>Welcome to an arabic-english blog for anyone<br> interested in
+            orthodox islamic topics.<br>
+            <a mat-button color="accent" routerLink="/about">Read More</a>
+            <br></h3>
+    </mat-card>
+
     <mat-grid-list [cols]="breakPoint" rowHeight="350px" (window:resize)="onResize($event)">
         <mat-grid-tile *ngFor="let card of texts" [colspan]="1" [rowspan]="1">
             <mat-card matRipple class="dashboard-card" (click)="openCard(card.textId)">

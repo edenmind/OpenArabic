@@ -77,6 +77,10 @@ export class DashboardComponent implements OnInit {
     this.route.navigate(['/text/', id]);
   }
 
+  isStartPage(): boolean {
+    return this.route.url == '/';
+  }
+
   onResize(event) {
     this.breakPoint = event.target.innerWidth <= 1200 ? 1 : 3;
   }

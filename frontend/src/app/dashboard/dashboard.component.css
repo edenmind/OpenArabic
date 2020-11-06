@@ -20,3 +20,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
+.title-padding {
+  padding-top: 25px;
+  margin-bottom: 25px;
+}
