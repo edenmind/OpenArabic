@@ -50,14 +50,14 @@
                 <div class="col-6" style="float: left">
                     <mat-form-field appearance="fill" class="full-width spacing">
                         <mat-label>Arabic</mat-label>
-                        <textarea matInput Rows="35" class="arabic" name="arabicParagraph"
+                        <textarea matInput Rows="35" class="arabic carret" name="arabicParagraph"
                             [(ngModel)]="model.arabicParagraph" (ngModelChange)="updatePreview()"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="col-6" style="float: right">
                     <mat-form-field appearance="fill" class="full-width spacing">
                         <mat-label>English</mat-label>
-                        <textarea matInput Rows="35" class="english" name="englishParagraph"
+                        <textarea matInput Rows="35" class="english carret" name="englishParagraph"
                             [(ngModel)]="model.englishParagraph" (ngModelChange)="updatePreview()"></textarea>
                     </mat-form-field>
                 </div>
@@ -65,6 +65,8 @@
         </mat-tab>
 
         <mat-tab label="Paragraph Preview">
+            <mat-chip color="accent" *ngIf="sentencesAreEqual">Sentences are equal.</mat-chip>
+
             <div *ngFor="let sentence of model.sentences" style="display: grid">
                 <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
             </div>
@@ -72,44 +74,46 @@
 
         <mat-tab label="Words">
             <br />
-            <div style="display: grid">
-                <div cdkDropListGroup *ngFor="let sentence of model.sentences; let indexOfsentence = index">
-                    <div style="width: 50%; float: left">
-                        <div class="example-container">
-                            <h5>English Sentence: {{ indexOfsentence }}</h5>
 
-                            <div cdkDropList [cdkDropListData]="englishWords[indexOfsentence]" class="example-list"
-                                (cdkDropListDropped)="drop($event)">
-                                <div class="example-box" *ngFor="let word of englishWords[indexOfsentence]" cdkDrag>
+            <div cdkDropListGroup *ngFor="let sentence of model.sentences; let indexOfsentence = index"
+                style="display:table;">
+                <div style="width: 33%; float: left; padding-bottom: 150px;">
+                    <div class="example-container">
+                        <h5>English Sentence: {{ indexOfsentence }}</h5>
+
+                        <div cdkDropList [cdkDropListData]="englishWords[indexOfsentence]" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <div class="example-box" *ngFor="let word of englishWords[indexOfsentence]" cdkDrag>
+                                {{ word }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="width: 33%; float: left; padding-bottom: 150px;">
+                    <h5>Arabic Sentence: {{ indexOfsentence }}</h5>
+                    <div *ngFor="let item of arabicWords[indexOfsentence];let indexOfelement = index">
+                        <div class="example-container">
+                            {{ item }}
+
+                            <div cdkDropList [cdkDropListData]="englishWordsMatched[indexOfsentence][indexOfelement]"
+                                class="example-list" (cdkDropListDropped)="drop($event)">
+                                <div class="example-box"
+                                    *ngFor="let word of englishWordsMatched[indexOfsentence][indexOfelement]" cdkDrag>
                                     {{ word }}
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div style="width: 50%; float: right">
-                        <h5>Arabic Sentence: {{ indexOfsentence }}</h5>
-                        <div *ngFor="let item of arabicWords[indexOfsentence];let indexOfelement = index">
-                            <div class="example-container">
-                                <span style="font-size: 20px"> {{ item }}</span>
-
-                                <div cdkDropList
-                                    [cdkDropListData]="englishWordsMatched[indexOfsentence][indexOfelement]"
-                                    class="example-list" (cdkDropListDropped)="drop($event)">
-                                    <div class="example-box"
-                                        *ngFor="let word of englishWordsMatched[indexOfsentence][indexOfelement]"
-                                        cdkDrag>
-                                        {{ word }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <hr />
-                        <br />
-                    </div>
+                <div style="width: 33%; float: right; padding-bottom: 150px;">
+                    <h5>Paragraph: {{ indexOfsentence }}</h5>
+                    <div class="arabic">{{sentence.arabic}}</div> <br><br>
+                    <div class="english"> {{sentence.english}}</div>
                 </div>
             </div>
+
         </mat-tab>
 
         <mat-tab label="Words Preview">
@@ -123,10 +127,6 @@
 
     <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="onSubmit()">
         Submit
-    </button>
-
-    <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="addBiWords()">
-        Create vocabulary
     </button>
 
     <button class="button-margin" matRipple mat-raised-button color="warn" *ngIf="model.textId" (click)="deleteText()">

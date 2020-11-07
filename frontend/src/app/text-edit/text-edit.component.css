@@ -14,14 +14,15 @@
 }
 
 .arabic {
-  line-height: 150%;
-  font-size: large;
+  line-height: 175%;
+  font-size: x-large;
   direction: rtl;
   text-align: right;
 }
 
 .english {
-  line-height: 130%;
+  line-height: 150%;
+  font-size: large;
 }
 
 .spacing {
@@ -34,10 +35,11 @@
 
 .example-container {
   width: 400px;
-  max-width: 100%;
-  margin: 0 10px 10px 0;
+  max-width: 90%;
+  margin: 0 7px 7px 0;
   display: inline-block;
-  vertical-align: top;
+  vertical-align: left;
+  font-size: x-large;
 }
 
 .example-list {
@@ -60,7 +62,7 @@
   box-sizing: border-box;
   cursor: move;
   background: white;
-  font-size: 15px;
+  font-size: normal;
 }
 
 .cdk-drag-preview {
@@ -84,4 +86,8 @@
 
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.carret {
+  caret-color: #69f0ae;
 }

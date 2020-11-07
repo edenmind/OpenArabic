@@ -9,6 +9,7 @@ import { CategoryService } from '../services/category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { StatusService } from '../services/status.service';
 import { AuthService } from '@auth0/auth0-angular';
+
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -34,6 +35,8 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   model = new Text();
   id: string;
+
+  sentencesAreEqual: boolean;
 
   authors = this.authorService.GetAuthors();
   statuses = this.statusService.GetStatuses();
@@ -81,8 +84,9 @@ export class TextEditComponent implements OnInit, OnChanges {
     var arabicSentences = this.splitSentences(this.model.arabicParagraph);
 
     if (englishSentences.length != arabicSentences.length) {
-      console.log('Number of sentences does not match!');
+      this.sentencesAreEqual = false;
     } else {
+      this.sentencesAreEqual = true;
       // Combine eng and ar sentences into one array
       this.model.sentences = this.combineSentences(
         englishSentences,
@@ -177,13 +181,37 @@ export class TextEditComponent implements OnInit, OnChanges {
   }
 
   splitSentences(paragraph: string): string[] {
-    var sentences = paragraph.split('*');
+    var sentences = paragraph.split('\n');
     return sentences;
   }
 
   splitWords(paragraph: string): string[] {
     var words = paragraph.split(' ');
+    words = this.cleanWords(words);
     return words;
+  }
+
+  cleanWords(words: string[]): string[] {
+    for (let index = 0; index < words.length; index++) {
+      words[index] = words[index].replace(',', '');
+      words[index] = words[index].replace('.', '');
+      words[index] = words[index].replace('"', '');
+      words[index] = words[index].replace('،', '');
+      words[index] = words[index].replace(' ', '');
+      words[index] = words[index].replace(':', '');
+      words[index] = words[index].replace(';', '');
+      words[index] = words[index].replace('*', '');
+    }
+
+    var emptyRemoved = words.filter(function (word) {
+      return word != '';
+    });
+
+    var nullRemoved = emptyRemoved.filter(function (word) {
+      return word != null;
+    });
+
+    return nullRemoved;
   }
 
   newText() {
