@@ -5,7 +5,7 @@
   <div class="center" *ngIf="!showSpinner">
     <h1 class="title"> {{ text.title }} </h1>
     <p>
-      <a routerLink="/author/{{ text.author }}" class="simple-link">
+      <a routerLink="/author/{{ text.author }}" class="simple-link" matRipple>
         <h4 class="author-by">&mdash; {{ text.author }} &mdash;</h4>
       </a>
       <a routerLink="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
