@@ -31,3 +31,14 @@
 .spanner {
   margin: 55px auto;
 }
+
+.text {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.bigger-arabic {
+  font-size: x-large;
+  line-height: 55px;
+}
