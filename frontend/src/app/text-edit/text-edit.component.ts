@@ -203,15 +203,15 @@ export class TextEditComponent implements OnInit, OnChanges {
       words[index] = words[index].replace('*', '');
     }
 
-    // var emptyRemoved = words.filter(function (word) {
-    //   return word != '';
-    // });
+    var emptyRemoved = words.filter(function (word) {
+      return word != '';
+    });
 
-    // var nullRemoved = emptyRemoved.filter(function (word) {
-    //   return word != null;
-    // });
+    var nullRemoved = emptyRemoved.filter(function (word) {
+      return word != null;
+    });
 
-    return words;
+    return nullRemoved;
   }
 
   newText() {
