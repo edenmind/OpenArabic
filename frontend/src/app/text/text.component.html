@@ -16,8 +16,10 @@
 
   <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
     <mat-tab label="Bilingual">
-      <div *ngFor="let sentence of text.sentences" class="tab-space">
-        <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
+      <div class="tab-space">
+        <div *ngFor="let sentence of text.sentences">
+          <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
+        </div>
       </div>
     </mat-tab>
     <mat-tab label="Arabic">
