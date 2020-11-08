@@ -15,6 +15,11 @@
   margin: 25px;
 }
 
+.grid-container-text {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 .white-link {
   color: #ffff;
   text-decoration: none;
