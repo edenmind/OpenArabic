@@ -23,9 +23,16 @@
       </div>
     </mat-tab>
     <mat-tab label="Arabic">
-      <div class="tab-space">
-        <div *ngFor="let sentence of text.sentences" class="arabic max-width">
+      <div class="tab-space center">
+        <div *ngFor="let sentence of text.sentences" class="max-width">
           <app-text-row [sentence]="sentence" [language]="'arabic'"></app-text-row>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Engish">
+      <div class="tab-space center">
+        <div *ngFor="let sentence of text.sentences" class="max-width">
+          <app-text-row [sentence]="sentence" [language]="'english'"></app-text-row>
         </div>
       </div>
     </mat-tab>
@@ -34,13 +41,6 @@
       <div class="tab-space center">
         <div *ngFor="let sentence of text.wordByWord" class="word-by-word">
           {{ sentence.arabic }} - {{ sentence.english }}
-        </div>
-      </div>
-    </mat-tab>
-    <mat-tab label="Engish">
-      <div class="tab-space center">
-        <div *ngFor="let sentence of text.sentences" class="english max-width">
-          <app-text-row [sentence]="sentence" [language]="'english'"></app-text-row>
         </div>
       </div>
     </mat-tab>

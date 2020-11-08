@@ -8,15 +8,6 @@
   display: grid;
 }
 
-.arabic {
-  justify-content: right;
-}
-
-.english {
-  display: grid;
-  justify-content: left;
-}
-
 .word-by-word {
   display: grid;
   justify-content: left;
@@ -30,6 +21,7 @@
 }
 
 .max-width {
-  padding-left: 33px;
-  padding-right: 33px;
+  margin-left: 25px;
+  margin-right: 25px;
+  max-width: 800px;
 }
