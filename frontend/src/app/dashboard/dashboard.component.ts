@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   showSpinner: boolean = true;
 
   pageNumber: number;
-  pageSize: number = 25;
+  pageSize: number = 35;
 
   author: string;
   category: string;

@@ -36,11 +36,11 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab label="Vocab">
+    <mat-tab label="Word-by-Word">
       <br />
       <div class="tab-space center">
         <div *ngFor="let sentence of text.wordByWord" class="word-by-word">
-          {{ sentence.arabic }} - {{ sentence.english }}
+          {{ sentence.wordList }}
         </div>
       </div>
     </mat-tab>

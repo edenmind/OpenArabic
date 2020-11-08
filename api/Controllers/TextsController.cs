@@ -129,7 +129,11 @@ namespace api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteText(long id)
         {
-            var text = await _context.Texts.FindAsync(id);
+            var text = await _context.Texts
+            .Include(w => w.WordByWord)
+            .Include(s => s.Sentences)
+            .FirstAsync(x => x.TextId == id);
+
             if (text == null)
             {
                 return NotFound();

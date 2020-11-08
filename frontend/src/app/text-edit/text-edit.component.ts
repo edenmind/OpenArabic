@@ -145,13 +145,19 @@ export class TextEditComponent implements OnInit, OnChanges {
     this.model.wordByWord = new Array();
 
     for (let index = 0; index < this.model.sentences.length; index++) {
-      for (let index2 = 0; index2 < this.arabicWords[index].length; index2++) {
-        var word: Words = new Words();
-        word.arabic = this.arabicWords[index][index2];
-        word.english = this.englishWordsMatched[index][index2].join(' ');
+      var words: Words = new Words();
 
-        this.model.wordByWord.push(word);
+      for (let index2 = 0; index2 < this.arabicWords[index].length; index2++) {
+        words.wordList = words.wordList + this.arabicWords[index][index2] + ' ';
+        words.wordList =
+          words.wordList +
+          this.englishWordsMatched[index][index2].join(' ') +
+          ' ';
       }
+
+      words.wordList = words.wordList.replace('undefined', '');
+
+      this.model.wordByWord.push(words);
     }
   }
 
