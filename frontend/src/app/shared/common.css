@@ -18,6 +18,8 @@
 .grid-container-text {
   margin-top: 25px;
   margin-bottom: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .white-link {
