@@ -28,3 +28,7 @@
   margin-top: 25px;
   margin-bottom: 25px;
 }
+
+.max-width {
+  max-width: 80%;
+}

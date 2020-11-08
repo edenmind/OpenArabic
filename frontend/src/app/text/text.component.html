@@ -24,7 +24,7 @@
     </mat-tab>
     <mat-tab label="Arabic">
       <div class="tab-space">
-        <div *ngFor="let sentence of text.sentences" class="arabic">
+        <div *ngFor="let sentence of text.sentences" class="arabic max-width">
           <app-text-row [sentence]="sentence" [language]="'arabic'"></app-text-row>
         </div>
       </div>
@@ -39,7 +39,7 @@
     </mat-tab>
     <mat-tab label="Engish">
       <div class="tab-space center">
-        <div *ngFor="let sentence of text.sentences" class="english">
+        <div *ngFor="let sentence of text.sentences" class="english max-width">
           <app-text-row [sentence]="sentence" [language]="'english'"></app-text-row>
         </div>
       </div>
