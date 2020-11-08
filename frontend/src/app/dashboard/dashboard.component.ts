@@ -69,6 +69,27 @@ export class DashboardComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
+  generateEnglishIngress(card: Text): string {
+    var englishIngress: string = '';
+    if (card.sentences) {
+      for (let index = 0; index < card.sentences.length; index++) {
+        englishIngress = englishIngress + card.sentences[index].english;
+      }
+    }
+    return englishIngress;
+  }
+
+  generateArabicIngress(card: Text): string {
+    var arabicIngress: string = '';
+    if (card.sentences) {
+      for (let index = 0; index < card.sentences.length; index++) {
+        arabicIngress = arabicIngress + card.sentences[index].arabic;
+      }
+    }
+
+    return arabicIngress;
+  }
+
   toggleBadgeVisibility() {
     this.badgeHidden = !this.badgeHidden;
   }
