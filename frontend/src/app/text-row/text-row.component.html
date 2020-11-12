@@ -1,4 +1,4 @@
-<div *ngIf="language == 'bilingual'">
+<div *ngIf="language == 'bilingual'" (click)="openDialog()">
     <div class="arabic">
         <p>{{ sentence.arabic }}</p>
     </div>

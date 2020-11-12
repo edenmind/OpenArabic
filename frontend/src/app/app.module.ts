@@ -22,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
@@ -40,6 +41,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TextVocabularyComponent } from './text-vocabulary/text-vocabulary.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AuthButtonComponent,
     AboutComponent,
     UserProfileComponent,
+    TextVocabularyComponent,
   ],
   imports: [
     BrowserModule,
@@ -120,6 +123,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatSnackBarModule,
     TextFieldModule,
     MatSelectModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },

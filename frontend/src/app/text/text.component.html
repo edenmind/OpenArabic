@@ -9,7 +9,8 @@
         &mdash; <span class="author-by">{{ text.author }}</span> &mdash;
       </a>
       <a routerLink="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
-        <span matRipple *ngIf="user.email == text.editor"> (edit)</span>
+        <!-- https://github.com/edenmind/OpenArabic/issues/75
+        <span matRipple *ngIf="user.email == text.editor"> (edit)</span> -->
       </a>
     </p>
   </div>
@@ -17,7 +18,7 @@
   <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
     <mat-tab label="Bilingual">
       <div class="tab-space margins">
-        <div *ngFor="let sentence of text.sentences" matRipple>
+        <div *ngFor="let sentence of text.sentences" matRipple class="row-padding-top">
           <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
         </div>
       </div>
