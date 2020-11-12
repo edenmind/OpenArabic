@@ -16,7 +16,7 @@
 
   <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
     <mat-tab label="Bilingual">
-      <div class="tab-space">
+      <div class="tab-space margins">
         <div *ngFor="let sentence of text.sentences" matRipple>
           <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
         </div>
