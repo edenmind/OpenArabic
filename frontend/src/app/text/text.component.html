@@ -6,7 +6,7 @@
     <h1 class="title"> {{ text.title }} </h1>
     <p>
       <a routerLink="/author/{{ text.author }}" class="simple-link" matRipple>
-        &mdash; <span class="author-by">{{ text.author }}</span> &mdash;
+        <span class="author-by">{{ text.author }}</span>
       </a>
       <a routerLink="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
         <!-- https://github.com/edenmind/OpenArabic/issues/75
@@ -18,8 +18,9 @@
   <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
     <mat-tab label="Bilingual">
       <div class="tab-space margins">
-        <div *ngFor="let sentence of text.sentences" matRipple class="row-padding-top">
-          <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
+        <div *ngFor="let sentence of text.sentences; let indexOfsentence = index" matRipple class="row-padding-top">
+          <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openDialog(indexOfsentence)">
+          </app-text-row>
         </div>
       </div>
     </mat-tab>
@@ -34,14 +35,6 @@
       <div class="tab-space center">
         <div *ngFor="let sentence of text.sentences" class="max-width">
           <app-text-row [sentence]="sentence" [language]="'english'"></app-text-row>
-        </div>
-      </div>
-    </mat-tab>
-    <mat-tab label="Word-by-Word">
-      <br />
-      <div class="tab-space center">
-        <div *ngFor="let sentence of text.wordByWord" class="word-by-word">
-          {{ sentence.wordList }}
         </div>
       </div>
     </mat-tab>

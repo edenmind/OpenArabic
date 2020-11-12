@@ -1,5 +1,9 @@
 <h1 mat-dialog-title>Vocabulary</h1>
-<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>
+<div mat-dialog-content>
+    <div *ngFor="let word of words">
+        <p>{{word.arabic}} - {{word.english}}</p>
+    </div>
+</div>
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close onclick="close()">Close</button>
 </div>

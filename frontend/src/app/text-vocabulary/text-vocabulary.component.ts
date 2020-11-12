@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Words } from '../models/words';
 
 @Component({
   selector: 'app-text-vocabulary',
@@ -7,7 +8,10 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./text-vocabulary.component.css'],
 })
 export class TextVocabularyComponent implements OnInit {
-  constructor(private dialogRef: MatDialogRef<TextVocabularyComponent>) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public words: Words,
+    private dialogRef: MatDialogRef<TextVocabularyComponent>
+  ) {}
 
   ngOnInit(): void {}
 

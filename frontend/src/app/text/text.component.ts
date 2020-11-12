@@ -6,6 +6,9 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '@auth0/auth0-angular';
 import { Title } from '@angular/platform-browser';
 import { ThemePalette } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
+import { Words } from '../models/words';
 
 @Component({
   selector: 'app-text',
@@ -23,8 +26,16 @@ export class TextComponent implements OnInit {
     private textService: TextService,
     private route: ActivatedRoute,
     public auth: AuthService,
-    private titleService: Title
+    private titleService: Title,
+    public dialog: MatDialog
   ) {}
+
+  openDialog(indexofSentence: number) {
+    var words = this.text.wordByWord;
+    this.dialog.open(TextVocabularyComponent, {
+      data: words,
+    });
+  }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
