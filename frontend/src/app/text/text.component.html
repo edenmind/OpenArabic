@@ -6,10 +6,10 @@
     <h1 class="title"> {{ text.title }} </h1>
     <p>
       <a routerLink="/author/{{ text.author }}" class="simple-link" matRipple>
-        <h4 class="author-by">&mdash; {{ text.author }} &mdash;</h4>
+        &mdash; <span class="author-by">{{ text.author }}</span> &mdash;
       </a>
       <a routerLink="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
-        <span class="author-by" matRipple *ngIf="user.email == text.editor"> (edit)</span>
+        <span matRipple *ngIf="user.email == text.editor"> (edit)</span>
       </a>
     </p>
   </div>

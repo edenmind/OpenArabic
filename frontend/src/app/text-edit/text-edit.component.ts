@@ -207,6 +207,7 @@ export class TextEditComponent implements OnInit, OnChanges {
       words[index] = words[index].replace(':', '');
       words[index] = words[index].replace(';', '');
       words[index] = words[index].replace('*', '');
+      words[index] = words[index].replace('Allah', 'Allāh');
     }
 
     var emptyRemoved = words.filter(function (word) {
