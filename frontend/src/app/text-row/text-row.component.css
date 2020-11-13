@@ -6,6 +6,8 @@
   width: 48%;
   float: left;
   vertical-align: middle;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .english {
@@ -16,6 +18,8 @@
   width: 48%;
   float: right;
   vertical-align: middle;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .arabic-single {

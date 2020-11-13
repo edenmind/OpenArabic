@@ -18,7 +18,7 @@
   <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
     <mat-tab label="Bilingual">
       <div class="tab-space margins">
-        <div *ngFor="let sentence of text.sentences; let indexOfsentence = index" matRipple class="row-padding-top">
+        <div *ngFor="let sentence of text.sentences; let indexOfsentence = index" matRipple>
           <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openDialog(indexOfsentence)">
           </app-text-row>
         </div>
