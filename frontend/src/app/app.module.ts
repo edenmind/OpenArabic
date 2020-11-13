@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
-import { TextComponent } from './text/text.component';
+import { TextViewComponent } from './text-view/text-view.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TextEditComponent } from './text-edit/text-edit.component';
 import { FooterComponent } from './footer/footer.component';
@@ -46,7 +46,7 @@ import { TextVocabularyComponent } from './text-vocabulary/text-vocabulary.compo
 @NgModule({
   declarations: [
     AppComponent,
-    TextComponent,
+    TextViewComponent,
     PageNotFoundComponent,
     TextEditComponent,
     FooterComponent,
@@ -92,9 +92,9 @@ import { TextVocabularyComponent } from './text-vocabulary/text-vocabulary.compo
       [
         { path: 'about', component: AboutComponent },
         { path: 'text-edit/:id', component: TextEditComponent },
-        { path: 'text/:id', component: TextComponent },
+        { path: 'text/:id', component: TextViewComponent },
         { path: 'text-edit', component: TextEditComponent },
-        { path: 'texts', component: TextComponent },
+        { path: 'texts', component: TextViewComponent },
         { path: 'category/:category', component: HomepageComponent },
         { path: 'author/:author', component: HomepageComponent },
         { path: '', component: HomepageComponent },

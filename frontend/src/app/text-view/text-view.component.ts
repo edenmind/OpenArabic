@@ -11,10 +11,10 @@ import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.comp
 
 @Component({
   selector: 'app-text',
-  templateUrl: './text.component.html',
-  styleUrls: ['./text.component.css', '../shared/common.css'],
+  templateUrl: './text-view.component.html',
+  styleUrls: ['./text-view.component.css', '../shared/common.css'],
 })
-export class TextComponent implements OnInit {
+export class TextViewComponent implements OnInit {
   text: Text;
   id: string;
   subscription: Subscription;
