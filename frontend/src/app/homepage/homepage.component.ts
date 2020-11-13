@@ -6,11 +6,11 @@ import { Subscription } from 'rxjs';
 import { ThemePalette } from '@angular/material/core';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css', '../shared/common.css'],
+  selector: 'app-homepage',
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.css', '../shared/common.css'],
 })
-export class DashboardComponent implements OnInit {
+export class HomepageComponent implements OnInit {
   texts: Text[];
 
   cols: number = 1;

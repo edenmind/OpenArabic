@@ -7,29 +7,31 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
-import { DashboardComponent } from './dashboard.component';
+import { HomepageComponent } from './homepage.component';
 
 describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+  let component: HomepageComponent;
+  let fixture: ComponentFixture<HomepageComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
-      imports: [
-        NoopAnimationsModule,
-        LayoutModule,
-        MatButtonModule,
-        MatCardModule,
-        MatGridListModule,
-        MatIconModule,
-        MatMenuModule,
-      ]
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [HomepageComponent],
+        imports: [
+          NoopAnimationsModule,
+          LayoutModule,
+          MatButtonModule,
+          MatCardModule,
+          MatGridListModule,
+          MatIconModule,
+          MatMenuModule,
+        ],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(HomepageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

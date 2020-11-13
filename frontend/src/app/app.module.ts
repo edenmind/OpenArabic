@@ -19,7 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -51,7 +51,7 @@ import { TextVocabularyComponent } from './text-vocabulary/text-vocabulary.compo
     TextEditComponent,
     FooterComponent,
     NavigationComponent,
-    DashboardComponent,
+    HomepageComponent,
     TextRowComponent,
     AuthButtonComponent,
     AboutComponent,
@@ -88,17 +88,20 @@ import { TextVocabularyComponent } from './text-vocabulary/text-vocabulary.compo
         ],
       },
     }),
-    RouterModule.forRoot([
-    { path: 'about', component: AboutComponent },
-    { path: 'text-edit/:id', component: TextEditComponent },
-    { path: 'text/:id', component: TextComponent },
-    { path: 'text-edit', component: TextEditComponent },
-    { path: 'texts', component: TextComponent },
-    { path: 'category/:category', component: DashboardComponent },
-    { path: 'author/:author', component: DashboardComponent },
-    { path: '', component: DashboardComponent },
-    { path: '**', component: PageNotFoundComponent },
-], { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(
+      [
+        { path: 'about', component: AboutComponent },
+        { path: 'text-edit/:id', component: TextEditComponent },
+        { path: 'text/:id', component: TextComponent },
+        { path: 'text-edit', component: TextEditComponent },
+        { path: 'texts', component: TextComponent },
+        { path: 'category/:category', component: HomepageComponent },
+        { path: 'author/:author', component: HomepageComponent },
+        { path: '', component: HomepageComponent },
+        { path: '**', component: PageNotFoundComponent },
+      ],
+      { relativeLinkResolution: 'legacy' }
+    ),
     HttpClientModule,
     DragDropModule,
     AppRoutingModule,
