@@ -166,6 +166,8 @@ export class TextEditComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
+    this.createWordList();
+
     if (!this.text.textId) {
       this.authService.user$.subscribe((u) => (this.text.editor = u.email));
       this.textService.addText(this.text).subscribe((text) => {
