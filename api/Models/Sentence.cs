@@ -1,6 +1,4 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using api.Helpers;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace api.Models
@@ -13,5 +11,6 @@ namespace api.Models
         [JsonIgnore]
         public Text Text { get; set; }
         public long TextId { get; set; }
+        public List<Word> Words { get; set; }
     }
 }

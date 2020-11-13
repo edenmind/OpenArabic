@@ -1,5 +1,6 @@
 import { Sentence } from './sentence';
-import { Words } from './words';
+import { Word } from './word';
+
 export class Text {
   textId: number;
   title: string;
@@ -7,11 +8,10 @@ export class Text {
   editor: string;
   category: string;
   source: string;
-  sentences: Sentence[];
   createdAt: Date;
   timeAgo: string;
   status: string;
-  englishParagraph: string;
-  arabicParagraph: string;
-  wordByWord: Words[];
+  englishText: string;
+  arabicText: string;
+  sentences: Sentence[];
 }

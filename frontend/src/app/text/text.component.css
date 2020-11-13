@@ -3,6 +3,11 @@
   text-decoration: none;
 }
 
+.source {
+  color: dimgrey;
+  text-decoration: none;
+}
+
 .tab-space {
   padding-top: 25px;
   display: grid;

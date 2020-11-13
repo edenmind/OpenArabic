@@ -8,7 +8,6 @@ import { Title } from '@angular/platform-browser';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
-import { Words } from '../models/words';
 
 @Component({
   selector: 'app-text',
@@ -31,7 +30,8 @@ export class TextComponent implements OnInit {
   ) {}
 
   openDialog(indexofSentence: number) {
-    var words = this.text.wordByWord;
+    var words = this.text.sentences.find((i) => i.sentenceId == indexofSentence)
+      .words;
     this.dialog.open(TextVocabularyComponent, {
       data: words,
     });

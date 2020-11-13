@@ -1,6 +1,6 @@
 <div class="grid-container">
-    <h1 class="title" *ngIf="!model.textId">Add Text</h1>
-    <h1 class="title" *ngIf="model.textId">Edit Text</h1>
+    <h1 class="title" *ngIf="!text.textId">Add Text</h1>
+    <h1 class="title" *ngIf="text.textId">Edit Text</h1>
 
     <mat-tab-group mat-align-tabs="start">
         <!-- METADATA -->
@@ -8,11 +8,11 @@
             <mat-tab label="Information">
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Title</mat-label>
-                    <input matInput [(ngModel)]="model.title" name="title" type="text" />
+                    <input matInput [(ngModel)]="text.title" name="title" type="text" />
                 </mat-form-field>
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Author</mat-label>
-                    <mat-select [(ngModel)]="model.author" name="author">
+                    <mat-select [(ngModel)]="text.author" name="author">
                         <div *ngFor="let author of authors">
                             <mat-option [value]="author"> {{ author }}</mat-option>
                         </div>
@@ -21,7 +21,7 @@
 
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Category</mat-label>
-                    <mat-select [(ngModel)]="model.category" name="category">
+                    <mat-select [(ngModel)]="text.category" name="category">
                         <div *ngFor="let category of categories">
                             <mat-option [value]="category"> {{ category }}</mat-option>
                         </div>
@@ -30,7 +30,7 @@
 
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Status</mat-label>
-                    <mat-select [(ngModel)]="model.status" name="status">
+                    <mat-select [(ngModel)]="text.status" name="status">
                         <div *ngFor="let status of statuses">
                             <mat-option [value]="status"> {{ status }}</mat-option>
                         </div>
@@ -39,51 +39,50 @@
 
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Source</mat-label>
-                    <input matInput [(ngModel)]="model.source" name="title" type="text" />
+                    <input matInput [(ngModel)]="text.source" name="title" type="text" />
                 </mat-form-field>
             </mat-tab>
         </form>
 
-        <!-- PARAGRAPHS -->
-        <mat-tab label="Paragraphs">
+        <!-- Text -->
+        <mat-tab label="Text">
             <div>
                 <div class="col-6" style="float: left">
                     <mat-form-field appearance="fill" class="full-width spacing">
                         <mat-label>Arabic</mat-label>
                         <textarea matInput Rows="35" class="arabic carret" name="arabicParagraph"
-                            [(ngModel)]="model.arabicParagraph" (ngModelChange)="updatePreview()"></textarea>
+                            [(ngModel)]="text.arabicText" (ngModelChange)="updatePreview()"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="col-6" style="float: right">
                     <mat-form-field appearance="fill" class="full-width spacing">
                         <mat-label>English</mat-label>
                         <textarea matInput Rows="35" class="english carret" name="englishParagraph"
-                            [(ngModel)]="model.englishParagraph" (ngModelChange)="updatePreview()"></textarea>
+                            [(ngModel)]="text.englishText" (ngModelChange)="updatePreview()"></textarea>
                     </mat-form-field>
                 </div>
             </div>
         </mat-tab>
 
-        <mat-tab label="Paragraph Preview">
-            <mat-chip color="accent" *ngIf="sentencesAreEqual">Sentences are equal.</mat-chip>
-
-            <div *ngFor="let sentence of model.sentences" style="display: grid">
+        <mat-tab label="Text Preview">
+            <mat-chip color="accent" *ngIf="sentencesAreEqual">The number of sentences are equal.</mat-chip>
+            <div *ngFor="let sentence of text.sentences" style="display: grid">
                 <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
             </div>
         </mat-tab>
 
         <mat-tab label="Words">
             <br />
-
-            <div cdkDropListGroup *ngFor="let sentence of model.sentences; let indexOfsentence = index"
+            <div cdkDropListGroup *ngFor="let sentence of text.sentences; let indexOfsentence = index"
                 style="display:table;">
                 <div style="width: 33%; float: left; padding-bottom: 150px;">
                     <div class="example-container">
                         <h5>English Sentence: {{ indexOfsentence }}</h5>
 
-                        <div cdkDropList [cdkDropListData]="englishWords[indexOfsentence]" class="example-list"
-                            (cdkDropListDropped)="drop($event)">
-                            <div class="example-box" *ngFor="let word of englishWords[indexOfsentence]" cdkDrag>
+                        <div cdkDropList [cdkDropListData]="englishWordsForMatching[indexOfsentence]"
+                            class="example-list" (cdkDropListDropped)="drop($event)">
+                            <div class="example-box" *ngFor="let word of englishWordsForMatching[indexOfsentence]"
+                                cdkDrag>
                                 {{ word }}
                             </div>
                         </div>
@@ -92,7 +91,7 @@
 
                 <div style="width: 33%; float: left; padding-bottom: 150px;">
                     <h5>Arabic Sentence: {{ indexOfsentence }}</h5>
-                    <div *ngFor="let item of arabicWords[indexOfsentence];let indexOfelement = index">
+                    <div *ngFor="let item of arabicWordsForMatching[indexOfsentence];let indexOfelement = index">
                         <div class="example-container">
                             {{ item }}
 
@@ -118,8 +117,10 @@
 
         <mat-tab label="Words Preview">
             <br />
-            <div *ngFor="let word of model.wordByWord;">
-                {{word.arabic}} {{word.english}}
+            <div *ngFor="let words of text.sentences;">
+                <div *ngFor="let word of words">
+                    {{word.arabic}} {{word.english}}
+                </div>
                 <mat-divider></mat-divider>
             </div>
         </mat-tab>
@@ -129,7 +130,11 @@
         Submit
     </button>
 
-    <button class="button-margin" matRipple mat-raised-button color="warn" *ngIf="model.textId" (click)="deleteText()">
+    <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="createWordList()">
+        WordsList
+    </button>
+
+    <button class="button-margin" matRipple mat-raised-button color="warn" *ngIf="text.textId" (click)="deleteText()">
         Delete
     </button>
 </div>

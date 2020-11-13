@@ -36,6 +36,7 @@ namespace api.Controllers
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Include(s => s.Sentences)
+                    .ThenInclude(w => w.Words)
                 .Where(t => t.Category.Contains(category))
                 .Where(t => t.Status.Equals("Published"))
                 .OrderByDescending(t => t.CreatedAt)
@@ -48,6 +49,7 @@ namespace api.Controllers
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Include(s => s.Sentences)
+                    .ThenInclude(w => w.Words)
                 .Where(t => t.Author.Contains(author))
                 .OrderByDescending(t => t.CreatedAt)
                 .ToListAsync();
@@ -57,6 +59,7 @@ namespace api.Controllers
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .Include(s => s.Sentences)
+                .ThenInclude(w => w.Words)
             .OrderByDescending(t => t.CreatedAt)
             .ToListAsync();
         }
@@ -68,7 +71,7 @@ namespace api.Controllers
         {
             var text = await _context.Texts
             .Include(s => s.Sentences)
-            .Include(w => w.WordByWord)
+                .ThenInclude(w => w.Words)
             .Where(t => t.TextId == id)
             .FirstAsync();
 
@@ -130,7 +133,6 @@ namespace api.Controllers
         public async Task<IActionResult> DeleteText(long id)
         {
             var text = await _context.Texts
-            .Include(w => w.WordByWord)
             .Include(s => s.Sentences)
             .FirstAsync(x => x.TextId == id);
 

@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using api.Helpers;
 
 namespace api.Models
 {
@@ -14,13 +12,10 @@ namespace api.Models
         public string Source { get; set; }
         public string Category { get; set; }
         public string Status { get; set; }
-        public string EnglishParagraph { get; set; }
-        public string ArabicParagraph { get; set; }
+        public string ArabicText { get; set; }
+        public string EnglishText { get; set; }
         public DateTime CreatedAt { get; set; }
-        public List<Sentence> Sentences { get; set; }
-        public List<Words> WordByWord { get; set; }
         public string TimeAgo => Helpers.TimeAgo.GetTimeAgo(CreatedAt);
-
+        public List<Sentence> Sentences { get; set; }
     }
-
 }

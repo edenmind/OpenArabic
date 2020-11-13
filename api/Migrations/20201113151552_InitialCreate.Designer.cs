@@ -10,8 +10,8 @@ using api.Models;
 namespace api.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20201101202514_wordbyword")]
-    partial class wordbyword
+    [Migration("20201113151552_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace api.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0-rc.2.20475.6");
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("api.Models.Sentence", b =>
                 {
@@ -51,7 +51,7 @@ namespace api.Migrations
                         .HasColumnType("bigint")
                         .UseIdentityColumn();
 
-                    b.Property<string>("ArabicParagraph")
+                    b.Property<string>("ArabicText")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Author")
@@ -66,7 +66,7 @@ namespace api.Migrations
                     b.Property<string>("Editor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EnglishParagraph")
+                    b.Property<string>("EnglishText")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Source")
@@ -83,22 +83,25 @@ namespace api.Migrations
                     b.ToTable("Texts");
                 });
 
-            modelBuilder.Entity("api.Models.Words", b =>
+            modelBuilder.Entity("api.Models.Word", b =>
                 {
-                    b.Property<long>("WordsId")
+                    b.Property<long>("WordId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .UseIdentityColumn();
 
-                    b.Property<long?>("TextId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("WordList")
+                    b.Property<string>("Arabic")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("WordsId");
+                    b.Property<string>("English")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("TextId");
+                    b.Property<long>("SentenceId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("WordId");
+
+                    b.HasIndex("SentenceId");
 
                     b.ToTable("Words");
                 });
@@ -114,18 +117,25 @@ namespace api.Migrations
                     b.Navigation("Text");
                 });
 
-            modelBuilder.Entity("api.Models.Words", b =>
+            modelBuilder.Entity("api.Models.Word", b =>
                 {
-                    b.HasOne("api.Models.Text", null)
-                        .WithMany("WordByWord")
-                        .HasForeignKey("TextId");
+                    b.HasOne("api.Models.Sentence", "Sentence")
+                        .WithMany("Words")
+                        .HasForeignKey("SentenceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sentence");
+                });
+
+            modelBuilder.Entity("api.Models.Sentence", b =>
+                {
+                    b.Navigation("Words");
                 });
 
             modelBuilder.Entity("api.Models.Text", b =>
                 {
                     b.Navigation("Sentences");
-
-                    b.Navigation("WordByWord");
                 });
 #pragma warning restore 612, 618
         }

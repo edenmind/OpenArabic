@@ -1,7 +1,10 @@
 <div class="grid-container-text">
+
   <div *ngIf="showSpinner">
     <mat-spinner [color]="spinnerColor" class="spanner"> </mat-spinner>
   </div>
+
+  <!-- Text information -->
   <div class="center" *ngIf="!showSpinner">
     <h1 class="title"> {{ text.title }} </h1>
     <p>
@@ -16,14 +19,18 @@
   </div>
 
   <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
+
+    <!-- Bilingual -->
     <mat-tab label="Bilingual">
       <div class="tab-space margins">
-        <div *ngFor="let sentence of text.sentences; let indexOfsentence = index" matRipple>
-          <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openDialog(indexOfsentence)">
+        <div *ngFor="let sentence of text.sentences" matRipple>
+          <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openDialog(sentence.sentenceId)">
           </app-text-row>
         </div>
       </div>
     </mat-tab>
+
+    <!-- Arabic -->
     <mat-tab label="Arabic">
       <div class="tab-space center">
         <div *ngFor="let sentence of text.sentences" class="max-width">
@@ -31,6 +38,8 @@
         </div>
       </div>
     </mat-tab>
+
+    <!-- English -->
     <mat-tab label="Engish">
       <div class="tab-space center">
         <div *ngFor="let sentence of text.sentences" class="max-width">
@@ -39,7 +48,7 @@
       </div>
     </mat-tab>
 
-    <p class="center author-by">{{ text.source }}</p>
+    <p class="center source">{{ text.source }}</p>
   </mat-tab-group>
 
   <!-- SHARE -->
