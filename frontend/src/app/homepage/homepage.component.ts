@@ -4,6 +4,7 @@ import { Text } from '../models/text';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ThemePalette } from '@angular/material/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-homepage',
@@ -32,10 +33,14 @@ export class HomepageComponent implements OnInit {
   constructor(
     private textService: TextService,
     private route: Router,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle(
+      'Open Arabic — a biliginual blog for orthodox islamic topics'
+    );
     this.category = this.activeRoute.snapshot.paramMap.get('category');
     this.author = this.activeRoute.snapshot.paramMap.get('author');
 
