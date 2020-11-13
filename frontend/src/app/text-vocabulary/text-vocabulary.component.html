@@ -1,7 +1,8 @@
 <h1 mat-dialog-title>Vocabulary</h1>
 <div mat-dialog-content>
     <div *ngFor="let word of words">
-        <p>{{word.arabic}} - {{word.english}}</p>
+        <p> <span class="arabic">{{word.arabic}}</span> &nbsp; → &nbsp; <span class="english">{{word.english}}</span>
+        </p>
     </div>
 </div>
 <div mat-dialog-actions>
