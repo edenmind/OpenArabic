@@ -25,3 +25,12 @@
   padding-top: 30px;
   margin-bottom: 25px;
 }
+
+.arabic {
+  direction: rtl;
+  font-size: larger;
+}
+
+.english {
+  direction: ltr;
+}

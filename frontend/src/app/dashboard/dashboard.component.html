@@ -22,10 +22,10 @@
 
                 <mat-card-content class="dashboard-card-content">
                     <div>
-                        <p dir="ltr" *ngIf="card.sentences?.length">
+                        <p *ngIf="card.sentences?.length" class="english">
                             {{generateEnglishIngress(card) | slice: 0:180}}...
                         </p>
-                        <p dir="rtl" *ngIf="card.sentences?.length">
+                        <p *ngIf="card.sentences?.length" class="arabic">
                             {{generateArabicIngress(card) | slice: 0:200}}...
                         </p>
                         <p class="time-ago">{{ card.timeAgo }}</p>
