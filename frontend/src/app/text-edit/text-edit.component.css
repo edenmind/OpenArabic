@@ -33,7 +33,7 @@
 
 /* drag and drop */
 
-.example-container {
+.edit-container {
   width: 400px;
   max-width: 90%;
   margin: 0 7px 7px 0;
@@ -42,7 +42,7 @@
   font-size: x-large;
 }
 
-.example-list {
+.edit-list {
   border: solid 1px #ccc;
   min-height: 25px;
   background: white;
@@ -51,7 +51,7 @@
   display: block;
 }
 
-.example-box {
+.edit-box {
   padding: 5px 5px;
   border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
@@ -80,11 +80,11 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.example-box:last-child {
+.edit-box:last-child {
   border: none;
 }
 
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+.edit-list.cdk-drop-list-dragging .edit-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TextService } from '../services/text.service';
-import { Text } from '../models/text';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { ThemePalette } from '@angular/material/core';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Text } from '../models/text';
+import { TextService } from '../services/text.service';
 
 @Component({
   selector: 'app-homepage',

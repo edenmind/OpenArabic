@@ -1,10 +1,10 @@
+import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpBackend } from '@angular/common/http';
-import { Text } from '../models/text';
+import { AuthService } from '@auth0/auth0-angular';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { AuthService } from '@auth0/auth0-angular';
 import { environment } from '../../environments/environment';
+import { Text } from '../models/text';
 
 @Injectable({
   providedIn: 'root',

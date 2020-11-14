@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { TextService } from '../services/text.service';
-import { Text } from '../models/text';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { AuthService } from '@auth0/auth0-angular';
-import { Title } from '@angular/platform-browser';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
+import { Subscription } from 'rxjs';
+import { Text } from '../models/text';
+import { TextService } from '../services/text.service';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
 
 @Component({

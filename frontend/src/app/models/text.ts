@@ -1,5 +1,4 @@
 import { Sentence } from './sentence';
-import { Word } from './word';
 
 export class Text {
   textId: number;
