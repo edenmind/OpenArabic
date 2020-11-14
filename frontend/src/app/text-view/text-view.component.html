@@ -32,8 +32,9 @@
     <!-- Arabic -->
     <mat-tab label="Arabic">
       <div class="tab-space center">
-        <div *ngFor="let sentence of text.sentences" class="max-width">
-          <app-text-row [sentence]="sentence" [language]="'arabic'"></app-text-row>
+        <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
+          <app-text-row [sentence]="sentence" [language]="'arabic'" (click)="openDialog(sentence.sentenceId)">
+          </app-text-row>
         </div>
       </div>
     </mat-tab>
@@ -41,8 +42,9 @@
     <!-- English -->
     <mat-tab label="Engish">
       <div class="tab-space center">
-        <div *ngFor="let sentence of text.sentences" class="max-width">
-          <app-text-row [sentence]="sentence" [language]="'english'"></app-text-row>
+        <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
+          <app-text-row [sentence]="sentence" [language]="'english'" (click)="openDialog(sentence.sentenceId)">
+          </app-text-row>
         </div>
       </div>
     </mat-tab>
@@ -59,7 +61,8 @@
       color="accent" class="simple-link">Share on Facebook</a>
   </div>
   <div class="center">
-    <a mat-button href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{id}}&text=&via="
+    <a mat-button
+      href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{id}}&text=Read {{text.title}} by {{text.author}} in arabic and english&hashtag=openarabic,arabic,sunnah,salaf"
       target="_blank" color="accent" class="simple-link">Share on Twitter</a>
   </div>
 </div>
