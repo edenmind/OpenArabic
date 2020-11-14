@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using api.Models;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,44 +26,41 @@ namespace api.Controllers
         // GET: api/Texts
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Text>>> GetTexts([FromQuery(Name = "category")] string category,
-                                                                    [FromQuery(Name = "author")] string author,
-                                                                    [FromQuery(Name = "pageSize")] int pageSize = 10,
-                                                                    [FromQuery(Name = "pageNumber")] int pageNumber = 1)
+        public async Task<ActionResult<IEnumerable<Text>>> GetTexts([FromQuery(Name = "category")] string category, [FromQuery(Name = "author")] string author, [FromQuery(Name = "pageSize")] int pageSize = 10, [FromQuery(Name = "pageNumber")] int pageNumber = 1)
         {
 
             if (!String.IsNullOrEmpty(category))
             {
                 return await _context.Texts
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Include(s => s.Sentences)
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .Include(s => s.Sentences)
                     .ThenInclude(w => w.Words)
-                .Where(t => t.Category.Contains(category))
-                .Where(t => t.Status.Equals("Published"))
-                .OrderByDescending(t => t.CreatedAt)
-                .ToListAsync();
+                    .Where(t => t.Category.Contains(category))
+                    .Where(t => t.Status.Equals("Published"))
+                    .OrderByDescending(t => t.CreatedAt)
+                    .ToListAsync();
             }
 
             if (!String.IsNullOrEmpty(author))
             {
                 return await _context.Texts
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Include(s => s.Sentences)
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .Include(s => s.Sentences)
                     .ThenInclude(w => w.Words)
-                .Where(t => t.Author.Contains(author))
-                .OrderByDescending(t => t.CreatedAt)
-                .ToListAsync();
+                    .Where(t => t.Author.Contains(author))
+                    .OrderByDescending(t => t.CreatedAt)
+                    .ToListAsync();
             }
 
             return await _context.Texts
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
-            .Include(s => s.Sentences)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Include(s => s.Sentences)
                 .ThenInclude(w => w.Words)
-            .OrderByDescending(t => t.CreatedAt)
-            .ToListAsync();
+                .OrderByDescending(t => t.CreatedAt)
+                .ToListAsync();
         }
 
         // GET: api/Texts/5
@@ -70,10 +69,31 @@ namespace api.Controllers
         public async Task<ActionResult<Text>> GetText(long id)
         {
             var text = await _context.Texts
-            .Include(s => s.Sentences)
+                .Include(s => s.Sentences)
                 .ThenInclude(w => w.Words)
-            .Where(t => t.TextId == id)
-            .FirstAsync();
+                .Where(t => t.TextId == id)
+                .FirstAsync();
+
+            var category = text.Category;
+
+            var relatedTexts = await _context.Texts
+                .Where(c => c.Category == category)
+                .Take(5)
+                .ToListAsync();
+
+            var relatedTextsToAdd = new List<Related>();
+
+            foreach (var relatedText in relatedTexts)
+            {
+                var relatedTextFromList = new Related
+                {
+                    TextId = relatedText.TextId,
+                    Title = relatedText.Title
+                };
+                relatedTextsToAdd.Add(relatedTextFromList);
+            }
+
+            text.RelatedTexts = relatedTextsToAdd;
 
             if (text == null)
             {
@@ -133,8 +153,8 @@ namespace api.Controllers
         public async Task<IActionResult> DeleteText(long id)
         {
             var text = await _context.Texts
-            .Include(s => s.Sentences)
-            .FirstAsync(x => x.TextId == id);
+                .Include(s => s.Sentences)
+                .FirstAsync(x => x.TextId == id);
 
             if (text == null)
             {

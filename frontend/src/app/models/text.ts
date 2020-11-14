@@ -1,3 +1,4 @@
+import { Related } from './related';
 import { Sentence } from './sentence';
 
 export class Text {
@@ -13,4 +14,5 @@ export class Text {
   englishText: string;
   arabicText: string;
   sentences: Sentence[];
+  relatedTexts: Related[];
 }

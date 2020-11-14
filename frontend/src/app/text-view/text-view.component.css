@@ -4,8 +4,9 @@
 }
 
 .source {
-  color: dimgrey;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
+  font-style: italic;
 }
 
 .tab-space {
@@ -34,4 +35,8 @@
 .margins {
   margin-right: 10px;
   margin-left: 10px;
+}
+
+.related-margin {
+  margin-top: 55px;
 }
