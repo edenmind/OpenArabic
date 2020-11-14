@@ -90,9 +90,9 @@
 
                 <div style="width: 33%; float: left; padding-bottom: 150px;">
                     <h5>Arabic Sentence: {{ indexOfsentence }}</h5>
-                    <div *ngFor="let item of arabicWordsForMatching[indexOfsentence];let indexOfelement = index">
-                        <div class="edit-container">
-                            {{ item }}
+                    <div *ngFor="let arabicWord of arabicWordsForMatching[indexOfsentence];let indexOfelement = index">
+                        <div class="edit-container" (click)="openTranslation(arabicWord)">
+                            <span class="clickableWord">{{ arabicWord }}</span>
 
                             <div cdkDropList [cdkDropListData]="englishWordsMatched[indexOfsentence][indexOfelement]"
                                 class="edit-list" (cdkDropListDropped)="drop($event)">

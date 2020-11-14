@@ -91,3 +91,8 @@
 .carret {
   caret-color: #69f0ae;
 }
+
+.clickableWord {
+  color: #ce93d8;
+  cursor: pointer;
+}

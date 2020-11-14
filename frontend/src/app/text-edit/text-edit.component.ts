@@ -72,6 +72,13 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
   }
 
+  public openTranslation(arabicWord: string) {
+    var url =
+      'https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=' +
+      arabicWord;
+    window.open(url, '_blank');
+  }
+
   updatePreview() {
     // Get english and arabic sentences from view
     this.arabicWordsForMatching = [];
