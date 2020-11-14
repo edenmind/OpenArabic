@@ -18,6 +18,12 @@
       <span> <a routerLink="/" class="title" matRipple>Open Arabic</a> </span>
       <span class="spacer"></span>
 
+      <button mat-icon-button>
+        <a routerLink="/contact" class="title">
+          <mat-icon class="icon">contact_support</mat-icon>
+        </a>
+      </button>
+
       <button mat-icon-button *ngIf="auth.user$ | async as user">
         <a routerLink="/text-edit" class="title">
           <mat-icon class="icon">note_add</mat-icon>

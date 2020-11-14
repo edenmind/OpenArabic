@@ -40,6 +40,7 @@ import { TextRowComponent } from './text-row/text-row.component';
 import { TextViewComponent } from './text-view/text-view.component';
 import { TextVocabularyComponent } from './text-vocabulary/text-vocabulary.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AboutComponent,
     UserProfileComponent,
     TextVocabularyComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +91,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     RouterModule.forRoot(
       [
         { path: 'about', component: AboutComponent },
+        { path: 'contact', component: ContactComponent },
         { path: 'text-edit/:id', component: TextEditComponent },
         { path: 'text/:id', component: TextViewComponent },
         { path: 'text-edit', component: TextEditComponent },
