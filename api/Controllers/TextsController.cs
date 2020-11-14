@@ -78,6 +78,7 @@ namespace api.Controllers
 
             var relatedTexts = await _context.Texts
                 .Where(c => c.Category == category)
+                .Where(i => i.TextId != id)
                 .Take(5)
                 .ToListAsync();
 

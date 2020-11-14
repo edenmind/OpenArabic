@@ -38,6 +38,11 @@ spec:
                 secretKeyRef:
                   name: api-credentials
                   key: ASPNETCORE_CONNECTION_STRING
+            - name: ASPNETCORE_SENDGRID_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-credentials
+                  key: ASPNETCORE_SENDGRID_KEY
           imagePullPolicy: Always
           ports:
             - containerPort: 80
