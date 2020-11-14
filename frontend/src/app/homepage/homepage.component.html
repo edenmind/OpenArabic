@@ -10,6 +10,8 @@
             <br><br></h3>
     </mat-card>
 
+    <mat-card *ngIf="!isStartPage()">{{getCurrentPage()}}</mat-card>
+
     <mat-grid-list [cols]="breakPoint" rowHeight="350px" (window:resize)="onResize($event)">
         <mat-grid-tile *ngFor="let card of texts" [colspan]="1" [rowspan]="1">
             <mat-card matRipple class="dashboard-card" (click)="openCard(card.textId)">

@@ -143,6 +143,17 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
   }
 
+  public isValid(): boolean {
+    return (
+      this.text.author != null &&
+      this.text.title != null &&
+      this.text.category != null &&
+      this.text.source != null &&
+      this.text.sentences != null &&
+      this.englishWordsForMatching != null
+    );
+  }
+
   private combineSentences(
     englishSentences: string[],
     arabicSentences: string[]

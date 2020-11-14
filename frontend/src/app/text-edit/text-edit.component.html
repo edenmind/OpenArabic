@@ -126,7 +126,8 @@
         </mat-tab>
     </mat-tab-group>
 
-    <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="onSubmit()">
+    <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" [disabled]="!isValid()"
+        (click)="onSubmit()">
         Submit
     </button>
 

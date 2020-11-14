@@ -70,6 +70,20 @@ export class HomepageComponent implements OnInit {
     }
   }
 
+  getCurrentPage(): string {
+    var currentPage: string;
+    if (this.activeRoute.snapshot.paramMap.get('category')) {
+      currentPage =
+        'Category: ' + this.activeRoute.snapshot.paramMap.get('category');
+    }
+    if (this.activeRoute.snapshot.paramMap.get('author')) {
+      currentPage =
+        'Author: ' + this.activeRoute.snapshot.paramMap.get('author');
+    }
+
+    return currentPage;
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
