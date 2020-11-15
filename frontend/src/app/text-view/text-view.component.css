@@ -39,4 +39,9 @@
 
 .related-margin {
   margin-top: 55px;
+  margin-bottom: 0px;
+}
+
+.related-text-margin {
+  margin-bottom: 25px;
 }

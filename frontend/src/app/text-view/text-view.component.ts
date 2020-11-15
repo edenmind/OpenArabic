@@ -18,7 +18,7 @@ export class TextViewComponent implements OnInit {
   text: Text;
   id: string;
   subscription: Subscription;
-  showSpinner = true;
+  showTextSpinner: boolean = true;
   spinnerColor: ThemePalette = 'accent';
 
   constructor(
@@ -39,7 +39,6 @@ export class TextViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log('id: ' + this.id);
     if (this.id) {
       this.subscription = this.textService
         .getText(this.id)
@@ -47,10 +46,20 @@ export class TextViewComponent implements OnInit {
           (text) => (
             (this.text = text),
             this.titleService.setTitle(text.title + ' | ' + text.author),
-            (this.showSpinner = false)
+            this.setSpinneToFalse()
           )
         );
     }
+  }
+
+  //TODO: This should not be necessary maybe look if text is null?
+  async setSpinneToFalse() {
+    await this.delay(300);
+    this.showTextSpinner = false;
+  }
+
+  delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   ngOnDestroy() {

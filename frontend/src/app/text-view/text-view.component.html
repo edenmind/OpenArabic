@@ -1,11 +1,9 @@
+<mat-spinner [color]="spinnerColor" class="spanner" *ngIf="showTextSpinner"></mat-spinner>
 <div class="grid-container-text">
 
-  <div *ngIf="showSpinner">
-    <mat-spinner [color]="spinnerColor" class="spanner"> </mat-spinner>
-  </div>
 
   <!-- Text information -->
-  <div class="center" *ngIf="!showSpinner">
+  <div class="center" *ngIf="!showTextSpinner">
     <h1 class="title"> {{ text.title }} </h1>
     <p>
       <a routerLink="/author/{{ text.author }}" class="simple-link" matRipple>
@@ -18,7 +16,7 @@
     </p>
   </div>
 
-  <mat-tab-group mat-align-tabs="center" *ngIf="!showSpinner">
+  <mat-tab-group mat-align-tabs="center" *ngIf="!showTextSpinner">
 
     <!-- Bilingual -->
     <mat-tab label="Bilingual">
@@ -51,15 +49,15 @@
     </mat-tab>
   </mat-tab-group>
 
+  <mat-divider class="mat-padding"></mat-divider>
+
+  <!-- RELATED -->
   <h3 class="center related-margin">Related in {{text.category}}:</h3>
-  <div *ngFor="let related of text.relatedTexts" class="center">
+  <div *ngFor="let related of text.relatedTexts" class="center related-margin">
     <a mat-button routerLink="/text/{{related.textId}}" style="color: rgba(255,255,255,.6)">{{related.title}}</a>
   </div>
 
   <!-- SHARE -->
-
-  <mat-divider class="mat-padding"></mat-divider>
-
   <div class="center">
     <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank"
       color="accent" class="simple-link">Share on Facebook</a>
