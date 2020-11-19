@@ -1,10 +1,8 @@
 .arabic {
   direction: rtl;
-  text-align: right;
-  font-size: large;
+  text-align: center;
+  font-size: xx-large;
   line-height: 150%;
-  width: 48%;
-  float: left;
   vertical-align: middle;
   margin-top: 10px;
   margin-bottom: 0px;
@@ -12,14 +10,13 @@
 
 .english {
   direction: ltr;
-  text-align: left;
-  font-size: large;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-size: medium;
   line-height: 150%;
-  width: 48%;
-  float: right;
   vertical-align: middle;
-  margin-top: 10px;
-  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 15px;
 }
 
 .arabic-single {
