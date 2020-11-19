@@ -46,6 +46,9 @@
 
         <!-- Text -->
         <mat-tab label="Text">
+            <mat-chip-list>
+                <mat-chip color="accent" *ngIf="sentencesAreEqual">The number of sentences are equal.</mat-chip>
+            </mat-chip-list>
             <div>
                 <div class="col-6" style="float: left">
                     <mat-form-field appearance="fill" class="full-width spacing">
@@ -65,7 +68,6 @@
         </mat-tab>
 
         <mat-tab label="Text Preview">
-            <mat-chip color="accent" *ngIf="sentencesAreEqual">The number of sentences are equal.</mat-chip>
             <div *ngFor="let sentence of text.sentences" style="display: grid">
                 <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
             </div>
