@@ -95,6 +95,8 @@ export class HomepageComponent implements OnInit {
         englishIngress = englishIngress + card.sentences[index].english;
       }
     }
+    englishIngress = this.insertSpaceAfterComma(englishIngress);
+
     return englishIngress;
   }
 
@@ -106,7 +108,12 @@ export class HomepageComponent implements OnInit {
       }
     }
 
+    arabicIngress = this.insertSpaceAfterComma(arabicIngress);
+
     return arabicIngress;
+  }
+  insertSpaceAfterComma(englishIngress: string) {
+    return englishIngress.replace(/,(?=[^\s])/g, ', ');
   }
 
   toggleBadgeVisibility() {
