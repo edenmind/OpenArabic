@@ -43,9 +43,10 @@
 }
 
 .edit-list {
-  border: solid 1px #ccc;
+  border: solid 1px #f8f9fa;
   min-height: 25px;
-  background: white;
+  background: #343a40;
+  color: f8f9fa;
   border-radius: 4px;
   overflow: hidden;
   display: block;
@@ -53,15 +54,15 @@
 
 .edit-box {
   padding: 5px 5px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+  border-bottom: solid 1px #f8f9fa;
+  background: #343a40;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
-  background: white;
+  color: #f8f9fa;
   font-size: small;
 }
 
