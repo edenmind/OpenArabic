@@ -50,6 +50,7 @@
   border-radius: 4px;
   overflow: hidden;
   display: block;
+  margin-top: 5px;
 }
 
 .edit-box {
