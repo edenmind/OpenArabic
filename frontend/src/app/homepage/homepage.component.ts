@@ -39,7 +39,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle(
-      'Open Arabic — a biliginual blog for orthodox islamic topics'
+      'Open Arabic — a bilingual blog for orthodox Islamic topics'
     );
     this.category = this.activeRoute.snapshot.paramMap.get('category');
     this.author = this.activeRoute.snapshot.paramMap.get('author');
@@ -47,6 +47,10 @@ export class HomepageComponent implements OnInit {
     this.breakPoint = window.innerWidth <= 1200 ? 1 : 3;
 
     if (this.category) {
+      //set title
+      this.titleService.setTitle(
+        'English and Arabic Texts about: ' + this.category
+      );
       //show categories
       this.subscription = this.textService
         .getTexts('empty', this.category, this.pageSize, this.pageNumber)
@@ -54,6 +58,8 @@ export class HomepageComponent implements OnInit {
           (texts) => ((this.texts = texts), (this.showSpinner = false))
         );
     } else if (this.author) {
+      //set title
+      this.titleService.setTitle('English and Arabic Texts by: ' + this.author);
       //show authors
       this.subscription = this.textService
         .getTexts(this.author, 'empty', this.pageSize, this.pageNumber)
