@@ -157,7 +157,8 @@ export class TextEditComponent implements OnInit, OnChanges {
       this.text.category != null &&
       this.text.source != null &&
       this.text.sentences != null &&
-      this.englishWordsForMatching != null
+      this.englishWordsForMatching != null &&
+      this.text.title.length < 30
     );
   }
 
