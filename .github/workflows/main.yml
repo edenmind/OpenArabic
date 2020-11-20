@@ -35,12 +35,12 @@ jobs:
           context: ./api
           push: true
 
-      - name: Build and push Frontend
+      - name: Build and push web
         uses: docker/build-push-action@v2.0.0
         with:
-          file: ./frontend/Dockerfile
-          tags: therealedenmind/oa-frontend:${{ github.sha }}
-          context: ./frontend
+          file: ./web/Dockerfile
+          tags: therealedenmind/oa-web:${{ github.sha }}
+          context: ./web
           push: true
 
       - name: Set target AKS cluster
@@ -81,7 +81,7 @@ jobs:
       - name: Replace sha in footer
         uses: cschleiden/replace-tokens@v1
         with:
-          files: '["./frontend/src/app/footer/*.html"]'
+          files: '["./web/src/app/footer/*.html"]'
         env:
           SHA_LINK: ${{ github.sha }}
 
@@ -89,6 +89,6 @@ jobs:
         uses: Azure/k8s-deploy@v1
         with:
           manifests: |
-            ./iac/frontend.yaml
-            ./iac/api.yaml
-            ./iac/database.yaml
+            ./k8s/manifests/web.yaml
+            ./k8s/manifests/api.yaml
+            ./k8s/manifests/database.yaml

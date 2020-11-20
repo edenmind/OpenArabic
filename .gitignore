@@ -15,3 +15,7 @@ iac/sensitive/database.yaml
 iac/sensitive/frontend.yaml
 iac/database.yaml
 frontend/src/environments/environment.ts
+web/src/environments/environment.prod.ts
+web/src/environments/environment.ts
+terraform/.terraform/plugins/registry.terraform.io/hashicorp/azurerm/2.33.0/windows_amd64/terraform-provider-azurerm_v2.33.0_x5.exe
+terraform/.terraform/plugins/selections.json
