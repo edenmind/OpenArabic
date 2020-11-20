@@ -73,7 +73,7 @@ jobs:
       - name: Replace sha tag for containers
         uses: cschleiden/replace-tokens@v1
         with:
-          files: '["./k8s/manifests/*.yaml"]'
+          files: '["./k8s/*.yaml"]'
         env:
           API_TAG: therealedenmind/oa-api:${{ github.sha }}
           FRONTEND_TAG: therealedenmind/oa-frontend:${{ github.sha }}
@@ -89,6 +89,6 @@ jobs:
         uses: Azure/k8s-deploy@v1
         with:
           manifests: |
-            ./k8s/manifests/web.yaml
-            ./k8s/manifests/api.yaml
-            ./k8s/manifests/database.yaml
+            ./k8s/web.yaml
+            ./k8s/api.yaml
+            ./k8s/database.yaml
