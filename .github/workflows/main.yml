@@ -73,7 +73,7 @@ jobs:
       - name: Replace sha tag for containers
         uses: cschleiden/replace-tokens@v1
         with:
-          files: '["./iac/*.yaml"]'
+          files: '["./k8s/manifests/*.yaml"]'
         env:
           API_TAG: therealedenmind/oa-api:${{ github.sha }}
           FRONTEND_TAG: therealedenmind/oa-frontend:${{ github.sha }}
