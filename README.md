@@ -1,9 +1,6 @@
 # OpenArabic
 
-OpenArabic.io is a platform for learning classical arabic (*al-Fuṣḥā*). The Islamic foundation is established upon the Qurʼān and the Prophetic Sunnah based on the first generations of Muslims understanding. The classical texts used for teaching are gathered from authors such as Ibn Rajab al-Hanbali, Ibn Taymiyyah, Ibn Qayyim al-Jawziyya, Imam Nawawī, and many more (may Allah be pleased with them).
-
-## Learning process
-The main goal of OpenArabic.io is to aid in the process of start reading and understanding classical Islamic texts using a process based on the [spaced repetiotion](https://en.wikipedia.org/wiki/Spaced_repetition) algorithm.
+OpenArabic.io is a platform for learning classical arabic (*al-Fuṣḥā*). The main goal is to aid in the process of start reading and understanding classical Islamic texts using a process based on the [spaced repetiotion](https://en.wikipedia.org/wiki/Spaced_repetition) algorithm.
 
 ![Learning Process](https://github.com/edenmind/OpenArabic/blob/main/docs/Learning%20Process.png)
 
