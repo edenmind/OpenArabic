@@ -17,6 +17,8 @@ OpenArabic.io is built using some of the latest languages and technologies such 
 If you have skills in any of theese techonolgies and has an interest in helping taking OpenArabic.io further, then please join as a contributor.
 
 ## Infratrustructure
+The heart of the infrastructure is the microservice mesh providing language services (tashkeel, text-to-speech, lemmaization) to the backend API serving the front end clients.
+
 ![Service Infrastructure](https://github.com/edenmind/OpenArabic/blob/main/docs/OpenArabic%20-%20Service%20Architecture.png)
 
 ## CI/CD Status
