@@ -1,8 +1,6 @@
 # OpenArabic
 
----
 OpenArabic.io is a platform for learning classical arabic (*al-Fuṣḥā*). The Islamic foundation of OpenArabic.io is established upon the Qurʼān and the Prophetic Sunnah based on the first generations of Muslims understanding with texts from authors such as Ibn Rajab al-Hanbali, Ibn Taymiyyah, Ibn Qayyim al-Jawziyya, Imam Nawawī, and many more (may Allah be pleased with them).
----
 
 ## To start developing OpenArabic.io
 Clone the repo. Further information about how to build locally using a Docker compose will be provided. *In šaʾ Allāh*.
