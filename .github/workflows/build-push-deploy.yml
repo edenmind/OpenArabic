@@ -1,4 +1,4 @@
-name: Build and Push
+name: Build, Push and Deploy
 
 env:
   REGISTRY_NAME: docker.io/therealedenmind
@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push API
+      - name: Build and Push API to Docker Hub
         uses: docker/build-push-action@v2.0.0
         with:
           file: ./api/Dockerfile
@@ -35,7 +35,7 @@ jobs:
           context: ./api
           push: true
 
-      - name: Build and push web
+      - name: Build and Push Web to Docker Hub
         uses: docker/build-push-action@v2.0.0
         with:
           file: ./web/Dockerfile
@@ -43,14 +43,14 @@ jobs:
           context: ./web
           push: true
 
-      - name: Set target AKS cluster
+      - name: Set target k8s cluster
         uses: Azure/aks-set-context@v1
         with:
           creds: "${{ secrets.AZURE_CREDENTIALS }}"
           cluster-name: ${{ env.CLUSTER_NAME }}
           resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
 
-      - name: Create secret in Kubernetes cluster
+      - name: Create secret in k8s cluster
         uses: Azure/k8s-create-secret@v1.1
         with:
           secret-type: generic
@@ -70,7 +70,7 @@ jobs:
           arguments: |
             --from-literal=SA_PASSWORD=${{ secrets.SA_PASSWORD }}
 
-      - name: Replace sha tag for containers
+      - name: Replace SHA tag for containers
         uses: cschleiden/replace-tokens@v1
         with:
           files: '["./k8s/*.yaml"]'
@@ -78,14 +78,14 @@ jobs:
           API_TAG: therealedenmind/oa-api:${{ github.sha }}
           FRONTEND_TAG: therealedenmind/oa-frontend:${{ github.sha }}
 
-      - name: Replace sha in footer
+      - name: Replace SHA in footer
         uses: cschleiden/replace-tokens@v1
         with:
           files: '["./web/src/app/footer/*.html"]'
         env:
           SHA_LINK: ${{ github.sha }}
 
-      - name: Deploy API, Frontend and Database to AKS
+      - name: Deploy API, Frontend and Database to k8s
         uses: Azure/k8s-deploy@v1
         with:
           manifests: |

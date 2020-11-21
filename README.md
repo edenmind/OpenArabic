@@ -5,7 +5,7 @@ OpenArabic.io is a platform for learning classical arabic (*al-Fuṣḥā*). The
 ## Learning process
 The main goal of OpenArabic.io is to aid in the process of start reading and understanding classical Islamic texts using a process based on the [spaced repetiotion](https://en.wikipedia.org/wiki/Spaced_repetition) algorithm.
 
-![Learning Process](https://github.com/edenmind/OpenArabic/blob/main/docs/learning%20process.png)
+![Learning Process](https://github.com/edenmind/OpenArabic/blob/main/docs/Learning%20Process.png)
 
 ## To start developing OpenArabic.io
 Clone the repo. Further information about how to build locally using a Docker compose will be provided. *In šaʾ Allāh*.

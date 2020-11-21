@@ -10,4 +10,4 @@
 
 ## Reporting a Vulnerability
 
-Please report a vulnerability to yunus@edenmind.com
+Please report a vulnerability to salam@edenmind.com
