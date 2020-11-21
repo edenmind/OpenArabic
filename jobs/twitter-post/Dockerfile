@@ -1,19 +1,9 @@
-# GCC support can be specified at major, minor, or micro version
-# (e.g. 8, 8.2 or 8.2.0).
-# See https://hub.docker.com/r/library/gcc/ for all supported GCC
-# tags from Docker Hub.
-# See https://docs.docker.com/samples/library/gcc/ for more on how to use this image
-FROM gcc:latest
-
-# These commands copy your files into the specified directory in the image
-# and set that as the working location
-COPY . /usr/src/post-tweet
+FROM rust:1.40 as builder
 WORKDIR /usr/src/post-tweet
+COPY . .
+RUN cargo install --path .
 
-# This command compiles your app using GCC, adjust for your source code
-RUN g++ -o post-tweet post-tweet.cpp
-
-# This command runs your application, comment out this line to compile only
-CMD ["./post-tweet"]
-
-LABEL Name=post-tweet Version=0.0.1
+FROM debian:buster-slim
+RUN apt-get update && apt-get install -y extra-runtime-dependencies && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /usr/local/cargo/bin/post-tweet /usr/local/bin/post-tweet
+CMD ["post-tweet"]
