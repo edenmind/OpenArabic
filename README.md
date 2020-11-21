@@ -19,7 +19,7 @@ The heart of the infrastructure is the microservice mesh providing language serv
 ![Service Infrastructure](https://github.com/edenmind/OpenArabic/blob/main/docs/OpenArabic%20-%20Service%20Architecture.png)
 
 ## CI/CD Status
-![CI](https://github.com/edenmind/OpenArabic/workflows/CI/badge.svg?branch=main)
+![Build, Push and Deploy](https://github.com/edenmind/OpenArabic/workflows/Build,%20Push%20and%20Deploy/badge.svg)
 
 ## Support
 If you need any help, then please drop and email to salam@edenmind.com
