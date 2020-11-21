@@ -5,7 +5,7 @@ env:
   CLUSTER_NAME: edenmind-aks
   CLUSTER_RESOURCE_GROUP: edenmind-aks-resources
 
-on:
+on: 
   push:
     branches: [main]
 jobs:
