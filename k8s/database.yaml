@@ -39,10 +39,15 @@ spec:
           volumeMounts:
             - name: volume
               mountPath: "/var/opt/mssql"
+            - name: backup
+              mountPath: "/var/opt/backup"
       volumes:
         - name: volume
           persistentVolumeClaim:
             claimName: database-azurefile
+        - name: backup
+          persistentVolumeClaim:
+            claimName: database-azurefile-backup
 ---
 apiVersion: v1
 kind: Service
