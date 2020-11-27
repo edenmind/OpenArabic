@@ -29,6 +29,6 @@ jobs:
         uses: snyk/actions@0.3.0
         with:
           # Which Snyk command to run, defaults to test
-          command: scan
+          command: test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
