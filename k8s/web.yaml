@@ -17,6 +17,18 @@ spec:
       containers:
         - name: frontend
           image: #{FRONTEND_TAG}#
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 50Mi
+              cpu: 100m
+          livenessProbe:
+            httpGet:
+              host: /
+              port: 80
+            periodSeconds: 10
           imagePullPolicy: Always
           ports:
             - containerPort: 80

@@ -17,6 +17,18 @@ spec:
       containers:
         - name: database
           image: mcr.microsoft.com/mssql/server:2019-latest
+          resources:
+            limits:
+              memory: 1000Mi
+              cpu: "1"
+            requests:
+              memory: 700Mi
+              cpu: 100m
+          livenessProbe:
+            httpGet:
+              host: /
+              port: 80
+            periodSeconds: 10
           env:
             - name: SA_PASSWORD
               valueFrom:
@@ -30,8 +42,8 @@ spec:
             - containerPort: 1433
               protocol: TCP
           volumeMounts:
-          - name: volume
-            mountPath: "/var/opt/mssql"
+            - name: volume
+              mountPath: "/var/opt/mssql"
       volumes:
         - name: volume
           persistentVolumeClaim:
