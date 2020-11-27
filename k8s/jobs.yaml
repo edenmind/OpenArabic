@@ -16,3 +16,10 @@ spec:
                 - -c
                 - date; echo Hello from the Kubernetes cluster
           restartPolicy: OnFailure
+          volumeMounts:
+            - name: volume
+              mountPath: "/var/opt/backup"
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: database-azurefile-backup
