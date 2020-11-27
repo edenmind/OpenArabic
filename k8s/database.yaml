@@ -24,11 +24,6 @@ spec:
             requests:
               memory: 700Mi
               cpu: 100m
-          livenessProbe:
-            httpGet:
-              host: /
-              port: 80
-            periodSeconds: 10
           env:
             - name: SA_PASSWORD
               valueFrom:
