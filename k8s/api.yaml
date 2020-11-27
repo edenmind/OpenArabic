@@ -27,8 +27,9 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: 8090
+              port: 80
             periodSeconds: 10
+            initialDelaySeconds: 30
           env:
             - name: ASPNETCORE_AUTHORITY
               valueFrom:
