@@ -88,21 +88,7 @@ import { ContactComponent } from './contact/contact.component';
         ],
       },
     }),
-    RouterModule.forRoot(
-      [
-        { path: 'about', component: AboutComponent },
-        { path: 'contact', component: ContactComponent },
-        { path: 'text-edit/:id', component: TextEditComponent },
-        { path: 'text/:id', component: TextViewComponent },
-        { path: 'text-edit', component: TextEditComponent },
-        { path: 'texts', component: TextViewComponent },
-        { path: 'category/:category', component: HomepageComponent },
-        { path: 'author/:author', component: HomepageComponent },
-        { path: '', component: HomepageComponent },
-        { path: '**', component: PageNotFoundComponent },
-      ],
-      { relativeLinkResolution: 'legacy' }
-    ),
+    RouterModule,
     HttpClientModule,
     DragDropModule,
     AppRoutingModule,
