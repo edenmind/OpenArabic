@@ -32,8 +32,10 @@ export class TextViewComponent implements OnInit {
   openDialog(indexofSentence: number) {
     var words = this.text.sentences.find((i) => i.sentenceId == indexofSentence)
       .words;
+    var filteredWords = words.filter((w) => w.english != '');
+
     this.dialog.open(TextVocabularyComponent, {
-      data: words,
+      data: filteredWords,
     });
   }
 
