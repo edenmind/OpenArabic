@@ -3,8 +3,8 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
     <mat-toolbar>Categories</mat-toolbar>
     <mat-nav-list *ngFor="let category of categories">
-      <a mat-list-item matRipple routerLink="/category/{{ category }}" [routerLinkActive]="['is-active']"
-        class="text-decoration-none">{{ category }}</a>
+      <a mat-list-item matRipple href="/category/{{ category }}" [routerLinkActive]="['is-active']"
+        class="text-decoration-none" (click)="drawer.toggle()">{{ category }}</a>
     </mat-nav-list>
     <mat-divider></mat-divider>
     <mat-nav-list>
