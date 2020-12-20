@@ -6,6 +6,7 @@
   vertical-align: middle;
   margin-top: 25px;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .english {
@@ -17,6 +18,7 @@
   vertical-align: middle;
   margin-top: 0px;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .arabic-single {
