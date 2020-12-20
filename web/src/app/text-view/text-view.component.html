@@ -54,7 +54,7 @@
   <!-- RELATED -->
   <h3 class="center related-margin">Related in {{text.category}}:</h3>
   <div *ngFor="let related of text.relatedTexts" class="center">
-    <a mat-button routerLink="/text/{{related.textId}}" style="color: rgba(255,255,255,.6)">{{related.title}}</a>
+    <a mat-button href="/text/{{related.textId}}" style="color: rgba(255,255,255,.6)">{{related.title}}</a>
   </div>
 
 
