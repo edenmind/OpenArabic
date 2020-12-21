@@ -35,16 +35,16 @@ export class HomepageComponent implements OnInit {
     private route: Router,
     private activeRoute: ActivatedRoute,
     private titleService: Title
-  ) {}
+  ) {
+    this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
-    this.titleService.setTitle(
-      'Open Arabic — a bilingual blog for orthodox Islamic topics'
-    );
+    console.log('reloading...');
+    this.breakPoint = window.innerWidth <= 1200 ? 1 : 3;
+
     this.category = this.activeRoute.snapshot.paramMap.get('category');
     this.author = this.activeRoute.snapshot.paramMap.get('author');
-
-    this.breakPoint = window.innerWidth <= 1200 ? 1 : 3;
 
     if (this.category) {
       //set title
@@ -67,6 +67,9 @@ export class HomepageComponent implements OnInit {
           (texts) => ((this.texts = texts), (this.showSpinner = false))
         );
     } else {
+      this.titleService.setTitle(
+        'Open Arabic — a bilingual blog for orthodox Islamic topics'
+      );
       //show everything
       this.subscription = this.textService
         .getTexts('empty', 'empty', this.pageSize, this.pageNumber)
