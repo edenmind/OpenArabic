@@ -227,15 +227,15 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   cleanWords(words: string[]): string[] {
     for (let index = 0; index < words.length; index++) {
-      words[index] = words[index].replace(',', '');
-      words[index] = words[index].replace('.', '');
-      words[index] = words[index].replace('"', '');
-      words[index] = words[index].replace('،', '');
-      words[index] = words[index].replace('”', '');
-      words[index] = words[index].replace(' ', '');
-      words[index] = words[index].replace(':', '');
-      words[index] = words[index].replace(';', '');
-      words[index] = words[index].replace('*', '');
+      words[index] = words[index].replaceAll(',', '');
+      words[index] = words[index].replaceAll('.', '');
+      words[index] = words[index].replaceAll('"', '');
+      words[index] = words[index].replaceAll('،', '');
+      words[index] = words[index].replaceAll('”', '');
+      words[index] = words[index].replaceAll(' ', '');
+      words[index] = words[index].replaceAll(':', '');
+      words[index] = words[index].replaceAll(';', '');
+      words[index] = words[index].replaceAll('*', '');
     }
 
     var emptyRemoved = words.filter(function (word) {
