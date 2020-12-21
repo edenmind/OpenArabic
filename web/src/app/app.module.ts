@@ -41,6 +41,7 @@ import { TextViewComponent } from './text-view/text-view.component';
 import { TextVocabularyComponent } from './text-vocabulary/text-vocabulary.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ContactComponent } from './contact/contact.component';
     UserProfileComponent,
     TextVocabularyComponent,
     ContactComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
