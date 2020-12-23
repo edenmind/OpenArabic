@@ -13,6 +13,7 @@ import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.comp
 
 export class Vocab {
   word: string;
+  id: number;
   correct: boolean = false;
   selected: boolean = false;
 }
@@ -46,6 +47,7 @@ export class TextViewComponent implements OnInit {
   ) {}
 
   selectEnglish(index: number) {
+    index = this.english.find((i) => i.id == index).id;
     if (this.english[index].correct) {
       return;
     }
@@ -85,6 +87,8 @@ export class TextViewComponent implements OnInit {
   }
 
   selectArabic(index: number) {
+    index = this.arabic.find((i) => i.id == index).id;
+
     if (this.arabic[index].correct) {
       return;
     }
@@ -152,12 +156,23 @@ export class TextViewComponent implements OnInit {
     for (let index = 0; index < this.text.sentences[0].words.length; index++) {
       let english = new Vocab();
       english.word = this.text.sentences[0].words[index].english;
+      english.id = index;
 
       let arabic = new Vocab();
       arabic.word = this.text.sentences[0].words[index].arabic;
+      arabic.id = index;
 
       this.arabic.push(arabic);
       this.english.push(english);
+    }
+  }
+
+  shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
     }
   }
 
