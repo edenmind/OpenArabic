@@ -47,7 +47,7 @@ export class TextViewComponent implements OnInit {
 
   selectEnglish(index: number) {
     if (this.english[index].correct) {
-      exit;
+      return;
     }
 
     this.numberOfSelected = this.numberOfSelected + 1;
@@ -78,7 +78,7 @@ export class TextViewComponent implements OnInit {
         this.english[indexSelected].selected = false;
         this.arabic[indexSelected].selected = false;
       }
-      exit;
+      return;
     }
 
     this.lastSelectedEnglish = index;
@@ -86,7 +86,7 @@ export class TextViewComponent implements OnInit {
 
   selectArabic(index: number) {
     if (this.arabic[index].correct) {
-      exit;
+      return;
     }
 
     this.numberOfSelected = this.numberOfSelected + 1;
@@ -117,7 +117,7 @@ export class TextViewComponent implements OnInit {
         this.english[indexSelected].selected = false;
         this.arabic[indexSelected].selected = false;
       }
-      exit;
+      return;
     }
 
     this.lastSelectedArabic = index;
