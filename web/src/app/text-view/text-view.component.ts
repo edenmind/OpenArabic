@@ -8,6 +8,7 @@ import { exit } from 'process';
 import { Subscription } from 'rxjs';
 import { Text } from '../models/text';
 import { Word } from '../models/word';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { TextService } from '../services/text.service';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
 
@@ -43,29 +44,58 @@ export class TextViewComponent implements OnInit {
     private route: ActivatedRoute,
     public auth: AuthService,
     private titleService: Title,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {}
 
   selectEnglish(index: number) {
-    index = this.english.find((i) => i.id == index).id;
-    if (this.english[index].correct) {
+    console.log(index);
+    this.lastSelectedEnglish = index;
+
+    var indexInArraryArabic = 0;
+    for (let i = 0; i < this.arabic.length; i++) {
+      if (this.arabic[i].id == index) {
+        indexInArraryArabic = i;
+      }
+    }
+
+    var indexInArraryEnglish = 0;
+    for (let i = 0; i < this.english.length; i++) {
+      if (this.english[i].id == index) {
+        indexInArraryEnglish = i;
+      }
+    }
+
+    if (this.english[indexInArraryEnglish].correct) {
       return;
     }
 
     this.numberOfSelected = this.numberOfSelected + 1;
 
-    if (this.english[index].selected) {
-      this.english[index].selected = false;
+    if (this.english[indexInArraryEnglish].selected) {
+      this.english[indexInArraryEnglish].selected = false;
     } else {
-      this.english[index].selected = true;
+      this.english[indexInArraryEnglish].selected = true;
     }
 
     if (this.lastSelectedArabic == index) {
-      this.english[index].correct = true;
-      this.arabic[index].correct = true;
+      this.english[indexInArraryEnglish].correct = true;
+      this.arabic[indexInArraryArabic].correct = true;
       this.lastSelectedArabic = null;
       this.lastSelectedEnglish = null;
       this.numberOfSelected = 0;
+
+      var numberOfCorrect = 0;
+      for (let index = 0; index < this.english.length; index++) {
+        if (this.english[index].correct) {
+          numberOfCorrect++;
+        }
+      }
+      if (numberOfCorrect == this.english.length) {
+        this._snackBar.open('MashaAllah - You knew all the words! ', '🎉', {
+          duration: 3000,
+        });
+      }
     }
 
     if (this.numberOfSelected == 2) {
@@ -82,31 +112,56 @@ export class TextViewComponent implements OnInit {
       }
       return;
     }
-
-    this.lastSelectedEnglish = index;
   }
 
   selectArabic(index: number) {
-    index = this.arabic.find((i) => i.id == index).id;
+    console.log(index);
+    this.lastSelectedArabic = index;
 
-    if (this.arabic[index].correct) {
+    var indexInArraryArabic = 0;
+    for (let i = 0; i < this.arabic.length; i++) {
+      if (this.arabic[i].id == index) {
+        indexInArraryArabic = i;
+      }
+    }
+
+    var indexInArraryEnglish = 0;
+    for (let i = 0; i < this.english.length; i++) {
+      if (this.english[i].id == index) {
+        indexInArraryEnglish = i;
+      }
+    }
+
+    if (this.arabic[indexInArraryArabic].correct) {
       return;
     }
 
     this.numberOfSelected = this.numberOfSelected + 1;
 
-    if (this.english[index].selected) {
-      this.arabic[index].selected = false;
+    if (this.arabic[indexInArraryArabic].selected) {
+      this.arabic[indexInArraryArabic].selected = false;
     } else {
-      this.arabic[index].selected = true;
+      this.arabic[indexInArraryArabic].selected = true;
     }
 
     if (this.lastSelectedEnglish == index) {
-      this.arabic[index].correct = true;
-      this.english[index].correct = true;
+      this.arabic[indexInArraryArabic].correct = true;
+      this.english[indexInArraryEnglish].correct = true;
       this.lastSelectedArabic = null;
       this.lastSelectedEnglish = null;
       this.numberOfSelected = 0;
+
+      var numberOfCorrect = 0;
+      for (let index = 0; index < this.arabic.length; index++) {
+        if (this.arabic[index].correct) {
+          numberOfCorrect++;
+        }
+      }
+      if (numberOfCorrect == this.arabic.length) {
+        this._snackBar.open('MashaAllah - You knew all the words! ', '🎉', {
+          duration: 3000,
+        });
+      }
     }
 
     if (this.numberOfSelected == 2) {
@@ -123,8 +178,6 @@ export class TextViewComponent implements OnInit {
       }
       return;
     }
-
-    this.lastSelectedArabic = index;
   }
 
   openDialog(indexofSentence: number) {
@@ -165,6 +218,8 @@ export class TextViewComponent implements OnInit {
       this.arabic.push(arabic);
       this.english.push(english);
     }
+    this.shuffleArray(this.arabic);
+    this.shuffleArray(this.english);
   }
 
   shuffleArray(array) {
