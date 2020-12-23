@@ -206,6 +206,27 @@ export class TextViewComponent implements OnInit {
     }
   }
   readWords(): void {
+    var numberOfGenerations = 0;
+    var randomNumbers = [99];
+
+    for (let index = 0; index < 10; index++) {
+      var randomNumber = Math.floor(Math.random() * 5);
+      console.log('random: ' + randomNumber);
+      if (!randomNumbers.includes(randomNumber)) {
+        this.GetWordsFromSentences(randomNumber);
+        numberOfGenerations = numberOfGenerations + 1;
+        randomNumbers.push(randomNumber);
+      }
+      if (numberOfGenerations == 2) {
+        break;
+      }
+    }
+
+    this.shuffleArray(this.arabic);
+    this.shuffleArray(this.english);
+  }
+
+  private GetWordsFromSentences(sentenceNumber: number) {
     for (let index = 0; index < this.text.sentences[0].words.length; index++) {
       let english = new Vocab();
       english.word = this.text.sentences[0].words[index].english;
@@ -218,8 +239,6 @@ export class TextViewComponent implements OnInit {
       this.arabic.push(arabic);
       this.english.push(english);
     }
-    this.shuffleArray(this.arabic);
-    this.shuffleArray(this.english);
   }
 
   shuffleArray(array) {
