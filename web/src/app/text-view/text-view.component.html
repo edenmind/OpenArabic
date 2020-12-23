@@ -52,7 +52,7 @@
 
   <!-- TRAIN VOCAULARY -->
   <mat-divider class="mat-padding"></mat-divider>
-  <h3 class="center">Paractice Vocabulary:</h3>
+  <h3 class="center">Match Words to Paractice Vocabulary</h3>
 
   <div class="chip-center">
     <mat-chip-list>
@@ -70,7 +70,7 @@
   <mat-divider class="mat-padding"></mat-divider>
 
   <!-- RELATED -->
-  <h3 class="center">Related in {{text.category}}:</h3>
+  <h3 class="center">Related in {{text.category}}</h3>
   <div *ngFor="let related of text.relatedTexts" class="center">
     <a mat-button href="/text/{{related.textId}}" style="color: rgba(255,255,255,.6)">{{related.title}}</a>
   </div>
