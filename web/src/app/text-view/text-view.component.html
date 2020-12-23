@@ -49,6 +49,23 @@
     </mat-tab>
   </mat-tab-group>
 
+
+  <!-- TRAIN VOCAULARY -->
+  <mat-divider class="mat-padding"></mat-divider>
+
+  <div class="chip-center">
+    <mat-chip-list>
+      <mat-chip *ngFor="let vocab of english; let indexOfsentence = index" class="chip"
+        [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectEnglish(indexOfsentence)">
+        {{vocab.word}}
+      </mat-chip>
+      <mat-chip *ngFor="let vocab of arabic; let indexOfsentence = index" class="chip"
+        [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectArabic(indexOfsentence)">
+        {{vocab.word}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+
   <mat-divider class="mat-padding"></mat-divider>
 
   <!-- RELATED -->

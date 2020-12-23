@@ -45,3 +45,29 @@
 .related-text-margin {
   margin-bottom: 25px;
 }
+
+.chip {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #9c27b0;
+  color: #fff;
+}
+
+.correct {
+  background-color: #69f0ae;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.standard {
+  background-color: #616161;
+  color: #fff;
+}
+
+.chip-center {
+  width: 500px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
