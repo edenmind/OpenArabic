@@ -68,7 +68,7 @@ export class HomepageComponent implements OnInit {
         );
     } else {
       this.titleService.setTitle(
-        'Open Arabic — a bilingual blog for orthodox Islamic topics'
+        'OpenArabic — a Bilingual Blog on Orthodox Islamic Topics'
       );
       //show everything
       this.subscription = this.textService

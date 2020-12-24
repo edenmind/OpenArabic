@@ -4,10 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { exit } from 'process';
 import { Subscription } from 'rxjs';
 import { Text } from '../models/text';
-import { Word } from '../models/word';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TextService } from '../services/text.service';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
@@ -92,7 +90,7 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.english.length) {
-        this._snackBar.open('Well Done - MashaAllah! ', '🎉🎆🚀', {
+        this._snackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
           duration: 3000,
         });
       }
@@ -158,7 +156,7 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.arabic.length) {
-        this._snackBar.open('Well Done - MashaAllah! ', '🎉🎆🚀', {
+        this._snackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
           duration: 3000,
         });
       }
