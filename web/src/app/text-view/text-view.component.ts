@@ -230,11 +230,11 @@ export class TextViewComponent implements OnInit {
     for (let index = 0; index < this.text.sentences[0].words.length; index++) {
       let english = new Vocab();
       english.word = this.text.sentences[sentenceNumber].words[index].english;
-      english.id = index;
+      english.id = this.english.length + 1;
 
       let arabic = new Vocab();
       arabic.word = this.text.sentences[sentenceNumber].words[index].arabic;
-      arabic.id = index;
+      arabic.id = this.arabic.length + 1;
 
       if (arabic.word.length > 2 && english.word.length > 2) {
         this.arabic.push(arabic);
