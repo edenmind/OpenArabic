@@ -92,7 +92,7 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.english.length) {
-        this._snackBar.open('MashaAllah - You knew all the words! ', '🎉', {
+        this._snackBar.open('MashaAllah - Well Done! ', '🎉', {
           duration: 3000,
         });
       }
@@ -158,7 +158,7 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.arabic.length) {
-        this._snackBar.open('MashaAllah - You knew all the words! ', '🎉', {
+        this._snackBar.open('MashaAllah - Well! ', '🎉', {
           duration: 3000,
         });
       }
