@@ -210,7 +210,7 @@ export class TextViewComponent implements OnInit {
     var randomNumbers = [99];
 
     for (let index = 0; index < 10; index++) {
-      var randomNumber = Math.floor(Math.random() * 5);
+      var randomNumber = Math.floor(Math.random() * this.text.sentences.length);
       console.log('random: ' + randomNumber);
       if (!randomNumbers.includes(randomNumber)) {
         this.GetWordsFromSentences(randomNumber);
@@ -229,11 +229,11 @@ export class TextViewComponent implements OnInit {
   private GetWordsFromSentences(sentenceNumber: number) {
     for (let index = 0; index < this.text.sentences[0].words.length; index++) {
       let english = new Vocab();
-      english.word = this.text.sentences[0].words[index].english;
+      english.word = this.text.sentences[sentenceNumber].words[index].english;
       english.id = index;
 
       let arabic = new Vocab();
-      arabic.word = this.text.sentences[0].words[index].arabic;
+      arabic.word = this.text.sentences[sentenceNumber].words[index].arabic;
       arabic.id = index;
 
       this.arabic.push(arabic);
