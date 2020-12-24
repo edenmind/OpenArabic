@@ -62,7 +62,7 @@
       </mat-chip>
       <mat-chip *ngFor="let vocab of arabic;" class="chip"
         [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectArabic(vocab.id)">
-        <span style="font-size: larger;">{{vocab.word}}</span>
+        <span style="font-size: x-large;">{{vocab.word}}</span>
       </mat-chip>
     </mat-chip-list>
   </div>

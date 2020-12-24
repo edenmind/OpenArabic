@@ -158,7 +158,7 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.arabic.length) {
-        this._snackBar.open('MashaAllah - Well! ', '🎉', {
+        this._snackBar.open('MashaAllah - Well Done! ', '🎉', {
           duration: 3000,
         });
       }
