@@ -217,7 +217,7 @@ export class TextViewComponent implements OnInit {
         numberOfGenerations = numberOfGenerations + 1;
         randomNumbers.push(randomNumber);
       }
-      if (numberOfGenerations == 2) {
+      if (numberOfGenerations == 3) {
         break;
       }
     }
@@ -236,8 +236,10 @@ export class TextViewComponent implements OnInit {
       arabic.word = this.text.sentences[sentenceNumber].words[index].arabic;
       arabic.id = index;
 
-      this.arabic.push(arabic);
-      this.english.push(english);
+      if (arabic.word.length > 2 && english.word.length > 2) {
+        this.arabic.push(arabic);
+        this.english.push(english);
+      }
     }
   }
 
