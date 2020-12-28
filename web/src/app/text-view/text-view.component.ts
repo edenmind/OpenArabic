@@ -191,16 +191,25 @@ export class TextViewComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
-      this.subscription = this.textService
-        .getText(this.id)
-        .subscribe(
-          (text) => (
-            (this.text = text),
-            this.titleService.setTitle(text.title + ' | ' + text.author),
-            this.setSpinneToFalse(),
-            this.readWords()
-          )
-        );
+      this.subscription = this.textService.getText(this.id).subscribe(
+        (text) => (
+          (this.text = text),
+          (this.text.sentences = this.text.sentences.sort((n1, n2) => {
+            if (n1.order > n2.order) {
+              return 1;
+            }
+
+            if (n1.order < n2.order) {
+              return -1;
+            }
+
+            return 0;
+          })),
+          this.titleService.setTitle(text.title + ' | ' + text.author),
+          this.setSpinneToFalse(),
+          this.readWords()
+        )
+      );
     }
   }
   readWords(): void {

@@ -4,5 +4,6 @@ export class Sentence {
   textId: number;
   arabic: string;
   english: string;
+  order: number;
   words: Word[];
 }

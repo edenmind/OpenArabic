@@ -172,8 +172,10 @@ export class TextEditComponent implements OnInit, OnChanges {
       sentence.arabic = arabicSentences[index];
       sentence.english = englishSentences[index];
 
+      sentence.order = index;
       sentences.push(sentence);
     }
+
     return sentences;
   }
 
@@ -190,6 +192,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     if (!this.text.textId) {
       this.authService.user$.subscribe((u) => (this.text.editor = u.email));
       this.textService.addText(this.text).subscribe((text) => {
+        console.log(this.text.sentences);
         this.text = text;
         this.openSnackBar(
           'The text has been added with id: ' + this.text.textId + '.',
