@@ -198,11 +198,9 @@ export class TextViewComponent implements OnInit {
             if (n1.order > n2.order) {
               return 1;
             }
-
             if (n1.order < n2.order) {
               return -1;
             }
-
             return 0;
           })),
           this.titleService.setTitle(text.title + ' | ' + text.author),
