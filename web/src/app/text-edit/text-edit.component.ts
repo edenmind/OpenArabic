@@ -239,6 +239,7 @@ export class TextEditComponent implements OnInit, OnChanges {
       words[index] = words[index].replaceAll(':', '');
       words[index] = words[index].replaceAll(';', '');
       words[index] = words[index].replaceAll('*', '');
+      words[index] = words[index].replaceAll('؛', '');
     }
 
     var emptyRemoved = words.filter(function (word) {
