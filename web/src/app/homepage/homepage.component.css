@@ -34,3 +34,13 @@
 .english {
   direction: ltr;
 }
+
+.max {
+  max-width: 600px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+}
