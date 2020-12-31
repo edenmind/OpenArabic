@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
   showSpinner: boolean = true;
 
   pageNumber: number;
-  pageSize: number = 35;
+  pageSize: number = 50;
 
   author: string;
   category: string;

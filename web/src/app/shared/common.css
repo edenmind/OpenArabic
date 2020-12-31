@@ -29,6 +29,7 @@
 
 .simple-link {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .link-color {
@@ -48,4 +49,8 @@
 .bigger-arabic {
   font-size: x-large;
   line-height: 55px;
+}
+
+.carret {
+  caret-color: #69f0ae;
 }
