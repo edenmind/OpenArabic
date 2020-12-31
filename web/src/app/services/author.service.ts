@@ -18,6 +18,7 @@ export class AuthorService {
     'Ibn Kathīr',
     'Ibn Ḥajar al-ʿAsqalānī',
     'Abu Abdullah Al-Qurtubi',
+    'Muhammad ibn Jarir al-Tabari',
   ];
 
   GetAuthors() {
