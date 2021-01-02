@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthorService {
   authors = [
+    'Ibrahim ibn al-Mundhir',
     'Abdur Raūf Al-Manāwi',
     'al-Ġazālī',
     'al-Fuḍayl ibn ʻIyāḍ',
