@@ -49,7 +49,7 @@ export class HomepageComponent implements OnInit {
     if (this.category) {
       //set title
       this.titleService.setTitle(
-        'English and Arabic Texts about: ' + this.category
+        `English and Arabic Texts about: ${this.category}`
       );
       //show categories
       this.subscription = this.textService
@@ -59,7 +59,7 @@ export class HomepageComponent implements OnInit {
         );
     } else if (this.author) {
       //set title
-      this.titleService.setTitle('English and Arabic Texts by: ' + this.author);
+      this.titleService.setTitle(`English and Arabic Texts by: ${this.author}`);
       //show authors
       this.subscription = this.textService
         .getTexts(this.author, 'empty', this.pageSize, this.pageNumber)
@@ -83,11 +83,11 @@ export class HomepageComponent implements OnInit {
     var currentPage: string;
     if (this.activeRoute.snapshot.paramMap.get('category')) {
       currentPage =
-        'Category: ' + this.activeRoute.snapshot.paramMap.get('category');
+        `Category: ${this.activeRoute.snapshot.paramMap.get('category')}`;
     }
     if (this.activeRoute.snapshot.paramMap.get('author')) {
       currentPage =
-        'Author: ' + this.activeRoute.snapshot.paramMap.get('author');
+        `Author: ${this.activeRoute.snapshot.paramMap.get('author')}`;
     }
 
     return currentPage;

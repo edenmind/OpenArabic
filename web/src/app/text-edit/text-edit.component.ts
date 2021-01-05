@@ -8,7 +8,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Sentence } from '../models/sentence';
-import { Text } from '../models/text';
 import { Word } from '../models/word';
 import { AuthorService } from '../services/author.service';
 import { CategoryService } from '../services/category.service';
@@ -50,6 +49,25 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
   }
 
+  ngOnInit(): void {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.textService
+        .getText(this.id)
+        .subscribe((text) => (this.textEditModel.text = text));
+    }
+  }
+
+  onSubmit() {
+    if (this.textEditModel.text.textId) {
+      this.updateText();
+    } else {
+      this.createWordList();
+      this.addText();
+    }
+    this.route.navigate(['/']);
+  }
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -68,9 +86,7 @@ export class TextEditComponent implements OnInit, OnChanges {
   }
 
   public openTranslation(arabicWord: string) {
-    var url =
-      'https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=' +
-      arabicWord;
+    var url = `https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=${arabicWord}`;
     window.open(url, '_blank');
   }
 
@@ -197,59 +213,36 @@ export class TextEditComponent implements OnInit, OnChanges {
     return sentences;
   }
 
-  ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    if (this.id) {
-      this.textService
-        .getText(this.id)
-        .subscribe((text) => (this.textEditModel.text = text));
-    }
-  }
-
-  onSubmit() {
-    this.createWordList();
-
-    if (!this.textEditModel.text.textId) {
-      this.authService.user$.subscribe(
-        (u) => (this.textEditModel.text.editor = u.email)
-      );
-      this.textService.addText(this.textEditModel.text).subscribe((text) => {
-        console.log(this.textEditModel.text.sentences);
-        this.textEditModel.text = text;
+  private updateText() {
+    this.textService
+      .updateText(this.textEditModel.text)
+      .subscribe((textEditModeltext) => {
+        this.textEditModel.text = textEditModeltext;
         this.openSnackBar(
-          'The text has been added with id: ' +
-            this.textEditModel.text.textId +
-            '.',
+          `The text has been updated with id: ${this.textEditModel.text.textId}.`,
           'MashaAllah!'
         );
       });
-    } else {
-      this.textService
-        .updateText(this.textEditModel.text)
-        .subscribe((textEditModeltext) => {
-          this.textEditModel.text = textEditModeltext;
-          this.openSnackBar(
-            'The text has been updated with id: ' +
-              this.textEditModel.text.textId +
-              '.',
-            'MashaAllah!'
-          );
-        });
-    }
-
-    this.route.navigate(['/']);
   }
 
-  newText() {
-    this.textEditModel.text = new Text();
+  private addText() {
+    this.authService.user$.subscribe(
+      (u) => (this.textEditModel.text.editor = u.email)
+    );
+    this.textService.addText(this.textEditModel.text).subscribe((text) => {
+      console.log(this.textEditModel.text.sentences);
+      this.textEditModel.text = text;
+      this.openSnackBar(
+        `The text has been added with id: ${this.textEditModel.text.textId}.`,
+        'MashaAllah!'
+      );
+    });
   }
 
   deleteText() {
     this.textService.deleteText(this.textEditModel.text.textId);
     this.openSnackBar(
-      'The text has been deleted with id: ' +
-        this.textEditModel.text.textId +
-        '.',
+      `The text has been deleted with id: ${this.textEditModel.text.textId}.`,
       'MashaAllah!'
     );
     this.route.navigate(['/']);

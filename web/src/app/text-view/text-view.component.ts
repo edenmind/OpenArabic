@@ -203,7 +203,7 @@ export class TextViewComponent implements OnInit {
             }
             return 0;
           })),
-          this.titleService.setTitle(text.title + ' | ' + text.author),
+          this.titleService.setTitle(`${text.title} | ${text.author}`),
           this.setSpinneToFalse(),
           this.readWords()
         )
@@ -216,7 +216,6 @@ export class TextViewComponent implements OnInit {
 
     for (let index = 0; index < 10; index++) {
       var randomNumber = Math.floor(Math.random() * this.text.sentences.length);
-      console.log('random: ' + randomNumber);
       if (!randomNumbers.includes(randomNumber)) {
         this.GetWordsFromSentences(randomNumber);
         numberOfGenerations = numberOfGenerations + 1;

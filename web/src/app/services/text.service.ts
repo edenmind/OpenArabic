@@ -32,19 +32,14 @@ export class TextService {
     pageSize: number = 25,
     pageNumber: number = 1
   ): Observable<Text[]> {
-    var sectionedUrl =
-      environment.api +
-      '/api/texts/?pageSize=' +
-      pageSize +
-      '&pageNumber=' +
-      pageNumber;
+    var sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
 
     if (category != 'empty') {
-      sectionedUrl = this.textsUrl + '?category=' + category;
+      sectionedUrl = `${this.textsUrl}?category=${category}`;
     }
 
     if (author != 'empty') {
-      sectionedUrl = this.textsUrl + '?author=' + author;
+      sectionedUrl = `${this.textsUrl}?author=${author}`;
     }
 
     return this.httpClientAnonymous
@@ -68,7 +63,7 @@ export class TextService {
   }
 
   updateText(text: Text): Observable<Text> {
-    var sectionedUrl = environment.api + '/api/texts' + '/' + text.textId;
+    var sectionedUrl = `${environment.api}/api/texts/${text.textId}`;
     return this.http.put(sectionedUrl, text, this.httpOptions).pipe(
       tap((_) => this.log(`updated text id=${text.textId}`)),
       catchError(this.handleError<any>('updateText'))
@@ -81,8 +76,6 @@ export class TextService {
       console.log(s);
     });
   }
-
-  
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
