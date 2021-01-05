@@ -14,6 +14,7 @@ import { AuthorService } from '../services/author.service';
 import { CategoryService } from '../services/category.service';
 import { StatusService } from '../services/status.service';
 import { TextService } from '../services/text.service';
+import { WordProcessingService } from '../services/word-processing.service';
 
 @Component({
   selector: 'app-text-form',
@@ -28,6 +29,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     private statusService: StatusService,
     private categoryService: CategoryService,
     private activatedRoute: ActivatedRoute,
+    private wordProcessingService: WordProcessingService,
     private snackBar: MatSnackBar,
     private route: Router
   ) {}
@@ -85,11 +87,19 @@ export class TextEditComponent implements OnInit, OnChanges {
     this.englishWordsForMatching = [];
     this.englishWordsMatched = [];
 
-    this.englishSentences = this.splitTextToSentences(this.text.englishText);
-    this.arabicSentences = this.splitTextToSentences(this.text.arabicText);
+    this.englishSentences = this.wordProcessingService.splitTextToSentences(
+      this.text.englishText
+    );
+    this.arabicSentences = this.wordProcessingService.splitTextToSentences(
+      this.text.arabicText
+    );
 
-    var englishSentences = this.splitTextToSentences(this.text.englishText);
-    var arabicSentences = this.splitTextToSentences(this.text.arabicText);
+    var englishSentences = this.wordProcessingService.splitTextToSentences(
+      this.text.englishText
+    );
+    var arabicSentences = this.wordProcessingService.splitTextToSentences(
+      this.text.arabicText
+    );
 
     // Check in text to see if sentences are equal
     if (englishSentences.length != arabicSentences.length) {
@@ -104,10 +114,14 @@ export class TextEditComponent implements OnInit, OnChanges {
 
       // Split words into arabics and english before manual matching
       for (let index = 0; index < this.text.sentences.length; index++) {
-        this.arabicWordsForMatching[index] = this.splitWords(
+        this.arabicWordsForMatching[
+          index
+        ] = this.wordProcessingService.splitWords(
           this.text.sentences[index].arabic
         );
-        this.englishWordsForMatching[index] = this.splitWords(
+        this.englishWordsForMatching[
+          index
+        ] = this.wordProcessingService.splitWords(
           this.text.sentences[index].english
         );
       }
@@ -212,59 +226,6 @@ export class TextEditComponent implements OnInit, OnChanges {
     this.route.navigate(['/']);
   }
 
-  splitTextToSentences(text: string): string[] {
-    var sentences = text.split('\n');
-    return sentences;
-  }
-
-  splitSentencestoWords(sentence: string): string[] {
-    var words = sentence.split(' ');
-    return words;
-  }
-
-  splitWords(paragraph: string): string[] {
-    var words = paragraph.split(' ');
-    words = this.cleanWords(words);
-    return words;
-  }
-
-  cleanWords(words: string[]): string[] {
-    for (let index = 0; index < words.length; index++) {
-      words[index] = words[index].replaceAll(',', '');
-      words[index] = words[index].replaceAll('.', '');
-      words[index] = words[index].replaceAll('"', '');
-      words[index] = words[index].replaceAll('،', '');
-      words[index] = words[index].replaceAll('”', '');
-      words[index] = words[index].replaceAll(' ', '');
-      words[index] = words[index].replaceAll(':', '');
-      words[index] = words[index].replaceAll(';', '');
-      words[index] = words[index].replaceAll('*', '');
-      words[index] = words[index].replaceAll('؛', '');
-      words[index] = words[index].replaceAll('(', '');
-      words[index] = words[index].replaceAll(')', '');
-      words[index] = words[index].replaceAll('-', '');
-      words[index] = words[index].replaceAll('“', '');
-      words[index] = words[index].replaceAll('/', '');
-      words[index] = words[index].replaceAll('؟', '');
-      words[index] = words[index].replaceAll('–', '');
-      words[index] = words[index].replaceAll('‘', '');
-      words[index] = words[index].replaceAll('’', '');
-      words[index] = words[index].replaceAll('...', '');
-      words[index] = words[index].replaceAll('[', '');
-      words[index] = words[index].replaceAll(']', '');
-    }
-
-    var emptyRemoved = words.filter(function (word) {
-      return word != '';
-    });
-
-    var nullRemoved = emptyRemoved.filter(function (word) {
-      return word != null;
-    });
-
-    return nullRemoved;
-  }
-
   newText() {
     this.text = new Text();
   }
@@ -272,7 +233,7 @@ export class TextEditComponent implements OnInit, OnChanges {
   deleteText() {
     this.textService.deleteText(this.text.textId);
     this.openSnackBar(
-      'The text has been added with id: ' + this.text.textId + '.',
+      'The text has been deleted with id: ' + this.text.textId + '.',
       'MashaAllah!'
     );
     this.route.navigate(['/']);
