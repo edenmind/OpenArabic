@@ -28,11 +28,13 @@
 
 .arabic {
   direction: rtl;
-  font-size: larger;
+  font-size: x-large;
+  line-height: 150%;
 }
 
 .english {
   direction: ltr;
+  line-height: 150%;
 }
 
 .max {
