@@ -1,6 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -25,5 +24,5 @@ export class NavigationComponent {
     private breakpointObserver: BreakpointObserver,
     private categoryService: CategoryService,
     public auth: AuthService
-  ) {}
+  ) { }
 }

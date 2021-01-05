@@ -18,17 +18,17 @@ import { QuizService } from '../services/quiz.service';
   styleUrls: ['./text-view.component.css', '../shared/common.css'],
 })
 export class TextViewComponent implements OnInit {
-  text: Text;
-  id: string;
-  subscription: Subscription;
+  text: Text = new Text;
+  id: string = '';
+  subscription: Subscription = new Subscription;
   showTextSpinner: boolean = true;
   spinnerColor: ThemePalette = 'accent';
 
   english: Vocab[] = [];
   arabic: Vocab[] = [];
 
-  lastSelectedEnglish: number;
-  lastSelectedArabic: number;
+  lastSelectedEnglish!: number;
+  lastSelectedArabic!: number;
 
   numberOfSelected = 0;
 
@@ -52,7 +52,7 @@ export class TextViewComponent implements OnInit {
   }
 
   private getTextsAndPrepareUI() {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id') || '1';
     if (this.id) {
       this.subscription = this.textService.getText(this.id).subscribe(
         (text) => (
@@ -74,7 +74,7 @@ export class TextViewComponent implements OnInit {
     }
   }
 
-  selectEnglish(index: number) {
+  tapOnEnglish(index: number) {
 
     this.lastSelectedEnglish = index;
 
@@ -109,8 +109,8 @@ export class TextViewComponent implements OnInit {
     if (this.lastSelectedArabic == index) {
       this.english[indexInArraryEnglish].correct = true;
       this.arabic[indexInArraryArabic].correct = true;
-      this.lastSelectedArabic = null;
-      this.lastSelectedEnglish = null;
+      this.lastSelectedArabic = 0;
+      this.lastSelectedEnglish = 0;
       this.numberOfSelected = 0;
 
       var numberOfCorrect = 0;
@@ -128,12 +128,9 @@ export class TextViewComponent implements OnInit {
 
     if (this.numberOfSelected == 2) {
       this.numberOfSelected = 0;
-      this.lastSelectedEnglish = null;
-      this.lastSelectedArabic = null;
-      for (
-        let indexSelected = 0;
-        indexSelected < this.english.length;
-        indexSelected++
+      this.lastSelectedEnglish = 0;
+      this.lastSelectedArabic = 0;
+      for (let indexSelected = 0; indexSelected < this.english.length; indexSelected++
       ) {
         this.english[indexSelected].selected = false;
         this.arabic[indexSelected].selected = false;
@@ -142,7 +139,7 @@ export class TextViewComponent implements OnInit {
     }
   }
 
-  selectArabic(index: number) {
+  tapOnArabic(index: number) {
 
     this.lastSelectedArabic = index;
 
@@ -175,8 +172,8 @@ export class TextViewComponent implements OnInit {
     if (this.lastSelectedEnglish == index) {
       this.arabic[indexInArraryArabic].correct = true;
       this.english[indexInArraryEnglish].correct = true;
-      this.lastSelectedArabic = null;
-      this.lastSelectedEnglish = null;
+      this.lastSelectedArabic = 0;
+      this.lastSelectedEnglish = 0;
       this.numberOfSelected = 0;
 
       var numberOfCorrect = 0;
@@ -194,8 +191,8 @@ export class TextViewComponent implements OnInit {
 
     if (this.numberOfSelected == 2) {
       this.numberOfSelected = 0;
-      this.lastSelectedEnglish = null;
-      this.lastSelectedArabic = null;
+      this.lastSelectedEnglish = 0;
+      this.lastSelectedArabic = 0;
       for (
         let indexSelected = 0;
         indexSelected < this.english.length;
@@ -208,9 +205,9 @@ export class TextViewComponent implements OnInit {
     }
   }
 
-  openVocabularyDialog(indexofSentence: number) {
-    var words = this.text.sentences.find((i) => i.sentenceId == indexofSentence).words;
-    var filteredWords = words.filter((w) => w.english != '');
+  openVocabularyDialog(indexofSentence: number): void {
+    const words = this.text.sentences.find((i) => i.sentenceId == indexofSentence)!.words;
+    const filteredWords = words.filter((w) => w.english != '');
 
     this.dialog.open(TextVocabularyComponent, {
       data: filteredWords,
@@ -234,8 +231,8 @@ export class TextViewComponent implements OnInit {
       }
     }
 
-    this.arabic = this.shuffleArray(this.arabic);
-    this.english = this.shuffleArray(this.english);
+    this.arabic = this.quizService.shuffleArray(this.arabic);
+    this.english = this.quizService.shuffleArray(this.english);
   }
 
   private GetWordsFromSentences(sentenceNumber: number) {
@@ -255,16 +252,6 @@ export class TextViewComponent implements OnInit {
     }
   }
 
-  shuffleArray(array): any {
-    for (var index = array.length - 1; index > 0; index--) {
-      var randomNumber = Math.floor(Math.random() * (index + 1));
-      var temp = array[index];
-      array[index] = array[randomNumber];
-      array[randomNumber] = temp;
-    }
-    return array
-  }
-
   //TODO: This should not be necessary maybe look if text is null?
   async setSpinneToFalse() {
     await this.delay(300);
@@ -274,6 +261,4 @@ export class TextViewComponent implements OnInit {
   delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
-
-
 }

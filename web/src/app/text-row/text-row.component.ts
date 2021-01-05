@@ -8,9 +8,9 @@ import { Sentence } from '../models/sentence';
 })
 export class TextRowComponent implements OnInit {
   @Input()
-  sentence: Sentence;
+  sentence: Sentence = new Sentence;
   @Input()
-  language: string;
+  language!: string;
 
   constructor() { }
 

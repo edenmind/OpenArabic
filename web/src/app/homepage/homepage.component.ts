@@ -12,7 +12,7 @@ import { TextService } from '../services/text.service';
   styleUrls: ['./homepage.component.css', '../shared/common.css'],
 })
 export class HomepageComponent implements OnInit {
-  texts: Text[];
+  texts: Text[] = [];
 
   cols: number = 1;
   rows: number = 1;
@@ -20,14 +20,14 @@ export class HomepageComponent implements OnInit {
   badgeHidden: boolean = false;
   showSpinner: boolean = true;
 
-  pageNumber: number;
+  pageNumber: number = 1;
   pageSize: number = 100;
 
-  author: string;
-  category: string;
-  subscription: Subscription;
+  author: string = '';
+  category: string = '';
+  subscription: Subscription = new Subscription;
 
-  breakPoint: number;
+  breakPoint: number = 1;
   spinnerColor: ThemePalette = 'accent';
 
   constructor(
@@ -40,17 +40,15 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('reloading...');
+
     this.breakPoint = window.innerWidth <= 1200 ? 1 : 3;
 
-    this.category = this.activeRoute.snapshot.paramMap.get('category');
-    this.author = this.activeRoute.snapshot.paramMap.get('author');
+    this.category = this.activeRoute.snapshot.paramMap.get('category') || '';
+    this.author = this.activeRoute.snapshot.paramMap.get('author') || '';
 
     if (this.category) {
       //set title
-      this.titleService.setTitle(
-        `English and Arabic Texts about: ${this.category}`
-      );
+      this.titleService.setTitle(`English and Arabic Texts about: ${this.category}`);
       //show categories
       this.subscription = this.textService
         .getTexts('empty', this.category, this.pageSize, this.pageNumber)
@@ -67,27 +65,23 @@ export class HomepageComponent implements OnInit {
           (texts) => ((this.texts = texts), (this.showSpinner = false))
         );
     } else {
-      this.titleService.setTitle(
-        'OpenArabic — a Bilingual Blog on Orthodox Islamic Topics'
-      );
+      this.titleService.setTitle('OpenArabic — a Bilingual Blog on Orthodox Islamic Topics');
       //show everything
       this.subscription = this.textService
         .getTexts('empty', 'empty', this.pageSize, this.pageNumber)
-        .subscribe(
-          (texts) => ((this.texts = texts), (this.showSpinner = false))
-        );
+        .subscribe((texts) => ((this.texts = texts), (this.showSpinner = false)));
     }
   }
 
   getCurrentPage(): string {
-    var currentPage: string;
+
+    var currentPage: string = 'Homepage';
+
     if (this.activeRoute.snapshot.paramMap.get('category')) {
-      currentPage =
-        `Category: ${this.activeRoute.snapshot.paramMap.get('category')}`;
+      currentPage = `Category: ${this.activeRoute.snapshot.paramMap.get('category')}`;
     }
     if (this.activeRoute.snapshot.paramMap.get('author')) {
-      currentPage =
-        `Author: ${this.activeRoute.snapshot.paramMap.get('author')}`;
+      currentPage = `Author: ${this.activeRoute.snapshot.paramMap.get('author')}`;
     }
 
     return currentPage;
@@ -137,7 +131,7 @@ export class HomepageComponent implements OnInit {
     return this.route.url == '/';
   }
 
-  onResize(event) {
+  onResize(event: { target: { innerWidth: number; }; }) {
     this.breakPoint = event.target.innerWidth <= 1200 ? 1 : 3;
   }
 }

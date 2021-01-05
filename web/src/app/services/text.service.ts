@@ -62,7 +62,7 @@ export class TextService {
     );
   }
 
-  updateText(text: Text): Observable<Text> {
+  updateText(text: Text): Observable<any> {
     var sectionedUrl = `${environment.api}/api/texts/${text.textId}`;
     return this.http.put(sectionedUrl, text, this.httpOptions).pipe(
       tap((_) => this.log(`updated text id=${text.textId}`)),

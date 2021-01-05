@@ -16,6 +16,13 @@
     "alwaysStrict": true,
     "allowUnusedLabels": false,
     "forceConsistentCasingInFileNames": true,
-    "strict": true
+    "strict": true,
+    "removeComments": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
   }
 }

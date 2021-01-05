@@ -30,7 +30,7 @@ export class WordProcessingService {
     '،',
   ];
 
-  constructor() {}
+  constructor() { }
 
   loopWordsToCleanAndRemoveNull(words: string[]): string[] {
     for (let index = 0; index < words.length; index++) {
@@ -55,9 +55,12 @@ export class WordProcessingService {
   }
 
   cleanWordFromCharacters(word: string): string {
+    let wordCleaned = '';
     for (let index = 0; index < this.charactersToClean.length; index++) {
-      return (word = word.replaceAll(this.charactersToClean[index], ''));
+      wordCleaned = (word = word.replaceAll(this.charactersToClean[index], ''));
     }
+
+    return wordCleaned
   }
 
   splitTextToSentences(text: string): string[] {

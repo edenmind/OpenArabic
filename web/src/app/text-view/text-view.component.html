@@ -56,10 +56,10 @@
 
   <div class="chip-center">
     <mat-chip-list>
-      <mat-chip *ngFor="let vocab of english;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectEnglish(vocab.id)">
+      <mat-chip *ngFor="let vocab of english;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnEnglish(vocab.id)">
         {{vocab.word}}
       </mat-chip>
-      <mat-chip *ngFor="let vocab of arabic;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectArabic(vocab.id)">
+      <mat-chip *ngFor="let vocab of arabic;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnArabic(vocab.id)">
         <span style="font-size: x-large;">{{vocab.word}}</span>
       </mat-chip>
     </mat-chip-list>

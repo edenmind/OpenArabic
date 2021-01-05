@@ -12,16 +12,23 @@ export class ContactComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private _snackBar: MatSnackBar
-  ) {}
+  ) { }
 
-  sender: string;
-  body: string;
-  ngOnInit(): void {}
+  sender: string = '';
+  body: string = '';
+  ngOnInit(): void { }
 
   onSubmit() {
+    if (this.sender != '' && this.body != '') {
+      this.sendMessage();
+    }
+  }
+  private sendMessage() {
     var message: Mail = new Mail();
+
     message.body = this.body;
     message.sender = this.sender;
+
     this.messageService.sendMessage(message);
 
     this._snackBar.open('Message sent!', 'MashaAllah!', {
@@ -30,6 +37,7 @@ export class ContactComponent implements OnInit {
     this.body = '';
     this.sender = '';
   }
+
   isValid(): boolean {
     return this.sender != null && this.body != null;
   }

@@ -1,6 +1,6 @@
 export class Word {
-  wordId: number;
-  sentenceId: number;
-  arabic: string;
-  english: string;
+  wordId!: number;
+  sentenceId!: number;
+  arabic!: string;
+  english!: string;
 }

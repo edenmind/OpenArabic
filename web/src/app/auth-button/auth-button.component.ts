@@ -6,10 +6,7 @@ import { AuthService } from '@auth0/auth0-angular';
   selector: 'app-auth-button',
   template: `
     <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-      <button
-        (click)="auth.logout({ returnTo: document.location.origin })"
-        mat-icon-button
-      >
+      <button (click)="auth.logout({ returnTo: document.location.origin })" mat-icon-button>
         <mat-icon aria-hidden="false" class="icon">exit_to_app</mat-icon>
       </button>
     </ng-container>
@@ -26,5 +23,5 @@ export class AuthButtonComponent {
   constructor(
     @Inject(DOCUMENT) public document: Document,
     public auth: AuthService
-  ) {}
+  ) { }
 }

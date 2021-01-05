@@ -1,7 +1,5 @@
 import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Mail } from '../models/mail';
 
@@ -21,7 +19,6 @@ export class MessageService {
   };
 
   sendMessage(message: Mail) {
-    console.log(message, this.url);
     this.httpClientAnonymous.post<any>(this.url, message).subscribe((data) => {
       console.log(data); //TODO: Show result in UI
     });

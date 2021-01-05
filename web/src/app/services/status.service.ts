@@ -10,5 +10,5 @@ export class StatusService {
     return this.statuses;
   }
 
-  constructor() {}
+  constructor() { }
 }

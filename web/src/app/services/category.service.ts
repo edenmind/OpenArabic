@@ -22,5 +22,5 @@ export class CategoryService {
     return this.categories;
   }
 
-  constructor() {}
+  constructor() { }
 }
