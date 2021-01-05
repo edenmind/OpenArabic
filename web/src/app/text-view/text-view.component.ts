@@ -9,13 +9,8 @@ import { Text } from '../models/text';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TextService } from '../services/text.service';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
-
-export class Vocab {
-  word: string;
-  id: number;
-  correct: boolean = false;
-  selected: boolean = false;
-}
+import { Vocab } from '../models/vocab';
+import { QuizService } from '../services/quiz.service';
 
 @Component({
   selector: 'app-text',
@@ -43,14 +38,48 @@ export class TextViewComponent implements OnInit {
     public auth: AuthService,
     private titleService: Title,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
-  ) {}
+    private _snackBar: MatSnackBar,
+    private quizService: QuizService
+  ) { }
+
+  ngOnInit(): void {
+    this.getTextsAndPrepareUI();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    this.text = new Text();
+  }
+
+  private getTextsAndPrepareUI() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.subscription = this.textService.getText(this.id).subscribe(
+        (text) => (
+          (this.text = text),
+          (this.text.sentences = this.text.sentences.sort((n1, n2) => {
+            if (n1.order > n2.order) {
+              return 1;
+            }
+            if (n1.order < n2.order) {
+              return -1;
+            }
+            return 0;
+          })),
+          this.titleService.setTitle(`${text.title} | ${text.author}`),
+          this.setSpinneToFalse(),
+          this.readWords()
+        )
+      );
+    }
+  }
 
   selectEnglish(index: number) {
-    console.log(index);
+
     this.lastSelectedEnglish = index;
 
     var indexInArraryArabic = 0;
+
     for (let i = 0; i < this.arabic.length; i++) {
       if (this.arabic[i].id == index) {
         indexInArraryArabic = i;
@@ -58,6 +87,7 @@ export class TextViewComponent implements OnInit {
     }
 
     var indexInArraryEnglish = 0;
+
     for (let i = 0; i < this.english.length; i++) {
       if (this.english[i].id == index) {
         indexInArraryEnglish = i;
@@ -113,7 +143,7 @@ export class TextViewComponent implements OnInit {
   }
 
   selectArabic(index: number) {
-    console.log(index);
+
     this.lastSelectedArabic = index;
 
     var indexInArraryArabic = 0;
@@ -178,9 +208,8 @@ export class TextViewComponent implements OnInit {
     }
   }
 
-  openDialog(indexofSentence: number) {
-    var words = this.text.sentences.find((i) => i.sentenceId == indexofSentence)
-      .words;
+  openVocabularyDialog(indexofSentence: number) {
+    var words = this.text.sentences.find((i) => i.sentenceId == indexofSentence).words;
     var filteredWords = words.filter((w) => w.english != '');
 
     this.dialog.open(TextVocabularyComponent, {
@@ -188,28 +217,7 @@ export class TextViewComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) {
-      this.subscription = this.textService.getText(this.id).subscribe(
-        (text) => (
-          (this.text = text),
-          (this.text.sentences = this.text.sentences.sort((n1, n2) => {
-            if (n1.order > n2.order) {
-              return 1;
-            }
-            if (n1.order < n2.order) {
-              return -1;
-            }
-            return 0;
-          })),
-          this.titleService.setTitle(`${text.title} | ${text.author}`),
-          this.setSpinneToFalse(),
-          this.readWords()
-        )
-      );
-    }
-  }
+
   readWords(): void {
     var numberOfGenerations = 0;
     var randomNumbers = [99];
@@ -226,8 +234,8 @@ export class TextViewComponent implements OnInit {
       }
     }
 
-    this.shuffleArray(this.arabic);
-    this.shuffleArray(this.english);
+    this.arabic = this.shuffleArray(this.arabic);
+    this.english = this.shuffleArray(this.english);
   }
 
   private GetWordsFromSentences(sentenceNumber: number) {
@@ -247,13 +255,14 @@ export class TextViewComponent implements OnInit {
     }
   }
 
-  shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
+  shuffleArray(array): any {
+    for (var index = array.length - 1; index > 0; index--) {
+      var randomNumber = Math.floor(Math.random() * (index + 1));
+      var temp = array[index];
+      array[index] = array[randomNumber];
+      array[randomNumber] = temp;
     }
+    return array
   }
 
   //TODO: This should not be necessary maybe look if text is null?
@@ -266,8 +275,5 @@ export class TextViewComponent implements OnInit {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-    this.text = new Text();
-  }
+
 }

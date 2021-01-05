@@ -12,7 +12,7 @@ export class TextRowComponent implements OnInit {
   @Input()
   language: string;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

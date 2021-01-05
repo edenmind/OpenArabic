@@ -22,7 +22,7 @@
     <mat-tab label="Bilingual">
       <div class="tab-space margins">
         <div *ngFor="let sentence of text.sentences" matRipple>
-          <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openDialog(sentence.sentenceId)">
+          <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openVocabularyDialog(sentence.sentenceId)">
           </app-text-row>
         </div>
       </div>
@@ -32,7 +32,7 @@
     <mat-tab label="Arabic">
       <div class="tab-space center">
         <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
-          <app-text-row [sentence]="sentence" [language]="'arabic'" (click)="openDialog(sentence.sentenceId)">
+          <app-text-row [sentence]="sentence" [language]="'arabic'" (click)="openVocabularyDialog(sentence.sentenceId)">
           </app-text-row>
         </div>
       </div>
@@ -42,7 +42,7 @@
     <mat-tab label="Engish">
       <div class="tab-space center">
         <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
-          <app-text-row [sentence]="sentence" [language]="'english'" (click)="openDialog(sentence.sentenceId)">
+          <app-text-row [sentence]="sentence" [language]="'english'" (click)="openVocabularyDialog(sentence.sentenceId)">
           </app-text-row>
         </div>
       </div>
@@ -56,12 +56,10 @@
 
   <div class="chip-center">
     <mat-chip-list>
-      <mat-chip *ngFor="let vocab of english;" class="chip"
-        [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectEnglish(vocab.id)">
+      <mat-chip *ngFor="let vocab of english;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectEnglish(vocab.id)">
         {{vocab.word}}
       </mat-chip>
-      <mat-chip *ngFor="let vocab of arabic;" class="chip"
-        [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectArabic(vocab.id)">
+      <mat-chip *ngFor="let vocab of arabic;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="selectArabic(vocab.id)">
         <span style="font-size: x-large;">{{vocab.word}}</span>
       </mat-chip>
     </mat-chip-list>
@@ -78,8 +76,7 @@
 
   <!-- SHARE -->
   <div class="center related-margin">
-    <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank"
-      color="accent" class="simple-link">Share on Facebook</a>
+    <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank" color="accent" class="simple-link">Share on Facebook</a>
   </div>
   <div class="center">
     <a mat-button
