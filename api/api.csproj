@@ -11,9 +11,6 @@
       <PrivateAssets>all</PrivateAssets>
       <Version>5.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory">
-      <Version>5.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer">
       <Version>5.0.1</Version>
     </PackageReference>
