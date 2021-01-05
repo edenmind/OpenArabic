@@ -1,6 +1,6 @@
-<div class="grid-container">
-    <h1 class="title" *ngIf="!text.textId">Add Text</h1>
-    <h1 class="title" *ngIf="text.textId">Edit Text</h1>
+<div class="grid-container" *ngIf="textEditModel.text">
+    <h1 class="title" *ngIf="!textEditModel.text.textId">Add Text</h1>
+    <h1 class="title" *ngIf="textEditModel.text.textId">Edit Text</h1>
 
     <mat-tab-group mat-align-tabs="start">
         <!-- METADATA -->
@@ -8,11 +8,11 @@
             <mat-tab label="Information">
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Title</mat-label>
-                    <input matInput [(ngModel)]="text.title" name="title" type="text" class="carret" />
+                    <input matInput [(ngModel)]="textEditModel.text.title" name="title" type="text" class="carret" />
                 </mat-form-field>
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Author</mat-label>
-                    <mat-select [(ngModel)]="text.author" name="author">
+                    <mat-select [(ngModel)]="textEditModel.text.author" name="author">
                         <div *ngFor="let author of authors">
                             <mat-option [value]="author"> {{ author }}</mat-option>
                         </div>
@@ -21,7 +21,7 @@
 
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Category</mat-label>
-                    <mat-select [(ngModel)]="text.category" name="category">
+                    <mat-select [(ngModel)]="textEditModel.text.category" name="category">
                         <div *ngFor="let category of categories">
                             <mat-option [value]="category"> {{ category }}</mat-option>
                         </div>
@@ -30,7 +30,7 @@
 
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Status</mat-label>
-                    <mat-select [(ngModel)]="text.status" name="status">
+                    <mat-select [(ngModel)]="textEditModel.text.status" name="status">
                         <div *ngFor="let status of statuses">
                             <mat-option [value]="status"> {{ status }}</mat-option>
                         </div>
@@ -39,7 +39,7 @@
 
                 <mat-form-field class="col-6 spacing">
                     <mat-label>Source</mat-label>
-                    <input matInput [(ngModel)]="text.source" name="title" class="carret" type="text" />
+                    <input matInput [(ngModel)]="textEditModel.text.source" name="title" class="carret" type="text" />
                 </mat-form-field>
             </mat-tab>
         </form>
@@ -54,36 +54,37 @@
                     <mat-form-field appearance="fill" class="full-width spacing">
                         <mat-label>Arabic</mat-label>
                         <textarea matInput Rows="35" class="arabic carret" name="arabicParagraph"
-                            [(ngModel)]="text.arabicText" (ngModelChange)="updatePreview()"></textarea>
+                            [(ngModel)]="textEditModel.text.arabicText" (ngModelChange)="updatePreview()"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="col-6" style="float: right">
                     <mat-form-field appearance="fill" class="full-width spacing">
                         <mat-label>English</mat-label>
                         <textarea matInput Rows="35" class="english carret" name="englishParagraph"
-                            [(ngModel)]="text.englishText" (ngModelChange)="updatePreview()"></textarea>
+                            [(ngModel)]="textEditModel.text.englishText" (ngModelChange)="updatePreview()"></textarea>
                     </mat-form-field>
                 </div>
             </div>
         </mat-tab>
 
         <mat-tab label="Text Preview">
-            <div *ngFor="let sentence of text.sentences" style="display: grid">
+            <div *ngFor="let sentence of textEditModel.text.sentences" style="display: grid">
                 <app-text-row [sentence]="sentence" [language]="'bilingual'"></app-text-row>
             </div>
         </mat-tab>
 
         <mat-tab label="Words">
             <br />
-            <div cdkDropListGroup *ngFor="let sentence of text.sentences; let indexOfsentence = index"
+            <div cdkDropListGroup *ngFor="let sentence of textEditModel.text.sentences; let indexOfsentence = index"
                 style="display:table;">
                 <div style="width: 33%; float: left; padding-bottom: 150px;">
                     <div class="edit-container">
                         <h5>English Sentence: {{ indexOfsentence }}</h5>
 
-                        <div cdkDropList [cdkDropListData]="englishWordsForMatching[indexOfsentence]" class="edit-list"
-                            (cdkDropListDropped)="drop($event)">
-                            <div class="edit-box" *ngFor="let word of englishWordsForMatching[indexOfsentence]" cdkDrag>
+                        <div cdkDropList [cdkDropListData]="textEditModel.englishWordsForMatching[indexOfsentence]"
+                            class="edit-list" (cdkDropListDropped)="drop($event)">
+                            <div class="edit-box"
+                                *ngFor="let word of textEditModel.englishWordsForMatching[indexOfsentence]" cdkDrag>
                                 {{ word }}
                             </div>
                         </div>
@@ -92,14 +93,17 @@
 
                 <div style="width: 33%; float: left; padding-bottom: 150px;">
                     <h5>Arabic Sentence: {{ indexOfsentence }}</h5>
-                    <div *ngFor="let arabicWord of arabicWordsForMatching[indexOfsentence];let indexOfelement = index">
+                    <div
+                        *ngFor="let arabicWord of textEditModel.arabicWordsForMatching[indexOfsentence];let indexOfelement = index">
                         <div class="edit-container" (click)="openTranslation(arabicWord)">
                             <span class="clickableWord">{{ arabicWord }}</span>
 
-                            <div cdkDropList [cdkDropListData]="englishWordsMatched[indexOfsentence][indexOfelement]"
+                            <div cdkDropList
+                                [cdkDropListData]="textEditModel.englishWordsMatched[indexOfsentence][indexOfelement]"
                                 class="edit-list" (cdkDropListDropped)="drop($event)">
                                 <div class="edit-box"
-                                    *ngFor="let word of englishWordsMatched[indexOfsentence][indexOfelement]" cdkDrag>
+                                    *ngFor="let word of textEditModel.englishWordsMatched[indexOfsentence][indexOfelement]"
+                                    cdkDrag>
                                     {{ word }}
                                 </div>
                             </div>
@@ -118,7 +122,7 @@
 
         <mat-tab label="Words Preview">
             <br />
-            <div *ngFor="let words of text.sentences;">
+            <div *ngFor="let words of textEditModel.text.sentences;">
                 <div *ngFor="let word of words">
                     {{word.arabic}} {{word.english}}
                 </div>
@@ -132,7 +136,8 @@
         Submit
     </button>
 
-    <button class="button-margin" matRipple mat-raised-button color="warn" *ngIf="text.textId" (click)="deleteText()">
+    <button class="button-margin" matRipple mat-raised-button color="warn" *ngIf="textEditModel.text.textId"
+        (click)="deleteText()">
         Delete
     </button>
 </div>

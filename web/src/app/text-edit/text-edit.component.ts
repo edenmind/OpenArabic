@@ -15,6 +15,7 @@ import { CategoryService } from '../services/category.service';
 import { StatusService } from '../services/status.service';
 import { TextService } from '../services/text.service';
 import { WordProcessingService } from '../services/word-processing.service';
+import { TextEditModel } from './text-edit-model';
 
 @Component({
   selector: 'app-text-form',
@@ -34,27 +35,19 @@ export class TextEditComponent implements OnInit, OnChanges {
     private route: Router
   ) {}
 
-  text = new Text();
   id: string;
-
   sentencesAreEqual: boolean;
 
   authors = this.authorService.GetAuthors();
   statuses = this.statusService.GetStatuses();
   categories = this.categoryService.GetCategories();
 
-  sentences: Sentence[] = new Array();
-
-  englishSentences: string[] = new Array();
-  arabicSentences: string[] = new Array();
-
-  arabicWordsForMatching: string[][] = new Array();
-  englishWordsForMatching: string[][] = new Array();
-
-  englishWordsMatched: string[][][] = new Array();
+  textEditModel: TextEditModel = new TextEditModel();
 
   ngOnChanges(): void {
-    this.updatePreview();
+    if (this.sentencesAreEqual) {
+      this.updatePreview();
+    }
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -83,22 +76,22 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   updatePreview() {
     // Get english and arabic sentences from view
-    this.arabicWordsForMatching = [];
-    this.englishWordsForMatching = [];
-    this.englishWordsMatched = [];
+    this.textEditModel.arabicWordsForMatching = [];
+    this.textEditModel.englishWordsForMatching = [];
+    this.textEditModel.englishWordsMatched = [];
 
-    this.englishSentences = this.wordProcessingService.splitTextToSentences(
-      this.text.englishText
+    this.textEditModel.englishSentences = this.wordProcessingService.splitTextToSentences(
+      this.textEditModel.text.englishText
     );
-    this.arabicSentences = this.wordProcessingService.splitTextToSentences(
-      this.text.arabicText
+    this.textEditModel.arabicSentences = this.wordProcessingService.splitTextToSentences(
+      this.textEditModel.text.arabicText
     );
 
     var englishSentences = this.wordProcessingService.splitTextToSentences(
-      this.text.englishText
+      this.textEditModel.text.englishText
     );
     var arabicSentences = this.wordProcessingService.splitTextToSentences(
-      this.text.arabicText
+      this.textEditModel.text.arabicText
     );
 
     // Check in text to see if sentences are equal
@@ -107,36 +100,44 @@ export class TextEditComponent implements OnInit, OnChanges {
     } else {
       this.sentencesAreEqual = true;
       // Combine eng and ar sentences into one array
-      this.text.sentences = this.combineSentences(
+      this.textEditModel.text.sentences = this.combineSentences(
         englishSentences,
         arabicSentences
       );
 
       // Split words into arabics and english before manual matching
-      for (let index = 0; index < this.text.sentences.length; index++) {
-        this.arabicWordsForMatching[
+      for (
+        let index = 0;
+        index < this.textEditModel.text.sentences.length;
+        index++
+      ) {
+        this.textEditModel.arabicWordsForMatching[
           index
         ] = this.wordProcessingService.splitWords(
-          this.text.sentences[index].arabic
+          this.textEditModel.text.sentences[index].arabic
         );
-        this.englishWordsForMatching[
+        this.textEditModel.englishWordsForMatching[
           index
         ] = this.wordProcessingService.splitWords(
-          this.text.sentences[index].english
+          this.textEditModel.text.sentences[index].english
         );
       }
     }
 
     // Create a arabic wordlist
     // TODO: There should be a better way...
-    for (let index = 0; index < this.arabicWordsForMatching.length; index++) {
-      this.englishWordsMatched[index] = new Array();
+    for (
+      let index = 0;
+      index < this.textEditModel.arabicWordsForMatching.length;
+      index++
+    ) {
+      this.textEditModel.englishWordsMatched[index] = new Array();
       for (
         let index2 = 0;
-        index2 < this.arabicWordsForMatching[index].length;
+        index2 < this.textEditModel.arabicWordsForMatching[index].length;
         index2++
       ) {
-        this.englishWordsMatched[index][index2] = new Array();
+        this.textEditModel.englishWordsMatched[index][index2] = new Array();
       }
     }
   }
@@ -144,35 +145,38 @@ export class TextEditComponent implements OnInit, OnChanges {
   createWordList() {
     for (
       let sentenceIndex = 0;
-      sentenceIndex < this.text.sentences.length;
+      sentenceIndex < this.textEditModel.text.sentences.length;
       sentenceIndex++
     ) {
-      this.text.sentences[sentenceIndex].words = new Array();
+      this.textEditModel.text.sentences[sentenceIndex].words = new Array();
       for (
         let wordIndex = 0;
-        wordIndex < this.arabicWordsForMatching[sentenceIndex].length;
+        wordIndex <
+        this.textEditModel.arabicWordsForMatching[sentenceIndex].length;
         wordIndex++
       ) {
         var word = new Word();
-        word.english = this.englishWordsMatched[sentenceIndex][wordIndex].join(
-          ' '
-        );
-        word.arabic = this.arabicWordsForMatching[sentenceIndex][wordIndex];
+        word.english = this.textEditModel.englishWordsMatched[sentenceIndex][
+          wordIndex
+        ].join(' ');
+        word.arabic = this.textEditModel.arabicWordsForMatching[sentenceIndex][
+          wordIndex
+        ];
 
-        this.text.sentences[sentenceIndex].words.push(word);
+        this.textEditModel.text.sentences[sentenceIndex].words.push(word);
       }
     }
   }
 
   public isValid(): boolean {
     return (
-      this.text.author != null &&
-      this.text.title != null &&
-      this.text.category != null &&
-      this.text.source != null &&
-      this.text.sentences != null &&
-      this.englishWordsForMatching != null &&
-      this.text.title.length < 30
+      this.textEditModel.text.author != null &&
+      this.textEditModel.text.title != null &&
+      this.textEditModel.text.category != null &&
+      this.textEditModel.text.source != null &&
+      this.textEditModel.text.sentences != null &&
+      this.textEditModel.englishWordsForMatching != null &&
+      this.textEditModel.text.title.length < 30
     );
   }
 
@@ -196,44 +200,56 @@ export class TextEditComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.id) {
-      this.textService.getText(this.id).subscribe((text) => (this.text = text));
+      this.textService
+        .getText(this.id)
+        .subscribe((text) => (this.textEditModel.text = text));
     }
   }
 
   onSubmit() {
     this.createWordList();
 
-    if (!this.text.textId) {
-      this.authService.user$.subscribe((u) => (this.text.editor = u.email));
-      this.textService.addText(this.text).subscribe((text) => {
-        console.log(this.text.sentences);
-        this.text = text;
+    if (!this.textEditModel.text.textId) {
+      this.authService.user$.subscribe(
+        (u) => (this.textEditModel.text.editor = u.email)
+      );
+      this.textService.addText(this.textEditModel.text).subscribe((text) => {
+        console.log(this.textEditModel.text.sentences);
+        this.textEditModel.text = text;
         this.openSnackBar(
-          'The text has been added with id: ' + this.text.textId + '.',
+          'The text has been added with id: ' +
+            this.textEditModel.text.textId +
+            '.',
           'MashaAllah!'
         );
       });
     } else {
-      this.textService.updateText(this.text).subscribe((text) => {
-        this.text = text;
-        this.openSnackBar(
-          'The text has been updated with id: ' + this.text.textId + '.',
-          'MashaAllah!'
-        );
-      });
+      this.textService
+        .updateText(this.textEditModel.text)
+        .subscribe((textEditModeltext) => {
+          this.textEditModel.text = textEditModeltext;
+          this.openSnackBar(
+            'The text has been updated with id: ' +
+              this.textEditModel.text.textId +
+              '.',
+            'MashaAllah!'
+          );
+        });
     }
 
     this.route.navigate(['/']);
   }
 
   newText() {
-    this.text = new Text();
+    this.textEditModel.text = new Text();
   }
 
   deleteText() {
-    this.textService.deleteText(this.text.textId);
+    this.textService.deleteText(this.textEditModel.text.textId);
     this.openSnackBar(
-      'The text has been deleted with id: ' + this.text.textId + '.',
+      'The text has been deleted with id: ' +
+        this.textEditModel.text.textId +
+        '.',
       'MashaAllah!'
     );
     this.route.navigate(['/']);
