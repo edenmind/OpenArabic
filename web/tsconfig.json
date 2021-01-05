@@ -12,6 +12,10 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": ["ESNext", "dom"]
+    "lib": ["ESNext", "dom"],
+    "alwaysStrict": true,
+    "allowUnusedLabels": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
   }
 }
