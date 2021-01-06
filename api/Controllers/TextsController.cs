@@ -40,21 +40,21 @@ namespace api.Controllers {
 
             if (!String.IsNullOrEmpty (author)) {
                 return await _context.Texts
-                    .Skip ((pageNumber - 1) * pageSize)
-                    .Take (pageSize)
                     .Include (s => s.Sentences)
                     .ThenInclude (w => w.Words)
                     .Where (t => t.Author.Contains (author))
                     .OrderByDescending (t => t.CreatedAt)
+                    .Skip ((pageNumber - 1) * pageSize)
+                    .Take (pageSize)
                     .ToListAsync ();
             }
 
             return await _context.Texts
-                .Skip ((pageNumber - 1) * pageSize)
-                .Take (pageSize)
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .OrderByDescending (t => t.CreatedAt)
+                .Skip ((pageNumber - 1) * pageSize)
+                .Take (pageSize)
                 .ToListAsync ();
         }
 

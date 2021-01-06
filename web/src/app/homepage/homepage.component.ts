@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
   showSpinner: boolean = true;
 
   pageNumber: number = 1;
-  pageSize: number = 30;
+  pageSize: number = 3;
 
   breakPoint: number = 1;
   readonly spinnerColor: ThemePalette = 'accent';
