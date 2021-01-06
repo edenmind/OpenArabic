@@ -32,7 +32,7 @@ export class TextService {
     pageSize: number = 25,
     pageNumber: number = 1
   ): Observable<Text[]> {
-    var sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
+    let sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
 
     if (category != 'empty') {
       sectionedUrl = `${this.textsUrl}?category=${category}`;

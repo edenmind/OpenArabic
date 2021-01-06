@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { Subscription } from 'rxjs';
 import { Text } from '../models/text';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TextService } from '../services/text.service';
@@ -18,19 +17,17 @@ import { QuizService } from '../services/quiz.service';
   styleUrls: ['./text-view.component.css', '../shared/common.css'],
 })
 export class TextViewComponent implements OnInit {
-  text: Text = new Text;
-  id: string = '';
-  subscription: Subscription = new Subscription;
-  showTextSpinner: boolean = true;
-  spinnerColor: ThemePalette = 'accent';
+  public text: Text = new Text;
+  public id: string = String();
+  public showTextSpinner: boolean = true;
+  public spinnerColor: ThemePalette = 'accent';
 
-  english: Vocab[] = [];
-  arabic: Vocab[] = [];
+  public english: Vocab[] = new Array();
+  public arabic: Vocab[] = new Array();
 
-  lastSelectedEnglish!: number;
-  lastSelectedArabic!: number;
-
-  numberOfSelected = 0;
+  public lastSelectedEnglish: number = 0;
+  public lastSelectedArabic: number = 0;
+  public numberOfSelected: number = 0;
 
   constructor(
     private textService: TextService,
@@ -46,15 +43,10 @@ export class TextViewComponent implements OnInit {
     this.getTextsAndPrepareUI();
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-    this.text = new Text();
-  }
-
   private getTextsAndPrepareUI() {
     this.id = this.route.snapshot.paramMap.get('id') || '1';
     if (this.id) {
-      this.subscription = this.textService.getText(this.id).subscribe(
+      this.textService.getText(this.id).subscribe(
         (text) => (
           (this.text = text),
           (this.text.sentences = this.text.sentences.sort((n1, n2) => {
@@ -78,7 +70,7 @@ export class TextViewComponent implements OnInit {
 
     this.lastSelectedEnglish = index;
 
-    var indexInArraryArabic = 0;
+    let indexInArraryArabic = 0;
 
     for (let i = 0; i < this.arabic.length; i++) {
       if (this.arabic[i].id == index) {
@@ -86,7 +78,7 @@ export class TextViewComponent implements OnInit {
       }
     }
 
-    var indexInArraryEnglish = 0;
+    let indexInArraryEnglish = 0;
 
     for (let i = 0; i < this.english.length; i++) {
       if (this.english[i].id == index) {
@@ -113,7 +105,7 @@ export class TextViewComponent implements OnInit {
       this.lastSelectedEnglish = 0;
       this.numberOfSelected = 0;
 
-      var numberOfCorrect = 0;
+      let numberOfCorrect = 0;
       for (let index = 0; index < this.english.length; index++) {
         if (this.english[index].correct) {
           numberOfCorrect++;
@@ -143,14 +135,14 @@ export class TextViewComponent implements OnInit {
 
     this.lastSelectedArabic = index;
 
-    var indexInArraryArabic = 0;
+    let indexInArraryArabic = 0;
     for (let i = 0; i < this.arabic.length; i++) {
       if (this.arabic[i].id == index) {
         indexInArraryArabic = i;
       }
     }
 
-    var indexInArraryEnglish = 0;
+    let indexInArraryEnglish = 0;
     for (let i = 0; i < this.english.length; i++) {
       if (this.english[i].id == index) {
         indexInArraryEnglish = i;
@@ -176,7 +168,7 @@ export class TextViewComponent implements OnInit {
       this.lastSelectedEnglish = 0;
       this.numberOfSelected = 0;
 
-      var numberOfCorrect = 0;
+      let numberOfCorrect = 0;
       for (let index = 0; index < this.arabic.length; index++) {
         if (this.arabic[index].correct) {
           numberOfCorrect++;

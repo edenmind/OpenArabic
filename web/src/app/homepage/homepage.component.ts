@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { Text } from '../models/text';
+import { DeviceService } from '../services/device.service';
 import { TextService } from '../services/text.service';
+import { WordProcessingService } from '../services/word-processing.service';
 
 @Component({
   selector: 'app-homepage',
@@ -23,103 +24,97 @@ export class HomepageComponent implements OnInit {
   pageNumber: number = 1;
   pageSize: number = 100;
 
-  author: string = '';
-  category: string = '';
-  subscription: Subscription = new Subscription;
-
   breakPoint: number = 1;
   spinnerColor: ThemePalette = 'accent';
+  pageTitle: string = String();
 
   constructor(
     private textService: TextService,
+    private deviceService: DeviceService,
     private route: Router,
     private activeRoute: ActivatedRoute,
-    private titleService: Title
+    private titleService: Title,
+    private wordProcessingService: WordProcessingService
   ) {
     this.route.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
 
-    this.breakPoint = window.innerWidth <= 1200 ? 1 : 3;
+    this.breakPoint = this.deviceService.checkDeviceSizeBreakPoint();
 
-    this.category = this.activeRoute.snapshot.paramMap.get('category') || '';
-    this.author = this.activeRoute.snapshot.paramMap.get('author') || '';
+    const category = this.activeRoute.snapshot.paramMap.get('category') || '';
+    const author = this.activeRoute.snapshot.paramMap.get('author') || '';
 
-    if (this.category) {
-      //set title
-      this.titleService.setTitle(`English and Arabic Texts about: ${this.category}`);
-      //show categories
-      this.subscription = this.textService
-        .getTexts('empty', this.category, this.pageSize, this.pageNumber)
-        .subscribe(
-          (texts) => ((this.texts = texts), (this.showSpinner = false))
-        );
-    } else if (this.author) {
-      //set title
-      this.titleService.setTitle(`English and Arabic Texts by: ${this.author}`);
-      //show authors
-      this.subscription = this.textService
-        .getTexts(this.author, 'empty', this.pageSize, this.pageNumber)
-        .subscribe(
-          (texts) => ((this.texts = texts), (this.showSpinner = false))
-        );
+    if (category) {
+      this.readCategory(category);
+      this.titleService.setTitle(`English and Arabic Texts about: ${category}`);
+      this.pageTitle = `Category: ${category}`
+    }
+    else if (author) {
+      this.readAuthor(author);
+      this.titleService.setTitle(`English and Arabic Texts by: ${author}`);
+      this.pageTitle = `Author: ${author}`
     } else {
+      this.readStartPage();
       this.titleService.setTitle('OpenArabic — a Bilingual Blog on Orthodox Islamic Topics');
-      //show everything
-      this.subscription = this.textService
-        .getTexts('empty', 'empty', this.pageSize, this.pageNumber)
-        .subscribe((texts) => ((this.texts = texts), (this.showSpinner = false)));
+      this.pageTitle = 'Homepage'
     }
   }
-
-  getCurrentPage(): string {
-
-    var currentPage: string = 'Homepage';
-
-    if (this.activeRoute.snapshot.paramMap.get('category')) {
-      currentPage = `Category: ${this.activeRoute.snapshot.paramMap.get('category')}`;
-    }
-    if (this.activeRoute.snapshot.paramMap.get('author')) {
-      currentPage = `Author: ${this.activeRoute.snapshot.paramMap.get('author')}`;
-    }
-
-    return currentPage;
+  private readStartPage() {
+    this.textService
+      .getTexts('', '', this.pageSize, this.pageNumber)
+      .subscribe((texts) => ((this.texts = texts), (this.showSpinner = false)));
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  private readAuthor(author: string) {
+    this.textService
+      .getTexts(author, 'empty', this.pageSize, this.pageNumber)
+      .subscribe(
+        (texts) => ((this.texts = texts), (this.showSpinner = false))
+      );
+  }
+
+  private readCategory(category: string) {
+    this.textService
+      .getTexts('empty', category, this.pageSize, this.pageNumber)
+      .subscribe(
+        (texts) => ((this.texts = texts), (this.showSpinner = false))
+      );
   }
 
   generateEnglishIngress(card: Text): string {
-    var englishIngress: string = '';
+
+    let englishIngress: string = String();
+
     if (card.sentences) {
       for (let index = 0; index < card.sentences.length; index++) {
         englishIngress = englishIngress + card.sentences[index].english;
       }
     }
-    englishIngress = this.insertSpaceAfterComma(englishIngress);
 
-    return englishIngress;
+    const englishIngressWithSpaceAfterComma = this.wordProcessingService.insertSpaceAfterComma(englishIngress);
+
+    return englishIngressWithSpaceAfterComma;
   }
 
   generateArabicIngress(card: Text): string {
-    var arabicIngress: string = '';
+
+    let arabicIngress: string = String();
+
     if (card.sentences) {
       for (let index = 0; index < card.sentences.length; index++) {
         arabicIngress = arabicIngress + card.sentences[index].arabic;
       }
     }
 
-    arabicIngress = this.insertSpaceAfterComma(arabicIngress);
+    const arabicIngressWithSpacesAfterComma = this.wordProcessingService.insertSpaceAfterComma(arabicIngress);
 
-    return arabicIngress;
-  }
-  insertSpaceAfterComma(englishIngress: string) {
-    return englishIngress.replace(/,(?=[^\s])/g, ', ');
+    return arabicIngressWithSpacesAfterComma;
   }
 
-  toggleBadgeVisibility() {
+
+  toggleBadgeVisibility(): void {
     this.badgeHidden = !this.badgeHidden;
   }
 

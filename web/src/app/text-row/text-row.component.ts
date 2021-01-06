@@ -10,7 +10,7 @@ export class TextRowComponent implements OnInit {
   @Input()
   sentence: Sentence = new Sentence;
   @Input()
-  language!: string;
+  language: string = String();
 
   constructor() { }
 

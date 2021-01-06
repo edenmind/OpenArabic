@@ -1,9 +1,9 @@
 import { Word } from './word';
 export class Sentence {
-  sentenceId!: number;
-  textId!: number;
-  arabic!: string;
-  english!: string;
-  order!: number;
-  words!: Word[];
+  sentenceId: number = 0;
+  textId: number = 0;
+  arabic: string = String();
+  english: string = String();
+  order: number = 0;
+  words: Word[] = new Array();
 }

@@ -7,13 +7,16 @@ export class QuizService {
 
   constructor() { }
 
-  shuffleArray(array: any): any {
+  shuffleArray(array: any[]): any[] {
+
+    let randomizedArray: any[] = new Array()
+
     for (var index = array.length - 1; index > 0; index--) {
-      var randomNumber = Math.floor(Math.random() * (index + 1));
-      var temp = array[index];
-      array[index] = array[randomNumber];
-      array[randomNumber] = temp;
+      const randomNumber = Math.floor(Math.random() * (index + 1));
+      const temporaryArray = array[index];
+      randomizedArray[index] = array[randomNumber];
+      randomizedArray[randomNumber] = temporaryArray;
     }
-    return array
+    return randomizedArray
   }
 }

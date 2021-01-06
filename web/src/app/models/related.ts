@@ -1,4 +1,4 @@
 export class Related {
-  title!: string;
-  textId!: number;
+  title: string = String();
+  textId: number = 0;
 }

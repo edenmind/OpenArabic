@@ -12,7 +12,7 @@
     </mat-card>
 
     <mat-card *ngIf="!isStartPage()">
-        <h3>{{getCurrentPage()}}</h3>
+        <h3>{{pageTitle}}</h3>
     </mat-card>
 
     <mat-grid-list [cols]="breakPoint" rowHeight="350px" (window:resize)="onResize($event)">

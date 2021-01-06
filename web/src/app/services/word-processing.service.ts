@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class WordProcessingService {
-  charactersToClean = [
+  charactersToClean: string[] = [
     ',',
     '.',
     ',',
@@ -33,21 +33,22 @@ export class WordProcessingService {
   constructor() { }
 
   loopWordsToCleanAndRemoveNull(words: string[]): string[] {
+
     for (let index = 0; index < words.length; index++) {
       words[index] = this.cleanWordFromCharacters(words[index]);
     }
 
-    words = this.removeEmptyAndNullFromWords(words);
+    const wordsNoEmptyOrNull = this.removeEmptyAndNullFromWords(words);
 
-    return words;
+    return wordsNoEmptyOrNull;
   }
 
   removeEmptyAndNullFromWords(words: string[]): string[] {
-    var emptyRemoved = words.filter(function (word) {
+    const emptyRemoved = words.filter(function (word) {
       return word != '';
     });
 
-    var nullRemoved = emptyRemoved.filter(function (word) {
+    const nullRemoved = emptyRemoved.filter(function (word) {
       return word != null;
     });
 
@@ -55,7 +56,7 @@ export class WordProcessingService {
   }
 
   cleanWordFromCharacters(word: string): string {
-    let wordCleaned = '';
+    let wordCleaned: string = String();
     for (let index = 0; index < this.charactersToClean.length; index++) {
       wordCleaned = (word = word.replaceAll(this.charactersToClean[index], ''));
     }
@@ -64,18 +65,22 @@ export class WordProcessingService {
   }
 
   splitTextToSentences(text: string): string[] {
-    var sentences = text.split('\n');
+    const sentences = text.split('\n');
     return sentences;
   }
 
   splitSentencestoWords(sentence: string): string[] {
-    var words = sentence.split(' ');
+    const words = sentence.split(' ');
     return words;
   }
 
   splitWords(paragraph: string): string[] {
-    var words = paragraph.split(' ');
-    words = this.loopWordsToCleanAndRemoveNull(words);
-    return words;
+    const words = paragraph.split(' ');
+    const wordsCleaned = this.loopWordsToCleanAndRemoveNull(words);
+    return wordsCleaned;
+  }
+
+  insertSpaceAfterComma(text: string) {
+    return text.replace(/,(?=[^\s])/g, ', ');
   }
 }

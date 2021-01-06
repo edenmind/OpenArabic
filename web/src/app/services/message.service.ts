@@ -11,15 +11,15 @@ export class MessageService {
     this.httpClientAnonymous = new HttpClient(handler);
   }
 
-  private url = environment.api + '/api/messages';
   private httpClientAnonymous: HttpClient;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  sendMessage(message: Mail) {
-    this.httpClientAnonymous.post<any>(this.url, message).subscribe((data) => {
+  sendMessage(message: Mail): void {
+    const url = `${environment.api}/api/messages`;
+    this.httpClientAnonymous.post<Mail>(url, message).subscribe((data) => {
       console.log(data); //TODO: Show result in UI
     });
   }

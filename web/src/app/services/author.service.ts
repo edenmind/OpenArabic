@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthorService {
-  authors = [
+  authors: string[] = [
     'Ibrahim ibn al-Mundhir',
     'Ibn Qudāmah al-Maqdīsī',
     'Abdur Raūf Al-Manāwi',
@@ -28,9 +28,9 @@ export class AuthorService {
   ];
 
   GetAuthors() {
-    var sorted = this.authors.sort();
+    const sorted = this.authors.sort();
     return sorted;
   }
 
-  constructor() {}
+  constructor() { }
 }

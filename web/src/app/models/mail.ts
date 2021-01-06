@@ -1,4 +1,4 @@
 export class Mail {
-  sender: string = '';
-  body: string = '';
+  sender: string = String();
+  body: string = String();
 }

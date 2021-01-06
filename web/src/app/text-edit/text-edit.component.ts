@@ -30,25 +30,24 @@ export class TextEditComponent implements OnInit, OnChanges {
     private route: Router
   ) { }
 
-  sentencesAreEqual: boolean = false;
+  public sentencesAreEqual: boolean = false;
 
-  authors = this.authorService.GetAuthors();
-  statuses = this.statusService.GetStatuses();
-  categories = this.categoryService.GetCategories();
+  public authors = this.authorService.GetAuthors();
+  public statuses = this.statusService.GetStatuses();
+  public categories = this.categoryService.GetCategories();
 
-  textEditModel: TextEditModel = new TextEditModel();
+  public textEditModel: TextEditModel = new TextEditModel();
 
+  ngOnInit(): void {
+    this.getText();
+  }
   ngOnChanges(): void {
     if (this.sentencesAreEqual) {
       this.updatePreview();
     }
   }
 
-  ngOnInit(): void {
-    this.getText();
-  }
-
-  private getText() {
+  private getText(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
       this.textService
@@ -57,7 +56,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.textEditModel.text.textId) {
       this.updateText();
     } else {
@@ -84,16 +83,16 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
   }
 
-  public openTranslation(arabicWord: string) {
-    var url = `https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=${arabicWord}`;
+  public openTranslation(arabicWord: string): void {
+    const url = `https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=${arabicWord}`;
     window.open(url, '_blank');
   }
 
-  updatePreview() {
+  updatePreview(): void {
     // Get english and arabic sentences from view
-    this.textEditModel.arabicWordsForMatching = [];
-    this.textEditModel.englishWordsForMatching = [];
-    this.textEditModel.englishWordsMatched = [];
+    this.textEditModel.arabicWordsForMatching = new Array();
+    this.textEditModel.englishWordsForMatching = new Array();
+    this.textEditModel.englishWordsMatched = new Array();
 
     this.textEditModel.englishSentences = this.wordProcessingService.splitTextToSentences(
       this.textEditModel.text.englishText
@@ -141,7 +140,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
   }
 
-  createWordList() {
+  createWordList(): void {
     for (let sentenceIndex = 0; sentenceIndex < this.textEditModel.text.sentences.length; sentenceIndex++) {
 
       this.textEditModel.text.sentences[sentenceIndex].words = new Array();
@@ -171,10 +170,10 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   private combineSentences(englishSentences: string[], arabicSentences: string[]): Sentence[] {
 
-    var sentences: Sentence[] = new Array();
+    let sentences: Sentence[] = new Array();
 
     for (let index = 0; index < englishSentences.length; index++) {
-      var sentence = new Sentence();
+      let sentence = new Sentence();
       sentence.arabic = arabicSentences[index];
       sentence.english = englishSentences[index];
 

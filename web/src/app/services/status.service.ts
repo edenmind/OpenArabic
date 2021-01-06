@@ -6,8 +6,9 @@ import { Injectable } from '@angular/core';
 export class StatusService {
   statuses = ['Published', 'Draft'];
 
-  GetStatuses() {
-    return this.statuses;
+  GetStatuses(): string[] {
+    const statusesSorted = this.statuses.sort()
+    return statusesSorted;
   }
 
   constructor() { }

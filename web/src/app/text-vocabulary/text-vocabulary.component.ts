@@ -11,11 +11,11 @@ export class TextVocabularyComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public words: Word[],
     private dialogRef: MatDialogRef<TextVocabularyComponent>
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  closeDialog() {
+  closeDialog(): void {
     this.dialogRef.close();
   }
 }
