@@ -18,7 +18,7 @@ export class CategoryService {
     'Tawhīd',
   ];
 
-  GetCategories() {
+  GetCategories(): string[] {
     return this.categories;
   }
 

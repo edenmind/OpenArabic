@@ -27,18 +27,18 @@ export class TextService {
 
   /** GET texts from the server */
   getTexts(
-    author: string = 'empty',
-    category: string = 'empty',
+    author?: string,
+    category?: string,
     pageSize: number = 25,
     pageNumber: number = 1
   ): Observable<Text[]> {
     let sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
 
-    if (category != 'empty') {
+    if (category != '') {
       sectionedUrl = `${this.textsUrl}?category=${category}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     }
 
-    if (author != 'empty') {
+    if (author != '') {
       sectionedUrl = `${this.textsUrl}?author=${author}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     }
 

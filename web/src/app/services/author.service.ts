@@ -27,7 +27,7 @@ export class AuthorService {
     'Shams ad-Dīn adh-Dhahabī',
   ];
 
-  GetAuthors() {
+  GetAuthors(): string[] {
     const sorted = this.authors.sort();
     return sorted;
   }

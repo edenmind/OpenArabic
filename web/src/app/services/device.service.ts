@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class DeviceService {
 
   constructor() { }
-
   public checkDeviceSizeBreakPoint(): number {
     return window.innerWidth <= 1200 ? 1 : 3;
   }

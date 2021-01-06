@@ -10,7 +10,6 @@ export class MessageService {
   constructor(handler: HttpBackend) {
     this.httpClientAnonymous = new HttpClient(handler);
   }
-
   private httpClientAnonymous: HttpClient;
 
   httpOptions = {

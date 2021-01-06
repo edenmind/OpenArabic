@@ -58,7 +58,6 @@ export class HomepageComponent implements OnInit {
     } else {
       this.readStartPage();
       this.titleService.setTitle('OpenArabic — a Bilingual Blog on Orthodox Islamic Topics');
-      this.pageTitle = 'Homepage'
     }
   }
   private readStartPage() {
@@ -69,7 +68,7 @@ export class HomepageComponent implements OnInit {
 
   private readAuthor(author: string) {
     this.textService
-      .getTexts(author, 'empty', this.pageSize, this.pageNumber)
+      .getTexts(author, '', this.pageSize, this.pageNumber)
       .subscribe(
         (texts) => ((this.texts = texts), (this.showSpinner = false))
       );
@@ -77,7 +76,7 @@ export class HomepageComponent implements OnInit {
 
   private readCategory(category: string) {
     this.textService
-      .getTexts('empty', category, this.pageSize, this.pageNumber)
+      .getTexts('', category, this.pageSize, this.pageNumber)
       .subscribe(
         (texts) => ((this.texts = texts), (this.showSpinner = false))
       );
