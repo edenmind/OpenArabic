@@ -23,17 +23,18 @@ namespace api.Controllers {
         // GET: api/Texts
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Text>>> GetTexts ([FromQuery (Name = "category")] string category, [FromQuery (Name = "author")] string author, [FromQuery (Name = "pageSize")] int pageSize = 10, [FromQuery (Name = "pageNumber")] int pageNumber = 1) {
+        public async Task<ActionResult<IEnumerable<Text>>> GetTexts (
+            [FromQuery (Name = "category")] string category, [FromQuery (Name = "author")] string author, [FromQuery (Name = "pageSize")] int pageSize = 10, [FromQuery (Name = "pageNumber")] int pageNumber = 1) {
 
             if (!String.IsNullOrEmpty (category)) {
                 return await _context.Texts
-                    .Skip ((pageNumber - 1) * pageSize)
-                    .Take (pageSize)
                     .Include (s => s.Sentences)
                     .ThenInclude (w => w.Words)
                     .Where (t => t.Category.Contains (category))
                     .Where (t => t.Status.Equals ("Published"))
                     .OrderByDescending (t => t.CreatedAt)
+                    .Skip ((pageNumber - 1) * pageSize)
+                    .Take (pageSize)
                     .ToListAsync ();
             }
 
