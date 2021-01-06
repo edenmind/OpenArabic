@@ -35,11 +35,11 @@ export class TextService {
     let sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
 
     if (category != 'empty') {
-      sectionedUrl = `${this.textsUrl}?category=${category}`;
+      sectionedUrl = `${this.textsUrl}?category=${category}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     }
 
     if (author != 'empty') {
-      sectionedUrl = `${this.textsUrl}?author=${author}`;
+      sectionedUrl = `${this.textsUrl}?author=${author}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     }
 
     return this.httpClientAnonymous

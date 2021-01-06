@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
   showSpinner: boolean = true;
 
   pageNumber: number = 1;
-  pageSize: number = 100;
+  pageSize: number = 30;
 
   breakPoint: number = 1;
   readonly spinnerColor: ThemePalette = 'accent';
@@ -43,8 +43,8 @@ export class HomepageComponent implements OnInit {
 
     this.breakPoint = this.deviceService.checkDeviceSizeBreakPoint();
 
-    const category = this.activeRoute.snapshot.paramMap.get('category') || '';
-    const author = this.activeRoute.snapshot.paramMap.get('author') || '';
+    const category = this.activeRoute.snapshot.paramMap.get('category') || null;
+    const author = this.activeRoute.snapshot.paramMap.get('author') || null;
 
     if (category) {
       this.readCategory(category);
