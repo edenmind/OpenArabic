@@ -25,7 +25,7 @@ export class HomepageComponent implements OnInit {
   pageSize: number = 100;
 
   breakPoint: number = 1;
-  spinnerColor: ThemePalette = 'accent';
+  readonly spinnerColor: ThemePalette = 'accent';
   pageTitle: string = String();
 
   constructor(
@@ -83,7 +83,7 @@ export class HomepageComponent implements OnInit {
       );
   }
 
-  generateEnglishIngress(card: Text): string {
+  public generateEnglishIngress(card: Text): string {
 
     let englishIngress: string = String();
 
@@ -98,7 +98,7 @@ export class HomepageComponent implements OnInit {
     return englishIngressWithSpaceAfterComma;
   }
 
-  generateArabicIngress(card: Text): string {
+  public generateArabicIngress(card: Text): string {
 
     let arabicIngress: string = String();
 

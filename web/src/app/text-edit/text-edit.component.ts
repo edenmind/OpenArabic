@@ -32,9 +32,9 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   public sentencesAreEqual: boolean = false;
 
-  public authors = this.authorService.GetAuthors();
-  public statuses = this.statusService.GetStatuses();
-  public categories = this.categoryService.GetCategories();
+  public readonly authors = this.authorService.GetAuthors();
+  public readonly statuses = this.statusService.GetStatuses();
+  public readonly categories = this.categoryService.GetCategories();
 
   public textEditModel: TextEditModel = new TextEditModel();
 

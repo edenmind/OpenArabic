@@ -20,7 +20,7 @@ export class TextViewComponent implements OnInit {
   public text: Text = new Text;
   public id: string = String();
   public showTextSpinner: boolean = true;
-  public spinnerColor: ThemePalette = 'accent';
+  public readonly spinnerColor: ThemePalette = 'accent';
 
   public english: Vocab[] = new Array();
   public arabic: Vocab[] = new Array();
@@ -44,12 +44,15 @@ export class TextViewComponent implements OnInit {
   }
 
   private getTextsAndPrepareUI() {
+
     this.id = this.route.snapshot.paramMap.get('id') || '1';
+
     if (this.id) {
       this.textService.getText(this.id).subscribe(
         (text) => (
+          this.setSpinneToFalse(),
           (this.text = text),
-          (this.text.sentences = this.text.sentences.sort((n1, n2) => {
+          (this.text.sentences.sort((n1, n2) => {
             if (n1.order > n2.order) {
               return 1;
             }
@@ -59,7 +62,6 @@ export class TextViewComponent implements OnInit {
             return 0;
           })),
           this.titleService.setTitle(`${text.title} | ${text.author}`),
-          this.setSpinneToFalse(),
           this.readWords()
         )
       );
@@ -245,8 +247,8 @@ export class TextViewComponent implements OnInit {
   }
 
   //TODO: This should not be necessary maybe look if text is null?
-  async setSpinneToFalse() {
-    await this.delay(300);
+  setSpinneToFalse() {
+    this.delay(300);
     this.showTextSpinner = false;
   }
 

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CategoryService {
-  categories: string[] = [
+  private readonly categories: string[] = [
     'Adab',
     'ʿAqīdah',
     'Fiqh',

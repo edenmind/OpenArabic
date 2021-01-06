@@ -1,5 +1,5 @@
 {
-"editor.wordWrapColumn": 200,
+  "editor.wordWrapColumn": 200,
   "javascript.format.insertSpaceAfterConstructor": true,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": true,
@@ -8,7 +8,7 @@
   "js/ts.implicitProjectConfig.checkJs": true,
   "typescript.referencesCodeLens.enabled": true,
   "typescript.suggest.completeFunctionCalls": true,
-"prettier.printWidth": 200,
-"mssql.format.alignColumnDefinitionsInColumns": true,
-"html.format.wrapLineLength": 180
+  "prettier.printWidth": 200,
+  "mssql.format.alignColumnDefinitionsInColumns": true,
+  "html.format.wrapLineLength": 180
 }

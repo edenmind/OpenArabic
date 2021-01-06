@@ -10,7 +10,7 @@ import { Text } from '../models/text';
   providedIn: 'root',
 })
 export class TextService {
-  private textsUrl = environment.api + '/api/texts';
+  private readonly textsUrl = environment.api + '/api/texts';
   private httpClientAnonymous: HttpClient;
 
   httpOptions = {

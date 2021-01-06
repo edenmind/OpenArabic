@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class StatusService {
-  statuses = ['Published', 'Draft'];
+  private readonly statuses = ['Published', 'Draft'];
 
   GetStatuses(): string[] {
     const statusesSorted = this.statuses.sort()

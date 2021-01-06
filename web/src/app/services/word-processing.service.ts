@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class WordProcessingService {
-  charactersToClean: string[] = [
+  private readonly charactersToClean: string[] = [
     ',',
     '.',
     ',',

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthorService {
-  authors: string[] = [
+  private readonly authors: string[] = [
     'Ibrahim ibn al-Mundhir',
     'Ibn Qudāmah al-Maqdīsī',
     'Abdur Raūf Al-Manāwi',
