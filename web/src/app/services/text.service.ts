@@ -32,14 +32,16 @@ export class TextService {
     pageSize: number = 25,
     pageNumber: number = 1
   ): Observable<Text[]> {
-    let sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
+
+    let sectionedUrl: string;
 
     if (category != '') {
       sectionedUrl = `${this.textsUrl}?category=${category}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     }
-
-    if (author != '') {
+    else if (author != '') {
       sectionedUrl = `${this.textsUrl}?author=${author}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
+    } else {
+      sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
     }
 
     return this.httpClientAnonymous

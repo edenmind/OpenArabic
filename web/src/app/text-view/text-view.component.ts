@@ -18,7 +18,6 @@ import { QuizService } from '../services/quiz.service';
 })
 export class TextViewComponent implements OnInit {
   public text: Text = new Text;
-  public id: string = String();
   public showTextSpinner: boolean = true;
   public readonly spinnerColor: ThemePalette = 'accent';
 
@@ -40,15 +39,18 @@ export class TextViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getTextsAndPrepareUI();
+    const id = this.getIdFromRoute();
+    this.getTexts(id);
   }
 
-  private getTextsAndPrepareUI() {
+  private getIdFromRoute(): string {
+    return this.route.snapshot.paramMap.get('id') || '1';
+  }
 
-    this.id = this.route.snapshot.paramMap.get('id') || '1';
+  private getTexts(id: string) {
 
-    if (this.id) {
-      this.textService.getText(this.id).subscribe(
+    if (id) {
+      this.textService.getText(id).subscribe(
         (text) => (
           this.setSpinneToFalse(),
           (this.text = text),
