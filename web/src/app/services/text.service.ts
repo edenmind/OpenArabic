@@ -35,10 +35,10 @@ export class TextService {
 
     let sectionedUrl: string;
 
-    if (category != '') {
+    if (category !== '') {
       sectionedUrl = `${this.textsUrl}?category=${category}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     }
-    else if (author != '') {
+    else if (author !== '') {
       sectionedUrl = `${this.textsUrl}?author=${author}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     } else {
       sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
@@ -65,7 +65,7 @@ export class TextService {
   }
 
   updateText(text: Text): Observable<any> {
-    var sectionedUrl = `${environment.api}/api/texts/${text.textId}`;
+    const sectionedUrl = `${environment.api}/api/texts/${text.textId}`;
     return this.http.put(sectionedUrl, text, this.httpOptions).pipe(
       tap((_) => this.log(`updated text id=${text.textId}`)),
       catchError(this.handleError<any>('updateText'))
@@ -87,7 +87,7 @@ export class TextService {
     };
   }
 
-  private log(message: string) {
+  private log(message: string): void {
     console.log(`TextService: ${message}`);
   }
 }

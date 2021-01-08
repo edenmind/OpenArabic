@@ -18,15 +18,15 @@ import { QuizService } from '../services/quiz.service';
 })
 export class TextViewComponent implements OnInit {
   public text: Text = new Text;
-  public showTextSpinner: boolean = true;
+  public showTextSpinner = true;
   public readonly spinnerColor: ThemePalette = 'accent';
 
-  public english: Vocab[] = new Array();
-  public arabic: Vocab[] = new Array();
+  public english: Vocab[] = [];
+  public arabic: Vocab[] = [];
 
-  public lastSelectedEnglish: number = 0;
-  public lastSelectedArabic: number = 0;
-  public numberOfSelected: number = 0;
+  public lastSelectedEnglish = 0;
+  public lastSelectedArabic = 0;
+  public numberOfSelected = 0;
 
   constructor(
     private textService: TextService,
@@ -34,7 +34,7 @@ export class TextViewComponent implements OnInit {
     public auth: AuthService,
     private titleService: Title,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar,
+    private matSnackBar: MatSnackBar,
     private quizService: QuizService
   ) { }
 
@@ -47,7 +47,7 @@ export class TextViewComponent implements OnInit {
     return this.route.snapshot.paramMap.get('id') || '1';
   }
 
-  private getTexts(id: string) {
+  private getTexts(id: string): void {
 
     if (id) {
       this.textService.getText(id).subscribe(
@@ -116,7 +116,7 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.english.length) {
-        this._snackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
+        this.matSnackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
           duration: 3000,
         });
       }
@@ -179,7 +179,7 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.arabic.length) {
-        this._snackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
+        this.matSnackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
           duration: 3000,
         });
       }
@@ -212,11 +212,11 @@ export class TextViewComponent implements OnInit {
 
 
   readWords(): void {
-    var numberOfGenerations = 0;
-    var randomNumbers = [99];
+    let numberOfGenerations = 0;
+    const randomNumbers = [99];
 
     for (let index = 0; index < 10; index++) {
-      var randomNumber = Math.floor(Math.random() * this.text.sentences.length);
+      const randomNumber = Math.floor(Math.random() * this.text.sentences.length);
       if (!randomNumbers.includes(randomNumber)) {
         this.GetWordsFromSentences(randomNumber);
         numberOfGenerations = numberOfGenerations + 1;
@@ -231,13 +231,13 @@ export class TextViewComponent implements OnInit {
     this.english = this.quizService.shuffleArray(this.english);
   }
 
-  private GetWordsFromSentences(sentenceNumber: number) {
+  private GetWordsFromSentences(sentenceNumber: number): void {
     for (let index = 0; index < this.text.sentences[0].words.length; index++) {
-      let english = new Vocab();
+      const english = new Vocab();
       english.word = this.text.sentences[sentenceNumber].words[index].english;
       english.id = this.english.length + 1;
 
-      let arabic = new Vocab();
+      const arabic = new Vocab();
       arabic.word = this.text.sentences[sentenceNumber].words[index].arabic;
       arabic.id = this.arabic.length + 1;
 
@@ -248,8 +248,8 @@ export class TextViewComponent implements OnInit {
     }
   }
 
-  //TODO: This should not be necessary maybe look if text is null?
-  setSpinneToFalse() {
+  // TODO: This should not be necessary maybe look if text is null?
+  setSpinneToFalse(): void {
     this.delay(300);
     this.showTextSpinner = false;
   }

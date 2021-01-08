@@ -9,14 +9,14 @@ export class QuizService {
 
   shuffleArray(array: any[]): any[] {
 
-    let randomizedArray: any[] = new Array()
+    const randomizedArray: any[] = [];
 
-    for (var index = array.length - 1; index > 0; index--) {
+    for (let index = array.length - 1; index > 0; index--) {
       const randomNumber = Math.floor(Math.random() * (index + 1));
       const temporaryArray = array[index];
       randomizedArray[index] = array[randomNumber];
       randomizedArray[randomNumber] = temporaryArray;
     }
-    return randomizedArray
+    return randomizedArray;
   }
 }

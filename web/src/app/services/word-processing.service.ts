@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -38,40 +38,32 @@ export class WordProcessingService {
       words[index] = this.cleanWordFromCharacters(words[index]);
     }
 
-    const wordsNoEmptyOrNull = this.removeEmptyAndNullFromWords(words);
-
-    return wordsNoEmptyOrNull;
+    return this.removeEmptyAndNullFromWords(words);
   }
 
   removeEmptyAndNullFromWords(words: string[]): string[] {
-    const emptyRemoved = words.filter(function (word) {
-      return word != '';
-    });
+    const emptyRemoved = words.filter(word => word !== '');
 
-    const nullRemoved = emptyRemoved.filter(function (word) {
-      return word != null;
-    });
+    const nullRemoved = emptyRemoved.filter(word => word != null);
 
     return nullRemoved;
   }
 
   cleanWordFromCharacters(word: string): string {
     let wordCleaned: string = String();
-    for (let index = 0; index < this.charactersToClean.length; index++) {
-      wordCleaned = (word = word.replaceAll(this.charactersToClean[index], ''));
-    }
+    this.charactersToClean.forEach(item => {
+      wordCleaned = (word = word.replaceAll(item, ''));
+    });
 
-    return wordCleaned
+    return wordCleaned;
   }
 
   splitTextToSentences(text: string): string[] {
-    const sentences = text.split('\n');
-    return sentences;
+    return text.split('\n');
   }
 
   splitSentencestoWords(sentence: string): string[] {
-    const words = sentence.split(' ');
-    return words;
+    return sentence.split(' ');
   }
 
   splitWords(paragraph: string): string[] {
@@ -80,7 +72,5 @@ export class WordProcessingService {
     return wordsCleaned;
   }
 
-  insertSpaceAfterComma(text: string) {
-    return text.replace(/,(?=[^\s])/g, ', ');
-  }
+  insertSpaceAfterComma = (text: string) => text.replace(/,(?=[^\s])/g, ', ');
 }

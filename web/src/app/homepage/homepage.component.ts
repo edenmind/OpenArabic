@@ -15,16 +15,16 @@ import { WordProcessingService } from '../services/word-processing.service';
 export class HomepageComponent implements OnInit {
   texts: Text[] = [];
 
-  cols: number = 1;
-  rows: number = 1;
+  cols = 1;
+  rows = 1;
 
-  badgeHidden: boolean = false;
-  showSpinner: boolean = true;
+  badgeHidden = false;
+  showSpinner = true;
 
-  pageNumber: number = 1;
-  pageSize: number = 25;
+  pageNumber = 1;
+  pageSize = 25;
 
-  breakPoint: number = 1;
+  breakPoint = 1;
   readonly spinnerColor: ThemePalette = 'accent';
   pageTitle: string = String();
 
@@ -49,24 +49,25 @@ export class HomepageComponent implements OnInit {
     if (category) {
       this.readCategory(category);
       this.titleService.setTitle(`English and Arabic Texts about: ${category}`);
-      this.pageTitle = `Category: ${category}`
+      this.pageTitle = `Category: ${category}`;
     }
     else if (author) {
       this.readAuthor(author);
       this.titleService.setTitle(`English and Arabic Texts by: ${author}`);
-      this.pageTitle = `Author: ${author}`
+      this.pageTitle = `Author: ${author}`;
     } else {
       this.readStartPage();
       this.titleService.setTitle('OpenArabic — a Bilingual Blog on Orthodox Islamic Topics');
     }
   }
-  private readStartPage() {
+  private readStartPage(): void {
     this.textService
       .getTexts('', '', this.pageSize, this.pageNumber)
-      .subscribe((texts) => ((this.texts = texts), (this.showSpinner = false)));
+      .subscribe((texts) => ((this.texts = texts), (this.showSpinner = false))
+      );
   }
 
-  private readAuthor(author: string) {
+  private readAuthor(author: string): void {
     this.textService
       .getTexts(author, '', this.pageSize, this.pageNumber)
       .subscribe(
@@ -74,7 +75,7 @@ export class HomepageComponent implements OnInit {
       );
   }
 
-  private readCategory(category: string) {
+  private readCategory(category: string): void {
     this.textService
       .getTexts('', category, this.pageSize, this.pageNumber)
       .subscribe(
@@ -87,14 +88,12 @@ export class HomepageComponent implements OnInit {
     let englishIngress: string = String();
 
     if (card.sentences) {
-      for (let index = 0; index < card.sentences.length; index++) {
-        englishIngress = englishIngress + card.sentences[index].english;
-      }
+      card.sentences.forEach(item => {
+        englishIngress = englishIngress + item.english;
+      });
     }
 
-    const englishIngressWithSpaceAfterComma = this.wordProcessingService.insertSpaceAfterComma(englishIngress);
-
-    return englishIngressWithSpaceAfterComma;
+    return this.wordProcessingService.insertSpaceAfterComma(englishIngress);
   }
 
   public generateArabicIngress(card: Text): string {
@@ -102,14 +101,12 @@ export class HomepageComponent implements OnInit {
     let arabicIngress: string = String();
 
     if (card.sentences) {
-      for (let index = 0; index < card.sentences.length; index++) {
-        arabicIngress = arabicIngress + card.sentences[index].arabic;
-      }
+      card.sentences.forEach(item => {
+        arabicIngress = arabicIngress + item.arabic;
+      });
     }
 
-    const arabicIngressWithSpacesAfterComma = this.wordProcessingService.insertSpaceAfterComma(arabicIngress);
-
-    return arabicIngressWithSpacesAfterComma;
+    return this.wordProcessingService.insertSpaceAfterComma(arabicIngress);
   }
 
 
@@ -121,11 +118,9 @@ export class HomepageComponent implements OnInit {
     this.route.navigate(['/text/', id]);
   }
 
-  isStartPage(): boolean {
-    return this.route.url == '/';
-  }
+  isStartPage = (): boolean => this.route.url === '/';
 
-  onResize(event: { target: { innerWidth: number; }; }) {
+  onResize(event: { target: { innerWidth: number; }; }): void {
     this.breakPoint = event.target.innerWidth <= 1200 ? 1 : 3;
   }
 }

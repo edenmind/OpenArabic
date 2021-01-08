@@ -2,7 +2,7 @@ import { Related } from './related';
 import { Sentence } from './sentence';
 
 export class Text {
-  textId: number = 0;
+  textId = 0;
   title: string = String();
   author: string = String();
   editor: string = String();
@@ -13,6 +13,6 @@ export class Text {
   status: string = String();
   englishText: string = String();
   arabicText: string = String();
-  sentences: Sentence[] = new Array();
-  relatedTexts: Related[] = new Array();
+  sentences: Sentence[] = [];
+  relatedTexts: Related[] = [];
 }

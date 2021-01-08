@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -28,8 +28,7 @@ export class AuthorService {
   ];
 
   GetAuthors(): string[] {
-    const sorted = this.authors.sort();
-    return sorted;
+    return this.authors.sort();
   }
 
   constructor() { }
