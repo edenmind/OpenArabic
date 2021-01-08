@@ -1,6 +1,8 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
+  "fullTemplateTypeCheck": true,
+  "strictTemplates": true,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -12,7 +14,7 @@
     "importHelpers": true,
     "target": "ESnext",
     "module": "ESnext",
-    "lib": ["ESNext", "dom"],
+    "lib": ["ESnext", "dom"],
     "alwaysStrict": true,
     "allowUnusedLabels": false,
     "forceConsistentCasingInFileNames": true,
@@ -29,5 +31,16 @@
     "pretty": true,
     "strictBindCallApply": true,
     "strictNullChecks": true
+  },
+  "angularCompilerOptions": {
+    // "fullTemplateTypeCheck": true,
+    // "strictInjectionParameters": true,
+    // "strictNullChecks": true,
+    // "alwaysStrict": true,
+    // "forceConsistentCasingInFileNames": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "strictTemplates": true,
+    // "strictFunctionTypes": true,
+    // "strictInputAccessModifiers": true
   }
 }
