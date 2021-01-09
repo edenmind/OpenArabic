@@ -29,6 +29,8 @@ export class TextViewComponent implements OnInit {
   public lastSelectedArabic = 0;
   public numberOfSelected = 0;
 
+  public id: string = String()
+
   constructor(
     private textService: TextService,
     private route: ActivatedRoute,
@@ -40,8 +42,8 @@ export class TextViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = this.getIdFromRoute();
-    this.getTextsAndPrepareUI(id);
+    this.id = this.getIdFromRoute();
+    this.getTextsAndPrepareUI(this.id);
   }
 
   private getIdFromRoute(): string {
@@ -245,7 +247,15 @@ export class TextViewComponent implements OnInit {
       const arabicWordLongerThanTwo = arabic.word.length > 2;
       const englishWordLongerThanTwo = english.word.length > 2;
 
-      if (arabicWordLongerThanTwo && englishWordLongerThanTwo) {
+      let wordExistsInVocabulary: boolean = false;
+
+      this.arabicVocabulary.forEach(element => {
+        if (element.word === arabic.word) {
+          wordExistsInVocabulary = true
+        }
+      });
+
+      if (arabicWordLongerThanTwo && englishWordLongerThanTwo && !wordExistsInVocabulary) {
         this.arabicVocabulary.push(arabic);
         this.englishVocabulary.push(english);
       }
