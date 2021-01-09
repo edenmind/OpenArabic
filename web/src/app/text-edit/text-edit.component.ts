@@ -30,7 +30,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     private route: Router
   ) { }
 
-  public sentencesAreEqual: boolean = false;
+  public sentencesAreEqual = false;
 
   public readonly authors = this.authorService.GetAuthors();
   public readonly statuses = this.statusService.GetStatuses();
@@ -90,9 +90,9 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   updatePreview(): void {
     // Get english and arabic sentences from view
-    this.textEditModel.arabicWordsForMatching = new Array();
-    this.textEditModel.englishWordsForMatching = new Array();
-    this.textEditModel.englishWordsMatched = new Array();
+    this.textEditModel.arabicWordsForMatching = [];
+    this.textEditModel.englishWordsForMatching = [];
+    this.textEditModel.englishWordsMatched = [];
 
     this.textEditModel.englishSentences = this.wordProcessingService.splitTextToSentences(
       this.textEditModel.text.englishText
@@ -110,7 +110,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     );
 
     // Check in text to see if sentences are equal
-    if (englishSentences.length != arabicSentences.length) {
+    if (englishSentences.length !== arabicSentences.length) {
       this.sentencesAreEqual = false;
     } else {
       this.sentencesAreEqual = true;
@@ -132,10 +132,10 @@ export class TextEditComponent implements OnInit, OnChanges {
     // TODO: There should be a better way...
     for (let index = 0; index < this.textEditModel.arabicWordsForMatching.length; index++) {
 
-      this.textEditModel.englishWordsMatched[index] = new Array();
+      this.textEditModel.englishWordsMatched[index] = [];
 
       for (let index2 = 0; index2 < this.textEditModel.arabicWordsForMatching[index].length; index2++) {
-        this.textEditModel.englishWordsMatched[index][index2] = new Array();
+        this.textEditModel.englishWordsMatched[index][index2] = [];
       }
     }
   }
@@ -143,11 +143,11 @@ export class TextEditComponent implements OnInit, OnChanges {
   createWordList(): void {
     for (let sentenceIndex = 0; sentenceIndex < this.textEditModel.text.sentences.length; sentenceIndex++) {
 
-      this.textEditModel.text.sentences[sentenceIndex].words = new Array();
+      this.textEditModel.text.sentences[sentenceIndex].words = [];
 
       for (let wordIndex = 0; wordIndex < this.textEditModel.arabicWordsForMatching[sentenceIndex].length; wordIndex++) {
 
-        var word = new Word();
+        const word = new Word();
         word.english = this.textEditModel.englishWordsMatched[sentenceIndex][wordIndex].join(' ');
         word.arabic = this.textEditModel.arabicWordsForMatching[sentenceIndex][wordIndex];
 
@@ -170,10 +170,10 @@ export class TextEditComponent implements OnInit, OnChanges {
 
   private combineSentences(englishSentences: string[], arabicSentences: string[]): Sentence[] {
 
-    let sentences: Sentence[] = new Array();
+    const sentences: Sentence[] = [];
 
     for (let index = 0; index < englishSentences.length; index++) {
-      let sentence = new Sentence();
+      const sentence = new Sentence();
       sentence.arabic = arabicSentences[index];
       sentence.english = englishSentences[index];
 
@@ -184,7 +184,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     return sentences;
   }
 
-  private updateText() {
+  private updateText(): void {
     this.textService
       .updateText(this.textEditModel.text)
       .subscribe((textEditModeltext) => {
@@ -193,7 +193,7 @@ export class TextEditComponent implements OnInit, OnChanges {
       });
   }
 
-  private addText() {
+  private addText(): void {
     this.authService.user$.subscribe((u) => (this.textEditModel.text.editor = u.email));
     this.textService.addText(this.textEditModel.text).subscribe((text) => {
       this.textEditModel.text = text;
@@ -201,13 +201,13 @@ export class TextEditComponent implements OnInit, OnChanges {
     });
   }
 
-  deleteText() {
+  deleteText(): void {
     this.textService.deleteText(this.textEditModel.text.textId);
     this.openSnackBar(`The text has been deleted with id: ${this.textEditModel.text.textId}.`, 'MashaAllah!');
     this.route.navigate(['/']);
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, {
       duration: 2000,
     });

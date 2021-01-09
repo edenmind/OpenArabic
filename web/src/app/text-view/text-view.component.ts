@@ -10,6 +10,7 @@ import { TextService } from '../services/text.service';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
 import { Vocab } from '../models/vocab';
 import { QuizService } from '../services/quiz.service';
+import { Sentence } from '../models/sentence';
 
 @Component({
   selector: 'app-text',
@@ -40,34 +41,38 @@ export class TextViewComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.getIdFromRoute();
-    this.getTexts(id);
+    this.getTextsAndPrepareUI(id);
   }
 
   private getIdFromRoute(): string {
     return this.route.snapshot.paramMap.get('id') || '1';
   }
 
-  private getTexts(id: string): void {
+  private getTextsAndPrepareUI(id: string): void {
 
-    if (id) {
-      this.textService.getText(id).subscribe(
-        (text) => (
-          this.setSpinneToFalse(),
-          (this.text = text),
-          (this.text.sentences.sort((n1, n2) => {
-            if (n1.order > n2.order) {
-              return 1;
-            }
-            if (n1.order < n2.order) {
-              return -1;
-            }
-            return 0;
-          })),
-          this.titleService.setTitle(`${text.title} | ${text.author}`),
-          this.readWords()
-        )
-      );
-    }
+    this.textService.getText(id).subscribe(
+      (text) => (
+        this.text = text,
+        this.text.sentences = this.sortSentencesByOrder(this.text.sentences), //TODO Move to backend
+        this.titleService.setTitle(`${text.title} | ${text.author}`),
+        this.produceVocabularyList(), //TODO Move to backend
+        this.arabic = this.quizService.shuffleArray(this.arabic), //TODO Move to backend
+        this.english = this.quizService.shuffleArray(this.english), //TODO Move to backend
+        this.setSpinneToFalse()
+      )
+    );
+  }
+
+  private sortSentencesByOrder(sentences: Sentence[]): Sentence[] {
+    return (sentences.sort((n1, n2) => {
+      if (n1.order > n2.order) {
+        return 1;
+      }
+      if (n1.order < n2.order) {
+        return -1;
+      }
+      return 0;
+    }));
   }
 
   tapOnEnglish(index: number) {
@@ -211,9 +216,9 @@ export class TextViewComponent implements OnInit {
   }
 
 
-  readWords(): void {
+  produceVocabularyList(): void {
     let numberOfGenerations = 0;
-    const randomNumbers = [99];
+    const randomNumbers: number[] = [];
 
     for (let index = 0; index < 10; index++) {
       const randomNumber = Math.floor(Math.random() * this.text.sentences.length);
@@ -227,12 +232,12 @@ export class TextViewComponent implements OnInit {
       }
     }
 
-    this.arabic = this.quizService.shuffleArray(this.arabic);
-    this.english = this.quizService.shuffleArray(this.english);
+
   }
 
   private GetWordsFromSentences(sentenceNumber: number): void {
-    for (let index = 0; index < this.text.sentences[0].words.length; index++) {
+
+    for (let index = 0; index < this.text.sentences[sentenceNumber].words.length; index++) {
       const english = new Vocab();
       english.word = this.text.sentences[sentenceNumber].words[index].english;
       english.id = this.english.length + 1;
