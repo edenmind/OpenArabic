@@ -22,8 +22,8 @@ export class TextViewComponent implements OnInit {
   public showTextSpinner = true;
   public readonly spinnerColor: ThemePalette = 'accent';
 
-  public english: Vocab[] = [];
-  public arabic: Vocab[] = [];
+  public englishVocabulary: Vocab[] = [];
+  public arabicVocabulary: Vocab[] = [];
 
   public lastSelectedEnglish = 0;
   public lastSelectedArabic = 0;
@@ -56,9 +56,9 @@ export class TextViewComponent implements OnInit {
         this.text.sentences = this.sortSentencesByOrder(this.text.sentences), //TODO Move to backend
         this.titleService.setTitle(`${text.title} | ${text.author}`),
         this.produceVocabularyList(), //TODO Move to backend
-        this.arabic = this.quizService.shuffleArray(this.arabic), //TODO Move to backend
-        this.english = this.quizService.shuffleArray(this.english), //TODO Move to backend
-        this.setSpinneToFalse()
+        this.arabicVocabulary = this.quizService.shuffleArray(this.arabicVocabulary), //TODO Move to backend
+        this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary), //TODO Move to backend
+        this.showTextSpinner = false
       )
     );
   }
@@ -81,46 +81,46 @@ export class TextViewComponent implements OnInit {
 
     let indexInArraryArabic = 0;
 
-    for (let i = 0; i < this.arabic.length; i++) {
-      if (this.arabic[i].id == index) {
+    for (let i = 0; i < this.arabicVocabulary.length; i++) {
+      if (this.arabicVocabulary[i].id == index) {
         indexInArraryArabic = i;
       }
     }
 
     let indexInArraryEnglish = 0;
 
-    for (let i = 0; i < this.english.length; i++) {
-      if (this.english[i].id == index) {
+    for (let i = 0; i < this.englishVocabulary.length; i++) {
+      if (this.englishVocabulary[i].id == index) {
         indexInArraryEnglish = i;
       }
     }
 
-    if (this.english[indexInArraryEnglish].correct) {
+    if (this.englishVocabulary[indexInArraryEnglish].correct) {
       return;
     }
 
     this.numberOfSelected = this.numberOfSelected + 1;
 
-    if (this.english[indexInArraryEnglish].selected) {
-      this.english[indexInArraryEnglish].selected = false;
+    if (this.englishVocabulary[indexInArraryEnglish].selected) {
+      this.englishVocabulary[indexInArraryEnglish].selected = false;
     } else {
-      this.english[indexInArraryEnglish].selected = true;
+      this.englishVocabulary[indexInArraryEnglish].selected = true;
     }
 
     if (this.lastSelectedArabic == index) {
-      this.english[indexInArraryEnglish].correct = true;
-      this.arabic[indexInArraryArabic].correct = true;
+      this.englishVocabulary[indexInArraryEnglish].correct = true;
+      this.arabicVocabulary[indexInArraryArabic].correct = true;
       this.lastSelectedArabic = 0;
       this.lastSelectedEnglish = 0;
       this.numberOfSelected = 0;
 
       let numberOfCorrect = 0;
-      for (let index = 0; index < this.english.length; index++) {
-        if (this.english[index].correct) {
+      for (let index = 0; index < this.englishVocabulary.length; index++) {
+        if (this.englishVocabulary[index].correct) {
           numberOfCorrect++;
         }
       }
-      if (numberOfCorrect == this.english.length) {
+      if (numberOfCorrect == this.englishVocabulary.length) {
         this.matSnackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
           duration: 3000,
         });
@@ -131,10 +131,10 @@ export class TextViewComponent implements OnInit {
       this.numberOfSelected = 0;
       this.lastSelectedEnglish = 0;
       this.lastSelectedArabic = 0;
-      for (let indexSelected = 0; indexSelected < this.english.length; indexSelected++
+      for (let indexSelected = 0; indexSelected < this.englishVocabulary.length; indexSelected++
       ) {
-        this.english[indexSelected].selected = false;
-        this.arabic[indexSelected].selected = false;
+        this.englishVocabulary[indexSelected].selected = false;
+        this.arabicVocabulary[indexSelected].selected = false;
       }
       return;
     }
@@ -145,45 +145,45 @@ export class TextViewComponent implements OnInit {
     this.lastSelectedArabic = index;
 
     let indexInArraryArabic = 0;
-    for (let i = 0; i < this.arabic.length; i++) {
-      if (this.arabic[i].id == index) {
+    for (let i = 0; i < this.arabicVocabulary.length; i++) {
+      if (this.arabicVocabulary[i].id == index) {
         indexInArraryArabic = i;
       }
     }
 
     let indexInArraryEnglish = 0;
-    for (let i = 0; i < this.english.length; i++) {
-      if (this.english[i].id == index) {
+    for (let i = 0; i < this.englishVocabulary.length; i++) {
+      if (this.englishVocabulary[i].id == index) {
         indexInArraryEnglish = i;
       }
     }
 
-    if (this.arabic[indexInArraryArabic].correct) {
+    if (this.arabicVocabulary[indexInArraryArabic].correct) {
       return;
     }
 
     this.numberOfSelected = this.numberOfSelected + 1;
 
-    if (this.arabic[indexInArraryArabic].selected) {
-      this.arabic[indexInArraryArabic].selected = false;
+    if (this.arabicVocabulary[indexInArraryArabic].selected) {
+      this.arabicVocabulary[indexInArraryArabic].selected = false;
     } else {
-      this.arabic[indexInArraryArabic].selected = true;
+      this.arabicVocabulary[indexInArraryArabic].selected = true;
     }
 
     if (this.lastSelectedEnglish == index) {
-      this.arabic[indexInArraryArabic].correct = true;
-      this.english[indexInArraryEnglish].correct = true;
+      this.arabicVocabulary[indexInArraryArabic].correct = true;
+      this.englishVocabulary[indexInArraryEnglish].correct = true;
       this.lastSelectedArabic = 0;
       this.lastSelectedEnglish = 0;
       this.numberOfSelected = 0;
 
       let numberOfCorrect = 0;
-      for (let index = 0; index < this.arabic.length; index++) {
-        if (this.arabic[index].correct) {
+      for (let index = 0; index < this.arabicVocabulary.length; index++) {
+        if (this.arabicVocabulary[index].correct) {
           numberOfCorrect++;
         }
       }
-      if (numberOfCorrect == this.arabic.length) {
+      if (numberOfCorrect == this.arabicVocabulary.length) {
         this.matSnackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
           duration: 3000,
         });
@@ -196,11 +196,11 @@ export class TextViewComponent implements OnInit {
       this.lastSelectedArabic = 0;
       for (
         let indexSelected = 0;
-        indexSelected < this.english.length;
+        indexSelected < this.englishVocabulary.length;
         indexSelected++
       ) {
-        this.english[indexSelected].selected = false;
-        this.arabic[indexSelected].selected = false;
+        this.englishVocabulary[indexSelected].selected = false;
+        this.arabicVocabulary[indexSelected].selected = false;
       }
       return;
     }
@@ -217,22 +217,18 @@ export class TextViewComponent implements OnInit {
 
 
   produceVocabularyList(): void {
-    let numberOfGenerations = 0;
+
     const randomNumbers: number[] = [];
 
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; this.arabicVocabulary.length < 5; index++) {
+
       const randomNumber = Math.floor(Math.random() * this.text.sentences.length);
+
       if (!randomNumbers.includes(randomNumber)) {
         this.GetWordsFromSentences(randomNumber);
-        numberOfGenerations = numberOfGenerations + 1;
         randomNumbers.push(randomNumber);
       }
-      if (numberOfGenerations == 3) {
-        break;
-      }
     }
-
-
   }
 
   private GetWordsFromSentences(sentenceNumber: number): void {
@@ -240,26 +236,25 @@ export class TextViewComponent implements OnInit {
     for (let index = 0; index < this.text.sentences[sentenceNumber].words.length; index++) {
       const english = new Vocab();
       english.word = this.text.sentences[sentenceNumber].words[index].english;
-      english.id = this.english.length + 1;
+      english.id = this.englishVocabulary.length + 1;
 
       const arabic = new Vocab();
       arabic.word = this.text.sentences[sentenceNumber].words[index].arabic;
-      arabic.id = this.arabic.length + 1;
+      arabic.id = this.arabicVocabulary.length + 1;
 
-      if (arabic.word.length > 2 && english.word.length > 2) {
-        this.arabic.push(arabic);
-        this.english.push(english);
+      const arabicWordLongerThanTwo = arabic.word.length > 2;
+      const englishWordLongerThanTwo = english.word.length > 2;
+
+      if (arabicWordLongerThanTwo && englishWordLongerThanTwo) {
+        this.arabicVocabulary.push(arabic);
+        this.englishVocabulary.push(english);
+      }
+
+      const vocabHaveReachedFive = this.arabicVocabulary.length === 5;
+
+      if (vocabHaveReachedFive) {
+        break
       }
     }
-  }
-
-  // TODO: This should not be necessary maybe look if text is null?
-  setSpinneToFalse(): void {
-    this.delay(300);
-    this.showTextSpinner = false;
-  }
-
-  delay(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }
