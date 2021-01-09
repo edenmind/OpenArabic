@@ -226,7 +226,7 @@ export class TextViewComponent implements OnInit {
 
       const randomSentenceId = Math.floor(Math.random() * this.text.sentences.length);
 
-      const randomNumberNotUsed = randomSentenceIds.includes(randomSentenceId);
+      const randomNumberNotUsed = !randomSentenceIds.includes(randomSentenceId);
 
       if (randomNumberNotUsed) {
         this.GetWordsFromSentences(randomSentenceId);
