@@ -54,7 +54,9 @@ export class TextViewComponent implements OnInit {
 
     this.textService.getText(id).subscribe(
       (text) => (
-        this.text = text,
+        setTimeout(() => {
+          this.text = text
+        }, 1000),
         this.text.sentences = this.sortSentencesByOrder(this.text.sentences), //TODO Move to backend
         this.titleService.setTitle(`${text.title} | ${text.author}`),
         this.produceVocabularyList(), //TODO Move to backend
