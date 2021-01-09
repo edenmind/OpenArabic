@@ -220,15 +220,17 @@ export class TextViewComponent implements OnInit {
 
   produceVocabularyList(): void {
 
-    const randomNumbers: number[] = [];
+    const randomSentenceIds: number[] = [];
 
     for (let index = 0; this.arabicVocabulary.length < 5; index++) {
 
-      const randomNumber = Math.floor(Math.random() * this.text.sentences.length);
+      const randomSentenceId = Math.floor(Math.random() * this.text.sentences.length);
 
-      if (!randomNumbers.includes(randomNumber)) {
-        this.GetWordsFromSentences(randomNumber);
-        randomNumbers.push(randomNumber);
+      const randomNumberNotUsed = randomSentenceIds.includes(randomSentenceId);
+
+      if (randomNumberNotUsed) {
+        this.GetWordsFromSentences(randomSentenceId);
+        randomSentenceIds.push(randomSentenceId);
       }
     }
   }
@@ -236,6 +238,7 @@ export class TextViewComponent implements OnInit {
   private GetWordsFromSentences(sentenceNumber: number): void {
 
     for (let index = 0; index < this.text.sentences[sentenceNumber].words.length; index++) {
+
       const english = new Vocab();
       english.word = this.text.sentences[sentenceNumber].words[index].english;
       english.id = this.englishVocabulary.length + 1;
@@ -247,10 +250,9 @@ export class TextViewComponent implements OnInit {
       const arabicWordLongerThanTwo = arabic.word.length > 2;
       const englishWordLongerThanTwo = english.word.length > 2;
 
-      let wordExistsInVocabulary: boolean = false;
-
+      let wordExistsInVocabulary = false;
       this.arabicVocabulary.forEach(element => {
-        if (element.word === arabic.word) {
+        if (element.word.match(arabic.word)) {
           wordExistsInVocabulary = true
         }
       });
@@ -258,12 +260,6 @@ export class TextViewComponent implements OnInit {
       if (arabicWordLongerThanTwo && englishWordLongerThanTwo && !wordExistsInVocabulary) {
         this.arabicVocabulary.push(arabic);
         this.englishVocabulary.push(english);
-      }
-
-      const vocabHaveReachedFive = this.arabicVocabulary.length === 5;
-
-      if (vocabHaveReachedFive) {
-        break
       }
     }
   }
