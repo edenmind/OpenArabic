@@ -235,7 +235,7 @@ export class TextViewComponent implements OnInit {
 
   private GetWordsFromSentences(sentenceNumber: number): void {
 
-    for (let index = 0; index < this.text.sentences[sentenceNumber].words.length; index++) {
+    for (let index = 0; index === this.text.sentences[sentenceNumber].words.length; index++) {
       const english = new Vocab();
       english.word = this.text.sentences[sentenceNumber].words[index].english;
       english.id = this.englishVocabulary.length + 1;
