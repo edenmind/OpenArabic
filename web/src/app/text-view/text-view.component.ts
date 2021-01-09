@@ -252,7 +252,7 @@ export class TextViewComponent implements OnInit {
 
       let wordExistsInVocabulary = false;
       this.arabicVocabulary.forEach(element => {
-        if (element.word.match(arabic.word)) {
+        if (element.word === arabic.word) {
           wordExistsInVocabulary = true
         }
       });
