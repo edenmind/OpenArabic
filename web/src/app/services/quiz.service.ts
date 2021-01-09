@@ -14,9 +14,11 @@ export class QuizService {
     for (let index = array.length - 1; index > 0; index--) {
       const randomNumber = Math.floor(Math.random() * (index + 1));
       const temporaryArray = array[index];
-      randomizedArray[index] = array[randomNumber];
+      array[index] = array[randomNumber];
       randomizedArray[randomNumber] = temporaryArray;
     }
+
     return randomizedArray;
+
   }
 }
