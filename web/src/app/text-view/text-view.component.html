@@ -54,7 +54,7 @@
   <mat-divider class="mat-padding"></mat-divider>
   <h3 class="center">Tap the pairs</h3>
 
-  <div class="chip-center">
+  <div class="chip-center" *ngIf="arabicVocabulary.length > 4">
     <mat-chip-list>
       <mat-chip *ngFor="let vocab of englishVocabulary;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnEnglish(vocab.id)">
         {{vocab.word}}
