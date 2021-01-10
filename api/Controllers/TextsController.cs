@@ -30,11 +30,11 @@ namespace api.Controllers {
                 return await _context.Texts
                     .Include (s => s.Sentences)
                     .ThenInclude (w => w.Words)
-                    .Where (t => t.Category.Contains (category))
+                    .Where (t => t.Category.Equals (category))
                     .Where (t => t.Status.Equals ("Published"))
-                    .OrderByDescending (t => t.CreatedAt)
                     .Skip ((pageNumber - 1) * pageSize)
                     .Take (pageSize)
+                    .OrderByDescending (t => t.CreatedAt)
                     .ToListAsync ();
             }
 
@@ -42,19 +42,19 @@ namespace api.Controllers {
                 return await _context.Texts
                     .Include (s => s.Sentences)
                     .ThenInclude (w => w.Words)
-                    .Where (t => t.Author.Contains (author))
-                    .OrderByDescending (t => t.CreatedAt)
+                    .Where (t => t.Author.Equals (author))
                     .Skip ((pageNumber - 1) * pageSize)
                     .Take (pageSize)
+                    .OrderByDescending (t => t.CreatedAt)
                     .ToListAsync ();
             }
 
             return await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
-                .OrderByDescending (t => t.CreatedAt)
                 .Skip ((pageNumber - 1) * pageSize)
                 .Take (pageSize)
+                .OrderByDescending (t => t.CreatedAt)
                 .ToListAsync ();
         }
 
@@ -73,7 +73,7 @@ namespace api.Controllers {
             var relatedTexts = await _context.Texts
                 .Where (c => c.Category == category)
                 .Where (i => i.TextId != id)
-                .Take (5)
+                .Take (7)
                 .ToListAsync ();
 
             var relatedTextsToAdd = new List<Related> ();
@@ -126,7 +126,7 @@ namespace api.Controllers {
         public async Task<ActionResult<Text>> PostText (Text text) {
 
             text.CreatedAt = DateTime.Now;
-            System.Console.WriteLine (text);
+
             _context.Texts.Add (text);
             await _context.SaveChangesAsync ();
 

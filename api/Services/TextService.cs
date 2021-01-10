@@ -1,7 +1,5 @@
-namespace api.Services
-{
-    public class TextService
-    {
-        public TextService() { }
+namespace api.Services {
+    public class TextService {
+        public TextService () { }
     }
 }
