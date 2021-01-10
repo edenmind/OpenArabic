@@ -11,6 +11,7 @@ import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.comp
 import { Vocab } from '../models/vocab';
 import { QuizService } from '../services/quiz.service';
 import { Sentence } from '../models/sentence';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-text',
@@ -31,6 +32,9 @@ export class TextViewComponent implements OnInit {
 
   public id: string = String()
 
+  subscription: Subscription = new Subscription;
+  endOfSubscription: string = "still subscribing";
+
   constructor(
     private textService: TextService,
     private route: ActivatedRoute,
@@ -40,6 +44,7 @@ export class TextViewComponent implements OnInit {
     private matSnackBar: MatSnackBar,
     private quizService: QuizService
   ) { }
+
 
   ngOnInit(): void {
     this.id = this.getIdFromRoute();
@@ -53,16 +58,20 @@ export class TextViewComponent implements OnInit {
   private getTextsAndPrepareUI(id: string): void {
 
     this.textService.getText(id).subscribe(
-      (text) => (
-        this.text = text,
-        this.setSpinnerToFalse(),
-        this.text.sentences = this.sortSentencesByOrder(this.text.sentences), //TODO Move to backend
-        this.titleService.setTitle(`${this.text.title} | ${this.text.author}`),
-        this.produceVocabularyList(), //TODO Move to backend
-        this.arabicVocabulary = this.quizService.shuffleArray(this.arabicVocabulary), //TODO Move to backend
-        this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary) //TODO Move to backend
-      )
+      text => {
+        this.text = text
+        this.prepareUI()
+      }
     )
+  }
+
+  private prepareUI() {
+    this.text.sentences = this.sortSentencesByOrder(this.text.sentences) //TODO Move to backend
+    this.titleService.setTitle(`${this.text.title} | ${this.text.author}`)
+    this.produceVocabularyList() //TODO Move to backend
+    this.showTextSpinner = false
+    this.arabicVocabulary = this.quizService.shuffleArray(this.arabicVocabulary) //TODO Move to backend
+    this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary) //TODO Move to backend
   }
 
   private sortSentencesByOrder(sentences: Sentence[]): Sentence[] {
@@ -219,48 +228,37 @@ export class TextViewComponent implements OnInit {
 
 
   produceVocabularyList(): void {
-
-    const randomSentenceIds: number[] = [];
-
     for (let index = 0; this.arabicVocabulary.length < 5; index++) {
-
       const randomSentenceId = Math.floor(Math.random() * this.text.sentences.length);
-
-      const randomNumberNotUsed = !randomSentenceIds.includes(randomSentenceId);
-
-      if (randomNumberNotUsed) {
-        this.GetWordsFromSentences(randomSentenceId);
-        randomSentenceIds.push(randomSentenceId);
-      }
+      this.GetWordsFromSentences(randomSentenceId);
     }
   }
 
   private GetWordsFromSentences(sentenceNumber: number): void {
 
-    for (let index = 0; index < this.text.sentences[sentenceNumber].words.length; index++) {
+    const randomWordId = Math.floor(Math.random() * this.text.sentences[sentenceNumber].words.length);
 
-      const english = new Vocab();
-      english.word = this.text.sentences[sentenceNumber].words[index].english;
-      english.id = this.englishVocabulary.length + 1;
+    const english = new Vocab();
+    english.word = this.text.sentences[sentenceNumber].words[randomWordId].english;
+    english.id = this.englishVocabulary.length + 1;
 
-      const arabic = new Vocab();
-      arabic.word = this.text.sentences[sentenceNumber].words[index].arabic;
-      arabic.id = this.arabicVocabulary.length + 1;
+    const arabic = new Vocab();
+    arabic.word = this.text.sentences[sentenceNumber].words[randomWordId].arabic;
+    arabic.id = this.arabicVocabulary.length + 1;
 
-      const arabicWordLongerThanTwo = arabic.word.length > 2;
-      const englishWordLongerThanTwo = english.word.length > 2;
+    const arabicWordLongerThanTwo = arabic.word.length > 2;
+    const englishWordLongerThanTwo = english.word.length > 2;
 
-      let wordExistsInVocabulary = false;
-      this.arabicVocabulary.forEach(element => {
-        if (element.word === arabic.word) {
-          wordExistsInVocabulary = true
-        }
-      });
-
-      if (arabicWordLongerThanTwo && englishWordLongerThanTwo && !wordExistsInVocabulary) {
-        this.arabicVocabulary.push(arabic);
-        this.englishVocabulary.push(english);
+    let wordExistsInVocabulary = false;
+    this.arabicVocabulary.forEach(element => {
+      if (element.word === arabic.word) {
+        wordExistsInVocabulary = true
       }
+    });
+
+    if (arabicWordLongerThanTwo && englishWordLongerThanTwo && !wordExistsInVocabulary) {
+      this.arabicVocabulary.push(arabic);
+      this.englishVocabulary.push(english);
     }
   }
 
@@ -268,11 +266,9 @@ export class TextViewComponent implements OnInit {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  setSpinnerToFalse(): void {
-    this.delay(300)
+  async setSpinnerFalse() {
+    await this.delay(1000)
     this.showTextSpinner = false
   }
-
-
 
 }

@@ -7,7 +7,7 @@ export class Text {
   author: string = String();
   editor: string = String();
   category: string = String();
-  source: string = String(9);
+  source: string = String();
   createdAt!: Date;
   timeAgo: string = String();
   status: string = String();

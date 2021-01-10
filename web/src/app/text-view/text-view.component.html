@@ -1,88 +1,92 @@
-<mat-spinner [color]="spinnerColor" class="spanner" *ngIf="showTextSpinner"></mat-spinner>
-<div class="grid-container-text">
+<mat-spinner [color]="spinnerColor" class="spanner" *ngIf="showTextSpinner; else showPage"></mat-spinner>
 
+<ng-template #showPage>
 
-  <!-- Text information -->
-  <div class="center" *ngIf="!showTextSpinner">
-    <h1 class="title"> {{ text.title }} </h1>
-    <p>
-      <a routerLink="/author/{{ text.author }}" class="simple-link" matRipple>
-        <span class="author-by">{{ text.author }}</span>
-      </a><br>
-      <span class="center source">{{ text.source }}</span>
-      <a routerLink="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
-        <span matRipple *ngIf="user.email == text.editor" class="author-by"> (edit)</span>
-      </a>
-    </p>
-  </div>
+  <div class="grid-container-text">
 
-  <mat-tab-group mat-align-tabs="center" *ngIf="!showTextSpinner">
+    <!-- Text information -->
+    <div class="center">
+      <h1 class="title"> {{ text.title }} </h1>
+      <p>
+        <a routerLink="/author/{{ text.author }}" class="simple-link" matRipple>
+          <span class="author-by">{{ text.author }}</span>
+        </a><br>
+        <span class="center source">{{ text.source }}</span>
+        <a routerLink="/text-edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
+          <span matRipple *ngIf="user.email == text.editor" class="author-by"> (edit)</span>
+        </a>
+      </p>
+    </div>
 
-    <!-- Bilingual -->
-    <mat-tab label="Bilingual">
-      <div class="tab-space margins">
-        <div *ngFor="let sentence of text.sentences" matRipple>
-          <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openVocabularyDialog(sentence.sentenceId)">
-          </app-text-row>
+    <mat-tab-group mat-align-tabs="center">
+
+      <!-- Bilingual -->
+      <mat-tab label="Bilingual">
+        <div class="tab-space margins">
+          <div *ngFor="let sentence of text.sentences" matRipple>
+            <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openVocabularyDialog(sentence.sentenceId)">
+            </app-text-row>
+          </div>
         </div>
-      </div>
-    </mat-tab>
+      </mat-tab>
 
-    <!-- Arabic -->
-    <mat-tab label="Arabic">
-      <div class="tab-space center">
-        <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
-          <app-text-row [sentence]="sentence" [language]="'arabic'" (click)="openVocabularyDialog(sentence.sentenceId)">
-          </app-text-row>
+      <!-- Arabic -->
+      <mat-tab label="Arabic">
+        <div class="tab-space center">
+          <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
+            <app-text-row [sentence]="sentence" [language]="'arabic'" (click)="openVocabularyDialog(sentence.sentenceId)">
+            </app-text-row>
+          </div>
         </div>
-      </div>
-    </mat-tab>
+      </mat-tab>
 
-    <!-- English -->
-    <mat-tab label="Engish">
-      <div class="tab-space center">
-        <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
-          <app-text-row [sentence]="sentence" [language]="'english'" (click)="openVocabularyDialog(sentence.sentenceId)">
-          </app-text-row>
+      <!-- English -->
+      <mat-tab label="Engish">
+        <div class="tab-space center">
+          <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
+            <app-text-row [sentence]="sentence" [language]="'english'" (click)="openVocabularyDialog(sentence.sentenceId)">
+            </app-text-row>
+          </div>
         </div>
-      </div>
-    </mat-tab>
-  </mat-tab-group>
+      </mat-tab>
+    </mat-tab-group>
 
 
-  <!-- TRAIN VOCAULARY -->
-  <mat-divider class="mat-padding"></mat-divider>
-  <h3 class="center">Tap the pairs</h3>
+    <!-- TRAIN VOCAULARY -->
+    <mat-divider class="mat-padding"></mat-divider>
+    <h3 class="center">Tap the pairs</h3>
 
-  <div class="chip-center" *ngIf="arabicVocabulary.length > 4">
-    <mat-chip-list>
-      <mat-chip *ngFor="let vocab of englishVocabulary;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnEnglish(vocab.id)">
-        {{vocab.word}}
-      </mat-chip>
-      <mat-chip *ngFor="let vocab of arabicVocabulary;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnArabic(vocab.id)">
-        <span style="font-size: x-large;">{{vocab.word}}</span>
-      </mat-chip>
-    </mat-chip-list>
+    <div class="chip-center">
+      <mat-chip-list>
+        <mat-chip *ngFor="let vocab of englishVocabulary;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnEnglish(vocab.id)">
+          {{vocab.word}}
+        </mat-chip>
+        <mat-chip *ngFor="let vocab of arabicVocabulary;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnArabic(vocab.id)">
+          <span style="font-size: x-large;">{{vocab.word}}</span>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+
+    <mat-divider class="mat-padding"></mat-divider>
+
+    <!-- RELATED -->
+    <h3 class="center">Related in {{text.category}}</h3>
+    <div *ngFor="let related of text.relatedTexts" class="center">
+      <a mat-button href="/text/{{related.textId}}" style="color: rgba(255,255,255,.6)">{{related.title}}</a>
+    </div>
+
+
+    <!-- SHARE -->
+    <div class="center related-margin">
+      <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank" color="accent" class="simple-link">Share on Facebook</a>
+    </div>
+    <div class="center">
+      <a mat-button
+        href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{id}}&text={{text.title}} by {{text.author}} in Arabic and English&hashtags=openarabic,arabic,sunnah,salaf&via=arabicopen"
+        target="_blank" color="accent" class="simple-link">Share on Twitter</a>
+    </div>
+
+
   </div>
 
-  <mat-divider class="mat-padding"></mat-divider>
-
-  <!-- RELATED -->
-  <h3 class="center">Related in {{text.category}}</h3>
-  <div *ngFor="let related of text.relatedTexts" class="center">
-    <a mat-button href="/text/{{related.textId}}" style="color: rgba(255,255,255,.6)">{{related.title}}</a>
-  </div>
-
-
-  <!-- SHARE -->
-  <div class="center related-margin">
-    <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank" color="accent" class="simple-link">Share on Facebook</a>
-  </div>
-  <div class="center">
-    <a mat-button
-      href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{id}}&text={{text.title}} by {{text.author}} in Arabic and English&hashtags=openarabic,arabic,sunnah,salaf&via=arabicopen"
-      target="_blank" color="accent" class="simple-link">Share on Twitter</a>
-  </div>
-
-
-</div>
+</ng-template>
