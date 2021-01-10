@@ -60,10 +60,10 @@ export class TextViewComponent implements OnInit {
             this.titleService.setTitle(`${text.title} | ${text.author}`),
             this.produceVocabularyList(), //TODO Move to backend
             this.arabicVocabulary = this.quizService.shuffleArray(this.arabicVocabulary), //TODO Move to backend
-            this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary), //TODO Move to backend
-            this.showTextSpinner = false
-        }, 1000)
+            this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary) //TODO Move to backend
+        }, 1000),
 
+        this.showTextSpinner = false
       )
     );
   }
