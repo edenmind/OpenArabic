@@ -54,18 +54,20 @@ export class TextViewComponent implements OnInit {
 
     this.textService.getText(id).subscribe(
       (text) => (
-        this.text = text,
-        setTimeout(() => {
-          this.text.sentences = this.sortSentencesByOrder(this.text.sentences), //TODO Move to backend
-            this.titleService.setTitle(`${text.title} | ${text.author}`),
-            this.produceVocabularyList(), //TODO Move to backend
-            this.arabicVocabulary = this.quizService.shuffleArray(this.arabicVocabulary), //TODO Move to backend
-            this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary) //TODO Move to backend
-        }, 1000),
-
-        this.showTextSpinner = false
+        this.text = text
       )
+    ).add(
+      this.tearDown()
     );
+  }
+
+  private tearDown() {
+    this.text.sentences = this.sortSentencesByOrder(this.text.sentences), //TODO Move to backend
+      this.titleService.setTitle(`${this.text.title} | ${this.text.author}`),
+      this.produceVocabularyList(), //TODO Move to backend
+      this.arabicVocabulary = this.quizService.shuffleArray(this.arabicVocabulary), //TODO Move to backend
+      this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary); //TODO Move to backend
+    this.showTextSpinner = false;
   }
 
   private sortSentencesByOrder(sentences: Sentence[]): Sentence[] {
