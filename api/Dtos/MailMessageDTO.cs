@@ -1,3 +1,5 @@
-class MailMessageDTO {
+namespace api.Dtos {
+    class MailMessageDTO {
 
+    }
 }

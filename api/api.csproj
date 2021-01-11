@@ -8,6 +8,10 @@
 
     <PackageReference Include="AutoMapper" Version="10.1.1" />
 
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+
+    <PackageReference Include="Flurl.Http" Version="3.0.1" />
+
     <PackageReference Include="MediatR" Version="9.0.0" />
 
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" />
@@ -23,6 +27,7 @@
       <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Sendgrid" Version="9.22.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Swashbuckle.AspNetCore">
       <Version>5.6.3</Version>
     </PackageReference>

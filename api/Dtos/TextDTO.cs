@@ -1,3 +1,5 @@
-class TextDTO {
+namespace api.Dtos {
+    class TextDTO {
 
+    }
 }

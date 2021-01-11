@@ -1,3 +1,5 @@
-class WordDTO {
+namespace api.Dtos {
+    class WordDTO {
 
+    }
 }

@@ -1,3 +1,5 @@
-class SentenceDTO {
+namespace api.Dtos {
+    class SentenceDTO {
 
+    }
 }

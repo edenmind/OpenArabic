@@ -1,3 +1,5 @@
-class RealtedDTO {
+namespace api.Dtos {
+    class RelatedDTO {
 
+    }
 }

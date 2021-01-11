@@ -3,6 +3,8 @@ using System;
 using api.Models;
 using api.Services;
 
+using AutoMapper;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +27,8 @@ namespace api {
         public static void ConfigureServices (IServiceCollection services) {
 
             services.AddDbContext<ApiContext> (options => options.UseSqlServer (Environment.GetEnvironmentVariable ("ASPNETCORE_CONNECTION_STRING")));
+
+            services.AddAutoMapper (AppDomain.CurrentDomain.GetAssemblies ());
 
             services.AddControllers ();
 

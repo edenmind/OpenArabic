@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using api.Dtos;
 using api.Models;
+
+using AutoMapper;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,16 +18,17 @@ namespace api.Controllers {
     [ApiController]
     public class TextsController : ControllerBase {
         private readonly ApiContext _context;
+        private readonly IMapper _mapper;
 
-        public TextsController (ApiContext context) {
+        public TextsController (ApiContext context, IMapper mapper) {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Texts
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Text>>> GetTexts (
-            [FromQuery (Name = "category")] string category, [FromQuery (Name = "author")] string author, [FromQuery (Name = "pageSize")] int pageSize = 10, [FromQuery (Name = "pageNumber")] int pageNumber = 1) {
+        public async Task<ActionResult<IEnumerable<Text>>> GetTexts ([FromQuery (Name = "category")] string category, [FromQuery (Name = "author")] string author, [FromQuery (Name = "pageSize")] int pageSize = 10, [FromQuery (Name = "pageNumber")] int pageNumber = 1) {
 
             if (!String.IsNullOrEmpty (category)) {
                 return await _context.Texts
@@ -99,6 +103,9 @@ namespace api.Controllers {
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut ("{id}")]
         public async Task<IActionResult> PutText (long id, Text text) {
+
+            var textDtoMapped = _mapper.Map<TextDTO> (text);
+
             if (id != text.TextId) {
                 return BadRequest ();
             }
