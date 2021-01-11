@@ -32,9 +32,9 @@ namespace api.Controllers {
                     .ThenInclude (w => w.Words)
                     .Where (t => t.Category.Equals (category))
                     .Where (t => t.Status.Equals ("Published"))
+                    .OrderByDescending (t => t.CreatedAt)
                     .Skip ((pageNumber - 1) * pageSize)
                     .Take (pageSize)
-                    .OrderByDescending (t => t.CreatedAt)
                     .ToListAsync ();
             }
 
@@ -43,18 +43,18 @@ namespace api.Controllers {
                     .Include (s => s.Sentences)
                     .ThenInclude (w => w.Words)
                     .Where (t => t.Author.Equals (author))
+                    .OrderByDescending (t => t.CreatedAt)
                     .Skip ((pageNumber - 1) * pageSize)
                     .Take (pageSize)
-                    .OrderByDescending (t => t.CreatedAt)
                     .ToListAsync ();
             }
 
             return await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
+                .OrderByDescending (t => t.CreatedAt)
                 .Skip ((pageNumber - 1) * pageSize)
                 .Take (pageSize)
-                .OrderByDescending (t => t.CreatedAt)
                 .ToListAsync ();
         }
 
