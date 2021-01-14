@@ -5,7 +5,9 @@ using api.Models;
 namespace api.Services {
 
     public class CategoriesService : ICategoriesService {
+
         private readonly List<Category> Categories;
+
         private readonly List<string> ListOfCategories = new () {
             "Adab",
             "ʿAqīdah",
