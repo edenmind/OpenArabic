@@ -26,6 +26,8 @@ namespace api {
         // This method gets called by the runtime. Use this method to add services to the container.
         public static void ConfigureServices (IServiceCollection services) {
 
+            services.AddScoped<ITextService, TextService> ();
+
             services.AddDbContext<ApiContext> (options => options.UseSqlServer (Environment.GetEnvironmentVariable ("ASPNETCORE_CONNECTION_STRING")));
 
             services.AddAutoMapper (AppDomain.CurrentDomain.GetAssemblies ());
