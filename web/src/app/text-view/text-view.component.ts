@@ -261,14 +261,4 @@ export class TextViewComponent implements OnInit {
       this.englishVocabulary.push(english);
     }
   }
-
-  delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-  async setSpinnerFalse() {
-    await this.delay(1000)
-    this.showTextSpinner = false
-  }
-
 }

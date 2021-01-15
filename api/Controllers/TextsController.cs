@@ -24,9 +24,15 @@ namespace api.Controllers {
         [HttpGet ()]
         public async Task<ActionResult<IEnumerable<Text>>> GetTexts ([FromQuery] TextResourceParameters textRequest) {
 
-            var texts = await _textService.GetTextsAsync (textRequest);
-            return Ok (texts);
-
+            if (!string.IsNullOrEmpty (textRequest.Category)) {
+                return Ok (await _textService.GetTextsCategoryAsync (textRequest));
+            }
+            else if (!string.IsNullOrEmpty (textRequest.Author)) {
+                return Ok (await _textService.GetTextsAuthorAsync (textRequest));
+            }
+            else {
+                return Ok (await _textService.GetTextsAsync (textRequest));
+            }
         }
 
         // GET: api/Texts/5
@@ -54,6 +60,7 @@ namespace api.Controllers {
             }
 
             var textFromService = await _textService.GetTextAsync (id);
+
             if (textFromService == null) {
                 return NotFound ();
             }

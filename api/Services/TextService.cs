@@ -9,35 +9,36 @@ using api.ResourceParameters;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Services {
+
     public class TextService : ITextService {
         private readonly ApiContext _context;
 
         public TextService (ApiContext context) => _context = context;
 
+        public async Task<IEnumerable<Text>> GetTextsCategoryAsync (TextResourceParameters textRequest) {
+            return await _context.Texts
+                .Include (s => s.Sentences)
+                .ThenInclude (w => w.Words)
+                .Where (t => t.Category.Equals (textRequest.Category))
+                .Where (t => t.Status.Equals ("Published"))
+                .OrderByDescending (t => t.CreatedAt)
+                .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
+                .Take (textRequest.PageSize)
+                .ToListAsync ();
+        }
+
+        public async Task<IEnumerable<Text>> GetTextsAuthorAsync (TextResourceParameters textRequest) {
+            return await _context.Texts
+                .Include (s => s.Sentences)
+                .ThenInclude (w => w.Words)
+                .Where (t => t.Author.Equals (textRequest.Author))
+                .OrderByDescending (t => t.CreatedAt)
+                .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
+                .Take (textRequest.PageSize)
+                .ToListAsync ();
+        }
+
         public async Task<IEnumerable<Text>> GetTextsAsync (TextResourceParameters textRequest) {
-
-            if (!string.IsNullOrEmpty (textRequest.Category)) {
-                return await _context.Texts
-                    .Include (s => s.Sentences)
-                    .ThenInclude (w => w.Words)
-                    .Where (t => t.Category.Equals (textRequest.Category))
-                    .Where (t => t.Status.Equals ("Published"))
-                    .OrderByDescending (t => t.CreatedAt)
-                    .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
-                    .Take (textRequest.PageSize)
-                    .ToListAsync ();
-            }
-
-            if (!String.IsNullOrEmpty (textRequest.Author)) {
-                return await _context.Texts
-                    .Include (s => s.Sentences)
-                    .ThenInclude (w => w.Words)
-                    .Where (t => t.Author.Equals (textRequest.Author))
-                    .OrderByDescending (t => t.CreatedAt)
-                    .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
-                    .Take (textRequest.PageSize)
-                    .ToListAsync ();
-            }
 
             return await _context.Texts
                 .Include (s => s.Sentences)
@@ -56,17 +57,15 @@ namespace api.Services {
                 .Where (t => t.TextId == id)
                 .FirstAsync ();
 
-            var category = text.Category;
-
-            var relatedTexts = await _context.Texts
-                .Where (c => c.Category == category)
+            var relatedTextsInSameCategory = await _context.Texts
+                .Where (c => c.Category == text.Category)
                 .Where (i => i.TextId != id)
                 .Take (7)
                 .ToListAsync ();
 
             var relatedTextsToAdd = new List<Related> ();
 
-            foreach (var relatedText in relatedTexts) {
+            foreach (var relatedText in relatedTextsInSameCategory) {
                 relatedTextsToAdd.Add (new Related {
                     TextId = relatedText.TextId,
                         Title = relatedText.Title
@@ -74,10 +73,6 @@ namespace api.Services {
             }
 
             text.RelatedTexts = relatedTextsToAdd;
-
-            // if (text == null) {
-            //     return NotFound ();
-            // }
 
             return text;
         }
@@ -90,28 +85,13 @@ namespace api.Services {
             await _context.SaveChangesAsync ();
 
             return text.TextId;
-            // return CreatedAtAction ("GetText", new { id = text.TextId }, text);
         }
 
         public async Task PutTextAsync (long id, Text text) {
 
-            // if (id != text.TextId) {
-            //     return BadRequest ();
-            // }
-
             _context.Entry (text).State = EntityState.Modified;
 
-            try {
-                await _context.SaveChangesAsync ();
-            }
-            catch (DbUpdateConcurrencyException) {
-                if (!TextExists (id)) {
-                    // return NotFound ();
-                }
-                else {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync ();
 
         }
 
@@ -121,17 +101,9 @@ namespace api.Services {
                 .Include (s => s.Sentences)
                 .FirstAsync (x => x.TextId == id);
 
-            // if (text == null) {
-            //     return NotFound ();
-            // }
-
             _context.Texts.Remove (text);
+
             await _context.SaveChangesAsync ();
-
-            // return NoContent ();
         }
-
-        private bool TextExists (long id) => _context.Texts.Any (e => e.TextId == id);
-
     }
 }

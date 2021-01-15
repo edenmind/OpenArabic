@@ -27,6 +27,9 @@ namespace api {
         public static void ConfigureServices (IServiceCollection services) {
 
             services.AddScoped<ITextService, TextService> ();
+            services.AddScoped<ICategoriesService, CategoriesService> ();
+            services.AddScoped<IAuthorService, AuthorService> ();
+            services.AddScoped<IMessageService, MessageService> ();
 
             services.AddDbContext<ApiContext> (options => options.UseSqlServer (Environment.GetEnvironmentVariable ("ASPNETCORE_CONNECTION_STRING")));
 
