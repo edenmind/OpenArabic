@@ -13,5 +13,6 @@ namespace api.Services {
         Task<IEnumerable<Text>> GetTextsCategoryAsync (TextResourceParameters textRequest);
         Task<long> PostTextAsync (Text text);
         Task PutTextAsync (long id, Text text);
+        Task<int> GetTotalCount ();
     }
 }

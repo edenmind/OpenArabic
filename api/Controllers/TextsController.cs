@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 using api.Dtos;
@@ -34,15 +35,21 @@ namespace api.Controllers {
 
             IEnumerable<Text> textFromRepo;
 
-            if (!string.IsNullOrEmpty (textRequest.Category)) {
+            if (!string.IsNullOrWhiteSpace (textRequest.Category)) {
                 textFromRepo = await _textService.GetTextsCategoryAsync (textRequest);
             }
-            else if (!string.IsNullOrEmpty (textRequest.Author)) {
+            else if (!string.IsNullOrWhiteSpace (textRequest.Author)) {
                 textFromRepo = await _textService.GetTextsAuthorAsync (textRequest);
             }
             else {
                 textFromRepo = await _textService.GetTextsAsync (textRequest);
             }
+
+            var paginationMetadata = new {
+                totalCount = _textService.GetTotalCount (),
+            };
+
+            Response.Headers.Add ("X-Pagination", JsonSerializer.Serialize (paginationMetadata));
 
             return Ok (_mapper.Map<IEnumerable<TextDTO>> (textFromRepo));
 

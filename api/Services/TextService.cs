@@ -112,5 +112,16 @@ namespace api.Services {
 
             await _context.SaveChangesAsync ();
         }
+
+        public async Task<int> GetTotalCount () {
+
+            var texts = await _context.Texts
+                .ToListAsync ();
+
+            var totalNumberOfTexts = texts.Count;
+
+            return totalNumberOfTexts;
+
+        }
     }
 }
