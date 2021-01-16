@@ -1,5 +1,5 @@
 namespace api.Enums {
-    enum PublishedState {
+    enum PublishStates {
         Published,
         Draft
     }
