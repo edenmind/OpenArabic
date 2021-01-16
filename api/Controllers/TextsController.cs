@@ -32,19 +32,19 @@ namespace api.Controllers {
         [HttpGet ()]
         public async Task<ActionResult<IEnumerable<Text>>> GetTexts ([FromQuery] TextResourceParameters textRequest) {
 
-            IEnumerable<Text> textsFromRepo;
+            IEnumerable<Text> textFromRepo;
 
             if (!string.IsNullOrEmpty (textRequest.Category)) {
-                textsFromRepo = await _textService.GetTextsCategoryAsync (textRequest);
+                textFromRepo = await _textService.GetTextsCategoryAsync (textRequest);
             }
             else if (!string.IsNullOrEmpty (textRequest.Author)) {
-                textsFromRepo = await _textService.GetTextsAuthorAsync (textRequest);
+                textFromRepo = await _textService.GetTextsAuthorAsync (textRequest);
             }
             else {
-                textsFromRepo = await _textService.GetTextsAsync (textRequest);
+                textFromRepo = await _textService.GetTextsAsync (textRequest);
             }
 
-            return Ok (_mapper.Map<IEnumerable<TextDTO>> (textsFromRepo));
+            return Ok (_mapper.Map<IEnumerable<TextDTO>> (textFromRepo));
 
         }
 

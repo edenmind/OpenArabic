@@ -4,8 +4,8 @@ using api.Models;
 using AutoMapper;
 
 namespace api.Profiles {
-    public class TextsProfile : Profile {
-        public TextsProfile () {
+    public class TextProfile : Profile {
+        public TextProfile () {
             CreateMap<Text, TextDTO> ();
         }
     }
