@@ -22,7 +22,7 @@ namespace api.Controllers {
             await _messageService.SendMessage (message.Sender, message.Body);
 
             //TODO: Error handling
-            return "Success";
+            return Ok ();
         }
     }
 }

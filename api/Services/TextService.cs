@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using api.Enums;
 using api.Models;
 using api.ResourceParameters;
 
@@ -13,14 +14,18 @@ namespace api.Services {
     public class TextService : ITextService {
         private readonly ApiContext _context;
 
-        public TextService (ApiContext context) => _context = context;
+        public TextService (ApiContext context) {
+            _context = context ??
+                throw new ArgumentNullException (nameof (context));
+        }
 
         public async Task<IEnumerable<Text>> GetTextsCategoryAsync (TextResourceParameters textRequest) {
+
             return await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .Where (t => t.Category.Equals (textRequest.Category))
-                .Where (t => t.Status.Equals ("Published"))
+                .Where (t => t.Status.Equals (PublishedState.Published))
                 .OrderByDescending (t => t.CreatedAt)
                 .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
                 .Take (textRequest.PageSize)
@@ -57,10 +62,12 @@ namespace api.Services {
                 .Where (t => t.TextId == id)
                 .FirstAsync ();
 
+            const int numberOfRelatedTexts = 7;
+
             var relatedTextsInSameCategory = await _context.Texts
                 .Where (c => c.Category == text.Category)
                 .Where (i => i.TextId != id)
-                .Take (7)
+                .Take (numberOfRelatedTexts)
                 .ToListAsync ();
 
             var relatedTextsToAdd = new List<Related> ();

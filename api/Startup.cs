@@ -35,7 +35,10 @@ namespace api {
 
             services.AddAutoMapper (AppDomain.CurrentDomain.GetAssemblies ());
 
-            services.AddControllers ();
+            services.AddControllers (options => {
+                options.ReturnHttpNotAcceptable = true;
+
+            });
 
             services.AddCors (options => {
                 options.AddPolicy (name: MyAllowSpecificOrigins, builder => {
@@ -58,8 +61,6 @@ namespace api {
             });
 
             services.AddAuthorization ();
-
-            services.AddSingleton<IMessageService, MessageService> ();
 
             services.AddHealthChecks ();
 
