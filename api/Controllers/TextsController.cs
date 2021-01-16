@@ -1,9 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using api.Dtos;
 using api.Models;
 using api.ResourceParameters;
 using api.Services;
+
+using AutoMapper;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +18,13 @@ namespace api.Controllers {
     [ApiController]
     public class TextsController : ControllerBase {
         private readonly ITextService _textService;
+        private readonly IMapper _mapper;
 
-        public TextsController (ITextService textService) {
-            _textService = textService;
+        public TextsController (ITextService textService, IMapper mapper) {
+            _textService = textService ??
+                throw new ArgumentNullException (nameof (textService));
+            _mapper = mapper ??
+                throw new ArgumentNullException (nameof (mapper));
         }
 
         // GET: api/Texts
@@ -24,15 +32,20 @@ namespace api.Controllers {
         [HttpGet ()]
         public async Task<ActionResult<IEnumerable<Text>>> GetTexts ([FromQuery] TextResourceParameters textRequest) {
 
+            IEnumerable<Text> textsFromRepo;
+
             if (!string.IsNullOrEmpty (textRequest.Category)) {
-                return Ok (await _textService.GetTextsCategoryAsync (textRequest));
+                textsFromRepo = await _textService.GetTextsCategoryAsync (textRequest);
             }
             else if (!string.IsNullOrEmpty (textRequest.Author)) {
-                return Ok (await _textService.GetTextsAuthorAsync (textRequest));
+                textsFromRepo = await _textService.GetTextsAuthorAsync (textRequest);
             }
             else {
-                return Ok (await _textService.GetTextsAsync (textRequest));
+                textsFromRepo = await _textService.GetTextsAsync (textRequest);
             }
+
+            return Ok (_mapper.Map<IEnumerable<TextDTO>> (textsFromRepo));
+
         }
 
         // GET: api/Texts/5
@@ -40,13 +53,13 @@ namespace api.Controllers {
         [HttpGet ("{id}")]
         public async Task<ActionResult<Text>> GetText (long id) {
 
-            var text = await _textService.GetTextAsync (id);
+            var textFromRepo = await _textService.GetTextAsync (id);
 
-            if (text == null) {
+            if (textFromRepo == null) {
                 return NotFound ();
             }
 
-            return Ok (text);
+            return Ok (_mapper.Map<TextDTO> (textFromRepo));
 
         }
 
