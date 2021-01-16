@@ -25,7 +25,7 @@ namespace api.Services {
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .Where (t => t.Category.Equals (textRequest.Category))
-                .Where (t => t.Status.Equals ("Published"))
+                .Where (t => t.Status.Equals (PublishStates.Published.ToString ()))
                 .OrderByDescending (t => t.CreatedAt)
                 .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
                 .Take (textRequest.PageSize)
