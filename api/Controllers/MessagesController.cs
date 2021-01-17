@@ -21,6 +21,10 @@ namespace api.Controllers {
         [Route ("api/messages")]
         public async Task<ActionResult<string>> PostMessage (Mail mail) {
 
+            if (!Request.Host.Equals ("openarabic.io")) {
+                return BadRequest ("Request from not allowed.");
+            }
+
             MailValidator validator = new ();
 
             var validationResult = validator.Validate (mail);

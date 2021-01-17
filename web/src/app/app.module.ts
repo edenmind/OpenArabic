@@ -3,7 +3,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -94,6 +94,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     DragDropModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
     FormsModule,
