@@ -10,6 +10,10 @@ namespace api.Validators {
                 .Cascade (CascadeMode.Stop)
                 .NotEmpty ().WithMessage ("{PropertyName} should be not empty.")
                 .Length (2, 50).WithMessage ("{PropertyName} must be between 2 and 50 characters.");
+            RuleFor (t => t.Source)
+                .Cascade (CascadeMode.Stop)
+                .NotEmpty ().WithMessage ("{PropertyName} should be not empty.")
+                .Length (2, 50).WithMessage ("{PropertyName} must be between 2 and 50 characters.");
         }
     }
 

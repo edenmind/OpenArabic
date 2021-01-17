@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 
 using api.Models;
 using api.Services;
+using api.Validators;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,8 +19,17 @@ namespace api.Controllers {
         [AllowAnonymous]
         [HttpPost]
         [Route ("api/messages")]
-        public async Task<ActionResult<string>> PostMessage (Mail message) {
-            await _messageService.SendMessage (message.Sender, message.Body);
+        public async Task<ActionResult<string>> PostMessage (Mail mail) {
+
+            MailValidator validator = new ();
+
+            var validationResult = validator.Validate (mail);
+
+            if (!validationResult.IsValid) {
+                return BadRequest (validationResult);
+            }
+
+            await _messageService.SendMessage (mail.Sender, mail.Body);
 
             //TODO: Error handling
             return Ok ();
