@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 
 namespace api.Dtos {
-    class WordDTO {
+    public class WordDTO {
 
         public long WordId { get; set; }
         public string English { get; set; }

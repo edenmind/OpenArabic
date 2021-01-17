@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using api.Dtos;
 using api.Enums;
 using api.Models;
 using api.ResourceParameters;
+
+using AutoMapper;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +16,12 @@ namespace api.Services {
 
     public class TextService : ITextService {
         private readonly ApiContext _context;
+        private readonly IMapper _mapper;
 
-        public TextService (ApiContext context) {
+        public TextService (ApiContext context, IMapper mapper) {
             _context = context ??
+                throw new ArgumentNullException (nameof (context));
+            _mapper = mapper ??
                 throw new ArgumentNullException (nameof (context));
         }
 
@@ -45,43 +51,51 @@ namespace api.Services {
 
         public async Task<IEnumerable<Text>> GetTextsAsync (TextResourceParameters textRequest) {
 
-            return await _context.Texts
+            var textsFromPersistence = await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .OrderByDescending (t => t.CreatedAt)
                 .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
                 .Take (textRequest.PageSize)
                 .ToListAsync ();
+
+            // Map to DTO
+            // Compute additionial properties from helpers
+            // Gather additional data from microservices
+
+            return textsFromPersistence;
         }
 
-        public async Task<Text> GetTextAsync (long id) {
+        public async Task<TextDTO> GetTextAsync (long id) {
 
-            var text = await _context.Texts
+            var persistedText = await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .Where (t => t.TextId == id)
                 .FirstAsync ();
 
+            var textDTOMappedFromPersistedText = _mapper.Map<TextDTO> (persistedText);
+
             const int numberOfRelatedTexts = 7;
 
             var relatedTextsInSameCategory = await _context.Texts
-                .Where (c => c.Category == text.Category)
+                .Where (c => c.Category == persistedText.Category)
                 .Where (i => i.TextId != id)
                 .Take (numberOfRelatedTexts)
                 .ToListAsync ();
 
-            var relatedTextsToAdd = new List<Related> ();
+            var relatedTextsToAdd = new List<RelatedDTO> ();
 
             foreach (var relatedText in relatedTextsInSameCategory) {
-                relatedTextsToAdd.Add (new Related {
+                relatedTextsToAdd.Add (new RelatedDTO {
                     TextId = relatedText.TextId,
                         Title = relatedText.Title
                 });
             }
 
-            text.RelatedTexts = relatedTextsToAdd;
+            textDTOMappedFromPersistedText.RelatedTexts = relatedTextsToAdd;
 
-            return text;
+            return textDTOMappedFromPersistedText;
         }
 
         public async Task<long> PostTextAsync (Text text) {

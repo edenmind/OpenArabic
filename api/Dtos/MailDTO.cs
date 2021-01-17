@@ -1,5 +1,5 @@
 namespace api.Dtos {
-    class MailMessageDTO {
+    public class MailDTO {
         public string Body { get; set; }
         public string Sender { get; set; }
     }

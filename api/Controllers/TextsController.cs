@@ -7,6 +7,7 @@ using api.Dtos;
 using api.Models;
 using api.ResourceParameters;
 using api.Services;
+using api.Validators;
 
 using AutoMapper;
 
@@ -66,7 +67,7 @@ namespace api.Controllers {
                 return NotFound ();
             }
 
-            return Ok (_mapper.Map<TextDTO> (textFromRepo));
+            return Ok (textFromRepo);
 
         }
 
@@ -94,6 +95,14 @@ namespace api.Controllers {
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Text>> PostText (Text text) {
+
+            TextValidator validator = new ();
+
+            var validationResult = validator.Validate (text);
+
+            if (!validationResult.IsValid) {
+                return BadRequest ();
+            }
 
             await _textService.PostTextAsync (text);
 

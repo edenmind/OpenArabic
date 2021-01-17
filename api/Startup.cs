@@ -5,6 +5,8 @@ using api.Services;
 
 using AutoMapper;
 
+using FluentValidation.AspNetCore;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,7 +39,9 @@ namespace api {
 
             services.AddControllers (options => {
                 options.ReturnHttpNotAcceptable = true;
-
+            }).AddFluentValidation (s => {
+                s.RegisterValidatorsFromAssemblyContaining<Startup> ();
+                s.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
             });
 
             services.AddCors (options => {

@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace api.Models {
     public class Sentence {
+        [Key]
         public long SentenceId { get; set; }
         public string English { get; set; }
         public string Arabic { get; set; }
