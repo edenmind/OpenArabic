@@ -66,24 +66,11 @@ export class TextViewComponent implements OnInit {
   }
 
   private prepareUI() {
-    //this.text.sentences = this.sortSentencesByOrder(this.text.sentences) //TODO Move to backend
     this.titleService.setTitle(`${this.text.title} | ${this.text.author}`)
     this.produceVocabularyList() //TODO Move to backend
     this.showTextSpinner = false
     this.arabicVocabulary = this.quizService.shuffleArray(this.arabicVocabulary) //TODO Move to backend
     this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary) //TODO Move to backend
-  }
-
-  private sortSentencesByOrder(sentences: Sentence[]): Sentence[] {
-    return (sentences.sort((n1, n2) => {
-      if (n1.order > n2.order) {
-        return 1;
-      }
-      if (n1.order < n2.order) {
-        return -1;
-      }
-      return 0;
-    }));
   }
 
   tapOnEnglish(index: number) {
