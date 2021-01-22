@@ -66,7 +66,7 @@ export class TextViewComponent implements OnInit {
   }
 
   private prepareUI() {
-    this.text.sentences = this.sortSentencesByOrder(this.text.sentences) //TODO Move to backend
+    //this.text.sentences = this.sortSentencesByOrder(this.text.sentences) //TODO Move to backend
     this.titleService.setTitle(`${this.text.title} | ${this.text.author}`)
     this.produceVocabularyList() //TODO Move to backend
     this.showTextSpinner = false

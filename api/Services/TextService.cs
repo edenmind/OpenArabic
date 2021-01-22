@@ -28,7 +28,7 @@ namespace api.Services {
         public async Task<IEnumerable<Text>> GetTextsCategoryAsync (TextResourceParameters textRequest) {
 
             return await _context.Texts
-                .Include (s => s.Sentences)
+                .Include (s => s.Sentences.OrderByDescending (s => s.Order))
                 .ThenInclude (w => w.Words)
                 .Where (t => t.Category.Equals (textRequest.Category))
                 .Where (t => t.Status.Equals (PublishStates.Published.ToString ()))
