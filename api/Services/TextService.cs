@@ -84,38 +84,66 @@ namespace api.Services {
 
             textDTO.RelatedTexts = await FindRelatedTexts (text);
 
-            textDTO.Vocabulary = ProduceVocabularyList (text);
+            textDTO.VocabularyCollection = ProduceVocabularyList (text);
 
             return textDTO;
         }
 
-        private static List<VocabularyDTO> ProduceVocabularyList (Text text) {
+        private static VocabularyCollectionDTO ProduceVocabularyList (Text text) {
 
-            List<VocabularyDTO> vocabularies = new ();
+            VocabularyCollectionDTO vocabularies = new ();
+            vocabularies.Arabic = new ();
+            vocabularies.English = new ();
 
             const int numberOfVocabulariesToAdd = 5;
 
-            while (vocabularies.Count < numberOfVocabulariesToAdd) {
+            while (vocabularies.Arabic.Count < numberOfVocabulariesToAdd) {
                 var randomNumber = new Random ();
                 var randomSentenceId = randomNumber.Next (0, text.Sentences.Count);
-                var vocabulary = GetRandomVocabularyFromSenteces (randomSentenceId, text.Sentences);
+                var wordPair = GetRandomWordPairFromSentences (randomSentenceId, text.Sentences);
 
                 const int minimumWordLength = 2;
-                var isWordLengthSatisfied = vocabulary.Arabic.Length > minimumWordLength && vocabulary.English.Length > minimumWordLength;
+                const int maximumWordLength = 10;
 
-                var isNewWord = !vocabularies.Contains (vocabulary);
+                var isWordLengthSatisfied =
+                    wordPair.Arabic.Length > minimumWordLength && wordPair.English.Length > minimumWordLength &&
+                    wordPair.Arabic.Length < maximumWordLength && wordPair.English.Length < maximumWordLength;
 
-                if (isWordLengthSatisfied && isNewWord) {
-                    vocabularies.Add (vocabulary);
+                var isNewWordInCollection = !vocabularies.English.Any (v => v.Word == wordPair.English) ||
+                    !vocabularies.Arabic.Any (v => v.Word == wordPair.Arabic);
+
+                if (isWordLengthSatisfied && isNewWordInCollection) {
+
+                    vocabularies.English.Add (new VocabularyDTO {
+                        Word = wordPair.English,
+                            WordId = vocabularies.English.Count
+                    });
+
+                    vocabularies.Arabic.Add (new VocabularyDTO {
+                        Word = wordPair.Arabic,
+                            WordId = vocabularies.Arabic.Count
+                    });
                 }
             }
+
+            // Shuffle vocabulary lists so that arabic and english words don't appear in the same order
+            vocabularies.Arabic = ShuffledVocabularies (vocabularies.Arabic);
+            vocabularies.English = ShuffledVocabularies (vocabularies.English);
 
             return vocabularies;
         }
 
-        private static VocabularyDTO GetRandomVocabularyFromSenteces (int randomSentenceId, List<Sentence> sentences) {
+        private static List<VocabularyDTO> ShuffledVocabularies (List<VocabularyDTO> toShuffle) {
 
-            VocabularyDTO vocabularyDTO = new ();
+            var random = new Random ();
+            var shuffled = toShuffle.OrderBy (i => random.Next ()).ToList ();
+
+            return shuffled;
+        }
+
+        private static WordPairDTO GetRandomWordPairFromSentences (int randomSentenceId, List<Sentence> sentences) {
+
+            WordPairDTO vocabularyDTO = new ();
 
             var random = new Random ();
             var ranndomWordId = random.Next (0, sentences[randomSentenceId].Words.Count);

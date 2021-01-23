@@ -14,7 +14,7 @@ namespace api.Dtos {
         public string EnglishText { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<RelatedDTO> RelatedTexts { get; set; }
-        public List<VocabularyDTO> Vocabulary { get; set; }
+        public VocabularyCollectionDTO VocabularyCollection { get; set; }
         public List<SentenceDTO> Sentences { get; set; }
 
         // computed propertis not present in the persisted model

@@ -1,5 +1,6 @@
 import { Related } from './related';
 import { Sentence } from './sentence';
+import { VocabularyCollection } from './vocabulary';
 
 export class Text {
   textId = 0;
@@ -13,6 +14,7 @@ export class Text {
   status: string = String();
   englishText: string = String();
   arabicText: string = String();
+  vocabularyCollection: VocabularyCollection = new VocabularyCollection;
   sentences: Sentence[] = [];
   relatedTexts: Related[] = [];
 }

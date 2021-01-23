@@ -10,7 +10,6 @@ import { TextService } from '../services/text.service';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
 import { Vocab } from '../models/vocab';
 import { QuizService } from '../services/quiz.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-text',
@@ -30,9 +29,6 @@ export class TextViewComponent implements OnInit {
   public numberOfSelected = 0;
 
   public id: string = String()
-
-  subscription: Subscription = new Subscription;
-  endOfSubscription: string = "still subscribing";
 
   constructor(
     private textService: TextService,
@@ -59,19 +55,13 @@ export class TextViewComponent implements OnInit {
     this.textService.getText(id).subscribe(
       text => {
         this.text = text
-        this.prepareUI()
+        this.arabicVocabulary = this.text.vocabularyCollection.arabic
+        this.englishVocabulary = this.text.vocabularyCollection.english
+        this.titleService.setTitle(`${this.text.title} | ${this.text.author}`)
+        this.showTextSpinner = false
       }
     )
   }
-
-  private prepareUI() {
-    this.titleService.setTitle(`${this.text.title} | ${this.text.author}`)
-    this.produceVocabularyList() //TODO Move to backend
-    this.showTextSpinner = false
-    this.arabicVocabulary = this.quizService.shuffleArray(this.arabicVocabulary) //TODO Move to backend
-    this.englishVocabulary = this.quizService.shuffleArray(this.englishVocabulary) //TODO Move to backend
-  }
-
   tapOnEnglish(index: number) {
 
     this.lastSelectedEnglish = index;
@@ -79,7 +69,7 @@ export class TextViewComponent implements OnInit {
     let indexInArraryArabic = 0;
 
     for (let i = 0; i < this.arabicVocabulary.length; i++) {
-      if (this.arabicVocabulary[i].id == index) {
+      if (this.arabicVocabulary[i].wordId == index) {
         indexInArraryArabic = i;
       }
     }
@@ -87,7 +77,7 @@ export class TextViewComponent implements OnInit {
     let indexInArraryEnglish = 0;
 
     for (let i = 0; i < this.englishVocabulary.length; i++) {
-      if (this.englishVocabulary[i].id == index) {
+      if (this.englishVocabulary[i].wordId == index) {
         indexInArraryEnglish = i;
       }
     }
@@ -143,14 +133,14 @@ export class TextViewComponent implements OnInit {
 
     let indexInArraryArabic = 0;
     for (let i = 0; i < this.arabicVocabulary.length; i++) {
-      if (this.arabicVocabulary[i].id == index) {
+      if (this.arabicVocabulary[i].wordId == index) {
         indexInArraryArabic = i;
       }
     }
 
     let indexInArraryEnglish = 0;
     for (let i = 0; i < this.englishVocabulary.length; i++) {
-      if (this.englishVocabulary[i].id == index) {
+      if (this.englishVocabulary[i].wordId == index) {
         indexInArraryEnglish = i;
       }
     }
@@ -210,41 +200,5 @@ export class TextViewComponent implements OnInit {
     this.dialog.open(TextVocabularyComponent, {
       data: filteredWords,
     });
-  }
-
-
-  produceVocabularyList(): void {
-    for (let index = 0; this.arabicVocabulary.length < 5; index++) {
-      const randomSentenceId = Math.floor(Math.random() * this.text.sentences.length);
-      this.GetWordsFromSentences(randomSentenceId);
-    }
-  }
-
-  private GetWordsFromSentences(sentenceNumber: number): void {
-
-    const randomWordId = Math.floor(Math.random() * this.text.sentences[sentenceNumber].words.length);
-
-    const english = new Vocab();
-    english.word = this.text.sentences[sentenceNumber].words[randomWordId].english;
-    english.id = this.englishVocabulary.length + 1;
-
-    const arabic = new Vocab();
-    arabic.word = this.text.sentences[sentenceNumber].words[randomWordId].arabic;
-    arabic.id = this.arabicVocabulary.length + 1;
-
-    const arabicWordLongerThanTwo = arabic.word.length > 2;
-    const englishWordLongerThanTwo = english.word.length > 2;
-
-    let wordExistsInVocabulary = false;
-    this.arabicVocabulary.forEach(element => {
-      if (element.word === arabic.word) {
-        wordExistsInVocabulary = true
-      }
-    });
-
-    if (arabicWordLongerThanTwo && englishWordLongerThanTwo && !wordExistsInVocabulary) {
-      this.arabicVocabulary.push(arabic);
-      this.englishVocabulary.push(english);
-    }
   }
 }

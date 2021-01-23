@@ -59,7 +59,7 @@ namespace api.Controllers {
         // GET: api/Texts/5
         [AllowAnonymous]
         [HttpGet ("{id}")]
-        public async Task<ActionResult<Text>> GetText (long id) {
+        public async Task<ActionResult<TextDTO>> GetText (long id) {
 
             var textFromRepo = await _textService.GetTextAsync (id);
 

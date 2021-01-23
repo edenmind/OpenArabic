@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Text } from '../models/text';
 import { DeviceService } from '../services/device.service';
 import { TextService } from '../services/text.service';
-import { WordProcessingService } from '../services/word-processing.service';
 
 @Component({
   selector: 'app-homepage',
@@ -33,8 +32,7 @@ export class HomepageComponent implements OnInit {
     private deviceService: DeviceService,
     private route: Router,
     private activeRoute: ActivatedRoute,
-    private titleService: Title,
-    private wordProcessingService: WordProcessingService
+    private titleService: Title
   ) {
     this.route.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -82,33 +80,6 @@ export class HomepageComponent implements OnInit {
         (texts) => ((this.texts = texts), (this.showSpinner = false))
       );
   }
-
-  public generateEnglishIngress(card: Text): string {
-
-    let englishIngress: string = String();
-
-    if (card.sentences) {
-      card.sentences.forEach(item => {
-        englishIngress = englishIngress + item.english;
-      });
-    }
-
-    return this.wordProcessingService.insertSpaceAfterComma(englishIngress);
-  }
-
-  public generateArabicIngress(card: Text): string {
-
-    let arabicIngress: string = String();
-
-    if (card.sentences) {
-      card.sentences.forEach(item => {
-        arabicIngress = arabicIngress + item.arabic;
-      });
-    }
-
-    return this.wordProcessingService.insertSpaceAfterComma(arabicIngress);
-  }
-
 
   toggleBadgeVisibility(): void {
     this.badgeHidden = !this.badgeHidden;

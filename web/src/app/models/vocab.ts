@@ -1,7 +1,7 @@
 
 export class Vocab {
   word: string = String();
-  id = 0;
+  wordId = 0;
   correct = false;
   selected = false;
 }
