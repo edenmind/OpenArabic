@@ -32,9 +32,9 @@ namespace api.Controllers {
         // GET: api/Texts
         [AllowAnonymous]
         [HttpGet ()]
-        public async Task<ActionResult<IEnumerable<Text>>> GetTexts ([FromQuery] TextResourceParameters textRequest) {
+        public async Task<ActionResult<IEnumerable<TextDTO>>> GetTexts ([FromQuery] TextResourceParameters textRequest) {
 
-            IEnumerable<Text> textFromRepo;
+            IEnumerable<TextDTO> textFromRepo;
 
             if (!string.IsNullOrWhiteSpace (textRequest.Category)) {
                 textFromRepo = await _textService.GetTextsCategoryAsync (textRequest);

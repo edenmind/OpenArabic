@@ -10,7 +10,6 @@ import { TextService } from '../services/text.service';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
 import { Vocab } from '../models/vocab';
 import { QuizService } from '../services/quiz.service';
-import { Sentence } from '../models/sentence';
 import { Subscription } from 'rxjs';
 
 @Component({

@@ -25,9 +25,9 @@ namespace api.Services {
                 throw new ArgumentNullException (nameof (context));
         }
 
-        public async Task<IEnumerable<Text>> GetTextsCategoryAsync (TextResourceParameters textRequest) {
+        public async Task<IEnumerable<TextDTO>> GetTextsCategoryAsync (TextResourceParameters textRequest) {
 
-            return await _context.Texts
+            var texts = await _context.Texts
                 .Include (s => s.Sentences.OrderByDescending (s => s.Order))
                 .ThenInclude (w => w.Words)
                 .Where (t => t.Category.Equals (textRequest.Category))
@@ -36,10 +36,14 @@ namespace api.Services {
                 .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
                 .Take (textRequest.PageSize)
                 .ToListAsync ();
+
+            var textDTOs = _mapper.Map<List<TextDTO>> (texts);
+
+            return textDTOs;
         }
 
-        public async Task<IEnumerable<Text>> GetTextsAuthorAsync (TextResourceParameters textRequest) {
-            return await _context.Texts
+        public async Task<IEnumerable<TextDTO>> GetTextsAuthorAsync (TextResourceParameters textRequest) {
+            var texts = await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .Where (t => t.Author.Equals (textRequest.Author))
@@ -47,11 +51,15 @@ namespace api.Services {
                 .Skip ((textRequest.PageNumber - 1) * textRequest.PageSize)
                 .Take (textRequest.PageSize)
                 .ToListAsync ();
+
+            var textDTOs = _mapper.Map<List<TextDTO>> (texts);
+
+            return textDTOs;
         }
 
-        public async Task<IEnumerable<Text>> GetTextsAsync (TextResourceParameters textRequest) {
+        public async Task<IEnumerable<TextDTO>> GetTextsAsync (TextResourceParameters textRequest) {
 
-            var textsFromPersistence = await _context.Texts
+            var texts = await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .OrderByDescending (t => t.CreatedAt)
@@ -59,29 +67,72 @@ namespace api.Services {
                 .Take (textRequest.PageSize)
                 .ToListAsync ();
 
-            // Map to DTO
-            // Compute additionial properties from helpers
-            // Gather additional data from microservices
+            var textDTOs = _mapper.Map<List<TextDTO>> (texts);
 
-            return textsFromPersistence;
+            return textDTOs;
         }
 
         public async Task<TextDTO> GetTextAsync (long id) {
 
-            var persistedText = await _context.Texts
+            var text = await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .Where (t => t.TextId == id)
                 .FirstAsync ();
 
-            var textDTOMappedFromPersistedText = _mapper.Map<TextDTO> (persistedText);
+            var textDTO = _mapper.Map<TextDTO> (text);
 
-            const int numberOfRelatedTexts = 7;
+            textDTO.RelatedTexts = await FindRelatedTexts (text);
+
+            textDTO.Vocabulary = ProduceVocabularyList (text);
+
+            return textDTO;
+        }
+
+        private static List<VocabularyDTO> ProduceVocabularyList (Text text) {
+
+            List<VocabularyDTO> vocabularies = new ();
+
+            const int numberOfVocabulariesToAdd = 5;
+
+            while (vocabularies.Count < numberOfVocabulariesToAdd) {
+                var randomNumber = new Random ();
+                var randomSentenceId = randomNumber.Next (0, text.Sentences.Count);
+                var vocabulary = GetRandomVocabularyFromSenteces (randomSentenceId, text.Sentences);
+
+                const int minimumWordLength = 2;
+                var isWordLengthSatisfied = vocabulary.Arabic.Length > minimumWordLength && vocabulary.English.Length > minimumWordLength;
+
+                var isNewWord = !vocabularies.Contains (vocabulary);
+
+                if (isWordLengthSatisfied && isNewWord) {
+                    vocabularies.Add (vocabulary);
+                }
+            }
+
+            return vocabularies;
+        }
+
+        private static VocabularyDTO GetRandomVocabularyFromSenteces (int randomSentenceId, List<Sentence> sentences) {
+
+            VocabularyDTO vocabularyDTO = new ();
+
+            var random = new Random ();
+            var ranndomWordId = random.Next (0, sentences[randomSentenceId].Words.Count);
+
+            vocabularyDTO.English = sentences[randomSentenceId].Words[ranndomWordId].English;
+            vocabularyDTO.Arabic = sentences[randomSentenceId].Words[ranndomWordId].Arabic;
+
+            return vocabularyDTO;
+        }
+
+        private async Task<List<RelatedDTO>> FindRelatedTexts (Text text) {
+            const int numberOfRelatedTextsToAdd = 7;
 
             var relatedTextsInSameCategory = await _context.Texts
-                .Where (c => c.Category == persistedText.Category)
-                .Where (i => i.TextId != id)
-                .Take (numberOfRelatedTexts)
+                .Where (c => c.Category == text.Category)
+                .Where (i => i.TextId != text.TextId)
+                .Take (numberOfRelatedTextsToAdd)
                 .ToListAsync ();
 
             var relatedTextsToAdd = new List<RelatedDTO> ();
@@ -93,9 +144,7 @@ namespace api.Services {
                 });
             }
 
-            textDTOMappedFromPersistedText.RelatedTexts = relatedTextsToAdd;
-
-            return textDTOMappedFromPersistedText;
+            return relatedTextsToAdd;
         }
 
         public async Task<long> PostTextAsync (Text text) {

@@ -18,7 +18,7 @@ using Microsoft.OpenApi.Models;
 
 namespace api {
     public class Startup {
-        private static readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        private static readonly string allowSpecificOrigins = "allowSpecificOrigins";
         public Startup (IConfiguration configuration) {
             Configuration = configuration;
         }
@@ -45,7 +45,7 @@ namespace api {
             });
 
             services.AddCors (options => {
-                options.AddPolicy (name: MyAllowSpecificOrigins, builder => {
+                options.AddPolicy (name: allowSpecificOrigins, builder => {
                     builder.WithOrigins (Environment.GetEnvironmentVariable ("ASPNETCORE_ORIGINS"));
                     builder.AllowAnyMethod ();
                     builder.AllowAnyHeader ();
@@ -85,7 +85,7 @@ namespace api {
 
             app.UseRouting ();
 
-            app.UseCors (MyAllowSpecificOrigins);
+            app.UseCors (allowSpecificOrigins);
 
             app.UseAuthentication ();
 
