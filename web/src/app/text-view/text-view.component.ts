@@ -8,8 +8,6 @@ import { Text } from '../models/text';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TextService } from '../services/text.service';
 import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
-import { Vocab } from '../models/vocab';
-import { QuizService } from '../services/quiz.service';
 
 @Component({
   selector: 'app-text',
@@ -21,93 +19,83 @@ export class TextViewComponent implements OnInit {
   public showTextSpinner = true;
   public readonly spinnerColor: ThemePalette = 'accent';
 
-  public englishVocabulary: Vocab[] = [];
-  public arabicVocabulary: Vocab[] = [];
+  private lastSelectedEnglish = 0;
+  private lastSelectedArabic = 0;
+  private numberOfSelected = 0;
 
-  public lastSelectedEnglish = 0;
-  public lastSelectedArabic = 0;
-  public numberOfSelected = 0;
-
-  public id: string = String()
+  public textId: string = String()
 
   constructor(
     private textService: TextService,
     private route: ActivatedRoute,
     public auth: AuthService,
     private titleService: Title,
-    public dialog: MatDialog,
-    private matSnackBar: MatSnackBar,
-    private quizService: QuizService
-  ) { }
+    private dialog: MatDialog,
+    private matSnackBar: MatSnackBar) { }
 
 
   ngOnInit(): void {
-    this.id = this.getIdFromRoute();
-    this.getTextsAndPrepareUI(this.id);
-  }
 
-  private getIdFromRoute(): string {
-    return this.route.snapshot.paramMap.get('id') || '1';
-  }
+    const queryParameter = "id";
 
-  private getTextsAndPrepareUI(id: string): void {
+    this.textId = this.route.snapshot.paramMap.get(queryParameter)!;
 
-    this.textService.getText(id).subscribe(
+    this.textService.getText(this.textId).subscribe(
       text => {
         this.text = text
-        this.arabicVocabulary = this.text.vocabularyCollection.arabic
-        this.englishVocabulary = this.text.vocabularyCollection.english
-        this.titleService.setTitle(`${this.text.title} | ${this.text.author}`)
+        const browserTitle = `${this.text.title} | ${this.text.author}`;
+        this.titleService.setTitle(browserTitle);
         this.showTextSpinner = false
       }
     )
   }
+
   tapOnEnglish(index: number) {
 
     this.lastSelectedEnglish = index;
 
     let indexInArraryArabic = 0;
 
-    for (let i = 0; i < this.arabicVocabulary.length; i++) {
-      if (this.arabicVocabulary[i].wordId == index) {
+    for (let i = 0; i < this.text.vocabularyCollection.arabic.length; i++) {
+      if (this.text.vocabularyCollection.arabic[i].wordId == index) {
         indexInArraryArabic = i;
       }
     }
 
     let indexInArraryEnglish = 0;
 
-    for (let i = 0; i < this.englishVocabulary.length; i++) {
-      if (this.englishVocabulary[i].wordId == index) {
+    for (let i = 0; i < this.text.vocabularyCollection.english.length; i++) {
+      if (this.text.vocabularyCollection.english[i].wordId == index) {
         indexInArraryEnglish = i;
       }
     }
 
-    if (this.englishVocabulary[indexInArraryEnglish].correct) {
+    if (this.text.vocabularyCollection.english[indexInArraryEnglish].correct) {
       return;
     }
 
     this.numberOfSelected = this.numberOfSelected + 1;
 
-    if (this.englishVocabulary[indexInArraryEnglish].selected) {
-      this.englishVocabulary[indexInArraryEnglish].selected = false;
+    if (this.text.vocabularyCollection.english[indexInArraryEnglish].selected) {
+      this.text.vocabularyCollection.english[indexInArraryEnglish].selected = false;
     } else {
-      this.englishVocabulary[indexInArraryEnglish].selected = true;
+      this.text.vocabularyCollection.english[indexInArraryEnglish].selected = true;
     }
 
     if (this.lastSelectedArabic == index) {
-      this.englishVocabulary[indexInArraryEnglish].correct = true;
-      this.arabicVocabulary[indexInArraryArabic].correct = true;
+      this.text.vocabularyCollection.english[indexInArraryEnglish].correct = true;
+      this.text.vocabularyCollection.arabic[indexInArraryArabic].correct = true;
       this.lastSelectedArabic = 0;
       this.lastSelectedEnglish = 0;
       this.numberOfSelected = 0;
 
       let numberOfCorrect = 0;
-      for (let index = 0; index < this.englishVocabulary.length; index++) {
-        if (this.englishVocabulary[index].correct) {
+      for (let index = 0; index < this.text.vocabularyCollection.english.length; index++) {
+        if (this.text.vocabularyCollection.english[index].correct) {
           numberOfCorrect++;
         }
       }
-      if (numberOfCorrect == this.englishVocabulary.length) {
+      if (numberOfCorrect == this.text.vocabularyCollection.english.length) {
         this.matSnackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
           duration: 3000,
         });
@@ -118,10 +106,10 @@ export class TextViewComponent implements OnInit {
       this.numberOfSelected = 0;
       this.lastSelectedEnglish = 0;
       this.lastSelectedArabic = 0;
-      for (let indexSelected = 0; indexSelected < this.englishVocabulary.length; indexSelected++
+      for (let indexSelected = 0; indexSelected < this.text.vocabularyCollection.english.length; indexSelected++
       ) {
-        this.englishVocabulary[indexSelected].selected = false;
-        this.arabicVocabulary[indexSelected].selected = false;
+        this.text.vocabularyCollection.english[indexSelected].selected = false;
+        this.text.vocabularyCollection.arabic[indexSelected].selected = false;
       }
       return;
     }
@@ -132,45 +120,45 @@ export class TextViewComponent implements OnInit {
     this.lastSelectedArabic = index;
 
     let indexInArraryArabic = 0;
-    for (let i = 0; i < this.arabicVocabulary.length; i++) {
-      if (this.arabicVocabulary[i].wordId == index) {
+    for (let i = 0; i < this.text.vocabularyCollection.arabic.length; i++) {
+      if (this.text.vocabularyCollection.arabic[i].wordId == index) {
         indexInArraryArabic = i;
       }
     }
 
     let indexInArraryEnglish = 0;
-    for (let i = 0; i < this.englishVocabulary.length; i++) {
-      if (this.englishVocabulary[i].wordId == index) {
+    for (let i = 0; i < this.text.vocabularyCollection.english.length; i++) {
+      if (this.text.vocabularyCollection.english[i].wordId == index) {
         indexInArraryEnglish = i;
       }
     }
 
-    if (this.arabicVocabulary[indexInArraryArabic].correct) {
+    if (this.text.vocabularyCollection.arabic[indexInArraryArabic].correct) {
       return;
     }
 
     this.numberOfSelected = this.numberOfSelected + 1;
 
-    if (this.arabicVocabulary[indexInArraryArabic].selected) {
-      this.arabicVocabulary[indexInArraryArabic].selected = false;
+    if (this.text.vocabularyCollection.arabic[indexInArraryArabic].selected) {
+      this.text.vocabularyCollection.arabic[indexInArraryArabic].selected = false;
     } else {
-      this.arabicVocabulary[indexInArraryArabic].selected = true;
+      this.text.vocabularyCollection.arabic[indexInArraryArabic].selected = true;
     }
 
     if (this.lastSelectedEnglish == index) {
-      this.arabicVocabulary[indexInArraryArabic].correct = true;
-      this.englishVocabulary[indexInArraryEnglish].correct = true;
+      this.text.vocabularyCollection.arabic[indexInArraryArabic].correct = true;
+      this.text.vocabularyCollection.english[indexInArraryEnglish].correct = true;
       this.lastSelectedArabic = 0;
       this.lastSelectedEnglish = 0;
       this.numberOfSelected = 0;
 
       let numberOfCorrect = 0;
-      for (let index = 0; index < this.arabicVocabulary.length; index++) {
-        if (this.arabicVocabulary[index].correct) {
+      for (let index = 0; index < this.text.vocabularyCollection.arabic.length; index++) {
+        if (this.text.vocabularyCollection.arabic[index].correct) {
           numberOfCorrect++;
         }
       }
-      if (numberOfCorrect == this.arabicVocabulary.length) {
+      if (numberOfCorrect == this.text.vocabularyCollection.arabic.length) {
         this.matSnackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
           duration: 3000,
         });
@@ -183,11 +171,11 @@ export class TextViewComponent implements OnInit {
       this.lastSelectedArabic = 0;
       for (
         let indexSelected = 0;
-        indexSelected < this.englishVocabulary.length;
+        indexSelected < this.text.vocabularyCollection.english.length;
         indexSelected++
       ) {
-        this.englishVocabulary[indexSelected].selected = false;
-        this.arabicVocabulary[indexSelected].selected = false;
+        this.text.vocabularyCollection.english[indexSelected].selected = false;
+        this.text.vocabularyCollection.arabic[indexSelected].selected = false;
       }
       return;
     }
@@ -195,10 +183,10 @@ export class TextViewComponent implements OnInit {
 
   openVocabularyDialog(indexofSentence: number): void {
     const words = this.text.sentences.find((i) => i.sentenceId == indexofSentence)!.words;
-    const filteredWords = words.filter((w) => w.english != '');
+    const emptyWordsRemoved = words.filter((w) => w.english != '');
 
     this.dialog.open(TextVocabularyComponent, {
-      data: filteredWords,
+      data: emptyWordsRemoved,
     });
   }
 }

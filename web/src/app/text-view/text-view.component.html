@@ -58,10 +58,12 @@
 
     <div class="chip-center">
       <mat-chip-list>
-        <mat-chip *ngFor="let vocab of englishVocabulary;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnEnglish(vocab.wordId)">
+        <mat-chip *ngFor="let vocab of text.vocabularyCollection.english;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}"
+          (click)="tapOnEnglish(vocab.wordId)">
           {{vocab.word}}
         </mat-chip>
-        <mat-chip *ngFor="let vocab of arabicVocabulary;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}" (click)="tapOnArabic(vocab.wordId)">
+        <mat-chip *ngFor="let vocab of text.vocabularyCollection.arabic;" class="chip" [ngClass]="{'correct' : vocab.correct, 'selected': vocab.selected}"
+          (click)="tapOnArabic(vocab.wordId)">
           <span style="font-size: x-large;">{{vocab.word}}</span>
         </mat-chip>
       </mat-chip-list>
@@ -78,11 +80,11 @@
 
     <!-- SHARE -->
     <div class="center related-margin">
-      <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{id}}" target="_blank" color="accent" class="simple-link">Share on Facebook</a>
+      <a mat-button href="https://www.facebook.com/sharer.php?u=https://openarabic.io/text/{{textId}}" target="_blank" color="accent" class="simple-link">Share on Facebook</a>
     </div>
     <div class="center">
       <a mat-button
-        href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{id}}&text={{text.title}} by {{text.author}} in Arabic and English&hashtags=openarabic,arabic,sunnah,salaf&via=arabicopen"
+        href="https://twitter.com/intent/tweet?url=https://openarabic.io/text/{{textId}}&text={{text.title}} by {{text.author}} in Arabic and English&hashtags=openarabic,arabic,sunnah,salaf&via=arabicopen"
         target="_blank" color="accent" class="simple-link">Share on Twitter</a>
     </div>
 
