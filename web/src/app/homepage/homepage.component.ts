@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
   showSpinner = true;
 
   pageNumber = 1;
-  pageSize = 3;
+  pageSize = 15;
   length = "1";
   pageEvent: PageEvent = new PageEvent;
 
