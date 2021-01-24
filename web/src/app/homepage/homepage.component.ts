@@ -24,6 +24,7 @@ export class HomepageComponent implements OnInit {
 
   pageNumber = 1;
   pageSize = 25;
+  totalNumber = "0";
 
   breakPoint = 1;
   readonly spinnerColor: ThemePalette = 'accent';
@@ -63,8 +64,9 @@ export class HomepageComponent implements OnInit {
   private readStartPage(): void {
     this.textService
       .getTextsFromRoot(this.pageSize, this.pageNumber)
-      .subscribe((texts) => (
-        this.texts = texts,
+      .subscribe(texts => (
+        this.texts = texts.body!,
+        this.totalNumber = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }

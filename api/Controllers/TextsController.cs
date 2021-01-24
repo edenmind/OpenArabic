@@ -46,11 +46,13 @@ namespace api.Controllers {
                 textFromRepo = await _textService.GetTextsAsync (textRequest);
             }
 
-            var paginationMetadata = new {
-                totalCount = _textService.GetTotalCount (),
-            };
+            var totalCount = await _textService.GetTotalCount ();
 
-            Response.Headers.Add ("X-Pagination", JsonSerializer.Serialize (paginationMetadata));
+            var totalCountString = totalCount.ToString ();
+
+            //Response.Headers.Add ("X-Pagination", JsonSerializer.Serialize (paginationMetadata));
+            Response.Headers.Add ("Access-Control-Expose-Headers", "X-Total-Count");
+            Response.Headers.Add ("X-Total-Count", totalCountString);
 
             return Ok (_mapper.Map<IEnumerable<TextDTO>> (textFromRepo));
 

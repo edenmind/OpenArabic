@@ -1,4 +1,4 @@
-import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable, of } from 'rxjs';
@@ -48,17 +48,13 @@ export class TextService {
   getTextsFromRoot(
     pageSize: number = 25,
     pageNumber: number = 1
-  ): Observable<Text[]> {
+  ): Observable<HttpResponse<Text[]>> {
 
     const paginationData = `?&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     const requestUrl = this.textsUrl + paginationData;
 
     return this.httpClientAnonymous
-      .get<Text[]>(requestUrl)
-      .pipe(
-        tap((_) => this.log('fetched texts')),
-        catchError(this.handleError<Text[]>())
-      );
+      .get<Text[]>(requestUrl, { observe: 'response' });
   }
 
   getText(id: string): Observable<Text> {
