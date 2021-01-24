@@ -4,15 +4,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { Text } from '../models/text';
+import { Text } from '../../models/text';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TextService } from '../services/text.service';
-import { TextVocabularyComponent } from '../text-vocabulary/text-vocabulary.component';
+import { TextService } from '../../services/text.service';
+import { TextVocabularyComponent } from '../vocabulary/text-vocabulary.component';
 
 @Component({
   selector: 'app-text',
   templateUrl: './text-view.component.html',
-  styleUrls: ['./text-view.component.css', '../shared/common.css'],
+  styleUrls: ['./text-view.component.css', '../../shared/common.css'],
 })
 export class TextViewComponent implements OnInit {
   public text: Text = new Text;

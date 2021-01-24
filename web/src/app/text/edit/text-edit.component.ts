@@ -3,19 +3,19 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { Sentence } from '../models/sentence';
-import { Word } from '../models/word';
-import { AuthorService } from '../services/author.service';
-import { CategoryService } from '../services/category.service';
-import { StatusService } from '../services/status.service';
-import { TextService } from '../services/text.service';
-import { WordProcessingService } from '../services/word-processing.service';
+import { Sentence } from '../../models/sentence';
+import { Word } from '../../models/word';
+import { AuthorService } from '../../services/author.service';
+import { CategoryService } from '../../services/category.service';
+import { StatusService } from '../../services/status.service';
+import { TextService } from '../../services/text.service';
+import { WordProcessingService } from '../../services/word-processing.service';
 import { TextEditModel } from './text-edit-model';
 
 @Component({
   selector: 'app-text-form',
   templateUrl: './text-edit.component.html',
-  styleUrls: ['./text-edit.component.css', '../shared/common.css'],
+  styleUrls: ['./text-edit.component.css', '../../shared/common.css'],
 })
 export class TextEditComponent implements OnInit, OnChanges {
   constructor(

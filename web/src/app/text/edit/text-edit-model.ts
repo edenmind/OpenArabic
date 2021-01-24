@@ -1,5 +1,5 @@
-import { Sentence } from '../models/sentence';
-import { Text } from '../models/text';
+import { Sentence } from '../../models/sentence';
+import { Text } from '../../models/text';
 
 export class TextEditModel {
   sentences: Sentence[] = [];

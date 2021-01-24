@@ -5,8 +5,8 @@ import { ContactComponent } from './contact/contact.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { TextEditComponent } from './text-edit/text-edit.component';
-import { TextViewComponent } from './text-view/text-view.component';
+import { TextEditComponent } from './text/edit/text-edit.component';
+import { TextViewComponent } from './text/view/text-view.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -30,4 +30,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
