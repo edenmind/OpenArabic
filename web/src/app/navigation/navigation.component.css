@@ -6,6 +6,13 @@
   width: 200px;
 }
 
+.hide {
+  position: sticky;
+  top: -0px;
+  padding-top: 0px;
+  height: 50px;
+}
+
 .is-active {
   background: rgba(156, 39, 176, 0.15);
   color: #d176e1;
