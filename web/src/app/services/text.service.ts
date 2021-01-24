@@ -27,15 +27,15 @@ export class TextService {
 
   /** GET texts from the server */
   getTextsFromEndpoint(
-    endpoint: string,
+    endpointKey: string,
     endPointValue: string,
     pageSize: number = 25,
     pageNumber: number = 1
   ): Observable<Text[]> {
 
     const paginationData = `&pageSize=${pageSize}&pageNumber=${pageNumber}`;
-    const endpointWithValue = `?${endpoint}=${endPointValue}`;
-    const requestUrl = this.textsUrl + endpointWithValue + paginationData;
+    const endpointKeyWithValue = `?${endpointKey}=${endPointValue}`;
+    const requestUrl = this.textsUrl + endpointKeyWithValue + paginationData;
 
     return this.httpClientAnonymous
       .get<Text[]>(requestUrl)
@@ -50,8 +50,8 @@ export class TextService {
     pageNumber: number = 1
   ): Observable<Text[]> {
 
-    const paginationData = `&pageSize=${pageSize}&pageNumber=${pageNumber}`;
-    const requestUrl = this.textsUrl + "?" + paginationData;
+    const paginationData = `?&pageSize=${pageSize}&pageNumber=${pageNumber}`;
+    const requestUrl = this.textsUrl + paginationData;
 
     return this.httpClientAnonymous
       .get<Text[]>(requestUrl)
