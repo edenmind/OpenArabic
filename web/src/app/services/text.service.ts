@@ -26,35 +26,48 @@ export class TextService {
   }
 
   /** GET texts from the server */
-  getTexts(
-    author?: string,
-    category?: string,
+  getTextsFromEndpoint(
+    endpoint: string,
+    endPointValue: string,
     pageSize: number = 25,
     pageNumber: number = 1
   ): Observable<Text[]> {
 
-    let sectionedUrl: string;
-
-    if (category !== '') {
-      sectionedUrl = `${this.textsUrl}?category=${category}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
-    }
-    else if (author !== '') {
-      sectionedUrl = `${this.textsUrl}?author=${author}&pageSize=${pageSize}&pageNumber=${pageNumber}`;
-    } else {
-      sectionedUrl = `${environment.api}/api/texts/?pageSize=${pageSize}&pageNumber=${pageNumber}`;
-    }
+    const paginationData = `&pageSize=${pageSize}&pageNumber=${pageNumber}`;
+    const endpointWithValue = `?${endpoint}=${endPointValue}`;
+    const requestUrl = this.textsUrl + endpointWithValue + paginationData;
 
     return this.httpClientAnonymous
-      .get<Text[]>(sectionedUrl)
-      .pipe(tap((_) => this.log('fetched texts')));
+      .get<Text[]>(requestUrl)
+      .pipe(
+        tap((_) => this.log('fetched texts')),
+        catchError(this.handleError<Text[]>())
+      );
+  }
+
+  getTextsFromRoot(
+    pageSize: number = 25,
+    pageNumber: number = 1
+  ): Observable<Text[]> {
+
+    const paginationData = `&pageSize=${pageSize}&pageNumber=${pageNumber}`;
+    const requestUrl = this.textsUrl + "?" + paginationData;
+
+    return this.httpClientAnonymous
+      .get<Text[]>(requestUrl)
+      .pipe(
+        tap((_) => this.log('fetched texts')),
+        catchError(this.handleError<Text[]>())
+      );
   }
 
   getText(id: string): Observable<Text> {
     const url = `${this.textsUrl}/${id}`;
-    return this.httpClientAnonymous.get<Text>(url).pipe(
-      tap((_) => this.log(`fetched text id=${id}`)),
-      catchError(this.handleError<Text>(`getText id=${id}`))
-    );
+    return this.httpClientAnonymous.get<Text>(url)
+      .pipe(
+        tap((_) => this.log(`fetched text id=${id}`)),
+        catchError(this.handleError<Text>(`getText id=${id}`))
+      );
   }
 
   addText(text: Text): Observable<Text> {

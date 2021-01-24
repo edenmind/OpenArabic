@@ -62,7 +62,7 @@ export class HomepageComponent implements OnInit {
   }
   private readStartPage(): void {
     this.textService
-      .getTexts('', '', this.pageSize, this.pageNumber)
+      .getTextsFromRoot(this.pageSize, this.pageNumber)
       .subscribe((texts) => (
         this.texts = texts,
         this.showSpinner = false)
@@ -71,7 +71,7 @@ export class HomepageComponent implements OnInit {
 
   private readAuthor(author: string): void {
     this.textService
-      .getTexts(author, '', this.pageSize, this.pageNumber)
+      .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.pageNumber)
       .subscribe(
         (texts) => (
           this.texts = texts,
@@ -81,7 +81,7 @@ export class HomepageComponent implements OnInit {
 
   private readCategory(category: string): void {
     this.textService
-      .getTexts('', category, this.pageSize, this.pageNumber)
+      .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.pageNumber)
       .subscribe(
         (texts) => (
           this.texts = texts,
