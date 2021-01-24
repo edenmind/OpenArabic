@@ -8,6 +8,8 @@ import { Text } from '../../models/text';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TextService } from '../../services/text.service';
 import { TextVocabularyComponent } from '../vocabulary/text-vocabulary.component';
+import { Arabic } from 'src/app/enums/arabic.enum';
+import { Emojis } from 'src/app/enums/emojis.enum';
 
 @Component({
   selector: 'app-text',
@@ -96,7 +98,8 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.text.vocabularyCollection.english.length) {
-        this.matSnackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
+        const successMessage = 'Well Done - ' + Arabic.MashaAllah
+        this.matSnackBar.open(successMessage, Emojis.Rockets, {
           duration: 3000,
         });
       }
@@ -159,7 +162,8 @@ export class TextViewComponent implements OnInit {
         }
       }
       if (numberOfCorrect == this.text.vocabularyCollection.arabic.length) {
-        this.matSnackBar.open('Well Done - MashaAllah! ', '🚀🚀🚀', {
+        const successMessage = 'Well Done - ' + Arabic.MashaAllah
+        this.matSnackBar.open(successMessage, Emojis.Rockets, {
           duration: 3000,
         });
       }

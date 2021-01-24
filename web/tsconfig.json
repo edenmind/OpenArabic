@@ -33,14 +33,14 @@
     "strictNullChecks": true
   },
   "angularCompilerOptions": {
-    // "fullTemplateTypeCheck": true,
-    // "strictInjectionParameters": true,
-    // "strictNullChecks": true,
-    // "alwaysStrict": true,
-    // "forceConsistentCasingInFileNames": true,
-    // "noFallthroughCasesInSwitch": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     // "strictTemplates": true,
-    // "strictFunctionTypes": true,
-    // "strictInputAccessModifiers": true
+    "strictFunctionTypes": true,
+    "strictInputAccessModifiers": true
   }
 }

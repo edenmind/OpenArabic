@@ -48,8 +48,8 @@
         <mat-tab label="Text">
             <br>
             <mat-chip-list>
-                <mat-chip color="accent" selected *ngIf="sentencesAreEqual">The number of sentences are equal.</mat-chip>
-                <mat-chip color="warning" selected *ngIf="!sentencesAreEqual">The number of sentences are not equal.</mat-chip>
+                <mat-chip color="accent" selected *ngIf="textEditModel.sentencesAreEqual">The number of sentences are equal.</mat-chip>
+                <mat-chip color="warning" selected *ngIf="!textEditModel.sentencesAreEqual">The number of sentences are not equal.</mat-chip>
             </mat-chip-list>
             <div>
                 <div class="col-6" style="float: left">
@@ -93,7 +93,7 @@
                 <div style="width: 33%; float: left; padding-bottom: 150px;">
                     <h5>Arabic Sentence: {{ indexOfsentence }}</h5>
                     <div *ngFor="let arabicWord of textEditModel.arabicWordsForMatching[indexOfsentence];let indexOfelement = index">
-                        <div class="edit-container" (click)="openTranslation(arabicWord)">
+                        <div class="edit-container" (click)="openTranslationOfArabicWord(arabicWord)">
                             <span class="clickableWord">{{ arabicWord }}</span>
 
                             <div cdkDropList [cdkDropListData]="textEditModel.englishWordsMatched[indexOfsentence][indexOfelement]" class="edit-list"
@@ -126,7 +126,7 @@
         </mat-tab>
     </mat-tab-group>
 
-    <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" [disabled]="!isValid()" (click)="onSubmit()">
+    <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" [disabled]="!isModelValid()" (click)="onSubmit()">
         Submit
     </button>
 

@@ -8,5 +8,7 @@ export class TextEditModel {
   arabicWordsForMatching: string[][] = [];
   englishWordsForMatching: string[][] = [];
   englishWordsMatched: string[][][] = [];
+  sentencesAreEqual = false;
   text: Text = new Text();
+
 }

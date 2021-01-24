@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -62,15 +62,9 @@ export class WordProcessingService {
     return text.split('\n');
   }
 
-  splitSentencestoWords(sentence: string): string[] {
-    return sentence.split(' ');
-  }
-
   splitWords(paragraph: string): string[] {
     const words = paragraph.split(' ');
     const wordsCleaned = this.loopWordsToCleanAndRemoveNull(words);
     return wordsCleaned;
   }
-
-  insertSpaceAfterComma = (text: string) => text.replace(/,(?=[^\s])/g, ', ');
 }

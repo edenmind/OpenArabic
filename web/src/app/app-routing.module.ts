@@ -11,10 +11,10 @@ import { TextViewComponent } from './text/view/text-view.component';
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'text-edit/:id', component: TextEditComponent },
-  { path: 'text/:id', component: TextViewComponent },
-  { path: 'text-edit', component: TextEditComponent },
   { path: 'texts', component: TextViewComponent },
+  { path: 'text/:id', component: TextViewComponent },
+  { path: 'text/new', component: TextEditComponent },
+  { path: 'text/edit/:id', component: TextEditComponent },
   { path: 'category/:category', component: HomepageComponent },
   { path: 'author/:author', component: HomepageComponent },
   { path: 'login', component: LoginComponent },

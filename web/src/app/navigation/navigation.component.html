@@ -1,10 +1,9 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="false">
     <mat-toolbar>Categories</mat-toolbar>
     <mat-nav-list *ngFor="let category of categories">
-      <a mat-list-item matRipple routerLink="/category/{{ category }}" [routerLinkActive]="['is-active']"
-        class="text-decoration-none" (click)="drawer.toggle()">{{ category }}</a>
+      <a mat-list-item matRipple routerLink="/category/{{ category }}" [routerLinkActive]="['is-active']" class="text-decoration-none" (click)="drawer.toggle()">{{ category }}</a>
     </mat-nav-list>
     <mat-divider></mat-divider>
     <mat-nav-list>
@@ -26,7 +25,7 @@
       </button>
 
       <button mat-icon-button *ngIf="auth.user$ | async as user">
-        <a routerLink="/text-edit" class="title">
+        <a routerLink="/text/new" class="title">
           <mat-icon class="icon">note_add</mat-icon>
         </a>
       </button>

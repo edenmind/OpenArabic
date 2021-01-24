@@ -3,6 +3,7 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { Arabic } from 'src/app/enums/arabic.enum';
 import { Sentence } from '../../models/sentence';
 import { Word } from '../../models/word';
 import { AuthorService } from '../../services/author.service';
@@ -30,8 +31,6 @@ export class TextEditComponent implements OnInit, OnChanges {
     private route: Router
   ) { }
 
-  public sentencesAreEqual = false;
-
   public readonly authors = this.authorService.GetAuthors();
   public readonly statuses = this.statusService.GetStatuses();
   public readonly categories = this.categoryService.GetCategories();
@@ -42,13 +41,14 @@ export class TextEditComponent implements OnInit, OnChanges {
     this.getText();
   }
   ngOnChanges(): void {
-    if (this.sentencesAreEqual) {
+    if (this.textEditModel.sentencesAreEqual) {
       this.updatePreview();
     }
   }
 
   private getText(): void {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    const queryParameter = 'id'
+    const id = this.activatedRoute.snapshot.paramMap.get(queryParameter);
     if (id) {
       this.textService
         .getText(id)
@@ -57,7 +57,8 @@ export class TextEditComponent implements OnInit, OnChanges {
   }
 
   onSubmit(): void {
-    if (this.textEditModel.text.textId) {
+    const updateSinceTextAlreadyExists = this.textEditModel.text.textId;
+    if (updateSinceTextAlreadyExists) {
       this.updateText();
     } else {
       this.createWordList();
@@ -83,7 +84,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
   }
 
-  public openTranslation(arabicWord: string): void {
+  public openTranslationOfArabicWord(arabicWord: string): void {
     const url = `https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=${arabicWord}`;
     window.open(url, '_blank');
   }
@@ -111,9 +112,9 @@ export class TextEditComponent implements OnInit, OnChanges {
 
     // Check in text to see if sentences are equal
     if (englishSentences.length !== arabicSentences.length) {
-      this.sentencesAreEqual = false;
+      this.textEditModel.sentencesAreEqual = false;
     } else {
-      this.sentencesAreEqual = true;
+      this.textEditModel.sentencesAreEqual = true;
       // Combine eng and ar sentences into one array
       this.textEditModel.text.sentences = this.combineSentences(englishSentences, arabicSentences);
 
@@ -156,7 +157,7 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
   }
 
-  public isValid(): boolean {
+  public isModelValid(): boolean {
     return (
       this.textEditModel.text.author != null &&
       this.textEditModel.text.title != null &&
@@ -168,14 +169,14 @@ export class TextEditComponent implements OnInit, OnChanges {
     );
   }
 
-  private combineSentences(englishSentences: string[], arabicSentences: string[]): Sentence[] {
+  private combineSentences(englishSentence: string[], arabicSentence: string[]): Sentence[] {
 
     const sentences: Sentence[] = [];
 
-    for (let index = 0; index < englishSentences.length; index++) {
+    for (let index = 0; index < englishSentence.length; index++) {
       const sentence = new Sentence();
-      sentence.arabic = arabicSentences[index];
-      sentence.english = englishSentences[index];
+      sentence.arabic = arabicSentence[index];
+      sentence.english = englishSentence[index];
 
       sentence.order = index;
       sentences.push(sentence);
@@ -189,7 +190,8 @@ export class TextEditComponent implements OnInit, OnChanges {
       .updateText(this.textEditModel.text)
       .subscribe((textEditModeltext) => {
         this.textEditModel.text = textEditModeltext;
-        this.openSnackBar(`The text has been updated with id: ${this.textEditModel.text.textId}.`, 'MashaAllah!');
+        const updateSuccessMessage = `The text has been updated with id: ${this.textEditModel.text.textId}.`
+        this.openSnackBar(updateSuccessMessage, Arabic.MashaAllah);
       });
   }
 
@@ -197,13 +199,15 @@ export class TextEditComponent implements OnInit, OnChanges {
     this.authService.user$.subscribe((u) => (this.textEditModel.text.editor = u.email));
     this.textService.addText(this.textEditModel.text).subscribe((text) => {
       this.textEditModel.text = text;
-      this.openSnackBar(`The text has been added with id: ${this.textEditModel.text.textId}.`, 'MashaAllah!');
+      const addSuccessMessage = `The text has been added with id: ${this.textEditModel.text.textId}.`;
+      this.openSnackBar(addSuccessMessage, Arabic.MashaAllah);
     });
   }
 
   deleteText(): void {
     this.textService.deleteText(this.textEditModel.text.textId);
-    this.openSnackBar(`The text has been deleted with id: ${this.textEditModel.text.textId}.`, 'MashaAllah!');
+    const deleteSuccessMessage = `The text has been deleted with id: ${this.textEditModel.text.textId}.`;
+    this.openSnackBar(deleteSuccessMessage, Arabic.MashaAllah);
     this.route.navigate(['/']);
   }
 

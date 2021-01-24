@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Endpoints } from '../enums/endpoints.enum';
+import { UI } from '../enums/ui.enum';
 import { Text } from '../models/text';
 import { DeviceService } from '../services/device.service';
 import { TextService } from '../services/text.service';
@@ -41,8 +43,8 @@ export class HomepageComponent implements OnInit {
 
     this.breakPoint = this.deviceService.checkDeviceSizeBreakPoint();
 
-    const category = this.activeRoute.snapshot.paramMap.get('category') || null;
-    const author = this.activeRoute.snapshot.paramMap.get('author') || null;
+    const category = this.activeRoute.snapshot.paramMap.get(Endpoints.Category)!;
+    const author = this.activeRoute.snapshot.paramMap.get(Endpoints.Author)!;
 
     if (category) {
       this.readCategory(category);
@@ -55,13 +57,15 @@ export class HomepageComponent implements OnInit {
       this.pageTitle = `Author: ${author}`;
     } else {
       this.readStartPage();
-      this.titleService.setTitle('OpenArabic — a Bilingual Blog on Orthodox Islamic Topics');
+      this.titleService.setTitle(UI.PageName);
     }
   }
   private readStartPage(): void {
     this.textService
       .getTexts('', '', this.pageSize, this.pageNumber)
-      .subscribe((texts) => ((this.texts = texts), (this.showSpinner = false))
+      .subscribe((texts) => (
+        this.texts = texts,
+        this.showSpinner = false)
       );
   }
 
@@ -69,7 +73,9 @@ export class HomepageComponent implements OnInit {
     this.textService
       .getTexts(author, '', this.pageSize, this.pageNumber)
       .subscribe(
-        (texts) => ((this.texts = texts), (this.showSpinner = false))
+        (texts) => (
+          this.texts = texts,
+          this.showSpinner = false)
       );
   }
 
@@ -77,7 +83,9 @@ export class HomepageComponent implements OnInit {
     this.textService
       .getTexts('', category, this.pageSize, this.pageNumber)
       .subscribe(
-        (texts) => ((this.texts = texts), (this.showSpinner = false))
+        (texts) => (
+          this.texts = texts,
+          this.showSpinner = false)
       );
   }
 
@@ -89,7 +97,7 @@ export class HomepageComponent implements OnInit {
     this.route.navigate(['/text/', id]);
   }
 
-  isStartPage = (): boolean => this.route.url === '/';
+  isStartPage = (): boolean => this.route.url === Endpoints.Root;
 
   onResize(event: { target: { innerWidth: number; }; }): void {
     this.breakPoint = event.target.innerWidth <= 1200 ? 1 : 3;
