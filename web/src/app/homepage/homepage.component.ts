@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Endpoints } from '../enums/endpoints.enum';
@@ -23,8 +24,9 @@ export class HomepageComponent implements OnInit {
   showSpinner = true;
 
   pageNumber = 1;
-  pageSize = 25;
-  totalNumber = "0";
+  pageSize = 3;
+  length = "1";
+  pageEvent: PageEvent = new PageEvent;
 
   breakPoint = 1;
   readonly spinnerColor: ThemePalette = 'accent';
@@ -41,8 +43,14 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.breakPoint = this.deviceService.checkDeviceSizeBreakPoint();
+    this.changePage(0);
+  }
+
+  public changePage(pageIndex: number) {
+
+    pageIndex++;
+    this.length = pageIndex.toString();
 
     const category = this.activeRoute.snapshot.paramMap.get(Endpoints.Category)!;
     const author = this.activeRoute.snapshot.paramMap.get(Endpoints.Author)!;
@@ -61,33 +69,35 @@ export class HomepageComponent implements OnInit {
       this.titleService.setTitle(UI.PageName);
     }
   }
+
+
   private readStartPage(): void {
     this.textService
-      .getTextsFromRoot(this.pageSize, this.pageNumber)
+      .getTextsFromRoot(this.pageSize, this.length)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.totalNumber = texts.headers.get("x-total-count")!,
+        this.length = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
 
   private readAuthor(author: string): void {
     this.textService
-      .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.pageNumber)
-      .subscribe(
-        (texts) => (
-          this.texts = texts,
-          this.showSpinner = false)
+      .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.length)
+      .subscribe(texts => (
+        this.texts = texts.body!,
+        this.length = texts.headers.get("x-total-count")!,
+        this.showSpinner = false)
       );
   }
 
   private readCategory(category: string): void {
     this.textService
-      .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.pageNumber)
-      .subscribe(
-        (texts) => (
-          this.texts = texts,
-          this.showSpinner = false)
+      .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.length)
+      .subscribe(texts => (
+        this.texts = texts.body!,
+        this.length = texts.headers.get("x-total-count")!,
+        this.showSpinner = false)
       );
   }
 

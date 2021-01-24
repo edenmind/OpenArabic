@@ -30,24 +30,20 @@ export class TextService {
     endpointKey: string,
     endPointValue: string,
     pageSize: number = 25,
-    pageNumber: number = 1
-  ): Observable<Text[]> {
+    pageNumber: string = "1"
+  ): Observable<HttpResponse<Text[]>> {
 
     const paginationData = `&pageSize=${pageSize}&pageNumber=${pageNumber}`;
     const endpointKeyWithValue = `?${endpointKey}=${endPointValue}`;
     const requestUrl = this.textsUrl + endpointKeyWithValue + paginationData;
 
     return this.httpClientAnonymous
-      .get<Text[]>(requestUrl)
-      .pipe(
-        tap((_) => this.log('fetched texts')),
-        catchError(this.handleError<Text[]>())
-      );
+      .get<Text[]>(requestUrl, { observe: 'response' });
   }
 
   getTextsFromRoot(
     pageSize: number = 25,
-    pageNumber: number = 1
+    pageNumber: string = "1"
   ): Observable<HttpResponse<Text[]>> {
 
     const paginationData = `?&pageSize=${pageSize}&pageNumber=${pageNumber}`;
@@ -59,11 +55,7 @@ export class TextService {
 
   getText(id: string): Observable<Text> {
     const url = `${this.textsUrl}/${id}`;
-    return this.httpClientAnonymous.get<Text>(url)
-      .pipe(
-        tap((_) => this.log(`fetched text id=${id}`)),
-        catchError(this.handleError<Text>(`getText id=${id}`))
-      );
+    return this.httpClientAnonymous.get<Text>(url);
   }
 
   addText(text: Text): Observable<Text> {

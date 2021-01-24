@@ -46,6 +46,7 @@ namespace api.Controllers {
                 textFromRepo = await _textService.GetTextsAsync (textRequest);
             }
 
+            // TODO: Filtered gettotalcount
             var totalCount = await _textService.GetTotalCount ();
 
             var totalCountString = totalCount.ToString ();
