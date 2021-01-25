@@ -25,8 +25,7 @@ export class HomepageComponent implements OnInit {
 
   pageNumber = 1;
   pageSize = 15;
-  length = "1";
-  pageEvent: PageEvent = new PageEvent;
+  pageIndex = "1";
 
   breakPoint = 1;
   readonly spinnerColor: ThemePalette = 'accent';
@@ -49,8 +48,11 @@ export class HomepageComponent implements OnInit {
 
   public changePage(pageIndex: number) {
 
+    this.texts = [];
+    this.showSpinner = true;
+
     pageIndex++;
-    this.length = pageIndex.toString();
+    this.pageIndex = pageIndex.toString();
 
     const category = this.activeRoute.snapshot.paramMap.get(Endpoints.Category)!;
     const author = this.activeRoute.snapshot.paramMap.get(Endpoints.Author)!;
@@ -73,30 +75,30 @@ export class HomepageComponent implements OnInit {
 
   private readStartPage(): void {
     this.textService
-      .getTextsFromRoot(this.pageSize, this.length)
+      .getTextsFromRoot(this.pageSize, this.pageIndex)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.length = texts.headers.get("x-total-count")!,
+        this.pageIndex = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
 
   private readAuthor(author: string): void {
     this.textService
-      .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.length)
+      .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.pageIndex)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.length = texts.headers.get("x-total-count")!,
+        this.pageIndex = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
 
   private readCategory(category: string): void {
     this.textService
-      .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.length)
+      .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.pageIndex)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.length = texts.headers.get("x-total-count")!,
+        this.pageIndex = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
