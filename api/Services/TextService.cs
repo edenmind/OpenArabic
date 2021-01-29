@@ -218,7 +218,7 @@ namespace api.Services {
         public async Task<int> GetTotalCountAuthor (string author) {
 
             var texts = await _context.Texts
-                .Where (a => a.Author == author)
+                .Where (a => a.Author.Equals (author))
                 .ToListAsync ();
 
             var totalNumberOfTexts = texts.Count;
@@ -230,7 +230,7 @@ namespace api.Services {
         public async Task<int> GetTotalCountCatgory (string category) {
 
             var texts = await _context.Texts
-                .Where (c => c.Category == category)
+                .Where (c => c.Category.Equals (category))
                 .ToListAsync ();
 
             var totalNumberOfTexts = texts.Count;
