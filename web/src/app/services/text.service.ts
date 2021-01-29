@@ -43,10 +43,10 @@ export class TextService {
 
   getTextsFromRoot(
     pageSize: string = "25",
-    pageNumber: string = "1"
+    pageIndex: string = "1"
   ): Observable<HttpResponse<Text[]>> {
 
-    const paginationData = `?&pageSize=${pageSize}&pageNumber=${pageNumber}`;
+    const paginationData = `?&pageSize=${pageSize}&pageNumber=${pageIndex}`;
     const requestUrl = this.textsUrl + paginationData;
 
     return this.httpClientAnonymous

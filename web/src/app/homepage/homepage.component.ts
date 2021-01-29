@@ -22,8 +22,9 @@ export class HomepageComponent implements OnInit {
   badgeHidden = false;
   showSpinner = true;
 
-  pageSize = "15";
+  pageSize = "5";
   length = "1";
+  pageIndex = "0";
 
   breakPoint = 1;
   readonly spinnerColor: ThemePalette = 'accent';
@@ -46,9 +47,8 @@ export class HomepageComponent implements OnInit {
 
   public changePage(pageIndex: number) {
 
-    this.showSpinner = true;
 
-    pageIndex++;
+    this.showSpinner = true;
 
     const category = this.activeRoute.snapshot.paramMap.get(Endpoints.Category)!;
     const author = this.activeRoute.snapshot.paramMap.get(Endpoints.Author)!;
@@ -66,6 +66,9 @@ export class HomepageComponent implements OnInit {
       this.readStartPage(pageIndex.toString());
       this.titleService.setTitle(UI.PageName);
     }
+
+    this.pageIndex = pageIndex.toString();
+    pageIndex++
   }
 
 
