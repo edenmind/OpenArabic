@@ -22,9 +22,8 @@ export class HomepageComponent implements OnInit {
   badgeHidden = false;
   showSpinner = true;
 
-  pageNumber = 1;
   pageSize = "15";
-  pageIndex = "1";
+  length = "1";
 
   breakPoint = 1;
   readonly spinnerColor: ThemePalette = 'accent';
@@ -51,7 +50,7 @@ export class HomepageComponent implements OnInit {
     this.showSpinner = true;
 
     pageIndex++;
-    this.pageIndex = pageIndex.toString();
+    this.length = pageIndex.toString();
 
     const category = this.activeRoute.snapshot.paramMap.get(Endpoints.Category)!;
     const author = this.activeRoute.snapshot.paramMap.get(Endpoints.Author)!;
@@ -74,30 +73,30 @@ export class HomepageComponent implements OnInit {
 
   private readStartPage(): void {
     this.textService
-      .getTextsFromRoot(this.pageSize, this.pageIndex)
+      .getTextsFromRoot(this.pageSize, this.length)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.pageSize = texts.headers.get("x-total-count")!,
+        this.length = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
 
   private readAuthor(author: string): void {
     this.textService
-      .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.pageIndex)
+      .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.length)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.pageSize = texts.headers.get("x-total-count")!,
+        this.length = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
 
   private readCategory(category: string): void {
     this.textService
-      .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.pageIndex)
+      .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.length)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.pageSize = texts.headers.get("x-total-count")!,
+        this.length = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
