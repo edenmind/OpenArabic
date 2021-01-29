@@ -46,11 +46,9 @@ export class HomepageComponent implements OnInit {
 
   public changePage(pageIndex: number) {
 
-    this.texts = [];
     this.showSpinner = true;
 
     pageIndex++;
-    this.length = pageIndex.toString();
 
     const category = this.activeRoute.snapshot.paramMap.get(Endpoints.Category)!;
     const author = this.activeRoute.snapshot.paramMap.get(Endpoints.Author)!;
