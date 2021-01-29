@@ -214,5 +214,29 @@ namespace api.Services {
             return totalNumberOfTexts;
 
         }
+
+        public async Task<int> GetTotalCountAuthor (string author) {
+
+            var texts = await _context.Texts
+                .Where (a => a.Author == author)
+                .ToListAsync ();
+
+            var totalNumberOfTexts = texts.Count;
+
+            return totalNumberOfTexts;
+
+        }
+
+        public async Task<int> GetTotalCountCatgory (string category) {
+
+            var texts = await _context.Texts
+                .Where (c => c.Category == category)
+                .ToListAsync ();
+
+            var totalNumberOfTexts = texts.Count;
+
+            return totalNumberOfTexts;
+
+        }
     }
 }

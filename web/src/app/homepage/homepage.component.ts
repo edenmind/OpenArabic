@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
   badgeHidden = false;
   showSpinner = true;
 
-  pageSize = "5";
+  pageSize = "15";
   length = "1";
   pageIndex = "0";
 

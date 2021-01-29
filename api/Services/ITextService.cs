@@ -13,6 +13,8 @@ namespace api.Services {
         Task<IEnumerable<TextDTO>> GetTextsAuthorAsync (TextResourceParameters textRequest);
         Task<IEnumerable<TextDTO>> GetTextsCategoryAsync (TextResourceParameters textRequest);
         Task<int> GetTotalCount ();
+        Task<int> GetTotalCountAuthor (string author);
+        Task<int> GetTotalCountCatgory (string category);
         Task<long> PostTextAsync (Text text);
         Task PutTextAsync (long id, Text text);
     }

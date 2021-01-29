@@ -36,22 +36,23 @@ namespace api.Controllers {
 
             IEnumerable<TextDTO> textFromRepo;
 
+            int totalCount;
+
             if (!string.IsNullOrWhiteSpace (textRequest.Category)) {
                 textFromRepo = await _textService.GetTextsCategoryAsync (textRequest);
+                totalCount = await _textService.GetTotalCountCatgory (textRequest.Category);
             }
             else if (!string.IsNullOrWhiteSpace (textRequest.Author)) {
                 textFromRepo = await _textService.GetTextsAuthorAsync (textRequest);
+                totalCount = await _textService.GetTotalCountAuthor (textRequest.Author);
             }
             else {
                 textFromRepo = await _textService.GetTextsAsync (textRequest);
+                totalCount = await _textService.GetTotalCount ();
             }
-
-            // TODO: Filtered gettotalcount
-            var totalCount = await _textService.GetTotalCount ();
 
             var totalCountString = totalCount.ToString ();
 
-            //Response.Headers.Add ("X-Pagination", JsonSerializer.Serialize (paginationMetadata));
             Response.Headers.Add ("Access-Control-Expose-Headers", "X-Total-Count");
             Response.Headers.Add ("X-Total-Count", totalCountString);
 
