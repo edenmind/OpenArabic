@@ -54,12 +54,12 @@ export class HomepageComponent implements OnInit {
     const author = this.activeRoute.snapshot.paramMap.get(Endpoints.Author)!;
 
     if (category) {
-      this.readCategory(category);
+      this.readCategory(category, pageIndex.toString());
       this.titleService.setTitle(`English and Arabic Texts about: ${category}`);
       this.pageTitle = `Category: ${category}`;
     }
     else if (author) {
-      this.readAuthor(author);
+      this.readAuthor(author, pageIndex.toString());
       this.titleService.setTitle(`English and Arabic Texts by: ${author}`);
       this.pageTitle = `Author: ${author}`;
     } else {
@@ -82,9 +82,9 @@ export class HomepageComponent implements OnInit {
       );
   }
 
-  private readAuthor(author: string): void {
+  private readAuthor(author: string, pageIndex: string): void {
     this.textService
-      .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.length)
+      .getTextsFromEndpoint(Endpoints.Author, author, pageIndex, this.pageSize)
       .subscribe(texts => (
         this.texts = texts.body!,
         this.length = texts.headers.get("x-total-count")!,
@@ -92,9 +92,9 @@ export class HomepageComponent implements OnInit {
       );
   }
 
-  private readCategory(category: string): void {
+  private readCategory(category: string, pageIndex: string): void {
     this.textService
-      .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.length)
+      .getTextsFromEndpoint(Endpoints.Category, category, pageIndex, this.pageSize)
       .subscribe(texts => (
         this.texts = texts.body!,
         this.length = texts.headers.get("x-total-count")!,

@@ -29,8 +29,8 @@ export class TextService {
   getTextsFromEndpoint(
     endpointKey: string,
     endPointValue: string,
-    pageSize: string = "25",
-    pageNumber: string = "1"
+    pageNumber: string = "1",
+    pageSize: string = "25"
   ): Observable<HttpResponse<Text[]>> {
 
     const paginationData = `&pageSize=${pageSize}&pageNumber=${pageNumber}`;
