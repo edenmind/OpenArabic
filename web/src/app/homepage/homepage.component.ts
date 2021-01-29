@@ -65,15 +65,15 @@ export class HomepageComponent implements OnInit {
       this.titleService.setTitle(`English and Arabic Texts by: ${author}`);
       this.pageTitle = `Author: ${author}`;
     } else {
-      this.readStartPage();
+      this.readStartPage(pageIndex.toString());
       this.titleService.setTitle(UI.PageName);
     }
   }
 
 
-  private readStartPage(): void {
+  private readStartPage(pageIndex: string): void {
     this.textService
-      .getTextsFromRoot(this.pageSize, this.length)
+      .getTextsFromRoot(this.pageSize, pageIndex)
       .subscribe(texts => (
         this.texts = texts.body!,
         this.length = texts.headers.get("x-total-count")!,
