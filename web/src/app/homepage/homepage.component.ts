@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
   showSpinner = true;
 
   pageNumber = 1;
-  pageSize = 15;
+  pageSize = "15";
   pageIndex = "1";
 
   breakPoint = 1;
@@ -77,7 +77,7 @@ export class HomepageComponent implements OnInit {
       .getTextsFromRoot(this.pageSize, this.pageIndex)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.pageIndex = texts.headers.get("x-total-count")!,
+        this.pageSize = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
@@ -87,7 +87,7 @@ export class HomepageComponent implements OnInit {
       .getTextsFromEndpoint(Endpoints.Author, author, this.pageSize, this.pageIndex)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.pageIndex = texts.headers.get("x-total-count")!,
+        this.pageSize = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }
@@ -97,7 +97,7 @@ export class HomepageComponent implements OnInit {
       .getTextsFromEndpoint(Endpoints.Category, category, this.pageSize, this.pageIndex)
       .subscribe(texts => (
         this.texts = texts.body!,
-        this.pageIndex = texts.headers.get("x-total-count")!,
+        this.pageSize = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
   }

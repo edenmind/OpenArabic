@@ -29,7 +29,7 @@ export class TextService {
   getTextsFromEndpoint(
     endpointKey: string,
     endPointValue: string,
-    pageSize: number = 25,
+    pageSize: string = "25",
     pageNumber: string = "1"
   ): Observable<HttpResponse<Text[]>> {
 
@@ -42,7 +42,7 @@ export class TextService {
   }
 
   getTextsFromRoot(
-    pageSize: number = 25,
+    pageSize: string = "25",
     pageNumber: string = "1"
   ): Observable<HttpResponse<Text[]>> {
 
