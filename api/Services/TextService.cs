@@ -25,6 +25,10 @@ namespace api.Services {
                 throw new ArgumentNullException (nameof (context));
         }
 
+        public TextService () {
+
+        }
+
         public async Task<IEnumerable<TextDTO>> GetTextsCategoryAsync (TextResourceParameters textRequest) {
 
             var texts = await _context.Texts
