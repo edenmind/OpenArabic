@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 using api.Dtos;
@@ -11,8 +10,12 @@ using api.Validators;
 
 using AutoMapper;
 
+using MediatR;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
+// https://code-maze.com/cqrs-mediatr-in-aspnet-core/
 
 namespace api.Controllers {
     [Route ("api/[controller]")]
@@ -21,12 +24,15 @@ namespace api.Controllers {
     public class TextsController : ControllerBase {
         private readonly ITextService _textService;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public TextsController (ITextService textService, IMapper mapper) {
+        public TextsController (ITextService textService, IMapper mapper, IMediator mediator) {
             _textService = textService ??
                 throw new ArgumentNullException (nameof (textService));
             _mapper = mapper ??
                 throw new ArgumentNullException (nameof (mapper));
+            _mediator = mediator ??
+                throw new ArgumentNullException (nameof (mediator));
         }
 
         // GET: api/Texts

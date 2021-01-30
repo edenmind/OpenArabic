@@ -7,6 +7,8 @@ using AutoMapper;
 
 using FluentValidation.AspNetCore;
 
+using MediatR;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,6 +38,8 @@ namespace api {
             services.AddDbContext<ApiContext> (options => options.UseSqlServer (Environment.GetEnvironmentVariable ("ASPNETCORE_CONNECTION_STRING")));
 
             services.AddAutoMapper (AppDomain.CurrentDomain.GetAssemblies ());
+
+            services.AddMediatR (typeof (Startup));
 
             services.AddControllers (options => {
                 options.ReturnHttpNotAcceptable = true;
