@@ -5,16 +5,16 @@ from flask import Flask
 from flask import request
 
 app = Flask(__name__)
+voweler = mishkal.tashkeel.TashkeelClass()
 
 
 def get_vowels(unvoweled):
-    voweler = mishkal.tashkeel.TashkeelClass()
     voweled = voweler.tashkeel(unvoweled)
     return voweled
 
 
-@app.route('/')
-def hello_world():
+@app.route('/', methods=["GET"])
+def set_vowels():
     unvoweled = request.args.get('unvoweled')
     voweled = get_vowels(unvoweled)
     return voweled
