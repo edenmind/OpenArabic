@@ -1,3 +1,5 @@
+# http://localhost:5555/?unvoweled=ARABIC_WORD
+
 import mishkal.tashkeel
 from flask import Flask
 from flask import request
