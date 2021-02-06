@@ -38,8 +38,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 5002
+    - port: 80
       protocol: TCP
-      targetPort: 80
+      targetPort: 5002
   selector:
     app: tashkeel
