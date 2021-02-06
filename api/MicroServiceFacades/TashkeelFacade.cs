@@ -20,6 +20,10 @@ namespace api.MicroServiceFacades {
                 .SetQueryParams (new { unvoweled = textToTashkeel })
                 .GetStringAsync ();
 
+            // clean up
+            tashkeel = tashkeel.Trim ();
+            tashkeel = tashkeel.Replace ("", "");
+
             return tashkeel;
         }
 
