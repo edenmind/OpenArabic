@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
 
-namespace api.Facades {
+namespace api.MicroServiceFacades {
 
     public class TashkeelFacade : ITashkeelFacade {
         public TashkeelFacade () { }
 
-        public async Task<string> TashkeelAsync (String textToTashkeel) {
+        public async Task<string> TashkeelAsync (string textToTashkeel) {
 
             var tashkeelServiceUrl = Environment.GetEnvironmentVariable ("ASPNETCORE_TASHKEEL_SERVICE_URL");
 

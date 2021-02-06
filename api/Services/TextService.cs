@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 using api.Dtos;
 using api.Enums;
-using api.Facades;
+using api.MicroServiceFacades;
 using api.Models;
 using api.ResourceParameters;
 
