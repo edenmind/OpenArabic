@@ -1,9 +1,8 @@
 using System;
 
+using api.Facades;
 using api.Models;
 using api.Services;
-
-using AutoMapper;
 
 using FluentValidation.AspNetCore;
 
@@ -34,10 +33,13 @@ namespace api {
             services.AddScoped<ICategoriesService, CategoriesService> ();
             services.AddScoped<IAuthorService, AuthorService> ();
             services.AddScoped<IMessageService, MessageService> ();
+            services.AddScoped<ITashkeelFacade, TashkeelFacade> ();
 
             services.AddDbContext<ApiContext> (options => options.UseSqlServer (Environment.GetEnvironmentVariable ("ASPNETCORE_CONNECTION_STRING")));
 
             services.AddAutoMapper (AppDomain.CurrentDomain.GetAssemblies ());
+
+            services.AddHttpClient ();
 
             services.AddMediatR (typeof (Startup));
 

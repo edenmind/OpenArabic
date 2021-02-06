@@ -1,7 +1,7 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:slim-buster
 
-EXPOSE 5000
+EXPOSE 5002
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -21,5 +21,5 @@ RUN useradd appuser && chown -R appuser /app
 USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["gunicorn", "tashkeel:app", "--workers=2", "--threads=1", "--log-level=debug", "--bind", "0.0.0.0:5000"]
+CMD ["gunicorn", "tashkeel:app", "--workers=2", "--threads=1", "--log-level=debug", "--bind", "0.0.0.0:5002"]
 

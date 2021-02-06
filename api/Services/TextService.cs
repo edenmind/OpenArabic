@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 using api.Dtos;
 using api.Enums;
+using api.Facades;
 using api.Models;
 using api.ResourceParameters;
 
@@ -17,12 +19,16 @@ namespace api.Services {
     public class TextService : ITextService {
         private readonly ApiContext _context;
         private readonly IMapper _mapper;
+        private readonly ITashkeelFacade _tashkeelFacade;
 
-        public TextService (ApiContext context, IMapper mapper) {
+        public TextService (ApiContext context, IMapper mapper, ITashkeelFacade tashkeelFacade) {
             _context = context ??
                 throw new ArgumentNullException (nameof (context));
             _mapper = mapper ??
-                throw new ArgumentNullException (nameof (context));
+                throw new ArgumentNullException (nameof (mapper));
+            _tashkeelFacade = tashkeelFacade ??
+                throw new ArgumentNullException (nameof (tashkeelFacade));
+
         }
 
         public TextService () {
@@ -85,6 +91,10 @@ namespace api.Services {
                 .FirstAsync ();
 
             var textDTO = _mapper.Map<TextDTO> (text);
+
+            foreach (SentenceDTO sentence in textDTO.Sentences) {
+                sentence.Arabic = _tashkeelFacade.TashkeelAsync (sentence.Arabic).Result;
+            }
 
             textDTO.RelatedTexts = await FindRelatedTexts (text);
 

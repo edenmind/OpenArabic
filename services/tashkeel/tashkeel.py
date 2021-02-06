@@ -13,7 +13,7 @@ def get_vowels(unvoweled):
     return voweled
 
 
-@app.route('/', methods=["GET"])
+@app.route('/tashkeel', methods=["GET"])
 def set_vowels():
     unvoweled = request.args.get('unvoweled')
     voweled = get_vowels(unvoweled)

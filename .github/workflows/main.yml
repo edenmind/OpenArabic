@@ -5,7 +5,7 @@ env:
   CLUSTER_NAME: edenmind-aks
   CLUSTER_RESOURCE_GROUP: edenmind-aks-resources
 
-on: 
+on:
   push:
     branches: [main]
 jobs:
@@ -43,6 +43,14 @@ jobs:
           context: ./web
           push: true
 
+      - name: Build and Push Tashkeel to Docker Hub
+        uses: docker/build-push-action@v2.0.0
+        with:
+          file: ./service/tashkeel/Dockerfile
+          tags: therealedenmind/oa-tashkeel:${{ github.sha }}
+          context: .//service/tashkeel/
+          push: true
+
       - name: Set target k8s cluster
         uses: Azure/aks-set-context@v1
         with:
@@ -50,7 +58,7 @@ jobs:
           cluster-name: ${{ env.CLUSTER_NAME }}
           resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
 
-      - name: Create secret in k8s cluster
+      - name: Create secret in k8s cluster for API
         uses: Azure/k8s-create-secret@v1.1
         with:
           secret-type: generic
@@ -61,6 +69,7 @@ jobs:
             --from-literal=ASPNETCORE_ORIGINS=${{ secrets.ASPNETCORE_ORIGINS }}
             --from-literal=ASPNETCORE_SENDGRID_KEY=${{ secrets.ASPNETCORE_SENDGRID_KEY }}   
             --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
+            --from-literal=ASPNETCORE_TASHKEEL_SERVICE_URL="${{ secrets.ASPNETCORE_TASHKEEL_SERVICE_URL }}"
 
       - name: Create secret in Kubernetes cluster for database
         uses: Azure/k8s-create-secret@v1.1
@@ -77,6 +86,7 @@ jobs:
         env:
           API_TAG: therealedenmind/oa-api:${{ github.sha }}
           FRONTEND_TAG: therealedenmind/oa-frontend:${{ github.sha }}
+          TASHKEEL_TAG: therealedenmind/oa-tashkeel:${{ github.sha }}
 
       - name: Replace SHA in footer
         uses: cschleiden/replace-tokens@v1
@@ -92,3 +102,4 @@ jobs:
             ./k8s/web.yaml
             ./k8s/api.yaml
             ./k8s/database.yaml
+            ./k8s/tashkeel.yaml
