@@ -81,7 +81,7 @@ spec:
   selector:
     app: api
 ---
-apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+apiVersion: networking.k8s.io/v1 # for versions before 1.14 use extensions/v1beta1
 kind: Ingress
 metadata:
   name: api
