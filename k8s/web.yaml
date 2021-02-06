@@ -50,7 +50,7 @@ spec:
   selector:
     app: frontend
 ---
-apiVersion: networking.k8s.io/v1 # for versions before 1.14 use extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: frontend
@@ -64,5 +64,7 @@ spec:
         paths:
           - path: /(.*)
             backend:
-              name: frontend
-              port: 8080
+              service:
+                name: frontend
+                port:
+                  number: 8080
