@@ -1,4 +1,7 @@
-<mat-spinner [color]="spinnerColor" class="spanner" *ngIf="showTextSpinner; else showPage"></mat-spinner>
+<div *ngIf="showTextSpinner; else showPage">
+  <mat-spinner [color]="spinnerColor" class="spanner"></mat-spinner>
+  <p class="bigger-arabic center">إِنَّ اللّهَ مَعَ الصَّابِرِينَ</p>
+</div>
 
 <ng-template #showPage>
 
