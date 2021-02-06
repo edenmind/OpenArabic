@@ -48,7 +48,7 @@ jobs:
         with:
           file: ./service/tashkeel/Dockerfile
           tags: therealedenmind/oa-tashkeel:${{ github.sha }}
-          context: ./service/tashkeel
+          context: ./services/tashkeel
           push: true
 
       - name: Set target k8s cluster
