@@ -10,6 +10,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static System.String;
 
 namespace api.Controllers
 {
@@ -38,12 +39,12 @@ namespace api.Controllers
 
             int totalCount;
 
-            if (!string.IsNullOrWhiteSpace(textRequest.Category))
+            if (!IsNullOrWhiteSpace(textRequest.Category))
             {
                 textFromRepo = await _textService.GetTextsCategoryAsync(textRequest);
                 totalCount = await _textService.GetTotalCountCategory(textRequest.Category);
             }
-            else if (!string.IsNullOrWhiteSpace(textRequest.Author))
+            else if (!IsNullOrWhiteSpace(textRequest.Author))
             {
                 textFromRepo = await _textService.GetTextsAuthorAsync(textRequest);
                 totalCount = await _textService.GetTotalCountAuthor(textRequest.Author);
@@ -53,11 +54,9 @@ namespace api.Controllers
                 textFromRepo = await _textService.GetTextsAsync(textRequest);
                 totalCount = await _textService.GetTotalCount();
             }
-
-            var totalCountString = totalCount.ToString();
-
+            
             Response.Headers.Add("Access-Control-Expose-Headers", "X-Total-Count");
-            Response.Headers.Add("X-Total-Count", totalCountString);
+            Response.Headers.Add("X-Total-Count", totalCount.ToString());
 
             return Ok(_mapper.Map<IEnumerable<TextDTO>>(textFromRepo));
         }
@@ -75,7 +74,6 @@ namespace api.Controllers
         }
 
         // PUT: api/Texts/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutText(long id, [FromBody] Text text)
         {
@@ -91,7 +89,6 @@ namespace api.Controllers
         }
 
         // POST: api/Texts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Text>> PostText(Text text)
         {

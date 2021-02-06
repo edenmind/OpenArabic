@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -20,13 +19,6 @@ namespace api
     public class Startup
     {
         private const string AllowSpecificOrigins = "allowSpecificOrigins";
-
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public static void ConfigureServices(IServiceCollection services)
@@ -47,11 +39,8 @@ namespace api
 
             services.AddMediatR(typeof(Startup));
 
-            services.AddControllers(options => { options.ReturnHttpNotAcceptable = true; }).AddFluentValidation(s =>
-            {
-                s.RegisterValidatorsFromAssemblyContaining<Startup>();
-                s.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
-            });
+            services.AddControllers(options => { options.ReturnHttpNotAcceptable = true; })
+                .AddFluentValidation(ConfigurationExpression);
 
             services.AddCors(options =>
             {
@@ -83,7 +72,12 @@ namespace api
             services.AddHealthChecks();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        private static void ConfigurationExpression(FluentValidationMvcConfiguration s)
+        {
+            s.RegisterValidatorsFromAssemblyContaining<Startup>();
+            s.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+        }
+
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
