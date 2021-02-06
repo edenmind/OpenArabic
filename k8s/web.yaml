@@ -64,5 +64,5 @@ spec:
         paths:
           - path: /(.*)
             backend:
-              serviceName: frontend
-              servicePort: 8080
+              name: frontend
+              port: 8080

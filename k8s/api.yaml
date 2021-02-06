@@ -94,5 +94,5 @@ spec:
         paths:
           - path: /(.*)
             backend:
-              serviceName: api
-              servicePort: 8090
+              name: api
+              port: 8090
