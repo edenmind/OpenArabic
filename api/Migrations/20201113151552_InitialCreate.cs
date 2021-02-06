@@ -8,89 +8,86 @@ namespace api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Texts",
-                columns: table => new
+                "Texts",
+                table => new
                 {
-                    TextId = table.Column<long>(type: "bigint", nullable: false)
+                    TextId = table.Column<long>("bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Editor = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Source = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ArabicText = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EnglishText = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Title = table.Column<string>("nvarchar(max)", nullable: true),
+                    Author = table.Column<string>("nvarchar(max)", nullable: true),
+                    Editor = table.Column<string>("nvarchar(max)", nullable: true),
+                    Source = table.Column<string>("nvarchar(max)", nullable: true),
+                    Category = table.Column<string>("nvarchar(max)", nullable: true),
+                    Status = table.Column<string>("nvarchar(max)", nullable: true),
+                    ArabicText = table.Column<string>("nvarchar(max)", nullable: true),
+                    EnglishText = table.Column<string>("nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>("datetime2", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Texts", x => x.TextId);
-                });
+                constraints: table => { table.PrimaryKey("PK_Texts", x => x.TextId); });
 
             migrationBuilder.CreateTable(
-                name: "Sentences",
-                columns: table => new
+                "Sentences",
+                table => new
                 {
-                    SentenceId = table.Column<long>(type: "bigint", nullable: false)
+                    SentenceId = table.Column<long>("bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    English = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Arabic = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TextId = table.Column<long>(type: "bigint", nullable: false)
+                    English = table.Column<string>("nvarchar(max)", nullable: true),
+                    Arabic = table.Column<string>("nvarchar(max)", nullable: true),
+                    TextId = table.Column<long>("bigint", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sentences", x => x.SentenceId);
                     table.ForeignKey(
-                        name: "FK_Sentences_Texts_TextId",
-                        column: x => x.TextId,
-                        principalTable: "Texts",
-                        principalColumn: "TextId",
+                        "FK_Sentences_Texts_TextId",
+                        x => x.TextId,
+                        "Texts",
+                        "TextId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Words",
-                columns: table => new
+                "Words",
+                table => new
                 {
-                    WordId = table.Column<long>(type: "bigint", nullable: false)
+                    WordId = table.Column<long>("bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    English = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Arabic = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SentenceId = table.Column<long>(type: "bigint", nullable: false)
+                    English = table.Column<string>("nvarchar(max)", nullable: true),
+                    Arabic = table.Column<string>("nvarchar(max)", nullable: true),
+                    SentenceId = table.Column<long>("bigint", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Words", x => x.WordId);
                     table.ForeignKey(
-                        name: "FK_Words_Sentences_SentenceId",
-                        column: x => x.SentenceId,
-                        principalTable: "Sentences",
-                        principalColumn: "SentenceId",
+                        "FK_Words_Sentences_SentenceId",
+                        x => x.SentenceId,
+                        "Sentences",
+                        "SentenceId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sentences_TextId",
-                table: "Sentences",
-                column: "TextId");
+                "IX_Sentences_TextId",
+                "Sentences",
+                "TextId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Words_SentenceId",
-                table: "Words",
-                column: "SentenceId");
+                "IX_Words_SentenceId",
+                "Words",
+                "SentenceId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Words");
+                "Words");
 
             migrationBuilder.DropTable(
-                name: "Sentences");
+                "Sentences");
 
             migrationBuilder.DropTable(
-                name: "Texts");
+                "Texts");
         }
     }
 }

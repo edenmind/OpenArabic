@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 
-namespace api.Dtos {
-    public class TextDTO {
+namespace api.Dtos
+{
+    public class TextDTO
+    {
         public long TextId { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
@@ -18,10 +20,6 @@ namespace api.Dtos {
         public List<SentenceDTO> Sentences { get; set; }
 
         // computed propertis not present in the persisted model
-        public string TimeAgo {
-            get {
-                return Helpers.TimeAgo.GetTimeAgo (CreatedAt);
-            }
-        }
+        public string TimeAgo => Helpers.TimeAgo.GetTimeAgo(CreatedAt);
     }
 }

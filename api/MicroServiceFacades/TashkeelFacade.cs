@@ -5,12 +5,8 @@ using Flurl;
 using Flurl.Http;
 
 namespace api.MicroServiceFacades {
-
     public class TashkeelFacade : ITashkeelFacade {
-        public TashkeelFacade () { }
-
         public async Task<string> TashkeelAsync (string textToTashkeel) {
-
             var tashkeelServiceUrl = Environment.GetEnvironmentVariable ("ASPNETCORE_TASHKEEL_SERVICE_URL");
 
             const string pathPrefix = "tashkeel";
@@ -26,6 +22,5 @@ namespace api.MicroServiceFacades {
 
             return tashkeel;
         }
-
     }
 }

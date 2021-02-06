@@ -7,9 +7,9 @@ namespace api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "Order",
-                table: "Sentences",
-                type: "int",
+                "Order",
+                "Sentences",
+                "int",
                 nullable: false,
                 defaultValue: 0);
         }
@@ -17,8 +17,8 @@ namespace api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Order",
-                table: "Sentences");
+                "Order",
+                "Sentences");
         }
     }
 }

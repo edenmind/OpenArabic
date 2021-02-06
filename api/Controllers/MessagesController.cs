@@ -1,42 +1,38 @@
 using System.Threading.Tasks;
-
 using api.Models;
 using api.Services;
 using api.Validators;
-
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace api.Controllers {
+namespace api.Controllers
+{
     [ApiController]
-    public class MessagesController : ControllerBase {
+    public class MessagesController : ControllerBase
+    {
         private readonly IMessageService _messageService;
-        public MessagesController (IMessageService messageService) {
+
+        public MessagesController(IMessageService messageService)
+        {
             _messageService = messageService;
         }
 
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [AllowAnonymous]
         [HttpPost]
-        [Route ("api/messages")]
-        public async Task<ActionResult<string>> PostMessage (Mail mail) {
+        [Route("api/messages")]
+        public async Task<ActionResult<string>> PostMessage(Mail mail)
+        {
+            MailValidator validator = new();
 
-            if (!Request.Host.Equals ("openarabic.io")) {
-                return BadRequest ("Request from not allowed.");
-            }
+            var validationResult = await validator.ValidateAsync(mail);
 
-            MailValidator validator = new ();
+            if (!validationResult.IsValid) return BadRequest(validationResult);
 
-            var validationResult = validator.Validate (mail);
-
-            if (!validationResult.IsValid) {
-                return BadRequest (validationResult);
-            }
-
-            await _messageService.SendMessage (mail.Sender, mail.Body);
+            await _messageService.SendMessage(mail.Sender, mail.Body);
 
             //TODO: Error handling
-            return Ok ();
+            return Ok();
         }
     }
 }

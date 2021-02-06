@@ -1,14 +1,14 @@
 using System.Collections.Generic;
-
 using api.Models;
 
-namespace api.Services {
+namespace api.Services
+{
+    public class CategoriesService : ICategoriesService
+    {
+        private readonly List<Category> _categories;
 
-    public class CategoriesService : ICategoriesService {
-
-        private readonly List<Category> Categories;
-
-        private readonly List<string> ListOfCategories = new () {
+        private readonly List<string> _listOfCategories = new()
+        {
             "Adab",
             "ʿAqīdah",
             "Fiqh",
@@ -22,18 +22,17 @@ namespace api.Services {
             "Tawhīd"
         };
 
-        public List<Category> GetCategories () {
-
+        public List<Category> GetCategories()
+        {
             var index = 0;
 
-            foreach (var category in ListOfCategories) {
-                Categories.Add (new Category () { Name = category, CategroyId = index });
+            foreach (var category in _listOfCategories)
+            {
+                _categories.Add(new Category {Name = category, CategroyId = index});
                 index++;
             }
 
-            return Categories;
-
+            return _categories;
         }
-
     }
 }

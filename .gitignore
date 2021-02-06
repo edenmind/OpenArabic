@@ -19,3 +19,10 @@ terraform/.terraform/plugins/registry.terraform.io/hashicorp/azurerm/2.33.0/wind
 terraform/.terraform/plugins/selections.json
 k8s/jobs/backup.yaml
 *.log
+.idea/.idea.OpenArabic.dir/.idea/workspace.xml
+.idea/.idea.OpenArabic.dir/.idea/riderModule.iml
+.idea/.idea.OpenArabic.dir/.idea/projectSettingsUpdater.xml
+.idea/.idea.OpenArabic.dir/.idea/modules.xml
+.idea/.idea.OpenArabic.dir/.idea/indexLayout.xml
+.idea/.idea.OpenArabic.dir/.idea/encodings.xml
+.idea/.idea.OpenArabic.dir/.idea/contentModel.xml
