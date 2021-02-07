@@ -20,5 +20,12 @@ def set_vowels():
     return voweled
 
 
+@app.route('/health', methods=["GET"])
+def set_vowels():
+    unvoweled = "لحمد لله"
+    voweled = get_vowels(unvoweled)
+    return voweled
+
+
 if __name__ == '__main__':
     app.run()
