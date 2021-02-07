@@ -20,10 +20,15 @@ spec:
           resources:
             limits:
               memory: 512Mi
-              cpu: "1"
+              cpu: 1000m
             requests:
-              memory: 50Mi
+              memory: 250Mi
               cpu: 100m
+            livenessProbe:
+            httpGet:
+              path: /tashkeel?unvoweled=الحمد لله
+              port: 80
+            periodSeconds: 10
           imagePullPolicy: Always
           ports:
             - containerPort: 80
