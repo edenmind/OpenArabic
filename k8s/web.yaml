@@ -29,6 +29,7 @@ spec:
               path: /
               port: 80
             periodSeconds: 10
+            initialDelaySeconds: 30
           imagePullPolicy: Always
           ports:
             - containerPort: 80
