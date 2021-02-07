@@ -24,11 +24,11 @@ spec:
             requests:
               memory: 250Mi
               cpu: 100m
-            livenessProbe:
-              httpGet:
-                path: /tashkeel?unvoweled=الحمد لله
-                port: 80
-              periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /tashkeel?unvoweled=الحمد لله
+              port: 80
+            periodSeconds: 10
           imagePullPolicy: Always
           ports:
             - containerPort: 80
