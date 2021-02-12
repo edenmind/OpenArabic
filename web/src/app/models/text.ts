@@ -11,6 +11,7 @@ export class Text {
   source: string = String();
   createdAt!: Date;
   timeAgo: string = String();
+  readTime: string = String();
   status: string = String();
   englishText: string = String();
   arabicText: string = String();
