@@ -27,14 +27,14 @@ resource "azurerm_kubernetes_cluster" "example" {
   resource_group_name     = azurerm_resource_group.example.name
   dns_prefix              = "dns-prefix"
   private_cluster_enabled = false
-  kubernetes_version      = "1.19.6"
+  kubernetes_version      = "1.19.7"
 
   default_node_pool {
     name                 = "default"
     node_count           = 2
     vm_size              = "Standard_B2s"
     vnet_subnet_id       = azurerm_subnet.example.id
-    orchestrator_version = "1.19.6"
+    orchestrator_version = "1.19.7"
   }
 
   identity {

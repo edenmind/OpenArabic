@@ -85,7 +85,7 @@ namespace api.Services {
             var textDTO = _mapper.Map<TextDTO> (text);
 
             foreach (var sentence in textDTO.Sentences)
-                sentence.Arabic = _tashkeelFacade.TashkeelAsync (sentence.Arabic).Result;
+                sentence.Arabic = await _tashkeelFacade.TashkeelAsync (sentence.Arabic);
 
             textDTO.RelatedTexts = await FindRelatedTexts (text);
 
@@ -149,8 +149,7 @@ namespace api.Services {
         }
 
         private static VocabularyCollectionDTO ProduceVocabularies (Text text) {
-            var vocabularies = new VocabularyCollectionDTO
-                {Arabic = new List<VocabularyDTO>(), English = new List<VocabularyDTO>()};
+            var vocabularies = new VocabularyCollectionDTO { Arabic = new List<VocabularyDTO> (), English = new List<VocabularyDTO> () };
 
             const int numberOfVocabulariesToAdd = 5;
 
@@ -159,21 +158,21 @@ namespace api.Services {
                 var randomSentenceId = randomNumber.Next (0, text.Sentences.Count);
                 var randomWordPair = GetRandomWordPairFromSentences (randomSentenceId, text.Sentences);
 
-                var isWordLengthSatisfied = CheckWordLength(randomWordPair);
-                var isNewWordInCollection = CheckIfWordpairIsInCollection(vocabularies, randomWordPair);
+                var isWordLengthSatisfied = CheckWordLength (randomWordPair);
+                var isNewWordInCollection = CheckIfWordpairIsInCollection (vocabularies, randomWordPair);
 
-                var allConditionsSatisfied =  isWordLengthSatisfied && isNewWordInCollection;
-                
+                var allConditionsSatisfied = isWordLengthSatisfied && isNewWordInCollection;
+
                 if (!allConditionsSatisfied) continue;
-                
+
                 vocabularies.English.Add (new VocabularyDTO {
                     Word = randomWordPair.English,
-                    WordId = vocabularies.English.Count
+                        WordId = vocabularies.English.Count
                 });
 
                 vocabularies.Arabic.Add (new VocabularyDTO {
                     Word = randomWordPair.Arabic,
-                    WordId = vocabularies.Arabic.Count
+                        WordId = vocabularies.Arabic.Count
                 });
             }
 
@@ -184,23 +183,21 @@ namespace api.Services {
             return vocabularies;
         }
 
-        private static bool CheckIfWordpairIsInCollection(VocabularyCollectionDTO vocabularies, WordPairDTO wordPair)
-        {
-            var isNewWordInCollection = 
-                vocabularies.English.All(v => v.Word != wordPair.English) ||
-                vocabularies.Arabic.All(v => v.Word != wordPair.Arabic);
+        private static bool CheckIfWordpairIsInCollection (VocabularyCollectionDTO vocabularies, WordPairDTO wordPair) {
+            var isNewWordInCollection =
+                vocabularies.English.All (v => v.Word != wordPair.English) ||
+                vocabularies.Arabic.All (v => v.Word != wordPair.Arabic);
             return isNewWordInCollection;
         }
 
-        private static bool CheckWordLength(WordPairDTO wordPair)
-        {
+        private static bool CheckWordLength (WordPairDTO wordPair) {
             const int minimumWordLength = 2;
             const int maximumWordLength = 10;
 
             var isWordLengthSatisfied =
-                wordPair.Arabic.Length > minimumWordLength && 
+                wordPair.Arabic.Length > minimumWordLength &&
                 wordPair.English.Length > minimumWordLength &&
-                wordPair.Arabic.Length < maximumWordLength && 
+                wordPair.Arabic.Length < maximumWordLength &&
                 wordPair.English.Length < maximumWordLength;
             return isWordLengthSatisfied;
         }

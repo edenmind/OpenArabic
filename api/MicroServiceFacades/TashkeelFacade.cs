@@ -14,17 +14,17 @@ namespace api.MicroServiceFacades {
             var voweled = await tashkeelServiceUrl
                 .AppendPathSegment (pathPrefix)
                 .SetQueryParams (new { unvoweled = textToTashkeel })
+                .WithTimeout (10)
                 .GetStringAsync ();
-            
-            voweled = CleanTashkeel(voweled);
+
+            voweled = CleanTashkeel (voweled);
 
             return voweled;
         }
 
-        private static string CleanTashkeel(string tashkeel)
-        {
-            tashkeel = tashkeel.Trim();
-            tashkeel = tashkeel.Replace("", "");
+        private static string CleanTashkeel (string tashkeel) {
+            tashkeel = tashkeel.Trim ();
+            tashkeel = tashkeel.Replace ("", "");
             return tashkeel;
         }
     }
