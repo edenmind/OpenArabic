@@ -18,14 +18,14 @@
         <h3>{{pageTitle}}</h3>
     </mat-card>
 
-    <mat-grid-list [cols]="breakPoint" rowHeight="370px" (window:resize)="onResize($event)">
+    <mat-grid-list [cols]="breakPoint" rowHeight="350px" (window:resize)="onResize($event)">
         <mat-grid-tile *ngFor="let card of texts" [colspan]="1" [rowspan]="1">
             <mat-card matRipple class="dashboard-card" (click)="openCard(card.textId)">
                 <mat-card-header>
                     <mat-card-title>
                         {{ card.title }}
                     </mat-card-title>
-                    <mat-card-subtitle>{{ card.author }} <br> <small><strong>{{card.readTime}}</strong></small></mat-card-subtitle>
+                    <mat-card-subtitle>{{ card.author }} </mat-card-subtitle>
                 </mat-card-header>
 
                 <mat-card-content class="dashboard-card-content">
