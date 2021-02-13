@@ -19,9 +19,10 @@
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        {{issue.number}}: {{issue.title}}
+                        {{issue.title}}
                     </mat-panel-title>
                 </mat-expansion-panel-header>
+                <p>Github Id: {{issue.number}}</p>
                 <p>Created by: <a href="{{issue.userHtmlUrl}}" class="simple-link link-color">{{issue.userLogin}}</a></p>
                 <p>Date created: {{issue.createdAt | date}} </p>
                 <p>Milestone: <a href="{{issue.milestoneHtmlUrl}}" class="simple-link link-color">{{issue.milestoneTitle}}</a></p>
