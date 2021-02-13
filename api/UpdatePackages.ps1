@@ -20,6 +20,7 @@ $packages = @(
     'Swashbuckle.AspNetCore'
     'System.IdentityModel.Tokens.Jwt'
     'Microsoft.EntityFrameworkCore.Design'
+    'Octokit'
 )
 
 InstallPackage

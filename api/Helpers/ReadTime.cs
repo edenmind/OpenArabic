@@ -14,8 +14,8 @@ namespace api.Helpers {
             case >300 and < 500:
                 result = "3 min read";
                 break;
-            case >500 and < 700:
-                result = "3 min read";
+            case >500:
+                result = "4 min read";
                 break;
             }
 
