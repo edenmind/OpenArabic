@@ -38,7 +38,10 @@ namespace api.Services {
                     Url = issue.HtmlUrl,
                     Number = issue.Number,
                     UserLogin = issue.User.Login,
-                    UserHtmlUrl = issue.User.HtmlUrl
+                    UserHtmlUrl = issue.User.HtmlUrl,
+                    MilestoneDueOn = issue.Milestone.DueOn,
+                    MilestoneHtmlUrl = issue.Milestone.HtmlUrl,
+                    MilestoneTitle = issue.Milestone.Title,
                 };
 
                 extractedIssueValues.Add (issueToAdd);

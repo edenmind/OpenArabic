@@ -2,11 +2,11 @@
     <h1 class="title">Issues Tacking</h1>
 
     <p class="text">The development of the OpenArabic.io platform is based on <a href="https://en.wikipedia.org/wiki/Open_source" class="simple-link link-color">Open Source
-            Principles</a> with an entirely transparent development process. Please review currently open issues below.</p>
+            Principles</a> with a transparent development process hosted on Github.</p>
 
 
     <p class="text">If you find any bugs or have any feature suggestions then please <a routerLink="/contact" class="simple-link link-color">send a message</a> or <a
-            href="https://github.com/edenmind/OpenArabic/issues" class="simple-link link-color">raise an issue 🚀 on Github</a>.</p>
+            href="https://github.com/edenmind/OpenArabic/issues" class="simple-link link-color">raise an issue 🚀</a>.</p>
 
     <p>
         <mat-divider></mat-divider>
@@ -21,12 +21,11 @@
                     <mat-panel-title>
                         {{issue.number}}: {{issue.title}}
                     </mat-panel-title>
-                    <mat-panel-description>
-                        {{issue.createdAt | date}}
-                        <mat-icon>info</mat-icon>
-                    </mat-panel-description>
                 </mat-expansion-panel-header>
                 <p>Created by: <a href="{{issue.userHtmlUrl}}" class="simple-link link-color">{{issue.userLogin}}</a></p>
+                <p>Date created: {{issue.createdAt | date}} </p>
+                <p>Milestone: <a href="{{issue.milestoneHtmlUrl}}" class="simple-link link-color">{{issue.milestoneTitle}}</a></p>
+
                 <p>Description: {{issue.body}}</p>
                 <br>
 

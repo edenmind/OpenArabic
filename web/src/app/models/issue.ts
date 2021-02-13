@@ -6,5 +6,8 @@ export class Issue {
     id: number = Number();
     userLogin: string = String();
     userHtmlUrl: string = String();
+    milestoneDueOn: string = String();
+    milestoneHtmlUrl: string = String();
+    milestoneTitle: string = String();
 
 }

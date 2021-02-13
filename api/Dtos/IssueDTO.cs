@@ -13,6 +13,8 @@ namespace api.Dtos {
         public int Number { get; set; }
         public string UserLogin { get; set; }
         public string UserHtmlUrl { get; set; }
-
+        public DateTimeOffset? MilestoneDueOn { get; set; }
+        public string MilestoneHtmlUrl { get; set; }
+        public string MilestoneTitle { get; set; }
     }
 }
