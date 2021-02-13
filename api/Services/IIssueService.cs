@@ -1,7 +1,12 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace api.Services {
-    public interface IIssueService {
-        List<string> GetIssues ();
+using api.Dtos;
+
+namespace api.Services
+{
+    public interface IIssueService
+    {
+        Task<IEnumerable<IssueDTO>> GetIssuesAsync();
     }
 }

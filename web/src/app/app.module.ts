@@ -42,6 +42,8 @@ import { TextVocabularyComponent } from './text/vocabulary/text-vocabulary.compo
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { IssuesComponent } from './issues/issues.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { LoginComponent } from './login/login.component';
     TextVocabularyComponent,
     ContactComponent,
     LoginComponent,
+    IssuesComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +116,7 @@ import { LoginComponent } from './login/login.component';
     MatMenuModule,
     MatPaginatorModule,
     MatInputModule,
+    MatExpansionModule,
     MatSnackBarModule,
     TextFieldModule,
     MatSelectModule,

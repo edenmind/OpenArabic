@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
+using api.Dtos;
 using api.Models;
 using api.Services;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
+using Octokit;
 
 namespace api.Controllers {
     [Route ("api/[controller]")]
@@ -19,8 +23,10 @@ namespace api.Controllers {
         // GET: api/Authors
         [AllowAnonymous]
         [HttpGet]
-        public ActionResult<IEnumerable<string>> GetIssues () {
-            return _issueService.GetIssues ();
+        public async Task<ActionResult<IEnumerable<IssueDTO>>> GetIssues () {
+
+            var issues = await _issueService.GetIssuesAsync ();
+            return Ok (issues);
         }
     }
 }
