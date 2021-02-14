@@ -11,7 +11,7 @@
     <div class="center">
       <h1 class="title"> {{ text.title }} </h1>
       <p>
-        <a routerLink="/author/{{ text.author }}" class="simple-link" matRipple>
+        <a routerLink="/author/{{ text.author }}" class="simple-link">
           <span class="author-by">{{ text.author }}</span>
         </a><br>
         <span class="center source">{{ text.source }}</span><br>
@@ -27,7 +27,7 @@
       <!-- Bilingual -->
       <mat-tab label="Bilingual">
         <div class="tab-space margins">
-          <div *ngFor="let sentence of text.sentences" matRipple>
+          <div *ngFor="let sentence of text.sentences">
             <app-text-row [sentence]="sentence" [language]="'bilingual'" (click)="openVocabularyDialog(sentence.sentenceId)">
             </app-text-row>
           </div>
@@ -37,7 +37,7 @@
       <!-- Arabic -->
       <mat-tab label="Arabic">
         <div class="tab-space center">
-          <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
+          <div *ngFor="let sentence of text.sentences" class="max-width">
             <app-text-row [sentence]="sentence" [language]="'arabic'" (click)="openVocabularyDialog(sentence.sentenceId)">
             </app-text-row>
           </div>
@@ -47,7 +47,7 @@
       <!-- English -->
       <mat-tab label="Engish">
         <div class="tab-space center">
-          <div *ngFor="let sentence of text.sentences" class="max-width" matRipple>
+          <div *ngFor="let sentence of text.sentences" class="max-width">
             <app-text-row [sentence]="sentence" [language]="'english'" (click)="openVocabularyDialog(sentence.sentenceId)">
             </app-text-row>
           </div>
