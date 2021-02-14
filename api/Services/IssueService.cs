@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using api.Dtos;
-using api.Models;
 
 using Octokit;
 
@@ -18,7 +16,6 @@ namespace api.Services {
             var issueFilter = new RepositoryIssueRequest {
                 Filter = IssueFilter.All,
                 State = ItemStateFilter.Open,
-                // Since = DateTimeOffset.Now.Subtract (TimeSpan.FromDays (14))
             };
 
             const string organization = "Edenmind";
