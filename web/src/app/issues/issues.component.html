@@ -1,16 +1,18 @@
 <div class="grid-container">
     <h1 class="title">OpenDevelopment 🚀</h1>
 
-    <p class="text">The development of the OpenArabic.io platform is based on <a href="https://en.wikipedia.org/wiki/Open_source" class="simple-link link-color">Open Source
-            Principles</a> using an <a href="https://en.wikipedia.org/wiki/MIT_License" class="simple-link link-color">MIT License</a>. The code and the build process is
-        hosted on Github in the <a href="https://github.com/edenmind/OpenArabic" class="simple-link link-color">OpenArabic repository</a>.</p>
+    <p class="text">All development of the OpenArabic.io platform is based on <a href="https://en.wikipedia.org/wiki/Open_source" class="simple-link link-color">Open Source
+            Principles</a> using an <a href="https://en.wikipedia.org/wiki/MIT_License" class="simple-link link-color">MIT License</a> making it possible for anyone to use the code
+        freely. </p>
 
-
-    <p class="text">If you find any bugs 🐛 or have any feature suggestions 💡 then please <a routerLink="/contact" class="simple-link link-color">send a message 💬 </a> or <a
-            href="https://github.com/edenmind/OpenArabic/issues" class="simple-link link-color">raise an issue</a>.</p>
+    <p class="text">The code and the build process is
+        hosted on Github in the <a href="https://github.com/edenmind/OpenArabic" class="simple-link link-color">OpenArabic repository</a> where you can take a look at the source
+        code mostly consisting of C# and TypeScript at the moment.</p>
 
     <p>
+        <br>
         <mat-divider></mat-divider>
+        <br>
     </p>
 
     <h2>CI/CD Status</h2>
@@ -18,16 +20,24 @@
     <p><img src="https://github.com/edenmind/OpenArabic/workflows/Build,%20Push%20and%20Deploy/badge.svg"></p>
     <p><img src="https://github.com/edenmind/OpenArabic/workflows/Scan%20Repository%20with%20Snyke/badge.svg"></p>
 
+    <p>
+        <br>
+        <mat-divider></mat-divider>
+        <br>
+    </p>
+
     <h2>Service Status</h2>
     <p>View the <a href="https://stats.uptimerobot.com/7OlB0smX9g" class="simple-link link-color">Service Status Dashboard</a>.</p>
 
 
     <p>
+        <br>
         <mat-divider></mat-divider>
+        <br>
     </p>
 
-    <h2>Open Issues: <small></small></h2>
-    <h5>There are {{issues.length}} issues open.</h5>
+    <h2>Open Issues <small></small></h2>
+    <h5>There are {{issues.length}} issues open planned for future development.</h5>
 
     <div *ngFor="let issue of issues">
         <mat-accordion class="example-headers-align">
