@@ -5,13 +5,6 @@
     <mat-nav-list *ngFor="let category of categories">
       <a mat-list-item matRipple routerLink="/category/{{ category }}" [routerLinkActive]="['is-active']" class="text-decoration-none" (click)="drawer.toggle()">{{ category }}</a>
     </mat-nav-list>
-    <mat-divider></mat-divider>
-    <mat-nav-list>
-      <a mat-list-item matRipple routerLink="/about" class="text-decoration-none">About</a>
-    </mat-nav-list>
-    <mat-nav-list>
-      <a mat-list-item matRipple href="https://stats.uptimerobot.com/7OlB0smX9g" class="text-decoration-none">Status</a>
-    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
