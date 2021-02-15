@@ -30,6 +30,8 @@ namespace api {
             services.AddScoped<IAuthorService, AuthorService> ();
             services.AddScoped<IMessageService, MessageService> ();
             services.AddScoped<ITashkeelFacade, TashkeelFacade> ();
+            services.AddScoped<IChangelogService, ChangelogService> ();
+            services.AddScoped<IWordOfTheDayService, WordOfTheDayService> ();
 
             services.AddDbContext<ApiContext> (options =>
                 options.UseSqlServer (GetEnvironmentVariable ("ASPNETCORE_CONNECTION_STRING") ??
