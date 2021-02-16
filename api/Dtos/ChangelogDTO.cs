@@ -1,5 +1,3 @@
-using System;
-
 namespace api.Dtos {
     public class ChangelogDTO {
         public long ChangelogId { get; set; }

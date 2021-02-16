@@ -4,9 +4,13 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Endpoints } from '../enums/endpoints.enum';
 import { UI } from '../enums/ui.enum';
+import { Changelog } from '../models/changelog';
 import { Text } from '../models/text';
+import { WordOfTheDay } from '../models/wordoftheday';
+import { ChangelogService } from '../services/changelog.service';
 import { DeviceService } from '../services/device.service';
 import { TextService } from '../services/text.service';
+import { WordOfTheDayService } from '../services/wordoftheday.service';
 
 @Component({
   selector: 'app-homepage',
@@ -30,8 +34,13 @@ export class HomepageComponent implements OnInit {
   readonly spinnerColor: ThemePalette = 'accent';
   pageTitle: string = String();
 
+  changelog: Changelog[] = [];
+  wordoftheday: WordOfTheDay = new WordOfTheDay;
+
   constructor(
     private textService: TextService,
+    private changelogService: ChangelogService,
+    private wordOfTheDayService: WordOfTheDayService,
     private deviceService: DeviceService,
     private route: Router,
     private activeRoute: ActivatedRoute,
@@ -80,6 +89,14 @@ export class HomepageComponent implements OnInit {
         this.length = texts.headers.get("x-total-count")!,
         this.showSpinner = false)
       );
+
+    this.changelogService
+      .GetChangelog()
+      .subscribe(changelog => (this.changelog = changelog));
+
+    this.wordOfTheDayService
+      .GetWordOfTheDay()
+      .subscribe(wordoftheday => (this.wordoftheday = wordoftheday));
   }
 
   private readAuthor(author: string, pageIndex: string): void {
