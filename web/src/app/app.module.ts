@@ -33,6 +33,7 @@ import { AppComponent } from './app.component';
 import { AuthButtonComponent } from './auth-button/auth-button.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { BottomSheetOverview } from './homepage/homepage.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TextEditComponent } from './text/edit/text-edit.component';
@@ -44,6 +45,10 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { IssuesComponent } from './issues/issues.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
+
+
 
 @NgModule({
   declarations: [
@@ -56,6 +61,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HomepageComponent,
     TextRowComponent,
     AuthButtonComponent,
+    BottomSheetOverview,
     AboutComponent,
     UserProfileComponent,
     TextVocabularyComponent,
@@ -121,6 +127,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     TextFieldModule,
     MatSelectModule,
     MatDialogModule,
+    MatBottomSheetModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },

@@ -7,6 +7,7 @@ namespace api.Dtos {
         public string TypeOfWord { get; set; }
         public string QuranArabic { get; set; }
         public string QuranEnglish { get; set; }
+        public string HijriDate { get; set; }
         public int Day { get; set; }
     }
 }

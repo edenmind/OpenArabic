@@ -8,5 +8,6 @@ export class WordOfTheDay {
     quranArabic: string = String();
     quranEnglish: string = String();
     day: number = Number();
+    hijriDate: string = String();
 
 }

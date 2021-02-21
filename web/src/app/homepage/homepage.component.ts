@@ -11,7 +11,22 @@ import { ChangelogService } from '../services/changelog.service';
 import { DeviceService } from '../services/device.service';
 import { TextService } from '../services/text.service';
 import { WordOfTheDayService } from '../services/wordoftheday.service';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
+
+@Component({
+  selector: 'bottom-sheet-overview',
+  templateUrl: './bottom-sheet-overview.html',
+  styleUrls: ['../shared/common.css'],
+})
+export class BottomSheetOverview {
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverview>) { }
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
+}
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -38,6 +53,7 @@ export class HomepageComponent implements OnInit {
   wordoftheday: WordOfTheDay = new WordOfTheDay;
 
   constructor(
+    private _bottomSheet: MatBottomSheet,
     private textService: TextService,
     private changelogService: ChangelogService,
     private wordOfTheDayService: WordOfTheDayService,
@@ -52,6 +68,10 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this.breakPoint = this.deviceService.checkDeviceSizeBreakPoint();
     this.changePage(0);
+  }
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(BottomSheetOverview);
   }
 
   public changePage(pageIndex: number) {

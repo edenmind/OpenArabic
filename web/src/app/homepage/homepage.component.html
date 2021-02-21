@@ -22,19 +22,29 @@
     <div style="padding: 15px" *ngIf="isStartPage()">
 
         <mat-card>
-            <mat-card-title>Word of The Day ☀️</mat-card-title>
+            <mat-card-title>☀️ Word of The Day
+            </mat-card-title>
+
             <br>
-            <mat-card-title>{{wordoftheday.arabic}}</mat-card-title>
-            <mat-card-subtitle>{{wordoftheday.meaning}} ({{wordoftheday.typeOfWord}})</mat-card-subtitle>
-            <mat-card-content><strong>In The Quran 📖</strong><br><br>
-                <span style="font-size: 150%;">
+            <mat-card-subtitle>{{wordoftheday.hijriDate}}</mat-card-subtitle>
+            <br>
+            <mat-card-title>👉 {{wordoftheday.arabic}}</mat-card-title>
+            <br>
+            <mat-card-subtitle>Latin: {{wordoftheday.transliteration}}<br>
+                Category: {{wordoftheday.typeOfWord}}<br>
+                Meaning: {{wordoftheday.meaning}}</mat-card-subtitle>
+            <mat-card-content>
+                📖 In The Quran: <br><br>
+                <span style="font-size: 175%;">
                     {{wordoftheday.quranArabic}}
-                </span>
-                <br><br>
-                <span>
-                    {{wordoftheday.quranEnglish}}
-                </span>
+                </span><br><br>
+                {{wordoftheday.quranEnglish}}
             </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="openBottomSheet()">
+                    <mat-icon>share</mat-icon> SHARE
+                </button>
+            </mat-card-actions>
         </mat-card>
 
         <br>
