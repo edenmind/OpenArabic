@@ -15,15 +15,15 @@ import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-shee
 
 
 @Component({
-  selector: 'bottom-sheet-overview',
-  templateUrl: './bottom-sheet-overview.html',
+  selector: 'bottom-sheet-share',
+  templateUrl: './bottom-sheet-share.html',
   styleUrls: ['../shared/common.css'],
 })
-export class BottomSheetOverview {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverview>) { }
+export class BottomSheetShare {
+  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetShare>) { }
 
   openLink(event: MouseEvent): void {
-    this._bottomSheetRef.dismiss();
+    this.bottomSheetRef.dismiss();
     event.preventDefault();
   }
 }
@@ -53,7 +53,7 @@ export class HomepageComponent implements OnInit {
   wordoftheday: WordOfTheDay = new WordOfTheDay;
 
   constructor(
-    private _bottomSheet: MatBottomSheet,
+    private bottomSheet: MatBottomSheet,
     private textService: TextService,
     private changelogService: ChangelogService,
     private wordOfTheDayService: WordOfTheDayService,
@@ -71,7 +71,7 @@ export class HomepageComponent implements OnInit {
   }
 
   openBottomSheet(): void {
-    this._bottomSheet.open(BottomSheetOverview);
+    this.bottomSheet.open(BottomSheetShare);
   }
 
   public changePage(pageIndex: number) {
