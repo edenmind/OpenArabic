@@ -33,7 +33,7 @@ import { AppComponent } from './app.component';
 import { AuthButtonComponent } from './auth-button/auth-button.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { BottomSheetShare } from './homepage/homepage.component';
+import { BottomSheetShare } from "./homepage/bottom-sheet-share.component";
 import { NavigationComponent } from './navigation/navigation.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TextEditComponent } from './text/edit/text-edit.component';

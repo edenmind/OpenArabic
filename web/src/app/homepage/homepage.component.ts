@@ -11,22 +11,10 @@ import { ChangelogService } from '../services/changelog.service';
 import { DeviceService } from '../services/device.service';
 import { TextService } from '../services/text.service';
 import { WordOfTheDayService } from '../services/wordoftheday.service';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { BottomSheetShare } from './bottom-sheet-share.component';
 
 
-@Component({
-  selector: 'bottom-sheet-share',
-  templateUrl: './bottom-sheet-share.html',
-  styleUrls: ['../shared/common.css'],
-})
-export class BottomSheetShare {
-  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetShare>) { }
-
-  openLink(event: MouseEvent): void {
-    this.bottomSheetRef.dismiss();
-    event.preventDefault();
-  }
-}
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
