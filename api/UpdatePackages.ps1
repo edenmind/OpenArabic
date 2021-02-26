@@ -21,6 +21,7 @@ $packages = @(
     'System.IdentityModel.Tokens.Jwt'
     'Microsoft.EntityFrameworkCore.Design'
     'Octokit'
+    'KubernetesClient'
 )
 
 InstallPackage
