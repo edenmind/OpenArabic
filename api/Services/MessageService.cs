@@ -14,7 +14,6 @@ namespace api.Services {
             var to = new EmailAddress ("yunus@edenmind.com", "Support");
             var message = MailHelper.CreateSingleEmail (from, to, subject, body, "");
             var response = await client.SendEmailAsync (message);
-            var x = "";
         }
     }
 }
