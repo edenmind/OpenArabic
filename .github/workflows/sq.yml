@@ -33,7 +33,7 @@ jobs:
         with:
           # Additional arguments to the sonarcloud scanner
           args: >
-            -Dsonar.organization=Edenmind
+            -Dsonar.organization=edenmind
             -Dsonar.projectKey=edenmind_OpenArabic
           projectBaseDir: .
         env:
