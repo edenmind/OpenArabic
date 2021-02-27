@@ -39,3 +39,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+      - name: Install SonarCloud scanner
+        shell: bash
+        run: |
+          dotnet tool update dotnet-sonarscanner -g
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: bash
+        run: |
+          dotnet-sonarscanner begin /k:"edenmind_OpenArabic" /o:"edenmind" /d:sonar.login="${{ secrets.SONARQUBE_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build ./api/api.csproj
+          dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONARQUBE_TOKEN }}"
+
+
