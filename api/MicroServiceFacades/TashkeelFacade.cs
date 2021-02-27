@@ -24,7 +24,7 @@ namespace api.MicroServiceFacades {
 
         private static string CleanTashkeel (string tashkeel) {
             tashkeel = tashkeel.Trim ();
-            tashkeel = tashkeel.Replace ("", "");
+            tashkeel = tashkeel.Replace ("\u0001", "");
             return tashkeel;
         }
     }

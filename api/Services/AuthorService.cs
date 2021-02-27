@@ -1,14 +1,10 @@
 using System.Collections.Generic;
+
 using api.Models;
 
-namespace api.Services
-{
-    public class AuthorService : IAuthorService
-    {
-        private readonly List<Author> Authors;
-
-        private readonly List<string> ListOfAuthorsNames = new()
-        {
+namespace api.Services {
+    public class AuthorService : IAuthorService {
+        private readonly List<string> ListOfAuthorsNames = new () {
             "Ibrahim ibn al-Mundhir",
             "Ibn Qudāmah al-Maqdīsī",
             "Abdur Raūf Al-Manāwi",
@@ -31,13 +27,13 @@ namespace api.Services
             "Shams ad-Dīn adh-Dhahabī"
         };
 
-        public List<Author> GetAuthors()
-        {
+        public List<Author> GetAuthors () {
             var index = 0;
 
-            foreach (var author in ListOfAuthorsNames)
-            {
-                Authors.Add(new Author {Name = author, AuthorId = index});
+            List<Author> Authors = new ();
+
+            foreach (var author in ListOfAuthorsNames) {
+                Authors.Add (new Author { Name = author, AuthorId = index });
                 index++;
             }
 

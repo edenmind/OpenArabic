@@ -6,8 +6,6 @@ using api.Services;
 
 using FluentValidation.AspNetCore;
 
-using MediatR;
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,8 +38,6 @@ namespace api {
             services.AddAutoMapper (CurrentDomain.GetAssemblies ());
 
             services.AddHttpClient ();
-
-            services.AddMediatR (typeof (Startup));
 
             services.AddControllers (options => { options.ReturnHttpNotAcceptable = true; })
                 .AddFluentValidation (ConfigurationExpression);
