@@ -46,7 +46,7 @@ import { LoginComponent } from './login/login.component';
 import { IssuesComponent } from './issues/issues.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
+import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
 
 
 
