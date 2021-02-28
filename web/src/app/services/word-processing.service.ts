@@ -43,10 +43,7 @@ export class WordProcessingService {
 
   removeEmptyAndNullFromWords(words: string[]): string[] {
     const emptyRemoved = words.filter(word => word !== '');
-
-    const nullRemoved = emptyRemoved.filter(word => word != null);
-
-    return nullRemoved;
+    return emptyRemoved.filter(word => word != null);
   }
 
   cleanWordFromCharacters(word: string): string {
@@ -64,7 +61,6 @@ export class WordProcessingService {
 
   splitWords(paragraph: string): string[] {
     const words = paragraph.split(' ');
-    const wordsCleaned = this.loopWordsToCleanAndRemoveNull(words);
-    return wordsCleaned;
+    return this.loopWordsToCleanAndRemoveNull(words);
   }
 }

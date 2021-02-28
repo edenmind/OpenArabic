@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Word } from '../../models/word';
 
@@ -7,13 +7,11 @@ import { Word } from '../../models/word';
   templateUrl: './text-vocabulary.component.html',
   styleUrls: ['./text-vocabulary.component.css'],
 })
-export class TextVocabularyComponent implements OnInit {
+export class TextVocabularyComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public words: Word[],
     private dialogRef: MatDialogRef<TextVocabularyComponent>
   ) { }
-
-  ngOnInit(): void { }
 
   closeDialog(): void {
     this.dialogRef.close();

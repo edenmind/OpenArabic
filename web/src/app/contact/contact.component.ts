@@ -1,5 +1,5 @@
 import { Mail } from '../models/mail';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MessageService } from '../services/message.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
@@ -16,7 +16,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-contact',
   templateUrl: './contact.component.html'
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   constructor(
     private messageService: MessageService,
     private _snackBar: MatSnackBar
@@ -31,7 +31,6 @@ export class ContactComponent implements OnInit {
 
   sender: string = '';
   body: string = '';
-  ngOnInit(): void { }
 
   onSubmit() {
     if (this.sender != '' && this.body != '') {
