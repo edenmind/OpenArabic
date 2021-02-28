@@ -1,11 +1,9 @@
 # http://localhost:5555/?unvoweled=ARABIC_WORD
 
 import mishkal.tashkeel
-from flask import Flask, request, CSRFProtect
+from flask import Flask, request
 
 app = Flask(__name__)
-csrf = CSRFProtect()
-csrf.init_app(app)
 voweler = mishkal.tashkeel.TashkeelClass()
 
 

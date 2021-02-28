@@ -1,32 +1,37 @@
 version: 2
 updates:
-- package-ecosystem: nuget
-  directory: "/api"
-  schedule:
-    interval: weekly
-    time: "04:00"
-  open-pull-requests-limit: 10
-- package-ecosystem: terraform
-  directory: "/terraform"
-  schedule:
-    interval: weekly
-    time: "04:00"
-  open-pull-requests-limit: 10
-- package-ecosystem: github-actions
-  directory: "/"
-  schedule:
-    interval: weekly
-    time: "04:00"
-  open-pull-requests-limit: 10
-- package-ecosystem: pip
-  directory: "/microservices/tashkeel"
-  schedule:
-    interval: weekly
-    time: "04:00"
-  open-pull-requests-limit: 10
-- package-ecosystem: npm
-  directory: "/web"
-  schedule:
-    interval: weekly
-    time: "04:00"
-  open-pull-requests-limit: 10
+  - package-ecosystem: nuget
+    directory: "/api"
+    schedule:
+      interval: weekly
+      time: "04:00"
+  - package-ecosystem: nuget
+    directory: "/api.tests"
+    schedule:
+      interval: weekly
+      time: "04:00"
+    open-pull-requests-limit: 10
+  - package-ecosystem: terraform
+    directory: "/terraform"
+    schedule:
+      interval: weekly
+      time: "04:00"
+    open-pull-requests-limit: 10
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      time: "04:00"
+    open-pull-requests-limit: 10
+  - package-ecosystem: pip
+    directory: "/microservices/tashkeel"
+    schedule:
+      interval: weekly
+      time: "04:00"
+    open-pull-requests-limit: 10
+  - package-ecosystem: npm
+    directory: "/web"
+    schedule:
+      interval: weekly
+      time: "04:00"
+    open-pull-requests-limit: 10
