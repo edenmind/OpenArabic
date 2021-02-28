@@ -14,7 +14,7 @@ import { Emojis } from 'src/app/enums/emojis.enum';
 @Component({
   selector: 'app-text',
   templateUrl: './text-view.component.html',
-  styleUrls: ['./text-view.component.css', '../../shared/common.css'],
+  styleUrls: ['./text-view.component.css'],
 })
 export class TextViewComponent implements OnInit {
   public text: Text = new Text;

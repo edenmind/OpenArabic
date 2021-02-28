@@ -28,7 +28,7 @@ jobs:
           # Disabling shallow clone to improve relevancy of reporting
           fetch-depth: 0
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.5
+        uses: SonarSource/sonarcloud-github-action@master
         with:
           # Additional arguments to the sonarcloud scanner
           args: >

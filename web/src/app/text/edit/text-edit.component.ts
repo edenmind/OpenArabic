@@ -16,7 +16,7 @@ import { TextEditModel } from './text-edit-model';
 @Component({
   selector: 'app-text-form',
   templateUrl: './text-edit.component.html',
-  styleUrls: ['./text-edit.component.css', '../../shared/common.css'],
+  styleUrls: ['./text-edit.component.css'],
 })
 export class TextEditComponent implements OnInit, OnChanges {
   constructor(

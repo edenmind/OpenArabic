@@ -8,7 +8,7 @@ import { CategoryService } from '../services/category.service';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css', '../shared/common.css'],
+  styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent {
   isHandset$: Observable<boolean> = this.breakpointObserver

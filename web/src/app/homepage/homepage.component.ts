@@ -18,7 +18,7 @@ import { BottomSheetShare } from './bottom-sheet-share.component';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css', '../shared/common.css'],
+  styleUrls: ['./homepage.component.css'],
 })
 export class HomepageComponent implements OnInit {
   texts: Text[] = [];

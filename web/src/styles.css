@@ -1,7 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.icon {
+  vertical-align: middle;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+.grid-container {
+  margin: 25px;
+}
+
+.grid-container-text {
+  margin: 25px 5px;
+}
+
+.white-link {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.simple-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link-color {
+  color: #ce93d8;
+}
+
+.spanner {
+  margin: 55px auto;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.bigger-arabic {
+  font-size: x-large;
+  line-height: 55px;
+}
+
+.carret {
+  caret-color: #69f0ae;
+}
