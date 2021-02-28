@@ -46,6 +46,7 @@ import { LoginComponent } from './login/login.component';
 import { IssuesComponent } from './issues/issues.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 
 
@@ -71,6 +72,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
   ],
   imports: [
     BrowserModule,
+    NgxGoogleAnalyticsModule.forRoot('263660391'),
+    NgxGoogleAnalyticsRouterModule,
     AuthModule.forRoot({
       // The domain and clientId were configured in the previous chapter
       domain: 'dev-7yb6kp7f.eu.auth0.com',
