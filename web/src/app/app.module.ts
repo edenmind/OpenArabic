@@ -73,7 +73,6 @@ import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-go
   imports: [
     BrowserModule,
     NgxGoogleAnalyticsModule.forRoot('263660391'),
-    NgxGoogleAnalyticsRouterModule,
     AuthModule.forRoot({
       // The domain and clientId were configured in the previous chapter
       domain: 'dev-7yb6kp7f.eu.auth0.com',

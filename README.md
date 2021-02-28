@@ -1,6 +1,6 @@
 # OpenArabic
 
-OpenArabic.io is a platform for learning classical arabic (*al-Fuṣḥā*). The main goal is to aid in the process of start reading and understanding classical Islamic texts using a process based on the [spaced repetiotion](https://en.wikipedia.org/wiki/Spaced_repetition) algorithm.
+OpenArabic.io is a platform for learning classical arabic (*al-Fuṣḥā*). The main goal is to aid in the process of start reading and understanding classical Islamic texts using a process based on the [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition) algorithm.
 
 ## To start developing OpenArabic.io
 
