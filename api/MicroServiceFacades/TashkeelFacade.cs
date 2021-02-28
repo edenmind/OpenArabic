@@ -15,7 +15,7 @@ namespace api.MicroServiceFacades {
                 .AppendPathSegment (pathPrefix)
                 .SetQueryParams (new { unvoweled = textToTashkeel })
                 .WithTimeout (10)
-                .GetStringAsync ();
+                .GetStringAsync ().ConfigureAwait (false);
 
             voweled = CleanTashkeel (voweled);
 
