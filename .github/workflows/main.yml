@@ -28,7 +28,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build and Push API to Docker Hub
-        uses: docker/build-push-action@v2.0.0
+        uses: docker/build-push-action@v2.3.0
         with:
           file: ./api/Dockerfile
           tags: therealedenmind/oa-api:${{ github.sha }}
@@ -36,7 +36,7 @@ jobs:
           push: true
 
       - name: Build and Push Web to Docker Hub
-        uses: docker/build-push-action@v2.0.0
+        uses: docker/build-push-action@v2.3.0
         with:
           file: ./web/Dockerfile
           tags: therealedenmind/oa-frontend:${{ github.sha }}
@@ -44,7 +44,7 @@ jobs:
           push: true
 
       - name: Build and Push Tashkeel to Docker Hub
-        uses: docker/build-push-action@v2.0.0
+        uses: docker/build-push-action@v2.3.0
         with:
           file: ./microservices/tashkeel/Dockerfile
           tags: therealedenmind/oa-tashkeel:${{ github.sha }}
