@@ -30,7 +30,7 @@ namespace api.Services {
 
         public TextService () { }
 
-        public async Task<IEnumerable<TextDTO>> GetTextsCategoryAsync (TextResourceParameters textRequest) {
+        public async Task<IEnumerable<TextDto>> GetTextsCategoryAsync (TextResourceParameters textRequest) {
             var texts = await _context.Texts
                 .Include (s => s.Sentences.OrderByDescending (o => o.Order))
                 .ThenInclude (w => w.Words)
@@ -41,12 +41,12 @@ namespace api.Services {
                 .Take (textRequest.PageSize)
                 .ToListAsync ();
 
-            var textDTOs = _mapper.Map<List<TextDTO>> (texts);
+            var textDtos = _mapper.Map<List<TextDto>> (texts);
 
-            return textDTOs;
+            return textDtos;
         }
 
-        public async Task<IEnumerable<TextDTO>> GetTextsAuthorAsync (TextResourceParameters textRequest) {
+        public async Task<IEnumerable<TextDto>> GetTextsAuthorAsync (TextResourceParameters textRequest) {
             var texts = await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
@@ -56,12 +56,12 @@ namespace api.Services {
                 .Take (textRequest.PageSize)
                 .ToListAsync ();
 
-            var textDTOs = _mapper.Map<List<TextDTO>> (texts);
+            var textDtos = _mapper.Map<List<TextDto>> (texts);
 
-            return textDTOs;
+            return textDtos;
         }
 
-        public async Task<IEnumerable<TextDTO>> GetTextsAsync (TextResourceParameters textRequest) {
+        public async Task<IEnumerable<TextDto>> GetTextsAsync (TextResourceParameters textRequest) {
             var texts = await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
@@ -70,28 +70,28 @@ namespace api.Services {
                 .Take (textRequest.PageSize)
                 .ToListAsync ();
 
-            var textDTOs = _mapper.Map<List<TextDTO>> (texts);
+            var textDtos = _mapper.Map<List<TextDto>> (texts);
 
-            return textDTOs;
+            return textDtos;
         }
 
-        public async Task<TextDTO> GetTextAsync (long id) {
+        public async Task<TextDto> GetTextAsync (long id) {
             var text = await _context.Texts
                 .Include (s => s.Sentences)
                 .ThenInclude (w => w.Words)
                 .Where (t => t.TextId == id)
                 .FirstAsync ();
 
-            var textDTO = _mapper.Map<TextDTO> (text);
+            var textDto = _mapper.Map<TextDto> (text);
 
-            foreach (var sentence in textDTO.Sentences)
+            foreach (var sentence in textDto.Sentences)
                 sentence.Arabic = await _tashkeelFacade.TashkeelAsync (sentence.Arabic);
 
-            textDTO.RelatedTexts = await FindRelatedTexts (text);
+            textDto.RelatedTexts = await FindRelatedTexts (text);
 
-            textDTO.VocabularyCollection = ProduceVocabularies (text);
+            textDto.VocabularyCollection = ProduceVocabularies (text);
 
-            return textDTO;
+            return textDto;
         }
 
         public async Task<long> PostTextAsync (Text text) {
@@ -148,8 +148,8 @@ namespace api.Services {
             return totalNumberOfTexts;
         }
 
-        private static VocabularyCollectionDTO ProduceVocabularies (Text text) {
-            var vocabularies = new VocabularyCollectionDTO { Arabic = new List<VocabularyDTO> (), English = new List<VocabularyDTO> () };
+        private static VocabularyCollectionDto ProduceVocabularies (Text text) {
+            var vocabularies = new VocabularyCollectionDto { Arabic = new List<VocabularyDto> (), English = new List<VocabularyDto> () };
 
             const int numberOfVocabulariesToAdd = 5;
 
@@ -165,12 +165,12 @@ namespace api.Services {
 
                 if (!allConditionsSatisfied) continue;
 
-                vocabularies.English.Add (new VocabularyDTO {
+                vocabularies.English.Add (new VocabularyDto {
                     Word = randomWordPair.English,
                         WordId = vocabularies.English.Count
                 });
 
-                vocabularies.Arabic.Add (new VocabularyDTO {
+                vocabularies.Arabic.Add (new VocabularyDto {
                     Word = randomWordPair.Arabic,
                         WordId = vocabularies.Arabic.Count
                 });
@@ -183,14 +183,14 @@ namespace api.Services {
             return vocabularies;
         }
 
-        private static bool CheckIfWordpairIsInCollection (VocabularyCollectionDTO vocabularies, WordPairDTO wordPair) {
+        private static bool CheckIfWordpairIsInCollection (VocabularyCollectionDto vocabularies, WordPairDto wordPair) {
             var isNewWordInCollection =
                 vocabularies.English.All (v => v.Word != wordPair.English) ||
                 vocabularies.Arabic.All (v => v.Word != wordPair.Arabic);
             return isNewWordInCollection;
         }
 
-        private static bool CheckWordLength (WordPairDTO wordPair) {
+        private static bool CheckWordLength (WordPairDto wordPair) {
             const int minimumWordLength = 2;
             const int maximumWordLength = 10;
 
@@ -202,27 +202,27 @@ namespace api.Services {
             return isWordLengthSatisfied;
         }
 
-        private static List<VocabularyDTO> ShuffleVocabularies (IEnumerable<VocabularyDTO> vocabularyToShuffle) {
+        private static List<VocabularyDto> ShuffleVocabularies (IEnumerable<VocabularyDto> vocabularyToShuffle) {
             var random = new Random ();
             var shuffled = vocabularyToShuffle.OrderBy (i => random.Next ()).ToList ();
 
             return shuffled;
         }
 
-        private static WordPairDTO GetRandomWordPairFromSentences (int randomSentenceId, IReadOnlyList<Sentence> sentences) {
-            WordPairDTO vocabularyDTO = new ();
+        private static WordPairDto GetRandomWordPairFromSentences (int randomSentenceId, IReadOnlyList<Sentence> sentences) {
+            WordPairDto vocabularyDto = new ();
 
             var random = new Random ();
             var wordsCount = sentences[randomSentenceId].Words.Count;
             var randomWordId = random.Next (0, wordsCount);
 
-            vocabularyDTO.English = sentences[randomSentenceId].Words[randomWordId].English;
-            vocabularyDTO.Arabic = sentences[randomSentenceId].Words[randomWordId].Arabic;
+            vocabularyDto.English = sentences[randomSentenceId].Words[randomWordId].English;
+            vocabularyDto.Arabic = sentences[randomSentenceId].Words[randomWordId].Arabic;
 
-            return vocabularyDTO;
+            return vocabularyDto;
         }
 
-        private async Task<List<RelatedDTO>> FindRelatedTexts (Text text) {
+        private async Task<List<RelatedDto>> FindRelatedTexts (Text text) {
             const int numberOfRelatedTextsToAdd = 7;
 
             var relatedTextsInSameCategory = await _context.Texts
@@ -231,7 +231,7 @@ namespace api.Services {
                 .Take (numberOfRelatedTextsToAdd)
                 .ToListAsync ();
 
-            return relatedTextsInSameCategory.Select (relatedText => new RelatedDTO {
+            return relatedTextsInSameCategory.Select (relatedText => new RelatedDto {
                     TextId = relatedText.TextId,
                         Title = relatedText.Title
                 })

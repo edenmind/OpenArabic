@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace api.Dtos {
-    public class TextDTO {
+    public class TextDto {
         public long TextId { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
@@ -13,9 +13,9 @@ namespace api.Dtos {
         public string ArabicText { get; set; }
         public string EnglishText { get; set; }
         public DateTime CreatedAt { get; set; }
-        public List<RelatedDTO> RelatedTexts { get; set; }
-        public VocabularyCollectionDTO VocabularyCollection { get; set; }
-        public List<SentenceDTO> Sentences { get; set; }
+        public List<RelatedDto> RelatedTexts { get; set; }
+        public VocabularyCollectionDto VocabularyCollection { get; set; }
+        public List<SentenceDto> Sentences { get; set; }
 
         // computed propertis not present in the persisted model
         public string TimeAgo => Helpers.TimeAgo.GetTimeAgo (CreatedAt);

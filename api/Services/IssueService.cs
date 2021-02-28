@@ -9,7 +9,7 @@ namespace api.Services {
 
     public class IssueService : IIssueService {
 
-        public async Task<IEnumerable<IssueDTO>> GetIssuesAsync () {
+        public async Task<IEnumerable<IssueDto>> GetIssuesAsync () {
 
             var client = new GitHubClient (new ProductHeaderValue ("OpenArabic"));
 
@@ -23,11 +23,11 @@ namespace api.Services {
 
             var issuesFromGithub = await client.Issue.GetAllForRepository (organization, repositoryName, issueFilter);
 
-            var extractedIssueValues = new List<IssueDTO> ();
+            var extractedIssueValues = new List<IssueDto> ();
 
             foreach (var issue in issuesFromGithub) {
 
-                var issueToAdd = new IssueDTO () {
+                var issueToAdd = new IssueDto () {
                     Title = issue.Title,
                     Id = issue.Id,
                     Body = issue.Body,

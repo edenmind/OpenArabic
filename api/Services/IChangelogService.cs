@@ -4,6 +4,6 @@ using api.Dtos;
 
 namespace api.Services {
     public interface IChangelogService {
-        IEnumerable<ChangelogDTO> GetChangelog ();
+        IEnumerable<ChangelogDto> GetChangelog ();
     }
 }

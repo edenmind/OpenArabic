@@ -7,13 +7,13 @@ namespace api.Services {
 
     public class WordOfTheDayService : IWordOfTheDayService {
 
-        public WordOfTheDayDTO GetWordOfTheDay () {
+        public WordOfTheDayDto GetWordOfTheDay () {
 
-            List<WordOfTheDayDTO> wordOfTheDays = new ();
+            List<WordOfTheDayDto> wordOfTheDays = new ();
 
             var hijriDate = HijriDate.GetHijriDate ();
 
-            wordOfTheDays.Add (new WordOfTheDayDTO {
+            wordOfTheDays.Add (new WordOfTheDayDto {
                 Day = 1,
                     Arabic = "ذلك",
                     Meaning = "that, which or that one",

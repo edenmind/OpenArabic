@@ -19,7 +19,7 @@ namespace api.Controllers {
         // GET: api/Authors
         [AllowAnonymous]
         [HttpGet]
-        public ActionResult<WordOfTheDayDTO> GetChangelog () {
+        public ActionResult<WordOfTheDayDto> GetChangelog () {
             return Ok (_wordOfTheDayService.GetWordOfTheDay ());
         }
     }

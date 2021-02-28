@@ -3,10 +3,8 @@ using System.Threading.Tasks;
 
 using api.Dtos;
 
-namespace api.Services
-{
-    public interface IIssueService
-    {
-        Task<IEnumerable<IssueDTO>> GetIssuesAsync();
+namespace api.Services {
+    public interface IIssueService {
+        Task<IEnumerable<IssueDto>> GetIssuesAsync ();
     }
 }

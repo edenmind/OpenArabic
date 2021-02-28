@@ -32,8 +32,8 @@ namespace api.Controllers {
         // GET: api/Texts
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TextDTO>>> GetTexts ([FromQuery] TextResourceParameters textRequest) {
-            IEnumerable<TextDTO> textFromRepo;
+        public async Task<ActionResult<IEnumerable<TextDto>>> GetTexts ([FromQuery] TextResourceParameters textRequest) {
+            IEnumerable<TextDto> textFromRepo;
 
             int totalCount;
 
@@ -53,13 +53,13 @@ namespace api.Controllers {
             Response.Headers.Add ("Access-Control-Expose-Headers", "X-Total-Count");
             Response.Headers.Add ("X-Total-Count", totalCount.ToString ());
 
-            return Ok (_mapper.Map<IEnumerable<TextDTO>> (textFromRepo));
+            return Ok (_mapper.Map<IEnumerable<TextDto>> (textFromRepo));
         }
 
         // GET: api/Texts/5
         [AllowAnonymous]
         [HttpGet ("{id}")]
-        public async Task<ActionResult<TextDTO>> GetText (long id) {
+        public async Task<ActionResult<TextDto>> GetText (long id) {
             var textFromRepo = await _textService.GetTextAsync (id);
 
             if (textFromRepo == null) return NotFound ();

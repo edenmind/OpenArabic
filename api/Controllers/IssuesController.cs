@@ -23,7 +23,7 @@ namespace api.Controllers {
         // GET: api/Authors
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<IssueDTO>>> GetIssues () {
+        public async Task<ActionResult<IEnumerable<IssueDto>>> GetIssues () {
 
             var issues = await _issueService.GetIssuesAsync ();
             return Ok (issues);

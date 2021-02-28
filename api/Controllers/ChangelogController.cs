@@ -19,7 +19,7 @@ namespace api.Controllers {
         // GET: api/Authors
         [AllowAnonymous]
         [HttpGet]
-        public ActionResult<IEnumerable<ChangelogDTO>> GetChangelog () {
+        public ActionResult<IEnumerable<ChangelogDto>> GetChangelog () {
             return Ok (_changelogService.GetChangelog ());
         }
     }

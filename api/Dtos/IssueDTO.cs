@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Octokit;
 
 namespace api.Dtos {
-    public class IssueDTO {
+    public class IssueDto {
         public string Title { get; set; }
         public string Body { get; set; }
         public DateTimeOffset CreatedAt { get; set; }

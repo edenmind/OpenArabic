@@ -1,5 +1,5 @@
 namespace api.Dtos {
-    public class WordOfTheDayDTO {
+    public class WordOfTheDayDto {
         public long WordOfTheDayId { get; set; }
         public string Arabic { get; set; }
         public string Meaning { get; set; }

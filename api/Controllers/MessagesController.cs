@@ -29,7 +29,6 @@ namespace api.Controllers {
 
             await _messageService.SendMessage (mail.Sender, mail.Body);
 
-            //TODO: Error handling
             return Ok ();
         }
     }

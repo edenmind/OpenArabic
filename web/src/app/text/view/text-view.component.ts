@@ -92,8 +92,8 @@ export class TextViewComponent implements OnInit {
       this.numberOfSelected = 0;
 
       let numberOfCorrect = 0;
-      for (let index = 0; index < this.text.vocabularyCollection.english.length; index++) {
-        if (this.text.vocabularyCollection.english[index].correct) {
+      for (let indexVocab = 0; indexVocab < this.text.vocabularyCollection.english.length; indexVocab++) {
+        if (this.text.vocabularyCollection.english[indexVocab].correct) {
           numberOfCorrect++;
         }
       }
@@ -114,7 +114,6 @@ export class TextViewComponent implements OnInit {
         this.text.vocabularyCollection.english[indexSelected].selected = false;
         this.text.vocabularyCollection.arabic[indexSelected].selected = false;
       }
-      return;
     }
   }
 
@@ -156,8 +155,8 @@ export class TextViewComponent implements OnInit {
       this.numberOfSelected = 0;
 
       let numberOfCorrect = 0;
-      for (let index = 0; index < this.text.vocabularyCollection.arabic.length; index++) {
-        if (this.text.vocabularyCollection.arabic[index].correct) {
+      for (let indexVocab = 0; indexVocab < this.text.vocabularyCollection.arabic.length; indexVocab++) {
+        if (this.text.vocabularyCollection.arabic[indexVocab].correct) {
           numberOfCorrect++;
         }
       }
@@ -181,7 +180,6 @@ export class TextViewComponent implements OnInit {
         this.text.vocabularyCollection.english[indexSelected].selected = false;
         this.text.vocabularyCollection.arabic[indexSelected].selected = false;
       }
-      return;
     }
   }
 

@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 
-namespace api.Dtos
-{
-    public class VocabularyCollectionDTO
-    {
-        public List<VocabularyDTO> Arabic { get; set; }
+namespace api.Dtos {
+    public class VocabularyCollectionDto {
+        public List<VocabularyDto> Arabic { get; set; }
 
-        public List<VocabularyDTO> English { get; set; }
+        public List<VocabularyDto> English { get; set; }
     }
 }
