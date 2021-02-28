@@ -3,8 +3,11 @@
 import mishkal.tashkeel
 from flask import Flask
 from flask import request
+from flask import CSRFProtect
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
 voweler = mishkal.tashkeel.TashkeelClass()
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Sentence } from '../../models/sentence';
 
 @Component({
@@ -6,13 +6,10 @@ import { Sentence } from '../../models/sentence';
   templateUrl: './text-row.component.html',
   styleUrls: ['./text-row.component.css'],
 })
-export class TextRowComponent implements OnInit {
+export class TextRowComponent {
   @Input()
   sentence: Sentence = new Sentence;
   @Input()
   language: string = String();
 
-  constructor() { }
-
-  ngOnInit(): void { }
 }

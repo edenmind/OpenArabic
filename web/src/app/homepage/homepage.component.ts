@@ -85,7 +85,6 @@ export class HomepageComponent implements OnInit {
     }
 
     this.pageIndex = pageIndex.toString();
-    pageIndex++
   }
 
 
