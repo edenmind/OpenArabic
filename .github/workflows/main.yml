@@ -96,7 +96,7 @@ jobs:
           SHA_LINK: ${{ github.sha }}
 
       - name: Deploy API, Frontend and Database to k8s
-        uses: Azure/k8s-deploy@v1
+        uses: Azure/k8s-deploy@v1.4
         with:
           manifests: |
             ./k8s/web.yaml
