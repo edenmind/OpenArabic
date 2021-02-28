@@ -130,7 +130,6 @@ export class TextEditComponent implements OnInit, OnChanges {
     }
 
     // Create a arabic wordlist
-    // TODO: There should be a better way...
     for (let index = 0; index < this.textEditModel.arabicWordsForMatching.length; index++) {
 
       this.textEditModel.englishWordsMatched[index] = [];

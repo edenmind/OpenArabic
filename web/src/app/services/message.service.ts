@@ -19,7 +19,7 @@ export class MessageService {
   sendMessage(message: Mail): void {
     const url = `${environment.api}/api/messages`;
     this.httpClientAnonymous.post<Mail>(url, message).subscribe((data) => {
-      console.log(data); // TODO: Show result in UI
+      console.log(data);
     });
   }
 }
