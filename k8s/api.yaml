@@ -5,7 +5,7 @@ metadata:
   labels:
     app: api
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: api
@@ -29,6 +29,11 @@ spec:
               path: /health
               port: 5001
             periodSeconds: 10
+            initialDelaySeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5001
             initialDelaySeconds: 30
           env:
             - name: ASPNETCORE_AUTHORITY

@@ -30,6 +30,11 @@ spec:
               port: 5002
             periodSeconds: 10
             initialDelaySeconds: 120
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5002
+            initialDelaySeconds: 120
           imagePullPolicy: Always
           ports:
             - containerPort: 80
