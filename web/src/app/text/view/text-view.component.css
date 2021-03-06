@@ -9,6 +9,12 @@
   font-style: italic;
 }
 
+.read-time {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: small;
+}
+
 .tab-space {
   padding-top: 25px;
   display: grid;

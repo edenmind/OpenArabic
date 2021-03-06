@@ -72,30 +72,17 @@ import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
   ],
   imports: [
     BrowserModule,
-    NgxGoogleAnalyticsModule.forRoot('263660391'),
+    NgxGoogleAnalyticsModule.forRoot('G-00Q1GM3YQP'),
     AuthModule.forRoot({
-      // The domain and clientId were configured in the previous chapter
       domain: 'dev-7yb6kp7f.eu.auth0.com',
       clientId: 'FG7Or6kDf25ovG6BxKKL77o0v3fmBRcU',
-
-      // Request this audience at user authentication time
       audience: environment.audience,
-
-      // Request this scope at user authentication time
-      // scope: 'read:current_user',
-
-      // Specify configuration for the interceptor
       httpInterceptor: {
         allowedList: [
           {
-            // Match any request that starts 'https://dev-7yb6kp7f.eu.auth0.com/api/v2/' (note the asterisk)
             uri: environment.api + '/*',
             tokenOptions: {
-              // The attached token should target this audience
               audience: environment.audience,
-
-              // The attached token should have these scopes
-              // scope: 'read:current_user',
             },
           },
         ],

@@ -15,7 +15,7 @@
           <span class="author-by">{{ text.author }}</span>
         </a><br>
         <span class="center source">{{ text.source }}</span><br>
-        <span class="center source">{{ text.readTime }}</span>
+        <span class="center read-time">{{ text.readTime }}</span>
         <a routerLink="/text/edit/{{ text.textId }}" *ngIf="auth.user$ | async as user" class="simple-link">
           <span matRipple *ngIf="user.email == text.editor" class="author-by"> (edit)</span>
         </a>
