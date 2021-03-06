@@ -85,7 +85,9 @@ namespace api.Services {
             var textDto = _mapper.Map<TextDto> (text);
 
             foreach (var sentence in textDto.Sentences)
-                sentence.Arabic = await _tashkeelFacade.TashkeelAsync (sentence.Arabic).ConfigureAwait (false);
+                if (!string.IsNullOrWhiteSpace (sentence.Arabic)) {
+                    sentence.Arabic = await _tashkeelFacade.GetTashkeelAsync (sentence.Arabic).ConfigureAwait (false);
+                }
 
             textDto.RelatedTexts = await FindRelatedTexts (text).ConfigureAwait (false);
 

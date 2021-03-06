@@ -66,9 +66,11 @@ spec:
             - containerPort: 80
               protocol: TCP
           securityContext:
+            allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - all
+              add: ["MKNOD", "CHOWN", "NET_RAW", "NET_ADMIN"]
 ---
 apiVersion: v1
 kind: Service

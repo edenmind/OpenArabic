@@ -1,10 +1,12 @@
 # OpenArabic
 
-OpenArabic.io is a platform for learning classical arabic (*al-Fuṣḥā*). The main goal is to aid in the process of start reading and understanding classical Islamic texts using a process based on the [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition) algorithm.
+OpenArabic.io is a platform for learning classical arabic (*al-Fuṣḥā*). The main goal is to aid in the process of starting to read and understand classical Islamic texts using a process based on the [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition) algorithm.
 
 ## To start developing OpenArabic.io
 
-Clone the repo. Further information about how to build locally using a Docker compose will be provided. *In šaʾ Allāh*.
+Bein with cloning the the repository. The web frontend is a standard Angular project that can be found in /web. The backend API is a standard .NET 5 project that can be found in /api.
+
+A Docker-compose file is provided in the root of the repository that will build the Dockerfiles for thw web frontend, the backend api and start an MS SQL database.
 
 ## Technologies
 

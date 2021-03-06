@@ -6,7 +6,7 @@ using static System.Environment;
 
 namespace api.MicroServiceFacades {
     public class TashkeelFacade : ITashkeelFacade {
-        public async Task<string> TashkeelAsync (string textToTashkeel) {
+        public async Task<string> GetTashkeelAsync (string textToTashkeel) {
             var tashkeelServiceUrl = GetEnvironmentVariable ("ASPNETCORE_TASHKEEL_SERVICE_URL");
 
             const string pathPrefix = "tashkeel";
