@@ -19,6 +19,7 @@
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "CONNECTION_STRING": "Server=localhost;Database=openarabic;User Id=sa;Password=Unsecure1!;"
+        //"CONNECTION_STRING": "Server=localhost:1433;Database=openarabic;User Id=sa;Password=rvv32DEWwaAqe23e32fr;"
       }
     }
   ]

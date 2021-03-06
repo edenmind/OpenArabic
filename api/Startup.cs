@@ -51,7 +51,7 @@ namespace api {
             });
 
             services.AddSwaggerGen (options => {
-                options.SwaggerDoc ("v1", new OpenApiInfo { Title = "OpenArabic", Version = "v1" });
+                options.SwaggerDoc ("0.1.0", new OpenApiInfo { Title = "OpenArabic", Version = "0.1.0" });
             });
 
             services.AddAuthentication (options => {

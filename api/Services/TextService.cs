@@ -153,7 +153,8 @@ namespace api.Services {
         private static VocabularyCollectionDto ProduceVocabularies (Text text) {
             var vocabularies = new VocabularyCollectionDto { Arabic = new List<VocabularyDto> (), English = new List<VocabularyDto> () };
 
-            const int numberOfVocabulariesToAdd = 5;
+            var numberOfSentences = text.Sentences.Count;
+            int numberOfVocabulariesToAdd = numberOfSentences > 6 ? 5 : numberOfSentences - 1;
 
             while (vocabularies.Arabic.Count < numberOfVocabulariesToAdd) {
                 var randomNumber = new Random ();
