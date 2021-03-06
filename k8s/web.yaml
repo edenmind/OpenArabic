@@ -39,7 +39,7 @@ spec:
             capabilities:
               drop:
                 - all
-              add: ["MKNOD", "CHOWN"]
+              add: ["MKNOD", "CHOWN", "SETGID"]
 
 ---
 apiVersion: v1
