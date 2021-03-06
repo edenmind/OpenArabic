@@ -81,9 +81,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8090
+    - port: 6001
       protocol: TCP
-      targetPort: 80
+      targetPort: 5001
   selector:
     app: api
 ---
@@ -104,4 +104,4 @@ spec:
               service:
                 name: api
                 port:
-                  number: 8090
+                  number: 6001

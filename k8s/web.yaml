@@ -27,19 +27,19 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: 80
+              port: 5000
             periodSeconds: 10
             initialDelaySeconds: 30
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 5000
               protocol: TCP
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - all
-              add: ["MKNOD", "CHOWN", "NET_RAW", "NET_ADMIN"]
+              add: ["MKNOD", "CHOWN"]
 
 ---
 apiVersion: v1
@@ -51,9 +51,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8080
+    - port: 6000
       protocol: TCP
-      targetPort: 80
+      targetPort: 5000
   selector:
     app: frontend
 ---
@@ -75,4 +75,4 @@ spec:
               service:
                 name: frontend
                 port:
-                  number: 8080
+                  number: 6000
