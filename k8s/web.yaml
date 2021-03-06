@@ -34,6 +34,10 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
+          securityContext:
+            capabilities:
+              drop:
+                - all
 
 ---
 apiVersion: v1
