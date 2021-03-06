@@ -51,7 +51,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 6000
+    - port: 5000
       protocol: TCP
       targetPort: 5000
   selector:
@@ -75,4 +75,4 @@ spec:
               service:
                 name: frontend
                 port:
-                  number: 6000
+                  number: 5000
