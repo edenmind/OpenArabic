@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.openarabic">
+    package="com.edenmind.openarabic">
 
     <application
         android:allowBackup="true"
@@ -8,14 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OpenArabic">
+        android:theme="@style/Theme.OpenArabic"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity
-            android:name=".MainActivity"
+            android:name="com.edenmind.openarabic.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.OpenArabic.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

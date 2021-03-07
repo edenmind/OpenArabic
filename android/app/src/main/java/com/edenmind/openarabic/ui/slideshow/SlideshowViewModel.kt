@@ -1,4 +1,4 @@
-package com.edemind.openarabic.ui.slideshow
+package com.edenmind.openarabic.ui.slideshow
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

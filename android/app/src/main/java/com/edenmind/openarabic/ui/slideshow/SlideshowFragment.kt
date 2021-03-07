@@ -1,4 +1,4 @@
-package com.edemind.openarabic.ui.slideshow
+package com.edenmind.openarabic.ui.slideshow
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.edemind.openarabic.R
+import com.edenmind.openarabic.R
 
 class SlideshowFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class SlideshowFragment : Fragment() {
                 ViewModelProvider(this).get(SlideshowViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
         val textView: TextView = root.findViewById(R.id.text_slideshow)
-        slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
+        slideshowViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
         return root

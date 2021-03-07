@@ -1,4 +1,4 @@
-package com.edemind.openarabic.ui.gallery
+package com.edenmind.openarabic.ui.gallery
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

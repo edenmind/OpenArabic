@@ -1,13 +1,24 @@
-package com.edemind.openarabic.ui.home
+package com.edenmind.openarabic.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.edenmind.openarabic.models.Category
+import com.edenmind.openarabic.repositories.CategoryRepository
+import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(
+        savedStateHandle: SavedStateHandle, categoryRepository: CategoryRepository
+) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    val userId : String = savedStateHandle["uid"] ?: throw IllegalArgumentException("missing user id")
+
+    private val _category = MutableLiveData<Category>()
+    val category : LiveData<Category> = _category
+
+    init {
+        viewModelScope.launch {
+            _category.value = categoryRepository.getCategory(userId)
+        }
     }
-    val text: LiveData<String> = _text
+
+    val text = "This is a string"
 }

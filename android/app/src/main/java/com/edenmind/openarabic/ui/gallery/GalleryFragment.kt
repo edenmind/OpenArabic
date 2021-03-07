@@ -1,4 +1,4 @@
-package com.edemind.openarabic.ui.gallery
+package com.edenmind.openarabic.ui.gallery
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.edemind.openarabic.R
+import com.edenmind.openarabic.R
 
 class GalleryFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class GalleryFragment : Fragment() {
                 ViewModelProvider(this).get(GalleryViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_gallery, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+        galleryViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
         return root
