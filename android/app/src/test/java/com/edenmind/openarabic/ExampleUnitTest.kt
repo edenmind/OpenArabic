@@ -1,4 +1,4 @@
-package com.example.openarabic
+package com.edemind.openarabic
 
 import org.junit.Test
 
