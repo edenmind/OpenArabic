@@ -1,4 +1,8 @@
 package com.edenmind.openarabic
 
-class OpenArabic {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class OpenArabic : Application() {
 }
