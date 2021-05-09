@@ -80,7 +80,7 @@ resource "azurerm_mariadb_database" "islamse" {
 resource "azurerm_sql_server" "edenmind-sql-server" {
   name                         = "${var.prefix}-sql-server"
   resource_group_name          = azurerm_resource_group.edenmind-rg.name
-  location                     = ""
+  location                     = var.location
   version                      = "12.0"
   administrator_login          = var.azuresql_username
   administrator_login_password = var.azuresql_password

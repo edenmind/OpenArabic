@@ -28,9 +28,4 @@ k8s/jobs/backup.yaml
 .idea/.idea.OpenArabic.dir/.idea/contentModel.xml
 terraform/sensitive.tfvars
 terraform/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.58.0/darwin_amd64/terraform-provider-azurerm_v2.58.0_x5
-terraform/.terraform.lock.hcl
-android/.idea/codeStyles/codeStyleConfig.xml
-android/.idea/codeStyles/Project.xml
-android/.idea/compiler.xml
-android/.idea/misc.xml
-android/.idea/runConfigurations.xml
+android/.idea/*
