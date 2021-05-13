@@ -1,6 +1,5 @@
 provider "azurerm" {
   features {}
-  version = "~>2.0"
 }
 locals {
   common_tags = {
@@ -28,23 +27,23 @@ resource "azurerm_subnet" "edenmind-snet" {
 }
 
 resource "azurerm_kubernetes_cluster" "edenmind-aks" {
-  automatic_channel_upgrade = "rapid"
-  name                      = "${var.prefix}-aks"
-  location                  = azurerm_resource_group.edenmind-rg.location
-  resource_group_name       = azurerm_resource_group.edenmind-rg.name
-  node_resource_group       = "${var.prefix}-aks-nodes"
-  dns_prefix                = "dns-${var.prefix}"
-  private_cluster_enabled   = false
-  kubernetes_version        = "1.20.5"
-  tags                      = local.common_tags
+  name                    = "${var.prefix}-aks"
+  location                = azurerm_resource_group.edenmind-rg.location
+  resource_group_name     = azurerm_resource_group.edenmind-rg.name
+  node_resource_group     = "${var.prefix}-aks-nodes"
+  dns_prefix              = "${var.prefix}-dns"
+  private_cluster_enabled = false
+  kubernetes_version      = "1.20.5"
+  tags                    = local.common_tags
 
   default_node_pool {
-    name                 = "linux-01"
+    name                 = "linux01"
     node_count           = 1
     vm_size              = "Standard_B2ms"
     vnet_subnet_id       = azurerm_subnet.edenmind-snet.id
     orchestrator_version = "1.20.5"
     os_disk_size_gb      = 30
+    tags                 = local.common_tags
   }
 
   identity {
@@ -58,7 +57,7 @@ resource "azurerm_kubernetes_cluster" "edenmind-aks" {
   }
 }
 
-resource "azurerm_mariadb_server" "edenmind-mariadb" {
+resource "azurerm_mariadb_server" "edenmind-mariadb-server" {
   name                = "${var.prefix}-mariadb-server"
   location            = azurerm_resource_group.edenmind-rg.location
   resource_group_name = azurerm_resource_group.edenmind-rg.name
@@ -68,24 +67,16 @@ resource "azurerm_mariadb_server" "edenmind-mariadb" {
 
   sku_name   = "B_Gen5_1"
   storage_mb = 5120
-  version    = "10.2"
-  tags       = local.common_tags
+  version    = "10.3"
 
   auto_grow_enabled             = true
   backup_retention_days         = 7
   geo_redundant_backup_enabled  = false
-  public_network_access_enabled = false
+  public_network_access_enabled = true
   ssl_enforcement_enabled       = true
-}
 
-resource "azurerm_mariadb_database" "islamse" {
-  name                = "islamse"
-  resource_group_name = azurerm_resource_group.edenmind-rg.name
-  server_name         = azurerm_mariadb_server.edenmind-mariadb.name
-  charset             = "utf8"
-  collation           = "utf8_general_ci"
+  tags = local.common_tags
 }
-
 resource "azurerm_sql_server" "edenmind-sql-server" {
   name                         = "${var.prefix}-sql-server"
   resource_group_name          = azurerm_resource_group.edenmind-rg.name
@@ -96,10 +87,18 @@ resource "azurerm_sql_server" "edenmind-sql-server" {
   tags                         = local.common_tags
 }
 
-resource "azurerm_sql_database" "openarabic" {
-  name                = "openarabic"
-  resource_group_name = azurerm_resource_group.edenmind-rg.name
-  location            = var.location
-  server_name         = azurerm_sql_server.edenmind-sql-server.name
-  edition             = "Basic"
+resource "azurerm_storage_account" "edenmind-storage-account" {
+  name                     = "${var.prefix}storageaccount"
+  resource_group_name      = azurerm_resource_group.edenmind-rg.name
+  location                 = azurerm_resource_group.edenmind-rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+
+  tags = local.common_tags
+}
+
+resource "azurerm_storage_container" "edenmind-storage-container" {
+  name                  = "${var.prefix}-storage-container"
+  storage_account_name  = azurerm_storage_account.edenmind-storage-account.name
+  container_access_type = "private"
 }
