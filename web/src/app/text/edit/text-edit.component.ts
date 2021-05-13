@@ -195,7 +195,11 @@ export class TextEditComponent implements OnInit, OnChanges {
   }
 
   private addText(): void {
-    this.authService.user$.subscribe((u) => (this.textEditModel.text.editor = u.email));
+
+    // TODO: Fix when Auth0 is updated.
+    //this.authService.user$.subscribe((u) => (this.textEditModel.text.editor = u.email));
+    this.authService.user$.subscribe(() => (this.textEditModel.text.editor = "yunus@edenmind.com"));
+
     this.textService.addText(this.textEditModel.text).subscribe((text) => {
       this.textEditModel.text = text;
       const addSuccessMessage = `The text has been added with id: ${this.textEditModel.text.textId}.`;
