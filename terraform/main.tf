@@ -1,7 +1,13 @@
 provider "azurerm" {
   features {}
+  version = "~>2.0"
 }
-
+locals {
+  common_tags = {
+    Environment = "Production"
+    DeployedBy  = "Terraform"
+  }
+}
 resource "azurerm_resource_group" "edenmind-rg" {
   name     = "${var.prefix}-rg"
   location = var.location
@@ -30,6 +36,7 @@ resource "azurerm_kubernetes_cluster" "edenmind-aks" {
   dns_prefix                = "dns-${var.prefix}"
   private_cluster_enabled   = false
   kubernetes_version        = "1.20.5"
+  tags                      = local.common_tags
 
   default_node_pool {
     name                 = "linux-01"
@@ -37,6 +44,7 @@ resource "azurerm_kubernetes_cluster" "edenmind-aks" {
     vm_size              = "Standard_B2ms"
     vnet_subnet_id       = azurerm_subnet.edenmind-snet.id
     orchestrator_version = "1.20.5"
+    os_disk_size_gb      = 30
   }
 
   identity {
@@ -61,6 +69,7 @@ resource "azurerm_mariadb_server" "edenmind-mariadb" {
   sku_name   = "B_Gen5_1"
   storage_mb = 5120
   version    = "10.2"
+  tags       = local.common_tags
 
   auto_grow_enabled             = true
   backup_retention_days         = 7
@@ -84,6 +93,7 @@ resource "azurerm_sql_server" "edenmind-sql-server" {
   version                      = "12.0"
   administrator_login          = var.azuresql_username
   administrator_login_password = var.azuresql_password
+  tags                         = local.common_tags
 }
 
 resource "azurerm_sql_database" "openarabic" {
