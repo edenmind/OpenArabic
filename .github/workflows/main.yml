@@ -2,7 +2,7 @@ name: Build, Push and Deploy
 
 env:
   REGISTRY_NAME: docker.io/therealedenmind
-  CLUSTER_NAME: edenmind-aks
+  CLUSTER_NAME: edenmind-k8s
   CLUSTER_RESOURCE_GROUP: edenmind-rg
 
 on:
