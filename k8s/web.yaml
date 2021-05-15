@@ -72,7 +72,7 @@ metadata:
   namespace: openarabic
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
     - host: openarabic.io
