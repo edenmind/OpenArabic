@@ -101,5 +101,4 @@ jobs:
           manifests: |
             ./k8s/web.yaml
             ./k8s/api.yaml
-            ./k8s/database.yaml
             ./k8s/tashkeel.yaml

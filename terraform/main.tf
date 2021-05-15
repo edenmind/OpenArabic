@@ -1,6 +1,12 @@
 provider "azurerm" {
   features {}
 }
+
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"
+  }
+}
 locals {
   common_tags = {
     Environment = "Production"
@@ -26,15 +32,21 @@ resource "azurerm_subnet" "edenmind-snet" {
   virtual_network_name = azurerm_virtual_network.edenmind-vnet.name
 }
 
-resource "azurerm_kubernetes_cluster" "edenmind-aks" {
-  name                    = "${var.prefix}-aks"
-  location                = azurerm_resource_group.edenmind-rg.location
-  resource_group_name     = azurerm_resource_group.edenmind-rg.name
-  node_resource_group     = "${var.prefix}-aks-nodes"
-  dns_prefix              = "${var.prefix}-dns"
-  private_cluster_enabled = false
-  kubernetes_version      = "1.20.5"
-  tags                    = local.common_tags
+resource "azurerm_kubernetes_cluster" "edenmind-k8s" {
+  name                      = "${var.prefix}-k8s"
+  location                  = azurerm_resource_group.edenmind-rg.location
+  resource_group_name       = azurerm_resource_group.edenmind-rg.name
+  node_resource_group       = "${var.prefix}-k8s-resources"
+  dns_prefix                = "${var.prefix}-k8s-dns"
+  private_cluster_enabled   = false
+  kubernetes_version        = "1.20.5"
+  automatic_channel_upgrade = "patch"
+
+  role_based_access_control {
+    enabled = true
+  }
+
+  tags = local.common_tags
 
   default_node_pool {
     name                 = "linux01"
@@ -42,8 +54,9 @@ resource "azurerm_kubernetes_cluster" "edenmind-aks" {
     vm_size              = "Standard_B2ms"
     vnet_subnet_id       = azurerm_subnet.edenmind-snet.id
     orchestrator_version = "1.20.5"
-    os_disk_size_gb      = 30
-    tags                 = local.common_tags
+    os_disk_size_gb      = 100
+
+    tags = local.common_tags
   }
 
   identity {
@@ -53,7 +66,10 @@ resource "azurerm_kubernetes_cluster" "edenmind-aks" {
   network_profile {
     network_plugin    = "azure"
     network_policy    = "azure"
-    load_balancer_sku = "basic"
+    load_balancer_sku = "standard"
+    load_balancer_profile {
+      managed_outbound_ip_count = 1
+    }
   }
 }
 
@@ -73,7 +89,7 @@ resource "azurerm_mariadb_server" "edenmind-mariadb-server" {
   backup_retention_days         = 7
   geo_redundant_backup_enabled  = false
   public_network_access_enabled = true
-  ssl_enforcement_enabled       = true
+  ssl_enforcement_enabled       = false
 
   tags = local.common_tags
 }
@@ -101,4 +117,25 @@ resource "azurerm_storage_container" "edenmind-storage-container" {
   name                  = "${var.prefix}-storage-container"
   storage_account_name  = azurerm_storage_account.edenmind-storage-account.name
   container_access_type = "private"
+}
+
+
+resource "helm_release" "traefik-release" {
+  name = "traefik"
+
+  repository       = "https://helm.traefik.io/traefik"
+  chart            = "traefik"
+  atomic           = true
+  cleanup_on_fail  = true
+  create_namespace = true
+  namespace        = "traefik"
+  reset_values     = true
+  set {
+    name  = "additionalArguments"
+    value = "{--metrics.prometheus=true}"
+  }
+  set {
+    name  = "service.type"
+    value = "LoadBalancer"
+  }
 }
