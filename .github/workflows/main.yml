@@ -63,6 +63,7 @@ jobs:
         with:
           secret-type: generic
           secret-name: api-credentials
+          namespace: openarabic
           arguments: |
             --from-literal=ASPNETCORE_AUTHORITY=${{ secrets.ASPNETCORE_AUTHORITY }}
             --from-literal=ASPNETCORE_AUDIENCE=${{ secrets.ASPNETCORE_AUDIENCE }}
@@ -70,14 +71,6 @@ jobs:
             --from-literal=ASPNETCORE_SENDGRID_KEY=${{ secrets.ASPNETCORE_SENDGRID_KEY }}   
             --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
             --from-literal=ASPNETCORE_TASHKEEL_SERVICE_URL="${{ secrets.ASPNETCORE_TASHKEEL_SERVICE_URL }}"
-
-      - name: Create secret in Kubernetes cluster for database
-        uses: Azure/k8s-create-secret@v1.1
-        with:
-          secret-type: generic
-          secret-name: database-credentials
-          arguments: |
-            --from-literal=SA_PASSWORD=${{ secrets.SA_PASSWORD }}
 
       - name: Replace SHA tag for containers
         uses: cschleiden/replace-tokens@v1
