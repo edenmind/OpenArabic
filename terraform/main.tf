@@ -125,17 +125,10 @@ resource "helm_release" "traefik-release" {
 
   repository       = "https://helm.traefik.io/traefik"
   chart            = "traefik"
-  atomic           = true
-  cleanup_on_fail  = true
   create_namespace = true
   namespace        = "traefik"
-  reset_values     = true
   set {
     name  = "additionalArguments"
-    value = "{--metrics.prometheus=true}"
-  }
-  set {
-    name  = "service.type"
-    value = "LoadBalancer"
+    value = "{--metrics.prometheus=true,--log.level=DEBUG,--serversTransport.insecureSkipVerify=true,--log,--accesslog}"
   }
 }

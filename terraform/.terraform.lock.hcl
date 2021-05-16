@@ -4,6 +4,7 @@
 provider "registry.terraform.io/hashicorp/azurerm" {
   version = "2.58.0"
   hashes = [
+    "h1:HArfQZjjFL4pMpQt9iqhzo4dg9h6uhYCZqRGO1qjihg=",
     "h1:aa08YhdrH00zPiwfAlYXjlqNhUKMSBTzWUHq264+CrU=",
     "zh:0805f532ea1bae43592110622f4b0ad5e4881aa917a5c169ff53b756cfb1b3d8",
     "zh:0e4c8816a261052113b2081325eefccedfdea19cd42ccaa60bedabaf96ccdc72",
@@ -23,6 +24,7 @@ provider "registry.terraform.io/hashicorp/helm" {
   version = "2.1.2"
   hashes = [
     "h1:UVuNjmuEM4ZVtItbh1QRGulkBWxDY929roxFQhEf9Ks=",
+    "h1:XqdIlWI4TwCr2ogvKAdGNhEKLL5jeGhpMQsAvTRWIao=",
     "zh:09bd2b6f33a040c3fd59d82c9768b886b8c82163e31ec92dc1b747229d0548df",
     "zh:09f209fa57ad5d01f04c458f1719b42958ca5e0fc2eca63d9ec29f92c77a29f8",
     "zh:0bfc627539500ffb2a41a2f8a5ea7f6fb1d76367b11bbf9489b483b9e8dfff8f",

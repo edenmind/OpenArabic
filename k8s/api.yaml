@@ -94,23 +94,21 @@ spec:
   selector:
     app: api
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
   name: api
   namespace: openarabic
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-    kubernetes.io/ingress.class: traefik
+
 spec:
-  rules:
-    - host: api.openarabic.io
-      http:
-        paths:
-          - path: /(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: api
-                port:
-                  number: 5001
+  routes:
+    - kind: Rule
+      match: Host(`api.openarabic.io`)
+      services:
+        - kind: Service
+          name: api
+          namespace: openarabic
+          passHostHeader: true
+          responseForwarding:
+            flushInterval: 1ms
+          port: 5001
