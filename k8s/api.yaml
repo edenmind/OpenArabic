@@ -99,7 +99,6 @@ kind: IngressRoute
 metadata:
   name: api
   namespace: openarabic
-
 spec:
   routes:
     - kind: Rule

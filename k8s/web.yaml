@@ -70,7 +70,6 @@ kind: IngressRoute
 metadata:
   name: frontend
   namespace: openarabic
-
 spec:
   routes:
     - kind: Rule
