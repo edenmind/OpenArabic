@@ -21,7 +21,7 @@
     "@angular/forms": "^12.0.0",
     "@angular/material": "^12.0.0",
     "@angular/platform-browser": "^12.0.0",
-    "@angular/platform-browser-dynamic": "^12.0.0",
+    "@angular/platform-browser-dynamic": "^12.2.4",
     "@angular/router": "^12.0.0",
     "@auth0/auth0-angular": "^1.5.0",
     "figgy-pudding": "^3.5.2",
