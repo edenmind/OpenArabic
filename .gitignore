@@ -30,3 +30,7 @@ terraform/sensitive.tfvars
 terraform/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.58.0/darwin_amd64/terraform-provider-azurerm_v2.58.0_x5
 android/.idea/*
 k8s/web.yaml
+reactnative/node_modules
+.DS_Store
+*.icloud
+*.icloud
