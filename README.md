@@ -4,9 +4,9 @@
 
 ## To start developing OpenArabic.io
 
-Bein with cloning the the repository. The web frontend is a standard Angular project that can be found in /web. The backend API is a standard .NET 5 project that can be found in /api.
+Begin with cloning the the repository. The web frontend is a standard Angular project that can be found in /web. The backend API is a standard .NET 5 project that can be found in /api.
 
-A Docker-compose file is provided in the root of the repository that will build the Dockerfiles for thw web frontend, the backend api and start an MS SQL database.
+A Docker-compose file is provided in the root of the repository that will build the Dockerfile for thw web frontend, the backend api and start an MS SQL database.
 
 ## Technologies
 
@@ -14,9 +14,9 @@ OpenArabic.io is built using some of the latest languages and technologies such 
 
 ## Help wanted
 
-If you have skills in any of theese techonolgies and has an interest in helping taking OpenArabic.io further, then please join as a contributor.
+If you have skills in any of these technologies and has an interest in helping taking OpenArabic.io further, then please join as a contributor.
 
-## Infratrustructure
+## Infrastructure
 
 The heart of the infrastructure is the microservice mesh providing language services (tashkeel, text-to-speech, lemmaization) to the backend API serving the front end clients.
 
