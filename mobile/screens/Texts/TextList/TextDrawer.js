@@ -7,33 +7,18 @@ import axios from "axios";
 const Drawer = createDrawerNavigator();
 
 export function TextDrawer() {
-  const [categories, setCategories] = useState([
-    { categroyId: 0, name: "Adab" },
-  ]);
-
-  useEffect(() => {
-    axios
-      .get("https://api.openarabic.io/api/categories")
-      .then(function (response) {
-        setCategories(response.data);
-      });
-  }, [categoryItems]);
-
+  const [categories, setCategories] = useState([{ categoryId: 0, name: "Adab" }]);
   const categoryItems = categories.map((category) => (
-    <Drawer.Screen
-      name={category.name}
-      component={TextListScreen}
-      initialParams={{ category: category.name }}
-      options={{ title: category.name }}
-      key={category.name}
-    />
+    <Drawer.Screen name={category.name} component={TextListScreen} initialParams={{ category: category.name }} options={{ title: category.name }} key={category.name} />
   ));
 
-  return (
-    <Drawer.Navigator initialRouteName="Texts">
-      {categoryItems}
-    </Drawer.Navigator>
-  );
+  useEffect(() => {
+    axios.get("https://api.openarabic.io/api/categories").then(function (response) {
+      setCategories(response.data);
+    });
+  }, [categoryItems]);
+
+  return <Drawer.Navigator initialRouteName="Texts">{categoryItems}</Drawer.Navigator>;
 }
 
 export const style = StyleSheet.create({
