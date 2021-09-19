@@ -15,14 +15,7 @@ export function TextScreen({ route }) {
     { name: "English", component: TextEnglish },
   ];
 
-  const screens = screenArray.map((screen) => (
-    <Tab.Screen
-      name={screen.name}
-      component={screen.component}
-      initialParams={{ textId: textId }}
-      key={screen.name}
-    />
-  ));
+  const screens = screenArray.map((screen) => <Tab.Screen name={screen.name} component={screen.component} initialParams={{ textId: textId }} key={screen.name} />);
 
   return <Tab.Navigator>{screens}</Tab.Navigator>;
 }

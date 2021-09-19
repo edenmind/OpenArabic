@@ -19,10 +19,8 @@ export default function App() {
             name="Text"
             component={TextNavigator}
             options={{
-              tabBarLabel: "Texts",
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="text" color={color} size={26} />
-              ),
+              tabBarLabel: "Home",
+              tabBarIcon: ({ color }) => <MaterialCommunityIcons name="text" color={color} size={26} />,
             }}
           />
           <Tab.Screen
@@ -30,13 +28,7 @@ export default function App() {
             component={SettingsScreen}
             options={{
               tabBarLabel: "Settings",
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons
-                  name="cog-outline"
-                  color={color}
-                  size={26}
-                />
-              ),
+              tabBarIcon: ({ color }) => <MaterialCommunityIcons name="cog-outline" color={color} size={26} />,
             }}
           />
         </Tab.Navigator>

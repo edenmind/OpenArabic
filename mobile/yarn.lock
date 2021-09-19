@@ -1605,6 +1605,14 @@
     color "^3.1.3"
     warn-once "^0.1.0"
 
+"@react-navigation/native-stack@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.1.0.tgz#32e50d07bc8d9669d65f72dc4ffec2a6cc9ef379"
+  integrity sha512-ta8JQ9n6e7pxrXJ9/MYH57g0xhlV8rzGvQtni6KvBdWqqk0M5QDqIXaUkzXp2wvLMZp7LQmnD4FI/TGG2mQOKA==
+  dependencies:
+    "@react-navigation/elements" "^1.1.0"
+    warn-once "^0.1.0"
+
 "@react-navigation/native@^6.0.2":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.0.2.tgz#6bdb3cfafb6a9cfb603c1555dd61faafca35b7c2"

@@ -9,7 +9,7 @@ const Drawer = createDrawerNavigator();
 export function TextDrawer() {
   const [categories, setCategories] = useState([{ categoryId: 0, name: "Adab" }]);
   const categoryItems = categories.map((category) => (
-    <Drawer.Screen name={category.name} component={TextListScreen} initialParams={{ category: category.name }} options={{ title: category.name }} key={category.name} />
+    <Drawer.Screen name={category.name} component={TextListScreen} initialParams={{ category: category.name }} options={{ title: category.name, headerShown: true }} key={category.name} />
   ));
 
   useEffect(() => {
