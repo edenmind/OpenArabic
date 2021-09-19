@@ -20,14 +20,15 @@ export function TextListScreen({ route, navigation }) {
           })
         }
       >
-        <Card.Title title={text.title} subtitle={text.author} left={LeftContent} />
         <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
+        <Card.Title title={text.title} subtitle={`${text.author} (${text.readTime})`} left={LeftContent} />
         <Card.Content>
-          <Paragraph>{utility.truncate(`${text.englishText}`, 155)}</Paragraph>
+          <Paragraph>{utility.removeLinebreak(utility.truncate(`${text.englishText}`, 155))}</Paragraph>
+          <Paragraph style={style.arabic}>{utility.removeLinebreak(utility.truncate(`${text.arabicText}`, 125))}</Paragraph>
         </Card.Content>
         <Card.Actions>
-          <Button>Cancel</Button>
-          <Button>Ok</Button>
+          <Button>Share</Button>
+          <Button>Like</Button>
         </Card.Actions>
       </Card>
       <Divider />
@@ -63,5 +64,12 @@ export const style = StyleSheet.create({
     marginBottom: 5,
     marginLeft: 10,
     marginRight: 10,
+  },
+
+  arabic: {
+    fontSize: 21,
+    direction: "rtl",
+    lineHeight: 30,
+    writingDirection: "rtl",
   },
 });

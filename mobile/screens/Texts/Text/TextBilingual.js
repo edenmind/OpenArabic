@@ -25,7 +25,7 @@ export default function TextBilingual({ route }) {
       </ScrollView>
     );
   } else {
-    return <ActivityIndicator animating={true} color={Colors.red800} style={style.container} />;
+    return <ActivityIndicator animating={true} size={"large"} color={Colors.red800} style={style.container} />;
   }
 }
 
