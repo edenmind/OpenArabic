@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import React, { useState, useEffect } from "react";
-import { ScrollView } from "react-native";
-import { Title, Subheading, Paragraph } from "react-native-paper";
+import { ScrollView, StyleSheet } from "react-native";
+import { Title, Subheading, Paragraph, ActivityIndicator, Colors } from "react-native-paper";
 import * as api from "../../../services/ApiService";
 
 export default function TextBilingual({ route }) {
@@ -10,20 +10,29 @@ export default function TextBilingual({ route }) {
 
   useEffect(() => {
     async function fetchData() {
-      console.log(textId);
       const textFromApi = await api.getText(textId);
       setText(textFromApi);
     }
     fetchData();
-
-    console.log("This is the text we got!" + text);
   }, [textId]);
 
-  return (
-    <ScrollView>
-      <Title>{text.title}</Title>
-      <Subheading>{text.author}</Subheading>
-      <Paragraph>{text.englishText}</Paragraph>
-    </ScrollView>
-  );
+  if (text.title) {
+    return (
+      <ScrollView>
+        <Title>{text.title}</Title>
+        <Subheading>{text.author}</Subheading>
+        <Paragraph>{text.englishText}</Paragraph>
+      </ScrollView>
+    );
+  } else {
+    return <ActivityIndicator animating={true} color={Colors.red800} style={style.container} />;
+  }
 }
+
+export const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
