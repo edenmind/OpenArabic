@@ -1,21 +1,33 @@
-import React from "react";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import TextBilingual from "./TextBilingual";
-import TextEnglish from "./TextEnglish";
-import TextArabic from "./TextArabic";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import TextBilingual from './TextBilingual';
+import TextEnglish from './TextEnglish';
+import TextArabic from './TextArabic';
 
-const Tab = createMaterialTopTabNavigator();
+export default function TextScreen({ route }) {
+  const Tab = createMaterialTopTabNavigator();
 
-export function TextScreen({ route }) {
   const { textId } = route.params;
 
   const screenArray = [
-    { name: "Bilingual", component: TextBilingual },
-    { name: "Arabic", component: TextArabic },
-    { name: "English", component: TextEnglish },
+    { name: 'Bilingual', component: TextBilingual },
+    { name: 'Arabic', component: TextArabic },
+    { name: 'English', component: TextEnglish },
   ];
 
-  const screens = screenArray.map((screen) => <Tab.Screen name={screen.name} component={screen.component} initialParams={{ textId: textId }} key={screen.name} />);
+  const screens = screenArray.map((screen) => (
+    <Tab.Screen
+      name={screen.name}
+      component={screen.component}
+      initialParams={{ textId }}
+      key={screen.name}
+    />
+  ));
 
   return <Tab.Navigator>{screens}</Tab.Navigator>;
 }
+
+TextScreen.propTypes = {
+  route: PropTypes.string.isRequired,
+};

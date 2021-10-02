@@ -1,12 +1,10 @@
-import "react-native-gesture-handler";
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { StyleSheet } from "react-native";
-import { Provider as PaperProvider } from "react-native-paper";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import TextNavigator from "./screens/Texts/TextNavigator";
-import { SettingsScreen } from "./screens/Settings/Settings";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import TextNavigator from './screens/Texts/TextNavigator';
+import Settings from './screens/Settings/Settings';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -19,16 +17,24 @@ export default function App() {
             name="Text"
             component={TextNavigator}
             options={{
-              tabBarLabel: "Home",
-              tabBarIcon: ({ color }) => <MaterialCommunityIcons name="text" color={color} size={26} />,
+              tabBarLabel: 'Home',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="text" color={color} size={26} />
+              ),
             }}
           />
           <Tab.Screen
             name="Settings"
-            component={SettingsScreen}
+            component={Settings}
             options={{
-              tabBarLabel: "Settings",
-              tabBarIcon: ({ color }) => <MaterialCommunityIcons name="cog-outline" color={color} size={26} />,
+              tabBarLabel: 'Settings',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons
+                  name="cog-outline"
+                  color={color}
+                  size={26}
+                />
+              ),
             }}
           />
         </Tab.Navigator>
@@ -36,11 +42,3 @@ export default function App() {
     </PaperProvider>
   );
 }
-
-export const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

@@ -1,13 +1,14 @@
-import React from "react";
-import { View } from "react-native";
-import { Title, Subheading, Paragraph } from "react-native-paper";
+import React from 'react';
+import { View } from 'react-native';
+import { Title, Subheading, Paragraph } from 'react-native-paper';
 
-export function SettingsScreen({ route }) {
+export default function Settings() {
+  const FILLER = 'Filler';
   return (
     <View>
-      <Title>The Title</Title>
-      <Subheading>Subheading</Subheading>
-      <Paragraph>Paragraph</Paragraph>
+      <Title>{FILLER}</Title>
+      <Subheading>{FILLER}</Subheading>
+      <Paragraph>{FILLER}</Paragraph>
     </View>
   );
 }

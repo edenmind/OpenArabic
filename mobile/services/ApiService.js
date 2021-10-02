@@ -1,34 +1,42 @@
-import axios from "axios";
+import axios from 'axios';
 
-const instance = axios.create({
-  baseURL: "https://api.openarabic.io/api/",
-});
+export const BASE_URL = 'https://api.openarabic.io/api/';
 
-const textEndpoint = "/texts";
+const textEndpoint = 'texts';
+const categoryEndpoint = 'categories';
 
-const getTexts = async (category, pageSize, pageNumber) => {
+export const getTexts = async (category, pageSize, pageNumber) => {
   try {
-    const result = await instance.get(textEndpoint, {
+    const result = await axios.get(`${BASE_URL}${textEndpoint}`, {
       params: {
-        category: category,
-        pageSize: pageSize,
-        pageNumber: pageNumber,
+        category,
+        pageSize,
+        pageNumber,
       },
     });
+    console.log('log2: ' + `${BASE_URL}${textEndpoint}`);
     return result.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
-const getText = async (id) => {
+export const getText = async (id) => {
   try {
-    const result = await instance.get(`${textEndpoint}/${id}`);
-    console.log("text: " + result.data);
+    const result = await axios.get(`${BASE_URL}${textEndpoint}/${id}`);
+    console.log('log3: ' + `${BASE_URL}${textEndpoint}/${id}`);
     return result.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
-export { getTexts, getText };
+export const getCategories = async () => {
+  try {
+    const result = await axios.get(`${BASE_URL}${categoryEndpoint}`);
+    console.log('log1: ' + `${BASE_URL}${categoryEndpoint}`);
+    return result.data;
+  } catch (error) {
+    return error;
+  }
+};

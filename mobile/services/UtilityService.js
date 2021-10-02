@@ -1,11 +1,14 @@
-const truncate = (stringToTruncate, truncateLength) => {
-  const cln = stringToTruncate.replace(" \n", "");
-  return cln.length > truncateLength ? cln.substr(0, truncateLength - 1) + "..." : cln;
+export const truncate = (stringToTruncate, truncateLength) => {
+  const cleanString = stringToTruncate.replace(' \n', '');
+  return cleanString.length > truncateLength
+    ? `${cleanString.substr(0, truncateLength - 1)}...`
+    : cleanString;
 };
 
-const removeLinebreak = (stringWithLineBreaks) => {
-  var stringWithoutLineBreaks = stringWithLineBreaks.replace(/(\r\n|\n|\r)/gm, "");
+export const removeLineBreak = (stringWithLineBreaks) => {
+  const stringWithoutLineBreaks = stringWithLineBreaks.replace(
+    /(\r\n|\n|\r)/gm,
+    '',
+  );
   return stringWithoutLineBreaks;
 };
-
-export { truncate, removeLinebreak };

@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "paper",
-    "slug": "paper",
-    "version": "1.0.0",
+    "name": "OpenArabic",
+    "slug": "OpenArabic",
+    "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -13,9 +13,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
