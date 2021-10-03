@@ -13,6 +13,7 @@ import TextCard from './TextCard';
 export function TextList({ route, navigation }) {
   const { category } = route.params;
 
+  // @ts-ignore
   const { texts } = useSelector((state) => state.texts);
   const dispatch = useDispatch();
   const fetchTexts = () => dispatch(api.getTexts(category, 50, 0));
