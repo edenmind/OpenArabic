@@ -6,8 +6,18 @@ const style = StyleSheet.create({
   title: {
     textAlign: 'center',
     paddingTop: 25,
+    fontSize: 25,
   },
-  subHeading: {
+  author: {
+    paddingTop: 25,
+    textAlign: 'center',
+  },
+  source: {
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
+  readTime: {
+    paddingTop: 20,
     textAlign: 'center',
   },
 });
@@ -16,7 +26,9 @@ export default function Heading(props) {
   return (
     <Fragment>
       <Title style={style.title}>{props.heading.title}</Title>
-      <Subheading style={style.subHeading}> {props.heading.author}</Subheading>
+      <Subheading style={style.author}>{props.heading.author}</Subheading>
+      <Subheading style={style.source}>{props.heading.source}</Subheading>
+      <Subheading style={style.readTime}>{props.heading.readTime}</Subheading>
     </Fragment>
   );
 }

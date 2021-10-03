@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Spinner from '../../../components/Spinner';
-import Heading from './Heading';
 export default function TextArabic({}) {
   const style = StyleSheet.create({
     arabic: {
@@ -27,7 +26,6 @@ export default function TextArabic({}) {
   if (text.title) {
     return (
       <ScrollView>
-        <Heading heading={text}></Heading>
         <Paragraph style={style.arabic}>{text.arabicText}</Paragraph>
       </ScrollView>
     );

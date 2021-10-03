@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import { Paragraph } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import Spinner from '../../../components/Spinner';
-import Heading from './Heading';
 export default function TextEnglish({}) {
   const style = StyleSheet.create({
     english: {
@@ -27,7 +26,6 @@ export default function TextEnglish({}) {
   if (text.title) {
     return (
       <ScrollView>
-        <Heading heading={text}></Heading>
         <Paragraph style={style.english}>{text.englishText}</Paragraph>
       </ScrollView>
     );
