@@ -1,17 +1,40 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable import/named */
 /* eslint-disable import/namespace */
 import 'react-native-gesture-handler';
 import React from 'react';
-import { View } from 'react-native';
-import { Title, Subheading, Paragraph } from 'react-native-paper';
+import { ScrollView, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import { Paragraph } from 'react-native-paper';
+import { useSelector } from 'react-redux';
+import Spinner from '../../../components/Spinner';
+import Heading from './Heading';
+export default function TextEnglish({}) {
+  const style = StyleSheet.create({
+    english: {
+      flex: 1,
+      direction: 'ltr',
+      fontSize: 17,
+      lineHeight: 27,
+      writingDirection: 'ltr',
+      padding: 25,
+    },
+  });
 
-export default function TextEnglish() {
-  const FILLER = 'Filler';
-  return (
-    <View>
-      <Title>{FILLER}</Title>
-      <Subheading>{FILLER}</Subheading>
-      <Paragraph>{FILLER}</Paragraph>
-    </View>
-  );
+  // @ts-ignore
+  const { text } = useSelector((state) => state.text);
+
+  if (text.title) {
+    return (
+      <ScrollView>
+        <Heading heading={text}></Heading>
+        <Paragraph style={style.english}>{text.englishText}</Paragraph>
+      </ScrollView>
+    );
+  }
+  return <Spinner />;
 }
+
+TextEnglish.propTypes = {
+  route: PropTypes.any.isRequired,
+};

@@ -1,26 +1,27 @@
 /* eslint-disable import/named */
 /* eslint-disable import/namespace */
 /* eslint-disable react/forbid-prop-types */
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, StyleSheet } from 'react-native';
-import {
-  Avatar,
-  Button,
-  Card,
-  Paragraph,
-  Divider,
-  ActivityIndicator,
-  Colors,
-} from 'react-native-paper';
+import { Avatar, Button, Card, Paragraph, Divider } from 'react-native-paper';
 import * as utility from '../../../services/UtilityService';
 import * as api from '../../../services/ApiService';
+import { useDispatch, useSelector } from 'react-redux';
+import Spinner from '../../../components/Spinner';
 
 export function TextListScreen({ route, navigation }) {
   const { category } = route.params;
-  const [texts, setTexts] = useState([{ textId: 0, name: 'Adab' }]);
   const SHARE = 'Share';
   const LIKE = 'Like';
+
+  const { texts } = useSelector((state) => state.texts);
+  const dispatch = useDispatch();
+  const fetchTexts = () => dispatch(api.getTexts(category, 7, 0));
+
+  useEffect(() => {
+    fetchTexts();
+  });
 
   const style = StyleSheet.create({
     arabic: {
@@ -29,18 +30,11 @@ export function TextListScreen({ route, navigation }) {
       lineHeight: 30,
       writingDirection: 'rtl',
     },
-
     card: {
       marginBottom: 5,
       marginLeft: 10,
       marginRight: 10,
       marginTop: 5,
-    },
-
-    container: {
-      alignItems: 'center',
-      flex: 1,
-      justifyContent: 'center',
     },
   });
 
@@ -85,26 +79,10 @@ export function TextListScreen({ route, navigation }) {
     </Fragment>
   ));
 
-  useEffect(() => {
-    async function fetchData() {
-      const pageSize = 7;
-      const pageNumber = 0;
-      const result = await api.getTexts(category, pageSize, pageNumber);
-      setTexts(result);
-    }
-    fetchData();
-  }, [setTexts]);
-
   if (texts.length > 1) {
     return <ScrollView>{textItems}</ScrollView>;
   }
-  return (
-    <ActivityIndicator
-      animating
-      color={Colors.red800}
-      style={style.container}
-    />
-  );
+  return <Spinner />;
 }
 
 TextListScreen.propTypes = {

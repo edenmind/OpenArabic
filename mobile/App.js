@@ -5,40 +5,44 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TextNavigator from './screens/Texts/TextNavigator';
 import Settings from './screens/Settings/Settings';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
-    <PaperProvider>
-      <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen
-            name="Text"
-            component={TextNavigator}
-            options={{
-              tabBarLabel: 'Home',
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="text" color={color} size={26} />
-              ),
-            }}
-          />
-          <Tab.Screen
-            name="Settings"
-            component={Settings}
-            options={{
-              tabBarLabel: 'Settings',
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons
-                  name="cog-outline"
-                  color={color}
-                  size={26}
-                />
-              ),
-            }}
-          />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
+    <Provider store={store}>
+      <PaperProvider>
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen
+              name="Text"
+              component={TextNavigator}
+              options={{
+                tabBarLabel: 'Home',
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons name="text" color={color} size={26} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Settings"
+              component={Settings}
+              options={{
+                tabBarLabel: 'Settings',
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons
+                    name="cog-outline"
+                    color={color}
+                    size={26}
+                  />
+                ),
+              }}
+            />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
   );
 }

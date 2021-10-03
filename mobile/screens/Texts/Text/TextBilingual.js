@@ -2,53 +2,37 @@
 /* eslint-disable import/named */
 /* eslint-disable import/namespace */
 import 'react-native-gesture-handler';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import {
-  Title,
-  Subheading,
-  Paragraph,
-  ActivityIndicator,
-  Colors,
-} from 'react-native-paper';
-import * as api from '../../../services/ApiService';
-export default function TextBilingual({ route }) {
+import { useSelector } from 'react-redux';
+import Spinner from '../../../components/Spinner';
+import Sentences from './Sentences';
+import Heading from './Heading';
+export default function TextBilingual({}) {
   const style = StyleSheet.create({
-    container: {
-      alignItems: 'center',
+    arabic: {
       flex: 1,
-      justifyContent: 'center',
+      direction: 'rtl',
+      fontSize: 25,
+      lineHeight: 35,
+      writingDirection: 'rtl',
+      padding: 25,
     },
   });
-  const { textId } = route.params;
-  const [text, setText] = useState([{}]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const textFromApi = await api.getText(textId);
-      setText(textFromApi);
-    }
-    fetchData();
-  }, [setText]);
+  // @ts-ignore
+  const { text } = useSelector((state) => state.text);
 
   if (text.title) {
     return (
       <ScrollView>
-        <Title>{text.title}</Title>
-        <Subheading>{text.author}</Subheading>
-        <Paragraph>{text.englishText}</Paragraph>
+        <Heading heading={text}></Heading>
+        <Sentences sentences={text.sentences}></Sentences>
       </ScrollView>
     );
   }
-  return (
-    <ActivityIndicator
-      animating
-      size="large"
-      color={Colors.red800}
-      style={style.container}
-    />
-  );
+  return <Spinner />;
 }
 
 TextBilingual.propTypes = {

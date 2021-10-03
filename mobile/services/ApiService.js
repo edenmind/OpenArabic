@@ -1,42 +1,67 @@
 import axios from 'axios';
+import { GET_CATEGORIES, GET_TEXT, GET_TEXTS } from '../redux/actions';
 
 export const BASE_URL = 'https://api.openarabic.io/api/';
 
 const textEndpoint = 'texts';
 const categoryEndpoint = 'categories';
 
-export const getTexts = async (category, pageSize, pageNumber) => {
+export const getTexts = (category, pageSize, pageNumber) => {
   try {
-    const result = await axios.get(`${BASE_URL}${textEndpoint}`, {
-      params: {
-        category,
-        pageSize,
-        pageNumber,
-      },
-    });
-    console.log('log2: ' + `${BASE_URL}${textEndpoint}`);
-    return result.data;
+    return async (dispatch) => {
+      const res = await axios.get(`${BASE_URL}${textEndpoint}`, {
+        params: {
+          category,
+          pageSize,
+          pageNumber,
+        },
+      });
+      if (res.data) {
+        dispatch({
+          type: GET_TEXTS,
+          payload: res.data,
+        });
+      } else {
+        console.log('Unable to fetch');
+      }
+    };
   } catch (error) {
-    return error;
+    // Add custom logic to handle errors
   }
 };
 
-export const getText = async (id) => {
+export const getCategories = () => {
   try {
-    const result = await axios.get(`${BASE_URL}${textEndpoint}/${id}`);
-    console.log('log3: ' + `${BASE_URL}${textEndpoint}/${id}`);
-    return result.data;
+    return async (dispatch) => {
+      const res = await axios.get(`${BASE_URL}${categoryEndpoint}`);
+      if (res.data) {
+        dispatch({
+          type: GET_CATEGORIES,
+          payload: res.data,
+        });
+      } else {
+        console.log('Unable to fetch');
+      }
+    };
   } catch (error) {
-    return error;
+    // Add custom logic to handle errors
   }
 };
 
-export const getCategories = async () => {
+export const getText = (id) => {
   try {
-    const result = await axios.get(`${BASE_URL}${categoryEndpoint}`);
-    console.log('log1: ' + `${BASE_URL}${categoryEndpoint}`);
-    return result.data;
+    return async (dispatch) => {
+      const res = await axios.get(`${BASE_URL}${textEndpoint}/${id}`);
+      if (res.data) {
+        dispatch({
+          type: GET_TEXT,
+          payload: res.data,
+        });
+      } else {
+        console.log('Unable to fetch');
+      }
+    };
   } catch (error) {
-    return error;
+    // Add custom logic to handle errors
   }
 };

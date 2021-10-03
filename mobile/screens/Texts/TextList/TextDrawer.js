@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { TextListScreen } from './TextListScreen';
-import * as api from '../../../services/ApiService';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategories } from '../../../services/ApiService';
 
 export function TextDrawer() {
   const Drawer = createDrawerNavigator();
-  const [categories, setCategories] = useState([
-    { categoryId: 0, name: 'Adab' },
-  ]);
+
+  // @ts-ignore
+  const { categories } = useSelector((state) => state.categories);
+  const dispatch = useDispatch();
+  const fetchCategories = () => dispatch(getCategories());
 
   const categoryItems = categories.map((category) => (
     <Drawer.Screen
@@ -20,12 +23,8 @@ export function TextDrawer() {
   ));
 
   useEffect(() => {
-    async function fetchData() {
-      const result = await api.getCategories();
-      setCategories(result);
-    }
-    fetchData();
-  }, [setCategories]);
+    fetchCategories();
+  });
 
   return (
     <Drawer.Navigator initialRouteName="Texts">
