@@ -19,6 +19,7 @@ export default function TextScreen({ route }) {
     { name: 'Bilingual', component: TextBilingual },
     { name: 'Arabic', component: TextArabic },
     { name: 'English', component: TextEnglish },
+    { name: 'Quiz', component: TextEnglish },
   ];
 
   useEffect(() => {

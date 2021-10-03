@@ -15,7 +15,7 @@ export default function TextArabic({}) {
       flex: 1,
       direction: 'rtl',
       fontSize: 25,
-      lineHeight: 35,
+      lineHeight: 45,
       writingDirection: 'rtl',
       padding: 25,
     },

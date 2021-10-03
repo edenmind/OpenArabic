@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { TextListScreen } from './TextListScreen';
+import { TextList } from './TextList';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../../services/ApiService';
 
@@ -15,7 +15,7 @@ export function TextDrawer() {
   const categoryItems = categories.map((category) => (
     <Drawer.Screen
       name={category.name}
-      component={TextListScreen}
+      component={TextList}
       initialParams={{ category: category.name }}
       options={{ title: category.name, headerShown: true }}
       key={category.name}

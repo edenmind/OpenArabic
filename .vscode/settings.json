@@ -10,5 +10,7 @@
   "typescript.suggest.completeFunctionCalls": true,
   "prettier.printWidth": 200,
   "mssql.format.alignColumnDefinitionsInColumns": true,
-  "html.format.wrapLineLength": 180
+  "html.format.wrapLineLength": 180,
+  "conventionalCommits.scopes": ["redux"],
+  "cSpell.words": ["Pressable"]
 }
