@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Card, Chip } from 'react-native-paper';
 import React from 'react';
-import { Avatar, Button, Paragraph } from 'react-native-paper';
+import { Avatar, Paragraph } from 'react-native-paper';
 import * as utility from '../../../services/UtilityService';
 
 const style = StyleSheet.create({

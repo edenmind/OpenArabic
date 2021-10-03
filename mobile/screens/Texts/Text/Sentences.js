@@ -11,6 +11,7 @@ const style = StyleSheet.create({
     writingDirection: 'rtl',
     paddingLeft: 15,
     paddingRight: 15,
+    paddingBottom: 10,
     paddingTop: 35,
   },
   english: {

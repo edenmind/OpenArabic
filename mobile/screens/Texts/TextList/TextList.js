@@ -15,7 +15,7 @@ export function TextList({ route, navigation }) {
 
   const { texts } = useSelector((state) => state.texts);
   const dispatch = useDispatch();
-  const fetchTexts = () => dispatch(api.getTexts(category, 7, 0));
+  const fetchTexts = () => dispatch(api.getTexts(category, 50, 0));
 
   useEffect(() => {
     fetchTexts();

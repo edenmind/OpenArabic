@@ -28,6 +28,13 @@ export function TextDrawer() {
 
   return (
     <Drawer.Navigator initialRouteName="Texts">
+      <Drawer.Screen
+        name="OpenArabic"
+        component={TextList}
+        initialParams={{ category: '' }}
+        options={{ title: 'OpenArabic', headerShown: true }}
+        key="OpenArabic"
+      />
       {categoryItems}
     </Drawer.Navigator>
   );
