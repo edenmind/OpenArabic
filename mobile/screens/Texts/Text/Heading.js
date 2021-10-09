@@ -1,23 +1,25 @@
+/* eslint-disable import/namespace */
+/* eslint-disable import/named */
 import { StyleSheet } from 'react-native';
 import { Subheading, Title } from 'react-native-paper';
 import React, { Fragment } from 'react';
 
 const style = StyleSheet.create({
-  title: {
-    textAlign: 'center',
-    paddingTop: 25,
-    fontSize: 25,
-  },
   author: {
     paddingTop: 25,
     textAlign: 'center',
   },
-  source: {
-    textAlign: 'center',
-    fontStyle: 'italic',
-  },
   readTime: {
     paddingTop: 20,
+    textAlign: 'center',
+  },
+  source: {
+    fontStyle: 'italic',
+    textAlign: 'center',
+  },
+  title: {
+    fontSize: 25,
+    paddingTop: 25,
     textAlign: 'center',
   },
 });

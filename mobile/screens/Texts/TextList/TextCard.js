@@ -1,7 +1,8 @@
+/* eslint-disable import/named */
+/* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native';
-import { Card, Chip } from 'react-native-paper';
+import { Card, Chip, Avatar, Paragraph } from 'react-native-paper';
 import React from 'react';
-import { Avatar, Paragraph } from 'react-native-paper';
 import * as utility from '../../../services/UtilityService';
 
 const style = StyleSheet.create({
@@ -18,14 +19,11 @@ const style = StyleSheet.create({
     marginTop: 10,
   },
   chip: {
-    paddingLeft: 15,
     paddingBottom: 20,
+    paddingLeft: 15,
     paddingTop: 20,
   },
 });
-
-const SHARE = 'Share';
-const LIKE = 'Like';
 
 const LeftContent = (props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading

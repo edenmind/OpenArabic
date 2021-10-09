@@ -7,7 +7,6 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -15,14 +14,24 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-native', 'react-hooks', 'prettier'],
+  plugins: [
+    'import',
+    'react',
+    'react-native',
+    'react-hooks',
+    'prettier',
+    'react-redux',
+  ],
   rules: {
     'prettier/prettier': 'error',
   },
   extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
     'plugin:react-native/all',
     'plugin:react-hooks/recommended',
     'plugin:import/errors',
+    'plugin:react-redux/recommended',
     'plugin:import/warnings',
     'plugin:import/recommended',
   ],

@@ -4,19 +4,18 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
 import { Paragraph } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import Spinner from '../../../components/Spinner';
 export default function TextEnglish({}) {
   const style = StyleSheet.create({
     english: {
-      flex: 1,
       direction: 'ltr',
+      flex: 1,
       fontSize: 17,
       lineHeight: 27,
-      writingDirection: 'ltr',
       padding: 25,
+      writingDirection: 'ltr',
     },
   });
 
@@ -32,7 +31,3 @@ export default function TextEnglish({}) {
   }
   return <Spinner />;
 }
-
-TextEnglish.propTypes = {
-  route: PropTypes.any.isRequired,
-};

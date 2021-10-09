@@ -1,3 +1,5 @@
+/* eslint-disable import/namespace */
+/* eslint-disable import/named */
 import { StyleSheet } from 'react-native';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 import React from 'react';
