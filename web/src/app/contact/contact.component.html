@@ -1,0 +1,38 @@
+<div class="grid-container">
+    <h1 class="title">Contact</h1>
+
+    <p class="text">
+        If you find any bugs 🐛 or have any feature suggestions 💭 on how to improve OpenArabic, then please use this contact form <a
+            href="https://github.com/edenmind/OpenArabic/issues" class="simple-link link-color"> or raise 🚀 an issue on
+            Github</a>.
+    </p>
+
+    <form>
+        <div>
+            <mat-form-field style="width:100%; max-width: 500px;">
+                <mat-label>Your Email</mat-label>
+                <input matInput [formControl]="emailFormControl" [(ngModel)]="sender" [errorStateMatcher]="matcher" name="email" type="email" class="carret" />
+
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" style="width:100%; max-width: 500px;">
+                <mat-label>Your Message</mat-label>
+                <textarea matInput Rows="15" name="body" [(ngModel)]="body" class="carret"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <button class="button-margin" mat-raised-button color="primary" matRipple type="submit" (click)="onSubmit()" [disabled]="!isValid()">
+                Submit
+            </button>
+        </div>
+    </form>
+
+</div>

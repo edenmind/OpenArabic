@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tashkeel
+  namespace: openarabic
+  labels:
+    app: tashkeel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tashkeel
+  template:
+    metadata:
+      labels:
+        app: tashkeel
+    spec:
+      containers:
+        - name: tashkeel
+          image: #{TASHKEEL_TAG}#
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 2000m
+            requests:
+              memory: 250Mi
+              cpu: 100m
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5002
+            periodSeconds: 10
+            initialDelaySeconds: 120
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5002
+            initialDelaySeconds: 120
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tashkeel
+  namespace: openarabic
+  labels:
+    app: tashkeel
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 5002
+  selector:
+    app: tashkeel

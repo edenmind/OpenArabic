@@ -1,0 +1,20 @@
+<div *ngIf="language == 'bilingual'">
+    <div class="arabic">
+        <p>{{ sentence.arabic }}</p>
+    </div>
+    <div class="english">
+        <p>{{ sentence.english }}</p>
+    </div>
+</div>
+
+<div *ngIf="language == 'arabic'">
+    <div class="arabic-single">
+        <p>{{ sentence.arabic }}</p>
+    </div>
+</div>
+
+<div *ngIf="language == 'english'">
+    <div class="english-single">
+        <p>{{ sentence.english }}</p>
+    </div>
+</div>

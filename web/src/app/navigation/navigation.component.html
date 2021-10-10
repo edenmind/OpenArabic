@@ -1,0 +1,46 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="false">
+    <mat-toolbar>Categories</mat-toolbar>
+    <mat-nav-list *ngFor="let category of categories">
+      <a mat-list-item matRipple routerLink="/category/{{ category }}" [routerLinkActive]="['is-active']" class="text-decoration-none" (click)="drawer.toggle()">{{ category }}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span> <a routerLink="/" class="title" matRipple>OpenArabic</a> </span>
+      <span class="spacer"></span>
+
+      <button mat-icon-button>
+        <a routerLink="/issues" class="title">
+          <mat-icon class="icon">lightbulb</mat-icon>
+        </a>
+      </button>
+
+      <button mat-icon-button>
+        <a routerLink="/about" class="title">
+          <mat-icon class="icon">info</mat-icon>
+        </a>
+      </button>
+
+      <button mat-icon-button>
+        <a routerLink="/contact" class="title">
+          <mat-icon class="icon">message</mat-icon>
+        </a>
+      </button>
+
+      <button mat-icon-button *ngIf="auth.user$ | async as user">
+        <a routerLink="/text/new" class="title">
+          <mat-icon class="icon">note_add</mat-icon>
+        </a>
+      </button>
+
+      <app-user-profile></app-user-profile>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

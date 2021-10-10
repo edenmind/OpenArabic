@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Vocabulary</h1>
+<div mat-dialog-content>
+    <div *ngFor="let word of words">
+        <p> <span class="english">{{word.english}}</span>: &nbsp; <span class="arabic">{{word.arabic}}</span>
+        </p>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close color="accent" onclick="close()">Close</button>
+</div>
