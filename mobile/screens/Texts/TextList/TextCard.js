@@ -23,6 +23,7 @@ const style = StyleSheet.create({
     paddingBottom: 20,
     paddingLeft: 15,
     paddingTop: 20,
+    color: '#a4cfbe',
   },
 });
 

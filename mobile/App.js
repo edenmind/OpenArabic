@@ -1,6 +1,10 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { Provider as PaperProvider } from 'react-native-paper';
+import {
+  NavigationContainer,
+  DefaultTheme as NavigationContainerDefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TextNavigator from './screens/Texts/TextNavigator';
@@ -10,11 +14,30 @@ import { store } from './redux/store';
 
 const Tab = createMaterialBottomTabNavigator();
 
+const MyTheme = {
+  ...NavigationContainerDefaultTheme,
+  colors: {
+    ...NavigationContainerDefaultTheme.colors,
+    primary: '#3e423a',
+    accent: '#3e423a',
+  },
+};
+
+const theme = {
+  ...DefaultTheme,
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#3e423a',
+    accent: '#3e423a',
+  },
+};
+
 export default function App() {
   return (
     <Provider store={store}>
-      <PaperProvider>
-        <NavigationContainer>
+      <PaperProvider theme={theme}>
+        <NavigationContainer theme={MyTheme}>
           <Tab.Navigator>
             <Tab.Screen
               name="Text"
