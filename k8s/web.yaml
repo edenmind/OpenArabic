@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: openarabic
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: #{FRONTEND_TAG}#
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+            requests:
+              memory: 200Mi
+              cpu: 100m
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            periodSeconds: 10
+            initialDelaySeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 30
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            capabilities:
+              drop:
+                - all
+              add: ["MKNOD", "CHOWN", "SETGID", "SETUID"]
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: openarabic
+  labels:
+    app: frontend
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      protocol: TCP
+      targetPort: 5000
+  selector:
+    app: frontend
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: frontend
+  namespace: openarabic
+spec:
+  routes:
+    - kind: Rule
+      match: Host(`openarabic.io`) || Host(`www.openarabic.io`)
+      services:
+        - kind: Service
+          name: frontend
+          namespace: openarabic
+          passHostHeader: true
+          responseForwarding:
+            flushInterval: 1ms
+          port: 5000
