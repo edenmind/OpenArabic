@@ -1,38 +1,24 @@
-import "react-native-gesture-handler";
-import React, { useState, useEffect } from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import { Title, Subheading, Paragraph, ActivityIndicator, Colors } from "react-native-paper";
-import * as api from "../../../services/ApiService";
-
-export default function TextBilingual({ route }) {
-  const { textId } = route.params;
-  const [text, setText] = useState([{}]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const textFromApi = await api.getText(textId);
-      setText(textFromApi);
-    }
-    fetchData();
-  }, [textId]);
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable import/named */
+/* eslint-disable import/namespace */
+import 'react-native-gesture-handler';
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { useSelector } from 'react-redux';
+import Spinner from '../../../components/Spinner';
+import Sentences from './Sentences';
+import Heading from './Heading';
+export default function TextBilingual() {
+  const selector = (state) => state.text;
+  const { text } = useSelector(selector);
 
   if (text.title) {
     return (
       <ScrollView>
-        <Title>{text.title}</Title>
-        <Subheading>{text.author}</Subheading>
-        <Paragraph>{text.englishText}</Paragraph>
+        <Heading heading={text}></Heading>
+        <Sentences sentences={text.sentences}></Sentences>
       </ScrollView>
     );
-  } else {
-    return <ActivityIndicator animating={true} size={"large"} color={Colors.red800} style={style.container} />;
   }
+  return <Spinner />;
 }
-
-export const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

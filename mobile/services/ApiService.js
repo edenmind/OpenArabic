@@ -1,34 +1,68 @@
-import axios from "axios";
+/* eslint-disable no-unreachable */
+import axios from 'axios';
+import { GET_CATEGORIES, GET_TEXT, GET_TEXTS } from '../redux/actions';
 
-const instance = axios.create({
-  baseURL: "https://api.openarabic.io/api/",
-});
+export const BASE_URL = 'https://api.openarabic.io/api/';
 
-const textEndpoint = "/texts";
+const textEndpoint = 'texts';
+const categoryEndpoint = 'categories';
 
-const getTexts = async (category, pageSize, pageNumber) => {
+export const getTexts = (category, pageSize, pageNumber) => {
   try {
-    const result = await instance.get(textEndpoint, {
-      params: {
-        category: category,
-        pageSize: pageSize,
-        pageNumber: pageNumber,
-      },
-    });
-    return result.data;
+    return async (dispatch) => {
+      const res = await axios.get(`${BASE_URL}${textEndpoint}`, {
+        params: {
+          category,
+          pageSize,
+          pageNumber,
+        },
+      });
+      if (res.data) {
+        dispatch({
+          type: GET_TEXTS,
+          payload: res.data,
+        });
+      } else {
+        console.log('Unable to fetch');
+      }
+    };
   } catch (error) {
     console.log(error);
   }
 };
 
-const getText = async (id) => {
+export const getCategories = () => {
   try {
-    const result = await instance.get(`${textEndpoint}/${id}`);
-    console.log("text: " + result.data);
-    return result.data;
+    return async (dispatch) => {
+      const res = await axios.get(`${BASE_URL}${categoryEndpoint}`);
+      if (res.data) {
+        dispatch({
+          type: GET_CATEGORIES,
+          payload: res.data,
+        });
+      } else {
+        console.log('Unable to fetch');
+      }
+    };
   } catch (error) {
     console.log(error);
   }
 };
 
-export { getTexts, getText };
+export const getText = (id) => {
+  try {
+    return async (dispatch) => {
+      const res = await axios.get(`${BASE_URL}${textEndpoint}/${id}`);
+      if (res.data) {
+        dispatch({
+          type: GET_TEXT,
+          payload: res.data,
+        });
+      } else {
+        console.log('Unable to fetch');
+      }
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};

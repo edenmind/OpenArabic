@@ -5,24 +5,21 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "dependencies": {
-    "@react-native-community/masked-view": "0.1.10",
-    "@react-navigation/devtools": "^6.0.1",
-    "@react-navigation/drawer": "^6.1.4",
-    "@react-navigation/material-bottom-tabs": "^6.0.5",
-    "@react-navigation/material-top-tabs": "^6.0.2",
-    "@react-navigation/native": "^6.0.2",
-    "@react-navigation/native-stack": "^6.1.0",
-    "@react-navigation/stack": "^6.0.7",
-    "axios": "^0.21.4",
-    "expo": "~42.0.3",
-    "expo-status-bar": "~1.0.4",
+    "@react-navigation/drawer": "^6.1.6",
+    "@react-navigation/material-bottom-tabs": "^6.0.7",
+    "@react-navigation/material-top-tabs": "^6.0.4",
+    "@react-navigation/native": "^6.0.4",
+    "@react-navigation/native-stack": "^6.2.2",
+    "axios": "^0.22.0",
+    "expo": "^42.0.3",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-lines-ellipsis": "^0.15.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-error-boundary": "^1.1.11",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-pager-view": "5.0.12",
     "react-native-paper": "^4.9.2",
@@ -31,11 +28,45 @@
     "react-native-screens": "~3.4.0",
     "react-native-tab-view": "^3.1.1",
     "react-native-vector-icons": "^8.1.0",
-    "react-native-web": "~0.13.12"
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "react-native-flipper": "^0.108.0"
+    "@babel/preset-env": "^7.15.6",
+    "@testing-library/react-native": "^7.2.0",
+    "@types/jest": "^27.0.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-babel": "^0.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-native": "^3.11.0",
+    "eslint-plugin-react-redux": "^3.3.2",
+    "jest-expo": "^42.1.0",
+    "react-test-renderer": "16.13.1",
+    "redux-mock-store": "^1.5.4"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "setupFiles": [
+      "<rootDir>/mocks.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+    ]
+  }
 }
