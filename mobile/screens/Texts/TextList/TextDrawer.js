@@ -16,22 +16,32 @@ export function TextDrawer() {
       name={category.name}
       component={TextList}
       initialParams={{ category: category.name }}
-      options={{ title: category.name, headerShown: true }}
+      options={{
+        title: category.name,
+        headerShown: true,
+      }}
       key={category.name}
     />
   ));
 
   useEffect(() => {
     fetchCategories();
-  });
+  }, []);
 
   return (
-    <Drawer.Navigator initialRouteName="Texts">
+    <Drawer.Navigator
+      initialRouteName="Texts"
+      screenOptions={{
+        headerTintColor: '#3e423a',
+      }}>
       <Drawer.Screen
         name="HomeScreen"
         component={TextList}
         initialParams={{ category: '' }}
-        options={{ title: 'Home', headerShown: true }}
+        options={{
+          title: 'Home',
+          headerShown: true,
+        }}
         key="HomeScreen"
       />
       {categoryItems}

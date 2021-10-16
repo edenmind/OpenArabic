@@ -23,7 +23,7 @@ export default function TextScreen({ route }) {
 
   useEffect(() => {
     fetchText();
-  });
+  }, []);
 
   const screens = screenArray.map((screen) => (
     <Tab.Screen

@@ -20,7 +20,7 @@ export function TextList({ route, navigation }) {
 
   useEffect(() => {
     fetchTexts();
-  });
+  }, []);
 
   const cards = texts.map((text) => (
     <Pressable

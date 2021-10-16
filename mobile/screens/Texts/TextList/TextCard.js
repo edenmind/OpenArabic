@@ -19,11 +19,14 @@ const style = StyleSheet.create({
     marginRight: 10,
     marginTop: 10,
   },
-  chip: {
+  cardAction: {
     paddingBottom: 20,
     paddingLeft: 15,
     paddingTop: 20,
-    color: '#a4cfbe',
+  },
+  chip: {
+    backgroundColor: '#e4f2d6',
+    padding: 0,
   },
 });
 
@@ -53,8 +56,8 @@ export default function TextCard(props) {
           )}
         </Paragraph>
       </Card.Content>
-      <Card.Actions style={style.chip}>
-        <Chip>{props.text.category}</Chip>
+      <Card.Actions style={style.cardAction}>
+        <Chip style={style.chip}>{props.text.category}</Chip>
       </Card.Actions>
     </Card>
   );
