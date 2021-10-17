@@ -17,12 +17,13 @@ const Tab = createMaterialBottomTabNavigator();
 const MyTheme = {
   ...NavigationContainerDefaultTheme,
   colors: {
+    ...DefaultTheme.colors,
     primary: '#3e423a',
-    background: '#3e423a',
-    card: '#3e423a',
-    text: '#3e423a',
     border: '#3e423a',
+    text: '#3e423a',
     notification: '#3e423a',
+    // background: '#fafddf',
+    // card: '#fafddf',
   },
 };
 
@@ -32,7 +33,7 @@ const theme = {
   colors: {
     ...DefaultTheme.colors,
     primary: '#3e423a',
-    accent: '#3e423a',
+    accent: '#a4cfbe',
   },
 };
 

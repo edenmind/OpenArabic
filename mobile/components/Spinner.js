@@ -1,8 +1,8 @@
 /* eslint-disable import/namespace */
 /* eslint-disable import/named */
 import { StyleSheet } from 'react-native';
-import { ActivityIndicator, Colors } from 'react-native-paper';
-import React from 'react';
+import { ActivityIndicator, Colors, Paragraph } from 'react-native-paper';
+import React, { Fragment } from 'react';
 
 const style = StyleSheet.create({
   container: {
@@ -17,7 +17,7 @@ export default function Spinner() {
     <ActivityIndicator
       animating
       size="large"
-      color="#3e423a"
+      // color="#a4cfbe"
       style={style.container}
     />
   );

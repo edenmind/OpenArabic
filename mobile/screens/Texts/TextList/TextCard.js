@@ -38,7 +38,6 @@ const LeftContent = (props) => (
 export default function TextCard(props) {
   return (
     <Card style={style.card}>
-      <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
       <Card.Title
         title={props.text.title}
         subtitle={`${props.text.author} (${props.text.timeAgo})`}

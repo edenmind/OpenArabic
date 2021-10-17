@@ -4,39 +4,50 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Pressable, ScrollView } from 'react-native';
-import { Divider } from 'react-native-paper';
 import * as api from '../../../services/ApiService';
 import { useDispatch, useSelector } from 'react-redux';
 import TextCard from './TextCard';
 import Spinner from '../../../components/Spinner';
+import { useFocusEffect } from '@react-navigation/native';
 
 export function TextList({ route, navigation }) {
   const { category } = route.params;
   const [isLoading, setIsLoading] = useState(true);
+  const [shouldReload, setShouldReload] = useState(true);
   const selector = (state) => state.texts;
   const { texts } = useSelector(selector);
   const dispatch = useDispatch();
   const fetchTexts = () => {
-    dispatch(api.getTexts(category, 50, 0));
+    if (category == 'Home') {
+      dispatch(api.getTexts('', 25, 0));
+    } else {
+      dispatch(api.getTexts(category, 50, 0));
+    }
+
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 1500);
   };
 
-  useEffect(() => {
-    fetchTexts();
-  }, [category]);
+  useFocusEffect(
+    React.useCallback(() => {
+      if (shouldReload) {
+        setIsLoading(true);
+        fetchTexts();
+      }
+    }, [shouldReload]),
+  );
 
   const cards = texts.map((text) => (
     <Pressable
       key={text.textId}
-      onPress={() =>
-        navigation.navigate('SingleText', {
+      onPress={() => {
+        navigation.navigate('TextScreen', {
           textId: text.textId,
-        })
-      }>
+        });
+        setShouldReload(false);
+      }}>
       <TextCard text={text}></TextCard>
-      <Divider />
     </Pressable>
   ));
 

@@ -23,7 +23,7 @@ export default function TextScreen({ route }) {
     }, 1000);
   };
 
-  const screenArray = [
+  const tabArray = [
     { name: 'Bilingual', component: TextBilingual },
     { name: 'Arabic', component: TextArabic },
     { name: 'English', component: TextEnglish },
@@ -33,7 +33,7 @@ export default function TextScreen({ route }) {
     fetchText();
   }, [textId]);
 
-  const screens = screenArray.map((screen) => (
+  const tabs = tabArray.map((screen) => (
     <Tab.Screen
       name={screen.name}
       component={screen.component}
@@ -45,7 +45,14 @@ export default function TextScreen({ route }) {
   if (isLoading) {
     return <Spinner />;
   } else {
-    return <Tab.Navigator>{screens}</Tab.Navigator>;
+    return (
+      <Tab.Navigator
+        screenOptions={{
+          tabBarLabelStyle: { fontSize: 13 },
+        }}>
+        {tabs}
+      </Tab.Navigator>
+    );
   }
 }
 

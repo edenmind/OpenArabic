@@ -33,17 +33,25 @@ export function CategoryDrawer() {
     <Drawer.Navigator
       initialRouteName="Texts"
       screenOptions={{
-        headerTintColor: '#3e423a',
+        drawerStyle: {
+          width: 170,
+        },
+        headerStyle: {
+          backgroundColor: '#3e423a',
+        },
+        headerTintColor: '#e4f2d6',
+        drawerActiveBackgroundColor: '#e4f2d6',
       }}>
       <Drawer.Screen
         name="HomeScreen"
         component={TextList}
-        initialParams={{ category: '' }}
+        initialParams={{ category: 'Home' }}
         options={{
           title: 'Home',
           headerShown: true,
+          drawerLabel: 'Home',
         }}
-        key="HomeScreen"
+        key="Home"
       />
       {categoryItems}
     </Drawer.Navigator>
