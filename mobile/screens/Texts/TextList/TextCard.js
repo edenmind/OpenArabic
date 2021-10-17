@@ -25,14 +25,14 @@ const style = StyleSheet.create({
     paddingTop: 20,
   },
   chip: {
-    backgroundColor: '#e4f2d6',
+    backgroundColor: '#a4cfbe',
     padding: 0,
   },
 });
 
 const LeftContent = (props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <Avatar.Icon {...props} icon="text" mode="elevated" />
+  <Avatar.Icon {...props} icon="book" mode="elevated" />
 );
 
 export default function TextCard(props) {

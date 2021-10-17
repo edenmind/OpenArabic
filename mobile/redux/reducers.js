@@ -1,8 +1,8 @@
 import { GET_CATEGORIES, GET_TEXTS, GET_TEXT } from './actions';
 
 const initialState = {
-  categories: [{ categoryId: 0, name: 'Adab' }],
-  text: [{}],
+  categories: [],
+  text: [],
   texts: [],
 };
 function categoriesReducer(state = initialState, action) {

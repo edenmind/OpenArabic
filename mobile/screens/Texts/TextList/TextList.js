@@ -18,7 +18,7 @@ export function TextList({ route, navigation }) {
   const { texts } = useSelector(selector);
   const dispatch = useDispatch();
   const fetchTexts = () => {
-    if (category == 'Home') {
+    if (category == 'All') {
       dispatch(api.getTexts('', 25, 0));
     } else {
       dispatch(api.getTexts(category, 50, 0));

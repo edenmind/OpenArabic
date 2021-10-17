@@ -21,7 +21,7 @@ export function CategoryDrawer() {
         headerShown: true,
         drawerLabel: category.name,
       }}
-      key={category.name}
+      key={category.categroyId}
     />
   ));
 
@@ -40,18 +40,18 @@ export function CategoryDrawer() {
           backgroundColor: '#3e423a',
         },
         headerTintColor: '#e4f2d6',
-        drawerActiveBackgroundColor: '#e4f2d6',
+        drawerActiveBackgroundColor: '#a4cfbe',
       }}>
       <Drawer.Screen
-        name="HomeScreen"
+        name="All"
         component={TextList}
-        initialParams={{ category: 'Home' }}
+        initialParams={{ category: 'All' }}
         options={{
-          title: 'Home',
+          title: 'All',
           headerShown: true,
-          drawerLabel: 'Home',
+          drawerLabel: 'All',
         }}
-        key="Home"
+        key="11"
       />
       {categoryItems}
     </Drawer.Navigator>

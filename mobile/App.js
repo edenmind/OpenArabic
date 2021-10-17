@@ -19,9 +19,9 @@ const MyTheme = {
   colors: {
     ...DefaultTheme.colors,
     primary: '#3e423a',
-    border: '#3e423a',
+    border: '#a4cfbe',
     text: '#3e423a',
-    notification: '#3e423a',
+    notification: '#a4cfbe',
     // background: '#fafddf',
     // card: '#fafddf',
   },
@@ -49,7 +49,7 @@ export default function App() {
               options={{
                 tabBarLabel: 'Home',
                 tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons name="text" color={color} size={26} />
+                  <MaterialCommunityIcons name="home" color={color} size={26} />
                 ),
               }}
             />
@@ -60,7 +60,7 @@ export default function App() {
                 tabBarLabel: 'About',
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons
-                    name="information-outline"
+                    name="information"
                     color={color}
                     size={26}
                   />

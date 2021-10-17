@@ -17,7 +17,7 @@ export default function Spinner() {
     <ActivityIndicator
       animating
       size="large"
-      // color="#a4cfbe"
+      color="#a4cfbe"
       style={style.container}
     />
   );
