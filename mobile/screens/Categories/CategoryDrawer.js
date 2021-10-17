@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { TextList } from './TextList';
+import { TextList } from '../Texts/TextList/TextList';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategories } from '../../../services/ApiService';
+import { getCategories } from '../../services/ApiService';
 
-export function TextDrawer() {
+export function CategoryDrawer() {
   const Drawer = createDrawerNavigator();
   const selector = (state) => state.categories;
   const { categories } = useSelector(selector);
@@ -19,6 +19,7 @@ export function TextDrawer() {
       options={{
         title: category.name,
         headerShown: true,
+        drawerLabel: category.name,
       }}
       key={category.name}
     />

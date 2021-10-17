@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import TextBilingual from './TextBilingual';
@@ -6,6 +6,7 @@ import TextEnglish from './TextEnglish';
 import TextArabic from './TextArabic';
 import { useDispatch } from 'react-redux';
 import { getText } from '../../../services/ApiService';
+import Spinner from '../../../components/Spinner';
 
 export default function TextScreen({ route }) {
   const Tab = createMaterialTopTabNavigator();
@@ -13,7 +14,14 @@ export default function TextScreen({ route }) {
   const { textId = {} } = route.params;
 
   const dispatch = useDispatch();
-  const fetchText = () => dispatch(getText(textId));
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchText = () => {
+    dispatch(getText(textId));
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  };
 
   const screenArray = [
     { name: 'Bilingual', component: TextBilingual },
@@ -23,7 +31,7 @@ export default function TextScreen({ route }) {
 
   useEffect(() => {
     fetchText();
-  }, []);
+  }, [textId]);
 
   const screens = screenArray.map((screen) => (
     <Tab.Screen
@@ -34,7 +42,11 @@ export default function TextScreen({ route }) {
     />
   ));
 
-  return <Tab.Navigator>{screens}</Tab.Navigator>;
+  if (isLoading) {
+    return <Spinner />;
+  } else {
+    return <Tab.Navigator>{screens}</Tab.Navigator>;
+  }
 }
 
 TextScreen.propTypes = {
