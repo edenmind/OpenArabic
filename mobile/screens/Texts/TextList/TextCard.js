@@ -18,6 +18,7 @@ const style = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     marginTop: 10,
+    backgroundColor: '#ffffff',
   },
   cardAction: {
     paddingBottom: 20,

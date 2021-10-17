@@ -23,15 +23,14 @@ export function TextList({ route, navigation }) {
     } else {
       dispatch(api.getTexts(category, 50, 0));
     }
-
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1000);
   };
 
   useFocusEffect(
     React.useCallback(() => {
-      if (shouldReload) {
+      if (shouldReload || category == 'All') {
         setIsLoading(true);
         fetchTexts();
       }

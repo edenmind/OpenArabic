@@ -15,7 +15,11 @@ export default function AboutNavigator() {
           component={About}
           options={{
             headerLargeTitle: true,
+            headerTintColor: '#e4f2d6',
             title: 'About',
+            headerStyle: {
+              backgroundColor: '#3e423a',
+            },
           }}
         />
       </Stack.Navigator>

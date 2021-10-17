@@ -1,11 +1,17 @@
 import { GET_CATEGORIES, GET_TEXTS, GET_TEXT } from './actions';
 
-const initialState = {
+const initialStateCategories = {
   categories: [],
-  text: [],
+};
+
+const initialStateText = {
+  text: {},
+};
+
+const initialStateTexts = {
   texts: [],
 };
-function categoriesReducer(state = initialState, action) {
+function categoriesReducer(state = initialStateCategories, action) {
   switch (action.type) {
     case GET_CATEGORIES:
       return { ...state, categories: action.payload };
@@ -14,7 +20,7 @@ function categoriesReducer(state = initialState, action) {
   }
 }
 
-function textReducer(state = initialState, action) {
+function textReducer(state = initialStateText, action) {
   switch (action.type) {
     case GET_TEXT:
       return { ...state, text: action.payload };
@@ -23,7 +29,7 @@ function textReducer(state = initialState, action) {
   }
 }
 
-function textsReducer(state = initialState, action) {
+function textsReducer(state = initialStateTexts, action) {
   switch (action.type) {
     case GET_TEXTS:
       return { ...state, texts: action.payload };

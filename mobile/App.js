@@ -2,7 +2,6 @@ import React from 'react';
 import {
   NavigationContainer,
   DefaultTheme as NavigationContainerDefaultTheme,
-  DarkTheme,
 } from '@react-navigation/native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -22,8 +21,8 @@ const MyTheme = {
     border: '#a4cfbe',
     text: '#3e423a',
     notification: '#a4cfbe',
-    // background: '#fafddf',
-    // card: '#fafddf',
+    background: '#f5f5f5',
+    card: '#f5f5f5',
   },
 };
 
@@ -42,14 +41,14 @@ export default function App() {
     <Provider store={store}>
       <PaperProvider theme={theme}>
         <NavigationContainer theme={MyTheme}>
-          <Tab.Navigator>
+          <Tab.Navigator activeColor="#fafddf" inactiveColor="#929481">
             <Tab.Screen
               name="Text"
               component={TextNavigator}
               options={{
-                tabBarLabel: 'Home',
+                tabBarLabel: 'Texts',
                 tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons name="home" color={color} size={26} />
+                  <MaterialCommunityIcons name="book" color={color} size={26} />
                 ),
               }}
             />

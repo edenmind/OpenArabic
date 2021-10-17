@@ -3,6 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { TextList } from '../Texts/TextList/TextList';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../services/ApiService';
+import { useFocusEffect } from '@react-navigation/core';
 
 export function CategoryDrawer() {
   const Drawer = createDrawerNavigator();
@@ -25,13 +26,14 @@ export function CategoryDrawer() {
     />
   ));
 
-  useEffect(() => {
-    fetchCategories();
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      fetchCategories();
+    }, []),
+  );
 
   return (
     <Drawer.Navigator
-      initialRouteName="Texts"
       screenOptions={{
         drawerStyle: {
           width: 170,
@@ -39,7 +41,7 @@ export function CategoryDrawer() {
         headerStyle: {
           backgroundColor: '#3e423a',
         },
-        headerTintColor: '#e4f2d6',
+        headerTintColor: '#fafddf',
         drawerActiveBackgroundColor: '#a4cfbe',
       }}>
       <Drawer.Screen
@@ -51,7 +53,7 @@ export function CategoryDrawer() {
           headerShown: true,
           drawerLabel: 'All',
         }}
-        key="11"
+        key={'999'}
       />
       {categoryItems}
     </Drawer.Navigator>

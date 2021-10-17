@@ -20,7 +20,7 @@ export default function TextScreen({ route }) {
     dispatch(getText(textId));
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 700);
   };
 
   const tabArray = [
@@ -48,7 +48,7 @@ export default function TextScreen({ route }) {
     return (
       <Tab.Navigator
         screenOptions={{
-          tabBarLabelStyle: { fontSize: 13 },
+          tabBarLabelStyle: { fontSize: 12 },
         }}>
         {tabs}
       </Tab.Navigator>
