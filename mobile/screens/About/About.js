@@ -23,10 +23,12 @@ export default function About() {
         If you know some Arabic and strive to switch from reading Islamic texts
         in English to read in Arabic; then OpenArabic is a reading platform —
         featuring short bilingual texts and vocabulary quizzes — that will help
-        you in that process, inshāʾAllāh. OpenArabic does not teach the Arabic
-        alphabet nor Arabic grammar. If you need a resource to get you started,
-        then the Duolingo app available on iPhone and Android might come in
-        handy.
+        you in that process, inshāʾAllāh.
+      </Paragraph>
+      <Paragraph style={style.english}>
+        OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you
+        need a resource to get you started, then the Duolingo app available on
+        iPhone and Android might come in handy.
       </Paragraph>
       <Title style={style.english}>Foundation</Title>
       <Paragraph style={style.english}>
