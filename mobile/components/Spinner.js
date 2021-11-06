@@ -1,8 +1,8 @@
 /* eslint-disable import/namespace */
 /* eslint-disable import/named */
 import { StyleSheet } from 'react-native';
-import { ActivityIndicator, Colors, Paragraph } from 'react-native-paper';
-import React, { Fragment } from 'react';
+import { ActivityIndicator } from 'react-native-paper';
+import React from 'react';
 
 const style = StyleSheet.create({
   container: {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { TextList } from '../Texts/TextList/TextList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,6 +35,7 @@ export function CategoryDrawer() {
   return (
     <Drawer.Navigator
       screenOptions={{
+        unmountOnBlur: true,
         drawerStyle: {
           width: 170,
         },
@@ -49,9 +50,9 @@ export function CategoryDrawer() {
         component={TextList}
         initialParams={{ category: 'All' }}
         options={{
-          title: 'All',
+          title: 'Home',
           headerShown: true,
-          drawerLabel: 'All',
+          drawerLabel: '🚀 Home',
         }}
         key={'999'}
       />

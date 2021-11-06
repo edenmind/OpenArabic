@@ -8,7 +8,6 @@ const textEndpoint = 'texts';
 const categoryEndpoint = 'categories';
 
 export const getTexts = (category, pageSize, pageNumber) => {
-  console.log('Loading texts...');
   try {
     return async (dispatch) => {
       const res = await axios.get(`${BASE_URL}${textEndpoint}`, {
@@ -33,7 +32,6 @@ export const getTexts = (category, pageSize, pageNumber) => {
 };
 
 export const getCategories = () => {
-  console.log('Loading categories...');
   try {
     return async (dispatch) => {
       const res = await axios.get(`${BASE_URL}${categoryEndpoint}`);

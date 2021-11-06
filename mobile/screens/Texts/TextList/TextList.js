@@ -1,7 +1,7 @@
 /* eslint-disable import/named */
 /* eslint-disable import/namespace */
 /* eslint-disable react/forbid-prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Pressable, ScrollView } from 'react-native';
 import * as api from '../../../services/ApiService';
