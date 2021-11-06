@@ -18,7 +18,6 @@ export const getTexts = (category, pageSize, pageNumber) => {
         },
       });
       if (res.data) {
-        console.log(res.data);
         dispatch({
           type: GET_TEXTS,
           payload: res.data,
@@ -37,7 +36,6 @@ export const getCategories = () => {
     return async (dispatch) => {
       const res = await axios.get(`${BASE_URL}${categoryEndpoint}`);
       if (res.data) {
-        console.log(res.data);
         dispatch({
           type: GET_CATEGORIES,
           payload: res.data,
@@ -56,7 +54,6 @@ export const getText = (id) => {
     return async (dispatch) => {
       const res = await axios.get(`${BASE_URL}${textEndpoint}/${id}`);
       if (res.data) {
-        console.log(res.data);
         dispatch({
           type: GET_TEXT,
           payload: res.data,

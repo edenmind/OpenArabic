@@ -30,7 +30,7 @@ export function TextList({ route, navigation }) {
 
   useFocusEffect(
     React.useCallback(() => {
-      if (shouldReload || category == 'All') {
+      if (shouldReload) {
         setIsLoading(true);
         fetchTexts();
       }
@@ -41,10 +41,10 @@ export function TextList({ route, navigation }) {
     <Pressable
       key={text.textId}
       onPress={() => {
+        setShouldReload(false);
         navigation.navigate('TextScreen', {
           textId: text.textId,
         });
-        setShouldReload(false);
       }}>
       <TextCard text={text}></TextCard>
     </Pressable>
