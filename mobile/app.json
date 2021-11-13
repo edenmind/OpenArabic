@@ -2,7 +2,7 @@
   "expo": {
     "name": "Open Arabic",
     "slug": "OpenArabic",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -16,14 +16,15 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "openarabic"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#3e423a"
-      }
+      },
+      "package": "com.edenmind.OpenArabic"
     },
     "web": {
       "favicon": "./assets/favicon.png"
