@@ -34,6 +34,7 @@ terraform/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.58.0/da
 android/.idea/*
 k8s/web.yaml
 mobile/node_modules
+frontend/node_modules
 mobile/google-sa.json
 .DS_Store
 *.icloud
