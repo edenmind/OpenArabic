@@ -1,5 +1,8 @@
 .vscode/launch.json
 .vscode/tasks.json
+mobile/.expo/web/*
+mobile/coverage/*
+mobile/web-build/*
 api/.vscode/launch.json
 api/.vscode/settings.json
 api/.vscode/tasks.json
@@ -34,3 +37,4 @@ mobile/node_modules
 .DS_Store
 *.icloud
 *.icloud
+mobile/google-sa.json
