@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import TextBilingual from './TextBilingual';
@@ -7,6 +7,7 @@ import TextArabic from './TextArabic';
 import { useDispatch } from 'react-redux';
 import { getText } from '../../../services/ApiService';
 import Spinner from '../../../components/Spinner';
+import AppPromo from '../../../components/AppPromo';
 
 export default function TextScreen({ route }) {
   const Tab = createMaterialTopTabNavigator();
@@ -46,12 +47,15 @@ export default function TextScreen({ route }) {
     return <Spinner />;
   } else {
     return (
-      <Tab.Navigator
-        screenOptions={{
-          tabBarLabelStyle: { fontSize: 12 },
-        }}>
-        {tabs}
-      </Tab.Navigator>
+      <Fragment>
+        <Tab.Navigator
+          screenOptions={{
+            tabBarLabelStyle: { fontSize: 12 },
+          }}>
+          {tabs}
+        </Tab.Navigator>
+        <AppPromo />
+      </Fragment>
     );
   }
 }

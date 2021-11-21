@@ -38,9 +38,9 @@ jobs:
       - name: Build and Push Web to Docker Hub
         uses: docker/build-push-action@v2.3.0
         with:
-          file: ./web/Dockerfile
+          file: ./mobile/Dockerfile
           tags: therealedenmind/oa-frontend:${{ github.sha }}
-          context: ./web
+          context: ./mobile
           push: true
 
       - name: Build and Push Tashkeel to Docker Hub

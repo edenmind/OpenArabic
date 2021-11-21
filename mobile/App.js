@@ -36,11 +36,41 @@ const theme = {
   },
 };
 
+const linking = {
+  prefixes: ['https://openarabic.io', 'https://localhost/'],
+  config: {
+    screens: {
+      Text: {
+        screens: {
+          TextScreen: {
+            path: '/text/:textId',
+            parse: {
+              textId: Number,
+            },
+          },
+          TextList: {
+            path: '/texts/:category',
+            parse: {
+              category: String,
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 export default function App() {
   return (
     <Provider store={store}>
       <PaperProvider theme={theme}>
-        <NavigationContainer theme={MyTheme}>
+        <NavigationContainer
+          linking={linking}
+          theme={MyTheme}
+          documentTitle={{
+            formatter: (options, route) =>
+              `${options?.webTitle ?? route?.name} - OpenArabic`,
+          }}>
           <Tab.Navigator activeColor="#fafddf" inactiveColor="#929481">
             <Tab.Screen
               name="Text"

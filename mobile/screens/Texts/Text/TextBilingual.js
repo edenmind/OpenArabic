@@ -8,9 +8,13 @@ import { useSelector } from 'react-redux';
 import Spinner from '../../../components/Spinner';
 import Sentences from './Sentences';
 import Heading from './Heading';
+import { useNavigation } from '@react-navigation/native';
 export default function TextBilingual() {
   const selector = (state) => state.text;
   const { text } = useSelector(selector);
+
+  const navigation = useNavigation();
+  navigation.setOptions({ webTitle: text.title });
 
   if (text.title) {
     return (
