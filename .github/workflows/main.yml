@@ -105,3 +105,4 @@ jobs:
             ./k8s/web.yaml
             ./k8s/api.yaml
             ./k8s/tashkeel.yaml
+            ./k8s/app.yaml
