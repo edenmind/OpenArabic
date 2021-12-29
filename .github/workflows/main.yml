@@ -39,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v2.3.0
         with:
           file: ./mobile/Dockerfile
-          tags: therealedenmind/oa-frontend:${{ github.sha }}
+          tags: therealedenmind/oa-app:${{ github.sha }}
           context: ./mobile
           push: true
 
@@ -88,6 +88,7 @@ jobs:
           API_TAG: therealedenmind/oa-api:${{ github.sha }}
           WEBPROMO_TAG: therealedenmind/oa-webpromo:${{ github.sha }}
           TASHKEEL_TAG: therealedenmind/oa-tashkeel:${{ github.sha }}
+          APP_TAG: therealedenmind/oa-app:${{ github.sha }}
 
       - name: Replace SHA in footer
         uses: cschleiden/replace-tokens@v1
