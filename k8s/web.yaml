@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: webpromo
   namespace: openarabic
   labels:
-    app: frontend
+    app: webpromo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: webpromo
   template:
     metadata:
       labels:
-        app: frontend
+        app: webpromo
     spec:
       containers:
-        - name: frontend
-          image: #{FRONTEND_TAG}#
+        - name: webpromo
+          image: #{webpromo_TAG}#
           resources:
             limits:
               memory: 512Mi
@@ -52,10 +52,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: webpromo
   namespace: openarabic
   labels:
-    app: frontend
+    app: webpromo
 spec:
   type: NodePort
   ports:
@@ -63,12 +63,12 @@ spec:
       protocol: TCP
       targetPort: 5000
   selector:
-    app: frontend
+    app: webpromo
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: frontend
+  name: webpromo
   namespace: openarabic
 spec:
   routes:
@@ -76,7 +76,7 @@ spec:
       match: Host(`openarabic.io`) || Host(`www.openarabic.io`)
       services:
         - kind: Service
-          name: frontend
+          name: webpromo
           namespace: openarabic
           passHostHeader: true
           responseForwarding:

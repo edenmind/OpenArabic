@@ -43,6 +43,14 @@ jobs:
           context: ./mobile
           push: true
 
+      - name: Build and Push Webpromo to Docker Hub
+        uses: docker/build-push-action@v2.3.0
+        with:
+          file: ./webpromo/Dockerfile
+          tags: therealedenmind/oa-webpromo:${{ github.sha }}
+          context: ./webpromo
+          push: true
+
       - name: Build and Push Tashkeel to Docker Hub
         uses: docker/build-push-action@v2.3.0
         with:
@@ -78,7 +86,7 @@ jobs:
           files: '["./k8s/*.yaml"]'
         env:
           API_TAG: therealedenmind/oa-api:${{ github.sha }}
-          FRONTEND_TAG: therealedenmind/oa-frontend:${{ github.sha }}
+          WEBPROMO_TAG: therealedenmind/oa-webpromo:${{ github.sha }}
           TASHKEEL_TAG: therealedenmind/oa-tashkeel:${{ github.sha }}
 
       - name: Replace SHA in footer
