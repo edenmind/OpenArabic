@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: webpromo
-          image: #{webpromo_TAG}#
+          image: #{WEBPROMO_TAG}#
           resources:
             limits:
               memory: 512Mi
