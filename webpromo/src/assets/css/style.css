@@ -1,0 +1,113 @@
+.appie-loader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.appie-loader {
+  opacity: 0;
+}
+.appie-loader.active {
+  opacity: 100;
+}
+.appie-visible {
+  transition: all 0.5s ease-in-out;
+}
+.appie-visible {
+  opacity: 0;
+}
+.appie-visible.active {
+  opacity: 100;
+}
+/* .appie-home-loader {
+  transition: all 0.5s ease-in-out;
+} */
+.offcanvas_main_menu li ul.sub-menu {
+  padding-left: 20 px;
+  overflow: hidden;
+  transition: all linear 0.65s;
+}
+.appie-fun-fact-box .appie-fun-fact-content .appie-fun-fact-item .title span {
+  font-size: 30px !important;
+  color: #fff !important;
+}
+.home-four-project {
+  background: #eef1f6;
+}
+.home-four-footer {
+  background: #ffffff;
+}
+.slick-dots li button:before {
+  content: "";
+}
+.appie-showcase-item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+@media (min-width: 1400px) {
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 1200px;
+  }
+}
+.appie-services-2-area.appie-services-8-area {
+  overflow: hidden;
+}
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
+  .appie-services-8-area .service-thumb {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.save-comment input:checked + label::after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f00c";
+}
+.appie-testimonial-area {
+  overflow: hidden;
+}
+.testimonial-about-slider-active .testimonial-parent-item {
+  display: flex !important;
+  justify-content: center;
+}
+.testimonial-box {
+  width: 770px !important;
+}
+.testimonial-box-about-slider-small-active
+  .slick-center.slick-current
+  .item
+  .thumb
+  img {
+  width: 70px;
+  display: inline-block;
+}
+.testimonial-box-about-slider-small-active .item .thumb img {
+  display: inline-block;
+  width: 40px;
+}
+.testimonial-box-about-slider-small-active .item .thumb {
+  align-items: center;
+}
+.testimonial-box-about-slider-small-active .slick-center.slick-current .item {
+  margin-top: -20px;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
+  .testimonial-about-slider-active .testimonial-box {
+    box-shadow: none;
+    background: none;
+  }
+}
+@media only screen and (min-width: 770px) and (max-width: 1024px) {
+  .testimonial-about-slider-active .slick-arrow.next {
+    right: 15px;
+  }
+  .testimonial-about-slider-active .slick-arrow.prev {
+    left: 15px;
+  }
+}
