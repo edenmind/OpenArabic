@@ -884,7 +884,7 @@ p {
   background: #0a44b9;
 }
 .appie-header-area.appie-header-7-area.appie-sticky.sticky {
-  background: #290645;
+  background: #20221e;
 }
 .appie-header-area.appie-header-error-page {
   box-shadow: 0px 10px 20px 0px rgba(14, 17, 51, 0.1);
@@ -927,13 +927,7 @@ p {
 .header-nav-box.header-nav-box-3 .appie-header-main-menu ul > li > a {
   color: #f4f7d9;
 }
-.header-nav-box.header-nav-box-3
-  .appie-header-main-menu
-  ul
-  > li
-  .sub-menu
-  li
-  a {
+.header-nav-box.header-nav-box-3 .appie-header-main-menu ul > li .sub-menu li a {
   color: #0e1133;
 }
 .header-nav-box.header-nav-box-3 .appie-btn-box .login-btn {
@@ -951,28 +945,18 @@ p {
   color: #f4f7d9;
   font-size: 20px;
 }
-.header-nav-box.header-nav-box-3.header-nav-box-inner-page
-  .appie-btn-box
-  .main-btn {
+.header-nav-box.header-nav-box-3.header-nav-box-inner-page .appie-btn-box .main-btn {
   border-color: #f4f7d9;
   background: transparent;
 }
-.header-nav-box.header-nav-box-3.header-nav-box-inner-page
-  .appie-btn-box
-  .main-btn:hover {
+.header-nav-box.header-nav-box-3.header-nav-box-inner-page .appie-btn-box .main-btn:hover {
   background: #f4f7d9;
   color: #6c6e58;
 }
 .header-nav-box.header-nav-box-5 .appie-header-main-menu ul > li > a {
   color: #f4f7d9;
 }
-.header-nav-box.header-nav-box-5
-  .appie-header-main-menu
-  ul
-  > li
-  .sub-menu
-  li
-  a {
+.header-nav-box.header-nav-box-5 .appie-header-main-menu ul > li .sub-menu li a {
   color: #0e1133;
 }
 .header-nav-box.header-nav-box-5 .appie-btn-box .login-btn {
@@ -1078,22 +1062,10 @@ p {
 .header-nav-box.header-nav-box-7 .appie-header-main-menu ul > li > a:hover {
   color: #6c6e58;
 }
-.header-nav-box.header-nav-box-7
-  .appie-header-main-menu
-  ul
-  > li
-  .sub-menu
-  li
-  a {
+.header-nav-box.header-nav-box-7 .appie-header-main-menu ul > li .sub-menu li a {
   color: #505056;
 }
-.header-nav-box.header-nav-box-7
-  .appie-header-main-menu
-  ul
-  > li
-  .sub-menu
-  li
-  a:hover {
+.header-nav-box.header-nav-box-7 .appie-header-main-menu ul > li .sub-menu li a:hover {
   color: #6c6e58;
 }
 .header-nav-box.header-nav-box-7 .appie-btn-box .login-btn {
@@ -1466,27 +1438,17 @@ p {
   background: transparent;
   margin-right: 14px;
 }
-.appie-hero-area.appie-hero-3-area
-  .appie-hero-content
-  .hero-btns
-  .appie-video-popup {
+.appie-hero-area.appie-hero-3-area .appie-hero-content .hero-btns .appie-video-popup {
   color: #f4f7d9;
   font-size: 15px;
   font-weight: 500;
 }
 @media (max-width: 767px) {
-  .appie-hero-area.appie-hero-3-area
-    .appie-hero-content
-    .hero-btns
-    .appie-video-popup {
+  .appie-hero-area.appie-hero-3-area .appie-hero-content .hero-btns .appie-video-popup {
     margin-top: 20px;
   }
 }
-.appie-hero-area.appie-hero-3-area
-  .appie-hero-content
-  .hero-btns
-  .appie-video-popup
-  i {
+.appie-hero-area.appie-hero-3-area .appie-hero-content .hero-btns .appie-video-popup i {
   height: 45px;
   width: 45px;
   text-align: center;
@@ -1538,68 +1500,46 @@ p {
     padding-bottom: 0px;
   }
 }
-.appie-hero-area.appie-hero-3-area.appie-hero-5-area
-  .appie-hero-content
-  .thumb {
+.appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .thumb {
   margin-bottom: -110px;
 }
-.appie-hero-area.appie-hero-3-area.appie-hero-5-area
-  .appie-hero-content
-  .appie-title {
+.appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .appie-title {
   font-weight: 700;
   font-size: 70px;
   line-height: 80px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-  .appie-hero-area.appie-hero-3-area.appie-hero-5-area
-    .appie-hero-content
-    .appie-title {
+  .appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .appie-title {
     font-size: 50px;
     line-height: 60px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .appie-hero-area.appie-hero-3-area.appie-hero-5-area
-    .appie-hero-content
-    .appie-title {
+  .appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .appie-title {
     font-size: 40px;
     line-height: 50px;
   }
 }
 @media (max-width: 767px) {
-  .appie-hero-area.appie-hero-3-area.appie-hero-5-area
-    .appie-hero-content
-    .appie-title {
+  .appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .appie-title {
     font-size: 30px;
     line-height: 40px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .appie-hero-area.appie-hero-3-area.appie-hero-5-area
-    .appie-hero-content
-    .appie-title {
+  .appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .appie-title {
     font-size: 36px;
     line-height: 46px;
   }
 }
-.appie-hero-area.appie-hero-3-area.appie-hero-5-area
-  .appie-hero-content
-  .hero-btns
-  .appie-video-popup
-  i {
+.appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .hero-btns .appie-video-popup i {
   border-color: rgba(255, 255, 255, 0.2);
 }
-.appie-hero-area.appie-hero-3-area.appie-hero-5-area
-  .appie-hero-content
-  .hero-btns
-  .main-btn {
+.appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .hero-btns .main-btn {
   border-color: rgba(255, 255, 255, 0.2);
   color: #f4f7d9;
 }
-.appie-hero-area.appie-hero-3-area.appie-hero-5-area
-  .appie-hero-content
-  .hero-btns
-  .main-btn:hover {
+.appie-hero-area.appie-hero-3-area.appie-hero-5-area .appie-hero-content .hero-btns .main-btn:hover {
   background: #f84a6e;
   color: #f4f7d9;
 }
@@ -1948,10 +1888,7 @@ p {
   color: #f4f7d9;
   border-color: #6c6e58;
 }
-.appie-hero-content.appie-hero-content-6.appie-hero-content-7
-  ul
-  li
-  a.item-2:hover {
+.appie-hero-content.appie-hero-content-6.appie-hero-content-7 ul li a.item-2:hover {
   border-color: #f4f7d9;
   background: #f4f7d9;
   color: #0e1133;
@@ -2153,8 +2090,7 @@ p {
   border: 0;
   border-left: 3px solid #ff3e66;
   padding-left: 55px;
-  box-shadow: -3px 0px 0px 0px rgba(255, 62, 102, 0.004),
-    0px 30px 30px 0px rgba(14, 17, 51, 0.1);
+  box-shadow: -3px 0px 0px 0px rgba(255, 62, 102, 0.004), 0px 30px 30px 0px rgba(14, 17, 51, 0.1);
 }
 .appie-hero-content-2 .input-box button {
   position: absolute;
@@ -2215,30 +2151,22 @@ p {
     height: 400px;
   }
 }
-.appie-page-title-area.appie-page-service-title-area
-  .appie-page-title-item
-  .thumb {
+.appie-page-title-area.appie-page-service-title-area .appie-page-title-item .thumb {
   right: 110px;
   width: auto;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-  .appie-page-title-area.appie-page-service-title-area
-    .appie-page-title-item
-    .thumb {
+  .appie-page-title-area.appie-page-service-title-area .appie-page-title-item .thumb {
     right: 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .appie-page-title-area.appie-page-service-title-area
-    .appie-page-title-item
-    .thumb {
+  .appie-page-title-area.appie-page-service-title-area .appie-page-title-item .thumb {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  .appie-page-title-area.appie-page-service-title-area
-    .appie-page-title-item
-    .thumb {
+  .appie-page-title-area.appie-page-service-title-area .appie-page-title-item .thumb {
     display: none;
   }
 }
@@ -2409,11 +2337,7 @@ p {
   color: #ff6b58;
 }
 .appie-single-service.appie-single-services-3.item-2 {
-  background: linear-gradient(
-    0deg,
-    rgba(39, 153, 246, 0.08) 0%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
+  background: linear-gradient(0deg, rgba(39, 153, 246, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%);
 }
 .appie-single-service.appie-single-services-3.item-2 .icon {
   background-image: -moz-linear-gradient(110deg, #2799f6 0%, #76c1ff 100%);
@@ -2428,11 +2352,7 @@ p {
   background-image: linear-gradient(110deg, #f2335b 0%, #ff718f 100%);
 }
 .appie-single-service.appie-single-services-3.item-4 {
-  background: linear-gradient(
-    0deg,
-    rgba(119, 89, 237, 0.08) 0%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
+  background: linear-gradient(0deg, rgba(119, 89, 237, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%);
 }
 .appie-single-service.appie-single-services-3.item-4 .icon {
   background-image: -moz-linear-gradient(110deg, #7759ed 0%, #ac97ff 100%);
@@ -2491,8 +2411,7 @@ p {
   color: #ff3e66;
 }
 .appie-single-service-2:hover {
-  box-shadow: 0px -3px 0px 0px rgba(234, 76, 137, 0.004),
-    0px 40px 40px 0px rgba(14, 17, 51, 0.1);
+  box-shadow: 0px -3px 0px 0px rgba(234, 76, 137, 0.004), 0px 40px 40px 0px rgba(14, 17, 51, 0.1);
   border-top: 3px solid #2eacfc;
   transform: translateY(-10px);
 }
@@ -3509,23 +3428,13 @@ p {
     margin-top: -10px;
   }
 }
-.testimonial-box-about-slider-small-active
-  .slick-center.slick-current
-  .item
-  .thumb {
+.testimonial-box-about-slider-small-active .slick-center.slick-current .item .thumb {
   max-width: 70px;
 }
-.testimonial-box-about-slider-small-active
-  .slick-center.slick-current
-  .item
-  .thumb
-  img {
+.testimonial-box-about-slider-small-active .slick-center.slick-current .item .thumb img {
   width: 70px;
 }
-.testimonial-box-about-slider-small-active
-  .slick-center.slick-current
-  .item
-  .content {
+.testimonial-box-about-slider-small-active .slick-center.slick-current .item .content {
   display: inline-block;
   margin: 10px 0 0 -24px;
 }
@@ -3902,8 +3811,7 @@ p {
 }
 .pricing-one__single.pricing-one__single_2.active {
   border-top: 3px solid #ff3e66;
-  box-shadow: 0px -3px 0px 0px rgba(255, 62, 102, 0.004),
-    0px 40px 40px 0px rgba(14, 17, 51, 0.1);
+  box-shadow: 0px -3px 0px 0px rgba(255, 62, 102, 0.004), 0px 40px 40px 0px rgba(14, 17, 51, 0.1);
 }
 .pricing-one__single.pricing-one__single_2.active .pricig-body .pricing-btn a {
   background: #ff3e66;
@@ -3994,18 +3902,8 @@ p {
   border-radius: 0px;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(var(--thm-primary)),
-    to(var(--thm-base))
-  );
-  background-image: linear-gradient(
-    90deg,
-    var(--thm-primary) 0%,
-    var(--thm-base) 100%
-  );
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--thm-primary)), to(var(--thm-base)));
+  background-image: linear-gradient(90deg, var(--thm-primary) 0%, var(--thm-base) 100%);
   -webkit-transition: -webkit-transform 0.4s ease;
   transition: -webkit-transform 0.4s ease;
   border-radius: 5px;
@@ -4162,19 +4060,11 @@ p {
   background: #eef1f6;
   position: relative;
 }
-.appie-faq-8-area
-  .faq-accordion
-  .accrodion
-  .accrodion-inner
-  .accrodion-title::before {
+.appie-faq-8-area .faq-accordion .accrodion .accrodion-inner .accrodion-title::before {
   background: #fcecef;
   color: #db0f30;
 }
-.appie-faq-8-area
-  .faq-accordion
-  .accrodion
-  .accrodion-inner
-  .accrodion-title::after {
+.appie-faq-8-area .faq-accordion .accrodion .accrodion-inner .accrodion-title::after {
   background: #db0f30;
   color: #f4f7d9;
 }
@@ -5549,73 +5439,34 @@ blockquote cite {
 .appie-footer-area.appie-footer-about-area.appie-footer-8-area {
   background: #a4cfbe;
 }
-.appie-footer-area.appie-footer-about-area.appie-footer-8-area
-  .footer-about-widget
-  .social
-  ul
-  li
-  a {
+.appie-footer-area.appie-footer-about-area.appie-footer-8-area .footer-about-widget .social ul li a {
   border: 2px solid #e6e7ea;
 }
-.appie-footer-area.appie-footer-about-area.appie-footer-8-area
-  .footer-about-widget
-  .social
-  ul
-  li
-  a:hover {
+.appie-footer-area.appie-footer-about-area.appie-footer-8-area .footer-about-widget .social ul li a:hover {
   background: #db0f30;
   border-color: #db0f30;
   color: #a4cfbe;
 }
-.appie-footer-area.appie-footer-about-area.appie-footer-8-area
-  .footer-navigation
-  ul
-  li
-  a:hover {
+.appie-footer-area.appie-footer-about-area.appie-footer-8-area .footer-navigation ul li a:hover {
   color: #db0f30;
 }
-.appie-footer-area.appie-footer-about-area.appie-footer-8-area
-  .footer-widget-info
-  ul
-  li
-  a
-  i {
+.appie-footer-area.appie-footer-about-area.appie-footer-8-area .footer-widget-info ul li a i {
   color: #db0f30;
 }
-.appie-footer-area.appie-footer-about-area.appie-footer-8-area
-  .footer-copyright
-  .apps-download-btn
-  ul
-  li
-  a {
+.appie-footer-area.appie-footer-about-area.appie-footer-8-area .footer-copyright .apps-download-btn ul li a {
   background: #0e1133;
   color: #a4cfbe;
   border-color: #0e1133;
 }
-.appie-footer-area.appie-footer-about-area.appie-footer-8-area
-  .footer-copyright
-  .apps-download-btn
-  ul
-  li
-  a:hover {
+.appie-footer-area.appie-footer-about-area.appie-footer-8-area .footer-copyright .apps-download-btn ul li a:hover {
   background: #a4cfbe;
   color: #0e1133;
 }
-.appie-footer-area.appie-footer-about-area.appie-footer-8-area
-  .footer-copyright
-  .apps-download-btn
-  ul
-  li
-  a.item-2 {
+.appie-footer-area.appie-footer-about-area.appie-footer-8-area .footer-copyright .apps-download-btn ul li a.item-2 {
   background: #a4cfbe;
   color: #0e1133;
 }
-.appie-footer-area.appie-footer-about-area.appie-footer-8-area
-  .footer-copyright
-  .apps-download-btn
-  ul
-  li
-  a.item-2:hover {
+.appie-footer-area.appie-footer-about-area.appie-footer-8-area .footer-copyright .apps-download-btn ul li a.item-2:hover {
   background: #0e1133;
   color: #a4cfbe;
   border-color: #0e1133;
@@ -5856,11 +5707,7 @@ blockquote cite {
 .appie-signup-area.appie-signup-8-area {
   background: #eef1f6;
 }
-.appie-signup-area.appie-signup-8-area
-  .appie-signup-box
-  form
-  .input-box
-  button {
+.appie-signup-area.appie-signup-8-area .appie-signup-box form .input-box button {
   background: #db0f30;
 }
 
@@ -6554,11 +6401,7 @@ blockquote cite {
 }
 .appie-single-counter.item-2 {
   background-image: -moz-linear-gradient(140deg, #fdead3 0%, #f4f7d97ee 100%);
-  background-image: -webkit-linear-gradient(
-    140deg,
-    #fdead3 0%,
-    #f4f7d97ee 100%
-  );
+  background-image: -webkit-linear-gradient(140deg, #fdead3 0%, #f4f7d97ee 100%);
   background-image: -ms-linear-gradient(140deg, #fdead3 0%, #f4f7d97ee 100%);
   background-image: linear-gradient(140deg, #fdead3 0%, #f4f7d97ee 100%);
 }
@@ -8076,24 +7919,13 @@ blockquote cite {
     display: block;
   }
 }
-.review-rating-box
-  .top-rating-result
-  .rating-result-box
-  .content
-  .shop-meta
-  .author-user-name
-  a {
+.review-rating-box .top-rating-result .rating-result-box .content .shop-meta .author-user-name a {
   font-size: 14px;
   font-weight: 700;
   color: #0e1133;
   margin-right: 15px;
 }
-.review-rating-box
-  .top-rating-result
-  .rating-result-box
-  .content
-  .shop-meta
-  .date {
+.review-rating-box .top-rating-result .rating-result-box .content .shop-meta .date {
   font-size: 14px;
   color: #63636a;
 }

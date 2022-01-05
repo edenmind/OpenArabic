@@ -3,7 +3,7 @@ import logo from '../../assets/images/logo-7.png';
 import StickyMenu from '../../lib/StickyMenu';
 import Navigation from '../Navigation';
 
-function HeaderHomeSeven({ action }) {
+function HeaderHomeSeven() {
     useEffect(() => {
         StickyMenu();
     });
@@ -33,12 +33,12 @@ function HeaderHomeSeven({ action }) {
                                     <a className="main-btn ml-30" href="https://app.openarabic.io">
                                         Web App
                                     </a>
-                                    <div
+                                    {/* <div
                                         onClick={(e) => action(e)}
                                         className="toggle-btn ml-30 canvas_open d-lg-none d-block"
                                     >
                                         <i className="fa fa-bars"></i>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
