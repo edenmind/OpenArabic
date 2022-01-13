@@ -67,7 +67,7 @@ jobs:
           resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
 
       - name: Create secret in k8s cluster for API
-        uses: Azure/k8s-create-secret@v2
+        uses: Azure/k8s-create-secret@v1.1
         with:
           secret-type: generic
           secret-name: api-credentials
