@@ -60,7 +60,7 @@ jobs:
           push: true
 
       - name: Set target k8s cluster
-        uses: Azure/aks-set-context@v2
+        uses: Azure/aks-set-context@v1.1
         with:
           creds: "${{ secrets.AZURE_CREDENTIALS }}"
           cluster-name: ${{ env.CLUSTER_NAME }}
