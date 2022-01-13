@@ -39,7 +39,7 @@ resource "azurerm_kubernetes_cluster" "edenmind-k8s" {
   node_resource_group       = "${var.prefix}-k8s-resources"
   dns_prefix                = "${var.prefix}-k8s-dns"
   private_cluster_enabled   = false
-  kubernetes_version        = "1.20.5"
+  kubernetes_version        = "1.21.7"
   automatic_channel_upgrade = "patch"
 
   role_based_access_control {
@@ -53,7 +53,7 @@ resource "azurerm_kubernetes_cluster" "edenmind-k8s" {
     node_count           = 1
     vm_size              = "Standard_B2ms"
     vnet_subnet_id       = azurerm_subnet.edenmind-snet.id
-    orchestrator_version = "1.20.5"
+    orchestrator_version = "1.21.7"
     os_disk_size_gb      = 100
 
     tags = local.common_tags
