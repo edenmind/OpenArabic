@@ -5013,10 +5013,10 @@ react-native-screens@^3.4.0, react-native-screens@~3.10.1:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-react-native-share@^7.3.0:
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-7.3.2.tgz#3b61c42b28b034d1662f3aa7514846c609251502"
-  integrity sha512-1E2xxTzHYrV74WMuBz6VLx6Y9slBBNI9s0NxXDEYb0VsFT6DcHnbiaY4ExW5E6vw37s3gfZxm4zsv9/TwFEukA==
+react-native-share@^7.3.3:
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-7.3.3.tgz#7c44b1dd20dae50db8c6455fdfc4882533e5542b"
+  integrity sha512-46JW7lfZMy7Xcw/wOXUtjgoioEJ0IAEmm4bK01M4wt/lVCntxZ0IVXUA6vWSnxN66p51bNywZMxPV1zqRSDxPQ==
 
 react-native-tab-view@^3.1.1:
   version "3.1.1"
