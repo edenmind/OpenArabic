@@ -10,7 +10,7 @@ A Docker-compose file is provided in the root of the repository that will build 
 
 ## Technologies
 
-OpenArabic.io is built using some of the latest languages and technologies such as Python, .NET 5, Angular, Swift, Kotlin, Terraform, Kubernetes and Docker.
+OpenArabic.io is built using some of the latest languages and technologies such as Python, .NET 5, React Native, Terraform, Kubernetes and Docker.
 
 ## Help wanted
 
@@ -23,8 +23,6 @@ The heart of the infrastructure is the microservice mesh providing language serv
 ## CI/CD Status
 
 ![Build, Push and Deploy](https://github.com/edenmind/OpenArabic/workflows/Build,%20Push%20and%20Deploy/badge.svg)
-![Container Security Scan](https://github.com/edenmind/OpenArabic/workflows/Scan%20Repository%20with%20Snyke/badge.svg)
-![Statics Code Analyze](https://github.com/edenmind/OpenArabic/actions/workflows/sq.yml/badge.svg)
 
 ## Support
 
