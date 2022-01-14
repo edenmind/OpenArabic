@@ -6,7 +6,7 @@
 
 Begin with cloning the the repository. The web frontend is a standard Angular project that can be found in /web. The backend API is a standard .NET 5 project that can be found in /api.
 
-A Docker-compose file is provided in the root of the repository that will build the Dockerfile for thw web frontend, the backend api and start an MS SQL database.
+A Docker-compose file is provided in the root of the repository that will build the Dockerfile for the web frontend, the backend api and start an MS SQL database.
 
 ## Technologies
 
@@ -22,7 +22,7 @@ The heart of the infrastructure is the microservice mesh providing language serv
 
 ## CI/CD Status
 
-![Build, Push and Deploy](https://github.com/edenmind/OpenArabic/workflows/Build,%20Push%20and%20Deploy/badge.svg)
+[![Build, Push and Deploy OpenArabic](https://github.com/edenmind/OpenArabic/actions/workflows/main.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/main.yml)
 
 ## Support
 
