@@ -1,6 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable import/named */
-/* eslint-disable import/namespace */
 import 'react-native-gesture-handler'
 import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
@@ -21,9 +18,6 @@ export default function TextEnglish() {
 
   const selector = (state) => state.text
   const { text } = useSelector(selector)
-
-  // const navigation = useNavigation();
-  // navigation.setOptions({ webTitle: text.title });
 
   if (text.title) {
     return (

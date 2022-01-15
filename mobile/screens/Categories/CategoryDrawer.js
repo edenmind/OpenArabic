@@ -1,16 +1,16 @@
-import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { TextList } from '../Texts/TextList/TextList';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCategories } from '../../services/ApiService';
-import { useFocusEffect } from '@react-navigation/core';
+import React from 'react'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import { TextList } from '../Texts/TextList/TextList'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCategories } from '../../services/ApiService'
+import { useFocusEffect } from '@react-navigation/core'
 
 export function CategoryDrawer() {
-  const Drawer = createDrawerNavigator();
-  const selector = (state) => state.categories;
-  const { categories } = useSelector(selector);
-  const dispatch = useDispatch();
-  const fetchCategories = () => dispatch(getCategories());
+  const Drawer = createDrawerNavigator()
+  const selector = (state) => state.categories
+  const { categories } = useSelector(selector)
+  const dispatch = useDispatch()
+  const fetchCategories = () => dispatch(getCategories())
 
   const categoryItems = categories.map((category) => (
     <Drawer.Screen
@@ -20,30 +20,30 @@ export function CategoryDrawer() {
       options={{
         title: category.name,
         headerShown: true,
-        drawerLabel: category.name,
+        drawerLabel: category.name
       }}
       key={category.categroyId}
     />
-  ));
+  ))
 
   useFocusEffect(
     React.useCallback(() => {
-      fetchCategories();
-    }, []),
-  );
+      fetchCategories()
+    }, [])
+  )
 
   return (
     <Drawer.Navigator
       screenOptions={{
         unmountOnBlur: true,
         drawerStyle: {
-          width: 170,
+          width: 170
         },
         headerStyle: {
-          backgroundColor: '#3e423a',
+          backgroundColor: '#3e423a'
         },
         headerTintColor: '#fafddf',
-        drawerActiveBackgroundColor: '#a4cfbe',
+        drawerActiveBackgroundColor: '#a4cfbe'
       }}>
       <Drawer.Screen
         name="All"
@@ -52,11 +52,11 @@ export function CategoryDrawer() {
         options={{
           title: 'Home',
           headerShown: true,
-          drawerLabel: '🚀 Home',
+          drawerLabel: '🚀 Home'
         }}
         key={'999'}
       />
       {categoryItems}
     </Drawer.Navigator>
-  );
+  )
 }

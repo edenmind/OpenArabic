@@ -1,9 +1,7 @@
-/* eslint-disable import/namespace */
-/* eslint-disable import/named */
-import { StyleSheet, View } from 'react-native';
-import { Paragraph } from 'react-native-paper';
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import { StyleSheet, View } from 'react-native'
+import { Paragraph } from 'react-native-paper'
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 
 const style = StyleSheet.create({
   arabic: {
@@ -15,10 +13,10 @@ const style = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 35,
-    writingDirection: 'rtl',
+    writingDirection: 'rtl'
   },
   bottomPadding: {
-    paddingBottom: 55,
+    paddingBottom: 55
   },
   english: {
     direction: 'ltr',
@@ -27,9 +25,9 @@ const style = StyleSheet.create({
     lineHeight: 25,
     paddingLeft: 15,
     paddingRight: 15,
-    writingDirection: 'ltr',
-  },
-});
+    writingDirection: 'ltr'
+  }
+})
 
 export default function Sentences(props) {
   const sentences = props.sentences.map((sentence) => (
@@ -37,11 +35,11 @@ export default function Sentences(props) {
       <Paragraph style={style.arabic}>{sentence.arabic}</Paragraph>
       <Paragraph style={style.english}>{sentence.english}</Paragraph>
     </Fragment>
-  ));
+  ))
 
-  return <View style={style.bottomPadding}>{sentences}</View>;
+  return <View style={style.bottomPadding}>{sentences}</View>
 }
 
 Sentences.propTypes = {
-  sentences: PropTypes.any.isRequired,
-};
+  sentences: PropTypes.any.isRequired
+}

@@ -1,29 +1,27 @@
-/* eslint-disable import/namespace */
-/* eslint-disable import/named */
-import { StyleSheet } from 'react-native';
-import { Subheading, Title } from 'react-native-paper';
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import { StyleSheet } from 'react-native'
+import { Subheading, Title } from 'react-native-paper'
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 
 const style = StyleSheet.create({
   author: {
     paddingTop: 25,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   readTime: {
     paddingTop: 20,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   source: {
     fontStyle: 'italic',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   title: {
     fontSize: 25,
     paddingTop: 25,
-    textAlign: 'center',
-  },
-});
+    textAlign: 'center'
+  }
+})
 
 export default function Heading(props) {
   return (
@@ -33,7 +31,7 @@ export default function Heading(props) {
       <Subheading style={style.source}>{props.heading.source}</Subheading>
       <Subheading style={style.readTime}>{props.heading.readTime}</Subheading>
     </Fragment>
-  );
+  )
 }
 
 Heading.propTypes = {
@@ -41,6 +39,6 @@ Heading.propTypes = {
     title: PropTypes.string,
     author: PropTypes.string,
     source: PropTypes.string,
-    readTime: PropTypes.string,
-  }),
-};
+    readTime: PropTypes.string
+  })
+}
