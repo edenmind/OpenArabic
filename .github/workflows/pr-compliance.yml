@@ -1,7 +1,7 @@
 name: PR Compliance
 on:
-  push:
-    branches-ignore: [main]
+  pull_request:
+    types: [opened, edited, reopened]
 
 # Action should have write permission to make updates to PR
 permissions:
@@ -14,5 +14,6 @@ jobs:
       - uses: mtfoley/pr-compliance-action@main
         with:
           protected-branch: "main"
+          ignore-team-members: true
           watch-files: |
             ./mobile/package.json
