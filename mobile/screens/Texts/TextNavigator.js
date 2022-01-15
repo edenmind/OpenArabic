@@ -1,27 +1,29 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { CategoryDrawer } from '../Categories/CategoryDrawer';
-import TextScreen from './Text/TextScreen';
-import { Button } from 'react-native-paper';
-import { Share } from 'react-native';
-import { useSelector } from 'react-redux';
+/* eslint-disable import/namespace */
+import React from 'react'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { CategoryDrawer } from '../Categories/CategoryDrawer'
+import TextScreen from './Text/TextScreen'
+import { Button } from 'react-native-paper'
+import { Share } from 'react-native'
+import { useSelector } from 'react-redux'
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 export default function TextNavigator() {
-  const selector = (state) => state.text;
-  const { text } = useSelector(selector);
+  const selector = (state) => state.text
+  const { text } = useSelector(selector)
+  const shareButtonText = 'Share'
 
   const onShare = async () => {
     try {
-      const result = await Share.share({
+      await Share.share({
         message: text.title,
-        url: 'https://app.openarabic.io/text/' + text.textId,
-      });
+        url: 'https://app.openarabic.io/text/' + text.textId
+      })
     } catch (error) {
-      alert(error.message);
+      alert(error.message)
     }
-  };
+  }
 
   return (
     <Stack.Navigator initialRouteName="Home">
@@ -40,7 +42,7 @@ export default function TextNavigator() {
           headerBackTitle: text.category,
           headerTitle: '',
           headerStyle: {
-            backgroundColor: '#3e423a',
+            backgroundColor: '#3e423a'
           },
           headerRight: () => (
             <Button
@@ -49,11 +51,11 @@ export default function TextNavigator() {
               color="#e4f2d6"
               uppercase={false}
               onPress={onShare}>
-              Share
+              {shareButtonText}
             </Button>
-          ),
+          )
         }}
       />
     </Stack.Navigator>
-  );
+  )
 }

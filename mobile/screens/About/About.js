@@ -1,10 +1,9 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable import/named */
 /* eslint-disable import/namespace */
-import 'react-native-gesture-handler';
-import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { Paragraph, Title } from 'react-native-paper';
+/* eslint-disable react-native/no-raw-text */
+import 'react-native-gesture-handler'
+import React from 'react'
+import { ScrollView, StyleSheet } from 'react-native'
+import { Paragraph, Title } from 'react-native-paper'
 export default function About() {
   const style = StyleSheet.create({
     english: {
@@ -12,9 +11,9 @@ export default function About() {
       flex: 1,
       lineHeight: 20,
       padding: 10,
-      writingDirection: 'ltr',
-    },
-  });
+      writingDirection: 'ltr'
+    }
+  })
 
   return (
     <ScrollView style={style.english}>
@@ -44,5 +43,5 @@ export default function About() {
         on GitHub.
       </Paragraph>
     </ScrollView>
-  );
+  )
 }

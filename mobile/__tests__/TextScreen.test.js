@@ -21,6 +21,6 @@ describe('<TextScreen />', () => {
       )
       .toJSON();
     // @ts-ignore
-    expect(tree.children.length).toBe(2);
+    expect(tree.children.length).toBe(1);
   });
 });

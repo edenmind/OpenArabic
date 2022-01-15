@@ -1,5 +1,4 @@
 name: PR Compliance
-
 on:
   pull_request:
     types: [opened, edited, reopened]
@@ -15,5 +14,6 @@ jobs:
       - uses: mtfoley/pr-compliance-action@main
         with:
           protected-branch: "main"
+          ignore-team-members: true
           watch-files: |
             ./mobile/package.json

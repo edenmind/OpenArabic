@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   NavigationContainer,
-  DefaultTheme as NavigationContainerDefaultTheme,
-} from '@react-navigation/native';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import TextNavigator from './screens/Texts/TextNavigator';
-import AboutNavigator from './screens/About/AboutNavigator';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
+  DefaultTheme as NavigationContainerDefaultTheme
+} from '@react-navigation/native'
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import TextNavigator from './screens/Texts/TextNavigator'
+import AboutNavigator from './screens/About/AboutNavigator'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator()
 
 const MyTheme = {
   ...NavigationContainerDefaultTheme,
@@ -22,9 +22,9 @@ const MyTheme = {
     text: '#3e423a',
     notification: '#a4cfbe',
     background: '#f5f5f5',
-    card: '#f5f5f5',
-  },
-};
+    card: '#f5f5f5'
+  }
+}
 
 const theme = {
   ...DefaultTheme,
@@ -32,9 +32,9 @@ const theme = {
   colors: {
     ...DefaultTheme.colors,
     primary: '#3e423a',
-    accent: '#a4cfbe',
-  },
-};
+    accent: '#a4cfbe'
+  }
+}
 
 const linking = {
   prefixes: ['https://openarabic.io', 'https://localhost/'],
@@ -45,31 +45,32 @@ const linking = {
           TextScreen: {
             path: '/text/:textId',
             parse: {
-              textId: Number,
-            },
+              textId: Number
+            }
           },
           TextList: {
             path: '/texts/:category',
             parse: {
-              category: String,
-            },
-          },
-        },
-      },
-    },
-  },
-};
+              category: String
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 export default function App() {
   return (
     <Provider store={store}>
       <PaperProvider theme={theme}>
         <NavigationContainer
+          // @ts-ignore
           linking={linking}
           theme={MyTheme}
           documentTitle={{
             formatter: (options, route) =>
-              `${options?.webTitle ?? route?.name} - OpenArabic`,
+              `${options?.webTitle ?? route?.name} - OpenArabic`
           }}>
           <Tab.Navigator activeColor="#fafddf" inactiveColor="#929481">
             <Tab.Screen
@@ -79,7 +80,7 @@ export default function App() {
                 tabBarLabel: 'Texts',
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons name="book" color={color} size={26} />
-                ),
+                )
               }}
             />
             <Tab.Screen
@@ -93,12 +94,12 @@ export default function App() {
                     color={color}
                     size={26}
                   />
-                ),
+                )
               }}
             />
           </Tab.Navigator>
         </NavigationContainer>
       </PaperProvider>
     </Provider>
-  );
+  )
 }
