@@ -30,7 +30,6 @@ const style = StyleSheet.create({
 })
 
 const LeftContent = (props) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <Avatar.Icon {...props} icon="book" mode="elevated" />
 )
 

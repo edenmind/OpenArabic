@@ -24,6 +24,7 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 'error',
+    'jsx-quotes': [2, 'prefer-single'],
     semi: [1, 'never']
   },
   extends: [
@@ -36,6 +37,7 @@ module.exports = {
     'plugin:react-redux/recommended',
     'plugin:import/warnings',
     'plugin:import/recommended',
+    'react/jsx-boolean-value',
     'plugin:prettier/recommended'
   ],
   settings: {

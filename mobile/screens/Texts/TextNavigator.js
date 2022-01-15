@@ -14,7 +14,7 @@ export default function TextNavigator() {
 
   const onShare = async () => {
     try {
-      const result = await Share.share({
+      await Share.share({
         message: text.title,
         url: 'https://app.openarabic.io/text/' + text.textId
       })

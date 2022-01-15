@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator()
 
 export default function AboutNavigator() {
   return (
-    <NavigationContainer independent={true}>
+    <NavigationContainer independent>
       <Stack.Navigator>
         <Stack.Screen
           name="AboutScreen"
