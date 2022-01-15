@@ -16,6 +16,7 @@
     "@react-navigation/native-stack": "^6.2.5",
     "axios": "^0.24.0",
     "expo": "^44.0.0",
+    "jest": "^26.6.3",
     "prop-types": "^15.8.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -40,8 +41,8 @@
     "@babel/preset-env": "^7.15.8",
     "@testing-library/react-native": "^9.0.0",
     "@types/jest": "^27.4.0",
-    "jest-expo": "^44.0.0",
-    "react-test-renderer": "17.0.1",
+    "jest-expo": "^44.0.1",
+    "react-test-renderer": "17",
     "redux-mock-store": "^1.5.4"
   },
   "private": true,
@@ -59,7 +60,8 @@
       "<rootDir>/mocks.js"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
     ]
-  }
+  },
+  "packageManager": "yarn@3.1.1"
 }

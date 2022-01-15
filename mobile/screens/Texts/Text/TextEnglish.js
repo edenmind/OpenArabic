@@ -7,7 +7,6 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { Paragraph } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import Spinner from '../../../components/Spinner';
-import { useNavigation } from '@react-navigation/native';
 export default function TextEnglish() {
   const style = StyleSheet.create({
     english: {
@@ -23,8 +22,8 @@ export default function TextEnglish() {
   const selector = (state) => state.text;
   const { text } = useSelector(selector);
 
-  const navigation = useNavigation();
-  navigation.setOptions({ webTitle: text.title });
+  // const navigation = useNavigation();
+  // navigation.setOptions({ webTitle: text.title });
 
   if (text.title) {
     return (

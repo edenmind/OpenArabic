@@ -15,15 +15,12 @@ jest.mock('react-native-reanimated', () => {
   return Reanimated;
 });
 
-// jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
-//   default: () => ({ getInitialState: { then: jest.fn() } }),
-//   __esModule: true,
-// }));
+global.__reanimatedWorkletInit = jest.fn();
 
 // jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 
 // jest.mock('react-native-paper/lib/commonjs/components/ActivityIndicator');
 
-jest.mock('react-native-paper/lib/commonjs/components/BottomNavigation');
+// jest.mock('react-native-paper/lib/commonjs/components/BottomNavigation');
 
 // jest.mock('@react-navigation/native/lib/commonjs/useBackButton');

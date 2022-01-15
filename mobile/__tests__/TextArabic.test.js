@@ -8,6 +8,8 @@ import renderer from 'react-test-renderer';
 import { store } from '../redux/store';
 import TextArabic from '../screens/Texts/Text/TextArabic';
 
+const mockedUsedNavigate = jest.fn();
+
 describe('<TextArabic />', () => {
   it('has 1 child', () => {
     const tree = renderer

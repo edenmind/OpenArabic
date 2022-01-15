@@ -7,7 +7,6 @@ import { Paragraph } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import React from 'react';
 import Spinner from '../../../components/Spinner';
-import { useNavigation } from '@react-navigation/native';
 export default function TextArabic() {
   const style = StyleSheet.create({
     arabic: {
@@ -22,9 +21,6 @@ export default function TextArabic() {
 
   const selector = (state) => state.text;
   const { text } = useSelector(selector);
-
-  const navigation = useNavigation();
-  navigation.setOptions({ webTitle: text.title });
 
   if (text.title) {
     return (
