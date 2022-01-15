@@ -13,8 +13,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "16"
-      - run: yarn install
-      - run: yarn test:ci
+      - name: yarn install
+        working-directory: ./mobile
+        run: yarn install
+      - name: yarn test
+        working-directory: ./mobile
+        run: yarn test
 
       - name: Tests ✅
         if: ${{ success() }}
