@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native'
 import { Card, Chip, Avatar, Paragraph } from 'react-native-paper'
 import React from 'react'
@@ -12,11 +13,11 @@ const style = StyleSheet.create({
     writingDirection: 'rtl'
   },
   card: {
+    backgroundColor: '#ffffff',
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
-    marginTop: 10,
-    backgroundColor: '#ffffff'
+    marginTop: 10
   },
   cardAction: {
     paddingBottom: 20,

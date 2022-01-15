@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { CategoryDrawer } from '../Categories/CategoryDrawer'
@@ -11,6 +12,7 @@ const Stack = createNativeStackNavigator()
 export default function TextNavigator() {
   const selector = (state) => state.text
   const { text } = useSelector(selector)
+  const shareButtonText = 'Share'
 
   const onShare = async () => {
     try {
@@ -49,7 +51,7 @@ export default function TextNavigator() {
               color="#e4f2d6"
               uppercase={false}
               onPress={onShare}>
-              Share
+              {shareButtonText}
             </Button>
           )
         }}

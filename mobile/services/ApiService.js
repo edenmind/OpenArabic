@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 import axios from 'axios'
 import { GET_CATEGORIES, GET_TEXT, GET_TEXTS } from '../redux/actions'
 

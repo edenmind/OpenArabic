@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import { StyleSheet, View } from 'react-native'
 import { Paragraph } from 'react-native-paper'
 import React, { Fragment } from 'react'

@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Pressable, ScrollView } from 'react-native'

@@ -29,7 +29,7 @@ export function CategoryDrawer() {
   useFocusEffect(
     React.useCallback(() => {
       fetchCategories()
-    }, [fetchCategories])
+    }, [])
   )
 
   return (

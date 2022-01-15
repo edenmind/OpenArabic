@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native'
 import { Subheading, Title } from 'react-native-paper'
 import React, { Fragment } from 'react'
