@@ -1,8 +1,6 @@
-/* eslint-disable import/namespace */
-/* eslint-disable import/named */
-import React, { Fragment, useCallback } from 'react';
-import { Alert, Linking, Platform, TouchableOpacity } from 'react-native';
-import { Button, Divider } from 'react-native-paper';
+import React, { Fragment } from 'react'
+import { Linking, Platform } from 'react-native'
+import { Button, Divider } from 'react-native-paper'
 
 export default function AppPromo() {
   if (Platform.OS === 'web') {
@@ -15,8 +13,8 @@ export default function AppPromo() {
           uppercase={false}
           onPress={() => {
             Linking.openURL(
-              'https://play.google.com/store/apps/details?id=com.edenmind.OpenArabic&gl=SE',
-            );
+              'https://play.google.com/store/apps/details?id=com.edenmind.OpenArabic&gl=SE'
+            )
           }}>
           Get in on Google Play
         </Button>
@@ -30,14 +28,14 @@ export default function AppPromo() {
           uppercase={false}
           onPress={() => {
             Linking.openURL(
-              'https://apps.apple.com/cz/app/open-arabic/id1594031029',
-            );
+              'https://apps.apple.com/cz/app/open-arabic/id1594031029'
+            )
           }}>
           Download on the App Store
         </Button>
       </Fragment>
-    );
+    )
   } else {
-    return null;
+    return null
   }
 }

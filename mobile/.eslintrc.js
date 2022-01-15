@@ -23,12 +23,18 @@ module.exports = {
     'react-redux'
   ],
   rules: {
-    'prettier/prettier': 'error',
-    'jsx-quotes': [2, 'prefer-single'],
-    semi: [1, 'never']
+    quotes: ['error', 'single'],
+    'prettier/prettier': [
+      'warn',
+      {
+        singleQuote: true,
+        semi: false,
+        trailingComma: 'none',
+        'space-before-function-paren': ['error', 'always']
+      }
+    ]
   },
   extends: [
-    'prettier',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-native/all',
@@ -36,9 +42,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:react-redux/recommended',
     'plugin:import/warnings',
-    'plugin:import/recommended',
-    'react/jsx-boolean-value',
-    'plugin:prettier/recommended'
+    'plugin:import/recommended'
   ],
   settings: {
     react: {
