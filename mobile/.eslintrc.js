@@ -5,14 +5,14 @@ module.exports = {
     'react-native/react-native': true,
     es6: true,
     node: true,
-    jest: true,
+    jest: true
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: [
     'import',
@@ -20,12 +20,14 @@ module.exports = {
     'react-native',
     'react-hooks',
     'prettier',
-    'react-redux',
+    'react-redux'
   ],
   rules: {
     'prettier/prettier': 'error',
+    semi: [1, 'never']
   },
   extends: [
+    'prettier',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-native/all',
@@ -34,10 +36,11 @@ module.exports = {
     'plugin:react-redux/recommended',
     'plugin:import/warnings',
     'plugin:import/recommended',
+    'plugin:prettier/recommended'
   ],
   settings: {
     react: {
-      version: 'detect',
-    },
-  },
-};
+      version: 'detect'
+    }
+  }
+}
