@@ -1,3 +1,5 @@
+/* eslint-disable import/namespace */
+/* eslint-disable react-native/no-raw-text */
 import 'react-native-gesture-handler'
 import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
