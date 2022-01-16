@@ -4,6 +4,7 @@ import { Card, Chip, Avatar, Paragraph } from 'react-native-paper'
 import React from 'react'
 import * as utility from '../../../services/UtilityService'
 import PropTypes from 'prop-types'
+import { COLORS } from '../../../constants/colors'
 
 const style = StyleSheet.create({
   arabic: {
@@ -13,7 +14,7 @@ const style = StyleSheet.create({
     writingDirection: 'rtl'
   },
   card: {
-    backgroundColor: '#ffffff',
+    backgroundColor: COLORS.white,
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
@@ -25,7 +26,7 @@ const style = StyleSheet.create({
     paddingTop: 20
   },
   chip: {
-    backgroundColor: '#a4cfbe',
+    backgroundColor: COLORS.leaf,
     padding: 0
   }
 })
