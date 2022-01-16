@@ -1,5 +1,5 @@
 import { expect, describe, it, jest } from '@jest/globals'
-import { render } from '@testing-library/react-native'
+import { render, cleanup } from '@testing-library/react-native'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import About from '../screens/About/About'
@@ -7,6 +7,7 @@ import About from '../screens/About/About'
 jest.useFakeTimers()
 
 describe('<About />', () => {
+  afterEach(cleanup)
   it('has 1 child', () => {
     const tree = renderer.create(<About />).toJSON()
     // @ts-ignore
