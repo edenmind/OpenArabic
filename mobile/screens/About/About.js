@@ -2,8 +2,8 @@
 /* eslint-disable react-native/no-raw-text */
 import 'react-native-gesture-handler'
 import React from 'react'
-import { ScrollView, StyleSheet } from 'react-native'
-import { Paragraph, Title } from 'react-native-paper'
+import { Linking, ScrollView, StyleSheet } from 'react-native'
+import { Button, Paragraph, Title } from 'react-native-paper'
 export default function About() {
   const style = StyleSheet.create({
     english: {
@@ -42,6 +42,18 @@ export default function About() {
         out with the development, then please check out the OpenArabic project
         on GitHub.
       </Paragraph>
+
+      <Button
+        icon="mail"
+        mode="contained"
+        testID="contactButton"
+        onPress={() =>
+          Linking.openURL(
+            'mailto:salam@edenmind.com?subject=Mail from OpenArabic&body=Enter your question...'
+          )
+        }>
+        Contact us
+      </Button>
     </ScrollView>
   )
 }
