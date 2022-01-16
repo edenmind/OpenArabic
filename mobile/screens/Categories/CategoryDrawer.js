@@ -4,6 +4,7 @@ import { TextList } from '../Texts/TextList/TextList'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategories } from '../../services/ApiService'
 import { useFocusEffect } from '@react-navigation/core'
+import { COLORS } from '../../constants/colors'
 
 export function CategoryDrawer() {
   const Drawer = createDrawerNavigator()
@@ -40,10 +41,10 @@ export function CategoryDrawer() {
           width: 170
         },
         headerStyle: {
-          backgroundColor: '#3e423a'
+          backgroundColor: COLORS.darkOlive
         },
-        headerTintColor: '#fafddf',
-        drawerActiveBackgroundColor: '#a4cfbe'
+        headerTintColor: COLORS.shinyOlive,
+        drawerActiveBackgroundColor: COLORS.leaf
       }}>
       <Drawer.Screen
         name="All"

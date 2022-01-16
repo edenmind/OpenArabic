@@ -6,6 +6,7 @@ import TextScreen from './Text/TextScreen'
 import { Button } from 'react-native-paper'
 import { Share } from 'react-native'
 import { useSelector } from 'react-redux'
+import { COLORS } from '../../constants/colors'
 
 const Stack = createNativeStackNavigator()
 
@@ -37,18 +38,18 @@ export default function TextNavigator() {
         component={TextScreen}
         options={{
           headerShown: true,
-          headerTintColor: '#e4f2d6',
+          headerTintColor: COLORS.lightOlive,
           title: text.title,
           headerBackTitle: text.category,
           headerTitle: '',
           headerStyle: {
-            backgroundColor: '#3e423a'
+            backgroundColor: COLORS.darkOlive
           },
           headerRight: () => (
             <Button
               icon="share"
               mode="text"
-              color="#e4f2d6"
+              color={COLORS.lightOlive}
               uppercase={false}
               onPress={onShare}>
               {shareButtonText}
