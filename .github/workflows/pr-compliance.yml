@@ -1,6 +1,6 @@
 name: PR Compliance
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, edited, reopened]
 
 # Action should have write permission to make updates to PR
@@ -13,7 +13,5 @@ jobs:
     steps:
       - uses: mtfoley/pr-compliance-action@main
         with:
-          protected-branch: "main"
-          ignore-team-members: true
           watch-files: |
-            ./mobile/package.json
+            mobile/package.json
