@@ -13,7 +13,5 @@ jobs:
     steps:
       - uses: mtfoley/pr-compliance-action@main
         with:
-          # action will ignore PRs by repo owner regardless of this setting.
-          ignore-team-members: true
           watch-files: |
             mobile/package.json
