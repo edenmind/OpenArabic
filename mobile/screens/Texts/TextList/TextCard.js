@@ -37,7 +37,7 @@ const LeftContent = (props) => (
 
 export default function TextCard(props) {
   return (
-    <Card style={style.card}>
+    <Card style={style.card} testID="textCard">
       <Card.Title
         title={props.text.title}
         subtitle={`${props.text.author} (${props.text.timeAgo})`}
