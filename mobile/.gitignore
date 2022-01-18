@@ -9,6 +9,7 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+constants/amplitude.js
 
 # macOS
 .DS_Store

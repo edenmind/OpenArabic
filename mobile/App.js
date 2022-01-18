@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   NavigationContainer,
   DefaultTheme as NavigationContainerDefaultTheme
@@ -10,6 +10,7 @@ import TextNavigator from './screens/Texts/TextNavigator'
 import AboutNavigator from './screens/About/AboutNavigator'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
+import Analytics from './services/Analytics'
 
 const Tab = createMaterialBottomTabNavigator()
 
@@ -59,8 +60,11 @@ const linking = {
     }
   }
 }
-
 export default function App() {
+  useEffect(() => {
+    Analytics.track(Analytics.events.HOME)
+  }, [])
+
   return (
     <Provider store={store}>
       <PaperProvider theme={theme}>

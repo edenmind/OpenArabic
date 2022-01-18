@@ -4811,6 +4811,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-analytics-amplitude@npm:~11.1.0":
+  version: 11.1.0
+  resolution: "expo-analytics-amplitude@npm:11.1.0"
+  peerDependencies:
+    expo: "*"
+  checksum: 8b4414e4aea4c6a136c3f1a2d858ab5b3e2f2678d1403ec76f413ebb8f5863e3a52d0de76cd482bc37c0690c6a398075521463a46da7d159edf9ab00930573d3
+  languageName: node
+  linkType: hard
+
 "expo-application@npm:~4.0.1":
   version: 4.0.1
   resolution: "expo-application@npm:4.0.1"
@@ -9729,6 +9738,7 @@ __metadata:
     eslint-plugin-react-native: ^4.0.0
     eslint-plugin-react-redux: ^3.3.4
     expo: ^44.0.0
+    expo-analytics-amplitude: ~11.1.0
     jest: ^26.6.3
     jest-expo: ^44.0.1
     prettier: ^2.5.1
