@@ -38,7 +38,7 @@
     "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.7",
+    "@babel/core": "^7.16.10",
     "@babel/preset-env": "^7.15.8",
     "@testing-library/react-native": "^9.0.0",
     "@types/jest": "^27.4.0",
