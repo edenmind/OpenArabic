@@ -1,4 +1,5 @@
 import { COLORS } from '../constants/colors'
+import { expect, it } from '@jest/globals'
 
 it('white should be correct', () => {
   expect(COLORS.white).toBe('#ffffff')

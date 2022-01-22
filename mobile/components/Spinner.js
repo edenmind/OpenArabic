@@ -3,6 +3,7 @@
 import { StyleSheet } from 'react-native'
 import { ActivityIndicator } from 'react-native-paper'
 import React from 'react'
+import { COLORS } from '../constants/colors'
 
 const style = StyleSheet.create({
   container: {
@@ -17,7 +18,7 @@ export default function Spinner() {
     <ActivityIndicator
       animating
       size="large"
-      color="#a4cfbe"
+      color={COLORS.leaf}
       style={style.container}
     />
   )
