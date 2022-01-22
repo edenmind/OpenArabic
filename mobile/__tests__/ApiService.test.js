@@ -1,12 +1,6 @@
 import axios from 'axios'
-
 import { expect, describe, it, jest } from '@jest/globals'
-import {
-  BASE_URL,
-  getCategories,
-  getText,
-  getTexts
-} from '../services/ApiService'
+import { getCategories, getText, getTexts } from '../services/ApiService'
 
 jest.mock('axios')
 
