@@ -1,4 +1,5 @@
 import { categoriesReducer, textReducer, textsReducer } from '../redux/reducers'
+import { expect, it } from '@jest/globals'
 
 it('categoriesReducer should return the initial state', () => {
   expect(categoriesReducer(undefined, {})).toEqual({
