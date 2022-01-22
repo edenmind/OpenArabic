@@ -1,4 +1,4 @@
-import { expect, describe, it, jest } from '@jest/globals'
+import { expect, describe, it, jest, afterEach } from '@jest/globals'
 import { render, cleanup } from '@testing-library/react-native'
 import React from 'react'
 import renderer from 'react-test-renderer'
