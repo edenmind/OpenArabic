@@ -1,14 +1,14 @@
 /* eslint-disable import/namespace */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Pressable, ScrollView } from 'react-native'
+import { FlatList, Pressable } from 'react-native'
 import * as api from '../../../services/ApiService'
 import { useDispatch, useSelector } from 'react-redux'
 import TextCard from './TextCard'
 import Spinner from '../../../components/Spinner'
 import { useFocusEffect } from '@react-navigation/native'
 
-export function TextList({ route, navigation }) {
+export default function TextList({ route, navigation }) {
   const { category } = route.params
   const [isLoading, setIsLoading] = useState(true)
   const [shouldReload, setShouldReload] = useState(true)
@@ -35,27 +35,34 @@ export function TextList({ route, navigation }) {
     }, [shouldReload])
   )
 
-  const cards = texts.map((text) => (
+  const renderItem = ({ item }) => (
     <Pressable
-      key={text.textId}
+      key={item.textId}
       onPress={() => {
         setShouldReload(false)
         navigation.navigate('TextScreen', {
-          textId: text.textId
+          textId: item.textId
         })
       }}>
-      <TextCard text={text}></TextCard>
+      <TextCard text={item}></TextCard>
     </Pressable>
-  ))
+  )
 
   if (isLoading) {
     return <Spinner />
   } else {
-    return <ScrollView>{cards}</ScrollView>
+    return (
+      <FlatList
+        testID="flatList"
+        data={texts}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.textId}
+      />
+    )
   }
 }
 
 TextList.propTypes = {
   route: PropTypes.any.isRequired,
-  navigation: PropTypes.any.isRequired
+  navigation: PropTypes.any
 }

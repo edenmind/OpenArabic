@@ -1,12 +1,12 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
-import { TextList } from '../Texts/TextList/TextList'
+import TextList from '../Texts/TextList/TextList'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategories } from '../../services/ApiService'
 import { useFocusEffect } from '@react-navigation/core'
 import { COLORS } from '../../constants/colors'
 
-export function CategoryDrawer() {
+export default function CategoryDrawer() {
   const Drawer = createDrawerNavigator()
   const selector = (state) => state.categories
   const { categories } = useSelector(selector)
