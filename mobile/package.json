@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-env": "^7.16.11",
     "@testing-library/react-native": "^9.0.0",
     "@types/jest": "^27.4.0",
     "eslint": "^8.7.0",
