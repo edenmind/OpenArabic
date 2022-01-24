@@ -1,10 +1,20 @@
 {
   "folders": [
     {
-      "path": "."
+      "path": "./"
     }
   ],
   "settings": {
-    "conventionalCommits.scopes": ["mobile", "expo", "github", "api", "docs", "k8s", "services", "terraform", "webpromo"]
+    "conventionalCommits.scopes": [
+      "mobile",
+      "expo",
+      "github",
+      "api",
+      "docs",
+      "k8s",
+      "services",
+      "terraform",
+      "webpromo"
+    ]
   }
 }
