@@ -12,6 +12,10 @@ export default function About() {
       lineHeight: 20,
       padding: 10,
       writingDirection: 'ltr'
+    },
+    button: {
+      margin: 30,
+      marginBottom: 50
     }
   })
 
@@ -44,6 +48,7 @@ export default function About() {
       </Paragraph>
 
       <Button
+        style={style.button}
         icon="mail"
         mode="contained"
         testID="contactButton"

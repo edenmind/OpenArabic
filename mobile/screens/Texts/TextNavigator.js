@@ -19,7 +19,7 @@ export default function TextNavigator() {
     try {
       await Share.share({
         message: text.title,
-        url: 'https://app.openarabic.io/text/' + text.textId
+        url: `https://app.openarabic.io/text/${text.textId}`
       })
     } catch (error) {
       alert(error.message)

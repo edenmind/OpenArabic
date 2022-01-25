@@ -15,24 +15,24 @@ export default function TextList({ route, navigation }) {
   const selector = (state) => state.texts
   const { texts } = useSelector(selector)
   const dispatch = useDispatch()
-  const fetchTexts = () => {
-    if (category === 'All') {
-      dispatch(api.getTexts('', 25, 0))
-    } else {
-      dispatch(api.getTexts(category, 50, 0))
-    }
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
-  }
 
   useFocusEffect(
     React.useCallback(() => {
       if (shouldReload) {
         setIsLoading(true)
+        const fetchTexts = () => {
+          if (category === 'All') {
+            dispatch(api.getTexts('', 25, 0))
+          } else {
+            dispatch(api.getTexts(category, 50, 0))
+          }
+          setTimeout(() => {
+            setIsLoading(false)
+          }, 1000)
+        }
         fetchTexts()
       }
-    }, [shouldReload])
+    }, [category, dispatch, shouldReload])
   )
 
   const renderItem = ({ item }) => (

@@ -1,41 +1,18 @@
 import React, { useEffect } from 'react'
-import {
-  NavigationContainer,
-  DefaultTheme as NavigationContainerDefaultTheme
-} from '@react-navigation/native'
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
+import { Provider as PaperProvider } from 'react-native-paper'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { NavigationContainer } from '@react-navigation/native'
 import TextNavigator from './screens/Texts/TextNavigator'
 import AboutNavigator from './screens/About/AboutNavigator'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
-import Analytics from './services/Analytics'
+import { track, events } from './services/Analytics'
+import { COLORS } from './constants/colors'
+import { NAVIGATIONTHEME } from './constants/navigationTheme'
+import { PAPERTHEME } from './constants/paperTheme'
 
 const Tab = createMaterialBottomTabNavigator()
-
-const MyTheme = {
-  ...NavigationContainerDefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#3e423a',
-    border: '#a4cfbe',
-    text: '#3e423a',
-    notification: '#a4cfbe',
-    background: '#f5f5f5',
-    card: '#f5f5f5'
-  }
-}
-
-const theme = {
-  ...DefaultTheme,
-  roundness: 2,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#3e423a',
-    accent: '#a4cfbe'
-  }
-}
 
 const linking = {
   prefixes: ['https://openarabic.io', 'https://localhost/'],
@@ -62,21 +39,23 @@ const linking = {
 }
 export default function App() {
   useEffect(() => {
-    Analytics.track(Analytics.events.HOME)
+    track(events.HOME)
   }, [])
 
   return (
     <Provider store={store}>
-      <PaperProvider theme={theme}>
+      <PaperProvider theme={PAPERTHEME}>
         <NavigationContainer
           // @ts-ignore
           linking={linking}
-          theme={MyTheme}
+          theme={NAVIGATIONTHEME}
           documentTitle={{
             formatter: (options, route) =>
               `${options?.webTitle ?? route?.name} - OpenArabic`
           }}>
-          <Tab.Navigator activeColor="#fafddf" inactiveColor="#929481">
+          <Tab.Navigator
+            activeColor={COLORS.shinyOlive}
+            inactiveColor={COLORS.branch}>
             <Tab.Screen
               name="Text"
               component={TextNavigator}
