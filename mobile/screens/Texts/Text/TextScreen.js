@@ -13,17 +13,8 @@ export default function TextScreen({ route }) {
   const Tab = createMaterialTopTabNavigator()
 
   const { textId = {} } = route.params
-
   const dispatch = useDispatch()
   const [isLoading, setIsLoading] = useState(true)
-
-  const fetchText = () => {
-    dispatch(getText(textId))
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 700)
-  }
-
   const tabArray = [
     { name: 'Bilingual', component: TextBilingual },
     { name: 'Arabic', component: TextArabic },
@@ -31,8 +22,14 @@ export default function TextScreen({ route }) {
   ]
 
   useEffect(() => {
+    const fetchText = () => {
+      dispatch(getText(textId))
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 700)
+    }
     fetchText()
-  }, [textId])
+  }, [dispatch, textId])
 
   const tabs = tabArray.map((screen) => (
     <Tab.Screen

@@ -11,7 +11,6 @@ export default function CategoryDrawer() {
   const selector = (state) => state.categories
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
-  const fetchCategories = () => dispatch(getCategories())
 
   const categoryItems = categories.map((category) => (
     <Drawer.Screen
@@ -29,8 +28,9 @@ export default function CategoryDrawer() {
 
   useFocusEffect(
     React.useCallback(() => {
+      const fetchCategories = () => dispatch(getCategories())
       fetchCategories()
-    }, [])
+    }, [dispatch])
   )
 
   return (
@@ -53,7 +53,7 @@ export default function CategoryDrawer() {
         options={{
           title: 'Home',
           headerShown: true,
-          drawerLabel: '🚀 Home'
+          drawerLabel: 'Home'
         }}
         key={'999'}
       />
