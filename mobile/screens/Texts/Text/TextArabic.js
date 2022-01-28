@@ -5,6 +5,7 @@ import { Paragraph } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React from 'react'
 import Spinner from '../../../components/Spinner'
+
 export default function TextArabic() {
   const style = StyleSheet.create({
     arabic: {

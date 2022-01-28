@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, GET_TEXTS, GET_TEXT } from './actions'
+import { GET_CATEGORIES, GET_TEXTS, GET_TEXT, RESET_TEXTS } from './actions'
 
 const initialStateCategories = {
   categories: []
@@ -24,6 +24,10 @@ function textReducer(state = initialStateText, action) {
   switch (action.type) {
     case GET_TEXT:
       return { ...state, text: action.payload }
+    case RESET_TEXTS:
+      return {
+        ...initialStateText
+      }
     default:
       return state
   }
