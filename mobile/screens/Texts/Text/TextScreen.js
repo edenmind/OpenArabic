@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import TextBilingual from './TextBilingual'
 import TextEnglish from './TextEnglish'
 import TextArabic from './TextArabic'
+import TextRelated from './TextRelated'
 import { useDispatch } from 'react-redux'
 import { getText } from '../../../services/ApiService'
 import Spinner from '../../../components/Spinner'
@@ -18,7 +19,8 @@ export default function TextScreen({ route }) {
   const tabArray = [
     { name: 'Bilingual', component: TextBilingual },
     { name: 'Arabic', component: TextArabic },
-    { name: 'English', component: TextEnglish }
+    { name: 'English', component: TextEnglish },
+    { name: 'Related', component: TextRelated }
   ]
 
   useEffect(() => {

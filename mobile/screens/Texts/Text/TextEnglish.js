@@ -5,6 +5,7 @@ import { ScrollView, StyleSheet } from 'react-native'
 import { Paragraph } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import Spinner from '../../../components/Spinner'
+
 export default function TextEnglish() {
   const style = StyleSheet.create({
     english: {

@@ -1,11 +1,11 @@
 /* eslint-disable import/namespace */
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { FlatList, Pressable } from 'react-native'
 import * as api from '../../../services/ApiService'
+import { FlatList, Pressable } from 'react-native'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import TextCard from './TextCard'
+import PropTypes from 'prop-types'
 import Spinner from '../../../components/Spinner'
+import TextCard from './TextCard'
 import { useFocusEffect } from '@react-navigation/native'
 
 export default function TextList({ route, navigation }) {
