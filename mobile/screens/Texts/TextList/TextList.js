@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import Spinner from '../../../components/Spinner'
 import TextCard from './TextCard'
 import { useFocusEffect } from '@react-navigation/native'
+import { SCREENS } from '../../../constants/screens'
 
 export default function TextList({ route, navigation }) {
   const { category } = route.params
@@ -40,7 +41,7 @@ export default function TextList({ route, navigation }) {
       key={item.textId}
       onPress={() => {
         setShouldReload(false)
-        navigation.navigate('TextScreen', {
+        navigation.navigate(SCREENS.textScreen, {
           textId: item.textId
         })
       }}>

@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { getText } from '../../../services/ApiService'
 import Spinner from '../../../components/Spinner'
 import AppPromo from '../../../components/AppPromo'
+import { SCREENS } from '../../../constants/screens'
 
 export default function TextScreen({ route }) {
   const Tab = createMaterialTopTabNavigator()
@@ -17,10 +18,10 @@ export default function TextScreen({ route }) {
   const dispatch = useDispatch()
   const [isLoading, setIsLoading] = useState(true)
   const tabArray = [
-    { name: 'Bilingual', component: TextBilingual },
-    { name: 'Arabic', component: TextArabic },
-    { name: 'English', component: TextEnglish },
-    { name: 'Related', component: TextRelated }
+    { name: SCREENS.bilingual, component: TextBilingual },
+    { name: SCREENS.arabic, component: TextArabic },
+    { name: SCREENS.english, component: TextEnglish },
+    { name: SCREENS.related, component: TextRelated }
   ]
 
   useEffect(() => {
