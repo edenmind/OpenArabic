@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCategories } from '../../services/ApiService'
 import { useFocusEffect } from '@react-navigation/core'
 import { COLORS } from '../../constants/colors'
+import { SCREENS } from '../../constants/screens'
 
 export default function CategoryDrawer() {
   const Drawer = createDrawerNavigator()
@@ -51,9 +52,9 @@ export default function CategoryDrawer() {
         component={TextList}
         initialParams={{ category: 'All' }}
         options={{
-          title: 'Home',
+          title: SCREENS.home,
           headerShown: true,
-          drawerLabel: 'Home'
+          drawerLabel: SCREENS.home
         }}
         key={'999'}
       />

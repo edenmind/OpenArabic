@@ -7,6 +7,7 @@ import Spinner from '../../../components/Spinner'
 import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { RESET_TEXTS } from '../../../redux/actions'
+import { SCREENS } from '../../../constants/screens'
 
 export default function TextRelated({ navigation }) {
   const selector = (state) => state.text
@@ -39,10 +40,10 @@ export default function TextRelated({ navigation }) {
       type: RESET_TEXTS,
       payload: null
     })
-    navigation.navigate('TextScreen', {
+    navigation.navigate(SCREENS.textScreen, {
       textId: item.textId
     })
-    navigation.navigate('Bilingual')
+    navigation.navigate(SCREENS.bilingual)
   }
 }
 

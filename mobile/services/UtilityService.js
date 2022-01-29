@@ -6,9 +6,5 @@ export const truncate = (stringToTruncate, truncateLength) => {
 }
 
 export const removeLineBreak = (stringWithLineBreaks) => {
-  const stringWithoutLineBreaks = stringWithLineBreaks.replace(
-    /(\r\n|\n|\r)/gm,
-    ''
-  )
-  return stringWithoutLineBreaks
+  return stringWithLineBreaks.replace(/(\r\n|\n|\r)/gm, '')
 }

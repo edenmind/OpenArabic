@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import About from './About'
 import { COLORS } from '../../constants/colors'
+import { SCREENS } from '../../constants/screens'
 
 const Stack = createNativeStackNavigator()
 
@@ -11,12 +12,12 @@ export default function AboutNavigator() {
     <NavigationContainer independent>
       <Stack.Navigator>
         <Stack.Screen
-          name="AboutScreen"
+          name={SCREENS.about}
           component={About}
           options={{
             headerLargeTitle: true,
             headerTintColor: COLORS.lightOlive,
-            title: 'About',
+            title: SCREENS.about,
             headerStyle: {
               backgroundColor: COLORS.darkOlive
             }

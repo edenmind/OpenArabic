@@ -11,6 +11,8 @@ import { track, events } from './services/Analytics'
 import { COLORS } from './constants/colors'
 import { NAVIGATIONTHEME } from './constants/navigationTheme'
 import { PAPERTHEME } from './constants/paperTheme'
+import { SCREENS } from './constants/screens'
+import { UI } from './constants/ui'
 
 const Tab = createMaterialBottomTabNavigator()
 
@@ -51,26 +53,26 @@ export default function App() {
           theme={NAVIGATIONTHEME}
           documentTitle={{
             formatter: (options, route) =>
-              `${options?.webTitle ?? route?.name} - OpenArabic`
+              `${options?.webTitle ?? route?.name} - ${UI.openArabic}`
           }}>
           <Tab.Navigator
             activeColor={COLORS.shinyOlive}
             inactiveColor={COLORS.branch}>
             <Tab.Screen
-              name="Text"
+              name={SCREENS.text}
               component={TextNavigator}
               options={{
-                tabBarLabel: 'Texts',
+                tabBarLabel: UI.texts,
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons name="book" color={color} size={26} />
                 )
               }}
             />
             <Tab.Screen
-              name="About"
+              name={SCREENS.about}
               component={AboutNavigator}
               options={{
-                tabBarLabel: 'About',
+                tabBarLabel: SCREENS.about,
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons
                     name="information"
