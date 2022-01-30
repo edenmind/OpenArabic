@@ -1,8 +1,9 @@
 /* eslint-disable import/namespace */
 import { StyleSheet, View } from 'react-native'
-import { Paragraph } from 'react-native-paper'
+import { Paragraph, Button, Text } from 'react-native-paper'
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import ModalTexts from '../../../components/ModalTexts'
 
 const style = StyleSheet.create({
   arabic: {
@@ -31,10 +32,22 @@ const style = StyleSheet.create({
 })
 
 export default function Sentences(props) {
+  const [visible, setVisible] = React.useState(false)
+
+  const hideModal = () => setVisible(false)
+  const showModal = () => setVisible(true)
+
   const sentences = props.sentences.map((sentence) => (
     <Fragment key={sentence.sentenceId}>
       <Paragraph style={style.arabic}>{sentence.arabic}</Paragraph>
       <Paragraph style={style.english}>{sentence.english}</Paragraph>
+      <ModalTexts
+        visible={visible}
+        text={sentence.arabic}
+        hideModal={hideModal}></ModalTexts>
+      <Button onPress={showModal}>
+        <Text>Show Words</Text>
+      </Button>
     </Fragment>
   ))
 
