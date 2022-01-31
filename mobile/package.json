@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@react-navigation/drawer": "^6.1.8",
+    "@react-navigation/drawer": "^6.2.0",
     "@react-navigation/material-bottom-tabs": "^6.0.9",
     "@react-navigation/material-top-tabs": "^6.0.6",
     "@react-navigation/native": "^6.0.6",
