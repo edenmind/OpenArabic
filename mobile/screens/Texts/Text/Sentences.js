@@ -33,25 +33,38 @@ const style = StyleSheet.create({
 
 export default function Sentences(props) {
   const [visible, setVisible] = React.useState(false)
-
+  const [text, setText] = React.useState('null')
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
+  const handleText = (index) => setText(index)
 
+  const modal = (
+    <ModalTexts
+      visible={visible}
+      text={text}
+      hideModal={hideModal}></ModalTexts>
+  )
   const sentences = props.sentences.map((sentence) => (
     <Fragment key={sentence.sentenceId}>
       <Paragraph style={style.arabic}>{sentence.arabic}</Paragraph>
       <Paragraph style={style.english}>{sentence.english}</Paragraph>
-      <ModalTexts
-        visible={visible}
-        text={sentence.arabic}
-        hideModal={hideModal}></ModalTexts>
-      <Button onPress={showModal}>
+
+      <Button
+        onPress={() => {
+          showModal()
+          handleText(sentence.arabic)
+        }}>
         <Text>Show Words</Text>
       </Button>
     </Fragment>
   ))
 
-  return <View style={style.bottomPadding}>{sentences}</View>
+  return (
+    <Fragment>
+      <View style={style.bottomPadding}>{sentences}</View>
+      {modal}
+    </Fragment>
+  )
 }
 
 Sentences.propTypes = {
