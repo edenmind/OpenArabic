@@ -4,7 +4,7 @@ import React from 'react'
 import Heading from '../screens/Texts/Text/Heading'
 
 jest.useFakeTimers()
-describe('<Spinner />', () => {
+describe('<Heading />', () => {
   it('renders without crashing', () => {
     const propsMock = {
       title: 'title',

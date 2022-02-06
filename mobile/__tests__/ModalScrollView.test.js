@@ -1,13 +1,19 @@
 import { describe, it, jest } from '@jest/globals'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 import React from 'react'
-import AboutNavigator from '../screens/About/AboutNavigator'
+import ModalScrollView from '../components/ModalScrollView'
 
 jest.useFakeTimers()
-describe('<AboutNavigator />', () => {
+describe('<ModalScrollView />', () => {
   it('renders without crashing', () => {
     // @ts-ignore
     const renderer = new ShallowRenderer()
-    renderer.render(<AboutNavigator />)
+    renderer.render(
+      <ModalScrollView
+        visible={false}
+        text="abc"
+        hideModal={console.log('test')}
+      />
+    )
   })
 })

@@ -1,9 +1,9 @@
 /* eslint-disable import/namespace */
-import 'react-native-gesture-handler'
+import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
+import 'react-native-gesture-handler'
 import { Paragraph } from 'react-native-paper'
 import { useSelector } from 'react-redux'
-import React from 'react'
 import Spinner from '../../../components/Spinner'
 
 export default function TextArabic() {
