@@ -44,3 +44,36 @@ describe('remove linebreaks', () => {
     )
   })
 })
+
+describe('remove enpty elements from array', () => {
+  it('should not contain empty elements in array', () => {
+    // Arrange
+    const arrayWithEmptyElemetProperties = [
+      {
+        english: 'alienation',
+        arabic: 'وحشة'
+      },
+      {
+        english: 'his Lord',
+        arabic: 'ربه'
+      },
+      {
+        english: '', //empty element
+        arabic: 'وبين'
+      }
+    ]
+
+    const filterFunction = function (element) {
+      return element.english !== '' && element.arabic !== ''
+    }
+
+    // Assert
+    const filteredArray = util.filterArrayFromEmptyElements(
+      arrayWithEmptyElemetProperties,
+      filterFunction
+    )
+
+    // Act
+    expect(filteredArray.length).toBe(2)
+  })
+})
