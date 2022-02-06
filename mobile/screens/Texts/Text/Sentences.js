@@ -1,9 +1,10 @@
 /* eslint-disable import/namespace */
-import { StyleSheet, View } from 'react-native'
-import { Paragraph, Button, Text } from 'react-native-paper'
-import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import ModalTexts from '../../../components/ModalTexts'
+import React, { Fragment } from 'react'
+import { StyleSheet, View } from 'react-native'
+import { Button, Paragraph, Text } from 'react-native-paper'
+import ModalScrollView from '../../../components/ModalScrollView'
+import WordPairs from '../../../components/WordPairs'
 
 const style = StyleSheet.create({
   arabic: {
@@ -33,16 +34,16 @@ const style = StyleSheet.create({
 
 export default function Sentences(props) {
   const [visible, setVisible] = React.useState(false)
-  const [text, setText] = React.useState('null')
+  const [words, setWords] = React.useState([])
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
-  const handleText = (index) => setText(index)
+  const handleWords = (index) => setWords(index)
 
   const modal = (
-    <ModalTexts
+    <ModalScrollView
       visible={visible}
-      text={text}
-      hideModal={hideModal}></ModalTexts>
+      content={words}
+      hideModal={hideModal}></ModalScrollView>
   )
   const sentences = props.sentences.map((sentence) => (
     <Fragment key={sentence.sentenceId}>
@@ -51,8 +52,8 @@ export default function Sentences(props) {
 
       <Button
         onPress={() => {
+          handleWords(<WordPairs words={sentence.words}></WordPairs>)
           showModal()
-          handleText(sentence.arabic)
         }}>
         <Text>Show Words</Text>
       </Button>

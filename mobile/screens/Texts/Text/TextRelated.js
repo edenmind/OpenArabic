@@ -14,6 +14,17 @@ export default function TextRelated({ navigation }) {
   const { text } = useSelector(selector)
   const dispatch = useDispatch()
 
+  const switchScreen = (item) => {
+    dispatch({
+      type: RESET_TEXTS,
+      payload: null
+    })
+    navigation.navigate(SCREENS.textScreen, {
+      textId: item.textId
+    })
+    navigation.navigate(SCREENS.bilingual)
+  }
+
   const renderItem = ({ item }) => (
     <Pressable
       key={item.textId}
@@ -34,19 +45,8 @@ export default function TextRelated({ navigation }) {
     )
   }
   return <Spinner />
-
-  function switchScreen(item) {
-    dispatch({
-      type: RESET_TEXTS,
-      payload: null
-    })
-    navigation.navigate(SCREENS.textScreen, {
-      textId: item.textId
-    })
-    navigation.navigate(SCREENS.bilingual)
-  }
 }
 
 TextRelated.propTypes = {
-  navigation: PropTypes.any
+  navigation: PropTypes.any.isRequired
 }
