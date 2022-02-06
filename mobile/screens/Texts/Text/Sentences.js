@@ -5,6 +5,7 @@ import { StyleSheet, View } from 'react-native'
 import { Button, Paragraph, Text } from 'react-native-paper'
 import ModalScrollView from '../../../components/ModalScrollView'
 import WordPairs from '../../../components/WordPairs'
+import * as util from '../../../services/UtilityService'
 
 const style = StyleSheet.create({
   arabic: {
@@ -37,7 +38,7 @@ export default function Sentences(props) {
   const [words, setWords] = React.useState([])
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
-  const handleWords = (index) => setWords(index)
+  const getListOfWordPairs = (index) => setWords(index)
 
   const modal = (
     <ModalScrollView
@@ -45,6 +46,11 @@ export default function Sentences(props) {
       content={words}
       hideModal={hideModal}></ModalScrollView>
   )
+
+  const filterFunction = function (element) {
+    return element.english !== '' && element.arabic !== ''
+  }
+
   const sentences = props.sentences.map((sentence) => (
     <Fragment key={sentence.sentenceId}>
       <Paragraph style={style.arabic}>{sentence.arabic}</Paragraph>
@@ -52,7 +58,13 @@ export default function Sentences(props) {
 
       <Button
         onPress={() => {
-          handleWords(<WordPairs words={sentence.words}></WordPairs>)
+          getListOfWordPairs(
+            <WordPairs
+              words={util.filterArrayFromEmptyElements(
+                sentence.words,
+                filterFunction
+              )}></WordPairs>
+          )
           showModal()
         }}>
         <Text>Show Words</Text>

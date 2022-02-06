@@ -8,3 +8,7 @@ export const truncate = (stringToTruncate, truncateLength) => {
 export const removeLineBreak = (stringWithLineBreaks) => {
   return stringWithLineBreaks.replace(/(\r\n|\n|\r)/gm, '')
 }
+
+export const filterArrayFromEmptyElements = (arrayToFilter, filterFunction) => {
+  return arrayToFilter.filter(filterFunction)
+}
