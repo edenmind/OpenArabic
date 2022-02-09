@@ -50,7 +50,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-react-native": "^4.0.0",
-    "eslint-plugin-react-redux": "^3.3.4",
+    "eslint-plugin-react-redux": "^4.0.0",
     "jest-expo": "^44.0.1",
     "prettier": "^2.5.1",
     "react-test-renderer": "17",
