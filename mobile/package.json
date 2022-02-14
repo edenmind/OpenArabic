@@ -31,7 +31,7 @@
     "react-native-screens": "~3.10.1",
     "react-native-share": "^7.3.4",
     "react-native-tab-view": "^3.1.1",
-    "react-native-vector-icons": "^9.0.0",
+    "react-native-vector-icons": "^9.1.0",
     "react-native-web": "0.17.1",
     "react-redux": "^7.2.5",
     "redux": "^4.1.1",
