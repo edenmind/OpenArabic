@@ -41,10 +41,7 @@ export default function Sentences(props) {
   const getListOfWordPairs = (index) => setWords(index)
 
   const modal = (
-    <ModalScrollView
-      visible={visible}
-      content={words}
-      hideModal={hideModal}></ModalScrollView>
+    <ModalScrollView visible={visible} content={words} hideModal={hideModal} />
   )
 
   const filterFunction = function (element) {
@@ -63,7 +60,8 @@ export default function Sentences(props) {
               words={util.filterArrayFromEmptyElements(
                 sentence.words,
                 filterFunction
-              )}></WordPairs>
+              )}
+            />
           )
           showModal()
         }}>

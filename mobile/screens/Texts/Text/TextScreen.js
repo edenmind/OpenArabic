@@ -1,3 +1,5 @@
+/* eslint-disable import/namespace */
+import { StyleSheet } from 'react-native'
 import React, { Fragment, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
@@ -10,7 +12,13 @@ import { getText } from '../../../services/ApiService'
 import Spinner from '../../../components/Spinner'
 import AppPromo from '../../../components/AppPromo'
 import { SCREENS } from '../../../constants/screens'
+import Quiz from './Quiz'
 
+const style = StyleSheet.create({
+  tabs: {
+    paddingTop: 0
+  }
+})
 export default function TextScreen({ route }) {
   const Tab = createMaterialTopTabNavigator()
 
@@ -19,6 +27,7 @@ export default function TextScreen({ route }) {
   const [isLoading, setIsLoading] = useState(true)
   const tabArray = [
     { name: SCREENS.bilingual, component: TextBilingual },
+    { name: SCREENS.quiz, component: Quiz },
     { name: SCREENS.arabic, component: TextArabic },
     { name: SCREENS.english, component: TextEnglish },
     { name: SCREENS.related, component: TextRelated }
@@ -43,21 +52,20 @@ export default function TextScreen({ route }) {
     />
   ))
 
-  if (isLoading) {
-    return <Spinner />
-  } else {
-    return (
-      <Fragment>
-        <Tab.Navigator
-          screenOptions={{
-            tabBarLabelStyle: { fontSize: 12 }
-          }}>
-          {tabs}
-        </Tab.Navigator>
-        <AppPromo />
-      </Fragment>
-    )
-  }
+  return isLoading ? (
+    <Spinner />
+  ) : (
+    <Fragment>
+      <Tab.Navigator
+        style={style.tabs}
+        screenOptions={{
+          tabBarLabelStyle: { fontSize: 12 }
+        }}>
+        {tabs}
+      </Tab.Navigator>
+      <AppPromo />
+    </Fragment>
+  )
 }
 
 TextScreen.propTypes = {

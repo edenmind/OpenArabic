@@ -19,7 +19,7 @@ const style = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    paddingTop: 25,
+    paddingTop: 55,
     textAlign: 'center'
   }
 })

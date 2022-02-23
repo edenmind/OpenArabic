@@ -14,17 +14,17 @@ it('shinyOlive should be correct', () => {
 })
 
 it('bilingual should be correct', () => {
-  expect(SCREENS.bilingual).toBe('Bilingual')
+  expect(SCREENS.bilingual).toBe('Dual')
 })
 
 it('bilingual should be correct', () => {
-  expect(SCREENS.arabic).toBe('Arabic')
+  expect(SCREENS.arabic).toBe('Ar')
 })
 
 it('bilingual should be correct', () => {
-  expect(SCREENS.english).toBe('English')
+  expect(SCREENS.english).toBe('Eng')
 })
 
 it('bilingual should be correct', () => {
-  expect(SCREENS.related).toBe('Related')
+  expect(SCREENS.related).toBe('More')
 })
