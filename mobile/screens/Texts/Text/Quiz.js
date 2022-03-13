@@ -9,8 +9,32 @@ const Quiz = () => {
   const selector = (state) => state.text
   const { text } = useSelector(selector)
 
-  const [selectedState, setSelected] = React.useState()
-  const setFunc = () => setSelected((value) => !value)
+  const arabicSelected = Array(5)
+    .fill()
+    .map(() => true)
+
+  const englishSelected = Array(5)
+    .fill()
+    .map(() => true)
+
+  const [arabicSelectedState, setSelectedArabic] =
+    React.useState(arabicSelected)
+  const [englishSelectedState, setSelectedEnglish] =
+    React.useState(englishSelected)
+
+  const setFuncArabic = (index) => {
+    console.log('index: ', index)
+    const currentValue = arabicSelectedState[index]
+    arabicSelectedState[index] = !currentValue
+    setSelectedArabic([...arabicSelectedState])
+  }
+
+  const setFuncEnglish = (index) => {
+    console.log('index: ', index)
+    const currentValue = englishSelectedState[index]
+    englishSelectedState[index] = !currentValue
+    setSelectedEnglish([...englishSelectedState])
+  }
 
   const styles = StyleSheet.create({
     chip: {
@@ -21,17 +45,34 @@ const Quiz = () => {
   })
 
   if (text.title) {
-    const chips = text.vocabularyCollection.arabic.map((arabic) => (
-      <ChipText
-        onPress={console.log('test')}
-        key={arabic.wordId}
-        text={arabic.word}
-        func={setFunc}
-        selected={selectedState}
-      />
-    ))
+    const arabicVocabularies = text.vocabularyCollection.arabic.map(
+      (arabic, index) => (
+        <ChipText
+          key={arabic.wordId}
+          text={arabic.word}
+          func={() => setFuncArabic(index)}
+          selected={arabicSelectedState[index]}
+        />
+      )
+    )
 
-    return <View style={styles.chip}>{chips}</View>
+    const englishVocabularies = text.vocabularyCollection.english.map(
+      (english, index) => (
+        <ChipText
+          key={english.wordId}
+          text={english.word}
+          func={() => setFuncEnglish(index)}
+          selected={englishSelectedState[index]}
+        />
+      )
+    )
+
+    return (
+      <>
+        <View style={styles.chip}>{arabicVocabularies}</View>
+        <View style={styles.chip}>{englishVocabularies}</View>
+      </>
+    )
   }
   return <Spinner />
 }

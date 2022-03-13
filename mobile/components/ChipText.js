@@ -25,9 +25,7 @@ const styles = StyleSheet.create({
 const ChipText = (props) => (
   <Chip
     onPress={props.func}
-    //selected={props.selected}
     backgroundColor={COLORS.leaf}
-    selectedColor={COLORS.branch}
     textStyle={styles.text}
     style={props.selected ? styles.chipSelected : styles.chipNotSelected}>
     <Text>{props.text}</Text>
