@@ -27,7 +27,7 @@ const ChipText = (props) => (
     onPress={props.func}
     backgroundColor={COLORS.leaf}
     textStyle={styles.text}
-    style={props.selected ? styles.chipSelected : styles.chipNotSelected}>
+    style={props.selected ? styles.chipNotSelected : styles.chipSelected}>
     <Text>{props.text}</Text>
   </Chip>
 )
