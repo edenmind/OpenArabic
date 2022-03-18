@@ -17,20 +17,7 @@ const Quiz = () => {
   const selector = (state) => state.text
   const { text } = useSelector(selector)
 
-  const [arabicCurrentSelected, setArabicCurrentSelected] =
-    React.useState(false)
-  const [englishCurrentSelected, setEnglishCurrentSelected] =
-    React.useState(false)
-
-  const [arabicCurrentSelectedIndex, setArabicCurrentSelectedIndex] =
-    React.useState()
-  const [englishCurrentSelectedIndex, setEnglishCurrentSelectedIndex] =
-    React.useState()
-
-  const [correctAnswers, setCorrectAnswers] = React.useState([])
-
-  //selected, unselected, disabled
-  const arabicSelected = Array(
+  const arabicArray = Array(
     text.vocabularyCollection.arabic
       ? text.vocabularyCollection.arabic.length
       : 0
@@ -38,7 +25,7 @@ const Quiz = () => {
     .fill()
     .map(() => false)
 
-  const englishSelected = Array(
+  const englishArray = Array(
     text.vocabularyCollection.english
       ? text.vocabularyCollection.english.length
       : 0
@@ -46,67 +33,64 @@ const Quiz = () => {
     .fill()
     .map(() => false)
 
-  const addItem = (wordId) => {
+  const addWordIdToCorrectAnswers = (wordId) => {
     setCorrectAnswers([...correctAnswers, wordId])
   }
 
-  const [arabicSelectedState, setSelectedArabic] =
-    React.useState(arabicSelected)
+  const [arabicSelectedWordId, setArabicSelectedWordId] = React.useState(false)
+  const [engSelectedWordId, setEngSelectedWordId] = React.useState(false)
+  const [arabicSelectedIndex, setArabicSelectedIndex] = React.useState()
+  const [englishSelectedIndex, setEnglishSelectedIndex] = React.useState()
+  const [correctAnswers, setCorrectAnswers] = React.useState([])
+  const [arabicSelected, setArabicSelected] = React.useState(arabicArray)
+  const [englishSelected, setEnglishSelected] = React.useState(englishArray)
+  const [isSecondWordState, setIsSecondWord] = React.useState(false)
 
-  const [englishSelectedState, setSelectedEnglish] =
-    React.useState(englishSelected)
-
-  const [secondWordState, setSecondWordState] = React.useState(false)
-
-  const setFuncArabic = (index, arabicWordId) => {
+  const arabicWordPress = (index, arabicWordId) => {
     if (correctAnswers.includes(arabicWordId)) return
 
-    if (englishCurrentSelected == arabicWordId) {
-      addItem(arabicWordId)
-      setArabicCurrentSelected(false)
-      setEnglishCurrentSelected(false)
-      setSecondWordState(false)
-      console.log('add')
-    } else if (secondWordState) {
-      console.log('clear')
-      setSecondWordState(false)
-      englishSelectedState[englishCurrentSelectedIndex] = false
-      setSelectedEnglish([...englishSelectedState])
+    if (engSelectedWordId == arabicWordId) {
+      addWordIdToCorrectAnswers(arabicWordId)
+      setArabicSelectedWordId(false)
+      setEngSelectedWordId(false)
+      setIsSecondWord(false)
+    } else if (isSecondWordState) {
+      setIsSecondWord(false)
+      englishSelected[englishSelectedIndex] = false
+      setEnglishSelected([...englishSelected])
       return
     } else {
-      setSecondWordState(true)
+      setIsSecondWord(true)
     }
 
-    arabicSelectedState[index] = true
-    setSelectedArabic([...arabicSelectedState])
-    setArabicCurrentSelected(arabicWordId)
-    setArabicCurrentSelectedIndex(index)
-    setSecondWordState(true)
+    arabicSelected[index] = true
+    setArabicSelected([...arabicSelected])
+    setArabicSelectedWordId(arabicWordId)
+    setArabicSelectedIndex(index)
+    setIsSecondWord(true)
   }
 
-  const setFuncEnglish = (index, englishWordId) => {
+  const englishWordPress = (index, englishWordId) => {
     if (correctAnswers.includes(englishWordId)) return
 
-    if (arabicCurrentSelected == englishWordId) {
-      addItem(englishWordId)
-      setArabicCurrentSelected(false)
-      setEnglishCurrentSelected(false)
-      setSecondWordState(false)
-      console.log('add')
-    } else if (secondWordState) {
-      console.log('clear')
-      setSecondWordState(false)
-      arabicSelectedState[arabicCurrentSelectedIndex] = false
-      setSelectedArabic([...arabicSelectedState])
+    if (arabicSelectedWordId == englishWordId) {
+      addWordIdToCorrectAnswers(englishWordId)
+      setArabicSelectedWordId(false)
+      setEngSelectedWordId(false)
+      setIsSecondWord(false)
+    } else if (isSecondWordState) {
+      setIsSecondWord(false)
+      arabicSelected[arabicSelectedIndex] = false
+      setArabicSelected([...arabicSelected])
       return
     } else {
-      setSecondWordState(true)
+      setIsSecondWord(true)
     }
 
-    englishSelectedState[index] = true
-    setSelectedEnglish([...englishSelectedState])
-    setEnglishCurrentSelected(englishWordId)
-    setEnglishCurrentSelectedIndex(index)
+    englishSelected[index] = true
+    setEnglishSelected([...englishSelected])
+    setEngSelectedWordId(englishWordId)
+    setEnglishSelectedIndex(index)
   }
 
   const arabicVocabularies = text.vocabularyCollection.arabic.map(
@@ -114,8 +98,8 @@ const Quiz = () => {
       <ChipText
         key={arabic.wordId}
         text={arabic.word}
-        func={() => setFuncArabic(index, arabic.wordId)}
-        selected={arabicSelectedState[index]}
+        func={() => arabicWordPress(index, arabic.wordId)}
+        selected={arabicSelected[index]}
       />
     )
   )
@@ -125,8 +109,8 @@ const Quiz = () => {
       <ChipText
         key={english.wordId}
         text={english.word}
-        func={() => setFuncEnglish(index, english.wordId)}
-        selected={englishSelectedState[index]}
+        func={() => englishWordPress(index, english.wordId)}
+        selected={englishSelected[index]}
       />
     )
   )
