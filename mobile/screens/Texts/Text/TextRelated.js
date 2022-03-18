@@ -31,7 +31,7 @@ export default function TextRelated({ navigation }) {
       onPress={() => {
         switchScreen(item)
       }}>
-      <TextItem title={item.title}></TextItem>
+      <TextItem title={item.title} />
     </Pressable>
   )
 

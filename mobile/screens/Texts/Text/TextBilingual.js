@@ -13,8 +13,8 @@ export default function TextBilingual() {
   if (text.title) {
     return (
       <ScrollView>
-        <Heading heading={text}></Heading>
-        <Sentences sentences={text.sentences}></Sentences>
+        <Heading heading={text} />
+        <Sentences sentences={text.sentences} />
       </ScrollView>
     )
   }

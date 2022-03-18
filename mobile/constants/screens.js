@@ -2,9 +2,10 @@ export const SCREENS = {
   about: 'About',
   text: 'Texts',
   home: 'Home',
-  bilingual: 'Bilingual',
-  arabic: 'Arabic',
-  english: 'English',
-  related: 'Related',
+  bilingual: 'Dual',
+  arabic: 'Ar',
+  english: 'Eng',
+  quiz: 'Quiz',
+  related: 'More',
   textScreen: 'TextScreen'
 }

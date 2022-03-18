@@ -1,0 +1,13 @@
+{
+  "entryFilePath": "node_modules/expo/AppEntry.js",
+  "alias": false,
+  "resolveExtensions": [
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx",
+    ".vue",
+    ".scss",
+    ".less"
+  ]
+}

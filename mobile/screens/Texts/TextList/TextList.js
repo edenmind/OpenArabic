@@ -49,18 +49,16 @@ export default function TextList({ route, navigation }) {
     </Pressable>
   )
 
-  if (isLoading) {
-    return <Spinner />
-  } else {
-    return (
-      <FlatList
-        testID="flatList"
-        data={texts}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.textId}
-      />
-    )
-  }
+  return isLoading ? (
+    <Spinner />
+  ) : (
+    <FlatList
+      testID="flatList"
+      data={texts}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.textId}
+    />
+  )
 }
 
 TextList.propTypes = {

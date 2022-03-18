@@ -15,7 +15,7 @@ export default function AboutNavigator() {
           name={SCREENS.about}
           component={About}
           options={{
-            headerLargeTitle: true,
+            headerLargeTitle: false,
             headerTintColor: COLORS.lightOlive,
             title: SCREENS.about,
             headerStyle: {
