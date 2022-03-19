@@ -41,3 +41,4 @@ mobile/google-sa.json
 *.icloud
 *.icloud
 mobile/google-sa.json
+frontend/node_modules/*
