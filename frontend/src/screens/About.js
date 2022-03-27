@@ -1,13 +1,12 @@
-import { Container } from '@mui/material';
-import React from 'react';
-import Nav from './Nav';
+import { Container } from '@mui/material'
+import React from 'react'
+import Nav from './Nav'
 
 const About = () => {
   return (
     <React.Fragment>
-      <Nav></Nav>
-
-      <Container maxWidth="lg">
+      <Nav />
+      <Container maxWidth='lg'>
         <div>
           <h2>Audience</h2>
           If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then OpenArabic is a reading platform — featuring short bilingual texts and vocabulary
@@ -16,7 +15,7 @@ const About = () => {
         </div>
       </Container>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default About;
+export default About

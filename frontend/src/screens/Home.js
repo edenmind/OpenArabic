@@ -1,15 +1,18 @@
-import React from 'react';
-import Nav from './Nav';
+import React from 'react'
+import Nav from './Nav'
+import TextProduction from './TextProduction'
+import { Container } from '@mui/material'
 
 const Home = () => {
   return (
     <React.Fragment>
-      <Nav></Nav>
-      <div>
-        <h1>Welcome!</h1>
-      </div>
+      <Nav />
+      <Container maxWidth='lg'>
+        <h2>Add Text</h2>
+        <TextProduction />
+      </Container>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
