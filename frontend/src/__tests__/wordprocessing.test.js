@@ -17,7 +17,7 @@ describe('test wordProcessing', () => {
     const sentence = 'This is a sentence.'
 
     // Act
-    const words = wordProcessing.splitSentenceToWords(sentence)
+    const words = wordProcessing.splitSentencesToWords(sentence)
 
     // Assert
     expect(words.length).toBe(4)
@@ -28,7 +28,7 @@ describe('test wordProcessing', () => {
     const sentence = 'Word.'
 
     // Act
-    const words = wordProcessing.splitSentenceToWords(sentence)
+    const words = wordProcessing.splitSentencesToWords(sentence)
 
     // Assert
     expect(words.length).toBe(1)

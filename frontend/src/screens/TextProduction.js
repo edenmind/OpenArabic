@@ -1,55 +1,41 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import Tabs from '@mui/material/Tabs'
-import Tab from '@mui/material/Tab'
-import Typography from '@mui/material/Typography'
+
 import Box from '@mui/material/Box'
-import Heading from './Heading'
-import Sentences from './Sentences'
-import Words from './Words'
 import { Button } from '@mui/material'
-import axios from 'axios'
+import Heading from './Heading'
 import LangSentences from '../models/LangSentences'
 import LangText from '../models/LangText'
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props
-
-  return (
-    <div role='tabpanel' hidden={value !== index} id={`simple-tabpanel-${index}`} aria-labelledby={`simple-tab-${index}`} {...other}>
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  )
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-}
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  }
-}
+import Sentences from './Sentences'
+import Tab from '@mui/material/Tab'
+import { TabPanel } from './TabPanel'
+import Tabs from '@mui/material/Tabs'
+import Words from './Words'
+import axios from 'axios'
 
 export default function TextProduction() {
   const [value, setValue] = React.useState(0)
 
   const [categories, setCategories] = React.useState([])
   const [authors, setAuthors] = React.useState([])
-  const [title, setTitle] = React.useState('')
 
+  const [title, setTitle] = React.useState('')
   const [text, setText] = useState(new LangText())
+
+  const [englishSentencesObject, setEnglishSentencesObject] = React.useState([])
+  const [arabicSentencesObject, setArabicSentencesObject] = React.useState([])
+
+  const [englishWords, setEnglishWords] = React.useState([])
+  const [arabicWords, setArabicWords] = React.useState([])
 
   const logText = () => {
     console.log(text)
+  }
+
+  const a11yProps = (index) => {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    }
   }
 
   const doTheUpdate = () => {
@@ -89,6 +75,22 @@ export default function TextProduction() {
     setTitle(theTitle)
   }
 
+  const setEnglishSentencesObjectFunc = (englishValue) => {
+    setEnglishSentencesObject(englishValue)
+  }
+
+  const setArabicSentencesObjectFunc = (arabicValue) => {
+    setArabicSentencesObject(arabicValue)
+  }
+
+  const setEnglishWordsFunc = (englishValue) => {
+    setEnglishWords(englishValue)
+  }
+
+  const setArabicWordsFunc = (arabicValue) => {
+    setArabicWords(arabicValue)
+  }
+
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -102,10 +104,15 @@ export default function TextProduction() {
         <Heading Categories={categories} Authors={authors} Title={title} func={setTitleFunc} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Sentences />
+        <Sentences
+          arabicSentenceFunc={setArabicSentencesObjectFunc}
+          englishSentenceFunc={setEnglishSentencesObjectFunc}
+          englishWordsFunc={setEnglishWordsFunc}
+          setArabicWordsFunc={setArabicWordsFunc}
+        />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Words />
+        <Words english={englishWords} arabic={arabicWords} />
       </TabPanel>
 
       <Button

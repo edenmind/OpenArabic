@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
-import React from 'react'
 import Nav from './Nav'
+import React from 'react'
 
 const About = () => {
   return (

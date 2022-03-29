@@ -1,7 +1,7 @@
-import React from 'react'
-import Nav from './Nav'
-import TextProduction from './TextProduction'
 import { Container } from '@mui/material'
+import Nav from './Nav'
+import React from 'react'
+import TextProduction from './TextProduction'
 
 const Home = () => {
   return (
