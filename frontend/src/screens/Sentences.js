@@ -19,9 +19,11 @@ const Sentences = (props) => {
   function handleChangeEnglish(event) {
     setEnglishSentences(event.target.value)
     const englishSentencesProcessed = wordProcessing.splitTextToSentences(event.target.value)
-    let theEnglishWords = []
+    const theEnglishWords = []
     englishSentencesProcessed.forEach((sentence) => {
-      theEnglishWords = theEnglishWords.concat(wordProcessing.splitSentencesToWords(sentence))
+      const theEnglishWordsSentence = wordProcessing.splitSentencesToWords(sentence)
+      theEnglishWords.push(theEnglishWordsSentence)
+      console.log(theEnglishWords)
     })
 
     props.englishSentenceFunc(englishSentencesProcessed)
@@ -31,11 +33,14 @@ const Sentences = (props) => {
   function handleChangeArabic(event) {
     setArabicSentences(event.target.value)
     const arabicSentencesProcessed = wordProcessing.splitTextToSentences(event.target.value)
-    const arabicWords = arabicSentencesProcessed.forEach((sentence) => {
-      wordProcessing.splitSentencesToWords(sentence)
+    const theArabicWords = []
+    arabicSentencesProcessed.forEach((sentence) => {
+      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(sentence)
+      theArabicWords.push(theArabicWordsSentence)
+      console.log(theArabicWords)
     })
     props.arabicSentenceFunc(arabicSentencesProcessed)
-    props.arabicWordsFunc(arabicWords)
+    props.arabicWordsFunc(theArabicWords)
   }
 
   return (
