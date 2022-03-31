@@ -104,12 +104,7 @@ export default function TextProduction() {
         <Heading Categories={categories} Authors={authors} Title={title} func={setTitleFunc} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Sentences
-          arabicSentenceFunc={setArabicSentencesObjectFunc}
-          englishSentenceFunc={setEnglishSentencesObjectFunc}
-          englishWordsFunc={setEnglishWordsFunc}
-          setArabicWordsFunc={setArabicWordsFunc}
-        />
+        <Sentences arabicSentenceFunc={setArabicSentencesObjectFunc} englishSentenceFunc={setEnglishSentencesObjectFunc} englishWordsFunc={setEnglishWordsFunc} arabicWordsFunc={setArabicWordsFunc} />
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Words english={englishWords} arabic={arabicWords} />
