@@ -1,21 +1,26 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
+
+import App from './App'
 import CssBaseline from '@mui/material/CssBaseline'
+import { Provider } from 'react-redux'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { ThemeProvider } from '@mui/material/styles'
+import reportWebVitals from './reportWebVitals'
+import store from './redux/store'
 import theme from './theme'
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),
