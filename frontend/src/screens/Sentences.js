@@ -1,6 +1,9 @@
 import * as React from 'react'
 import * as wordProcessing from '../services/wordProcessing'
 
+import { SET_ARABIC_TEXT, SET_ENGLISH_TEXT } from '../redux/actions'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Divider from '@mui/material/Divider'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
@@ -13,11 +16,13 @@ const Item = styled(Paper)(({ theme }) => ({
 }))
 
 const Sentences = (props) => {
-  const [englishSentences, setEnglishSentences] = React.useState([])
-  const [arabicSentences, setArabicSentences] = React.useState([])
+  const dispatch = useDispatch()
+
+  const { englishText } = useSelector((state) => state.englishText)
+  const { arabicText } = useSelector((state) => state.arabicText)
 
   function handleChangeEnglish(event) {
-    setEnglishSentences(event.target.value)
+    dispatch({ type: SET_ENGLISH_TEXT, englishText: event.target.value })
     const englishSentencesProcessed = wordProcessing.splitTextToSentences(event.target.value)
     const theEnglishWords = []
     englishSentencesProcessed.forEach((sentence) => {
@@ -31,7 +36,7 @@ const Sentences = (props) => {
   }
 
   function handleChangeArabic(event) {
-    setArabicSentences(event.target.value)
+    dispatch({ type: SET_ARABIC_TEXT, arabicText: event.target.value })
     const arabicSentencesProcessed = wordProcessing.splitTextToSentences(event.target.value)
     const theArabicWords = []
     arabicSentencesProcessed.forEach((sentence) => {
@@ -46,11 +51,11 @@ const Sentences = (props) => {
   return (
     <Stack direction='row' divider={<Divider orientation='vertical' flexItem />} spacing={2}>
       <Item>
-        <TextField InputProps={{ style: { fontSize: 20 } }} value={englishSentences} label='English' multiline rows={30} fullWidth variant='filled' onChange={handleChangeEnglish} />
+        <TextField InputProps={{ style: { fontSize: 20 } }} value={englishText} label='English' multiline rows={30} fullWidth variant='filled' onChange={handleChangeEnglish} />
       </Item>
       <Item>
         <div dir='rtl' fontSize='44'>
-          <TextField InputProps={{ style: { fontSize: 30 } }} value={arabicSentences} label='Arabic' multiline rows={21} fullWidth variant='filled' onChange={handleChangeArabic} />
+          <TextField InputProps={{ style: { fontSize: 30 } }} value={arabicText} label='Arabic' multiline rows={21} fullWidth variant='filled' onChange={handleChangeArabic} />
         </div>
       </Item>
     </Stack>

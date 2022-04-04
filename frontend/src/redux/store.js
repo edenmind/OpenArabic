@@ -1,8 +1,13 @@
+import { arabicTextReducer, authorReducer, categoryReducer, englishTextReducer, textReducer } from './reducers'
+
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './reducers'
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    title: textReducer,
+    category: categoryReducer,
+    author: authorReducer,
+    englishText: englishTextReducer,
+    arabicText: arabicTextReducer,
   },
 })
