@@ -1,4 +1,4 @@
-import { arabicTextReducer, authorReducer, categoryReducer, englishTextReducer, textReducer } from './reducers'
+import { arabicSentenceReducer, arabicTextReducer, arabicWordsReducer, authorReducer, categoryReducer, englishSentenceReducer, englishTextReducer, englishWordsReducer, textReducer } from './reducers'
 
 import { configureStore } from '@reduxjs/toolkit'
 
@@ -9,5 +9,9 @@ export default configureStore({
     author: authorReducer,
     englishText: englishTextReducer,
     arabicText: arabicTextReducer,
+    arabicWords: arabicWordsReducer,
+    englishWords: englishWordsReducer,
+    arabicSentence: arabicSentenceReducer,
+    englishSentence: englishSentenceReducer,
   },
 })

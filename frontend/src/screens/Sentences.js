@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as wordProcessing from '../services/wordProcessing'
 
-import { SET_ARABIC_TEXT, SET_ENGLISH_TEXT } from '../redux/actions'
+import { SET_ARABIC_SENTENCE, SET_ARABIC_TEXT, SET_ARABIC_WORDS, SET_ENGLISH_SENTENCE, SET_ENGLISH_TEXT, SET_ENGLISH_WORDS } from '../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Divider from '@mui/material/Divider'
@@ -15,14 +15,13 @@ const Item = styled(Paper)(({ theme }) => ({
   width: 700,
 }))
 
-const Sentences = (props) => {
+const Sentences = () => {
   const dispatch = useDispatch()
 
   const { englishText } = useSelector((state) => state.englishText)
   const { arabicText } = useSelector((state) => state.arabicText)
 
   function handleChangeEnglish(event) {
-    dispatch({ type: SET_ENGLISH_TEXT, englishText: event.target.value })
     const englishSentencesProcessed = wordProcessing.splitTextToSentences(event.target.value)
     const theEnglishWords = []
     englishSentencesProcessed.forEach((sentence) => {
@@ -31,12 +30,12 @@ const Sentences = (props) => {
       console.log(theEnglishWords)
     })
 
-    props.englishSentenceFunc(englishSentencesProcessed)
-    props.englishWordsFunc(theEnglishWords)
+    dispatch({ type: SET_ENGLISH_TEXT, englishText: event.target.value })
+    dispatch({ type: SET_ENGLISH_SENTENCE, englishSentence: englishSentencesProcessed })
+    dispatch({ type: SET_ENGLISH_WORDS, englishWords: theEnglishWords })
   }
 
   function handleChangeArabic(event) {
-    dispatch({ type: SET_ARABIC_TEXT, arabicText: event.target.value })
     const arabicSentencesProcessed = wordProcessing.splitTextToSentences(event.target.value)
     const theArabicWords = []
     arabicSentencesProcessed.forEach((sentence) => {
@@ -44,8 +43,10 @@ const Sentences = (props) => {
       theArabicWords.push(theArabicWordsSentence)
       console.log(theArabicWords)
     })
-    props.arabicSentenceFunc(arabicSentencesProcessed)
-    props.arabicWordsFunc(theArabicWords)
+
+    dispatch({ type: SET_ARABIC_TEXT, arabicText: event.target.value })
+    dispatch({ type: SET_ARABIC_SENTENCE, arabicSentence: arabicSentencesProcessed })
+    dispatch({ type: SET_ARABIC_WORDS, arabicWords: theArabicWords })
   }
 
   return (

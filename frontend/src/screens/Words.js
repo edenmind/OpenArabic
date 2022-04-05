@@ -1,9 +1,13 @@
-import { Button, Divider, MenuItem, Select } from '@mui/material'
+import { Divider, MenuItem, Select } from '@mui/material'
 
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-const Words = (props) => {
-  const listOfWords = props.english.map((sentence, indexSentence) => (
+const Words = () => {
+  const { englishWords } = useSelector((state) => state.englishWords)
+  const { arabicWords } = useSelector((state) => state.arabicWords)
+
+  const listOfWords = englishWords.map((sentence, indexSentence) => (
     <div key={indexSentence}>
       Sentence: {indexSentence}
       {sentence.map((word, indexWord) => (
@@ -11,7 +15,7 @@ const Words = (props) => {
           <div>Word: {word}</div>
 
           <Select value='10' label='Age'>
-            {props.arabic[1].map((arabicWord, indexArabicWord) => (
+            {arabicWords[indexSentence].map((arabicWord, indexArabicWord) => (
               <MenuItem key={indexArabicWord} value={arabicWord}>
                 {arabicWord}
               </MenuItem>
@@ -26,14 +30,6 @@ const Words = (props) => {
   return (
     <React.Fragment>
       <div>{listOfWords}</div>
-      <Select value='10' label='Age'>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
-
-      <Button onClick={() => props.setEnglishWordsFunc('abc')}>Add English Words</Button>
-      <Button onClick={() => props.setArabicWordsFunc('abc')}>Add Arabic Words</Button>
     </React.Fragment>
   )
 }
