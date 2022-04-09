@@ -2,7 +2,7 @@ POST http://localhost:3000/authors HTTP/1.1
 content-type: application/json
 
 {
-    "name": "yunus",
+    "name": "yunusa"
 }
 ###
 
@@ -20,7 +20,7 @@ content-type: application/json
 }
 ###
 
-DELETE http://localhost:3000/authors/62518818661588692cdb0d65 HTTP/1.1
+DELETE http://localhost:3000/authors/6252013938c4ca7093e73465 HTTP/1.1
 ###
 
 

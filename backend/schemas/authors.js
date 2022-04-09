@@ -11,6 +11,7 @@ const getAuthorsOpts = {
           type: 'object',
           properties: {
             _id: { type: 'string' },
+            id: { type: 'string' },
             name: { type: 'string' },
           },
         },
@@ -27,6 +28,8 @@ const getAuthorOpts = {
         type: 'object',
         properties: {
           _id: { type: 'string' },
+          id: { type: 'string' },
+
           name: { type: 'string' },
         },
       },
@@ -63,15 +66,12 @@ const postAuthorOpts = {
       required: ['name'],
       properties: {
         name: { type: 'string' },
+        id: { type: 'string' },
       },
     },
     response: {
       201: {
-        type: 'object',
-        properties: {
-          _id: { type: 'string' },
-          name: { type: 'string' },
-        },
+        type: 'string',
       },
     },
   },

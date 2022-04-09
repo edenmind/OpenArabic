@@ -9,10 +9,11 @@ async function listAuthors(req, reply) {
 
 async function addAuthor(req, reply) {
   const authors = this.mongo.db.collection(COLLECTION_NAME)
-  const { name, age } = req.body
-  const data = { name, age }
+  const id = new ObjectId()
+  const { name } = req.body
+  const data = { name, id }
   const result = await authors.insertOne(data)
-  reply.code(201).send(result)
+  reply.code(201).send(result.insertedId)
 }
 
 async function getAuthor(req, reply) {
@@ -26,14 +27,13 @@ async function getAuthor(req, reply) {
 
 async function updateAuthor(req, reply) {
   const authors = this.mongo.db.collection(COLLECTION_NAME)
-  const { name, age } = req.body
+  const { name } = req.body
   const updateDoc = {
     $set: {
       name,
-      age,
     },
   }
-  const result = await authors.updateOne({ _id: ObjectId(req.params.id) }, updateDoc, { upsert: true })
+  const result = await authors.updateOne({ _id: new ObjectId(req.params.id) }, updateDoc, { upsert: true })
   reply.send({
     message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
   })
@@ -41,7 +41,7 @@ async function updateAuthor(req, reply) {
 
 async function deleteAuthor(req, reply) {
   const authors = this.mongo.db.collection(COLLECTION_NAME)
-  const result = await authors.deleteOne({ _id: ObjectId(req.params.id) })
+  const result = await authors.deleteOne({ _id: new ObjectId(req.params.id) })
   if (result.deletedCount) return reply.send('Deleted')
   reply.internalServerError('Could not delete Author.')
 }
