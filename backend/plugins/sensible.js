@@ -1,8 +1,8 @@
 'use strict'
 
-const fp = require('fastify-plugin')
+const fastifyPlugin = require('fastify-plugin')
 
-module.exports = fp(async function (fastify, opts) {
+module.exports = fastifyPlugin(async function (fastify) {
   fastify.register(require('fastify-sensible'), {
     errorHandler: false,
   })

@@ -2,6 +2,9 @@
 
 const path = require('path')
 const AutoLoad = require('fastify-autoload')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 module.exports = async function (fastify, opts) {
   fastify.register(AutoLoad, {

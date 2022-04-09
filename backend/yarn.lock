@@ -757,12 +757,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "backend@workspace:."
   dependencies:
+    dotenv: ^16.0.0
     fastify: ^3.0.0
     fastify-autoload: ^3.10.0
     fastify-cli: ^2.15.0
     fastify-mongodb: ^4.1.1
     fastify-plugin: ^3.0.0
     fastify-sensible: ^3.1.2
+    mongodb: ^4.5.0
     tap: ^15.1.6
   languageName: unknown
   linkType: soft
@@ -1421,6 +1423,13 @@ __metadata:
   version: 14.3.2
   resolution: "dotenv@npm:14.3.2"
   checksum: 86c06758915d6facc35275f4a7fafc16705b6f3b44befaa8abca91367991efc8ff8db5437d3cc14778231d19fb97610fe82d60f8a53ba723cdb69fe4171439aa
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "dotenv@npm:16.0.0"
+  checksum: 664cebb51f0a9a1d1b930f51f0271e72e26d62feaecc9dc03df39453dd494b4e724809ca480fb3ec3213382b1ed3f791aaeb83569a137f9329ce58efd4853dbf
   languageName: node
   linkType: hard
 
@@ -2877,7 +2886,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^4.0.1":
+"mongodb@npm:^4.0.1, mongodb@npm:^4.5.0":
   version: 4.5.0
   resolution: "mongodb@npm:4.5.0"
   dependencies:
