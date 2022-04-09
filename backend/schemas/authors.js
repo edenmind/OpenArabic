@@ -1,8 +1,8 @@
 'use strict'
 
-const { listUsers, addUser, getUser, updateUser, deleteUser } = require('../controllers/users')
+const { listAuthors, addAuthor, getAuthor, updateAuthor, deleteAuthor } = require('../controllers/authors')
 
-const getUsersopts = {
+const getAuthorsOpts = {
   schema: {
     response: {
       200: {
@@ -17,10 +17,10 @@ const getUsersopts = {
       },
     },
   },
-  handler: listUsers,
+  handler: listAuthors,
 }
 
-const getUserOpts = {
+const getAuthorOpts = {
   schema: {
     response: {
       200: {
@@ -28,22 +28,20 @@ const getUserOpts = {
         properties: {
           _id: { type: 'string' },
           name: { type: 'string' },
-          age: { type: 'integer' },
         },
       },
     },
   },
-  handler: getUser,
+  handler: getAuthor,
 }
 
-const updateItemOpts = {
+const updateAuthorOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['name', 'age'],
+      required: ['name'],
       properties: {
         name: { type: 'string' },
-        age: { type: 'integer' },
       },
     },
     response: {
@@ -55,17 +53,16 @@ const updateItemOpts = {
       },
     },
   },
-  handler: updateUser,
+  handler: updateAuthor,
 }
 
-const postUserOpts = {
+const postAuthorOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['name', 'age'],
+      required: ['name'],
       properties: {
         name: { type: 'string' },
-        age: { type: 'integer' },
       },
     },
     response: {
@@ -74,15 +71,14 @@ const postUserOpts = {
         properties: {
           _id: { type: 'string' },
           name: { type: 'string' },
-          age: { type: 'integer' },
         },
       },
     },
   },
-  handler: addUser,
+  handler: addAuthor,
 }
 
-const deleteUserOpts = {
+const deleteAuthorOpts = {
   schema: {
     response: {
       200: {
@@ -90,7 +86,7 @@ const deleteUserOpts = {
       },
     },
   },
-  handler: deleteUser,
+  handler: deleteAuthor,
 }
 
-module.exports = { getUsersopts, getUserOpts, updateItemOpts, postUserOpts, deleteUserOpts }
+module.exports = { getAuthorsOpts, getAuthorOpts, updateAuthorOpts, postAuthorOpts, deleteAuthorOpts }

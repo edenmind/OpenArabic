@@ -2,11 +2,15 @@
 
 const path = require('path')
 const AutoLoad = require('fastify-autoload')
-const dotenv = require('dotenv')
-
-dotenv.config()
+const fastifyEnv = require('fastify-env')
+const { schema } = require('./schemas/fastifyEnv')
 
 module.exports = async function (fastify, opts) {
+  fastify.register(fastifyEnv, {
+    schema,
+    dotenv: true,
+    data: process.env,
+  })
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, 'plugins'),
     options: Object.assign({}, opts),

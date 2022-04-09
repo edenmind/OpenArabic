@@ -1,0 +1,27 @@
+POST http://localhost:3000/authors HTTP/1.1
+content-type: application/json
+
+{
+    "name": "yunus",
+}
+###
+
+GET http://localhost:3000/authors HTTP/1.1
+###
+
+GET http://localhost:3000/authors/62518818661588692cdb0d65 HTTP/1.1
+###
+
+PUT http://localhost:3000/authors/62518818661588692cdb0d65 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "yunus"
+}
+###
+
+DELETE http://localhost:3000/authors/62518818661588692cdb0d65 HTTP/1.1
+###
+
+
+
