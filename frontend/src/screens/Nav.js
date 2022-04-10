@@ -3,8 +3,10 @@ import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
+import { Link } from 'react-router-dom'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
@@ -26,15 +28,20 @@ export default function Home() {
   }
 
   const list = () => (
-    <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer('left', false)} onKeyDown={toggleDrawer('left', false)}>
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+    <>
+      <Divider>Administration</Divider>
+      <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer('left', false)} onKeyDown={toggleDrawer('left', false)}>
+        <List>
+          {['Texts', 'Categories', 'Authors'].map((text, index) => (
+            <ListItem>
+              <Button href={text} variant='text' key={index}>
+                {text}
+              </Button>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </>
   )
 
   return (
