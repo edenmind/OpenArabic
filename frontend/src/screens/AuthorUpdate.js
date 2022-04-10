@@ -4,10 +4,12 @@ import MuiAlert from '@mui/material/Alert'
 import Nav from './Nav'
 import React from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
-export const AuthorAdd = () => {
+export const AuthorUpdate = () => {
   const [author, setAuthor] = React.useState('')
   const [open, setOpen] = React.useState(false)
+  const [status, setStatus] = React.useState('')
 
   const divStyle = {
     padding: '10px',
@@ -25,18 +27,29 @@ export const AuthorAdd = () => {
     setOpen(false)
   }
 
-  const addAuthor = () => {
+  const { id } = useParams()
+
+  React.useEffect(() => {
+    axios
+      .get(`http://localhost:3000/authors/${id}`)
+      .then((response) => {
+        setAuthor(response.data.name)
+      })
+      .catch((err) => console.log(err))
+  }, [id])
+
+  const updateAuthor = () => {
     axios({
-      method: 'post',
-      url: 'http://localhost:3000/authors',
+      method: 'put',
+      url: `http://localhost:3000/authors/${id}`,
       data: {
         name: author,
       },
     })
       .then((response) => {
-        if (response.status === 201) {
+        if (response.status === 200) {
+          setStatus(response.data.message)
           setOpen(true)
-          setAuthor('')
         }
       })
       .catch((err) => console.log(err))
@@ -46,7 +59,7 @@ export const AuthorAdd = () => {
     <React.Fragment>
       <Nav />
       <Container maxWidth='lg'>
-        <h2>Add Author</h2>
+        <h2>Update Author</h2>
 
         <FormControl fullWidth>
           <TextField fullWidth id='outlined-basic' label='Name' variant='outlined' value={author} onChange={(event) => setAuthor(event.target.value)} />
@@ -54,8 +67,8 @@ export const AuthorAdd = () => {
 
         <div style={divStyle}>
           <Stack spacing={2} direction='row'>
-            <Button variant='contained' onClick={addAuthor}>
-              Add
+            <Button variant='contained' onClick={updateAuthor}>
+              Update
             </Button>
             <Button variant='outlined' href='/authors'>
               Back
@@ -65,7 +78,7 @@ export const AuthorAdd = () => {
       </Container>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity='success' sx={{ width: '100%' }}>
-          Added new author!
+          Updated author: {status}
         </Alert>
       </Snackbar>
     </React.Fragment>

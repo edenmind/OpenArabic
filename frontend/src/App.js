@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import About from './screens/About'
 import { AuthorAdd } from './screens/AuthorAdd'
+import { AuthorUpdate } from './screens/AuthorUpdate'
 import { Authors } from './screens/Authors'
 import { Categories } from './screens/Categories'
 import Contact from './screens/Contact'
@@ -23,6 +24,7 @@ export default function App() {
         <Route path='/authors' element={<Authors />} />
         <Route path='/texts' element={<Texts />} />
         <Route path='/authors/add' element={<AuthorAdd />} />
+        <Route path='/authors/update/:id' element={<AuthorUpdate />} />
       </Routes>
     </BrowserRouter>
   )

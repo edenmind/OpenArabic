@@ -94,7 +94,9 @@ export const Authors = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size='small'>Edit</Button>
+          <Button size='small' href={`/authors/update/${author._id}`}>
+            Edit
+          </Button>
           <Button size='small' onClick={() => handleClickOpen(author)}>
             Delete
           </Button>
