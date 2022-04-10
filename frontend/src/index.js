@@ -10,11 +10,15 @@ import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider } from '@mui/material/styles'
+// After
+import { createRoot } from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
 import store from './redux/store'
 import theme from './theme'
 
-ReactDOM.render(
+const container = document.getElementById('root')
+const root = createRoot(container)
+root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -23,7 +27,6 @@ ReactDOM.render(
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root'),
 )
 
 // If you want to start measuring performance in your app, pass a function

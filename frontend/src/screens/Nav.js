@@ -6,15 +6,13 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
-import { Link } from 'react-router-dom'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
 import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 
-export default function Home() {
+export default function Nav() {
   const [state, setState] = React.useState({
     left: false,
   })
@@ -28,12 +26,12 @@ export default function Home() {
   }
 
   const list = () => (
-    <>
+    <React.Fragment>
       <Divider>Administration</Divider>
       <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer('left', false)} onKeyDown={toggleDrawer('left', false)}>
         <List>
           {['Texts', 'Categories', 'Authors'].map((text, index) => (
-            <ListItem>
+            <ListItem key={index}>
               <Button href={text} variant='text' key={index}>
                 {text}
               </Button>
@@ -41,7 +39,7 @@ export default function Home() {
           ))}
         </List>
       </Box>
-    </>
+    </React.Fragment>
   )
 
   return (

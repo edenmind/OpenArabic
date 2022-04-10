@@ -1,7 +1,7 @@
 import { Button, Container, FormControl, Snackbar, Stack, TextField } from '@mui/material'
 
 import MuiAlert from '@mui/material/Alert'
-import Nav from './Nav'
+import Nav from '../Nav'
 import React from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -31,7 +31,7 @@ export const AuthorUpdate = () => {
 
   React.useEffect(() => {
     axios
-      .get(`http://localhost:3000/authors/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/authors/${id}`)
       .then((response) => {
         setAuthor(response.data.name)
       })
@@ -41,7 +41,7 @@ export const AuthorUpdate = () => {
   const updateAuthor = () => {
     axios({
       method: 'put',
-      url: `http://localhost:3000/authors/${id}`,
+      url: `${process.env.REACT_APP_API_URL}/authors/${id}`,
       data: {
         name: author,
       },

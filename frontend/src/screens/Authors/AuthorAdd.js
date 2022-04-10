@@ -1,7 +1,7 @@
 import { Button, Container, FormControl, Snackbar, Stack, TextField } from '@mui/material'
 
 import MuiAlert from '@mui/material/Alert'
-import Nav from './Nav'
+import Nav from '../Nav'
 import React from 'react'
 import axios from 'axios'
 
@@ -28,7 +28,7 @@ export const AuthorAdd = () => {
   const addAuthor = () => {
     axios({
       method: 'post',
-      url: 'http://localhost:3000/authors',
+      url: `${process.env.REACT_APP_API_URL}/authors`,
       data: {
         name: author,
       },
@@ -54,7 +54,7 @@ export const AuthorAdd = () => {
 
         <div style={divStyle}>
           <Stack spacing={2} direction='row'>
-            <Button variant='contained' onClick={addAuthor}>
+            <Button variant='contained' onClick={addAuthor} disabled={5 > author.length}>
               Add
             </Button>
             <Button variant='outlined' href='/authors'>

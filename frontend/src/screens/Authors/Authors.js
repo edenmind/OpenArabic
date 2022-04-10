@@ -1,8 +1,8 @@
-import { Button, Card, CardActions, CardContent, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Snackbar, Typography } from '@mui/material'
+import { Button, Card, CardActions, CardContent, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Paper, Snackbar, Typography } from '@mui/material'
 import React, { Fragment } from 'react'
 
 import MuiAlert from '@mui/material/Alert'
-import Nav from './Nav'
+import Nav from '../Nav'
 import axios from 'axios'
 
 export const Authors = () => {
@@ -22,7 +22,7 @@ export const Authors = () => {
 
   React.useEffect(() => {
     axios
-      .get('http://localhost:3000/authors')
+      .get(`${process.env.REACT_APP_API_URL}/authors`)
       .then((response) => {
         setAuthors(response.data)
       })
@@ -31,7 +31,7 @@ export const Authors = () => {
 
   const deleteAuthor = () => {
     axios
-      .delete(`http://localhost:3000/authors/${selectedAuthor._id}`)
+      .delete(`${process.env.REACT_APP_API_URL}/authors/${selectedAuthor._id}`)
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)
@@ -48,7 +48,7 @@ export const Authors = () => {
     return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />
   })
 
-  const handleCloseSnackbar = (event, reason) => {
+  const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
       return
     }
@@ -111,12 +111,14 @@ export const Authors = () => {
       <Nav />
       <Container maxWidth='lg'>
         <h2>Authors</h2>
-        <Button variant='contained' href='/authors/add'>
-          Add
-        </Button>
+
         {authorsList}
         {deleteAuthorDialog}
         {snackbar}
+        <br />
+        <Button variant='contained' href='/authors/add'>
+          Add
+        </Button>
       </Container>
     </React.Fragment>
   )
