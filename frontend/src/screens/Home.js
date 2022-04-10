@@ -1,15 +1,15 @@
-import { Container } from '@mui/material'
+import { Container, Typography } from '@mui/material'
+
 import Nav from './Nav'
 import React from 'react'
-import TextProduction from './TextProduction'
 
 const Home = () => {
   return (
     <React.Fragment>
       <Nav />
       <Container maxWidth='lg'>
-        <h2>Add Text</h2>
-        <TextProduction />
+        <h2>Home</h2>
+        <Typography>Welcome Home!</Typography>
       </Container>
     </React.Fragment>
   )
