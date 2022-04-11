@@ -1,8 +1,8 @@
-import { Button, Container } from '@mui/material'
-
 import Box from '@mui/material/Box'
+import { Container } from '@mui/material'
 import Heading from './Heading'
 import Nav from '../../components/Nav'
+import { Preview } from './Preview'
 import React from 'react'
 import Sentences from './Sentences'
 import Tab from '@mui/material/Tab'
@@ -32,13 +32,13 @@ export default function Texts() {
 
   React.useEffect(() => {
     axios
-      .get('https://api.openarabic.io/api/categories')
+      .get(`${process.env.REACT_APP_API_URL}/categories`)
       .then((response) => {
         setCategories(response.data)
       })
       .catch((err) => console.log(err))
     axios
-      .get('https://api.openarabic.io/api/authors')
+      .get(`${process.env.REACT_APP_API_URL}/authors`)
       .then((response) => {
         setAuthors(response.data)
       })
@@ -60,6 +60,7 @@ export default function Texts() {
               <Tab label='Heading' {...a11yProps(0)} />
               <Tab label='Sentences' {...a11yProps(1)} />
               <Tab label='Words' {...a11yProps(2)} />
+              <Tab label='Preview' {...a11yProps(3)} />
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -71,15 +72,9 @@ export default function Texts() {
           <TabPanel value={value} index={2}>
             <Words />
           </TabPanel>
-
-          <Button
-            variant='contained'
-            onClick={() => {
-              alert('clicked')
-            }}
-          >
-            Add Text
-          </Button>
+          <TabPanel value={value} index={3}>
+            <Preview />
+          </TabPanel>
         </Box>
       </Container>
     </React.Fragment>

@@ -4,7 +4,6 @@ import * as wordProcessing from '../../services/wordProcessing'
 import { SET_ARABIC_SENTENCE, SET_ARABIC_TEXT, SET_ARABIC_WORDS, SET_ENGLISH_SENTENCE, SET_ENGLISH_TEXT, SET_ENGLISH_WORDS } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Divider from '@mui/material/Divider'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import { TextField } from '@mui/material'
@@ -41,7 +40,6 @@ const Sentences = () => {
     arabicSentencesProcessed.forEach((sentence) => {
       const theArabicWordsSentence = wordProcessing.splitSentencesToWords(sentence)
       theArabicWords.push(theArabicWordsSentence)
-      console.log(theArabicWords)
     })
 
     dispatch({ type: SET_ARABIC_TEXT, arabicText: event.target.value })

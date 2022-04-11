@@ -5,7 +5,7 @@ const MenuSelect = (props) => (
     <InputLabel id={props.Heading}>{props.Heading}</InputLabel>
     <Select labelId={props.Heading} id={props.Heading} value={props.value} label={props.Heading} onChange={props.onChangeFunc}>
       {props.Values?.map((v, index) => (
-        <MenuItem key={index} value={v.categroyId ? v.categroyId : v.authorId}>
+        <MenuItem key={index} value={v.id}>
           {' '}
           {/* this should be refactored. */}
           {v.name}

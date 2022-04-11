@@ -1,6 +1,6 @@
-import { Container, Divider, FormControl, MenuItem, Select } from '@mui/material'
+import { Box, Divider, FormControl, MenuItem, Select, Stack } from '@mui/material'
+import React, { Fragment } from 'react'
 
-import React from 'react'
 import { useSelector } from 'react-redux'
 
 const Words = () => {
@@ -12,27 +12,28 @@ const Words = () => {
     console.log(event.target.value)
   }
   const listOfWords = englishWords.map((sentence, indexSentence) => (
-    <div key={indexSentence}>
-      <strong>Sentence: {indexSentence}</strong>
-      <br />
-      <br />
-      {sentence.map((word, indexWord) => (
-        <Container key={indexWord}>
-          <div>{word}</div>
-          <FormControl fullWidth>
-            <Select value={theArabicWord[indexWord]} onChange={handleChangeArabic}>
-              {arabicWords[indexSentence].map((arabicWord, indexArabicWord) => (
-                <MenuItem key={indexArabicWord} value={arabicWord}>
-                  {arabicWord}
-                </MenuItem>
-              ))}
-            </Select>
+    <Fragment key={indexSentence}>
+      <Stack spacing={2}>
+        <Divider>
+          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Sentence: {indexSentence}</Box>
+        </Divider>
+        {sentence.map((word, indexWord) => (
+          <Stack spacing={2} key={indexWord}>
+            {word}
+            <FormControl fullWidth>
+              <Select value={theArabicWord[indexWord]} onChange={handleChangeArabic}>
+                {arabicWords[indexSentence].map((arabicWord, indexArabicWord) => (
+                  <MenuItem key={indexArabicWord} value={arabicWord}>
+                    {arabicWord}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             <br />
-          </FormControl>
-        </Container>
-      ))}
-      <br />
-    </div>
+          </Stack>
+        ))}
+      </Stack>
+    </Fragment>
   ))
 
   return (

@@ -4342,34 +4342,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio-select@npm:^1.5.0":
-  version: 1.6.0
-  resolution: "cheerio-select@npm:1.6.0"
-  dependencies:
-    css-select: ^4.3.0
-    css-what: ^6.0.1
-    domelementtype: ^2.2.0
-    domhandler: ^4.3.1
-    domutils: ^2.8.0
-  checksum: c64cccea5ba3af091cf876d07a8bbf81fbd616c821495d194b73829f026777a8edd17a0f760ddd5be4a213c4411c60b03d2b1f8da4a77a46c81ed596a9860b20
-  languageName: node
-  linkType: hard
-
-"cheerio@npm:^1.0.0-rc.3":
-  version: 1.0.0-rc.10
-  resolution: "cheerio@npm:1.0.0-rc.10"
-  dependencies:
-    cheerio-select: ^1.5.0
-    dom-serializer: ^1.3.2
-    domhandler: ^4.2.0
-    htmlparser2: ^6.1.0
-    parse5: ^6.0.1
-    parse5-htmlparser2-tree-adapter: ^6.0.1
-    tslib: ^2.2.0
-  checksum: ace2f9c5809737534b1320d11d48762013694fa905b4deacac81a634edac178c1b0534f79d7b1896a88ce489db6cb539f222317996b21c8b6923ce413dcc1a2f
-  languageName: node
-  linkType: hard
-
 "chokidar@npm:^3.4.2, chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
@@ -4856,7 +4828,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-select@npm:^4.1.3, css-select@npm:^4.3.0":
+"css-select@npm:^4.1.3":
   version: 4.3.0
   resolution: "css-select@npm:4.3.0"
   dependencies:
@@ -5371,17 +5343,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-serializer@npm:^1.3.2":
-  version: 1.4.1
-  resolution: "dom-serializer@npm:1.4.1"
-  dependencies:
-    domelementtype: ^2.0.1
-    domhandler: ^4.2.0
-    entities: ^2.0.0
-  checksum: fbb0b01f87a8a2d18e6e5a388ad0f7ec4a5c05c06d219377da1abc7bb0f674d804f4a8a94e3f71ff15f6cb7dcfc75704a54b261db672b9b3ab03da6b758b0b22
-  languageName: node
-  linkType: hard
-
 "domelementtype@npm:1":
   version: 1.3.1
   resolution: "domelementtype@npm:1.3.1"
@@ -5456,13 +5417,6 @@ __metadata:
   version: 10.0.0
   resolution: "dotenv@npm:10.0.0"
   checksum: f412c5fe8c24fbe313d302d2500e247ba8a1946492db405a4de4d30dd0eb186a88a43f13c958c5a7de303938949c4231c56994f97d05c4bc1f22478d631b4005
-  languageName: node
-  linkType: hard
-
-"dotenv@npm:^8.2.0":
-  version: 8.6.0
-  resolution: "dotenv@npm:8.6.0"
-  checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
   languageName: node
   linkType: hard
 
@@ -9044,7 +8998,6 @@ __metadata:
     prettier: ^2.6.2
     react: ^18.0.0
     react-dom: ^18.0.0
-    react-dotenv: ^0.1.3
     react-redux: ^7.2.8
     react-router-dom: ^6.3.0
     react-scripts: ^5.0.0
@@ -9220,16 +9173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse5-htmlparser2-tree-adapter@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "parse5-htmlparser2-tree-adapter@npm:6.0.1"
-  dependencies:
-    parse5: ^6.0.1
-  checksum: 1848378b355d027915645c13f13f982e60502d201f53bc2067a508bf2dba4aac08219fc781dcd160167f5f50f0c73f58d20fa4fb3d90ee46762c20234fa90a6d
-  languageName: node
-  linkType: hard
-
-"parse5@npm:6.0.1, parse5@npm:^6.0.1":
+"parse5@npm:6.0.1":
   version: 6.0.1
   resolution: "parse5@npm:6.0.1"
   checksum: 7d569a176c5460897f7c8f3377eff640d54132b9be51ae8a8fa4979af940830b2b0c296ce75e5bd8f4041520aadde13170dbdec44889975f906098ea0002f4bd
@@ -10194,7 +10138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.1.2, prettier@npm:^2.6.2":
+"prettier@npm:^2.6.2":
   version: 2.6.2
   resolution: "prettier@npm:2.6.2"
   bin:
@@ -10429,20 +10373,6 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
   checksum: dd0ba9f2f31dd728076c892a95b2f5a8dfe79136431b0289afb46eec39d0ca6b6f0f40a60fd8aa6ef702c98ce7c26100d3d4dbc35c7c9e87429cd04f84cb58bd
-  languageName: node
-  linkType: hard
-
-"react-dotenv@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "react-dotenv@npm:0.1.3"
-  dependencies:
-    cheerio: ^1.0.0-rc.3
-    dotenv: ^8.2.0
-    lodash: ^4.17.20
-    prettier: ^2.1.2
-  bin:
-    react-dotenv: src/cli.js
-  checksum: 050942090f43a8c1e8d67a3e934882e6832b7364da8461041d8729b9904b0a82e03a1d984f632340b18f5b6eb9b6eb36fad76fe5a2c80b5daee4588c413cbee0
   languageName: node
   linkType: hard
 
@@ -12065,7 +11995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.2.0":
+"tslib@npm:^2.0.3":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
