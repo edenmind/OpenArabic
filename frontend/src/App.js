@@ -9,7 +9,7 @@ import { CategoryAdd } from './screens/Categories/CategoryAdd'
 import { CategoryUpdate } from './screens/Categories/CategoryUpdate'
 import Contact from './screens/Contact'
 import Home from './screens/Home'
-import Texts from './screens/Texts'
+import Texts from './screens/Texts/Texts'
 
 export default function App() {
   return (

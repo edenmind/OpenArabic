@@ -6,6 +6,7 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
+import { Link } from '@mui/material'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -50,12 +51,10 @@ export default function Nav() {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            OpenArabic
+            <Link href='/' style={{ textDecoration: 'none' }}>
+              OpenArabic
+            </Link>
           </Typography>
-
-          <Button color='inherit' href='/'>
-            Home
-          </Button>
 
           <Button color='inherit' href='/contact'>
             Contact

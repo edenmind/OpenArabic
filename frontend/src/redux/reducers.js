@@ -20,9 +20,9 @@ import {
 } from './actions'
 
 const initialState = {
-  title: 'someTitle',
-  category: '0',
-  author: '0',
+  title: '',
+  category: '',
+  author: '',
   englishText: [],
   arabicText: [],
 }

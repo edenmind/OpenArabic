@@ -1,6 +1,6 @@
 import { Box, Container, Link, List, ListItem, ListItemText, Typography } from '@mui/material'
 
-import Nav from './Nav'
+import Nav from '../components/Nav'
 import React from 'react'
 import axios from 'axios'
 

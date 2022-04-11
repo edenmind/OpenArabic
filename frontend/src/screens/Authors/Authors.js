@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, Container, Dialog, DialogAction
 import React, { Fragment } from 'react'
 
 import MuiAlert from '@mui/material/Alert'
-import Nav from '../Nav'
+import Nav from '../../components/Nav'
 import axios from 'axios'
 
 export const Authors = () => {

@@ -1,7 +1,7 @@
 import * as React from 'react'
-import * as wordProcessing from '../services/wordProcessing'
+import * as wordProcessing from '../../services/wordProcessing'
 
-import { SET_ARABIC_SENTENCE, SET_ARABIC_TEXT, SET_ARABIC_WORDS, SET_ENGLISH_SENTENCE, SET_ENGLISH_TEXT, SET_ENGLISH_WORDS } from '../redux/actions'
+import { SET_ARABIC_SENTENCE, SET_ARABIC_TEXT, SET_ARABIC_WORDS, SET_ENGLISH_SENTENCE, SET_ENGLISH_TEXT, SET_ENGLISH_WORDS } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Divider from '@mui/material/Divider'
@@ -50,12 +50,12 @@ const Sentences = () => {
   }
 
   return (
-    <Stack direction='row' divider={<Divider orientation='vertical' flexItem />} spacing={2}>
+    <Stack direction='row' spacing={2}>
       <Item>
-        <TextField InputProps={{ style: { fontSize: 20 } }} value={englishText} label='English' multiline rows={30} fullWidth variant='filled' onChange={handleChangeEnglish} />
+        <TextField InputProps={{ style: { fontSize: 20 } }} value={englishText} label='English' multiline rows={31} fullWidth variant='filled' onChange={handleChangeEnglish} />
       </Item>
       <Item>
-        <div dir='rtl' fontSize='44'>
+        <div dir='rtl'>
           <TextField InputProps={{ style: { fontSize: 30 } }} value={arabicText} label='Arabic' multiline rows={21} fullWidth variant='filled' onChange={handleChangeArabic} />
         </div>
       </Item>

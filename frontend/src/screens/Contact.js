@@ -1,6 +1,6 @@
 import { Box, Button, Container, Stack } from '@mui/material'
 
-import Nav from './Nav'
+import Nav from '../components/Nav'
 import React from 'react'
 
 const Contact = () => {

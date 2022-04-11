@@ -1,7 +1,7 @@
 import { Button, Container, FormControl, Snackbar, Stack, TextField } from '@mui/material'
 
 import MuiAlert from '@mui/material/Alert'
-import Nav from '../Nav'
+import Nav from '../../components/Nav'
 import React from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
