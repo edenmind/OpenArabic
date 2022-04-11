@@ -26,7 +26,6 @@ export default function App() {
         <Route path='/authors/update/:id' element={<AuthorUpdate />} />
         <Route path='/categories/add' element={<CategoryAdd />} />
         <Route path='/categories/update/:id' element={<CategoryUpdate />} />
-
         <Route path='/categories' element={<Categories />} />
       </Routes>
     </BrowserRouter>

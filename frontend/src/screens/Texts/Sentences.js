@@ -26,7 +26,6 @@ const Sentences = () => {
     englishSentencesProcessed.forEach((sentence) => {
       const theEnglishWordsSentence = wordProcessing.splitSentencesToWords(sentence)
       theEnglishWords.push(theEnglishWordsSentence)
-      console.log(theEnglishWords)
     })
 
     dispatch({ type: SET_ENGLISH_TEXT, englishText: event.target.value })

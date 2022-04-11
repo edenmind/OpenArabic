@@ -27,6 +27,10 @@ export const Preview = () => {
           <Divider textAlign='left'>Arabic Text</Divider>
           <div>{arabicText}</div>
         </Item>
+        <Item>
+          <Divider textAlign='left'>Words</Divider>
+          <div>{arabicText}</div>
+        </Item>
       </Stack>
       <Button
         variant='contained'

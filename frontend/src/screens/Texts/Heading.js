@@ -3,7 +3,6 @@ import * as React from 'react'
 import { Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Fragment } from 'react'
 import MenuSelect from '../../components/MenuSelect'
 
 const Heading = (props) => {
@@ -17,13 +16,11 @@ const Heading = (props) => {
   const { author } = useSelector((state) => state.author)
 
   return (
-    <Fragment>
-      <Stack spacing={2}>
-        <TextField fullWidth id='outlined-basic' label='Title' variant='outlined' value={title} onChange={setTitle} />
-        <MenuSelect Heading='Author' Values={props.Authors} value={author} onChangeFunc={setAuthor} />
-        <MenuSelect Heading='Category' Values={props.Categories} value={category} onChangeFunc={setCategory} />
-      </Stack>
-    </Fragment>
+    <Stack spacing={2}>
+      <TextField fullWidth id='outlined-basic' label='Title' variant='outlined' value={title} onChange={setTitle} />
+      <MenuSelect Heading='Author' Values={props.Authors} value={author} onChangeFunc={setAuthor} />
+      <MenuSelect Heading='Category' Values={props.Categories} value={category} onChangeFunc={setCategory} />
+    </Stack>
   )
 }
 
