@@ -1,0 +1,27 @@
+POST http://localhost:3000/categories HTTP/1.1
+content-type: application/json
+
+{
+    "name": "yunusa"
+}
+###
+
+GET http://localhost:3000/categories HTTP/1.1
+###
+
+GET http://localhost:3000/categories/62518818661588692cdb0d65 HTTP/1.1
+###
+
+PUT http://localhost:3000/categories/62518818661588692cdb0d65 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "yunus"
+}
+###
+
+DELETE http://localhost:3000/categories/6252013938c4ca7093e73465 HTTP/1.1
+###
+
+
+

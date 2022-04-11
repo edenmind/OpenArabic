@@ -4,7 +4,9 @@ import About from './screens/About'
 import { AuthorAdd } from './screens/Authors/AuthorAdd'
 import { AuthorUpdate } from './screens/Authors/AuthorUpdate'
 import { Authors } from './screens/Authors/Authors'
-import { Categories } from './screens/Categories'
+import { Categories } from './screens/Categories/Categories'
+import { CategoryAdd } from './screens/Categories/CategoryAdd'
+import { CategoryUpdate } from './screens/Categories/CategoryUpdate'
 import Contact from './screens/Contact'
 import Home from './screens/Home'
 import Texts from './screens/Texts'
@@ -18,11 +20,14 @@ export default function App() {
         </Route>
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
-        <Route path='/categories' element={<Categories />} />
-        <Route path='/authors' element={<Authors />} />
         <Route path='/texts' element={<Texts />} />
+        <Route path='/authors' element={<Authors />} />
         <Route path='/authors/add' element={<AuthorAdd />} />
         <Route path='/authors/update/:id' element={<AuthorUpdate />} />
+        <Route path='/categories/add' element={<CategoryAdd />} />
+        <Route path='/categories/update/:id' element={<CategoryUpdate />} />
+
+        <Route path='/categories' element={<Categories />} />
       </Routes>
     </BrowserRouter>
   )
