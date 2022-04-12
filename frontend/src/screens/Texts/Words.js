@@ -34,7 +34,7 @@ const Words = () => {
     </Stack>
   ))
 
-  return { listOfWords }
+  return <React.Fragment>{listOfWords}</React.Fragment>
 }
 
 export default Words

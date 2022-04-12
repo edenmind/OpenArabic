@@ -10,15 +10,15 @@ import { Provider } from 'react-redux'
 import React from 'react'
 import { ThemeProvider } from '@mui/material/styles'
 import { createRoot } from 'react-dom/client'
+import darkTheme from './darkTheme'
 import reportWebVitals from './reportWebVitals'
 import store from './redux/store'
-import theme from './theme'
 
 const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Provider store={store}>
         <App />

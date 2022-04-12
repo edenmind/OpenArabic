@@ -7,6 +7,7 @@ import {
   GET_ENGLISH_SENTENCE,
   GET_ENGLISH_TEXT,
   GET_ENGLISH_WORDS,
+  GET_SOURCE,
   GET_TITLE,
   SET_ARABIC_SENTENCE,
   SET_ARABIC_TEXT,
@@ -16,6 +17,7 @@ import {
   SET_ENGLISH_SENTENCE,
   SET_ENGLISH_TEXT,
   SET_ENGLISH_WORDS,
+  SET_SOURCE,
   SET_TITLE,
 } from './actions'
 
@@ -25,11 +27,12 @@ const initialState = {
   title: '',
   category: '',
   author: '',
+  source: '',
   englishText: [
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. \n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+    'It is Sunnah for the fasting person to eat suhoor, because it was proven in al-Saheehayn that Anas ibn Maalik (may Allaah be pleased with him) said:\n The Prophet the Messenger of Allaah (peace and blessings of Allaah be upon him) said: “Eat suhoor for in suhoor there is blessing.” (Narrated by al-Bukhaari, 1923; Muslim, 1059). ',
   ],
   arabicText: [
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. \n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+    'يسن للصائم السحور لما ثبت في الصحيحين من حديث أنس بن مالك - رضي الله عنه - قال\n : قال النبي رسول الله - صلى الله عليه وسلم - : ( تسحروا فإن في السحور بركة ) رواه البخاري برقم 1923 ، ومسلم برقم 1095',
   ],
 }
 
@@ -127,6 +130,17 @@ export function arabicWordsReducer(state = initialState, action) {
       return state.arabicSentence
     case SET_ARABIC_WORDS:
       return { ...state, arabicWords: action.arabicWords }
+    default:
+      return state
+  }
+}
+
+export function sourceReducer(state = initialState, action) {
+  switch (action.type) {
+    case GET_SOURCE:
+      return state.source
+    case SET_SOURCE:
+      return { ...state, source: action.source }
     default:
       return state
   }
