@@ -1,4 +1,4 @@
-import { Box, Divider, FormControl, MenuItem, Select, Stack } from '@mui/material'
+import { Box, Button, Container, Divider, FormControl, MenuItem, Select, Stack, TextField } from '@mui/material'
 
 import React from 'react'
 import { useSelector } from 'react-redux'
@@ -8,29 +8,28 @@ const Words = () => {
   const { arabicWords } = useSelector((state) => state.arabicWords)
   const [theArabicWord, setTheArabicWord] = React.useState([])
 
-  const handleChangeArabic = (event) => {
-    console.log(event.target.value)
+  const handleClickArabic = (word, index) => {
+    console.log(word, index)
   }
-  const listOfWords = englishWords.map((sentence, indexSentence) => (
+  const listOfWords = arabicWords.map((sentence, indexSentence) => (
     <Stack spacing={2} key={indexSentence}>
-      <Divider>
-        <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Sentence: {indexSentence}</Box>
-      </Divider>
-      {sentence.map((word, indexWord) => (
-        <Stack spacing={2} key={indexWord}>
-          {word}
-          <FormControl fullWidth>
-            <Select value={theArabicWord[indexWord]} onChange={handleChangeArabic}>
-              {arabicWords[indexSentence].map((arabicWord, indexArabicWord) => (
-                <MenuItem key={indexArabicWord} value={arabicWord}>
-                  {arabicWord}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <br />
-        </Stack>
+      <TextField InputProps={{ style: { fontSize: 25 } }} value={sentence} label='Arabic' multiline rows={1} fullWidth variant='filled' />
+      {sentence.map((arabicWord, indexArabicWord) => (
+        <>
+          <Box sx={{ fontSize: 'h4.fontSize' }}>{arabicWord}</Box>
+
+          <Stack spacing={2} direction='row' key={indexArabicWord}>
+            {englishWords[indexSentence].map((englishWord, indexEnglishWord) => (
+              <Button key={indexEnglishWord} onClick={() => handleClickArabic(englishWord, indexEnglishWord)}>
+                {englishWord}
+              </Button>
+            ))}
+          </Stack>
+        </>
       ))}
+      <br />
+      <br />
+      <br />
     </Stack>
   ))
 
