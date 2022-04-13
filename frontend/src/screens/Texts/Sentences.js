@@ -11,7 +11,7 @@ import { styled } from '@mui/material/styles'
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
-  width: 700,
+  width: 1100,
 }))
 
 const Sentences = () => {
@@ -63,12 +63,12 @@ const Sentences = () => {
       {sentencesMatchingIndicator}
       <Stack direction='row' spacing={2}>
         <Item>
-          <TextField InputProps={{ style: { fontSize: 20 } }} value={englishText} label='English' multiline rows={31} fullWidth variant='filled' onChange={handleChangeEnglish} />
-        </Item>
-        <Item>
           <div dir='rtl'>
             <TextField InputProps={{ style: { fontSize: 30 } }} value={arabicText} label='Arabic' multiline rows={21} fullWidth variant='filled' onChange={handleChangeArabic} />
           </div>
+        </Item>
+        <Item>
+          <TextField InputProps={{ style: { fontSize: 20, lineHeight: 2.1 } }} value={englishText} label='English' multiline rows={31} fullWidth variant='filled' onChange={handleChangeEnglish} />
         </Item>
       </Stack>
     </>

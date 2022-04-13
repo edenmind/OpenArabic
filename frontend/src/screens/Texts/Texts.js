@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import { Container } from '@mui/material'
+import { Grid } from '@mui/material'
 import Heading from './Heading'
 import Nav from '../../components/Nav'
 import React from 'react'
@@ -52,9 +52,10 @@ export default function Texts() {
   return (
     <React.Fragment>
       <Nav />
-      <Container maxWidth='lg'>
-        <h2>Add Text</h2>
-        <Box sx={{ width: '100%' }}>
+
+      <Box width='100%' display='flex' justifyContent='center' alignItems='center'>
+        <Box width='90%' justifyContent='center' alignItems='center'>
+          <h2>Add Text</h2>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs value={value} onChange={handleChange} aria-label='basic tabs example'>
               <Tab label='Heading' {...a11yProps(0)} />
@@ -76,7 +77,7 @@ export default function Texts() {
             <Review />
           </TabPanel>
         </Box>
-      </Container>
+      </Box>
     </React.Fragment>
   )
 }
