@@ -36,6 +36,7 @@ export const Review = () => {
             <Box sx={{ fontSize: 'h4.fontSize' }}>{arabicSentence[index]}</Box>
           </div>
           <Box>{englishSentence[index]}</Box>
+
           <br />
         </Fragment>
       ))}
