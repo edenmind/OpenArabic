@@ -7,14 +7,6 @@ const getTextsOpts = {
     response: {
       200: {
         type: 'array',
-        items: {
-          type: 'object',
-          properties: {
-            _id: { type: 'string' },
-            id: { type: 'string' },
-            name: { type: 'string' },
-          },
-        },
       },
     },
   },
@@ -27,13 +19,15 @@ const getTextOpts = {
       200: {
         type: 'object',
         properties: {
-          _id: { type: 'string' },
           id: { type: 'string' },
-
+          _id: { type: 'string' },
           title: { type: 'string' },
           author: { type: 'string' },
           category: { type: 'string' },
           source: { type: 'string' },
+          englishSentence: { type: 'array' },
+          arabicSentence: { type: 'array' },
+          wordByWord: { type: 'array' },
         },
       },
     },
@@ -66,12 +60,15 @@ const postTextOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source'],
+      required: ['title', 'author', 'category', 'source', 'englishSentence', 'arabicSentence', 'wordByWord'],
       properties: {
         title: { type: 'string' },
         author: { type: 'string' },
         category: { type: 'string' },
         source: { type: 'string' },
+        englishSentence: { type: 'array' },
+        arabicSentence: { type: 'array' },
+        wordByWord: { type: 'array' },
       },
     },
     response: {

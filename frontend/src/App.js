@@ -9,6 +9,7 @@ import { CategoryAdd } from './screens/Categories/CategoryAdd'
 import { CategoryUpdate } from './screens/Categories/CategoryUpdate'
 import Contact from './screens/Contact'
 import Home from './screens/Home'
+import Text from './screens/Texts/Text'
 import Texts from './screens/Texts/Texts'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
         <Route path='/texts' element={<Texts />} />
+        <Route path='/texts/:id' element={<Text />} />
         <Route path='/authors' element={<Authors />} />
         <Route path='/authors/add' element={<AuthorAdd />} />
         <Route path='/authors/update/:id' element={<AuthorUpdate />} />
