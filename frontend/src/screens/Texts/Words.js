@@ -1,6 +1,7 @@
 import { Box, Button, Stack, TextField } from '@mui/material'
 import React, { useEffect } from 'react'
 
+import axios from 'axios'
 import { useSelector } from 'react-redux'
 
 const Words = () => {
@@ -18,12 +19,28 @@ const Words = () => {
     const newTheArabicWord = [...wordByWord]
     newTheArabicWord[indexSentence][indexArabicWord] = value
     setWordByWord(newTheArabicWord)
-    console.log('length: ', wordByWord.length)
-    console.log(wordByWord[indexSentence][indexArabicWord])
   }
 
   const handleSave = () => {
-    console.log('title: ', title, 'category: ', category, 'author: ', author, 'source: ', source, englishSentence, arabicSentence, wordByWord)
+    axios({
+      method: 'post',
+      url: `${process.env.REACT_APP_API_URL}/texts`,
+      data: {
+        title,
+        category,
+        author,
+        source,
+        englishSentence,
+        arabicSentence,
+        wordByWord,
+      },
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          console.log('text saved')
+        }
+      })
+      .catch((err) => console.log(err))
   }
 
   useEffect(() => {
