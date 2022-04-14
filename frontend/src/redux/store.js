@@ -9,6 +9,7 @@ import {
   englishWordsReducer,
   sourceReducer,
   textReducer,
+  wordByWordReducer,
 } from './reducers'
 
 import { configureStore } from '@reduxjs/toolkit'
@@ -25,5 +26,6 @@ export default configureStore({
     englishWords: englishWordsReducer,
     arabicSentence: arabicSentenceReducer,
     englishSentence: englishSentenceReducer,
+    wordByWord: wordByWordReducer,
   },
 })

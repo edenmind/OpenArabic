@@ -9,6 +9,7 @@ import {
   GET_ENGLISH_WORDS,
   GET_SOURCE,
   GET_TITLE,
+  GET_WORD_BY_WORD,
   SET_ARABIC_SENTENCE,
   SET_ARABIC_TEXT,
   SET_ARABIC_WORDS,
@@ -19,11 +20,13 @@ import {
   SET_ENGLISH_WORDS,
   SET_SOURCE,
   SET_TITLE,
+  SET_WORD_BY_WORD,
 } from './actions'
 
 const initialState = {
   arabicWords: [],
   englishWords: [],
+  wordByWord: [[]],
   title: '',
   category: '',
   author: '',
@@ -42,6 +45,17 @@ export function textReducer(state = initialState, action) {
       return state.title
     case SET_TITLE:
       return { ...state, title: action.title }
+    default:
+      return state
+  }
+}
+
+export function wordByWordReducer(state = initialState, action) {
+  switch (action.type) {
+    case GET_WORD_BY_WORD:
+      return state.wordByWord
+    case SET_WORD_BY_WORD:
+      return { ...state, wordByWord: action.wordByWord }
     default:
       return state
   }

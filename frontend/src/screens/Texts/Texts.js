@@ -1,9 +1,7 @@
 import Box from '@mui/material/Box'
-import { Grid } from '@mui/material'
 import Heading from './Heading'
 import Nav from '../../components/Nav'
 import React from 'react'
-import { Review } from './Review'
 import Sentences from './Sentences'
 import Tab from '@mui/material/Tab'
 import { TabPanel } from '../../components/TabPanel'
@@ -61,7 +59,6 @@ export default function Texts() {
               <Tab label='Heading' {...a11yProps(0)} />
               <Tab label='Sentences' {...a11yProps(1)} />
               <Tab label='Words' {...a11yProps(2)} />
-              <Tab label='Review' {...a11yProps(3)} />
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -72,9 +69,6 @@ export default function Texts() {
           </TabPanel>
           <TabPanel value={value} index={2}>
             <Words />
-          </TabPanel>
-          <TabPanel value={value} index={3}>
-            <Review />
           </TabPanel>
         </Box>
       </Box>
