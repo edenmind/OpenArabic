@@ -23,6 +23,7 @@ export default function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
         <Route path='/texts' element={<Texts />} />
+        <Route path='/texts/categories/:id' element={<Home />} />
         <Route path='/texts/:id' element={<Text />} />
         <Route path='/authors' element={<Authors />} />
         <Route path='/authors/add' element={<AuthorAdd />} />

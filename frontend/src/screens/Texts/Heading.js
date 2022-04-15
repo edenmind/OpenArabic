@@ -3,7 +3,6 @@ import * as React from 'react'
 import { Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Footer from '../../components/Footer'
 import MenuSelect from '../../components/MenuSelect'
 
 const Heading = (props) => {
@@ -19,15 +18,12 @@ const Heading = (props) => {
   const { source } = useSelector((state) => state.source)
 
   return (
-    <>
-      <Stack spacing={2}>
-        <TextField fullWidth id='outlined-basic' label='Title' variant='outlined' value={title} onChange={setTitle} />
-        <TextField fullWidth id='outlined-basic' label='Source' variant='outlined' value={source} onChange={setSource} />
-        <MenuSelect Heading='Author' Values={props.Authors} value={author} onChangeFunc={setAuthor} />
-        <MenuSelect Heading='Category' Values={props.Categories} value={category} onChangeFunc={setCategory} />
-      </Stack>
-    
-    </>
+    <Stack spacing={2}>
+      <TextField fullWidth id='outlined-basic' label='Title' variant='outlined' value={title} onChange={setTitle} />
+      <TextField fullWidth id='outlined-basic' label='Source' variant='outlined' value={source} onChange={setSource} />
+      <MenuSelect Heading='Author' Values={props.Authors} value={author} onChangeFunc={setAuthor} />
+      <MenuSelect Heading='Category' Values={props.Categories} value={category} onChangeFunc={setCategory} />
+    </Stack>
   )
 }
 

@@ -7,6 +7,13 @@ async function listTexts(req, reply) {
   reply.code(200).send(result)
 }
 
+async function listTextsCategories(req, reply) {
+  const texts = this.mongo.db.collection(COLLECTION_NAME)
+  const result = await texts.find({ category: req.params.id }).toArray()
+  console.log(result)
+  reply.code(200).send(result)
+}
+
 async function addText(req, reply) {
   const texts = this.mongo.db.collection(COLLECTION_NAME)
   const id = new ObjectId()
@@ -46,4 +53,4 @@ async function deleteText(req, reply) {
   reply.internalServerError('Could not delete Text.')
 }
 
-module.exports = { listTexts, addText, getText, updateText, deleteText }
+module.exports = { listTexts, addText, getText, updateText, deleteText, listTextsCategories }

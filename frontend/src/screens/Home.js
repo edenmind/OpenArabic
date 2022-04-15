@@ -7,14 +7,18 @@ import Paper from '@mui/material/Paper'
 import React from 'react'
 import axios from 'axios'
 import { styled } from '@mui/material/styles'
+import { useParams } from 'react-router-dom'
 
 const Home = () => {
   const [texts, setTexts] = React.useState([])
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
+  const { id } = useParams()
 
   React.useEffect(() => {
+    const url = id ? `${process.env.REACT_APP_API_URL}/texts/categories/${id}` : `${process.env.REACT_APP_API_URL}/texts`
+
     axios
-      .get(`${process.env.REACT_APP_API_URL}/texts`)
+      .get(url)
       .then((response) => {
         console.log(response.data)
         setTexts(response.data)

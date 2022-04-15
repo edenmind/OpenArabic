@@ -12,11 +12,14 @@ import ListItem from '@mui/material/ListItem'
 import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
+import axios from 'axios'
 
 export default function Nav() {
   const [state, setState] = React.useState({
     left: false,
   })
+
+  const [categories, setCategories] = React.useState([])
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -26,15 +29,34 @@ export default function Nav() {
     setState({ ...state, [anchor]: open })
   }
 
+  React.useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/categories`)
+      .then((response) => {
+        setCategories(response.data)
+      })
+      .catch((err) => console.log(err))
+  }, [])
+
   const list = () => (
     <React.Fragment>
-      <Divider>Administration</Divider>
       <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer('left', false)} onKeyDown={toggleDrawer('left', false)}>
+        <Divider>Administration</Divider>
         <List>
           {['Texts', 'Categories', 'Authors'].map((text, index) => (
             <ListItem key={index}>
               <Button href={text} variant='text' key={index}>
                 {text}
+              </Button>
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {categories.map((category, index) => (
+            <ListItem key={index}>
+              <Button href={`/texts/categories/${category.id}`} variant='text' key={index}>
+                {category.name}
               </Button>
             </ListItem>
           ))}
