@@ -1,26 +1,46 @@
 import { Container, Divider } from '@mui/material'
+import React, { Fragment } from 'react'
 
+import { Box } from '@mui/system'
 import Footer from '../../components/Footer'
 import Nav from '../../components/Nav'
-import React from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 function Text() {
   const { id } = useParams()
   const [text, setText] = React.useState([])
-  const [combined, setCombined] = React.useState([])
+  const [sentencesCombined, setSentencesCombined] = React.useState([])
 
+  const combineSentences = () => {
+    const sentencesCombinedLocal = []
+    if (text.arabicSentence !== undefined) {
+      for (let i = 0; i < text.arabicSentence.length; i++) {
+        const sentence = {
+          english: text.englishSentence[i],
+          arabic: text.arabicSentence[i],
+        }
+        sentencesCombinedLocal.push(sentence)
+      }
+    }
+    setSentencesCombined(sentencesCombinedLocal)
+  }
   React.useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/texts/${id}`)
       .then((response) => {
         setText(response.data)
-        const combinedNums = [].concat(response.data.englishSentence, response.data.arabicSentence, response.data.wordByWord)
-        setCombined(combinedNums)
       })
+      .then(combineSentences)
       .catch((err) => console.log(err))
-  }, [id])
+  })
+
+  const sentences = sentencesCombined.map((sentence, index) => (
+    <Fragment key={index}>
+      <Box sx={{ fontSize: 'h4.fontSize', m: 2 }}>{sentence.arabic}</Box>
+      <Box sx={{ m: 2 }}>{sentence.english}</Box>
+    </Fragment>
+  ))
 
   return (
     <React.Fragment>
@@ -31,7 +51,7 @@ function Text() {
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
           <Divider width='200' />
-          {combined.map((item, index) => item)}
+          {sentences}
         </center>
       </Container>
       <Footer />
