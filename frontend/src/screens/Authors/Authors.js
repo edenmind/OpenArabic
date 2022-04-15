@@ -1,6 +1,7 @@
 import { Button, Card, CardActions, CardContent, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Paper, Snackbar, Typography } from '@mui/material'
 import React, { Fragment } from 'react'
 
+import Footer from '../../components/Footer'
 import MuiAlert from '@mui/material/Alert'
 import Nav from '../../components/Nav'
 import axios from 'axios'
@@ -120,6 +121,7 @@ export const Authors = () => {
           Add
         </Button>
       </Container>
+      <Footer />
     </React.Fragment>
   )
 }

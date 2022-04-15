@@ -1,22 +1,23 @@
 import { Container, Divider } from '@mui/material'
-import React, { Fragment } from 'react'
 
+import Footer from '../../components/Footer'
 import Nav from '../../components/Nav'
+import React from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 function Text() {
   const { id } = useParams()
   const [text, setText] = React.useState([])
-  const [numberOfSentences, setNumberOfSentences] = React.useState(0)
+  const [combined, setCombined] = React.useState([])
 
   React.useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/texts/${id}`)
       .then((response) => {
-        console.log(response.data)
         setText(response.data)
-        setNumberOfSentences(response.data.arabicSentence.length)
+        const combinedNums = [].concat(response.data.englishSentence, response.data.arabicSentence, response.data.wordByWord)
+        setCombined(combinedNums)
       })
       .catch((err) => console.log(err))
   }, [id])
@@ -30,8 +31,10 @@ function Text() {
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
           <Divider width='200' />
+          {combined.map((item, index) => item)}
         </center>
       </Container>
+      <Footer />
     </React.Fragment>
   )
 }

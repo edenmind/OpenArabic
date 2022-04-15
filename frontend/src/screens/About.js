@@ -1,5 +1,6 @@
-import { Box, Container, Link, List, ListItem, ListItemText, Typography } from '@mui/material'
+import { Box, Container, Link, List, ListItem, Typography } from '@mui/material'
 
+import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import React from 'react'
 import axios from 'axios'
@@ -50,6 +51,7 @@ const About = () => {
           <List>{authorsList}</List>
         </Typography>
       </Container>
+      <Footer />
     </React.Fragment>
   )
 }

@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box'
+import Footer from '../../components/Footer'
 import Heading from './Heading'
 import Nav from '../../components/Nav'
 import React from 'react'
@@ -72,6 +73,7 @@ export default function Texts() {
           </TabPanel>
         </Box>
       </Box>
+      <Footer />
     </React.Fragment>
   )
 }

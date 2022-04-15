@@ -1,5 +1,6 @@
 import { Button, Container, FormControl, Snackbar, Stack, TextField } from '@mui/material'
 
+import Footer from '../../components/Footer'
 import MuiAlert from '@mui/material/Alert'
 import Nav from '../../components/Nav'
 import React from 'react'
@@ -81,6 +82,7 @@ export const CategoryUpdate = () => {
           Updated category: {status}
         </Alert>
       </Snackbar>
+      <Footer />
     </React.Fragment>
   )
 }

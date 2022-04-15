@@ -1,5 +1,6 @@
 import { Button, Container, FormControl, Snackbar, Stack, TextField } from '@mui/material'
 
+import Footer from '../../components/Footer'
 import MuiAlert from '@mui/material/Alert'
 import Nav from '../../components/Nav'
 import React from 'react'
@@ -68,6 +69,7 @@ export const AuthorAdd = () => {
           Added new author!
         </Alert>
       </Snackbar>
+      <Footer />
     </React.Fragment>
   )
 }

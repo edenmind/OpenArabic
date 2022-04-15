@@ -63,6 +63,10 @@ export default function Nav() {
           <Button color='inherit' href='/about'>
             About
           </Button>
+
+          <Button color='inherit' href='/privacy'>
+            Privacy
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer anchor={'left'} open={state.left} onClose={toggleDrawer('left', false)}>

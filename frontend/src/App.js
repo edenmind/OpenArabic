@@ -9,6 +9,7 @@ import { CategoryAdd } from './screens/Categories/CategoryAdd'
 import { CategoryUpdate } from './screens/Categories/CategoryUpdate'
 import Contact from './screens/Contact'
 import Home from './screens/Home'
+import Privacy from './screens/Privacy'
 import Text from './screens/Texts/Text'
 import Texts from './screens/Texts/Texts'
 
@@ -29,6 +30,7 @@ export default function App() {
         <Route path='/categories/add' element={<CategoryAdd />} />
         <Route path='/categories/update/:id' element={<CategoryUpdate />} />
         <Route path='/categories' element={<Categories />} />
+        <Route path='/privacy' element={<Privacy />} />
       </Routes>
     </BrowserRouter>
   )

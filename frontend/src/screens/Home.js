@@ -1,6 +1,7 @@
 import { Alert, Button, Card, CardActions, CardContent, Container, Grid, Snackbar, Typography } from '@mui/material'
 
 import Box from '@mui/material/Box'
+import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Paper from '@mui/material/Paper'
 import React from 'react'
@@ -98,7 +99,9 @@ const Home = () => {
       <Nav />
       <Container maxWidth='lg'>
         <h2>Welcome 👋🏻👋🏽👋🏿</h2>
-        <h4>Let's start learning classical arabic, inshāʾAllāh 🚀</h4>
+        <h4>
+          Let's start learning classical arabic - <em>al-fuṣḥá</em>, <em>inshāʾAllāh</em> 🚀
+        </h4>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             {textCards}
@@ -106,6 +109,7 @@ const Home = () => {
         </Box>
       </Container>
       {snackbar}
+      <Footer />
     </React.Fragment>
   )
 }

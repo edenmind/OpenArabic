@@ -1,5 +1,6 @@
 import { Box, Button, Container, Stack } from '@mui/material'
 
+import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import React from 'react'
 
@@ -35,6 +36,7 @@ const Contact = () => {
           </Stack>
         </Box>
       </Container>
+      <Footer />
     </React.Fragment>
   )
 }

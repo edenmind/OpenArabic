@@ -1,6 +1,7 @@
 import { Box, Button, Stack, TextField } from '@mui/material'
 import React, { useEffect } from 'react'
 
+import Footer from '../../components/Footer'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 
@@ -85,7 +86,12 @@ const Words = () => {
     </Stack>
   ))
 
-  return <React.Fragment>{listOfWords}</React.Fragment>
+  return (
+    <React.Fragment>
+      {listOfWords}
+      <Footer />
+    </React.Fragment>
+  )
 }
 
 export default Words
