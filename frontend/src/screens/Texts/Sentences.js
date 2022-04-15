@@ -72,7 +72,7 @@ const Sentences = () => {
           <TextField InputProps={{ style: { fontSize: 20, lineHeight: 2.1 } }} value={englishText} label='English' multiline rows={31} fullWidth variant='filled' onChange={handleChangeEnglish} />
         </Item>
       </Stack>
-      <Footer />
+   
     </>
   )
 }

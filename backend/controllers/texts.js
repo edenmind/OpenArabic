@@ -10,8 +10,8 @@ async function listTexts(req, reply) {
 async function addText(req, reply) {
   const texts = this.mongo.db.collection(COLLECTION_NAME)
   const id = new ObjectId()
-  const { title, author, category, source, englishSentence, arabicSentence, wordByWord } = req.body
-  const data = { title, author, category, source, id, englishSentence, arabicSentence, wordByWord }
+  const { title, author, category, source, sentences } = req.body
+  const data = { title, author, category, source, id, sentences }
   const result = await texts.insertOne(data)
   reply.code(201).send(result.insertedId)
 }

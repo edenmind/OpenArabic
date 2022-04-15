@@ -26,7 +26,7 @@ const Heading = (props) => {
         <MenuSelect Heading='Author' Values={props.Authors} value={author} onChangeFunc={setAuthor} />
         <MenuSelect Heading='Category' Values={props.Categories} value={category} onChangeFunc={setCategory} />
       </Stack>
-      <Footer />
+    
     </>
   )
 }

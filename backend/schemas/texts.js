@@ -25,9 +25,7 @@ const getTextOpts = {
           author: { type: 'string' },
           category: { type: 'string' },
           source: { type: 'string' },
-          englishSentence: { type: 'array' },
-          arabicSentence: { type: 'array' },
-          wordByWord: { type: 'array' },
+          sentences: { type: 'array' },
         },
       },
     },
@@ -60,15 +58,13 @@ const postTextOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source', 'englishSentence', 'arabicSentence', 'wordByWord'],
+      required: ['title', 'author', 'category', 'source', 'sentences'],
       properties: {
         title: { type: 'string' },
         author: { type: 'string' },
         category: { type: 'string' },
         source: { type: 'string' },
-        englishSentence: { type: 'array' },
-        arabicSentence: { type: 'array' },
-        wordByWord: { type: 'array' },
+        sentences: { type: 'array' },
       },
     },
     response: {

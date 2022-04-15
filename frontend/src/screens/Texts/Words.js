@@ -23,6 +23,17 @@ const Words = () => {
   }
 
   const handleSave = () => {
+    const sentences = []
+
+    for (let i = 0; i < arabicSentence.length; i++) {
+      const sentence = {
+        english: englishSentence[i],
+        arabic: arabicSentence[i],
+        words: wordByWord[i],
+      }
+      sentences.push(sentence)
+    }
+
     axios({
       method: 'post',
       url: `${process.env.REACT_APP_API_URL}/texts`,
@@ -31,9 +42,7 @@ const Words = () => {
         category,
         author,
         source,
-        englishSentence,
-        arabicSentence,
-        wordByWord,
+        sentences,
       },
     })
       .then((response) => {
@@ -86,12 +95,7 @@ const Words = () => {
     </Stack>
   ))
 
-  return (
-    <React.Fragment>
-      {listOfWords}
-      <Footer />
-    </React.Fragment>
-  )
+  return <React.Fragment>{listOfWords}</React.Fragment>
 }
 
 export default Words
