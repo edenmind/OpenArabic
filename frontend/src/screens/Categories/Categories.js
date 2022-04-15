@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Paper, Snackbar, Typography } from '@mui/material'
+import { Button, Card, CardActions, CardContent, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Snackbar, Typography } from '@mui/material'
 import React, { Fragment } from 'react'
 
 import Footer from '../../components/Footer'

@@ -49,14 +49,12 @@ const Home = () => {
     </Snackbar>
   )
 
-  const handleClick = (id) => {
+  const handleClick = (textId) => {
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/texts/${id}`)
+      .delete(`${process.env.REACT_APP_API_URL}/texts/${textId}`)
       .then((response) => {
         if (response.status === 200) {
-          if (response.status === 200) {
-            setOpenSnackbar(true)
-          }
+          setOpenSnackbar(true)
         }
       })
       .catch((err) => console.log(err))

@@ -25,7 +25,7 @@ export default function Texts() {
     }
   }
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue)
   }
 

@@ -43,10 +43,10 @@ export default function Nav() {
       <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer('left', false)} onKeyDown={toggleDrawer('left', false)}>
         <Divider>Administration</Divider>
         <List>
-          {['Texts', 'Categories', 'Authors'].map((text, index) => (
+          {['Texts', 'Categories', 'Authors'].map((item, index) => (
             <ListItem key={index}>
-              <Button href={text} variant='text' key={index}>
-                {text}
+              <Button href={`/${item}`} variant='text' key={index}>
+                {item}
               </Button>
             </ListItem>
           ))}

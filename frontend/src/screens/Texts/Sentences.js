@@ -5,7 +5,7 @@ import { Chip, TextField } from '@mui/material'
 import { SET_ARABIC_SENTENCE, SET_ARABIC_TEXT, SET_ARABIC_WORDS, SET_ENGLISH_SENTENCE, SET_ENGLISH_TEXT, SET_ENGLISH_WORDS } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Footer from '../../components/Footer'
+import { Fragment } from 'react'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
@@ -60,7 +60,7 @@ const Sentences = () => {
     englishSentenceCount === arabicSentenceCount ? <Chip label='Number of sentences matching' color='success' /> : <Chip label='Number of sentences are not matching' color='primary' />
 
   return (
-    <>
+    <Fragment>
       {sentencesMatchingIndicator}
       <Stack direction='row' spacing={2}>
         <Item>
@@ -72,8 +72,7 @@ const Sentences = () => {
           <TextField InputProps={{ style: { fontSize: 20, lineHeight: 2.1 } }} value={englishText} label='English' multiline rows={31} fullWidth variant='filled' onChange={handleChangeEnglish} />
         </Item>
       </Stack>
-   
-    </>
+    </Fragment>
   )
 }
 
