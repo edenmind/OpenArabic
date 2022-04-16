@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box'
-import Footer from '../../components/Footer'
 import Heading from './Heading'
 import Nav from '../../components/Nav'
 import React from 'react'
@@ -18,14 +17,14 @@ export default function Texts() {
 
   const [title, setTitle] = React.useState('')
 
-  const a11yProps = (index) => {
+  function a11yProps(index) {
     return {
       id: `simple-tab-${index}`,
       'aria-controls': `simple-tabpanel-${index}`,
     }
   }
 
-  const handleChange = (newValue) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue)
   }
 
@@ -73,7 +72,6 @@ export default function Texts() {
           </TabPanel>
         </Box>
       </Box>
-      <Footer />
     </React.Fragment>
   )
 }

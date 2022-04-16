@@ -76,8 +76,8 @@ const Privacy = () => {
             If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at <Link href='mailto:'>salam@edenmind.com</Link>.
           </Box>
         </Typography>
+        <Footer />
       </Container>
-      <Footer />
     </React.Fragment>
   )
 }

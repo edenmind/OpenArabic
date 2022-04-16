@@ -1,6 +1,9 @@
 import * as lookup from '../services/lookup'
+import * as wordProcessing from '../services/wordProcessing'
 
-import { Alert, Button, Card, CardActions, CardContent, Container, Grid, Snackbar, Typography } from '@mui/material'
+import { Alert, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Snackbar, Typography } from '@mui/material'
+import { Link, useParams } from 'react-router-dom'
+import { SET_AUTHOR_PERSISTED, SET_CATEGORY_PERSISTED } from '../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Box from '@mui/material/Box'
@@ -9,18 +12,22 @@ import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Paper from '@mui/material/Paper'
 import React from 'react'
-import { SET_CATEGORY_PERSISTED } from '../redux/actions'
 import axios from 'axios'
 import { styled } from '@mui/material/styles'
-import { useParams } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const Home = () => {
   const dispatch = useDispatch()
   const [texts, setTexts] = React.useState([])
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const setCategoryPersisted = (value) => dispatch({ type: SET_CATEGORY_PERSISTED, categoryPersisted: value })
+  const setAuthorPersisted = (value) => dispatch({ type: SET_AUTHOR_PERSISTED, authorPersisted: value })
+
   const { id } = useParams()
   const { categoryPersisted } = useSelector((state) => state.categoryPersisted)
+  const { authorPersisted } = useSelector((state) => state.authorPersisted)
+  const { user, isAuthenticated } = useAuth0()
+
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
@@ -30,6 +37,16 @@ const Home = () => {
       .get(url)
       .then((response) => {
         setTexts(response.data)
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 500)
+      })
+      .catch((err) => console.log(err))
+
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/authors`)
+      .then((response) => {
+        setAuthorPersisted(response.data)
       })
       .catch((err) => console.log(err))
 
@@ -37,10 +54,6 @@ const Home = () => {
       .get(`${process.env.REACT_APP_API_URL}/categories`)
       .then((response) => {
         setCategoryPersisted(response.data)
-        console.log(response.data)
-        setTimeout(() => {
-          setIsLoading(false)
-        }, 700)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -82,33 +95,34 @@ const Home = () => {
     setTexts(newTexts)
   }
 
-  const textCards = texts.map((text, index) => (
-    <Grid item md={4} key={index}>
+  const textCards = texts.slice(0, 6).map((text, index) => (
+    <Grid item md={4} xs={12} key={index}>
       <Item>
         <Card>
+          <CardMedia component='img' height='194' image={`/${index}.png`} />
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
-              {text.title}
-            </Typography>
-            <Typography variant='h5' component='div'>
-              {text.author}
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color='text.secondary'>
               {lookup.categoryLookup(text.category, categoryPersisted)}
             </Typography>
-            <Typography variant='body2'>
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
+            <Typography variant='h5' component='div'>
+              {text.title}
             </Typography>
+            <Typography sx={{ mb: 1.5 }} color='text.secondary'>
+              {lookup.authorLookup(text.author, authorPersisted)}
+            </Typography>
+            <div dir='rtl'>
+              <Typography variant='h5'>{wordProcessing.truncateString(text.sentences)}</Typography>
+            </div>
           </CardContent>
           <CardActions>
-            <Button size='small' href={`/texts/${text._id}`}>
-              Read More
-            </Button>
-            <Button size='small' onClick={() => handleClick(text._id)}>
-              Delete
-            </Button>
+            <Link to={`/texts/${text._id}`}>
+              <Button size='small'>Read More</Button>
+            </Link>
+            {isAuthenticated && user.email === 'jonas@lightgate-imagery.com' && (
+              <Button size='small' onClick={() => handleClick(text._id)}>
+                Delete
+              </Button>
+            )}
           </CardActions>
         </Card>
       </Item>
@@ -134,9 +148,9 @@ const Home = () => {
             {textCards}
           </Grid>
         </Box>
+        <Footer />
       </Container>
       {snackbar}
-      <Footer />
     </React.Fragment>
   )
 }

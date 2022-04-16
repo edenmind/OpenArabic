@@ -5,14 +5,18 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
+import { Fragment } from 'react'
 import IconButton from '@mui/material/IconButton'
-import { Link } from '@mui/material'
+import { Link } from 'react-router-dom'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
+import LoginButton from './LoginButton'
+import LogoutButton from './LogoutButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import axios from 'axios'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function Nav() {
   const [state, setState] = React.useState({
@@ -20,6 +24,7 @@ export default function Nav() {
   })
 
   const [categories, setCategories] = React.useState([])
+  const { user, isAuthenticated } = useAuth0()
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -41,16 +46,20 @@ export default function Nav() {
   const list = () => (
     <React.Fragment>
       <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer('left', false)} onKeyDown={toggleDrawer('left', false)}>
-        <Divider>Administration</Divider>
-        <List>
-          {['Texts', 'Categories', 'Authors'].map((item, index) => (
-            <ListItem key={index}>
-              <Button href={`/${item}`} variant='text' key={index}>
-                {item}
-              </Button>
-            </ListItem>
-          ))}
-        </List>
+        {isAuthenticated && user.email === 'jonas@lightgate-imagery.com' && (
+          <Fragment>
+            <Divider>Administration</Divider>
+            <List>
+              {['Texts', 'Categories', 'Authors'].map((item, index) => (
+                <ListItem key={index}>
+                  <Link to={`/${item}`}>
+                    <Button variant='text'>{item}</Button>
+                  </Link>
+                </ListItem>
+              ))}
+            </List>
+          </Fragment>
+        )}
         <Divider />
         <List>
           {categories.map((category, index) => (
@@ -72,23 +81,22 @@ export default function Nav() {
           <IconButton size='large' edge='start' color='inherit' aria-label='menu' onClick={toggleDrawer('left', true)} sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            <Link href='/' style={{ textDecoration: 'none' }}>
+          <Typography component='div' sx={{ flexGrow: 1 }}>
+            <Button href={'/'} variant='text'>
               OpenArabic
-            </Link>
+            </Button>
           </Typography>
 
-          <Button color='inherit' href='/contact'>
-            Contact
-          </Button>
+          <Link to='/about'>
+            <Button variant='text'>About</Button>
+          </Link>
 
-          <Button color='inherit' href='/about'>
-            About
-          </Button>
+          <Link to='/privacy'>
+            <Button variant='text'>Privacy</Button>
+          </Link>
 
-          <Button color='inherit' href='/privacy'>
-            Privacy
-          </Button>
+          {!isAuthenticated && <LoginButton />}
+          {isAuthenticated && <LogoutButton />}
         </Toolbar>
       </AppBar>
       <Drawer anchor={'left'} open={state.left} onClose={toggleDrawer('left', false)}>

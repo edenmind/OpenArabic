@@ -9,3 +9,16 @@ export const cleanWordFromInvalidCharacters = (wordToClean) => {
 
   return wordToClean
 }
+
+export const truncateString = (sentences, num = 135) => {
+  if (sentences.length === 0) {
+    return 'No text to display...'
+  }
+
+  let ingress = ''
+  sentences.forEach((sentence) => {
+    ingress += sentence.arabic
+  })
+
+  return `${ingress.slice(0, num)}...`
+}

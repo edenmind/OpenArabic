@@ -1,4 +1,4 @@
-import { Box, Container, Link, List, ListItem, Typography } from '@mui/material'
+import { Box, Button, Container, Link, List, ListItem, Stack, Typography } from '@mui/material'
 
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
@@ -49,9 +49,36 @@ const About = () => {
           </Box>
 
           <List>{authorsList}</List>
+
+          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Contact</Box>
+          <Box sx={{ m: 2 }}>If you find any bugs 🐛 or have any feature suggestions 💭 on how to improve OpenArabic, then please contact us.</Box>
+
+          <Box sx={{ m: 2 }}>
+            <Stack spacing={2} direction='row'>
+              <Button variant='outlined' href='https://github.com/edenmind/OpenArabic'>
+                GitHub
+              </Button>
+
+              <Button variant='outlined' href='mail:salam@edenmind.com'>
+                Mail
+              </Button>
+
+              <Button variant='outlined' href='https://www.instagram.com/openarabic.io/'>
+                Instagram
+              </Button>
+
+              <Button variant='outlined' href='https://twitter.com/OpenArabicIo'>
+                Twitter
+              </Button>
+
+              <Button variant='outlined' href='https://www.facebook.com/OpenArabic.io/'>
+                Facebook
+              </Button>
+            </Stack>
+          </Box>
         </Typography>
+        <Footer />
       </Container>
-      <Footer />
     </React.Fragment>
   )
 }

@@ -7,7 +7,6 @@ import { Authors } from './screens/Authors/Authors'
 import { Categories } from './screens/Categories/Categories'
 import { CategoryAdd } from './screens/Categories/CategoryAdd'
 import { CategoryUpdate } from './screens/Categories/CategoryUpdate'
-import Contact from './screens/Contact'
 import Home from './screens/Home'
 import Privacy from './screens/Privacy'
 import Text from './screens/Texts/Text'
@@ -20,7 +19,7 @@ export default function App() {
         <Route path='/' element={<Home />}>
           <Route index element={<Home />} />
         </Route>
-        <Route path='/contact' element={<Contact />} />
+
         <Route path='/about' element={<About />} />
         <Route path='/texts' element={<Texts />} />
         <Route path='/texts/categories/:id' element={<Home />} />

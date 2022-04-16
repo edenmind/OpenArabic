@@ -3,6 +3,7 @@ import {
   GET_ARABIC_TEXT,
   GET_ARABIC_WORDS,
   GET_AUTHOR,
+  GET_AUTHOR_PERSISTED,
   GET_CATEGORY,
   GET_CATEGORY_PERSISTED,
   GET_ENGLISH_SENTENCE,
@@ -15,6 +16,7 @@ import {
   SET_ARABIC_TEXT,
   SET_ARABIC_WORDS,
   SET_AUTHOR,
+  SET_AUTHOR_PERSISTED,
   SET_CATEGORY,
   SET_CATEGORY_PERSISTED,
   SET_ENGLISH_SENTENCE,
@@ -32,6 +34,8 @@ const initialState = {
   title: '',
   category: '',
   categoryPersisted: [],
+  authorPersisted: [],
+
   author: '',
   source: '',
   englishText: [
@@ -81,6 +85,17 @@ export function categoryPersistedReducer(state = initialState, action) {
       return state.categoryPersisted
     case SET_CATEGORY_PERSISTED:
       return { ...state, categoryPersisted: action.categoryPersisted }
+    default:
+      return state
+  }
+}
+
+export function authorPersistedReducer(state = initialState, action) {
+  switch (action.type) {
+    case GET_AUTHOR_PERSISTED:
+      return state.authorPersisted
+    case SET_AUTHOR_PERSISTED:
+      return { ...state, authorPersisted: action.authorPersisted }
     default:
       return state
   }

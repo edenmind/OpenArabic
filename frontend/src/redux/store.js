@@ -2,6 +2,7 @@ import {
   arabicSentenceReducer,
   arabicTextReducer,
   arabicWordsReducer,
+  authorPersistedReducer,
   authorReducer,
   categoryPersistedReducer,
   categoryReducer,
@@ -17,6 +18,7 @@ import { configureStore } from '@reduxjs/toolkit'
 
 export default configureStore({
   reducer: {
+    authorPersisted: authorPersistedReducer,
     title: textReducer,
     category: categoryReducer,
     categoryPersisted: categoryPersistedReducer,
