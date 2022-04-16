@@ -1,18 +1,27 @@
+import * as lookup from '../services/lookup'
+
 import { Alert, Button, Card, CardActions, CardContent, Container, Grid, Snackbar, Typography } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Box from '@mui/material/Box'
+import CircularProgress from '@mui/material/CircularProgress'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Paper from '@mui/material/Paper'
 import React from 'react'
+import { SET_CATEGORY_PERSISTED } from '../redux/actions'
 import axios from 'axios'
 import { styled } from '@mui/material/styles'
 import { useParams } from 'react-router-dom'
 
 const Home = () => {
+  const dispatch = useDispatch()
   const [texts, setTexts] = React.useState([])
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
+  const setCategoryPersisted = (value) => dispatch({ type: SET_CATEGORY_PERSISTED, categoryPersisted: value })
   const { id } = useParams()
+  const { categoryPersisted } = useSelector((state) => state.categoryPersisted)
+  const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
     const url = id ? `${process.env.REACT_APP_API_URL}/texts/categories/${id}` : `${process.env.REACT_APP_API_URL}/texts`
@@ -20,8 +29,18 @@ const Home = () => {
     axios
       .get(url)
       .then((response) => {
-        console.log(response.data)
         setTexts(response.data)
+      })
+      .catch((err) => console.log(err))
+
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/categories`)
+      .then((response) => {
+        setCategoryPersisted(response.data)
+        console.log(response.data)
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 700)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -75,7 +94,7 @@ const Home = () => {
               {text.author}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color='text.secondary'>
-              {text.category}
+              {lookup.categoryLookup(text.category, categoryPersisted)}
             </Typography>
             <Typography variant='body2'>
               well meaning and kindly.
@@ -96,7 +115,13 @@ const Home = () => {
     </Grid>
   ))
 
-  return (
+  return isLoading ? (
+    <Grid container spacing={0} direction='column' alignItems='center' justifyContent='center' style={{ minHeight: '100vh' }}>
+      <Grid item xs={3}>
+        <CircularProgress />
+      </Grid>
+    </Grid>
+  ) : (
     <React.Fragment>
       <Nav />
       <Container maxWidth='lg'>

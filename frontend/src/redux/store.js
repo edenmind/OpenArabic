@@ -3,6 +3,7 @@ import {
   arabicTextReducer,
   arabicWordsReducer,
   authorReducer,
+  categoryPersistedReducer,
   categoryReducer,
   englishSentenceReducer,
   englishTextReducer,
@@ -18,6 +19,7 @@ export default configureStore({
   reducer: {
     title: textReducer,
     category: categoryReducer,
+    categoryPersisted: categoryPersistedReducer,
     author: authorReducer,
     source: sourceReducer,
     englishText: englishTextReducer,
