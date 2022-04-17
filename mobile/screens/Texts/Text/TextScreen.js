@@ -1,18 +1,19 @@
+import React, { Fragment, useEffect, useState } from 'react'
+
+import AppPromo from '../../../components/AppPromo'
+import PropTypes from 'prop-types'
+import Quiz from './Quiz'
+import { SCREENS } from '../../../constants/screens'
+import Spinner from '../../../components/Spinner'
 /* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native'
-import React, { Fragment, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import TextArabic from './TextArabic'
 import TextBilingual from './TextBilingual'
 import TextEnglish from './TextEnglish'
-import TextArabic from './TextArabic'
 import TextRelated from './TextRelated'
-import { useDispatch } from 'react-redux'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { getText } from '../../../services/ApiService'
-import Spinner from '../../../components/Spinner'
-import AppPromo from '../../../components/AppPromo'
-import { SCREENS } from '../../../constants/screens'
-import Quiz from './Quiz'
+import { useDispatch } from 'react-redux'
 
 const style = StyleSheet.create({
   tabs: {
@@ -26,11 +27,11 @@ export default function TextScreen({ route }) {
   const dispatch = useDispatch()
   const [isLoading, setIsLoading] = useState(true)
   const tabArray = [
-    { name: SCREENS.bilingual, component: TextBilingual },
-    { name: SCREENS.quiz, component: Quiz },
-    { name: SCREENS.arabic, component: TextArabic },
-    { name: SCREENS.english, component: TextEnglish },
-    { name: SCREENS.related, component: TextRelated }
+    { name: SCREENS.bilingual, component: TextBilingual }
+    // { name: SCREENS.quiz, component: Quiz },
+    // { name: SCREENS.arabic, component: TextArabic },
+    // { name: SCREENS.english, component: TextEnglish },
+    // { name: SCREENS.related, component: TextRelated }
   ]
 
   useEffect(() => {

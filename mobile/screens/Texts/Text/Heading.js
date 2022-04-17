@@ -1,8 +1,9 @@
+import React, { Fragment } from 'react'
+import { Subheading, Title } from 'react-native-paper'
+
+import PropTypes from 'prop-types'
 /* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native'
-import { Subheading, Title } from 'react-native-paper'
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
 
 const style = StyleSheet.create({
   author: {
@@ -30,7 +31,7 @@ export default function Heading(props) {
       <Title style={style.title}>{props.heading.title}</Title>
       <Subheading style={style.author}>{props.heading.author}</Subheading>
       <Subheading style={style.source}>{props.heading.source}</Subheading>
-      <Subheading style={style.readTime}>{props.heading.readTime}</Subheading>
+      {/* <Subheading style={style.readTime}>{props.heading.readTime}</Subheading> */}
     </Fragment>
   )
 }

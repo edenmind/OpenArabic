@@ -1,23 +1,24 @@
 import React, { useEffect } from 'react'
-import { Provider as PaperProvider } from 'react-native-paper'
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { NavigationContainer } from '@react-navigation/native'
-import TextNavigator from './screens/Texts/TextNavigator'
+import { events, track } from './services/Analytics'
+
 import AboutNavigator from './screens/About/AboutNavigator'
-import { Provider } from 'react-redux'
-import { store } from './redux/store'
-import { track, events } from './services/Analytics'
 import { COLORS } from './constants/colors'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { NAVIGATIONTHEME } from './constants/navigationTheme'
+import { NavigationContainer } from '@react-navigation/native'
 import { PAPERTHEME } from './constants/paperTheme'
+import { Provider as PaperProvider } from 'react-native-paper'
+import { Provider } from 'react-redux'
 import { SCREENS } from './constants/screens'
+import TextNavigator from './screens/Texts/TextNavigator'
 import { UI } from './constants/ui'
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import { store } from './redux/store'
 
 const Tab = createMaterialBottomTabNavigator()
 
 const linking = {
-  prefixes: ['https://openarabic.io', 'https://localhost/'],
+  prefixes: ['https://openarabic.io', 'http://localhost/'],
   config: {
     screens: {
       Text: {

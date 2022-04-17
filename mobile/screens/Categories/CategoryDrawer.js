@@ -1,11 +1,12 @@
-import React from 'react'
-import { createDrawerNavigator } from '@react-navigation/drawer'
-import TextList from '../Texts/TextList/TextList'
 import { useDispatch, useSelector } from 'react-redux'
+
+import { COLORS } from '../../constants/colors'
+import React from 'react'
+import { SCREENS } from '../../constants/screens'
+import TextList from '../Texts/TextList/TextList'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 import { getCategories } from '../../services/ApiService'
 import { useFocusEffect } from '@react-navigation/core'
-import { COLORS } from '../../constants/colors'
-import { SCREENS } from '../../constants/screens'
 
 export default function CategoryDrawer() {
   const Drawer = createDrawerNavigator()
@@ -13,9 +14,10 @@ export default function CategoryDrawer() {
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
 
-  const categoryItems = categories.map((category) => (
+  const categoryItems = categories.map((category, index) => (
     <Drawer.Screen
       name={category.name}
+      key={index}
       component={TextList}
       initialParams={{ category: category.name }}
       options={{
@@ -23,7 +25,6 @@ export default function CategoryDrawer() {
         headerShown: true,
         drawerLabel: category.name
       }}
-      key={category.categroyId}
     />
   ))
 
@@ -31,6 +32,7 @@ export default function CategoryDrawer() {
     React.useCallback(() => {
       const fetchCategories = () => dispatch(getCategories())
       fetchCategories()
+      console.log('categories: ', categories)
     }, [dispatch])
   )
 

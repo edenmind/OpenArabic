@@ -1,10 +1,12 @@
+import * as utility from '../../../services/UtilityService'
+
+import { Avatar, Card, Chip, Paragraph } from 'react-native-paper'
+
+import { COLORS } from '../../../constants/colors'
+import PropTypes from 'prop-types'
+import React from 'react'
 /* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native'
-import { Card, Chip, Avatar, Paragraph } from 'react-native-paper'
-import React from 'react'
-import * as utility from '../../../services/UtilityService'
-import PropTypes from 'prop-types'
-import { COLORS } from '../../../constants/colors'
 
 const style = StyleSheet.create({
   arabic: {
@@ -31,17 +33,12 @@ const style = StyleSheet.create({
   }
 })
 
-const LeftContent = (props) => (
-  <Avatar.Icon {...props} icon="book" mode="elevated" />
-)
-
 export default function TextCard(props) {
   return (
     <Card style={style.card} testID="textCard">
       <Card.Title
         title={props.text.title}
         subtitle={`${props.text.author} (${props.text.timeAgo})`}
-        left={LeftContent}
       />
       <Card.Content>
         <Paragraph>

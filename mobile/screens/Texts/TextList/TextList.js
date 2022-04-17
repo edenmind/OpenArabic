@@ -1,13 +1,15 @@
 /* eslint-disable import/namespace */
 import * as api from '../../../services/ApiService'
+
 import { FlatList, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import PropTypes from 'prop-types'
+import { SCREENS } from '../../../constants/screens'
 import Spinner from '../../../components/Spinner'
 import TextCard from './TextCard'
 import { useFocusEffect } from '@react-navigation/native'
-import { SCREENS } from '../../../constants/screens'
 
 export default function TextList({ route, navigation }) {
   const { category } = route.params
@@ -23,9 +25,9 @@ export default function TextList({ route, navigation }) {
         setIsLoading(true)
         const fetchTexts = () => {
           if (category === 'All') {
-            dispatch(api.getTexts('', 25, 0))
+            dispatch(api.getTexts(''))
           } else {
-            dispatch(api.getTexts(category, 50, 0))
+            dispatch(api.getTexts(category))
           }
           setTimeout(() => {
             setIsLoading(false)
@@ -38,7 +40,6 @@ export default function TextList({ route, navigation }) {
 
   const renderItem = ({ item }) => (
     <Pressable
-      key={item.textId}
       onPress={() => {
         setShouldReload(false)
         navigation.navigate(SCREENS.textScreen, {
@@ -56,7 +57,7 @@ export default function TextList({ route, navigation }) {
       testID="flatList"
       data={texts}
       renderItem={renderItem}
-      keyExtractor={(item) => item.textId}
+      keyExtractor={(item) => item.id}
     />
   )
 }

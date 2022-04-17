@@ -42,8 +42,11 @@ const About = () => {
             <Link href='https://play.google.com/store/apps/details?id=com.duolingo&hl=en_US&gl=US'> Android </Link>
             might come in handy.
           </Box>
-          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Foundation</Box>
 
+          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Technological Platform</Box>
+          <Box sx={{ m: 2 }}>The platform that OpenArabic runs upon is built using Open Source tools such as React Native, Fastify, MongoDB and Kubernetes.</Box>
+
+          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Foundation</Box>
           <Box sx={{ m: 2 }}>
             The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first generations of Muslims understanding with texts from Islamic Scholars such as:
           </Box>
@@ -75,6 +78,12 @@ const About = () => {
                 Facebook
               </Button>
             </Stack>
+          </Box>
+
+          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Founder</Box>
+          <Box sx={{ m: 2 }}>
+            OpenArabic.io was founded by Yūnus Andréasson in 1442 AH or 2020 AD. Yūnus is a convert to Islam since ~20 years ago residing in Sweden working as a Software Developer. If you want to
+            reach out, then please send an email to <Link href='mailto:yunus@edenmind.com'>yunus@edenmind.com</Link> or make contact on <Link href='https://twitter.com/YunusAndreasson'>Twitter</Link>.
           </Box>
         </Typography>
         <Footer />

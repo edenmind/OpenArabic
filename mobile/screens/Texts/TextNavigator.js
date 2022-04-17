@@ -1,14 +1,14 @@
+import { Button } from 'react-native-paper'
+import { COLORS } from '../../constants/colors'
+import CategoryDrawer from '../Categories/CategoryDrawer'
 /* eslint-disable import/namespace */
 import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import CategoryDrawer from '../Categories/CategoryDrawer'
-import TextScreen from './Text/TextScreen'
-import { Button } from 'react-native-paper'
-import { Share } from 'react-native'
-import { useSelector } from 'react-redux'
-import { COLORS } from '../../constants/colors'
 import { SCREENS } from '../../constants/screens'
+import { Share } from 'react-native'
+import TextScreen from './Text/TextScreen'
 import { UI } from '../../constants/ui'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { useSelector } from 'react-redux'
 
 const Stack = createNativeStackNavigator()
 
@@ -20,7 +20,7 @@ export default function TextNavigator() {
     try {
       await Share.share({
         message: text.title,
-        url: `https://app.openarabic.io/text/${text.textId}`
+        url: `https://openarabic.io/text/${text.textId}`
       })
     } catch (error) {
       alert(error.message)

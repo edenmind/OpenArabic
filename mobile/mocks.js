@@ -1,9 +1,9 @@
 /* eslint-disable global-require */
 /* eslint-disable no-undef */
 
-import { jest } from '@jest/globals'
-
 import 'react-native-gesture-handler/jestSetup'
+
+import { jest } from '@jest/globals'
 
 jest.mock('react-native-reanimated', () => {
   const Reanimated = require('react-native-reanimated/mock')
@@ -16,11 +16,3 @@ jest.mock('react-native-reanimated', () => {
 })
 
 global.__reanimatedWorkletInit = jest.fn()
-
-// jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
-
-// jest.mock('react-native-paper/lib/commonjs/components/ActivityIndicator');
-
-// jest.mock('react-native-paper/lib/commonjs/components/BottomNavigation');
-
-// jest.mock('@react-navigation/native/lib/commonjs/useBackButton');

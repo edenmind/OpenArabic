@@ -1,22 +1,18 @@
-/* eslint-disable no-unreachable */
-import axios from 'axios'
+import { ENDPOINT, HOST } from '../constants/urls'
 import { GET_CATEGORIES, GET_TEXT, GET_TEXTS } from '../redux/actions'
 
-export const BASE_URL = 'https://api.openarabic.io/api/'
+/* eslint-disable no-unreachable */
+import axios from 'axios'
 
-const textEndpoint = 'texts'
-const categoryEndpoint = 'categories'
+export const getTexts = (category = '') => {
+  const url =
+    category === ''
+      ? `${HOST.backend}/${ENDPOINT.texts}`
+      : `${HOST.backend}/${ENDPOINT.texts}/${ENDPOINT.categories}/${category}`
 
-export const getTexts = (category, pageSize, pageNumber) => {
   try {
     return async (dispatch) => {
-      const res = await axios.get(`${BASE_URL}${textEndpoint}`, {
-        params: {
-          category,
-          pageSize,
-          pageNumber
-        }
-      })
+      const res = await axios.get(url)
       if (res.data) {
         dispatch({
           type: GET_TEXTS,
@@ -34,12 +30,16 @@ export const getTexts = (category, pageSize, pageNumber) => {
 export const getCategories = () => {
   try {
     return async (dispatch) => {
-      const res = await axios.get(`${BASE_URL}${categoryEndpoint}`)
+      const url = `${HOST.backend}/${ENDPOINT.categories}`
+
+      const res = await axios.get(url)
       if (res.data) {
         dispatch({
           type: GET_CATEGORIES,
           payload: res.data
         })
+        console.log('backend url: ', url)
+        console.log(res.data)
       } else {
         console.log('Unable to fetch')
       }
@@ -52,7 +52,7 @@ export const getCategories = () => {
 export const getText = (id) => {
   try {
     return async (dispatch) => {
-      const res = await axios.get(`${BASE_URL}${textEndpoint}/${id}`)
+      const res = await axios.get(`${HOST.backend}${ENDPOINT.texts}/${id}`)
       if (res.data) {
         dispatch({
           type: GET_TEXT,
