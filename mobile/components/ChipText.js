@@ -1,9 +1,11 @@
 /* eslint-disable import/namespace */
 import * as React from 'react'
+
 import { Chip, Text } from 'react-native-paper'
+
+import { COLORS } from '../constants/colors'
 import PropTypes from 'prop-types'
 import { StyleSheet } from 'react-native'
-import { COLORS } from '../constants/colors'
 
 const styles = StyleSheet.create({
   chipNotSelected: {
@@ -28,7 +30,7 @@ const ChipText = (props) => (
     backgroundColor={COLORS.leaf}
     textStyle={styles.text}
     style={props.selected ? styles.chipNotSelected : styles.chipSelected}>
-    <Text>{props.text}</Text>
+    <Text>{props.text ? props.text : 'No text'}</Text>
   </Chip>
 )
 

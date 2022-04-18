@@ -43,7 +43,7 @@ export default function TextList({ route, navigation }) {
       onPress={() => {
         setShouldReload(false)
         navigation.navigate(SCREENS.textScreen, {
-          textId: item.textId
+          id: item.id
         })
       }}>
       <TextCard text={item}></TextCard>

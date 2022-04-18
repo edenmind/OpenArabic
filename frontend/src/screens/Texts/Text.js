@@ -1,32 +1,19 @@
-import * as lookup from '../../services/lookup'
-
 import { Container, Divider, Grid } from '@mui/material'
 import React, { Fragment } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { Box } from '@mui/system'
 import CircularProgress from '@mui/material/CircularProgress'
 import Footer from '../../components/Footer'
 import Nav from '../../components/Nav'
-import { SET_AUTHOR_PERSISTED } from '../../redux/actions'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 export default function Text() {
-  const dispatch = useDispatch()
   const { id } = useParams()
   const [text, setText] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
-  const { authorPersisted } = useSelector((state) => state.authorPersisted)
-  const setAuthorPersisted = (value) => dispatch({ type: SET_AUTHOR_PERSISTED, authorPersisted: value })
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/authors`)
-      .then((response) => {
-        setAuthorPersisted(response.data)
-      })
-      .catch((err) => console.log(err))
     axios
       .get(`${process.env.REACT_APP_API_URL}/texts/${id}`)
       .then((response) => {
@@ -50,7 +37,7 @@ export default function Text() {
       <Container maxWidth='lg'>
         <center>
           <h1>{text.title}</h1>
-          <h3>{lookup.authorLookup(text.author, authorPersisted)}</h3>
+          <h3>{text.author}</h3>
           <h4>{text.source}</h4>
           <Divider width='200' />
           {text.sentences.map((sentence, index) => (

@@ -1,10 +1,7 @@
-import * as lookup from '../services/lookup'
 import * as wordProcessing from '../services/wordProcessing'
 
 import { Alert, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Snackbar, Typography } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
-import { SET_AUTHOR_PERSISTED, SET_CATEGORY_PERSISTED } from '../redux/actions'
-import { useDispatch, useSelector } from 'react-redux'
 
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
@@ -17,18 +14,12 @@ import { styled } from '@mui/material/styles'
 import { useAuth0 } from '@auth0/auth0-react'
 
 const Home = () => {
-  const dispatch = useDispatch()
   const [texts, setTexts] = React.useState([])
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
-  const setCategoryPersisted = (value) => dispatch({ type: SET_CATEGORY_PERSISTED, categoryPersisted: value })
-  const setAuthorPersisted = (value) => dispatch({ type: SET_AUTHOR_PERSISTED, authorPersisted: value })
+  const [isLoading, setIsLoading] = React.useState(true)
 
   const { id } = useParams()
-  const { categoryPersisted } = useSelector((state) => state.categoryPersisted)
-  const { authorPersisted } = useSelector((state) => state.authorPersisted)
   const { user, isAuthenticated } = useAuth0()
-
-  const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
     const url = id ? `${process.env.REACT_APP_API_URL}/texts/categories/${id}` : `${process.env.REACT_APP_API_URL}/texts`
@@ -40,20 +31,6 @@ const Home = () => {
         setTimeout(() => {
           setIsLoading(false)
         }, 500)
-      })
-      .catch((err) => console.log(err))
-
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/authors`)
-      .then((response) => {
-        setAuthorPersisted(response.data)
-      })
-      .catch((err) => console.log(err))
-
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/categories`)
-      .then((response) => {
-        setCategoryPersisted(response.data)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -102,13 +79,13 @@ const Home = () => {
           <CardMedia component='img' height='194' image={`/${index}.png`} />
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
-              {lookup.categoryLookup(text.category, categoryPersisted)}
+              {text.category}
             </Typography>
             <Typography variant='h5' component='div'>
               {text.title}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color='text.secondary'>
-              {lookup.authorLookup(text.author, authorPersisted)}
+              {text.author}
             </Typography>
             <div dir='rtl'>
               <Typography variant='h5'>{wordProcessing.truncateString(text.sentences)}</Typography>

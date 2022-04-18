@@ -1,31 +1,79 @@
 const ObjectId = require('mongodb').ObjectId
 
 const COLLECTION_NAME = 'texts'
+
 async function listTexts(req, reply) {
   const texts = this.mongo.db.collection(COLLECTION_NAME)
-  const result = await texts.find({}).toArray()
-  reply.code(200).send(result)
-}
+  const categories = this.mongo.db.collection('categories')
+  const authors = this.mongo.db.collection('authors')
 
-async function listTextsCategories(req, reply) {
-  const texts = this.mongo.db.collection(COLLECTION_NAME)
-  const result = await texts.find({ category: req.params.id }).toArray()
-  console.log(result)
-  reply.code(200).send(result)
+  const categoriesList = await categories.find({}).toArray()
+  const authorList = await authors.find({}).toArray()
+  const textList = req.params.id ? await texts.find({ category: req.params.id }).toArray() : await texts.find({}).toArray()
+
+  const resultsWithName = []
+  textList.forEach((text) => {
+    text.category = categoriesList.find((category) => category.id.toString() === text.category).name
+    text.author = authorList.find((author) => author.id.toString() === text.author).name
+    resultsWithName.push(text)
+  })
+
+  reply.code(200).send(resultsWithName)
 }
 
 async function addText(req, reply) {
-  const texts = this.mongo.db.collection(COLLECTION_NAME)
+  const textsCollection = this.mongo.db.collection(COLLECTION_NAME)
   const id = new ObjectId()
-  const { title, author, category, source, sentences } = req.body
-  const data = { title, author, category, source, id, sentences }
-  const result = await texts.insertOne(data)
+  const { title, author, category, source, sentences, texts } = req.body
+  const data = { title, author, category, source, id, sentences, texts }
+  const result = await textsCollection.insertOne(data)
   reply.code(201).send(result.insertedId)
 }
 
 async function getText(req, reply) {
   const texts = this.mongo.db.collection(COLLECTION_NAME)
-  const result = await texts.findOne({ _id: new ObjectId(req.params.id) })
+  const authors = this.mongo.db.collection('authors')
+  const authorList = await authors.find({}).toArray()
+  const categories = this.mongo.db.collection('categories')
+  const categoriesList = await categories.find({}).toArray()
+
+  const result = await texts.findOne({ id: new ObjectId(req.params.id) })
+
+  result.author = authorList.find((author) => author.id.toString() === result.author).name
+  result.category = categoriesList.find((category) => category.id.toString() === result.category).name
+
+  const arabicVocabulary = []
+  const englishVocabulary = []
+  let vocabularyCollection
+
+  result.sentences.forEach((sentence) => {
+    sentence.words.forEach((word, index) => {
+      const arabicWord = {
+        word: word.arabic,
+        wordId: index,
+      }
+
+      const englishWord = {
+        word: word.english,
+        wordId: index,
+      }
+
+      if (arabicVocabulary.length === 5) {
+        return
+      }
+
+      arabicVocabulary.push(arabicWord)
+      englishVocabulary.push(englishWord)
+    })
+
+    vocabularyCollection = {
+      arabic: arabicVocabulary,
+      english: englishVocabulary,
+    }
+  })
+
+  result.vocabularyCollection = vocabularyCollection
+
   if (result) {
     return reply.send(result)
   }
@@ -53,4 +101,4 @@ async function deleteText(req, reply) {
   reply.internalServerError('Could not delete Text.')
 }
 
-module.exports = { listTexts, addText, getText, updateText, deleteText, listTextsCategories }
+module.exports = { listTexts, addText, getText, updateText, deleteText }

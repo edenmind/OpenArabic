@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import React, { Fragment, useEffect, useState } from 'react'
 
 import AppPromo from '../../../components/AppPromo'
@@ -5,12 +6,9 @@ import PropTypes from 'prop-types'
 import Quiz from './Quiz'
 import { SCREENS } from '../../../constants/screens'
 import Spinner from '../../../components/Spinner'
-/* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native'
 import TextArabic from './TextArabic'
 import TextBilingual from './TextBilingual'
-import TextEnglish from './TextEnglish'
-import TextRelated from './TextRelated'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { getText } from '../../../services/ApiService'
 import { useDispatch } from 'react-redux'
@@ -23,32 +21,30 @@ const style = StyleSheet.create({
 export default function TextScreen({ route }) {
   const Tab = createMaterialTopTabNavigator()
 
-  const { textId = {} } = route.params
+  const { id } = route.params
   const dispatch = useDispatch()
   const [isLoading, setIsLoading] = useState(true)
   const tabArray = [
-    { name: SCREENS.bilingual, component: TextBilingual }
-    // { name: SCREENS.quiz, component: Quiz },
-    // { name: SCREENS.arabic, component: TextArabic },
-    // { name: SCREENS.english, component: TextEnglish },
-    // { name: SCREENS.related, component: TextRelated }
+    { name: SCREENS.bilingual, component: TextBilingual },
+    { name: SCREENS.quiz, component: Quiz },
+    { name: SCREENS.arabic, component: TextArabic }
   ]
 
   useEffect(() => {
     const fetchText = () => {
-      dispatch(getText(textId))
+      dispatch(getText(id))
       setTimeout(() => {
         setIsLoading(false)
       }, 700)
     }
     fetchText()
-  }, [dispatch, textId])
+  }, [dispatch, id])
 
   const tabs = tabArray.map((screen) => (
     <Tab.Screen
       name={screen.name}
       component={screen.component}
-      initialParams={{ textId }}
+      initialParams={{ id }}
       key={screen.name}
     />
   ))

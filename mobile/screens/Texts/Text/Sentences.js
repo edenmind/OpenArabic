@@ -1,11 +1,13 @@
 /* eslint-disable import/namespace */
-import PropTypes from 'prop-types'
+import * as util from '../../../services/UtilityService'
+
+import { Button, Paragraph, Text } from 'react-native-paper'
 import React, { Fragment } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Button, Paragraph, Text } from 'react-native-paper'
+
 import ModalScrollView from '../../../components/ModalScrollView'
+import PropTypes from 'prop-types'
 import WordPairs from '../../../components/WordPairs'
-import * as util from '../../../services/UtilityService'
 
 const style = StyleSheet.create({
   arabic: {
@@ -48,8 +50,8 @@ export default function Sentences(props) {
     return element.english !== '' && element.arabic !== ''
   }
 
-  const sentences = props.sentences.map((sentence) => (
-    <Fragment key={sentence.sentenceId}>
+  const sentences = props.sentences.map((sentence, index) => (
+    <Fragment key={index}>
       <Paragraph style={style.arabic}>{sentence.arabic}</Paragraph>
       <Paragraph style={style.english}>{sentence.english}</Paragraph>
 

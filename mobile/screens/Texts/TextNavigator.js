@@ -1,7 +1,9 @@
+/* eslint-disable import/namespace */
+import { ENDPOINT, HOST } from '../../constants/urls'
+
 import { Button } from 'react-native-paper'
 import { COLORS } from '../../constants/colors'
 import CategoryDrawer from '../Categories/CategoryDrawer'
-/* eslint-disable import/namespace */
 import React from 'react'
 import { SCREENS } from '../../constants/screens'
 import { Share } from 'react-native'
@@ -20,7 +22,7 @@ export default function TextNavigator() {
     try {
       await Share.share({
         message: text.title,
-        url: `https://openarabic.io/text/${text.textId}`
+        url: `${HOST.backend}/${ENDPOINT.texts}/${text.id}`
       })
     } catch (error) {
       alert(error.message)

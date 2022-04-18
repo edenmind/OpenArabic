@@ -38,8 +38,6 @@ export const getCategories = () => {
           type: GET_CATEGORIES,
           payload: res.data
         })
-        console.log('backend url: ', url)
-        console.log(res.data)
       } else {
         console.log('Unable to fetch')
       }
@@ -52,7 +50,8 @@ export const getCategories = () => {
 export const getText = (id) => {
   try {
     return async (dispatch) => {
-      const res = await axios.get(`${HOST.backend}${ENDPOINT.texts}/${id}`)
+      const url = `${HOST.backend}/${ENDPOINT.texts}/${id}`
+      const res = await axios.get(url)
       if (res.data) {
         dispatch({
           type: GET_TEXT,

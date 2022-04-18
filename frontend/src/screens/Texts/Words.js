@@ -22,6 +22,8 @@ const Words = () => {
   const { arabicWords } = useSelector((state) => state.arabicWords)
   const { englishSentence } = useSelector((state) => state.englishSentence)
   const { arabicSentence } = useSelector((state) => state.arabicSentence)
+  const { englishText } = useSelector((state) => state.englishText)
+  const { arabicText } = useSelector((state) => state.arabicText)
   const { title } = useSelector((state) => state.title)
   const { category } = useSelector((state) => state.category)
   const { author } = useSelector((state) => state.author)
@@ -33,7 +35,13 @@ const Words = () => {
 
   const handleChangeArabic = (indexSentence, indexArabicWord, value) => {
     const newTheArabicWord = [...wordByWord]
-    newTheArabicWord[indexSentence][indexArabicWord] = value
+
+    const translation = {
+      arabic: arabicWords[indexSentence][indexArabicWord],
+      english: value,
+    }
+
+    newTheArabicWord[indexSentence][indexArabicWord] = translation
     setWordByWord(newTheArabicWord)
   }
 
@@ -67,6 +75,10 @@ const Words = () => {
       data: {
         title,
         category,
+        texts: {
+          arabic: arabicText,
+          english: englishText,
+        },
         author,
         source,
         sentences,
@@ -119,7 +131,7 @@ const Words = () => {
               {arabicWord}
               <TextField
                 InputProps={{ style: { fontSize: 15 } }}
-                value={wordByWord[indexSentence][indexArabicWord]}
+                value={wordByWord[indexSentence][indexArabicWord].english}
                 onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
                 rows={1}
                 fullWidth

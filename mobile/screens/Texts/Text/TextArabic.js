@@ -1,10 +1,12 @@
-/* eslint-disable import/namespace */
-import React from 'react'
-import { ScrollView, StyleSheet } from 'react-native'
 import 'react-native-gesture-handler'
+
+/* eslint-disable import/namespace */
+import { ScrollView, StyleSheet } from 'react-native'
+
 import { Paragraph } from 'react-native-paper'
-import { useSelector } from 'react-redux'
+import React from 'react'
 import Spinner from '../../../components/Spinner'
+import { useSelector } from 'react-redux'
 
 export default function TextArabic() {
   const style = StyleSheet.create({
@@ -24,7 +26,7 @@ export default function TextArabic() {
   if (text.title) {
     return (
       <ScrollView>
-        <Paragraph style={style.arabic}>{text.arabicText}</Paragraph>
+        <Paragraph style={style.arabic}>{text.texts.arabic}</Paragraph>
       </ScrollView>
     )
   }

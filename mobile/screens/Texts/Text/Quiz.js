@@ -1,9 +1,10 @@
 /* eslint-disable import/namespace */
-import React from 'react'
-import ChipText from '../../../components/ChipText'
-import { useSelector } from 'react-redux'
-import Spinner from '../../../components/Spinner'
 import { StyleSheet, View } from 'react-native'
+
+import ChipText from '../../../components/ChipText'
+import React from 'react'
+import Spinner from '../../../components/Spinner'
+import { useSelector } from 'react-redux'
 
 const Quiz = () => {
   const styles = StyleSheet.create({
@@ -75,7 +76,7 @@ const Quiz = () => {
   const arabicVocabularies = text.vocabularyCollection.arabic.map(
     (arabic, index) => (
       <ChipText
-        key={arabic.wordId}
+        key={index}
         text={arabic.word}
         func={() => arabicWordPress(index, arabic.wordId)}
         selected={arabicSelected[index] ? arabicSelected[index] : false}
@@ -86,7 +87,7 @@ const Quiz = () => {
   const englishVocabularies = text.vocabularyCollection.english.map(
     (english, index) => (
       <ChipText
-        key={english.wordId}
+        key={index}
         text={english.word}
         func={() => englishWordPress(index, english.wordId)}
         selected={englishSelected[index] ? englishSelected[index] : false}

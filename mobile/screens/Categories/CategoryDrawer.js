@@ -19,7 +19,7 @@ export default function CategoryDrawer() {
       name={category.name}
       key={index}
       component={TextList}
-      initialParams={{ category: category.name }}
+      initialParams={{ category: category.id }}
       options={{
         title: category.name,
         headerShown: true,

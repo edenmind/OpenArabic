@@ -1,11 +1,11 @@
+/* eslint-disable import/namespace */
 import * as utility from '../../../services/UtilityService'
 
-import { Avatar, Card, Chip, Paragraph } from 'react-native-paper'
+import { Card, Chip, Paragraph } from 'react-native-paper'
 
 import { COLORS } from '../../../constants/colors'
 import PropTypes from 'prop-types'
 import React from 'react'
-/* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({
@@ -38,17 +38,17 @@ export default function TextCard(props) {
     <Card style={style.card} testID="textCard">
       <Card.Title
         title={props.text.title}
-        subtitle={`${props.text.author} (${props.text.timeAgo})`}
+        subtitle={`${props.text.author} - (${props.text.source})`}
       />
       <Card.Content>
         <Paragraph>
           {utility.removeLineBreak(
-            utility.truncate(`${props.text.englishText}`, 155)
+            utility.truncate(`${props.text.texts.english}`, 125)
           )}
         </Paragraph>
         <Paragraph style={style.arabic}>
           {utility.removeLineBreak(
-            utility.truncate(`${props.text.arabicText}`, 125)
+            utility.truncate(`${props.text.texts.arabic}`, 100)
           )}
         </Paragraph>
       </Card.Content>
@@ -63,9 +63,8 @@ TextCard.propTypes = {
   text: PropTypes.shape({
     title: PropTypes.string,
     author: PropTypes.string,
-    timeAgo: PropTypes.string,
-    englishText: PropTypes.string,
-    arabicText: PropTypes.string,
+    source: PropTypes.string,
+    texts: PropTypes.object,
     category: PropTypes.string
   })
 }

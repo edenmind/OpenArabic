@@ -1,6 +1,6 @@
 'use strict'
 
-const { listTexts, addText, getText, updateText, deleteText, listTextsCategories } = require('../controllers/Texts')
+const { listTexts, addText, getText, updateText, deleteText } = require('../controllers/Texts')
 
 const getTextsOpts = {
   schema: {
@@ -11,17 +11,6 @@ const getTextsOpts = {
     },
   },
   handler: listTexts,
-}
-
-const getTextsCategoriesOpts = {
-  schema: {
-    response: {
-      200: {
-        type: 'array',
-      },
-    },
-  },
-  handler: listTextsCategories,
 }
 
 const getTextOpts = {
@@ -37,6 +26,8 @@ const getTextOpts = {
           category: { type: 'string' },
           source: { type: 'string' },
           sentences: { type: 'array' },
+          texts: { arabic: { type: 'object' }, english: { type: 'object' } },
+          vocabularyCollection: { arabic: { type: 'array' }, english: { type: 'array' } },
         },
       },
     },
@@ -69,13 +60,14 @@ const postTextOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source', 'sentences'],
+      required: ['title', 'author', 'category', 'source', 'sentences', 'texts'],
       properties: {
         title: { type: 'string' },
         author: { type: 'string' },
         category: { type: 'string' },
         source: { type: 'string' },
         sentences: { type: 'array' },
+        texts: { type: 'object' },
       },
     },
     response: {
@@ -98,4 +90,4 @@ const deleteTextOpts = {
   handler: deleteText,
 }
 
-module.exports = { getTextsOpts, getTextOpts, updateTextOpts, postTextOpts, deleteTextOpts, getTextsCategoriesOpts }
+module.exports = { getTextsOpts, getTextOpts, updateTextOpts, postTextOpts, deleteTextOpts }
