@@ -1,8 +1,9 @@
+import { Button, Modal, Portal, Text } from 'react-native-paper'
+
+import { COLORS } from '../constants/colors'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
-import { Button, Modal, Portal, Text } from 'react-native-paper'
-import { COLORS } from '../constants/colors'
 
 const ModalScrollView = (props) => {
   const containerStyle = {

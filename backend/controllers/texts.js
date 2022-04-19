@@ -1,3 +1,5 @@
+const { v4: uuidv4 } = require('uuid')
+
 const ObjectId = require('mongodb').ObjectId
 
 const COLLECTION_NAME = 'texts'
@@ -47,15 +49,16 @@ async function getText(req, reply) {
   let vocabularyCollection
 
   result.sentences.forEach((sentence) => {
-    sentence.words.forEach((word, index) => {
+    sentence.words.forEach((word) => {
+      const wordId = uuidv4()
       const arabicWord = {
         word: word.arabic,
-        wordId: index,
+        wordId,
       }
 
       const englishWord = {
         word: word.english,
-        wordId: index,
+        wordId,
       }
 
       if (arabicVocabulary.length === 5) {

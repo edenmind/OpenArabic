@@ -11,7 +11,7 @@ import { StyleSheet } from 'react-native'
 const style = StyleSheet.create({
   arabic: {
     direction: 'rtl',
-    fontSize: 21,
+    fontSize: 18,
     lineHeight: 30,
     writingDirection: 'rtl'
   },

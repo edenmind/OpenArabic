@@ -65,7 +65,7 @@ export default function App() {
               options={{
                 tabBarLabel: UI.texts,
                 tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons name="book" color={color} size={26} />
+                  <MaterialCommunityIcons name="text" color={color} size={26} />
                 )
               }}
             />
@@ -76,7 +76,7 @@ export default function App() {
                 tabBarLabel: SCREENS.about,
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons
-                    name="information"
+                    name="information-outline"
                     color={color}
                     size={26}
                   />

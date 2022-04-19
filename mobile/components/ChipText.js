@@ -8,6 +8,9 @@ import PropTypes from 'prop-types'
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
+  arabic: {
+    fontSize: 17
+  },
   chipNotSelected: {
     backgroundColor: COLORS.leaf,
     margin: 5,
@@ -18,8 +21,8 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 0
   },
-  text: {
-    fontSize: 25,
+  english: {
+    fontSize: 23,
     fontWeight: '400'
   }
 })
@@ -28,7 +31,7 @@ const ChipText = (props) => (
   <Chip
     onPress={props.func}
     backgroundColor={COLORS.leaf}
-    textStyle={styles.text}
+    textStyle={props.language === 'arabic' ? styles.english : styles.arabic}
     style={props.selected ? styles.chipNotSelected : styles.chipSelected}>
     <Text>{props.text ? props.text : 'No text'}</Text>
   </Chip>
@@ -38,6 +41,7 @@ export default ChipText
 
 ChipText.propTypes = {
   text: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired,
   func: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired
 }
