@@ -10,7 +10,9 @@ jest.mock('react-native-reanimated', () => {
 
   // The mock for `call` immediately calls the callback which is incorrect
   // So we override it with a no-op
-  Reanimated.default.call = () => {}
+  Reanimated.default.call = () => {
+    /* TODO document why this arrow function is empty */
+  }
 
   return Reanimated
 })
