@@ -10,7 +10,6 @@ const getAuthorsOpts = {
         items: {
           type: 'object',
           properties: {
-            _id: { type: 'string' },
             id: { type: 'string' },
             name: { type: 'string' },
           },
@@ -27,9 +26,7 @@ const getAuthorOpts = {
       200: {
         type: 'object',
         properties: {
-          _id: { type: 'string' },
           id: { type: 'string' },
-
           name: { type: 'string' },
         },
       },

@@ -10,7 +10,6 @@ const getCategoriesOpts = {
         items: {
           type: 'object',
           properties: {
-            _id: { type: 'string' },
             id: { type: 'string' },
             name: { type: 'string' },
           },
@@ -27,7 +26,6 @@ const getCategoryOpts = {
       200: {
         type: 'object',
         properties: {
-          _id: { type: 'string' },
           id: { type: 'string' },
 
           name: { type: 'string' },

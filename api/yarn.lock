@@ -722,7 +722,7 @@ __metadata:
   dependencies:
     dotenv: ^16.0.0
     fastify: ^3.28.0
-    fastify-autoload: ^3.11.0
+    fastify-autoload: ^3.12.0
     fastify-cli: ^2.15.0
     fastify-cors: ^6.0.3
     fastify-env: ^2.1.1
@@ -1537,13 +1537,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-autoload@npm:^3.11.0":
-  version: 3.11.0
-  resolution: "fastify-autoload@npm:3.11.0"
+"fastify-autoload@npm:^3.12.0":
+  version: 3.12.0
+  resolution: "fastify-autoload@npm:3.12.0"
   dependencies:
     pkg-up: ^3.1.0
     semver: ^7.3.5
-  checksum: f6c874223554560803913096ce90c18f6894d25a709f418f136f7d42d6faaa3fedbbc4fa9fcb59f7a10729fce5b00e85900a2569770122023932d280a7c137f8
+  checksum: babc2b9cd5d9ca6175ec1bc4f09372a9fd833bcd90084a6dd42ba421c8377d7b345b2ed6807ca7f42fcff08e3cb1fca925a6ad71f2791e7c54f45375908c2640
   languageName: node
   linkType: hard
 

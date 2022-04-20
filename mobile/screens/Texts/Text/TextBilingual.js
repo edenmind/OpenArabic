@@ -1,22 +1,23 @@
 /* eslint-disable import/namespace */
 import 'react-native-gesture-handler'
+
+import Heading from './Heading'
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { useSelector } from 'react-redux'
-import Spinner from '../../../components/Spinner'
 import Sentences from './Sentences'
-import Heading from './Heading'
+import Spinner from '../../../components/Spinner'
+import { useSelector } from 'react-redux'
+
 export default function TextBilingual() {
   const selector = (state) => state.text
   const { text } = useSelector(selector)
 
-  if (text.title) {
-    return (
-      <ScrollView>
-        <Heading heading={text} />
-        <Sentences sentences={text.sentences} />
-      </ScrollView>
-    )
-  }
-  return <Spinner />
+  return text.title ? (
+    <ScrollView>
+      <Heading heading={text} />
+      <Sentences sentences={text.sentences} />
+    </ScrollView>
+  ) : (
+    <Spinner />
+  )
 }

@@ -20,7 +20,6 @@ const getTextOpts = {
         type: 'object',
         properties: {
           id: { type: 'string' },
-          _id: { type: 'string' },
           title: { type: 'string' },
           author: { type: 'string' },
           category: { type: 'string' },

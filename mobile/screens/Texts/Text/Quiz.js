@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import { StyleSheet, View } from 'react-native'
 
 import ChipText from '../../../components/ChipText'
+import SnackButton from '../../../components/SnackButton'
 import Spinner from '../../../components/Spinner'
 import { useSelector } from 'react-redux'
 
@@ -15,8 +16,12 @@ const Quiz = () => {
     }
   })
 
+  const numberOfWordInQuiz = 4
+
   const selector = (state) => state.text
   const { text } = useSelector(selector)
+  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] =
+    React.useState(false)
 
   const [arabicCurrentSelectedWordId, setArabicSelectedWordId] =
     React.useState('')
@@ -34,48 +39,69 @@ const Quiz = () => {
     setCorrectAnswers([...correctAnswers, wordId])
   }
 
-  const pressArabicWordHandler = (index, arabicWordId) => {
-    if (correctAnswers.includes(arabicWordId)) return
+  const onDismissSnackBar = () => setCelebrationSnackBarVisibility(false)
 
-    if (englishCurrentSelectedWordId == arabicWordId) {
-      addWordIdToCorrectAnswers(arabicWordId)
-      setIsSecondWord(false)
-    } else if (isSecondWord) {
-      englishSelectedCollection[englishCurrentSelectedIndex] = false
-      setEnglishSelected([...englishSelectedCollection])
-      setIsSecondWord(false)
-      return
-    } else {
-      setIsSecondWord(true)
-    }
-
+  const handleSetArabic = (index, arabicWordId) => {
     arabicSelectedCollection[index] = true
     setArabicSelected([...arabicSelectedCollection])
     setArabicSelectedWordId(arabicWordId)
     setArabicSelectedIndex(index)
   }
 
-  const pressEnglishWordHandler = (index, englishWordId) => {
-    console.log('index: ', index, 'word id: ', englishWordId)
-
-    if (correctAnswers.includes(englishWordId)) return
-
-    if (arabicCurrentSelectedWordId == englishWordId) {
-      addWordIdToCorrectAnswers(englishWordId)
-      setIsSecondWord(false)
-    } else if (isSecondWord) {
-      arabicSelectedCollection[arabicCurrentSelectedIndex] = false
-      setArabicSelected([...arabicSelectedCollection])
-      setIsSecondWord(false)
-      return
-    } else {
-      setIsSecondWord(true)
-    }
-
+  const handleSetEnglish = (index, englishWordId) => {
     englishSelectedCollection[index] = true
     setEnglishSelected([...englishSelectedCollection])
     setEngSelectedWordId(englishWordId)
     setEnglishSelectedIndex(index)
+  }
+
+  const pressArabicWordHandler = (index, arabicWordId) => {
+    if (correctAnswers.includes(arabicWordId)) return // do nothing
+
+    if (englishCurrentSelectedWordId == arabicWordId) {
+      // correct answer
+      addWordIdToCorrectAnswers(arabicWordId)
+      setIsSecondWord(false)
+      handleSetArabic(index, arabicWordId)
+      correctAnswers.length === numberOfWordInQuiz &&
+        setCelebrationSnackBarVisibility(true) // show celebration
+      return
+    }
+
+    if (isSecondWord) {
+      // wrong answer
+      englishSelectedCollection[englishCurrentSelectedIndex] = false
+      setEnglishSelected([...englishSelectedCollection])
+      setIsSecondWord(false)
+      return
+    }
+
+    setIsSecondWord(true) // first word
+    handleSetArabic(index, arabicWordId)
+  }
+
+  const pressEnglishWordHandler = (index, englishWordId) => {
+    if (correctAnswers.includes(englishWordId)) return // do nothing
+
+    if (arabicCurrentSelectedWordId == englishWordId) {
+      // correct answer
+      addWordIdToCorrectAnswers(englishWordId)
+      setIsSecondWord(false)
+      handleSetEnglish(index, englishWordId)
+      correctAnswers.length === numberOfWordInQuiz &&
+        setCelebrationSnackBarVisibility(true) // show celebration
+
+      return
+    }
+    if (isSecondWord) {
+      // wrong answer
+      arabicSelectedCollection[arabicCurrentSelectedIndex] = false
+      setArabicSelected([...arabicSelectedCollection])
+      setIsSecondWord(false)
+      return
+    }
+    setIsSecondWord(true) // first word
+    handleSetEnglish(index, englishWordId)
   }
 
   const arabicVocabularies = text.vocabularyCollection.arabic.map(
@@ -114,6 +140,10 @@ const Quiz = () => {
     <Fragment>
       <View style={styles.chip}>{arabicVocabularies}</View>
       <View style={styles.chip}>{englishVocabularies}</View>
+      <SnackButton
+        visible={celebrationSnackBarVisibility}
+        onDismissSnackBar={onDismissSnackBar}
+      />
     </Fragment>
   ) : (
     <Spinner />

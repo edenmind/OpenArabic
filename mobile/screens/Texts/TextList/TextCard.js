@@ -33,23 +33,22 @@ const style = StyleSheet.create({
   }
 })
 
+const prepareIngress = (text, length) => {
+  const noLineBreaks = utility.removeLineBreak(text)
+  return utility.truncate(noLineBreaks, length)
+}
+
 export default function TextCard(props) {
   return (
     <Card style={style.card} testID="textCard">
       <Card.Title
         title={props.text.title}
-        subtitle={`${props.text.author} - (${props.text.source})`}
+        subtitle={`${props.text.author} in ${props.text.source}`}
       />
       <Card.Content>
-        <Paragraph>
-          {utility.removeLineBreak(
-            utility.truncate(`${props.text.texts.english}`, 125)
-          )}
-        </Paragraph>
+        <Paragraph>{prepareIngress(props.text.texts.english, 125)}</Paragraph>
         <Paragraph style={style.arabic}>
-          {utility.removeLineBreak(
-            utility.truncate(`${props.text.texts.arabic}`, 100)
-          )}
+          {prepareIngress(props.text.texts.arabic, 100)}
         </Paragraph>
       </Card.Content>
       <Card.Actions style={style.cardAction}>

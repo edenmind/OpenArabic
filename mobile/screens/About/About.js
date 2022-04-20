@@ -1,9 +1,12 @@
 /* eslint-disable import/namespace */
 /* eslint-disable react-native/no-raw-text */
 import 'react-native-gesture-handler'
-import React from 'react'
-import { Linking, ScrollView, StyleSheet } from 'react-native'
+
 import { Button, Paragraph, Title } from 'react-native-paper'
+import { Linking, ScrollView, StyleSheet } from 'react-native'
+
+import React from 'react'
+
 export default function About() {
   const style = StyleSheet.create({
     english: {
@@ -18,6 +21,9 @@ export default function About() {
       marginBottom: 50
     }
   })
+
+  const contactUrl =
+    'mailto:salam@edenmind.com?subject=Mail from OpenArabic&body=Enter your question...'
 
   return (
     <ScrollView style={style.english}>
@@ -52,11 +58,7 @@ export default function About() {
         icon="mail"
         mode="contained"
         testID="contactButton"
-        onPress={() =>
-          Linking.openURL(
-            'mailto:salam@edenmind.com?subject=Mail from OpenArabic&body=Enter your question...'
-          )
-        }>
+        onPress={() => Linking.openURL(contactUrl)}>
         Contact us
       </Button>
     </ScrollView>

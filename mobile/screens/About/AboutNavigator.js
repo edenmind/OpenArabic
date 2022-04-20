@@ -1,9 +1,9 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import React from 'react'
 import About from './About'
 import { COLORS } from '../../constants/colors'
+import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
 import { SCREENS } from '../../constants/screens'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator()
 

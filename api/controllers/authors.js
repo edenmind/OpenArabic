@@ -1,14 +1,14 @@
 const ObjectId = require('mongodb').ObjectId
+const COLLECTIONS = require('../constants/collections.js')
 
-const COLLECTION_NAME = 'authors'
 async function listAuthors(req, reply) {
-  const authors = this.mongo.db.collection(COLLECTION_NAME)
+  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
   const result = await authors.find({}).toArray()
   reply.code(200).send(result)
 }
 
 async function addAuthor(req, reply) {
-  const authors = this.mongo.db.collection(COLLECTION_NAME)
+  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
   const id = new ObjectId()
   const { name } = req.body
   const data = { name, id }
@@ -17,7 +17,7 @@ async function addAuthor(req, reply) {
 }
 
 async function getAuthor(req, reply) {
-  const authors = this.mongo.db.collection(COLLECTION_NAME)
+  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
   const result = await authors.findOne({ _id: new ObjectId(req.params.id) })
   if (result) {
     return reply.send(result)
@@ -26,7 +26,7 @@ async function getAuthor(req, reply) {
 }
 
 async function updateAuthor(req, reply) {
-  const authors = this.mongo.db.collection(COLLECTION_NAME)
+  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
   const { name } = req.body
   const updateDoc = {
     $set: {
@@ -40,7 +40,7 @@ async function updateAuthor(req, reply) {
 }
 
 async function deleteAuthor(req, reply) {
-  const authors = this.mongo.db.collection(COLLECTION_NAME)
+  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
   const result = await authors.deleteOne({ _id: new ObjectId(req.params.id) })
   if (result.deletedCount) return reply.send('Deleted')
   reply.internalServerError('Could not delete Author.')

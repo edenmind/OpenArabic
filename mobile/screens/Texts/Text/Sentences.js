@@ -46,9 +46,8 @@ export default function Sentences(props) {
     <ModalScrollView visible={visible} content={words} hideModal={hideModal} />
   )
 
-  const filterFunction = function (element) {
-    return element.english !== '' && element.arabic !== ''
-  }
+  const filterFunction = (element) =>
+    element.english !== '' && element.arabic !== ''
 
   const sentences = props.sentences.map((sentence, index) => (
     <Fragment key={index}>

@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, GET_TEXTS, GET_TEXT, RESET_TEXTS } from './actions'
+import { GET_CATEGORIES, GET_TEXT, GET_TEXTS, RESET_TEXTS } from './actions'
 
 const initialStateCategories = {
   categories: []

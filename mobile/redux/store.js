@@ -1,6 +1,7 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { categoriesReducer, textReducer, textsReducer } from './reducers'
+
+import thunk from 'redux-thunk'
 const rootReducer = combineReducers({
   categories: categoriesReducer,
   text: textReducer,

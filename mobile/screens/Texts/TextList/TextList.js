@@ -23,17 +23,12 @@ export default function TextList({ route, navigation }) {
     React.useCallback(() => {
       if (shouldReload) {
         setIsLoading(true)
-        const fetchTexts = () => {
-          if (category === 'All') {
-            dispatch(api.getTexts(''))
-          } else {
-            dispatch(api.getTexts(category))
-          }
-          setTimeout(() => {
-            setIsLoading(false)
-          }, 1000)
-        }
-        fetchTexts()
+
+        category === 'All'
+          ? dispatch(api.getTexts(''))
+          : dispatch(api.getTexts(category))
+
+        setIsLoading(false)
       }
     }, [category, dispatch, shouldReload])
   )
@@ -46,7 +41,7 @@ export default function TextList({ route, navigation }) {
           id: item.id
         })
       }}>
-      <TextCard text={item}></TextCard>
+      <TextCard text={item} />
     </Pressable>
   )
 

@@ -30,10 +30,22 @@ export default function CategoryDrawer() {
 
   useFocusEffect(
     React.useCallback(() => {
-      const fetchCategories = () => dispatch(getCategories())
-      fetchCategories()
-      console.log('categories: ', categories)
+      dispatch(getCategories())
     }, [dispatch])
+  )
+
+  const homeScreen = (
+    <Drawer.Screen
+      name="All"
+      component={TextList}
+      initialParams={{ category: 'All' }}
+      options={{
+        title: SCREENS.home,
+        headerShown: true,
+        drawerLabel: 'All'
+      }}
+      key={'999'}
+    />
   )
 
   return (
@@ -49,17 +61,7 @@ export default function CategoryDrawer() {
         headerTintColor: COLORS.shinyOlive,
         drawerActiveBackgroundColor: COLORS.leaf
       }}>
-      <Drawer.Screen
-        name="All"
-        component={TextList}
-        initialParams={{ category: 'All' }}
-        options={{
-          title: SCREENS.home,
-          headerShown: true,
-          drawerLabel: SCREENS.home
-        }}
-        key={'999'}
-      />
+      {homeScreen}
       {categoryItems}
     </Drawer.Navigator>
   )

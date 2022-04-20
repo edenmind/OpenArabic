@@ -31,13 +31,8 @@ export default function TextScreen({ route }) {
   ]
 
   useEffect(() => {
-    const fetchText = () => {
-      dispatch(getText(id))
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 700)
-    }
-    fetchText()
+    dispatch(getText(id))
+    setIsLoading(false)
   }, [dispatch, id])
 
   const tabs = tabArray.map((screen) => (

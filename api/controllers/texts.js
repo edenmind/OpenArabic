@@ -1,13 +1,12 @@
 const { v4: uuidv4 } = require('uuid')
+const COLLECTIONS = require('../constants/collections.js')
 
 const ObjectId = require('mongodb').ObjectId
 
-const COLLECTION_NAME = 'texts'
-
 async function listTexts(req, reply) {
-  const texts = this.mongo.db.collection(COLLECTION_NAME)
-  const categories = this.mongo.db.collection('categories')
-  const authors = this.mongo.db.collection('authors')
+  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
+  const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
+  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
 
   const categoriesList = await categories.find({}).toArray()
   const authorList = await authors.find({}).toArray()
@@ -24,7 +23,7 @@ async function listTexts(req, reply) {
 }
 
 async function addText(req, reply) {
-  const textsCollection = this.mongo.db.collection(COLLECTION_NAME)
+  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
   const { title, author, category, source, sentences, texts } = req.body
   const data = { title, author, category, source, id, sentences, texts }
@@ -33,10 +32,11 @@ async function addText(req, reply) {
 }
 
 async function getText(req, reply) {
-  const texts = this.mongo.db.collection(COLLECTION_NAME)
-  const authors = this.mongo.db.collection('authors')
+  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
+  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
+  const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
+
   const authorList = await authors.find({}).toArray()
-  const categories = this.mongo.db.collection('categories')
   const categoriesList = await categories.find({}).toArray()
 
   const result = await texts.findOne({ id: new ObjectId(req.params.id) })
@@ -70,8 +70,8 @@ async function getText(req, reply) {
     })
 
     vocabularyCollection = {
-      arabic: arabicVocabulary,
-      english: englishVocabulary,
+      arabic: shuffleArray(arabicVocabulary),
+      english: shuffleArray(englishVocabulary),
     }
   })
 
@@ -84,7 +84,7 @@ async function getText(req, reply) {
 }
 
 async function updateText(req, reply) {
-  const texts = this.mongo.db.collection(COLLECTION_NAME)
+  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const { name } = req.body
   const updateDoc = {
     $set: {
@@ -98,10 +98,17 @@ async function updateText(req, reply) {
 }
 
 async function deleteText(req, reply) {
-  const texts = this.mongo.db.collection(COLLECTION_NAME)
+  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const result = await texts.deleteOne({ _id: new ObjectId(req.params.id) })
   if (result.deletedCount) return reply.send('Deleted')
   reply.internalServerError('Could not delete Text.')
+}
+
+const shuffleArray = (array) => {
+  return array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
 }
 
 module.exports = { listTexts, addText, getText, updateText, deleteText }
