@@ -23,12 +23,11 @@ export default function TextArabic() {
   const selector = (state) => state.text
   const { text } = useSelector(selector)
 
-  if (text.title) {
-    return (
-      <ScrollView>
-        <Paragraph style={style.arabic}>{text.texts.arabic}</Paragraph>
-      </ScrollView>
-    )
-  }
-  return <Spinner />
+  return text.title ? (
+    <ScrollView>
+      <Paragraph style={style.arabic}>{text.texts.arabic}</Paragraph>
+    </ScrollView>
+  ) : (
+    <Spinner />
+  )
 }

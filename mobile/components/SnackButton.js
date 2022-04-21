@@ -7,12 +7,10 @@ import PropTypes from 'prop-types'
 import { Snackbar } from 'react-native-paper'
 
 const SnackButton = (props) => {
-  const text = 'MashaAllah! You made it... 🎉🎉🎉'
-
   return (
     <View style={styles.container}>
       <Snackbar visible={props.visible} onDismiss={props.onDismissSnackBar}>
-        {text}
+        {props.text}
       </Snackbar>
     </View>
   )
@@ -29,5 +27,6 @@ export default SnackButton
 
 SnackButton.propTypes = {
   visible: PropTypes.bool.isRequired,
-  onDismissSnackBar: PropTypes.func.isRequired
+  onDismissSnackBar: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired
 }

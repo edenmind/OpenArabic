@@ -7,7 +7,7 @@ import { StyleSheet, View } from 'react-native'
 
 import ModalScrollView from '../../../components/ModalScrollView'
 import PropTypes from 'prop-types'
-import WordPairs from '../../../components/WordPairs'
+import WordPairs from './WordPairs'
 
 const style = StyleSheet.create({
   arabic: {

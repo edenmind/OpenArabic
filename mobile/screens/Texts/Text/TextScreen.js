@@ -1,7 +1,6 @@
 /* eslint-disable import/namespace */
 import React, { Fragment, useEffect, useState } from 'react'
 
-import AppPromo from '../../../components/AppPromo'
 import PropTypes from 'prop-types'
 import Quiz from './Quiz'
 import { SCREENS } from '../../../constants/screens'
@@ -55,7 +54,6 @@ export default function TextScreen({ route }) {
         }}>
         {tabs}
       </Tab.Navigator>
-      <AppPromo />
     </Fragment>
   )
 }

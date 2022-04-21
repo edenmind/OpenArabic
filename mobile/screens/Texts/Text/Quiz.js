@@ -17,6 +17,7 @@ const Quiz = () => {
   })
 
   const numberOfWordInQuiz = 4
+  const celebrationText = 'MashaAllah! You made it... 🎉🎉🎉'
 
   const selector = (state) => state.text
   const { text } = useSelector(selector)
@@ -143,6 +144,7 @@ const Quiz = () => {
       <SnackButton
         visible={celebrationSnackBarVisibility}
         onDismissSnackBar={onDismissSnackBar}
+        text={celebrationText}
       />
     </Fragment>
   ) : (

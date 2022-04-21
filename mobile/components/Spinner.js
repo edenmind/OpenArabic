@@ -1,9 +1,9 @@
+import { ActivityIndicator } from 'react-native-paper'
+import { COLORS } from '../constants/colors'
+import React from 'react'
 /* eslint-disable import/namespace */
 /* eslint-disable import/named */
 import { StyleSheet } from 'react-native'
-import { ActivityIndicator } from 'react-native-paper'
-import React from 'react'
-import { COLORS } from '../constants/colors'
 
 const style = StyleSheet.create({
   container: {
@@ -13,13 +13,13 @@ const style = StyleSheet.create({
   }
 })
 
-export default function Spinner() {
-  return (
-    <ActivityIndicator
-      animating
-      size="large"
-      color={COLORS.leaf}
-      style={style.container}
-    />
-  )
-}
+const Spinner = () => (
+  <ActivityIndicator
+    animating
+    size="large"
+    color={COLORS.leaf}
+    style={style.container}
+  />
+)
+
+export default Spinner
