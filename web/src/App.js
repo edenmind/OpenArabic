@@ -16,10 +16,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />}>
-          <Route index element={<Home />} />
-        </Route>
-
+        <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/texts' element={<Texts />} />
         <Route path='/texts/categories/:id' element={<Home />} />
