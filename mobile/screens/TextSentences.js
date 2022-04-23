@@ -82,8 +82,8 @@ export default function TextSentences(props) {
 TextSentences.propTypes = {
   sentences: PropTypes.arrayOf(
     PropTypes.shape({
-      word: PropTypes.string.isRequired,
-      wordId: PropTypes.string.isRequired
+      word: PropTypes.string,
+      wordId: PropTypes.string
     })
   )
 }

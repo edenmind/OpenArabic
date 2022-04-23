@@ -3,13 +3,13 @@ import React, { Fragment, useEffect, useState } from 'react'
 
 import PropTypes from 'prop-types'
 import Quiz from './TextQuiz'
-import { SCREENS } from './../constants/screens'
-import Spinner from './../components/Spinner'
+import { SCREENS } from '../constants/screens'
+import Spinner from '../components/Spinner'
 import { StyleSheet } from 'react-native'
 import TextArabic from './TextArabic'
 import TextBilingual from './TextBilingual'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import { getText } from './../services/ApiService'
+import { getText } from '../services/ApiService'
 import { useDispatch } from 'react-redux'
 
 const style = StyleSheet.create({
@@ -17,7 +17,7 @@ const style = StyleSheet.create({
     paddingTop: 0
   }
 })
-export default function TextScreen({ route }) {
+export default function Text({ route }) {
   const Tab = createMaterialTopTabNavigator()
 
   const { id } = route.params
@@ -25,8 +25,8 @@ export default function TextScreen({ route }) {
   const [isLoading, setIsLoading] = useState(true)
   const tabArray = [
     { name: SCREENS.bilingual, component: TextBilingual },
-    { name: SCREENS.quiz, component: Quiz },
-    { name: SCREENS.arabic, component: TextArabic }
+    { name: SCREENS.arabic, component: TextArabic },
+    { name: SCREENS.quiz, component: Quiz }
   ]
 
   useEffect(() => {
@@ -58,6 +58,6 @@ export default function TextScreen({ route }) {
   )
 }
 
-TextScreen.propTypes = {
+Text.propTypes = {
   route: PropTypes.any.isRequired
 }

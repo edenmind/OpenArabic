@@ -12,7 +12,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 
 const Tab = createMaterialBottomTabNavigator()
 
-const Navigation = () => (
+const AppNavigator = () => (
   <NavigationContainer
     // @ts-ignore
 
@@ -24,7 +24,6 @@ const Navigation = () => (
         name={SCREENS.text}
         component={TextNavigator}
         options={{
-          tabBarLabel: UI.null,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="text" color={color} size={26} />
           )
@@ -34,7 +33,6 @@ const Navigation = () => (
         name={SCREENS.about}
         component={AboutNavigator}
         options={{
-          tabBarLabel: UI.null,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="information-outline"
@@ -48,4 +46,4 @@ const Navigation = () => (
   </NavigationContainer>
 )
 
-export default Navigation
+export default AppNavigator
