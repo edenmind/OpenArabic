@@ -16,11 +16,7 @@ const Navigation = () => (
   <NavigationContainer
     // @ts-ignore
 
-    theme={NAVIGATIONTHEME}
-    documentTitle={{
-      formatter: (options, route) =>
-        `${options?.webTitle ?? route?.name} - ${UI.openArabic}`
-    }}>
+    theme={NAVIGATIONTHEME}>
     <Tab.Navigator
       activeColor={COLORS.shinyOlive}
       inactiveColor={COLORS.branch}>
@@ -28,7 +24,7 @@ const Navigation = () => (
         name={SCREENS.text}
         component={TextNavigator}
         options={{
-          tabBarLabel: UI.texts,
+          tabBarLabel: UI.null,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="text" color={color} size={26} />
           )
@@ -38,7 +34,7 @@ const Navigation = () => (
         name={SCREENS.about}
         component={AboutNavigator}
         options={{
-          tabBarLabel: SCREENS.about,
+          tabBarLabel: UI.null,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="information-outline"

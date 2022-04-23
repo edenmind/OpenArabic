@@ -2,11 +2,12 @@
 import * as utility from '../services/UtilityService'
 
 import { Card, Chip, Paragraph } from 'react-native-paper'
+import { Pressable, StyleSheet } from 'react-native'
 
 import { COLORS } from '../constants/colors'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { SCREENS } from '../constants/screens'
 
 const style = StyleSheet.create({
   arabic: {
@@ -40,26 +41,37 @@ const prepareIngress = (text, length) => {
 
 export default function ListTextCard(props) {
   return (
-    <Card style={style.card} testID="textCard">
-      <Card.Title
-        title={props.text.title}
-        subtitle={`${props.text.author} in ${props.text.source}`}
-      />
-      <Card.Content>
-        <Paragraph>{prepareIngress(props.text.texts.english, 125)}</Paragraph>
-        <Paragraph style={style.arabic}>
-          {prepareIngress(props.text.texts.arabic, 100)}
-        </Paragraph>
-      </Card.Content>
-      <Card.Actions style={style.cardAction}>
-        <Chip style={style.chip}>{props.text.category}</Chip>
-      </Card.Actions>
-    </Card>
+    <Pressable
+      onPress={() => {
+        props.setShouldReload(false)
+        props.navigation.navigate(SCREENS.textScreen, {
+          id: props.text.id
+        })
+      }}>
+      <Card style={style.card} testID="textCard">
+        <Card.Title
+          title={props.text.title}
+          subtitle={`${props.text.author} in ${props.text.source}`}
+        />
+        <Card.Content>
+          <Paragraph>{prepareIngress(props.text.texts.english, 125)}</Paragraph>
+          <Paragraph style={style.arabic}>
+            {prepareIngress(props.text.texts.arabic, 100)}
+          </Paragraph>
+        </Card.Content>
+        <Card.Actions style={style.cardAction}>
+          <Chip style={style.chip}>{props.text.category}</Chip>
+        </Card.Actions>
+      </Card>
+    </Pressable>
   )
 }
 
 ListTextCard.propTypes = {
+  setShouldReload: PropTypes.func.isRequired,
+  navigation: PropTypes.object,
   text: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string,
     author: PropTypes.string,
     source: PropTypes.string,

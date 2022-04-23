@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const TextChip = (props) => (
+const SelectableChip = (props) => (
   <Chip
     onPress={props.func}
     backgroundColor={COLORS.leaf}
@@ -37,9 +37,9 @@ const TextChip = (props) => (
   </Chip>
 )
 
-export default TextChip
+export default SelectableChip
 
-TextChip.propTypes = {
+SelectableChip.propTypes = {
   text: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired,
   func: PropTypes.func.isRequired,

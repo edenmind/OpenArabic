@@ -1,17 +1,16 @@
 /* eslint-disable import/namespace */
 import * as api from '../services/ApiService'
 
-import { FlatList, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { FlatList } from 'react-native'
 import PropTypes from 'prop-types'
-import { SCREENS } from '../constants/screens'
 import Spinner from '../components/Spinner'
 import TextCard from './ListTextCard'
 import { useFocusEffect } from '@react-navigation/native'
 
-export default function ListText({ route, navigation }) {
+export default function TextList({ route, navigation }) {
   const { category } = route.params
   const [isLoading, setIsLoading] = useState(true)
   const [shouldReload, setShouldReload] = useState(true)
@@ -34,15 +33,11 @@ export default function ListText({ route, navigation }) {
   )
 
   const renderItem = ({ item }) => (
-    <Pressable
-      onPress={() => {
-        setShouldReload(false)
-        navigation.navigate(SCREENS.textScreen, {
-          id: item.id
-        })
-      }}>
-      <TextCard text={item} />
-    </Pressable>
+    <TextCard
+      text={item}
+      navigation={navigation}
+      setShouldReload={setShouldReload}
+    />
   )
 
   return isLoading ? (
@@ -57,7 +52,7 @@ export default function ListText({ route, navigation }) {
   )
 }
 
-ListText.propTypes = {
+TextList.propTypes = {
   route: PropTypes.any.isRequired,
   navigation: PropTypes.any
 }

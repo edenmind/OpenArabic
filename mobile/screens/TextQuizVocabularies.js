@@ -3,8 +3,8 @@
 import React, { Fragment } from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import ChipText from './TextChip'
 import PropTypes from 'prop-types'
+import SelectableChip from '../components/SelectableChip'
 
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
@@ -17,7 +17,7 @@ function TextQuizVocabularies(props) {
 
   const arabicVocabularies = props.vocabularyCollection.arabic.map(
     (arabic, index) => (
-      <ChipText
+      <SelectableChip
         language="arabic"
         key={index}
         text={arabic.word}
@@ -33,7 +33,7 @@ function TextQuizVocabularies(props) {
 
   const englishVocabularies = props.vocabularyCollection.english.map(
     (english, index) => (
-      <ChipText
+      <SelectableChip
         language="english"
         key={index}
         text={english.word}
