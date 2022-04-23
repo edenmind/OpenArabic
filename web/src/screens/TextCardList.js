@@ -26,11 +26,11 @@ function TextCardList(props) {
           </div>
         </CardContent>
         <CardActions>
-          <Link to={`/texts/${text._id}`}>
+          <Link to={`/texts/${text.id}`}>
             <Button size='small'>Read More</Button>
           </Link>
           {props.isAuthenticated && (
-            <Button size='small' onClick={() => props.handleDeleteClick(text._id)}>
+            <Button size='small' onClick={() => props.handleDeleteClick(text.id)}>
               Delete
             </Button>
           )}
@@ -43,13 +43,14 @@ function TextCardList(props) {
 TextCardList.propTypes = {
   isAuthenticated: PropTypes.bool,
   handleDeleteClick: PropTypes.func.isRequired,
-  texts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-  })).isRequired,
+  texts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 }
 
 export default TextCardList
-

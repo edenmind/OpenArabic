@@ -44,7 +44,7 @@ const TextCard = (props) => {
       })
       .catch((err) => console.log(err))
 
-    // const newTexts = texts.filter((item) => item._id !== id)
+    // const newTexts = texts.filter((item) => item.id !== id)
     // setTexts(newTexts)
   }
 

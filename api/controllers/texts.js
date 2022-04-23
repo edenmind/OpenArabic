@@ -35,12 +35,13 @@ async function getText(req, reply) {
   const authorList = await authors.find({}).toArray()
   const categoriesList = await categories.find({}).toArray()
 
-  const text = await texts.findOne({ _id: new ObjectId(req.params.id) })
+  const text = await texts.findOne({ id: new ObjectId(req.params.id) })
   text.author = getAuthorNameFromId(authorList, text.author)
   text.category = getCategoryNameFromId(categoriesList, text.category)
 
   const vocabularyCollection = produceVocabularyCollection(text)
   text.vocabularyCollection = vocabularyCollection
+  console.log(text)
 
   text ? reply.send(text) : reply.notFound('The Text was not found')
 }
@@ -53,7 +54,7 @@ async function updateText(req, reply) {
       name,
     },
   }
-  const result = await texts.updateOne({ _id: new ObjectId(req.params.id) }, updateDoc, { upsert: true })
+  const result = await texts.updateOne({ id: new ObjectId(req.params.id) }, updateDoc, { upsert: true })
   reply.send({
     message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
   })
@@ -61,7 +62,7 @@ async function updateText(req, reply) {
 
 async function deleteText(req, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const result = await texts.deleteOne({ _id: new ObjectId(req.params.id) })
+  const result = await texts.deleteOne({ id: new ObjectId(req.params.id) })
   result.deletedCount ? reply.send('Deleted') : reply.internalServerError('Could not delete Text.')
 }
 
