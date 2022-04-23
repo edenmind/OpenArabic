@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { events, track } from './services/Analytics'
 
-import Navigation from './components/Navigation'
+import Navigation from './screens/Navigation'
 import { PAPERTHEME } from './constants/paperTheme'
 import { Provider as PaperProvider } from 'react-native-paper'
 import { Provider } from 'react-redux'

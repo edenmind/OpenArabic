@@ -11,7 +11,7 @@ import Spinner from '../components/Spinner'
 import TextCard from './ListTextCard'
 import { useFocusEffect } from '@react-navigation/native'
 
-export default function TextList({ route, navigation }) {
+export default function ListText({ route, navigation }) {
   const { category } = route.params
   const [isLoading, setIsLoading] = useState(true)
   const [shouldReload, setShouldReload] = useState(true)
@@ -57,7 +57,7 @@ export default function TextList({ route, navigation }) {
   )
 }
 
-TextList.propTypes = {
+ListText.propTypes = {
   route: PropTypes.any.isRequired,
   navigation: PropTypes.any
 }

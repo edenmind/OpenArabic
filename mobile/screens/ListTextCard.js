@@ -38,7 +38,7 @@ const prepareIngress = (text, length) => {
   return utility.truncate(noLineBreaks, length)
 }
 
-export default function TextCard(props) {
+export default function ListTextCard(props) {
   return (
     <Card style={style.card} testID="textCard">
       <Card.Title
@@ -58,7 +58,7 @@ export default function TextCard(props) {
   )
 }
 
-TextCard.propTypes = {
+ListTextCard.propTypes = {
   text: PropTypes.shape({
     title: PropTypes.string,
     author: PropTypes.string,

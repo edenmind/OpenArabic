@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const ChipText = (props) => (
+const TextChip = (props) => (
   <Chip
     onPress={props.func}
     backgroundColor={COLORS.leaf}
@@ -37,9 +37,9 @@ const ChipText = (props) => (
   </Chip>
 )
 
-export default ChipText
+export default TextChip
 
-ChipText.propTypes = {
+TextChip.propTypes = {
   text: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired,
   func: PropTypes.func.isRequired,

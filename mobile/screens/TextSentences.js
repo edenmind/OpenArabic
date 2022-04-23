@@ -35,7 +35,7 @@ const style = StyleSheet.create({
   }
 })
 
-export default function Sentences(props) {
+export default function TextSentences(props) {
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
   const hideModal = () => setVisible(false)
@@ -79,6 +79,11 @@ export default function Sentences(props) {
   )
 }
 
-Sentences.propTypes = {
-  sentences: PropTypes.any.isRequired
+TextSentences.propTypes = {
+  sentences: PropTypes.arrayOf(
+    PropTypes.shape({
+      word: PropTypes.string.isRequired,
+      wordId: PropTypes.string.isRequired
+    })
+  )
 }

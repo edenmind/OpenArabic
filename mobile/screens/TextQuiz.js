@@ -6,7 +6,7 @@ import Spinner from '../components/Spinner'
 import TextQuizVocabularies from './TextQuizVocabularies'
 import { useSelector } from 'react-redux'
 
-const Quiz = () => {
+const TextQuiz = () => {
   const numberOfWordInQuiz = 4
   const celebrationText = 'MashaAllah! You made it... 🎉🎉🎉'
 
@@ -116,4 +116,4 @@ const Quiz = () => {
   )
 }
 
-export default Quiz
+export default TextQuiz

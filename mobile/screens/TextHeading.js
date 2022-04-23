@@ -21,7 +21,7 @@ const style = StyleSheet.create({
   }
 })
 
-export default function Heading(props) {
+export default function TextHeading(props) {
   return (
     <Fragment>
       <Title style={style.title}>{props.heading.title}</Title>
@@ -31,11 +31,10 @@ export default function Heading(props) {
   )
 }
 
-Heading.propTypes = {
+TextHeading.propTypes = {
   heading: PropTypes.shape({
-    title: PropTypes.string,
-    author: PropTypes.string,
-    source: PropTypes.string,
-    readTime: PropTypes.string
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired
   })
 }

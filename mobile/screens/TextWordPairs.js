@@ -24,7 +24,12 @@ const TextWordPairs = (props) => {
 }
 
 TextWordPairs.propTypes = {
-  words: PropTypes.array.isRequired
+  words: PropTypes.arrayOf(
+    PropTypes.shape({
+      arabic: PropTypes.string.isRequired,
+      english: PropTypes.string.isRequired
+    })
+  )
 }
 
 export default TextWordPairs

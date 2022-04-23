@@ -15,8 +15,6 @@ function TextQuizVocabularies(props) {
     }
   })
 
-  console.log(props.vocabularyCollection)
-
   const arabicVocabularies = props.vocabularyCollection.arabic.map(
     (arabic, index) => (
       <ChipText
@@ -59,8 +57,18 @@ function TextQuizVocabularies(props) {
 
 TextQuizVocabularies.propTypes = {
   vocabularyCollection: PropTypes.shape({
-    arabic: PropTypes.array.isRequired,
-    english: PropTypes.array.isRequired
+    arabic: PropTypes.arrayOf(
+      PropTypes.shape({
+        word: PropTypes.string.isRequired,
+        wordId: PropTypes.string.isRequired
+      })
+    ),
+    english: PropTypes.arrayOf(
+      PropTypes.shape({
+        word: PropTypes.string.isRequired,
+        wordId: PropTypes.string.isRequired
+      })
+    )
   }),
   pressEnglishWordHandler: PropTypes.func.isRequired,
   pressArabicWordHandler: PropTypes.func.isRequired,
