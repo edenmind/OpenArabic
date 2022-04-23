@@ -1,11 +1,11 @@
-import { Button, Container, FormControl, Snackbar, Stack, TextField } from '@mui/material'
+import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
+import { Link, useParams } from 'react-router-dom'
 
-import Footer from '../../components/Footer'
-import MuiAlert from '@mui/material/Alert'
-import Nav from '../../components/Nav'
+import Footer from '../components/Footer'
+import Nav from '../components/Nav'
 import React from 'react'
+import SnackBar from '../components/SnackBar'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
 
 export const CategoryUpdate = () => {
   const [category, setCategory] = React.useState('')
@@ -15,10 +15,6 @@ export const CategoryUpdate = () => {
   const divStyle = {
     padding: '10px',
   }
-
-  const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />
-  })
 
   const handleClose = (reason) => {
     if (reason === 'clickaway') {
@@ -49,7 +45,7 @@ export const CategoryUpdate = () => {
     })
       .then((response) => {
         if (response.status === 200) {
-          setStatus(response.data.message)
+          setStatus('Updated category: ' + response.data.message)
           setOpen(true)
         }
       })
@@ -71,18 +67,14 @@ export const CategoryUpdate = () => {
             <Button variant='contained' onClick={updateCategory}>
               Update
             </Button>
-            <Button variant='outlined' href='/categories'>
-              Back
-            </Button>
+            <Link to='/categories'>
+              <Button variant='outlined'>Back</Button>
+            </Link>
           </Stack>
         </div>
+        <Footer />
       </Container>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity='success' sx={{ width: '100%' }}>
-          Updated category: {status}
-        </Alert>
-      </Snackbar>
-      <Footer />
+      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity='success' message={status} />
     </React.Fragment>
   )
 }

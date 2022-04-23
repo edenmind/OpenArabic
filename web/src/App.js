@@ -1,16 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import About from './screens/About'
-import { AuthorAdd } from './screens/Authors/AuthorAdd'
-import { AuthorUpdate } from './screens/Authors/AuthorUpdate'
-import { Authors } from './screens/Authors/Authors'
-import { Categories } from './screens/Categories/Categories'
-import { CategoryAdd } from './screens/Categories/CategoryAdd'
-import { CategoryUpdate } from './screens/Categories/CategoryUpdate'
+import { AuthorAdd } from './screens/AuthorAdd'
+import { AuthorUpdate } from './screens/AuthorUpdate'
+import { Authors } from './screens/Author'
+import { Categories } from './screens/Categories'
+import Category from './screens/Category'
+import { CategoryAdd } from './screens/CategoryAdd'
+import { CategoryUpdate } from './screens/CategoryUpdate'
 import Home from './screens/Home'
 import Privacy from './screens/Privacy'
-import Text from './screens/Texts/Text'
-import Texts from './screens/Texts/Texts'
+import SingleText from './screens/SingleText'
+import Texts from './screens/TextAdd'
 
 export default function App() {
   return (
@@ -19,14 +20,14 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/texts' element={<Texts />} />
-        <Route path='/texts/categories/:id' element={<Home />} />
-        <Route path='/texts/:id' element={<Text />} />
+        <Route path='/texts/categories/:id' element={<Categories />} />
+        <Route path='/texts/:id' element={<SingleText />} />
         <Route path='/authors' element={<Authors />} />
         <Route path='/authors/add' element={<AuthorAdd />} />
         <Route path='/authors/update/:id' element={<AuthorUpdate />} />
         <Route path='/categories/add' element={<CategoryAdd />} />
         <Route path='/categories/update/:id' element={<CategoryUpdate />} />
-        <Route path='/categories' element={<Categories />} />
+        <Route path='/categories' element={<Category />} />
         <Route path='/privacy' element={<Privacy />} />
       </Routes>
     </BrowserRouter>

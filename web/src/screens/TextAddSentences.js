@@ -1,13 +1,14 @@
+import * as ACTIONS from '../redux/actions'
 import * as React from 'react'
-import * as wordProcessing from '../../services/wordProcessing'
+import * as wordProcessing from '../services/wordProcessing'
 
-import { Chip, TextField } from '@mui/material'
-import { SET_ARABIC_SENTENCE, SET_ARABIC_TEXT, SET_ARABIC_WORDS, SET_ENGLISH_SENTENCE, SET_ENGLISH_TEXT, SET_ENGLISH_WORDS } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Fragment } from 'react'
+import MatchingIndicator from '../components/MatchingIndicator'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
+import { TextField } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -15,7 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
   width: 1100,
 }))
 
-const Sentences = () => {
+const TextAddSentences = () => {
   const dispatch = useDispatch()
 
   const { englishText } = useSelector((state) => state.englishText)
@@ -33,9 +34,9 @@ const Sentences = () => {
       theEnglishWords.push(theEnglishWordsSentence)
     })
 
-    dispatch({ type: SET_ENGLISH_TEXT, englishText: event.target.value })
-    dispatch({ type: SET_ENGLISH_SENTENCE, englishSentence: englishSentencesProcessed })
-    dispatch({ type: SET_ENGLISH_WORDS, englishWords: theEnglishWords })
+    dispatch({ type: ACTIONS.SET_ENGLISH_TEXT, englishText: event.target.value })
+    dispatch({ type: ACTIONS.SET_ENGLISH_SENTENCE, englishSentence: englishSentencesProcessed })
+    dispatch({ type: ACTIONS.SET_ENGLISH_WORDS, englishWords: theEnglishWords })
   }
 
   function handleChangeArabic(event) {
@@ -51,17 +52,14 @@ const Sentences = () => {
       theArabicWords.push(cleanFromNullAndEmpty)
     })
 
-    dispatch({ type: SET_ARABIC_TEXT, arabicText: event.target.value })
-    dispatch({ type: SET_ARABIC_SENTENCE, arabicSentence: arabicSentence })
-    dispatch({ type: SET_ARABIC_WORDS, arabicWords: theArabicWords })
+    dispatch({ type: ACTIONS.SET_ARABIC_TEXT, arabicText: event.target.value })
+    dispatch({ type: ACTIONS.SET_ARABIC_SENTENCE, arabicSentence: arabicSentence })
+    dispatch({ type: ACTIONS.SET_ARABIC_WORDS, arabicWords: theArabicWords })
   }
-
-  const sentencesMatchingIndicator =
-    englishSentenceCount === arabicSentenceCount ? <Chip label='Number of sentences matching' color='success' /> : <Chip label='Number of sentences are not matching' color='primary' />
 
   return (
     <Fragment>
-      {sentencesMatchingIndicator}
+      <MatchingIndicator entity='Sentences' firstCondition={englishSentenceCount} secondCondition={arabicSentenceCount} />
       <Stack direction='row' spacing={2}>
         <Item>
           <div dir='rtl'>
@@ -76,4 +74,4 @@ const Sentences = () => {
   )
 }
 
-export default Sentences
+export default TextAddSentences

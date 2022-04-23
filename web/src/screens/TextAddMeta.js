@@ -1,14 +1,14 @@
-import { Container, Divider, Grid } from '@mui/material'
+import { Container, Divider } from '@mui/material'
 import React, { Fragment } from 'react'
 
 import { Box } from '@mui/system'
-import CircularProgress from '@mui/material/CircularProgress'
-import Footer from '../../components/Footer'
-import Nav from '../../components/Nav'
+import Footer from '../components/Footer'
+import Nav from '../components/Nav'
+import Progress from '../components/Progress'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
-export default function Text() {
+export default function TextAddMeta() {
   const { id } = useParams()
   const [text, setText] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
@@ -26,11 +26,7 @@ export default function Text() {
   }, [])
 
   return isLoading ? (
-    <Grid container spacing={0} direction='column' alignItems='center' justifyContent='center' style={{ minHeight: '100vh' }}>
-      <Grid item xs={3}>
-        <CircularProgress />
-      </Grid>
-    </Grid>
+    <Progress />
   ) : (
     <React.Fragment>
       <Nav />

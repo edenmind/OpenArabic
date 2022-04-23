@@ -1,36 +1,15 @@
-import {
-  GET_ARABIC_SENTENCE,
-  GET_ARABIC_TEXT,
-  GET_ARABIC_WORDS,
-  GET_AUTHOR,
-  GET_CATEGORY,
-  GET_ENGLISH_SENTENCE,
-  GET_ENGLISH_TEXT,
-  GET_ENGLISH_WORDS,
-  GET_SOURCE,
-  GET_TITLE,
-  GET_WORD_BY_WORD,
-  SET_ARABIC_SENTENCE,
-  SET_ARABIC_TEXT,
-  SET_ARABIC_WORDS,
-  SET_AUTHOR,
-  SET_CATEGORY,
-  SET_ENGLISH_SENTENCE,
-  SET_ENGLISH_TEXT,
-  SET_ENGLISH_WORDS,
-  SET_SOURCE,
-  SET_TITLE,
-  SET_WORD_BY_WORD,
-} from './actions'
+import * as actions from './actions'
 
 const initialState = {
-  arabicWords: [],
-  englishWords: [],
-  wordByWord: [[]],
+  arabicWords: [''],
+  englishWords: [''],
+  wordByWord: [['']],
   title: '',
   category: '',
   author: '',
   source: '',
+  englishSentence: [''],
+  arabicSentence: [''],
   englishText: [
     'It is Sunnah for the fasting person to eat suhoor, because it was proven in al-Saheehayn that Anas ibn Maalik (may Allaah be pleased with him) said:\n The Prophet the Messenger of Allaah (peace and blessings of Allaah be upon him) said: “Eat suhoor for in suhoor there is blessing.” (Narrated by al-Bukhaari, 1923; Muslim, 1059). ',
   ],
@@ -41,9 +20,9 @@ const initialState = {
 
 export function textReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_TITLE:
+    case actions.GET_TITLE:
       return state.title
-    case SET_TITLE:
+    case actions.SET_TITLE:
       return { ...state, title: action.title }
     default:
       return state
@@ -52,9 +31,9 @@ export function textReducer(state = initialState, action) {
 
 export function wordByWordReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_WORD_BY_WORD:
+    case actions.GET_WORD_BY_WORD:
       return state.wordByWord
-    case SET_WORD_BY_WORD:
+    case actions.SET_WORD_BY_WORD:
       return { ...state, wordByWord: action.wordByWord }
     default:
       return state
@@ -63,9 +42,9 @@ export function wordByWordReducer(state = initialState, action) {
 
 export function categoryReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_CATEGORY:
+    case actions.GET_CATEGORY:
       return state.category
-    case SET_CATEGORY:
+    case actions.SET_CATEGORY:
       return { ...state, category: action.category }
     default:
       return state
@@ -74,9 +53,9 @@ export function categoryReducer(state = initialState, action) {
 
 export function authorReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_AUTHOR:
+    case actions.GET_AUTHOR:
       return state.category
-    case SET_AUTHOR:
+    case actions.SET_AUTHOR:
       return { ...state, author: action.author }
     default:
       return state
@@ -85,9 +64,9 @@ export function authorReducer(state = initialState, action) {
 
 export function englishTextReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_ENGLISH_TEXT:
+    case actions.GET_ENGLISH_TEXT:
       return state.englishText
-    case SET_ENGLISH_TEXT:
+    case actions.SET_ENGLISH_TEXT:
       return { ...state, englishText: action.englishText }
     default:
       return state
@@ -96,9 +75,9 @@ export function englishTextReducer(state = initialState, action) {
 
 export function arabicTextReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_ARABIC_TEXT:
+    case actions.GET_ARABIC_TEXT:
       return state.arabicText
-    case SET_ARABIC_TEXT:
+    case actions.SET_ARABIC_TEXT:
       return { ...state, arabicText: action.arabicText }
     default:
       return state
@@ -107,9 +86,9 @@ export function arabicTextReducer(state = initialState, action) {
 
 export function englishSentenceReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_ENGLISH_SENTENCE:
+    case actions.GET_ENGLISH_SENTENCE:
       return state.englishSentence
-    case SET_ENGLISH_SENTENCE:
+    case actions.SET_ENGLISH_SENTENCE:
       return { ...state, englishSentence: action.englishSentence }
     default:
       return state
@@ -118,9 +97,9 @@ export function englishSentenceReducer(state = initialState, action) {
 
 export function arabicSentenceReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_ARABIC_SENTENCE:
+    case actions.GET_ARABIC_SENTENCE:
       return state.arabicSentence
-    case SET_ARABIC_SENTENCE:
+    case actions.SET_ARABIC_SENTENCE:
       return { ...state, arabicSentence: action.arabicSentence }
     default:
       return state
@@ -129,9 +108,9 @@ export function arabicSentenceReducer(state = initialState, action) {
 
 export function englishWordsReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_ENGLISH_WORDS:
+    case actions.GET_ENGLISH_WORDS:
       return state.englishSentence
-    case SET_ENGLISH_WORDS:
+    case actions.SET_ENGLISH_WORDS:
       return { ...state, englishWords: action.englishWords }
     default:
       return state
@@ -140,9 +119,9 @@ export function englishWordsReducer(state = initialState, action) {
 
 export function arabicWordsReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_ARABIC_WORDS:
+    case actions.GET_ARABIC_WORDS:
       return state.arabicSentence
-    case SET_ARABIC_WORDS:
+    case actions.SET_ARABIC_WORDS:
       return { ...state, arabicWords: action.arabicWords }
     default:
       return state
@@ -151,9 +130,9 @@ export function arabicWordsReducer(state = initialState, action) {
 
 export function sourceReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_SOURCE:
+    case actions.GET_SOURCE:
       return state.source
-    case SET_SOURCE:
+    case actions.SET_SOURCE:
       return { ...state, source: action.source }
     default:
       return state

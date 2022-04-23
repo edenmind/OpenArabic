@@ -1,15 +1,15 @@
 import Box from '@mui/material/Box'
-import Heading from './Heading'
-import Nav from '../../components/Nav'
+import Heading from './TextAddHeading'
+import Nav from '../components/Nav'
 import React from 'react'
-import Sentences from './Sentences'
+import Sentences from './TextAddSentences'
 import Tab from '@mui/material/Tab'
-import { TabPanel } from '../../components/TabPanel'
+import { TabPanel } from '../components/TabPanel'
 import Tabs from '@mui/material/Tabs'
-import Words from './Words'
+import Words from './TextAddWords'
 import axios from 'axios'
 
-export default function Texts() {
+export default function TextAdd() {
   const [value, setValue] = React.useState(0)
 
   const [categories, setCategories] = React.useState([])

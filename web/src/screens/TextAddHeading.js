@@ -3,9 +3,10 @@ import * as React from 'react'
 import { Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
-import MenuSelect from '../../components/MenuSelect'
+import MenuSelect from '../components/MenuSelect'
+import PropTypes from 'prop-types'
 
-const Heading = (props) => {
+const TextAddHeading = (props) => {
   const dispatch = useDispatch()
   const setTitle = (event) => dispatch({ type: 'SET_TITLE', title: event.target.value })
   const setCategory = (event) => dispatch({ type: 'SET_CATEGORY', category: event.target.value })
@@ -27,4 +28,9 @@ const Heading = (props) => {
   )
 }
 
-export default Heading
+TextAddHeading.propTypes = {
+  Authors: PropTypes.array.isRequired,
+  Categories: PropTypes.array.isRequired,
+}
+
+export default TextAddHeading

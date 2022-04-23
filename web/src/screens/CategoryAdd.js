@@ -1,9 +1,10 @@
-import { Button, Container, FormControl, Snackbar, Stack, TextField } from '@mui/material'
+import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 
-import Footer from '../../components/Footer'
-import MuiAlert from '@mui/material/Alert'
-import Nav from '../../components/Nav'
+import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
+import Nav from '../components/Nav'
 import React from 'react'
+import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 
 export const CategoryAdd = () => {
@@ -13,10 +14,6 @@ export const CategoryAdd = () => {
   const divStyle = {
     padding: '10px',
   }
-
-  const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />
-  })
 
   const handleClose = (reason) => {
     if (reason === 'clickaway') {
@@ -43,6 +40,8 @@ export const CategoryAdd = () => {
       .catch((err) => console.log(err))
   }
 
+  const validCategoryLength = 5 > category.length
+
   return (
     <React.Fragment>
       <Nav />
@@ -55,21 +54,18 @@ export const CategoryAdd = () => {
 
         <div style={divStyle}>
           <Stack spacing={2} direction='row'>
-            <Button variant='contained' onClick={addCategory} disabled={5 > category.length}>
+            <Button variant='contained' onClick={addCategory} disabled={validCategoryLength}>
               Add
             </Button>
-            <Button variant='outlined' href='/categories'>
-              Back
-            </Button>
+            <Link to='/categories'>
+              <Button variant='outlined'>Back</Button>
+            </Link>
           </Stack>
         </div>
+        <Footer />
       </Container>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity='success' sx={{ width: '100%' }}>
-          Added new category!
-        </Alert>
-      </Snackbar>
-      <Footer />
+
+      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity='success' message='Added new category!' />
     </React.Fragment>
   )
 }

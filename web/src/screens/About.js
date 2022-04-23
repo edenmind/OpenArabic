@@ -53,6 +53,12 @@ const About = () => {
 
           <List>{authorsList}</List>
 
+          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Founder</Box>
+          <Box sx={{ m: 2 }}>
+            OpenArabic.io was founded by Yūnus Andréasson in 1442 AH or 2020 AD. Yūnus is a convert to Islam since ~20 years ago residing in Sweden working as a Software Developer. If you want to
+            reach out, then please send an email to <Link href='mailto:yunus@edenmind.com'>yunus@edenmind.com</Link> or make contact on <Link href='https://twitter.com/YunusAndreasson'>Twitter</Link>.
+          </Box>
+
           <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Contact</Box>
           <Box sx={{ m: 2 }}>If you find any bugs 🐛 or have any feature suggestions 💭 on how to improve OpenArabic, then please contact us.</Box>
 
@@ -78,12 +84,6 @@ const About = () => {
                 Facebook
               </Button>
             </Stack>
-          </Box>
-
-          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Founder</Box>
-          <Box sx={{ m: 2 }}>
-            OpenArabic.io was founded by Yūnus Andréasson in 1442 AH or 2020 AD. Yūnus is a convert to Islam since ~20 years ago residing in Sweden working as a Software Developer. If you want to
-            reach out, then please send an email to <Link href='mailto:yunus@edenmind.com'>yunus@edenmind.com</Link> or make contact on <Link href='https://twitter.com/YunusAndreasson'>Twitter</Link>.
           </Box>
         </Typography>
         <Footer />

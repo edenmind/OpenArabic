@@ -1,29 +1,26 @@
-import { Button, Container, FormControl, Snackbar, Stack, TextField } from '@mui/material'
+import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 
-import Footer from '../../components/Footer'
-import MuiAlert from '@mui/material/Alert'
-import Nav from '../../components/Nav'
+import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
+import Nav from '../components/Nav'
 import React from 'react'
+import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 
 export const AuthorAdd = () => {
   const [author, setAuthor] = React.useState('')
-  const [open, setOpen] = React.useState(false)
+  const [openSnackBar, setOpenSnackBar] = React.useState(false)
 
   const divStyle = {
     padding: '10px',
   }
 
-  const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />
-  })
-
-  const handleClose = (reason) => {
+  const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
       return
     }
 
-    setOpen(false)
+    setOpenSnackBar(false)
   }
 
   const addAuthor = () => {
@@ -36,7 +33,7 @@ export const AuthorAdd = () => {
     })
       .then((response) => {
         if (response.status === 201) {
-          setOpen(true)
+          setOpenSnackBar(true)
           setAuthor('')
         }
       })
@@ -58,18 +55,14 @@ export const AuthorAdd = () => {
             <Button variant='contained' onClick={addAuthor} disabled={5 > author.length}>
               Add
             </Button>
-            <Button variant='outlined' href='/authors'>
-              Back
-            </Button>
+            <Link to='/authors'>
+              <Button variant='outlined'>Back</Button>
+            </Link>
           </Stack>
         </div>
+        <Footer />
       </Container>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity='success' sx={{ width: '100%' }}>
-          Added new author!
-        </Alert>
-      </Snackbar>
-      <Footer />
+      <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Added new author!' />
     </React.Fragment>
   )
 }

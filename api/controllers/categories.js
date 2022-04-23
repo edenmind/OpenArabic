@@ -18,7 +18,7 @@ async function addCategory(req, reply) {
 
 async function getCategory(req, reply) {
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
-  const result = await categories.findOne({ _id: new ObjectId(req.params.id) })
+  const result = await categories.findOne({ id: new ObjectId(req.params.id) })
   if (result) {
     return reply.send(result)
   }
@@ -33,7 +33,7 @@ async function updateCategory(req, reply) {
       name,
     },
   }
-  const result = await categories.updateOne({ _id: new ObjectId(req.params.id) }, updateDoc, { upsert: true })
+  const result = await categories.updateOne({ id: new ObjectId(req.params.id) }, updateDoc, { upsert: true })
   reply.send({
     message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
   })
@@ -41,7 +41,7 @@ async function updateCategory(req, reply) {
 
 async function deleteCategory(req, reply) {
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
-  const result = await categories.deleteOne({ _id: new ObjectId(req.params.id) })
+  const result = await categories.deleteOne({ id: new ObjectId(req.params.id) })
   if (result.deletedCount) return reply.send('Deleted')
   reply.internalServerError('Could not delete Category.')
 }

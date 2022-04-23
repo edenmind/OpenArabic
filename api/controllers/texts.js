@@ -35,7 +35,7 @@ async function getText(req, reply) {
   const authorList = await authors.find({}).toArray()
   const categoriesList = await categories.find({}).toArray()
 
-  const text = await texts.findOne({ id: new ObjectId(req.params.id) })
+  const text = await texts.findOne({ _id: new ObjectId(req.params.id) })
   text.author = getAuthorNameFromId(authorList, text.author)
   text.category = getCategoryNameFromId(categoriesList, text.category)
 

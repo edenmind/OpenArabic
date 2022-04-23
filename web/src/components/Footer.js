@@ -10,13 +10,16 @@ function Footer() {
     marginRight: 'auto',
   }
 
+  const appStoreLink = 'https://apps.apple.com/se/app/open-arabic/id1594031029?l=en'
+  const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.edenmind.OpenArabic'
+
   return (
     <div style={stickyFooterStyle}>
       <Stack spacing={2} direction='row'>
-        <Link href='https://apps.apple.com/se/app/open-arabic/id1594031029?l=en'>
+        <Link href={appStoreLink}>
           <img src='/iphone.svg' alt='iPhone' />
         </Link>
-        <Link href='https://play.google.com/store/apps/details?id=com.edenmind.OpenArabic'>
+        <Link href={googlePlayLink}>
           <img src='/android.svg' alt='Android' />
         </Link>
       </Stack>
