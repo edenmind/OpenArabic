@@ -56,7 +56,7 @@ function About() {
       <List.Item title="Imām Nawawī" />
       <List.Item title="Ibn Kathīr" />
       <List.Item title="Ibn Ḥajar al-ʿAsqalānī" />
-      <List.Item title="Ial-Fuḍayl ibn ʻIyāḍ" />
+      <List.Item title="al-Fuḍayl ibn ʻIyāḍ" />
       <Title style={style.english}>Open Source</Title>
       <Paragraph style={style.english}>
         The platform that OpenArabic runs upon is built using Open Source tools such as React

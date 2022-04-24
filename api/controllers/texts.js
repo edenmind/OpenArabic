@@ -41,7 +41,6 @@ async function getText(req, reply) {
 
   const vocabularyCollection = produceVocabularyCollection(text)
   text.vocabularyCollection = vocabularyCollection
-  console.log(text)
 
   text ? reply.send(text) : reply.notFound('The Text was not found')
 }
@@ -96,11 +95,17 @@ function getCategoryNameFromId(categoriesList, category) {
 function produceVocabularyCollection(text) {
   const arabicVocabulary = []
   const englishVocabulary = []
-  let vocabularyCollection
 
   text.sentences.forEach((sentence) => {
+    if (arabicVocabulary.length === 5) {
+      return
+    }
     sentence.words.forEach((word) => {
+      if (arabicVocabulary.length === 5) {
+        return
+      }
       const wordId = uuidv4()
+
       const arabicWord = {
         word: word.arabic,
         wordId,
@@ -111,20 +116,15 @@ function produceVocabularyCollection(text) {
         wordId,
       }
 
-      if (arabicVocabulary.length === 5) {
-        return
-      }
-
       arabicVocabulary.push(arabicWord)
       englishVocabulary.push(englishWord)
     })
-
-    vocabularyCollection = {
-      arabic: shuffleArray(arabicVocabulary),
-      english: shuffleArray(englishVocabulary),
-    }
   })
-  return vocabularyCollection
+
+  return {
+    arabic: shuffleArray(arabicVocabulary),
+    english: shuffleArray(englishVocabulary),
+  }
 }
 
 module.exports = { listTexts, addText, getText, updateText, deleteText }

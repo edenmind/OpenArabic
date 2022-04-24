@@ -44,6 +44,7 @@ const TextQuiz = () => {
   }
 
   const pressArabicWordHandler = (index, arabicWordId) => {
+    console.log(arabicWordId)
     if (correctAnswers.includes(arabicWordId)) return // do nothing
 
     if (englishCurrentSelectedWordId == arabicWordId) {
@@ -68,6 +69,7 @@ const TextQuiz = () => {
   }
 
   const pressEnglishWordHandler = (index, englishWordId) => {
+    console.log(englishWordId)
     if (correctAnswers.includes(englishWordId)) return // do nothing
 
     if (arabicCurrentSelectedWordId == englishWordId) {

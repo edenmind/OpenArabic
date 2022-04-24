@@ -9,12 +9,11 @@ import SelectableChip from '../components/SelectableChip'
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
     chipContainer: {
+      paddingTop: 30,
       width: '50%'
     },
     container: {
-      flex: 1,
-      flexDirection: 'row',
-      flexWrap: 'wrap'
+      flexDirection: 'row'
     }
   })
 

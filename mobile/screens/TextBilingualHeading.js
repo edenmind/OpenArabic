@@ -1,10 +1,9 @@
+/* eslint-disable import/namespace */
 import { Caption, Subheading, Title } from 'react-native-paper'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
 
 import PropTypes from 'prop-types'
-
-/* eslint-disable import/namespace */
 
 const style = StyleSheet.create({
   author: {
