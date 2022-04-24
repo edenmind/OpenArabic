@@ -1,13 +1,18 @@
 import { Caption, Subheading, Title } from 'react-native-paper'
+import { Image, StyleSheet, View } from 'react-native'
 import React, { Fragment } from 'react'
 
 import PropTypes from 'prop-types'
+
 /* eslint-disable import/namespace */
-import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({
   author: {
     textAlign: 'center'
+  },
+  image: {
+    height: 250,
+    width: '100%'
   },
   source: {
     paddingBottom: 10,
@@ -22,6 +27,8 @@ const style = StyleSheet.create({
 export default function TextBilingualHeading(props) {
   return (
     <Fragment>
+      <Image source={{ uri: 'https://source.unsplash.com/random' }} style={style.image} />
+
       <Title style={style.title}>{props.heading.title}</Title>
       <Subheading style={style.author}>{props.heading.author}</Subheading>
       <Caption style={style.source}>{props.heading.source}</Caption>

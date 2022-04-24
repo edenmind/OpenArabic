@@ -1,21 +1,21 @@
+import { Caption, Title } from 'react-native-paper'
 /* eslint-disable import/namespace */
 import {
   DrawerContentScrollView,
   DrawerItemList,
   createDrawerNavigator
 } from '@react-navigation/drawer'
-import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { COLORS } from '../constants/colors'
-import { Caption } from 'react-native-paper'
 import { SCREENS } from '../constants/screens'
+import { StyleSheet } from 'react-native'
 import TextList from '../screens/Category'
 import { getCategories } from '../services/ApiService'
 import { useFocusEffect } from '@react-navigation/core'
 
-export default function TextCategory() {
+export default function TextDrawer() {
   const Drawer = createDrawerNavigator()
   const selector = (state) => state.categories
   const { categories } = useSelector(selector)
@@ -28,10 +28,10 @@ export default function TextCategory() {
       margin: 16,
       position: 'absolute'
     },
-    logo: {
-      marginBottom: 20,
-      marginLeft: 7,
-      marginTop: 30
+    title: {
+      fontWeight: 'bold',
+      marginBottom: 10,
+      marginLeft: 17
     }
   })
 
@@ -56,14 +56,17 @@ export default function TextCategory() {
   )
 
   const version = 'Version 1.2.0'
+  const title = 'OpenArabic'
 
   function CustomDrawerContent(props) {
     return (
       <Fragment>
         <DrawerContentScrollView {...props}>
-          <Image source={require('../assets/oalogo.png')} style={style.logo} />
+          <Title style={style.title}>{title}</Title>
+
           <DrawerItemList {...props} />
         </DrawerContentScrollView>
+
         <Caption style={style.info}>{version}</Caption>
       </Fragment>
     )
@@ -89,13 +92,13 @@ export default function TextCategory() {
       screenOptions={{
         unmountOnBlur: true,
         drawerStyle: {
-          width: 230
+          width: 150
         },
         headerStyle: {
-          backgroundColor: COLORS.darkOlive
+          backgroundColor: COLORS.shinyOlive
         },
-        headerTintColor: COLORS.shinyOlive,
-        drawerActiveBackgroundColor: COLORS.darkGrey
+        headerTintColor: COLORS.darkOlive,
+        drawerActiveBackgroundColor: COLORS.shinyOlive
       }}>
       {homeScreen}
       {categoryItems}

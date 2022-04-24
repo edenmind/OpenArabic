@@ -1,13 +1,14 @@
 /* eslint-disable import/namespace */
 import React, { Fragment, useEffect, useState } from 'react'
 
+import { COLORS } from '../constants/colors'
 import PropTypes from 'prop-types'
-import Quiz from './TextQuiz'
+import Quiz from '../screens/TextQuiz'
 import { SCREENS } from '../constants/screens'
 import Spinner from '../components/Spinner'
 import { StyleSheet } from 'react-native'
-import TextArabic from './TextArabic'
-import TextBilingual from './TextBilingual'
+import TextArabic from '../screens/TextArabic'
+import TextBilingual from '../screens/TextBilingual'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { getText } from '../services/ApiService'
 import { useDispatch } from 'react-redux'
@@ -17,7 +18,7 @@ const style = StyleSheet.create({
     paddingTop: 0
   }
 })
-export default function Text({ route }) {
+export default function TextTabs({ route }) {
   const Tab = createMaterialTopTabNavigator()
 
   const { id } = route.params
@@ -50,7 +51,13 @@ export default function Text({ route }) {
       <Tab.Navigator
         style={style.tabs}
         screenOptions={{
-          tabBarLabelStyle: { fontSize: 12 }
+          tabBarActiveTintColor: COLORS.darkOlive,
+          tabBarInactiveTintColor: COLORS.branch,
+          tabBarLabelStyle: {
+            fontSize: 13,
+            fontWeight: 'bold',
+            textTransform: 'none'
+          }
         }}>
         {tabs}
       </Tab.Navigator>
@@ -58,6 +65,6 @@ export default function Text({ route }) {
   )
 }
 
-Text.propTypes = {
+TextTabs.propTypes = {
   route: PropTypes.any.isRequired
 }

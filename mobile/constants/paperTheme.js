@@ -4,7 +4,7 @@ export const PAPERTHEME = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: COLORS.darkOlive,
-    accent: COLORS.leaf
+    primary: COLORS.primary,
+    accent: COLORS.lightOlive
   }
 }

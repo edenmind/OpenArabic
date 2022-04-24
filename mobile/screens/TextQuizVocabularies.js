@@ -1,17 +1,20 @@
 /* eslint-disable import/namespace */
 
-import React, { Fragment } from 'react'
 import { StyleSheet, View } from 'react-native'
 
 import PropTypes from 'prop-types'
+import React from 'react'
 import SelectableChip from '../components/SelectableChip'
 
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
     chipContainer: {
+      width: '50%'
+    },
+    container: {
+      flex: 1,
       flexDirection: 'row',
-      flexWrap: 'wrap',
-      padding: 10
+      flexWrap: 'wrap'
     }
   })
 
@@ -40,10 +43,10 @@ function TextQuizVocabularies(props) {
   ))
 
   return (
-    <Fragment>
+    <View style={styles.container}>
       <View style={styles.chipContainer}>{arabicVocabularies}</View>
       <View style={styles.chipContainer}>{englishVocabularies}</View>
-    </Fragment>
+    </View>
   )
 }
 

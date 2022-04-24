@@ -5,5 +5,6 @@ export const COLORS = {
   leaf: '#a4cfbe',
   white: '#ffffff',
   branch: '#929481',
-  darkGrey: '#cccccc'
+  darkGrey: '#cccccc',
+  primary: '#2eee1a'
 }

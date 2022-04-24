@@ -7,19 +7,19 @@ import defaultExport from '../screens/About'
 
 const Stack = createNativeStackNavigator()
 
-export default function About() {
+export default function Settings() {
   return (
     <NavigationContainer independent>
       <Stack.Navigator>
         <Stack.Screen
-          name={SCREENS.about}
+          name={SCREENS.settings}
           component={defaultExport}
           options={{
             headerLargeTitle: false,
-            headerTintColor: COLORS.lightOlive,
+            headerTintColor: COLORS.darkOlive,
             title: SCREENS.about,
             headerStyle: {
-              backgroundColor: COLORS.darkOlive
+              backgroundColor: COLORS.shinyOlive
             }
           }}
         />

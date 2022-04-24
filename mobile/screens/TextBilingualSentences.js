@@ -58,13 +58,14 @@ export default function TextBilingualSentences(props) {
 
       <Button
         style={style.showWordsButton}
+        mode="text"
         onPress={() => {
           getListOfWordPairs(
             <WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />
           )
           showModal()
         }}>
-        <Text style={style.showWordsText}>Show Words</Text>
+        <Text style={style.showWordsText}>Vocabulary</Text>
       </Button>
     </Fragment>
   ))
@@ -72,7 +73,7 @@ export default function TextBilingualSentences(props) {
   return (
     <Fragment>
       <View style={style.bottomPadding}>{sentences}</View>
-      <ModalScrollView visible={visible} content={words} hideModal={hideModal} />
+      <ModalScrollView visible={visible} content={words} title="Vocabulary" hideModal={hideModal} />
     </Fragment>
   )
 }

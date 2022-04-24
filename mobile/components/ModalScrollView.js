@@ -1,4 +1,4 @@
-import { Button, Modal, Portal, Text } from 'react-native-paper'
+import { Button, Modal, Portal, Text, Title } from 'react-native-paper'
 
 import { COLORS } from '../constants/colors'
 import PropTypes from 'prop-types'
@@ -24,6 +24,7 @@ const ModalScrollView = (props) => {
         visible={props.visible}
         onDismiss={props.hideModal}
         contentContainerStyle={containerStyle}>
+        <Title>{props.title}</Title>
         <ScrollView>{props.content}</ScrollView>
         <Button onPress={props.hideModal} style={buttonPadding}>
           <Text>Close</Text>
@@ -36,6 +37,7 @@ const ModalScrollView = (props) => {
 export default ModalScrollView
 
 ModalScrollView.propTypes = {
+  title: PropTypes.string.isRequired,
   content: PropTypes.any.isRequired,
   visible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired

@@ -6,10 +6,10 @@ import { COLORS } from '../constants/colors'
 import React from 'react'
 import { SCREENS } from '../constants/screens'
 import { Share } from 'react-native'
-import TextCategory from './TextCategory'
+import TextDrawer from './TextDrawer'
 import { UI } from '../constants/ui'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import defaultExport from '../screens/Text'
+import defaultExport from './TextTabs'
 import { useSelector } from 'react-redux'
 
 const Stack = createNativeStackNavigator()
@@ -31,28 +31,21 @@ export default function Text() {
 
   return (
     <Stack.Navigator initialRouteName={SCREENS.home}>
-      <Stack.Screen name={SCREENS.home} component={TextCategory} options={{ headerShown: false }} />
+      <Stack.Screen name={SCREENS.home} component={TextDrawer} options={{ headerShown: false }} />
       <Stack.Screen
         name={SCREENS.textScreen}
         component={defaultExport}
         options={{
           headerShown: true,
-          headerTintColor: COLORS.lightOlive,
+          headerTintColor: COLORS.darkOlive,
           title: text.title,
           headerBackTitle: text.category,
           headerTitle: UI.null,
           headerStyle: {
-            backgroundColor: COLORS.darkOlive
+            backgroundColor: COLORS.shinyOlive
           },
           headerRight: () => (
-            <Button
-              icon="share"
-              mode="text"
-              color={COLORS.lightOlive}
-              uppercase={false}
-              onPress={onShare}>
-              {UI.share}
-            </Button>
+            <Button icon="export-variant" mode="text" color={COLORS.darkOlive} onPress={onShare} />
           )
         }}
       />

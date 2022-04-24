@@ -9,31 +9,31 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   arabic: {
-    fontSize: 17
+    fontSize: 25
   },
   chipNotSelected: {
-    backgroundColor: COLORS.leaf,
-    margin: 5,
-    padding: 0
+    backgroundColor: COLORS.lightOlive,
+    height: 50,
+    margin: 15
   },
   chipSelected: {
-    backgroundColor: COLORS.branch,
-    margin: 5,
-    padding: 0
+    backgroundColor: COLORS.primary,
+    height: 50,
+    margin: 15
   },
   english: {
-    fontSize: 23,
-    fontWeight: '400'
+    fontSize: 13
   }
 })
 
 const SelectableChip = (props) => (
   <Chip
+    mode="flat"
     onPress={props.func}
     backgroundColor={COLORS.leaf}
-    textStyle={props.language === 'arabic' ? styles.english : styles.arabic}
-    style={props.selected ? styles.chipNotSelected : styles.chipSelected}>
-    <Text>{props.text ? props.text : 'No text'}</Text>
+    textStyle={props.language === 'arabic' ? styles.arabic : styles.english}
+    style={props.selected ? styles.chipSelected : styles.chipNotSelected}>
+    {props.text ? props.text : 'No text'}
   </Chip>
 )
 
