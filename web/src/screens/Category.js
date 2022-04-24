@@ -2,6 +2,7 @@ import { Button, Container } from '@mui/material'
 
 import CategoryList from './CategoryList'
 import ConfirmationDialog from '../components/ConfirmationDialog'
+import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import React from 'react'
@@ -68,6 +69,7 @@ function Category() {
         <Link to='/categories/add'>
           <Button variant='contained'>Add</Button>
         </Link>
+        <Footer />
       </Container>
     </React.Fragment>
   )

@@ -11,7 +11,8 @@ import { CategoryUpdate } from './screens/CategoryUpdate'
 import Home from './screens/Home'
 import Privacy from './screens/Privacy'
 import SingleText from './screens/SingleText'
-import Texts from './screens/TextAdd'
+import Texts from './screens/Texts'
+import TextsAdd from './screens/TextAdd'
 
 export default function App() {
   return (
@@ -19,7 +20,8 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/texts' element={<Texts />} />
+        <Route path='/texts/' element={<Texts />} />
+        <Route path='/texts/add' element={<TextsAdd />} />
         <Route path='/texts/categories/:id' element={<Categories />} />
         <Route path='/texts/:id' element={<SingleText />} />
         <Route path='/authors' element={<Authors />} />

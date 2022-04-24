@@ -2,6 +2,7 @@ import { Button, Container } from '@mui/material'
 
 import AuthorsList from './AuthorList'
 import ConfirmationDialog from '../components/ConfirmationDialog'
+import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import React from 'react'
@@ -69,6 +70,7 @@ export const Authors = () => {
         <Link to='/authors/add'>
           <Button variant='contained'>Add</Button>
         </Link>
+        <Footer />
       </Container>
     </React.Fragment>
   )

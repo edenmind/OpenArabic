@@ -2231,6 +2231,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mui/utils@npm:^5.6.0":
+  version: 5.6.1
+  resolution: "@mui/utils@npm:5.6.1"
+  dependencies:
+    "@babel/runtime": ^7.17.2
+    "@types/prop-types": ^15.7.4
+    "@types/react-is": ^16.7.1 || ^17.0.0
+    prop-types: ^15.7.2
+    react-is: ^17.0.2
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+  checksum: b05c57263e63d4f518ee416760114cfecfe3bdf23491cf277a69fedc47d00db52e799d90a384854a81d936bbaa7ea9907e4978ebd1c181305c5c2d19818d0b7c
+  languageName: node
+  linkType: hard
+
+"@mui/x-data-grid@npm:^5.9.0":
+  version: 5.9.0
+  resolution: "@mui/x-data-grid@npm:5.9.0"
+  dependencies:
+    "@mui/utils": ^5.6.0
+    clsx: ^1.1.1
+    prop-types: ^15.8.1
+    reselect: ^4.1.5
+  peerDependencies:
+    "@mui/material": ^5.2.8
+    "@mui/system": ^5.2.8
+    react: ^17.0.2 || ^18.0.0
+  checksum: 1bb414eef3b3aa89908656b0ca492aeaae805fdf713ab7dff74df57418c57dedcb281e384fcfc6ed5c0ea07c2e1dc60ef6ab0be12dd262a703ef0c6c5d9e44da
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -9111,6 +9142,7 @@ __metadata:
     "@fontsource/roboto": ^4.5.1
     "@mui/icons-material": ^5.5.0
     "@mui/material": ^5.5.0
+    "@mui/x-data-grid": ^5.9.0
     "@reduxjs/toolkit": ^1.8.1
     "@testing-library/jest-dom": ^5.16.3
     "@testing-library/react": ^12.1.4

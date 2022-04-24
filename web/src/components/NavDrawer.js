@@ -22,6 +22,16 @@ function NavDrawer(props) {
   return (
     <Drawer anchor={'left'} open={props.state.left} onClose={props.toggleDrawer('left', false)}>
       <Box sx={{ width: 250 }} role='presentation' onClick={props.toggleDrawer('left', false)} onKeyDown={props.toggleDrawer('left', false)}>
+        <List>
+          {categories.map((category, index) => (
+            <ListItem key={index}>
+              <Link to={`/texts/categories/${category.id}`}>
+                <Button variant='text'>{category.name}</Button>
+              </Link>
+            </ListItem>
+          ))}
+        </List>
+
         {props.isAuthenticated && (
           <Fragment>
             <Divider>Administration</Divider>
@@ -36,16 +46,6 @@ function NavDrawer(props) {
             </List>
           </Fragment>
         )}
-        <Divider />
-        <List>
-          {categories.map((category, index) => (
-            <ListItem key={index}>
-              <Link to={`/texts/categories/${category.id}`}>
-                <Button variant='text'>{category.name}</Button>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
       </Box>
     </Drawer>
   )

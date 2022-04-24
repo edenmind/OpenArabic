@@ -60,7 +60,7 @@ const About = () => {
           </Box>
 
           <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Contact</Box>
-          <Box sx={{ m: 2 }}>If you find any bugs 🐛 or have any feature suggestions 💭 on how to improve OpenArabic, then please contact us.</Box>
+          <Box sx={{ m: 2 }}>If you find any bugs 🐛 or have any feature suggestions 💭 on how to improve OpenArabic, then please use any of the following channels:.</Box>
 
           <Box sx={{ m: 2 }}>
             <Stack spacing={2} direction='row'>
