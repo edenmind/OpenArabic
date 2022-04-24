@@ -1,13 +1,14 @@
 /* eslint-disable import/namespace */
 import * as utility from '../services/UtilityService'
 
-import { Card, Chip, Paragraph } from 'react-native-paper'
-import { Pressable, StyleSheet } from 'react-native'
+import { Caption, Card, Paragraph } from 'react-native-paper'
 
 import { COLORS } from '../constants/colors'
+import PressableOpacity from '../components/PressableOpacity'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { SCREENS } from '../constants/screens'
+import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({
   arabic: {
@@ -17,20 +18,16 @@ const style = StyleSheet.create({
     writingDirection: 'rtl'
   },
   card: {
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.shinyOlive,
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
     marginTop: 10
   },
   cardAction: {
+    marginLeft: 10,
     paddingBottom: 20,
-    paddingLeft: 15,
     paddingTop: 20
-  },
-  chip: {
-    backgroundColor: COLORS.leaf,
-    padding: 0
   }
 })
 
@@ -39,9 +36,11 @@ const prepareIngress = (text, length) => {
   return utility.truncate(noLineBreaks, length)
 }
 
-export default function ListTextCard(props) {
+export default function CategoryCard(props) {
+  const category = `#${props.text.category.toLowerCase()}`
+
   return (
-    <Pressable
+    <PressableOpacity
       onPress={() => {
         props.setShouldReload(false)
         props.navigation.navigate(SCREENS.textScreen, {
@@ -49,25 +48,24 @@ export default function ListTextCard(props) {
         })
       }}>
       <Card style={style.card} testID="textCard">
+        <Card.Cover source={{ uri: 'https://picsum.photos/300' }} />
         <Card.Title
           title={props.text.title}
-          subtitle={`${props.text.author} in ${props.text.source}`}
+          subtitle={`${props.text.author} — ${props.text.source}`}
         />
         <Card.Content>
           <Paragraph>{prepareIngress(props.text.texts.english, 125)}</Paragraph>
-          <Paragraph style={style.arabic}>
-            {prepareIngress(props.text.texts.arabic, 100)}
-          </Paragraph>
+          <Paragraph style={style.arabic}>{prepareIngress(props.text.texts.arabic, 100)}</Paragraph>
         </Card.Content>
         <Card.Actions style={style.cardAction}>
-          <Chip style={style.chip}>{props.text.category}</Chip>
+          <Caption>{category}</Caption>
         </Card.Actions>
       </Card>
-    </Pressable>
+    </PressableOpacity>
   )
 }
 
-ListTextCard.propTypes = {
+CategoryCard.propTypes = {
   setShouldReload: PropTypes.func.isRequired,
   navigation: PropTypes.object,
   text: PropTypes.shape({

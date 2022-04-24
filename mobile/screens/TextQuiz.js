@@ -12,17 +12,13 @@ const TextQuiz = () => {
 
   const selector = (state) => state.text
   const { text } = useSelector(selector)
-  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] =
-    React.useState(false)
+  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
 
-  const [arabicCurrentSelectedWordId, setArabicSelectedWordId] =
-    React.useState('')
-  const [englishCurrentSelectedWordId, setEngSelectedWordId] =
-    React.useState('')
+  const [arabicCurrentSelectedWordId, setArabicSelectedWordId] = React.useState('')
+  const [englishCurrentSelectedWordId, setEngSelectedWordId] = React.useState('')
   const [isSecondWord, setIsSecondWord] = React.useState(false)
   const [arabicCurrentSelectedIndex, setArabicSelectedIndex] = React.useState()
-  const [englishCurrentSelectedIndex, setEnglishSelectedIndex] =
-    React.useState()
+  const [englishCurrentSelectedIndex, setEnglishSelectedIndex] = React.useState()
   const [correctAnswers, setCorrectAnswers] = React.useState([])
   const [arabicSelectedCollection, setArabicSelected] = React.useState([])
   const [englishSelectedCollection, setEnglishSelected] = React.useState([])
@@ -55,8 +51,7 @@ const TextQuiz = () => {
       addWordIdToCorrectAnswers(arabicWordId)
       setIsSecondWord(false)
       handleSetArabic(index, arabicWordId)
-      correctAnswers.length === numberOfWordInQuiz &&
-        setCelebrationSnackBarVisibility(true) // show celebration
+      correctAnswers.length === numberOfWordInQuiz && setCelebrationSnackBarVisibility(true) // show celebration
       return
     }
 
@@ -80,8 +75,7 @@ const TextQuiz = () => {
       addWordIdToCorrectAnswers(englishWordId)
       setIsSecondWord(false)
       handleSetEnglish(index, englishWordId)
-      correctAnswers.length === numberOfWordInQuiz &&
-        setCelebrationSnackBarVisibility(true) // show celebration
+      correctAnswers.length === numberOfWordInQuiz && setCelebrationSnackBarVisibility(true) // show celebration
 
       return
     }

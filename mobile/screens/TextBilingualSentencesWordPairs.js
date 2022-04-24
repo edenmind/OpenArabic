@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-paper'
 
-const TextWordPairs = (props) => {
+function TextBilingualSentencesWordPairs(props) {
   const style = StyleSheet.create({
     arabic: {
       fontSize: 25,
@@ -23,7 +23,7 @@ const TextWordPairs = (props) => {
   ))
 }
 
-TextWordPairs.propTypes = {
+TextBilingualSentencesWordPairs.propTypes = {
   words: PropTypes.arrayOf(
     PropTypes.shape({
       arabic: PropTypes.string.isRequired,
@@ -32,4 +32,4 @@ TextWordPairs.propTypes = {
   )
 }
 
-export default TextWordPairs
+export default TextBilingualSentencesWordPairs

@@ -22,7 +22,6 @@ export const getTexts =
 
 export const getCategories = () => async (dispatch) => {
   const url = `${HOST.backend}/${ENDPOINT.categories}`
-
   const res = await axios.get(url).catch((err) => console.log(err))
 
   dispatch({

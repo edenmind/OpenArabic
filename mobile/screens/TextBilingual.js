@@ -1,10 +1,10 @@
 /* eslint-disable import/namespace */
 import 'react-native-gesture-handler'
 
-import Heading from './TextHeading'
+import Heading from './TextBilingualHeading'
 import React from 'react'
 import { ScrollView } from 'react-native'
-import Sentences from './TextSentences'
+import Sentences from './TextBilingualSentences'
 import Spinner from '../components/Spinner'
 import { useSelector } from 'react-redux'
 

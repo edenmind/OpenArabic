@@ -3,18 +3,18 @@ import { ENDPOINT, HOST } from '../constants/urls'
 
 import { Button } from 'react-native-paper'
 import { COLORS } from '../constants/colors'
-import CategoryDrawer from './CategoryDrawer'
 import React from 'react'
 import { SCREENS } from '../constants/screens'
 import { Share } from 'react-native'
-import TextScreen from './Text'
+import TextCategory from './TextCategory'
 import { UI } from '../constants/ui'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import defaultExport from '../screens/Text'
 import { useSelector } from 'react-redux'
 
 const Stack = createNativeStackNavigator()
 
-export default function TextNavigator() {
+export default function Text() {
   const selector = (state) => state.text
   const { text } = useSelector(selector)
 
@@ -31,14 +31,10 @@ export default function TextNavigator() {
 
   return (
     <Stack.Navigator initialRouteName={SCREENS.home}>
-      <Stack.Screen
-        name={SCREENS.home}
-        component={CategoryDrawer}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name={SCREENS.home} component={TextCategory} options={{ headerShown: false }} />
       <Stack.Screen
         name={SCREENS.textScreen}
-        component={TextScreen}
+        component={defaultExport}
         options={{
           headerShown: true,
           headerTintColor: COLORS.lightOlive,

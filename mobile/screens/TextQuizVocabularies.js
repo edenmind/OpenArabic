@@ -8,49 +8,41 @@ import SelectableChip from '../components/SelectableChip'
 
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
-    chip: {
+    chipContainer: {
       flexDirection: 'row',
       flexWrap: 'wrap',
       padding: 10
     }
   })
 
-  const arabicVocabularies = props.vocabularyCollection.arabic.map(
-    (arabic, index) => (
-      <SelectableChip
-        language="arabic"
-        key={index}
-        text={arabic.word}
-        func={() => props.pressArabicWordHandler(index, arabic.wordId)}
-        selected={
-          props.arabicSelectedCollection[index]
-            ? props.arabicSelectedCollection[index]
-            : false
-        }
-      />
-    )
-  )
+  const arabicVocabularies = props.vocabularyCollection.arabic.map((arabic, index) => (
+    <SelectableChip
+      language="arabic"
+      key={index}
+      text={arabic.word}
+      func={() => props.pressArabicWordHandler(index, arabic.wordId)}
+      selected={
+        props.arabicSelectedCollection[index] ? props.arabicSelectedCollection[index] : false
+      }
+    />
+  ))
 
-  const englishVocabularies = props.vocabularyCollection.english.map(
-    (english, index) => (
-      <SelectableChip
-        language="english"
-        key={index}
-        text={english.word}
-        func={() => props.pressEnglishWordHandler(index, english.wordId)}
-        selected={
-          props.englishSelectedCollection[index]
-            ? props.englishSelectedCollection[index]
-            : false
-        }
-      />
-    )
-  )
+  const englishVocabularies = props.vocabularyCollection.english.map((english, index) => (
+    <SelectableChip
+      language="english"
+      key={index}
+      text={english.word}
+      func={() => props.pressEnglishWordHandler(index, english.wordId)}
+      selected={
+        props.englishSelectedCollection[index] ? props.englishSelectedCollection[index] : false
+      }
+    />
+  ))
 
   return (
     <Fragment>
-      <View style={styles.chip}>{arabicVocabularies}</View>
-      <View style={styles.chip}>{englishVocabularies}</View>
+      <View style={styles.chipContainer}>{arabicVocabularies}</View>
+      <View style={styles.chipContainer}>{englishVocabularies}</View>
     </Fragment>
   )
 }

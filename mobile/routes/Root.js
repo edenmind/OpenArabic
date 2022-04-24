@@ -1,44 +1,35 @@
 import * as React from 'react'
 
-import AboutNavigator from './AboutNavigator'
+import About from './About'
 import { COLORS } from '../constants/colors'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { NAVIGATIONTHEME } from '../constants/navigationTheme'
 import { NavigationContainer } from '@react-navigation/native'
 import { SCREENS } from '../constants/screens'
-import TextNavigator from './TextNavigator'
-import { UI } from '../constants/ui'
+import Text from './Text'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 
 const Tab = createMaterialBottomTabNavigator()
 
-const AppNavigator = () => (
+const Root = () => (
   <NavigationContainer
     // @ts-ignore
 
     theme={NAVIGATIONTHEME}>
-    <Tab.Navigator
-      activeColor={COLORS.shinyOlive}
-      inactiveColor={COLORS.branch}>
+    <Tab.Navigator activeColor={COLORS.shinyOlive} inactiveColor={COLORS.branch}>
       <Tab.Screen
         name={SCREENS.text}
-        component={TextNavigator}
+        component={Text}
         options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="text" color={color} size={26} />
-          )
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="text" color={color} size={26} />
         }}
       />
       <Tab.Screen
         name={SCREENS.about}
-        component={AboutNavigator}
+        component={About}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="information-outline"
-              color={color}
-              size={26}
-            />
+            <MaterialCommunityIcons name="information-outline" color={color} size={26} />
           )
         }}
       />
@@ -46,4 +37,4 @@ const AppNavigator = () => (
   </NavigationContainer>
 )
 
-export default AppNavigator
+export default Root

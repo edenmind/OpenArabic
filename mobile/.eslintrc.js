@@ -14,14 +14,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  plugins: [
-    'import',
-    'react',
-    'react-native',
-    'react-hooks',
-    'prettier',
-    'react-redux'
-  ],
+  plugins: ['import', 'react', 'react-native', 'react-hooks', 'prettier', 'react-redux'],
   rules: {
     quotes: ['error', 'single'],
     'prettier/prettier': [
@@ -30,6 +23,7 @@ module.exports = {
         singleQuote: true,
         semi: false,
         trailingComma: 'none',
+        printWidth: 100,
         'space-before-function-paren': ['error', 'always']
       }
     ]

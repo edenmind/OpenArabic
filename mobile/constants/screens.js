@@ -1,7 +1,7 @@
 export const SCREENS = {
   about: 'About',
   text: 'Texts',
-  home: 'OpenArabic',
+  home: 'Home',
   bilingual: 'Bilingual',
   arabic: 'Arabic',
   english: 'Eng',

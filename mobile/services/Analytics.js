@@ -1,4 +1,5 @@
 import * as Amplitude from 'expo-analytics-amplitude'
+
 import { API } from '../constants/amplitude'
 
 let isInitialized = false

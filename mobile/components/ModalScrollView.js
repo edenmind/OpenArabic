@@ -13,7 +13,9 @@ const ModalScrollView = (props) => {
   }
 
   const buttonPadding = {
-    paddingTop: 30
+    paddingTop: 30,
+    paddingLeft: 100,
+    paddingRight: 100
   }
 
   return (

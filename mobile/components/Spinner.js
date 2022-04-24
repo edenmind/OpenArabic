@@ -14,12 +14,7 @@ const style = StyleSheet.create({
 })
 
 const Spinner = () => (
-  <ActivityIndicator
-    animating
-    size="large"
-    color={COLORS.leaf}
-    style={style.container}
-  />
+  <ActivityIndicator animating size="large" color={COLORS.leaf} style={style.container} />
 )
 
 export default Spinner
