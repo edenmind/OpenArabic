@@ -8,8 +8,8 @@ import {
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { COLORS } from '../constants/colors'
-import { SCREENS } from '../constants/screens'
+import COLORS from '../constants/colors'
+import SCREENS from '../constants/screens'
 import { StyleSheet } from 'react-native'
 import TextList from '../screens/Category'
 import { getCategories } from '../services/ApiService'

@@ -3,11 +3,11 @@ import * as utility from '../services/UtilityService'
 
 import { Caption, Card, Paragraph } from 'react-native-paper'
 
-import { COLORS } from '../constants/colors'
+import COLORS from '../constants/colors'
 import PressableOpacity from '../components/PressableOpacity'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { SCREENS } from '../constants/screens'
+import SCREENS from '../constants/screens'
 import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({

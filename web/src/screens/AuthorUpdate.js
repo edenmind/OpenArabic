@@ -7,7 +7,7 @@ import React from 'react'
 import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 
-export const AuthorUpdate = () => {
+const AuthorUpdate = () => {
   const [author, setAuthor] = React.useState('')
   const [open, setOpen] = React.useState(false)
   const [status, setStatus] = React.useState('')
@@ -79,3 +79,5 @@ export const AuthorUpdate = () => {
     </React.Fragment>
   )
 }
+
+export default AuthorUpdate

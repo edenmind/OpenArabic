@@ -1,7 +1,7 @@
-import { COLORS } from '../constants/colors'
+import COLORS from '../constants/colors'
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
-import { SCREENS } from '../constants/screens'
+import SCREENS from '../constants/screens'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import defaultExport from '../screens/About'
 

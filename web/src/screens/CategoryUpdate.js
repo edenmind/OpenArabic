@@ -7,7 +7,7 @@ import React from 'react'
 import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 
-export const CategoryUpdate = () => {
+const CategoryUpdate = () => {
   const [category, setCategory] = React.useState('')
   const [open, setOpen] = React.useState(false)
   const [status, setStatus] = React.useState('')
@@ -78,3 +78,5 @@ export const CategoryUpdate = () => {
     </React.Fragment>
   )
 }
+
+export default CategoryUpdate

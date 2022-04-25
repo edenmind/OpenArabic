@@ -1,10 +1,10 @@
 /* eslint-disable import/namespace */
 import React, { Fragment, useEffect, useState } from 'react'
 
-import { COLORS } from '../constants/colors'
+import COLORS from '../constants/colors'
 import PropTypes from 'prop-types'
 import Quiz from '../screens/TextQuiz'
-import { SCREENS } from '../constants/screens'
+import SCREENS from '../constants/screens'
 import Spinner from '../components/Spinner'
 import { StyleSheet } from 'react-native'
 import TextArabic from '../screens/TextArabic'

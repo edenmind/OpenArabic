@@ -7,7 +7,7 @@ import React from 'react'
 import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 
-export const AuthorAdd = () => {
+const AuthorAdd = () => {
   const [author, setAuthor] = React.useState('')
   const [openSnackBar, setOpenSnackBar] = React.useState(false)
 
@@ -66,3 +66,5 @@ export const AuthorAdd = () => {
     </React.Fragment>
   )
 }
+
+export default AuthorAdd

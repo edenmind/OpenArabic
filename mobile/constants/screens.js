@@ -1,4 +1,4 @@
-export const SCREENS = {
+const SCREENS = {
   about: 'About',
   settings: 'Settings',
   text: 'Texts',
@@ -10,3 +10,5 @@ export const SCREENS = {
   related: 'More',
   textScreen: 'TextScreen'
 }
+
+export default SCREENS

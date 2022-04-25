@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react'
-
 import { Container } from '@mui/material'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
+import React from 'react'
 import TextCard from './TextCard'
 import { useParams } from 'react-router-dom'
 
-export const Categories = () => {
+const Categories = () => {
   const { id } = useParams()
 
   return (
@@ -19,3 +18,5 @@ export const Categories = () => {
     </React.Fragment>
   )
 }
+
+export default Categories

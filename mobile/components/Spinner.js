@@ -1,5 +1,5 @@
 import { ActivityIndicator } from 'react-native-paper'
-import { COLORS } from '../constants/colors'
+import COLORS from '../constants/colors'
 import React from 'react'
 /* eslint-disable import/namespace */
 /* eslint-disable import/named */

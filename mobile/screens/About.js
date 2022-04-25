@@ -5,7 +5,7 @@ import 'react-native-gesture-handler'
 import { Button, List, Paragraph, Text, Title } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet } from 'react-native'
 
-import { COLORS } from '../constants/colors'
+import COLORS from '../constants/colors'
 import React from 'react'
 
 function About() {

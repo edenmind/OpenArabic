@@ -1,6 +1,6 @@
-import { COLORS } from './colors'
+import COLORS from './colors'
 
-export const NAVIGATIONTHEME = {
+const NAVIGATIONTHEME = {
   colors: {
     primary: COLORS.primary,
     border: COLORS.leaf,
@@ -10,3 +10,5 @@ export const NAVIGATIONTHEME = {
     card: COLORS.shinyOlive
   }
 }
+
+export default NAVIGATIONTHEME

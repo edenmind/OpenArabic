@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-import { COLORS } from '../constants/colors'
+import COLORS from '../constants/colors'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { NAVIGATIONTHEME } from '../constants/navigationTheme'
+import NAVIGATIONTHEME from '../constants/navigationTheme'
 import { NavigationContainer } from '@react-navigation/native'
-import { SCREENS } from '../constants/screens'
+import SCREENS from '../constants/screens'
 import Settings from './Settings'
 import Text from './Text'
-import { UI } from '../constants/ui'
+import UI from '../constants/ui'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 
 const Tab = createMaterialBottomTabNavigator()

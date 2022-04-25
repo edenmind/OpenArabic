@@ -1,6 +1,7 @@
-import { COLORS } from './colors'
+import COLORS from './colors'
 import { DefaultTheme } from 'react-native-paper'
-export const PAPERTHEME = {
+
+const PAPERTHEME = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
@@ -8,3 +9,5 @@ export const PAPERTHEME = {
     accent: COLORS.lightOlive
   }
 }
+
+export default PAPERTHEME

@@ -5,7 +5,7 @@ import { Button, Text } from 'react-native-paper'
 import React, { Fragment } from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import { COLORS } from '../constants/colors'
+import COLORS from '../constants/colors'
 import ModalScrollView from '../components/ModalScrollView'
 import PropTypes from 'prop-types'
 import WordPairs from './TextBilingualSentencesWordPairs'

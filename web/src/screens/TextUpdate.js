@@ -9,7 +9,7 @@ import Tabs from '@mui/material/Tabs'
 import Words from './TextAddWords'
 import axios from 'axios'
 
-export default function TextAdd() {
+export default function TextUpdate() {
   const [value, setValue] = React.useState(0)
 
   const [categories, setCategories] = React.useState([])
@@ -52,7 +52,7 @@ export default function TextAdd() {
 
       <Box width='100%' display='flex' justifyContent='center' alignItems='center'>
         <Box width='90%' justifyContent='center' alignItems='center'>
-          <h2>Add Text</h2>
+          <h2>Update Text</h2>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs value={value} onChange={handleChange} aria-label='basic tabs example'>
               <Tab label='Heading' {...a11yProps(0)} />

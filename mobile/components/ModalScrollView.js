@@ -1,6 +1,6 @@
 import { Button, Modal, Portal, Text, Title } from 'react-native-paper'
 
-import { COLORS } from '../constants/colors'
+import COLORS  from '../constants/colors'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'

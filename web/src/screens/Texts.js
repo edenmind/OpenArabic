@@ -58,7 +58,7 @@ export default function Texts() {
       headerName: 'Actions',
       width: 120,
       getActions: (params) => [
-        <Link to={`/texts/${params.row.id}`}>
+        <Link to={`/texts/update/${params.row.id}`}>
           <Button size='small'>Edit</Button>
         </Link>,
         <Link to={`/texts/${params.row.id}`}>
