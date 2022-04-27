@@ -5,16 +5,14 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
 function TextAddListOfWords(props) {
-  const { englishSentence } = useSelector((state) => state.englishSentence)
-  const { arabicWords } = useSelector((state) => state.arabicWords)
-  const { arabicSentence } = useSelector((state) => state.arabicSentence)
+  const { text } = useSelector((state) => state.text)
 
-  return arabicWords.map((sentence, indexSentence) => (
+  return text.arabicWords.map((sentence, indexSentence) => (
     <Fragment key={indexSentence}>
       <Stack spacing={2}>
-        <TextField InputProps={{ style: { fontSize: 18 } }} value={englishSentence[indexSentence]} label='English' multiline rows={1} fullWidth variant='outlined' />
+        <TextField InputProps={{ style: { fontSize: 18 } }} value={text.englishSentence[indexSentence]} label='English' multiline rows={1} fullWidth variant='outlined' />
         <div dir='rtl'>
-          <TextField InputProps={{ style: { fontSize: 33 } }} value={arabicSentence[indexSentence]} label='Arabic' multiline rows={1} fullWidth variant='outlined' />
+          <TextField InputProps={{ style: { fontSize: 33 } }} value={text.arabicSentence[indexSentence]} label='Arabic' multiline rows={1} fullWidth variant='outlined' />
         </div>
         {props.wordByWord.length > 1 &&
           sentence.map((arabicWord, indexArabicWord) => (
@@ -39,7 +37,6 @@ function TextAddListOfWords(props) {
 }
 
 TextAddListOfWords.propTypes = {
-  wordByWord: PropTypes.array.isRequired,
   handleChangeArabic: PropTypes.func.isRequired,
 }
 

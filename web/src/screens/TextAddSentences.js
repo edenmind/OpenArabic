@@ -19,9 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const TextAddSentences = () => {
   const dispatch = useDispatch()
 
-  const { englishText } = useSelector((state) => state.englishText)
-  const { arabicText } = useSelector((state) => state.arabicText)
-
+  const { text } = useSelector((state) => state.text)
   const [englishSentenceCount, setEnglishSentenceCount] = React.useState(1)
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)
 
@@ -34,7 +32,7 @@ const TextAddSentences = () => {
       theEnglishWords.push(theEnglishWordsSentence)
     })
 
-    dispatch({ type: ACTIONS.SET_ENGLISH_TEXT, englishText: event.target.value })
+    dispatch({ type: ACTIONS.SET_ENGLISH_TEXT, english: event.target.value })
     dispatch({ type: ACTIONS.SET_ENGLISH_SENTENCE, englishSentence: englishSentencesProcessed })
     dispatch({ type: ACTIONS.SET_ENGLISH_WORDS, englishWords: theEnglishWords })
   }
@@ -52,7 +50,7 @@ const TextAddSentences = () => {
       theArabicWords.push(cleanFromNullAndEmpty)
     })
 
-    dispatch({ type: ACTIONS.SET_ARABIC_TEXT, arabicText: event.target.value })
+    dispatch({ type: ACTIONS.SET_ARABIC_TEXT, arabic: event.target.value })
     dispatch({ type: ACTIONS.SET_ARABIC_SENTENCE, arabicSentence: arabicSentence })
     dispatch({ type: ACTIONS.SET_ARABIC_WORDS, arabicWords: theArabicWords })
   }
@@ -63,11 +61,29 @@ const TextAddSentences = () => {
       <Stack direction='row' spacing={2}>
         <Item>
           <div dir='rtl'>
-            <TextField InputProps={{ style: { fontSize: 30 } }} value={arabicText} label='Arabic' multiline rows={21} fullWidth variant='filled' onChange={handleChangeArabic} />
+            <TextField
+              InputProps={{ style: { fontSize: 30, lineHeight: 1.65 } }}
+              value={text.texts.arabic}
+              label='Arabic'
+              multiline
+              rows={21}
+              fullWidth
+              variant='filled'
+              onChange={handleChangeArabic}
+            />
           </div>
         </Item>
         <Item>
-          <TextField InputProps={{ style: { fontSize: 20, lineHeight: 2.1 } }} value={englishText} label='English' multiline rows={31} fullWidth variant='filled' onChange={handleChangeEnglish} />
+          <TextField
+            InputProps={{ style: { fontSize: 20, lineHeight: 2.47 } }}
+            value={text.texts.english}
+            label='English'
+            multiline
+            rows={31}
+            fullWidth
+            variant='filled'
+            onChange={handleChangeEnglish}
+          />
         </Item>
       </Stack>
     </Fragment>

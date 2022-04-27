@@ -9,18 +9,12 @@ import TextAddListOfWords from './TextAddListOfWords'
 import axios from 'axios'
 
 const TextAddWords = () => {
-  const { arabicWords } = useSelector((state) => state.arabicWords)
-  const { englishSentence } = useSelector((state) => state.englishSentence)
-  const { arabicSentence } = useSelector((state) => state.arabicSentence)
-  const { englishText } = useSelector((state) => state.englishText)
-  const { arabicText } = useSelector((state) => state.arabicText)
-  const { title } = useSelector((state) => state.title)
-  const { category } = useSelector((state) => state.category)
-  const { author } = useSelector((state) => state.author)
-  const { source } = useSelector((state) => state.source)
+  const selector = (state) => state.text
+  const { text } = useSelector(selector)
+
+  const [wordByWord, setWordByWord] = React.useState([])
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
-  const [wordByWord, setWordByWord] = React.useState([])
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -31,7 +25,7 @@ const TextAddWords = () => {
     const newTheArabicWord = [...wordByWord]
 
     const translation = {
-      arabic: arabicWords[indexSentence][indexArabicWord],
+      arabic: text.arabicWords[indexSentence][indexArabicWord],
       english: value,
     }
 
@@ -50,10 +44,10 @@ const TextAddWords = () => {
   const handleSave = () => {
     const sentences = []
 
-    for (let i = 0; i < arabicSentence.length; i++) {
+    for (let i = 0; i < text.arabicSentence.length; i++) {
       const sentence = {
-        english: englishSentence[i],
-        arabic: arabicSentence[i],
+        english: text.englishSentence[i],
+        arabic: text.arabicSentence[i],
         words: wordByWord[i],
       }
       sentences.push(sentence)
@@ -63,33 +57,22 @@ const TextAddWords = () => {
       method: 'post',
       url: `${process.env.REACT_APP_API_URL}/texts`,
       data: {
-        title,
-        category,
-        texts: {
-          arabic: arabicText,
-          english: englishText,
-        },
-        author,
-        source,
-        sentences,
+        // title,
+        // category,
+        // texts: {
+        //   arabic: arabicText,
+        //   english: englishText,
+        // },
+        // author,
+        // source,
+        // sentences,
       },
     })
       .then((response) => {
         if (response.status === 201) {
           setOpenSnackbar(true)
 
-          dispatch({ type: ACTIONS.SET_TITLE, title: '' })
-          dispatch({ type: ACTIONS.SET_CATEGORY, category: '' })
-          dispatch({ type: ACTIONS.SET_AUTHOR, author: '' })
-          dispatch({ type: ACTIONS.SET_SOURCE, source: '' })
-
-          dispatch({ type: ACTIONS.SET_ARABIC_TEXT, arabicText: '' })
-          dispatch({ type: ACTIONS.SET_ENGLISH_TEXT, englishText: '' })
-          dispatch({ type: ACTIONS.SET_ARABIC_WORDS, arabicWords: [] })
-          dispatch({ type: ACTIONS.SET_ENGLISH_WORDS, englishWords: [] })
-          dispatch({ type: ACTIONS.SET_ARABIC_SENTENCE, arabicSentence: [] })
-          dispatch({ type: ACTIONS.SET_ENGLISH_SENTENCE, englishSentence: [] })
-          dispatch({ type: ACTIONS.SET_WORD_BY_WORD, wordByWord: [] })
+          dispatch({ type: ACTIONS.SET_TEXT, text: null })
         }
       })
       .catch((err) => console.log(err))
@@ -98,7 +81,7 @@ const TextAddWords = () => {
   const generateListOfWord = () => {
     const newTheArabicWord = []
 
-    for (const arabicWord of arabicWords) {
+    for (const arabicWord of text.arabicWords) {
       const numberOfWords = arabicWord.length
       const newArray = []
       for (let j = 0; j < numberOfWords; j++) {
@@ -112,7 +95,7 @@ const TextAddWords = () => {
   return (
     <React.Fragment>
       <TextAddListOfWords wordByWord={wordByWord} handleChangeArabic={handleChangeArabic} />
-      <SaveText title={title} category={category} source={source} author={author} handleSave={handleSave} />
+      <SaveText handleSave={handleSave} />
       <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Added new text' />
     </React.Fragment>
   )

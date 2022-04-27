@@ -2,15 +2,17 @@ import { Button, Chip, Stack } from '@mui/material'
 
 import { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 
 function TextAddSave(props) {
+  const { text } = useSelector((state) => state.text)
   return (
     <Fragment>
       <Stack direction='row' spacing={2}>
-        {props.title.length > 4 ? <Chip label='Title' color='success' /> : <Chip label='Title' color='error' />}
-        {props.category.length > 4 ? <Chip label='Category' color='success' /> : <Chip label='Category' color='error' />}
-        {props.source.length > 4 ? <Chip label='Source' color='success' /> : <Chip label='Source' color='error' />}
-        {props.author.length > 4 ? <Chip label='Author' color='success' /> : <Chip label='Author' color='error' />}
+        {text.title.length > 4 ? <Chip label='Title' color='success' /> : <Chip label='Title' color='error' />}
+        {text.category.length > 4 ? <Chip label='Category' color='success' /> : <Chip label='Category' color='error' />}
+        {text.source.length > 4 ? <Chip label='Source' color='success' /> : <Chip label='Source' color='error' />}
+        {text.author.length > 4 ? <Chip label='Author' color='success' /> : <Chip label='Author' color='error' />}
         <Button onClick={props.handleSave}>Save</Button>
       </Stack>
       <br />
@@ -24,9 +26,5 @@ function TextAddSave(props) {
 export default TextAddSave
 
 TextAddSave.propTypes = {
-  title: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  source: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
   handleSave: PropTypes.func.isRequired,
 }

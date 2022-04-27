@@ -1,20 +1,28 @@
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Box from '@mui/material/Box'
 import Heading from './TextAddHeading'
 import Nav from '../components/Nav'
-import React from 'react'
+import Progress from '../components/Progress'
 import Sentences from './TextAddSentences'
 import Tab from '@mui/material/Tab'
 import { TabPanel } from '../components/TabPanel'
 import Tabs from '@mui/material/Tabs'
 import Words from './TextAddWords'
 import axios from 'axios'
+import { getText } from '../services/apiService'
+import { useParams } from 'react-router-dom'
 
 export default function TextUpdate() {
   const [value, setValue] = React.useState(0)
 
   const [categories, setCategories] = React.useState([])
   const [authors, setAuthors] = React.useState([])
-  const [title, setTitle] = React.useState('')
+
+  const selector = (state) => state.text
+  const { text } = useSelector(selector)
+  const [isLoading, setIsLoading] = React.useState(true)
 
   function a11yProps(index) {
     return {
@@ -26,6 +34,15 @@ export default function TextUpdate() {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
+
+  const { id } = useParams()
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getText(id))
+    setIsLoading(false)
+  }, [dispatch, id])
 
   React.useEffect(() => {
     axios
@@ -42,11 +59,9 @@ export default function TextUpdate() {
       .catch((err) => console.log(err))
   }, [])
 
-  const setTitleFunc = (theTitle) => {
-    setTitle(theTitle)
-  }
-
-  return (
+  return isLoading ? (
+    <Progress />
+  ) : (
     <React.Fragment>
       <Nav />
 
@@ -61,7 +76,7 @@ export default function TextUpdate() {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            <Heading Categories={categories} Authors={authors} Title={title} func={setTitleFunc} />
+            <Heading Categories={categories} Authors={authors} Title={text.title} />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <Sentences />

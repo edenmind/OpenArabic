@@ -1,6 +1,6 @@
 'use strict'
 
-const fastifyMongo = require('fastify-mongodb')
+const fastifyMongo = require('@fastify/mongodb')
 const fastifyPlugin = require('fastify-plugin')
 
 module.exports = fastifyPlugin(async function dbConnector(fastify) {

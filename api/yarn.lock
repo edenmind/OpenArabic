@@ -339,6 +339,95 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fastify/autoload@npm:4.0.0":
+  version: 4.0.0
+  resolution: "@fastify/autoload@npm:4.0.0"
+  dependencies:
+    pkg-up: ^3.1.0
+    semver: ^7.3.5
+  checksum: 40c63ae05e77ff96920476975efe414d6fc697945e52ba137323fa30a8d6a2ce1e64fa2a1c89eab7b673cf227fbd851e8f86b9fcf42f8a18b337179da06cf182
+  languageName: node
+  linkType: hard
+
+"@fastify/cors@npm:7.0.0":
+  version: 7.0.0
+  resolution: "@fastify/cors@npm:7.0.0"
+  dependencies:
+    fastify-plugin: ^3.0.0
+    vary: ^1.1.2
+  checksum: 1885eb60b6a64dc91c8ca47708b60de371982d8224e801d7ed60bf821bd045d0c99917c0cb7544dccd9ad1a3dd72368244f2ec2f58bc5fa46d10fe95ad43283a
+  languageName: node
+  linkType: hard
+
+"@fastify/env@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@fastify/env@npm:3.0.0"
+  dependencies:
+    env-schema: ^4.0.0
+    fastify-plugin: ^3.0.0
+  checksum: f7f1b1430b3d09b406ec8037908251bdc2635a8d38bca1bd66bf1cabd520275873ac2d66a940786e3536c6f90c3989ae81f5fe8529f961d96c4fe4b62a61bdcd
+  languageName: node
+  linkType: hard
+
+"@fastify/helmet@npm:8.0.0":
+  version: 8.0.0
+  resolution: "@fastify/helmet@npm:8.0.0"
+  dependencies:
+    fastify-plugin: ^3.0.0
+    helmet: ^5.0.1
+  checksum: 2e3e23bc65b6b648c9211d1ac18f3189149471cfeaf35cbe36943069a59f129ef134a6aca1321cbca955f7f8cb25a45570df3b9c72465b6bcba5e9f10b3e4ced
+  languageName: node
+  linkType: hard
+
+"@fastify/mongodb@npm:5.0.0":
+  version: 5.0.0
+  resolution: "@fastify/mongodb@npm:5.0.0"
+  dependencies:
+    fastify-plugin: ^3.0.0
+    mongodb: ^4.0.1
+  checksum: 2105ffe11f971777bd89bd12c361db5b71c0604436d70ca7a0db0f5a320c7c958a2ccb49684f3bf3c846ec4146acd580c0530eef62fadd3f2789a737133ffc90
+  languageName: node
+  linkType: hard
+
+"@fastify/rate-limit@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@fastify/rate-limit@npm:6.0.0"
+  dependencies:
+    fastify-plugin: ^3.0.1
+    ms: ^2.1.3
+    tiny-lru: ^8.0.1
+  checksum: 7b24b8ea1836771ab06e3c332a2d89a0927774ca9fc21a4e9b595ddd86e74638e5ceb0dda245c2fd84bc6f3d8d5565b42056ca8483d361afa72de44ae890bd6a
+  languageName: node
+  linkType: hard
+
+"@fastify/sensible@npm:4.0.0":
+  version: 4.0.0
+  resolution: "@fastify/sensible@npm:4.0.0"
+  dependencies:
+    fast-deep-equal: ^3.1.1
+    fastify-plugin: ^3.0.0
+    forwarded: ^0.2.0
+    http-errors: ^2.0.0
+    type-is: ^1.6.18
+    vary: ^1.1.2
+  checksum: 50d655baa89cd78b8cb43793bb64f5241cda27343ccd6aa56338978c8f1b464bdb5fff9a166ceffa5f050ae2ac0064aad5a0dc1843800e0b17ebbf7d42465627
+  languageName: node
+  linkType: hard
+
+"@fastify/swagger@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@fastify/swagger@npm:6.0.0"
+  dependencies:
+    fastify-plugin: ^3.0.0
+    fastify-static: ^4.0.0
+    js-yaml: ^4.0.0
+    json-schema-resolver: ^1.3.0
+    openapi-types: ^10.0.0
+    rfdc: ^1.3.0
+  checksum: e1401d151a7881f57e560f9fa87ceccba2faa7fefb1149c6f2477fa4920ba41587b7d65e6a6aeaa392f55d99f6787b1183e73c60244c459a975f393b66d0f22b
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -734,20 +823,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "backend@workspace:."
   dependencies:
+    "@fastify/autoload": 4.0.0
+    "@fastify/cors": 7.0.0
+    "@fastify/env": 3.0.0
+    "@fastify/helmet": 8.0.0
+    "@fastify/mongodb": 5.0.0
+    "@fastify/rate-limit": 6.0.0
+    "@fastify/sensible": 4.0.0
+    "@fastify/swagger": 6.0.0
     dotenv: ^16.0.0
     fastify: ^3.28.0
-    fastify-autoload: ^3.12.0
     fastify-cli: ^2.15.0
-    fastify-cors: ^6.0.3
-    fastify-env: ^2.1.1
-    fastify-helmet: ^7.0.1
-    fastify-mongodb: ^4.1.1
+    fastify-cors: ^6.1.0
+    fastify-env: ^2.2.0
+    fastify-helmet: ^7.1.0
+    fastify-mongodb: ^4.2.0
     fastify-plugin: ^3.0.1
-    fastify-rate-limit: ^5.8.0
-    fastify-sensible: ^3.1.2
-    fastify-swagger: ^5.1.1
+    fastify-rate-limit: ^5.9.0
+    fastify-sensible: ^3.2.0
+    fastify-swagger: ^5.2.0
     mongodb: ^4.5.0
-    tap: ^16.0.1
+    tap: ^16.1.0
     uuid: ^8.3.2
   languageName: unknown
   linkType: soft
@@ -1345,6 +1441,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"depd@npm:2.0.0":
+  version: 2.0.0
+  resolution: "depd@npm:2.0.0"
+  checksum: abbe19c768c97ee2eed6282d8ce3031126662252c58d711f646921c9623f9052e3e1906443066beec1095832f534e57c523b7333f8e7e0d93051ab6baef5ab3a
+  languageName: node
+  linkType: hard
+
 "depd@npm:^1.1.2, depd@npm:~1.1.2":
   version: 1.1.2
   resolution: "depd@npm:1.1.2"
@@ -1370,6 +1473,13 @@ __metadata:
   version: 5.1.0
   resolution: "dotenv-expand@npm:5.1.0"
   checksum: 8017675b7f254384915d55f9eb6388e577cf0a1231a28d54b0ca03b782be9501b0ac90ac57338636d395fa59051e6209e9b44b8ddf169ce6076dffb5dea227d3
+  languageName: node
+  linkType: hard
+
+"dotenv-expand@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "dotenv-expand@npm:8.0.3"
+  checksum: 128ce90ac825b543de3ece0154a51b056ab0dc36bb26d97a68cd0b8707327ecd3c182fb6ac63b26a0fcdfa85064419906a1065cb634f1f9dc08ad311375f1fc0
   languageName: node
   linkType: hard
 
@@ -1482,6 +1592,17 @@ __metadata:
     dotenv: ^11.0.0
     dotenv-expand: ^5.1.0
   checksum: 6aa151ea290e2751d498b84a6fdb34d4f09a1a18684e164336687ad2a0e7625a4e4aa3cc9aabaf5c8285c3ecc0d10f09bd4c5f16ef974fde13cbea351ddd4a68
+  languageName: node
+  linkType: hard
+
+"env-schema@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "env-schema@npm:4.0.0"
+  dependencies:
+    ajv: ^8.0.0
+    dotenv: ^16.0.0
+    dotenv-expand: ^8.0.3
+  checksum: e396933c9b71fb716269bdb3231e3979ffab1476a29cb513cba6a7f6df02a2dbf33226eec4c34b3374bce2303fee1f8416e41123da802517aa6073332046b441
   languageName: node
   linkType: hard
 
@@ -1614,16 +1735,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-autoload@npm:^3.12.0":
-  version: 3.12.0
-  resolution: "fastify-autoload@npm:3.12.0"
-  dependencies:
-    pkg-up: ^3.1.0
-    semver: ^7.3.5
-  checksum: babc2b9cd5d9ca6175ec1bc4f09372a9fd833bcd90084a6dd42ba421c8377d7b345b2ed6807ca7f42fcff08e3cb1fca925a6ad71f2791e7c54f45375908c2640
-  languageName: node
-  linkType: hard
-
 "fastify-cli@npm:^2.15.0":
   version: 2.15.0
   resolution: "fastify-cli@npm:2.15.0"
@@ -1653,7 +1764,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-cors@npm:^6.0.3":
+"fastify-cors-deprecated@npm:fastify-cors@6.0.3":
   version: 6.0.3
   resolution: "fastify-cors@npm:6.0.3"
   dependencies:
@@ -1663,13 +1774,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-env@npm:^2.1.1":
+"fastify-cors@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "fastify-cors@npm:6.1.0"
+  dependencies:
+    fastify-cors-deprecated: "npm:fastify-cors@6.0.3"
+    process-warning: ^1.0.0
+  checksum: dca7c39b4e515ea896aa07ad5c05c70100f427e4c92e3e0fae7cab7d8ccfc824c946723a7e90b4859a5802244932d0af5ee70d753f686092e8c47fca6700e370
+  languageName: node
+  linkType: hard
+
+"fastify-env-deprecated@npm:fastify-env@2.1.1":
   version: 2.1.1
   resolution: "fastify-env@npm:2.1.1"
   dependencies:
     env-schema: ^3.0.1
     fastify-plugin: ^3.0.0
   checksum: 987726643ed05be53984ebf05b6fd7e73cedd0131c2054d68949292ec123f3daa6288b8fe4d897e19e303d4cee0be6ff12b06bbb57183f495905fa12e4c7501e
+  languageName: node
+  linkType: hard
+
+"fastify-env@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "fastify-env@npm:2.2.0"
+  dependencies:
+    fastify-env-deprecated: "npm:fastify-env@2.1.1"
+    process-warning: ^1.0.0
+  checksum: b6c4dbcd29d313c5d3553fc620461ebd3017725a0dcccdcc97f1debd066ef256da3b3eadf225efc0ea9d7f9983dea39cabcb897d681f05742e9f1110a09f208e
   languageName: node
   linkType: hard
 
@@ -1680,7 +1811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-helmet@npm:^7.0.1":
+"fastify-helmet-deprecated@npm:fastify-helmet@7.0.1":
   version: 7.0.1
   resolution: "fastify-helmet@npm:7.0.1"
   dependencies:
@@ -1690,13 +1821,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-mongodb@npm:^4.1.1":
+"fastify-helmet@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "fastify-helmet@npm:7.1.0"
+  dependencies:
+    fastify-helmet-deprecated: "npm:fastify-helmet@7.0.1"
+    process-warning: ^1.0.0
+  checksum: 6cfaf95e0fa7582cd46289371da3ef9de942b50dcadc4f27c79731c4064a220d1cc42726df3fe35337bd1f0914188790be61961cb45518dbe35677296ae8501b
+  languageName: node
+  linkType: hard
+
+"fastify-mongodb-deprecated@npm:fastify-mongodb@4.1.1":
   version: 4.1.1
   resolution: "fastify-mongodb@npm:4.1.1"
   dependencies:
     fastify-plugin: ^3.0.0
     mongodb: ^4.0.1
   checksum: 0d773a533acec20a2a583279c7f20a2ea0250c77b48f600147590f66e315cabf2074f659788daf61fa7d1bc22a2298f5b49b9a8bf7eb752ee2c8bfae41f87f13
+  languageName: node
+  linkType: hard
+
+"fastify-mongodb@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "fastify-mongodb@npm:4.2.0"
+  dependencies:
+    fastify-mongodb-deprecated: "npm:fastify-mongodb@4.1.1"
+    process-warning: ^1.0.0
+  checksum: 443981d55dc9c4fec0ae6ecc326aeeca6cfe5626671276edd1dec54baba126b55957eec2e30c98f40f2d79408c3d98b804c28cce52ce0af3c7079fed6c935eef
   languageName: node
   linkType: hard
 
@@ -1707,7 +1858,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-rate-limit@npm:^5.8.0":
+"fastify-rate-limit-deprecated@npm:fastify-rate-limit@5.8.0":
   version: 5.8.0
   resolution: "fastify-rate-limit@npm:5.8.0"
   dependencies:
@@ -1718,7 +1869,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-sensible@npm:^3.1.2":
+"fastify-rate-limit@npm:^5.9.0":
+  version: 5.9.0
+  resolution: "fastify-rate-limit@npm:5.9.0"
+  dependencies:
+    fastify-rate-limit-deprecated: "npm:fastify-rate-limit@5.8.0"
+    process-warning: ^1.0.0
+  checksum: cf1d8a808e68e9dd8042f0623903a4fcc45b61123f67736371ec51862ba7535cbadaaf2dbfb27791ef76d32162754a889103516092478751e1ed4faa338c2d2c
+  languageName: node
+  linkType: hard
+
+"fastify-sensible-deprecated@npm:fastify-sensible@3.1.2":
   version: 3.1.2
   resolution: "fastify-sensible@npm:3.1.2"
   dependencies:
@@ -1729,6 +1890,16 @@ __metadata:
     type-is: ^1.6.18
     vary: ^1.1.2
   checksum: 160a3526c0f93ab8a0aee2a5c9dbdc29896f40fea14a7b467794583f7e159d6d4aa31fdca9a6e30bf294cad149c7121b05a124b42deaddcf437570661e89538f
+  languageName: node
+  linkType: hard
+
+"fastify-sensible@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "fastify-sensible@npm:3.2.0"
+  dependencies:
+    fastify-sensible-deprecated: "npm:fastify-sensible@3.1.2"
+    process-warning: ^1.0.0
+  checksum: 9fde7a2a62c4ba2a4206f4fed04ee3e1d5996b004ddca56f323a1e52c49827a17ff3abbfab512f88493a45c59265a8c07467783d8fe8d7fd9f9848e375c23b42
   languageName: node
   linkType: hard
 
@@ -1747,7 +1918,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-swagger@npm:^5.1.1":
+"fastify-swagger-deprecated@npm:fastify-swagger@5.1.1":
   version: 5.1.1
   resolution: "fastify-swagger@npm:5.1.1"
   dependencies:
@@ -1758,6 +1929,16 @@ __metadata:
     openapi-types: ^10.0.0
     rfdc: ^1.3.0
   checksum: 6ead1e803fed5a35c57981514d8222162d93013f8507f572ed4562775bf3b84905a1233407cbcde664b58fe47322d1548c12066d1c70f22d19cb8b2f015a0f44
+  languageName: node
+  linkType: hard
+
+"fastify-swagger@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "fastify-swagger@npm:5.2.0"
+  dependencies:
+    fastify-swagger-deprecated: "npm:fastify-swagger@5.1.1"
+    process-warning: ^1.0.0
+  checksum: 877cf5b084f820d0fa8d1ce1845720ca7519b79ae9f0f7806016f46b78faf30c6255af7ea35a9f20892ad9a65117e3e6d920356fe20a9a82caf22dd721adc512
   languageName: node
   linkType: hard
 
@@ -2135,6 +2316,19 @@ __metadata:
     statuses: ">= 1.5.0 < 2"
     toidentifier: 1.0.1
   checksum: d3c7e7e776fd51c0a812baff570bdf06fe49a5dc448b700ab6171b1250e4cf7db8b8f4c0b133e4bfe2451022a5790c1ca6c2cae4094dedd6ac8304a1267f91d2
+  languageName: node
+  linkType: hard
+
+"http-errors@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "http-errors@npm:2.0.0"
+  dependencies:
+    depd: 2.0.0
+    inherits: 2.0.4
+    setprototypeof: 1.2.0
+    statuses: 2.0.1
+    toidentifier: 1.0.1
+  checksum: 9b0a3782665c52ce9dc658a0d1560bcb0214ba5699e4ea15aefb2a496e2ca83db03ebc42e1cce4ac1f413e4e0d2d736a3fd755772c556a9a06853ba2a0b7d920
   languageName: node
   linkType: hard
 
@@ -2545,9 +2739,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libtap@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "libtap@npm:1.3.0"
+"libtap@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "libtap@npm:1.4.0"
   dependencies:
     async-hook-domain: ^2.0.4
     bind-obj-methods: ^3.0.0
@@ -2562,7 +2756,7 @@ __metadata:
     tap-yaml: ^1.0.0
     tcompare: ^5.0.6
     trivial-deferred: ^1.0.1
-  checksum: 42d609199bde805daa9178d158adf1722522352921d0a1bf082284ada2192dafd55f5f029696542fab391dd2d5f44a5c7eb73dd31f25569ca3efd5a9029e25b0
+  checksum: ef8416c3aa775f0bf1d2fcdd8732f41b708359bb8b72c58568cfb1913695538724aaa3f629582d9d05f25d7a221bd9b776d7ca4a30f8346cbe5ec9ce2711739c
   languageName: node
   linkType: hard
 
@@ -3932,6 +4126,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"statuses@npm:2.0.1":
+  version: 2.0.1
+  resolution: "statuses@npm:2.0.1"
+  checksum: 18c7623fdb8f646fb213ca4051be4df7efb3484d4ab662937ca6fbef7ced9b9e12842709872eb3020cc3504b93bde88935c9f6417489627a7786f24f8031cbcb
+  languageName: node
+  linkType: hard
+
 "statuses@npm:>= 1.5.0 < 2, statuses@npm:~1.5.0":
   version: 1.5.0
   resolution: "statuses@npm:1.5.0"
@@ -4073,9 +4274,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tap@npm:^16.0.1":
-  version: 16.0.1
-  resolution: "tap@npm:16.0.1"
+"tap@npm:^16.1.0":
+  version: 16.1.0
+  resolution: "tap@npm:16.1.0"
   dependencies:
     "@isaacs/import-jsx": "*"
     "@types/react": "*"
@@ -4088,7 +4289,7 @@ __metadata:
     isexe: ^2.0.0
     istanbul-lib-processinfo: ^2.0.2
     jackspeak: ^1.4.1
-    libtap: ^1.3.0
+    libtap: ^1.4.0
     minipass: ^3.1.1
     mkdirp: ^1.0.4
     nyc: ^15.1.0
@@ -4119,7 +4320,7 @@ __metadata:
       optional: true
   bin:
     tap: bin/run.js
-  checksum: 5fa346dbe1b8d810c533661c705b546437bcb3b98cb8961aa02d3d001f4cee6af45dde1f15ac273ff3e930161abcb15b3cfc4833f475532b901e5875f356b000
+  checksum: 0dae47e6a4d3574c82b2927e1145e39a9a823966e99f195b96c5d3efca0e0968710890047e84f71b126ba7a10f148e50f6f492207d9e2c059eb98f278098ad32
   languageName: node
   linkType: hard
 
