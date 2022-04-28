@@ -79,17 +79,16 @@ const TextAddWords = () => {
   }
 
   const generateListOfWord = () => {
-    const newTheArabicWord = []
-
-    for (const arabicWord of text.arabicWords) {
-      const numberOfWords = arabicWord.length
-      const newArray = []
-      for (let j = 0; j < numberOfWords; j++) {
-        newArray.push([''])
-      }
-      newTheArabicWord.push(newArray)
-    }
-    setWordByWord(newTheArabicWord)
+    // const newTheArabicWord = []
+    // for (const arabicWord of text.arabicWords) {
+    //   const numberOfWords = arabicWord.length
+    //   const newArray = []
+    //   for (let j = 0; j < numberOfWords; j++) {
+    //     newArray.push([''])
+    //   }
+    //   newTheArabicWord.push(newArray)
+    // }
+    // setWordByWord(newTheArabicWord)
   }
 
   return (
