@@ -9,6 +9,7 @@ import Sentences from './TextAddSentences'
 import Tab from '@mui/material/Tab'
 import { TabPanel } from '../components/TabPanel'
 import Tabs from '@mui/material/Tabs'
+import TextAddPreview from './TextAddPreview'
 import Words from './TextAddWords'
 import axios from 'axios'
 import { getText } from '../services/apiService'
@@ -73,6 +74,7 @@ export default function TextUpdate() {
               <Tab label='Heading' {...a11yProps(0)} />
               <Tab label='Sentences' {...a11yProps(1)} />
               <Tab label='Words' {...a11yProps(2)} />
+              <Tab label='Preview' {...a11yProps(3)} />
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -83,6 +85,9 @@ export default function TextUpdate() {
           </TabPanel>
           <TabPanel value={value} index={2}>
             <Words />
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            <TextAddPreview />
           </TabPanel>
         </Box>
       </Box>

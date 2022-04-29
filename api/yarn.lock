@@ -369,6 +369,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fastify/error@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@fastify/error@npm:2.0.0"
+  checksum: ecf0834966b2bfb33ff834e3d55fe4dc04cbe9f822fda6c937b12cce4f162be4f8b0577ee665bc856d7012b1640c12472a1829a22ae38d287342c90b0f33a595
+  languageName: node
+  linkType: hard
+
 "@fastify/helmet@npm:8.0.0":
   version: 8.0.0
   resolution: "@fastify/helmet@npm:8.0.0"
@@ -832,7 +839,7 @@ __metadata:
     "@fastify/sensible": 4.0.0
     "@fastify/swagger": 6.0.0
     dotenv: ^16.0.0
-    fastify: ^3.28.0
+    fastify: ^3.29.0
     fastify-cli: ^2.15.0
     fastify-plugin: ^3.0.1
     mongodb: ^4.5.0
@@ -1761,7 +1768,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^3.0.0, fastify@npm:^3.28.0":
+"fastify@npm:^3.0.0":
   version: 3.28.0
   resolution: "fastify@npm:3.28.0"
   dependencies:
@@ -1781,6 +1788,29 @@ __metadata:
     semver: ^7.3.2
     tiny-lru: ^8.0.1
   checksum: a91bd13384731e8f90ae2ccab39a79385853cd4870f8144dd83aee18344442be876b495fff49a08f593069e7a4ad23983b12dfc82bee30761d4883cf8ede093c
+  languageName: node
+  linkType: hard
+
+"fastify@npm:^3.29.0":
+  version: 3.29.0
+  resolution: "fastify@npm:3.29.0"
+  dependencies:
+    "@fastify/ajv-compiler": ^1.0.0
+    "@fastify/error": ^2.0.0
+    abstract-logging: ^2.0.0
+    avvio: ^7.1.2
+    fast-json-stringify: ^2.5.2
+    find-my-way: ^4.5.0
+    flatstr: ^1.0.12
+    light-my-request: ^4.2.0
+    pino: ^6.13.0
+    process-warning: ^1.0.0
+    proxy-addr: ^2.0.7
+    rfdc: ^1.1.4
+    secure-json-parse: ^2.0.0
+    semver: ^7.3.2
+    tiny-lru: ^8.0.1
+  checksum: ed2964035e34843d08c09eee80f5f14bd8cc0ab9b46ac9d146c6821b586a359a93e1354fca4004ac14e37b267afe5bb1ba3ddb555ecf09b74d9b6bf2f9893ba1
   languageName: node
   linkType: hard
 
