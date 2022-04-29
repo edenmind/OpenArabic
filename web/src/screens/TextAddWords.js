@@ -1,12 +1,6 @@
-import * as ACTIONS from '../redux/actions'
-
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
-import SaveText from './TextAddSave'
-import SnackBar from '../components/SnackBar'
+import React from 'react'
 import TextAddListOfWords from './TextAddListOfWords'
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 const TextAddWords = () => {
   const selector = (state) => state.text

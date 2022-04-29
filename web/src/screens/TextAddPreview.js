@@ -1,5 +1,4 @@
 import { Container, Divider } from '@mui/material'
-import { useDispatch, useSelector } from 'react-redux'
 
 import Footer from '../components/Footer'
 import React from 'react'
@@ -7,13 +6,13 @@ import SaveText from './TextAddSave'
 import SingleTextSentence from './SingleTextSentences'
 import SnackBar from '../components/SnackBar'
 import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 function TextAddPreview() {
   const selector = (state) => state.text
   const { text } = useSelector(selector)
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
-  const dispatch = useDispatch()
 
   const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
@@ -23,18 +22,26 @@ function TextAddPreview() {
   }
 
   const handleSave = () => {
+    const { title, author, category, sentences, source, texts } = text
+    const { arabic, english } = texts
     axios({
       method: 'post',
       url: `${process.env.REACT_APP_API_URL}/texts`,
       data: {
-        text,
+        title,
+        category,
+        texts: {
+          arabic,
+          english,
+        },
+        author,
+        source,
+        sentences,
       },
     })
       .then((response) => {
         if (response.status === 201) {
           setOpenSnackbar(true)
-
-          dispatch({ type: 'SET_TEXT', text: null })
         }
       })
       .catch((err) => console.log(err))

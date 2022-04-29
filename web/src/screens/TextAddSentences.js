@@ -24,17 +24,17 @@ const TextAddSentences = () => {
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)
 
   function handleChangeEnglish(event) {
-    const englishSentencesProcessed = wordProcessing.splitTextToSentences(event.target.value)
-    setEnglishSentenceCount(englishSentencesProcessed.length)
-    const theEnglishWords = []
-    englishSentencesProcessed.forEach((sentence) => {
+    const englishSentence = wordProcessing.splitTextToSentences(event.target.value)
+    setEnglishSentenceCount(englishSentence.length)
+    const englishWords = []
+    englishSentence.forEach((sentence) => {
       const theEnglishWordsSentence = wordProcessing.splitSentencesToWords(sentence)
-      theEnglishWords.push(theEnglishWordsSentence)
+      englishWords.push(theEnglishWordsSentence)
     })
 
     dispatch({ type: ACTIONS.SET_ENGLISH_TEXT, english: event.target.value })
-    dispatch({ type: ACTIONS.SET_ENGLISH_SENTENCE, englishSentence: englishSentencesProcessed })
-    dispatch({ type: ACTIONS.SET_ENGLISH_WORDS, englishWords: theEnglishWords })
+    dispatch({ type: ACTIONS.SET_ENGLISH_SENTENCE, englishSentence })
+    dispatch({ type: ACTIONS.SET_ENGLISH_WORDS, englishWords })
   }
 
   function handleChangeArabic(event) {
@@ -43,21 +43,19 @@ const TextAddSentences = () => {
     const arabicSentencesProcessed = wordProcessing.splitTextToSentences(cleanWords)
     setArabicSentenceCount(arabicSentencesProcessed.length)
 
-    const theArabicWords = []
+    const arabicWords = []
     arabicSentencesProcessed.forEach((sentence) => {
       const theArabicWordsSentence = wordProcessing.splitSentencesToWords(sentence)
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
-      theArabicWords.push(cleanFromNullAndEmpty)
+      arabicWords.push(cleanFromNullAndEmpty)
     })
 
     dispatch({ type: ACTIONS.SET_ARABIC_TEXT, arabic: event.target.value })
-    dispatch({ type: ACTIONS.SET_ARABIC_SENTENCE, arabicSentence: arabicSentence })
-    dispatch({ type: ACTIONS.SET_ARABIC_WORDS, arabicWords: theArabicWords })
+    dispatch({ type: ACTIONS.SET_ARABIC_SENTENCE, arabicSentence })
+    dispatch({ type: ACTIONS.SET_ARABIC_WORDS, arabicWords })
   }
 
   const generateSentences = () => {
-    console.log('generateSentences')
-
     const sentences = []
 
     for (let i = 0; i < text.arabicSentence.length; i++) {
@@ -77,14 +75,12 @@ const TextAddSentences = () => {
       const sentence = {
         english: text.englishSentence[i],
         arabic: text.arabicSentence[i],
-        words: words,
+        words,
       }
       sentences.push(sentence)
     }
 
-    console.log(sentences)
-
-    dispatch({ type: ACTIONS.SET_SENTENCES, sentences: sentences })
+    dispatch({ type: ACTIONS.SET_SENTENCES, sentences })
   }
 
   return (
