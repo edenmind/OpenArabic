@@ -93,7 +93,7 @@ const TextAddWords = () => {
 
   return (
     <React.Fragment>
-      <TextAddListOfWords wordByWord={wordByWord} handleChangeArabic={handleChangeArabic} />
+      <TextAddListOfWords handleChangeArabic={handleChangeArabic} />
       <SaveText handleSave={handleSave} />
       <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Added new text' />
     </React.Fragment>
