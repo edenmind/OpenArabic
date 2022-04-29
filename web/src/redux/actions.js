@@ -33,3 +33,6 @@ export const SET_WORD_BY_WORD = 'SET_WORD_BY_WORD'
 
 export const GET_TEXT = 'GET_TEXT'
 export const SET_TEXT = 'SET_TEXT'
+
+export const GET_SENTENCES = 'GET_SENTENCES'
+export const SET_SENTENCES = 'SET_SENTENCES'

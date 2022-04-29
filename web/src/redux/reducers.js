@@ -1,5 +1,3 @@
-import * as actions from './actions'
-
 import { createReducer } from '@reduxjs/toolkit'
 
 const initialState = {
@@ -82,6 +80,12 @@ export const textReducer = createReducer(initialState, {
   SET_ENGLISH_WORDS: (state, action) => {
     state.text.englishWords = action.englishWords
   },
+  GET_SENTENCES: (state) => {
+    return state.text.sentences
+  },
+  SET_SENTENCES: (state, action) => {
+    state.text.sentences = action.sentences
+  },
   GET_ARABIC_WORDS: (state) => {
     return state.text.arabicWords
   },
@@ -90,135 +94,3 @@ export const textReducer = createReducer(initialState, {
     console.log(state.text.arabicWords)
   },
 })
-
-// export function titleReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_TITLE:
-//       return state.title
-//     case actions.SET_TITLE:
-//       return { ...state, title: action.title }
-//     default:
-//       return state
-//   }
-// }
-
-// export function textReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_TEXT:
-//       return state.text
-//     case actions.SET_TEXT:
-//       return { ...state, text: action.text }
-//     default:
-//       return state
-//   }
-// }
-
-// export function wordByWordReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_WORD_BY_WORD:
-//       return state.wordByWord
-//     case actions.SET_WORD_BY_WORD:
-//       return { ...state, wordByWord: action.wordByWord }
-//     default:
-//       return state
-//   }
-// }
-
-// export function categoryReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_CATEGORY:
-//       return state.category
-//     case actions.SET_CATEGORY:
-//       return { ...state, category: action.category }
-//     default:
-//       return state
-//   }
-// }
-
-// export function authorReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_AUTHOR:
-//       return state.category
-//     case actions.SET_AUTHOR:
-//       return { ...state, author: action.author }
-//     default:
-//       return state
-//   }
-// }
-
-// export function englishTextReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_ENGLISH_TEXT:
-//       return state.englishText
-//     case actions.SET_ENGLISH_TEXT:
-//       return { ...state, englishText: action.englishText }
-//     default:
-//       return state
-//   }
-// }
-
-// export function arabicTextReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_ARABIC_TEXT:
-//       return state.arabicText
-//     case actions.SET_ARABIC_TEXT:
-//       return { ...state, arabicText: action.arabicText }
-//     default:
-//       return state
-//   }
-// }
-
-// export function englishSentenceReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_ENGLISH_SENTENCE:
-//       return state.englishSentence
-//     case actions.SET_ENGLISH_SENTENCE:
-//       return { ...state, englishSentence: action.englishSentence }
-//     default:
-//       return state
-//   }
-// }
-
-// export function arabicSentenceReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_ARABIC_SENTENCE:
-//       return state.arabicSentence
-//     case actions.SET_ARABIC_SENTENCE:
-//       return { ...state, arabicSentence: action.arabicSentence }
-//     default:
-//       return state
-//   }
-// }
-
-// export function englishWordsReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_ENGLISH_WORDS:
-//       return state.englishSentence
-//     case actions.SET_ENGLISH_WORDS:
-//       return { ...state, englishWords: action.englishWords }
-//     default:
-//       return state
-//   }
-// }
-
-// export function arabicWordsReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_ARABIC_WORDS:
-//       return state.arabicSentence
-//     case actions.SET_ARABIC_WORDS:
-//       return { ...state, arabicWords: action.arabicWords }
-//     default:
-//       return state
-//   }
-// }
-
-// export function sourceReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.GET_SOURCE:
-//       return state.source
-//     case actions.SET_SOURCE:
-//       return { ...state, source: action.source }
-//     default:
-//       return state
-//   }
-// }

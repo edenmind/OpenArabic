@@ -55,11 +55,39 @@ const TextAddSentences = () => {
     dispatch({ type: ACTIONS.SET_ARABIC_WORDS, arabicWords: theArabicWords })
   }
 
+  const generateSentences = () => {
+    console.log('generateSentences')
+    const newTheArabicWord = []
+    for (const arabicWord of text.arabicWords) {
+      const numberOfWords = arabicWord.length
+      const newArray = []
+      for (let j = 0; j < numberOfWords; j++) {
+        newArray.push([''])
+      }
+      newTheArabicWord.push(newArray)
+    }
+
+    const sentences = []
+
+    for (let i = 0; i < text.arabicSentence.length; i++) {
+      const sentence = {
+        english: text.englishSentence[i],
+        arabic: text.arabicSentence[i],
+        words: newTheArabicWord[i],
+      }
+      sentences.push(sentence)
+    }
+
+    console.log(sentences)
+
+    dispatch({ type: ACTIONS.SET_SENTENCES, sentences: sentences })
+  }
+
   return (
     <Fragment>
       <Stack direction='row' spacing={2}>
         <MatchingIndicator entity='Sentences' firstCondition={englishSentenceCount} secondCondition={arabicSentenceCount} />
-        <Button>Generate Words</Button>
+        <Button onClick={() => generateSentences()}>Generate Words</Button>
       </Stack>
       <Stack direction='row' spacing={2}>
         <Item>
