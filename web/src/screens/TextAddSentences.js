@@ -67,13 +67,32 @@ const TextAddSentences = () => {
       newTheArabicWord.push(newArray)
     }
 
+    const newTheEnglishWord = []
+    for (const englishWord of text.englishWords) {
+      const numberOfWords = englishWord.length
+      const newArray = []
+      for (let j = 0; j < numberOfWords; j++) {
+        newArray.push([englishWord[j]])
+      }
+      newTheEnglishWord.push(newArray)
+    }
+
     const sentences = []
 
     for (let i = 0; i < text.arabicSentence.length; i++) {
+      const words = []
+      for (let index = 0; index < newTheEnglishWord.length; index++) {
+        const word = {
+          arabic: newTheArabicWord[index],
+          english: '',
+        }
+        words.push(word)
+      }
+
       const sentence = {
         english: text.englishSentence[i],
         arabic: text.arabicSentence[i],
-        words: newTheArabicWord[i],
+        words: words,
       }
       sentences.push(sentence)
     }
