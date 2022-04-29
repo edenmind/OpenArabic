@@ -57,33 +57,18 @@ const TextAddSentences = () => {
 
   const generateSentences = () => {
     console.log('generateSentences')
-    const newTheArabicWord = []
-    for (const arabicWord of text.arabicWords) {
-      const numberOfWords = arabicWord.length
-      const newArray = []
-      for (let j = 0; j < numberOfWords; j++) {
-        newArray.push([arabicWord[j]])
-      }
-      newTheArabicWord.push(newArray)
-    }
-
-    const newTheEnglishWord = []
-    for (const englishWord of text.englishWords) {
-      const numberOfWords = englishWord.length
-      const newArray = []
-      for (let j = 0; j < numberOfWords; j++) {
-        newArray.push([englishWord[j]])
-      }
-      newTheEnglishWord.push(newArray)
-    }
 
     const sentences = []
 
     for (let i = 0; i < text.arabicSentence.length; i++) {
+      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(text.arabicSentence[i])
+      const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
+
       const words = []
-      for (let index = 0; index < newTheEnglishWord.length; index++) {
+
+      for (const element of cleanFromNullAndEmpty) {
         const word = {
-          arabic: newTheArabicWord[index],
+          arabic: element,
           english: '',
         }
         words.push(word)
