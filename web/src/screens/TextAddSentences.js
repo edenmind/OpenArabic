@@ -62,7 +62,7 @@ const TextAddSentences = () => {
       const numberOfWords = arabicWord.length
       const newArray = []
       for (let j = 0; j < numberOfWords; j++) {
-        newArray.push([''])
+        newArray.push([arabicWord[j]])
       }
       newTheArabicWord.push(newArray)
     }
