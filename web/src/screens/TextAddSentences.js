@@ -2,13 +2,13 @@ import * as ACTIONS from '../redux/actions'
 import * as React from 'react'
 import * as wordProcessing from '../services/wordProcessing'
 
+import { Button, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Fragment } from 'react'
 import MatchingIndicator from '../components/MatchingIndicator'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
-import { TextField } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -57,7 +57,10 @@ const TextAddSentences = () => {
 
   return (
     <Fragment>
-      <MatchingIndicator entity='Sentences' firstCondition={englishSentenceCount} secondCondition={arabicSentenceCount} />
+      <Stack direction='row' spacing={2}>
+        <MatchingIndicator entity='Sentences' firstCondition={englishSentenceCount} secondCondition={arabicSentenceCount} />
+        <Button>Generate Words</Button>
+      </Stack>
       <Stack direction='row' spacing={2}>
         <Item>
           <div dir='rtl'>
@@ -79,7 +82,7 @@ const TextAddSentences = () => {
             value={text.texts.english}
             label='English'
             multiline
-            rows={31}
+            rows={21}
             fullWidth
             variant='filled'
             onChange={handleChangeEnglish}

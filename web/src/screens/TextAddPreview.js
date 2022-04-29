@@ -1,7 +1,6 @@
 import { Container, Divider } from '@mui/material'
 
 import Footer from '../components/Footer'
-import Nav from '../components/Nav'
 import React from 'react'
 import SingleTextSentence from './SingleTextSentences'
 import { useSelector } from 'react-redux'
