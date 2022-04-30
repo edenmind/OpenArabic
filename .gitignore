@@ -43,4 +43,7 @@ mobile/google-sa.json
 mobile/google-sa.json
 frontend/node_modules/*
 .dccache
+web/.dccache
+api/.dccache
+mobile/.dccache
 backend/node_modules/*
