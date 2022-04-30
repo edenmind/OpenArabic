@@ -20,6 +20,24 @@ const initialState = {
             english: '',
             arabic: '',
           },
+          {
+            english: '',
+            arabic: '',
+          },
+        ],
+      },
+      {
+        english: '',
+        arabic: '',
+        words: [
+          {
+            english: '',
+            arabic: '',
+          },
+          {
+            english: '',
+            arabic: '',
+          },
         ],
       },
     ],
@@ -63,7 +81,7 @@ export const textReducer = createReducer(initialState, {
   SET_TEXT: (state, action) => {
     return { ...state, text: action.text }
   },
-  RESET_TEXT: (state) => {
+  RESET_TEXT: () => {
     return initialState
   },
   GET_WORD_BY_WORD: (state) => {
@@ -86,6 +104,10 @@ export const textReducer = createReducer(initialState, {
   },
   GET_ENGLISH_WORDS: (state) => {
     return state.text.englishWords
+  },
+  UPDATE_SENTENCE: (state, action) => {
+    const { indexSentence, indexArabicWord, value } = action.value
+    state.text.sentences[indexSentence].words[indexArabicWord].english = value
   },
   SET_ENGLISH_WORDS: (state, action) => {
     state.text.englishWords = action.englishWords
