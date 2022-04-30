@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { Container } from '@mui/material'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
-import TextCard from './TextListCard'
+import TextList from './TextList'
 import { useParams } from 'react-router-dom'
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
   const heading = <Fragment>Welcome 👋🏻👋🏽👋🏿</Fragment>
   const subHeading = (
     <Fragment>
-      Lets start learning classical arabic, <em>inshāʾAllāh</em> 🚀'
+      Let's start learning classical arabic, <em>inshāʾAllāh</em> 🚀'
       <br />
       <br />
     </Fragment>
@@ -22,7 +22,7 @@ const Home = () => {
     <React.Fragment>
       <Nav />
       <Container maxWidth='lg'>
-        <TextCard id={id} heading={heading} subHeading={subHeading} />
+        <TextList id={id} heading={heading} subHeading={subHeading} />
         <Footer />
       </Container>
     </React.Fragment>

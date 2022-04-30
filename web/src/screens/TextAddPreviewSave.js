@@ -95,7 +95,7 @@ function TextAddPreviewSave() {
         {text.source.length > 4 ? <Chip label='Source' color='success' /> : <Chip label='Source' color='error' />}
         {text.author.length > 4 ? <Chip label='Author' color='success' /> : <Chip label='Author' color='error' />}
 
-        {id ? <Button onClick={handleUpdate}>Update</Button> : <Button onClick={handleAdd}>Add</Button>}
+        {id ? <Button onClick={handleUpdate}>Update Text</Button> : <Button onClick={handleAdd}>Add Text</Button>}
         <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message={status} />
       </Stack>
     </Fragment>

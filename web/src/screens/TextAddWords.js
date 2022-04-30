@@ -6,13 +6,13 @@ function TextAddWords() {
   const { text } = useSelector((state) => state.text)
   const dispatch = useDispatch()
 
-  const handleChangeArabic = (indexSentence, indexArabicWord, value) => {
-    dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, value } })
+  const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {
+    dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
   }
 
   return text.sentences.map((sentence, indexSentence) => (
     <Fragment key={indexSentence}>
-      <Stack spacing={2}>
+      <Stack spacing={0} style={{ paddingBottom: '70px' }}>
         <h3>
           {sentence.english}: {sentence.arabic}
         </h3>
@@ -30,11 +30,6 @@ function TextAddWords() {
             />
           </Box>
         ))}
-        <br />
-        <br />
-        <br />
-
-        <br />
       </Stack>
     </Fragment>
   ))

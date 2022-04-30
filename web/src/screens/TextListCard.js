@@ -1,48 +1,49 @@
-import * as apiService from '../services/apiService'
+import * as wordProcessing from '../services/wordProcessing'
 
-import { Box, Grid } from '@mui/material'
-import React, { Fragment } from 'react'
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 
-import Progress from '../components/Progress'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import TextCardList from './TextList'
-import { useAuth0 } from '@auth0/auth0-react'
+import React from 'react'
 
-const TextListCard = (props) => {
-  const { isAuthenticated } = useAuth0()
-
-  const [texts, setTexts] = React.useState([])
-  const [isLoading, setIsLoading] = React.useState(true)
-
-  React.useEffect(() => {
-    apiService
-      .getTexts(props.id)
-      .then((data) => {
-        setTexts(data)
-        setIsLoading(false)
-      })
-      .catch((err) => console.log(err))
-  }, [props.id])
-
-  return isLoading ? (
-    <Progress />
-  ) : (
-    <Fragment>
-      <h2>{props.heading}</h2>
-      <h4>{props.subHeading}</h4>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <TextCardList texts={texts} isAuthenticated={isAuthenticated} />
-        </Grid>
-      </Box>
-    </Fragment>
-  )
+function TextListCard(props) {
+  return props.texts.map((text, index) => (
+    <Grid item md={4} xs={12} key={index}>
+      <Card>
+        <CardMedia component='img' height='194' image={`/${index}.png`} />
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
+            {text.category}
+          </Typography>
+          <Typography variant='h5' component='div'>
+            {text.title}
+          </Typography>
+          <Typography sx={{ mb: 1.5 }} color='text.secondary'>
+            {text.author}
+          </Typography>
+          <div dir='rtl'>
+            <Typography variant='h5'>{wordProcessing.truncateString(text.sentences)}</Typography>
+          </div>
+        </CardContent>
+        <CardActions>
+          <Link to={`/texts/${text.id}`}>
+            <Button size='small'>Read More</Button>
+          </Link>
+        </CardActions>
+      </Card>
+    </Grid>
+  ))
 }
 
 TextListCard.propTypes = {
-  heading: PropTypes.node,
-  subHeading: PropTypes.node,
-  id: PropTypes.string,
+  texts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 }
 
 export default TextListCard

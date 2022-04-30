@@ -88,8 +88,8 @@ export const textReducer = createReducer(initialState, {
     return state.text.englishWords
   },
   UPDATE_SENTENCE: (state, action) => {
-    const { indexSentence, indexArabicWord, value } = action.value
-    state.text.sentences[indexSentence].words[indexArabicWord].english = value
+    const { indexSentence, indexArabicWord, englishWords } = action.value
+    state.text.sentences[indexSentence].words[indexArabicWord].english = englishWords
   },
   SET_ENGLISH_WORDS: (state, action) => {
     state.text.englishWords = action.englishWords

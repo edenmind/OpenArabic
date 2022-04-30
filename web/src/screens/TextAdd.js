@@ -10,7 +10,7 @@ import Tab from '@mui/material/Tab'
 import { TabPanel } from '../components/TabPanel'
 import Tabs from '@mui/material/Tabs'
 import TextAddPreview from './TextAddPreview'
-import Words from './TextAddWords'
+import TextAddWords from './TextAddWords'
 import { getText } from '../services/apiService'
 import { useParams } from 'react-router-dom'
 
@@ -71,7 +71,7 @@ export default function TextAdd() {
             <Sentences />
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <Words />
+            <TextAddWords />
           </TabPanel>
           <TabPanel value={value} index={3}>
             <TextAddPreview />

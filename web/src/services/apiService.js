@@ -1,5 +1,3 @@
-import * as ACTIONS from '../redux/actions'
-
 import axios from 'axios'
 
 export const getTexts = async (id) => {
@@ -14,7 +12,7 @@ export const getText = (id) => async (dispatch) => {
   const res = await axios.get(url).catch((err) => console.log(err))
 
   dispatch({
-    type: ACTIONS.SET_TEXT,
+    type: 'SET_TEXT',
     text: res.data,
   })
 }

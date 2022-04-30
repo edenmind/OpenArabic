@@ -64,7 +64,6 @@ export default function Texts() {
         <Link to={`/texts/update/${params.row.id}`}>
           <Button size='small'>Edit</Button>
         </Link>,
-
         <Button size='small' onClick={() => handleDeleteClick(params.row.id)}>
           Delete
         </Button>,
@@ -111,13 +110,12 @@ export default function Texts() {
       <Nav />
       <Container maxWidth='false'>
         <h2>Texts</h2>
-        <div style={{ height: 800, width: '100%' }}>
+        <div style={{ height: 800, width: '100%', paddingBottom: '35px' }}>
           <DataGrid rows={texts} columns={columns} pageSize={15} rowsPerPageOptions={[5]} />
         </div>
-        <br />
-        <br />
+
         <Link to='/texts/add'>
-          <Button variant='contained'>Add</Button>
+          <Button variant='contained'>Add Text</Button>
         </Link>
         <Footer />
       </Container>

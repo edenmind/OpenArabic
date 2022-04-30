@@ -1,4 +1,3 @@
-import * as ACTIONS from '../redux/actions'
 import * as React from 'react'
 import * as wordProcessing from '../services/wordProcessing'
 
@@ -32,9 +31,9 @@ const TextAddSentences = () => {
       englishWords.push(theEnglishWordsSentence)
     })
 
-    dispatch({ type: ACTIONS.SET_ENGLISH_TEXT, english: event.target.value })
-    dispatch({ type: ACTIONS.SET_ENGLISH_SENTENCE, englishSentence })
-    dispatch({ type: ACTIONS.SET_ENGLISH_WORDS, englishWords })
+    dispatch({ type: 'SET_ENGLISH_TEXT', english: event.target.value })
+    dispatch({ type: 'SET_ENGLISH_SENTENCE', englishSentence })
+    dispatch({ type: 'SET_ENGLISH_WORDS', englishWords })
   }
 
   function handleChangeArabic(event) {
@@ -50,9 +49,9 @@ const TextAddSentences = () => {
       arabicWords.push(cleanFromNullAndEmpty)
     })
 
-    dispatch({ type: ACTIONS.SET_ARABIC_TEXT, arabic: event.target.value })
-    dispatch({ type: ACTIONS.SET_ARABIC_SENTENCE, arabicSentence })
-    dispatch({ type: ACTIONS.SET_ARABIC_WORDS, arabicWords })
+    dispatch({ type: 'SET_ARABIC_TEXT', arabic: event.target.value })
+    dispatch({ type: 'SET_ARABIC_SENTENCE', arabicSentence })
+    dispatch({ type: 'SET_ARABIC_WORDS', arabicWords })
   }
 
   const generateSentences = () => {
@@ -80,7 +79,7 @@ const TextAddSentences = () => {
       sentences.push(sentence)
     }
 
-    dispatch({ type: ACTIONS.SET_SENTENCES, sentences })
+    dispatch({ type: 'SET_SENTENCES', sentences })
   }
 
   return (

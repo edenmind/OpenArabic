@@ -4,7 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import React from 'react'
-import TextSentence from './TextListIdSentences'
+import TextListIdSentences from './TextListIdSentences'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
@@ -21,7 +21,7 @@ function TextListId() {
         setIsLoading(false)
       })
       .catch((err) => console.log(err))
-  }, [])
+  }, [id])
 
   return isLoading ? (
     <Grid container spacing={0} direction='column' alignItems='center' justifyContent='center' style={{ minHeight: '100vh' }}>
@@ -37,8 +37,8 @@ function TextListId() {
           <h1>{text.title}</h1>
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
-          <Divider width='200' />
-          <TextSentence sentences={text.sentences} />
+          <Divider width='300' />
+          <TextListIdSentences sentences={text.sentences} />
         </center>
         <Footer />
       </Container>

@@ -3,7 +3,7 @@ import { Container, Divider } from '@mui/material'
 import Footer from '../components/Footer'
 import React from 'react'
 import SaveText from './TextAddPreviewSave'
-import SingleTextSentence from './TextListIdSentences'
+import TextListIdSentences from './TextListIdSentences'
 import { useSelector } from 'react-redux'
 
 function TextAddPreview() {
@@ -18,7 +18,7 @@ function TextAddPreview() {
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
           <Divider width='200' />
-          <SingleTextSentence sentences={text.sentences} />
+          <TextListIdSentences sentences={text.sentences} />
         </center>
         <SaveText />
 
