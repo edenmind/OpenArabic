@@ -10,11 +10,11 @@ import Tab from '@mui/material/Tab'
 import { TabPanel } from '../components/TabPanel'
 import Tabs from '@mui/material/Tabs'
 import TextAddPreview from './TextAddPreview'
-import Words from './TextAddListOfWords'
+import Words from './TextAddWords'
 import { getText } from '../services/apiService'
 import { useParams } from 'react-router-dom'
 
-export default function TextUpdate() {
+export default function TextAdd() {
   const [value, setValue] = React.useState(0)
 
   const selector = (state) => state.text

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { Container } from '@mui/material'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
-import TextCard from './TextCard'
+import TextCard from './TextListCard'
 import { useParams } from 'react-router-dom'
 
 const Home = () => {

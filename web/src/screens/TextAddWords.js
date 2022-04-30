@@ -1,23 +1,13 @@
 import { Box, Stack, TextField } from '@mui/material'
 import React, { Fragment } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { useSelector } from 'react-redux'
-
-function TextAddListOfWords() {
+function TextAddWords() {
   const { text } = useSelector((state) => state.text)
-
-  const [wordByWord, setWordByWord] = React.useState([])
+  const dispatch = useDispatch()
 
   const handleChangeArabic = (indexSentence, indexArabicWord, value) => {
-    const newTheArabicWord = [...wordByWord]
-
-    const translation = {
-      arabic: text.arabicWords[indexSentence][indexArabicWord],
-      english: value,
-    }
-
-    newTheArabicWord[indexSentence][indexArabicWord] = translation
-    setWordByWord(newTheArabicWord)
+    dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, value } })
   }
 
   return text.sentences.map((sentence, indexSentence) => (
@@ -27,13 +17,13 @@ function TextAddListOfWords() {
           {sentence.english}: {sentence.arabic}
         </h3>
 
-        {sentence.words.map((word, index) => (
-          <Box sx={{ fontSize: 'h4.fontSize' }} key={index}>
+        {sentence.words.map((word, indexArabicWord) => (
+          <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
             {word.arabic}
             <TextField
               InputProps={{ style: { fontSize: 15 } }}
               value={word.english}
-              onChange={(event) => handleChangeArabic(indexSentence, index, event.target.value)}
+              onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
               rows={1}
               fullWidth
               variant='outlined'
@@ -50,4 +40,4 @@ function TextAddListOfWords() {
   ))
 }
 
-export default TextAddListOfWords
+export default TextAddWords

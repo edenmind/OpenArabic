@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { Box } from '@mui/system'
 import PropTypes from 'prop-types'
 
-function SingleTextSentence(props) {
+function TextListIdSentences(props) {
   return props.sentences.map((sentence, index) => (
     <Fragment key={index}>
       <Box sx={{ fontSize: 'h4.fontSize', m: 2 }}>{sentence.arabic}</Box>
@@ -12,7 +12,7 @@ function SingleTextSentence(props) {
   ))
 }
 
-SingleTextSentence.propTypes = {
+TextListIdSentences.propTypes = {
   sentences: PropTypes.arrayOf(
     PropTypes.shape({
       english: PropTypes.string.isRequired,
@@ -21,4 +21,4 @@ SingleTextSentence.propTypes = {
   ).isRequired,
 }
 
-export default SingleTextSentence
+export default TextListIdSentences

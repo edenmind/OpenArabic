@@ -7,7 +7,7 @@ import MenuSelect from '../components/MenuSelect'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 
-const TextAddHeading = (props) => {
+const TextAddHeading = () => {
   const dispatch = useDispatch()
 
   const setTitle = (event) => dispatch({ type: 'SET_TITLE', title: event.target.value })

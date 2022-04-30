@@ -10,8 +10,8 @@ import CategoryAdd from './screens/CategoryAdd'
 import CategoryUpdate from './screens/CategoryUpdate'
 import Home from './screens/Home'
 import Privacy from './screens/Privacy'
-import SingleText from './screens/SingleText'
-import TextUpdate from './screens/TextUpdate'
+import SingleText from './screens/TextListId'
+import TextAdd from './screens/TextAdd'
 import Texts from './screens/Texts'
 
 export default function App() {
@@ -29,9 +29,9 @@ export default function App() {
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/texts/:id' element={<SingleText />} />
         <Route path='/texts/' element={<Texts />} />
-        <Route path='/texts/add' element={<TextUpdate />} />
+        <Route path='/texts/add' element={<TextAdd />} />
         <Route path='/texts/categories/:id' element={<Categories />} />
-        <Route path='/texts/update/:id' element={<TextUpdate />} />
+        <Route path='/texts/update/:id' element={<TextAdd />} />
       </Routes>
     </BrowserRouter>
   )

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function TextCardList(props) {
+function TextList(props) {
   return props.texts.map((text, index) => (
     <Grid item md={4} xs={12} key={index}>
       <Card>
@@ -35,7 +35,7 @@ function TextCardList(props) {
   ))
 }
 
-TextCardList.propTypes = {
+TextList.propTypes = {
   isAuthenticated: PropTypes.bool,
   handleDeleteClick: PropTypes.func.isRequired,
   texts: PropTypes.arrayOf(
@@ -48,4 +48,4 @@ TextCardList.propTypes = {
   ).isRequired,
 }
 
-export default TextCardList
+export default TextList

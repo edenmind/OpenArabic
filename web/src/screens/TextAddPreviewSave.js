@@ -6,7 +6,7 @@ import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
-function TextAddSave() {
+function TextAddPreviewSave() {
   const { text } = useSelector((state) => state.text)
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
@@ -102,4 +102,4 @@ function TextAddSave() {
   )
 }
 
-export default TextAddSave
+export default TextAddPreviewSave

@@ -2,8 +2,8 @@ import { Container, Divider } from '@mui/material'
 
 import Footer from '../components/Footer'
 import React from 'react'
-import SaveText from './TextAddSave'
-import SingleTextSentence from './SingleTextSentences'
+import SaveText from './TextAddPreviewSave'
+import SingleTextSentence from './TextListIdSentences'
 import { useSelector } from 'react-redux'
 
 function TextAddPreview() {

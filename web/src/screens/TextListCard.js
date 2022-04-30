@@ -5,10 +5,10 @@ import React, { Fragment } from 'react'
 
 import Progress from '../components/Progress'
 import PropTypes from 'prop-types'
-import TextCardList from './TextCardList'
+import TextCardList from './TextList'
 import { useAuth0 } from '@auth0/auth0-react'
 
-const TextCard = (props) => {
+const TextListCard = (props) => {
   const { isAuthenticated } = useAuth0()
 
   const [texts, setTexts] = React.useState([])
@@ -39,10 +39,10 @@ const TextCard = (props) => {
   )
 }
 
-TextCard.propTypes = {
+TextListCard.propTypes = {
   heading: PropTypes.node,
   subHeading: PropTypes.node,
   id: PropTypes.string,
 }
 
-export default TextCard
+export default TextListCard
