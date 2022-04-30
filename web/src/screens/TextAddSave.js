@@ -1,10 +1,10 @@
 import { Button, Chip, Stack } from '@mui/material'
 import React, { Fragment } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 function TextAddSave() {
   const { text } = useSelector((state) => state.text)
@@ -12,6 +12,7 @@ function TextAddSave() {
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const { id } = useParams()
   const [status, setStatus] = React.useState('')
+  const dispatch = useDispatch()
 
   const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
@@ -42,6 +43,7 @@ function TextAddSave() {
         if (response.status === 201) {
           setOpenSnackbar(true)
           setStatus(`Added text: ${response.data.message}`)
+          dispatch({ type: 'RESET_TEXT' })
         } else {
           setStatus(`Error: ${response.data.message}`)
           setOpenSnackbar(true)
@@ -72,6 +74,7 @@ function TextAddSave() {
         if (response.status === 200) {
           setOpenSnackbar(true)
           setStatus(`Updated text: ${response.data.message}`)
+          dispatch({ type: 'RESET_TEXT' })
         } else {
           setStatus(`Error: ${response.data.message}`)
           setOpenSnackbar(true)
