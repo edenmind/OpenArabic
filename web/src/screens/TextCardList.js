@@ -29,11 +29,6 @@ function TextCardList(props) {
           <Link to={`/texts/${text.id}`}>
             <Button size='small'>Read More</Button>
           </Link>
-          {props.isAuthenticated && (
-            <Button size='small' onClick={() => props.handleDeleteClick(text.id)}>
-              Delete
-            </Button>
-          )}
         </CardActions>
       </Card>
     </Grid>

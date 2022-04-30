@@ -8,10 +8,13 @@ import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Progress from '../components/Progress'
 import React from 'react'
+import SnackBar from '../components/SnackBar'
+import axios from 'axios'
 
 export default function Texts() {
   const [texts, setTexts] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
+  const [openSnackBar, setOpenSnackbar] = React.useState(false)
 
   const columns = [
     {
@@ -61,9 +64,10 @@ export default function Texts() {
         <Link to={`/texts/update/${params.row.id}`}>
           <Button size='small'>Edit</Button>
         </Link>,
-        <Link to={`/texts/${params.row.id}`}>
-          <Button size='small'>Delete</Button>
-        </Link>,
+
+        <Button size='small' onClick={() => handleDeleteClick(params.row.id)}>
+          Delete
+        </Button>,
       ],
     },
   ]
@@ -77,6 +81,28 @@ export default function Texts() {
       })
       .catch((err) => console.log(err))
   }, [])
+
+  const handleDeleteClick = (textId) => {
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/texts/${textId}`)
+      .then((response) => {
+        if (response.status === 200) {
+          setOpenSnackbar(true)
+        }
+      })
+      .catch((err) => console.log(err))
+
+    const newTexts = texts.filter((item) => item.id !== textId)
+    setTexts(newTexts)
+  }
+
+  const handleCloseSnackbar = (reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpenSnackbar(false)
+  }
 
   return isLoading ? (
     <Progress />
@@ -95,6 +121,7 @@ export default function Texts() {
         </Link>
         <Footer />
       </Container>
+      <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Text deleted!' />
     </React.Fragment>
   )
 }
