@@ -1,11 +1,24 @@
 import { Box, Stack, TextField } from '@mui/material'
 import React, { Fragment } from 'react'
 
-import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
-function TextAddListOfWords(props) {
+function TextAddListOfWords() {
   const { text } = useSelector((state) => state.text)
+
+  const [wordByWord, setWordByWord] = React.useState([])
+
+  const handleChangeArabic = (indexSentence, indexArabicWord, value) => {
+    const newTheArabicWord = [...wordByWord]
+
+    const translation = {
+      arabic: text.arabicWords[indexSentence][indexArabicWord],
+      english: value,
+    }
+
+    newTheArabicWord[indexSentence][indexArabicWord] = translation
+    setWordByWord(newTheArabicWord)
+  }
 
   return text.sentences.map((sentence, indexSentence) => (
     <Fragment key={indexSentence}>
@@ -20,7 +33,7 @@ function TextAddListOfWords(props) {
             <TextField
               InputProps={{ style: { fontSize: 15 } }}
               value={word.english}
-              onChange={(event) => props.handleChangeArabic(indexSentence, index, event.target.value)}
+              onChange={(event) => handleChangeArabic(indexSentence, index, event.target.value)}
               rows={1}
               fullWidth
               variant='outlined'
@@ -35,10 +48,6 @@ function TextAddListOfWords(props) {
       </Stack>
     </Fragment>
   ))
-}
-
-TextAddListOfWords.propTypes = {
-  handleChangeArabic: PropTypes.func.isRequired,
 }
 
 export default TextAddListOfWords

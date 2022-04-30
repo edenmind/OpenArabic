@@ -10,7 +10,7 @@ import Tab from '@mui/material/Tab'
 import { TabPanel } from '../components/TabPanel'
 import Tabs from '@mui/material/Tabs'
 import TextAddPreview from './TextAddPreview'
-import Words from './TextAddWords'
+import Words from './TextAddListOfWords'
 import { getText } from '../services/apiService'
 import { useParams } from 'react-router-dom'
 
