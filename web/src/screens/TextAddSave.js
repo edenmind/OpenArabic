@@ -42,7 +42,7 @@ function TextAddSave() {
       .then((response) => {
         if (response.status === 201) {
           setOpenSnackbar(true)
-          setStatus(`Added text: ${response.data.message}`)
+          setStatus(`Added: ${title}!`)
           dispatch({ type: 'RESET_TEXT' })
         } else {
           setStatus(`Error: ${response.data.message}`)

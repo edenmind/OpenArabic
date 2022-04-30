@@ -1,37 +1,26 @@
 import { createReducer } from '@reduxjs/toolkit'
 
 const initialState = {
-  arabicWords: [''],
-  englishWords: [''],
-  wordByWord: [['']],
-  title: '',
-  category: '',
-  author: '',
-  source: '',
-  englishSentence: [''],
-  arabicSentence: [''],
-  englishText: [
-    'It is Sunnah for the fasting person to eat suhoor, because it was proven in al-Saheehayn that Anas ibn Maalik (may Allaah be pleased with him) said:\n The Prophet the Messenger of Allaah (peace and blessings of Allaah be upon him) said: “Eat suhoor for in suhoor there is blessing.” (Narrated by al-Bukhaari, 1923; Muslim, 1059). ',
-  ],
-  arabicText: [
-    'يسن للصائم السحور لما ثبت في الصحيحين من حديث أنس بن مالك - رضي الله عنه - قال\n : قال النبي رسول الله - صلى الله عليه وسلم - : ( تسحروا فإن في السحور بركة ) رواه البخاري برقم 1923 ، ومسلم برقم 1095',
-  ],
   text: {
-    arabicWords: [''],
-    englishWords: [''],
+    arabic: [''],
+    english: [''],
     wordByWord: [['']],
     title: '',
-    text: '',
+    texts: { arabic: '', english: '' },
     category: '',
     author: '',
     source: '',
-    englishSentence: [''],
-    arabicSentence: [''],
-    englishText: [
-      'It is Sunnah for the fasting person to eat suhoor, because it was proven in al-Saheehayn that Anas ibn Maalik (may Allaah be pleased with him) said:\n The Prophet the Messenger of Allaah (peace and blessings of Allaah be upon him) said: “Eat suhoor for in suhoor there is blessing.” (Narrated by al-Bukhaari, 1923; Muslim, 1059). ',
-    ],
-    arabicText: [
-      'يسن للصائم السحور لما ثبت في الصحيحين من حديث أنس بن مالك - رضي الله عنه - قال\n : قال النبي رسول الله - صلى الله عليه وسلم - : ( تسحروا فإن في السحور بركة ) رواه البخاري برقم 1923 ، ومسلم برقم 1095',
+    sentences: [
+      {
+        english: '',
+        arabic: '',
+        words: [
+          {
+            english: '',
+            arabic: '',
+          },
+        ],
+      },
     ],
   },
 }
@@ -74,7 +63,7 @@ export const textReducer = createReducer(initialState, {
     return { ...state, text: action.text }
   },
   RESET_TEXT: (state) => {
-    return { ...state, initialState }
+    return initialState
   },
   GET_WORD_BY_WORD: (state) => {
     return state.text.wordByWord

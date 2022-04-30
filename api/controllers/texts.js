@@ -5,16 +5,9 @@ const ObjectId = require('mongodb').ObjectId
 
 async function listTexts(req, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
-  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
-
-  const categoriesList = await categories.find({}).toArray()
-  const authorList = await authors.find({}).toArray()
   const textList = req.params.id ? await texts.find({ category: req.params.id }).toArray() : await texts.find({}).toArray()
 
-  const textListWithName = convertIdsToName(textList, categoriesList, authorList)
-
-  reply.code(200).send(textListWithName)
+  reply.code(200).send(textList)
 }
 
 async function addText(req, reply) {
@@ -29,15 +22,8 @@ async function addText(req, reply) {
 
 async function getText(req, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const authors = this.mongo.db.collection(COLLECTIONS.AUTHORS)
-  const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
-
-  const authorList = await authors.find({}).toArray()
-  const categoriesList = await categories.find({}).toArray()
 
   const text = await texts.findOne({ id: new ObjectId(req.params.id) })
-  text.author = getAuthorNameFromId(authorList, text.author)
-  text.category = getCategoryNameFromId(categoriesList, text.category)
 
   const vocabularyCollection = produceVocabularyCollection(text)
   text.vocabularyCollection = vocabularyCollection
@@ -82,25 +68,6 @@ const shuffleArray = (array) => {
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
 }
-
-function convertIdsToName(textList, categoriesList, authorList) {
-  const resultsWithName = []
-  textList.forEach((text) => {
-    text.category = categoriesList.find((category) => category.id.toString() === text.category).name
-    text.author = authorList.find((author) => author.id.toString() === text.author).name
-    resultsWithName.push(text)
-  })
-  return resultsWithName
-}
-
-function getAuthorNameFromId(authorList, author) {
-  return authorList.find((a) => a.id.toString() === author).name
-}
-
-function getCategoryNameFromId(categoriesList, category) {
-  return categoriesList.find((c) => c.id.toString() === category).name
-}
-
 function produceVocabularyCollection(text) {
   const arabicVocabulary = []
   const englishVocabulary = []

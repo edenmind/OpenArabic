@@ -11,15 +11,11 @@ import { TabPanel } from '../components/TabPanel'
 import Tabs from '@mui/material/Tabs'
 import TextAddPreview from './TextAddPreview'
 import Words from './TextAddWords'
-import axios from 'axios'
 import { getText } from '../services/apiService'
 import { useParams } from 'react-router-dom'
 
 export default function TextUpdate() {
   const [value, setValue] = React.useState(0)
-
-  const [categories, setCategories] = React.useState([])
-  const [authors, setAuthors] = React.useState([])
 
   const selector = (state) => state.text
   const { text } = useSelector(selector)
@@ -41,24 +37,13 @@ export default function TextUpdate() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getText(id))
+    if (id) {
+      dispatch(getText(id))
+    } else {
+      dispatch({ type: 'RESET_TEXT' })
+    }
     setIsLoading(false)
   }, [dispatch, id])
-
-  React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/categories`)
-      .then((response) => {
-        setCategories(response.data)
-      })
-      .catch((err) => console.log(err))
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/authors`)
-      .then((response) => {
-        setAuthors(response.data)
-      })
-      .catch((err) => console.log(err))
-  }, [])
 
   const title = id ? 'Update Text' : 'Add Text'
 
@@ -80,7 +65,7 @@ export default function TextUpdate() {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            <Heading Categories={categories} Authors={authors} Title={text.title} />
+            <Heading Title={text.title} />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <Sentences />

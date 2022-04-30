@@ -11,7 +11,7 @@ function MenuSelect(props) {
           <em>Select...</em>
         </MenuItem>
         {props.Values?.map((v, index) => (
-          <MenuItem key={index} value={v.id}>
+          <MenuItem key={index} value={v.name}>
             {/* this should be refactored. */}
             {v.name}
           </MenuItem>
