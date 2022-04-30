@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function CategoryList(props) {
+function CategoriesList(props) {
   return props.category.map((c, index) => (
     <Card sx={{ minWidth: 275 }} key={index}>
       <CardContent>
@@ -31,7 +31,7 @@ function CategoryList(props) {
   ))
 }
 
-CategoryList.propTypes = {
+CategoriesList.propTypes = {
   category: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -41,4 +41,4 @@ CategoryList.propTypes = {
   handleClickOpen: PropTypes.func.isRequired,
 }
 
-export default CategoryList
+export default CategoriesList

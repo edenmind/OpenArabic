@@ -7,8 +7,8 @@ import React from 'react'
 import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 
-const AuthorUpdate = () => {
-  const [author, setAuthor] = React.useState('')
+const CategoriesUpdate = () => {
+  const [category, setCategory] = React.useState('')
   const [open, setOpen] = React.useState(false)
   const [status, setStatus] = React.useState('')
 
@@ -28,24 +28,24 @@ const AuthorUpdate = () => {
 
   React.useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/authors/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/categories/${id}`)
       .then((response) => {
-        setAuthor(response.data.name)
+        setCategory(response.data.name)
       })
       .catch((err) => console.log(err))
   }, [id])
 
-  const updateAuthor = () => {
+  const updateCategory = () => {
     axios({
       method: 'put',
-      url: `${process.env.REACT_APP_API_URL}/authors/${id}`,
+      url: `${process.env.REACT_APP_API_URL}/categories/${id}`,
       data: {
-        name: author,
+        name: category,
       },
     })
       .then((response) => {
         if (response.status === 200) {
-          setStatus(`Updated author: ${response.data.message}`)
+          setStatus('Updated category: ' + response.data.message)
           setOpen(true)
         }
       })
@@ -56,28 +56,27 @@ const AuthorUpdate = () => {
     <React.Fragment>
       <Nav />
       <Container maxWidth='lg'>
-        <h2>Update Author</h2>
+        <h2>Update Category</h2>
 
         <FormControl fullWidth>
-          <TextField fullWidth id='outlined-basic' label='Name' variant='outlined' value={author} onChange={(event) => setAuthor(event.target.value)} />
+          <TextField fullWidth id='outlined-basic' label='Name' variant='outlined' value={category} onChange={(event) => setCategory(event.target.value)} />
         </FormControl>
 
         <div style={divStyle}>
           <Stack spacing={2} direction='row'>
-            <Button variant='contained' onClick={updateAuthor}>
+            <Button variant='contained' onClick={updateCategory}>
               Update
             </Button>
-            <Link to='/authors'>
+            <Link to='/categories'>
               <Button variant='outlined'>Back</Button>
             </Link>
           </Stack>
         </div>
         <Footer />
       </Container>
-
       <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity='success' message={status} />
     </React.Fragment>
   )
 }
 
-export default AuthorUpdate
+export default CategoriesUpdate

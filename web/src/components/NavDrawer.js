@@ -25,7 +25,7 @@ function NavDrawer(props) {
         <List>
           {categories.map((category, index) => (
             <ListItem key={index}>
-              <Link to={`/texts/categories/${category.id}`}>
+              <Link to={`/texts/categories/${category.name}`}>
                 <Button variant='text'>{category.name}</Button>
               </Link>
             </ListItem>

@@ -1,8 +1,10 @@
 import * as apiService from '../services/apiService'
 
-import { Button, Container } from '@mui/material'
+import { Button, Container, IconButton, Tooltip } from '@mui/material'
 
 import { DataGrid } from '@mui/x-data-grid'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import EditIcon from '@mui/icons-material/Edit'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
@@ -62,11 +64,17 @@ export default function Texts() {
       width: 120,
       getActions: (params) => [
         <Link to={`/texts/update/${params.row.id}`}>
-          <Button size='small'>Edit</Button>
+          <Tooltip title='Edit text'>
+            <IconButton color='primary' aria-label='upload picture' component='span'>
+              <EditIcon />
+            </IconButton>
+          </Tooltip>
         </Link>,
-        <Button size='small' onClick={() => handleDeleteClick(params.row.id)}>
-          Delete
-        </Button>,
+        <Tooltip title='Delete text'>
+          <IconButton color='primary' aria-label='upload picture' component='span' onClick={() => handleDeleteClick(params.row.id)}>
+            <DeleteForeverIcon />
+          </IconButton>
+        </Tooltip>,
       ],
     },
   ]

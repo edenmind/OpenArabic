@@ -1,13 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import About from './screens/About'
-import AuthorAdd from './screens/AuthorAdd'
-import AuthorUpdate from './screens/AuthorUpdate'
-import Authors from './screens/Author'
-import Categories from './screens/Categories'
-import Category from './screens/Category'
-import CategoryAdd from './screens/CategoryAdd'
-import CategoryUpdate from './screens/CategoryUpdate'
+import AuthorAdd from './screens/AuthorsAdd'
+import AuthorUpdate from './screens/AuthorsUpdate'
+import Authors from './screens/Authors'
+import Category from './screens/Categories'
+import CategoryAdd from './screens/CategoriesAdd'
+import CategoryUpdate from './screens/CategoriesUpdate'
 import Home from './screens/Home'
 import Privacy from './screens/Privacy'
 import SingleText from './screens/TextListId'
@@ -30,7 +29,7 @@ export default function App() {
         <Route path='/texts/:id' element={<SingleText />} />
         <Route path='/texts/' element={<Texts />} />
         <Route path='/texts/add' element={<TextAdd />} />
-        <Route path='/texts/categories/:id' element={<Categories />} />
+        <Route path='/texts/categories/:id' element={<Home />} />
         <Route path='/texts/update/:id' element={<TextAdd />} />
       </Routes>
     </BrowserRouter>

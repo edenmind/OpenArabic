@@ -9,8 +9,16 @@ import { useParams } from 'react-router-dom'
 const Home = () => {
   const { id } = useParams()
 
-  const heading = <Fragment>Welcome 👋🏻👋🏽👋🏿</Fragment>
-  const subHeading = (
+  const heading = id ? (
+    <Fragment>
+      <h3>{id}</h3>
+    </Fragment>
+  ) : (
+    <Fragment>Welcome 👋🏻👋🏽👋🏿</Fragment>
+  )
+  const subHeading = id ? (
+    <Fragment />
+  ) : (
     <Fragment>
       Let's start learning classical arabic, <em>inshāʾAllāh</em> 🚀'
       <br />

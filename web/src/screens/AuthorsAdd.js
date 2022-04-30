@@ -7,67 +7,64 @@ import React from 'react'
 import SnackBar from '../components/SnackBar'
 import axios from 'axios'
 
-const CategoryAdd = () => {
-  const [category, setCategory] = React.useState('')
-  const [open, setOpen] = React.useState(false)
+const AuthorsAdd = () => {
+  const [author, setAuthor] = React.useState('')
+  const [openSnackBar, setOpenSnackBar] = React.useState(false)
 
   const divStyle = {
     padding: '10px',
   }
 
-  const handleClose = (reason) => {
+  const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
       return
     }
 
-    setOpen(false)
+    setOpenSnackBar(false)
   }
 
-  const addCategory = () => {
+  const addAuthor = () => {
     axios({
       method: 'post',
-      url: `${process.env.REACT_APP_API_URL}/categories`,
+      url: `${process.env.REACT_APP_API_URL}/authors`,
       data: {
-        name: category,
+        name: author,
       },
     })
       .then((response) => {
         if (response.status === 201) {
-          setOpen(true)
-          setCategory('')
+          setOpenSnackBar(true)
+          setAuthor('')
         }
       })
       .catch((err) => console.log(err))
   }
 
-  const validCategoryLength = 5 > category.length
-
   return (
     <React.Fragment>
       <Nav />
       <Container maxWidth='lg'>
-        <h2>Add Category</h2>
+        <h2>Add Author</h2>
 
         <FormControl fullWidth>
-          <TextField fullWidth id='outlined-basic' label='Name' variant='outlined' value={category} onChange={(event) => setCategory(event.target.value)} />
+          <TextField fullWidth id='outlined-basic' label='Name' variant='outlined' value={author} onChange={(event) => setAuthor(event.target.value)} />
         </FormControl>
 
         <div style={divStyle}>
           <Stack spacing={2} direction='row'>
-            <Button variant='contained' onClick={addCategory} disabled={validCategoryLength}>
+            <Button variant='contained' onClick={addAuthor} disabled={5 > author.length}>
               Add
             </Button>
-            <Link to='/categories'>
+            <Link to='/authors'>
               <Button variant='outlined'>Back</Button>
             </Link>
           </Stack>
         </div>
         <Footer />
       </Container>
-
-      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity='success' message='Added new category!' />
+      <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Added new author!' />
     </React.Fragment>
   )
 }
 
-export default CategoryAdd
+export default AuthorsAdd
