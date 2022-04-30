@@ -1,5 +1,6 @@
 'use strict'
 
+const { title } = require('process')
 const { listTexts, addText, getText, updateText, deleteText } = require('../controllers/Texts')
 
 const getTextsOpts = {
@@ -38,9 +39,14 @@ const updateTextOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['name'],
+      required: ['title', 'author', 'category', 'source', 'sentences', 'texts'],
       properties: {
-        name: { type: 'string' },
+        title: { type: 'string' },
+        author: { type: 'string' },
+        category: { type: 'string' },
+        source: { type: 'string' },
+        sentences: { type: 'array' },
+        texts: { type: 'object' },
       },
     },
     response: {

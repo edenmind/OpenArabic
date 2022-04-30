@@ -13,7 +13,6 @@ import Privacy from './screens/Privacy'
 import SingleText from './screens/SingleText'
 import TextUpdate from './screens/TextUpdate'
 import Texts from './screens/Texts'
-import TextsAdd from './screens/TextAdd'
 
 export default function App() {
   return (
@@ -30,7 +29,7 @@ export default function App() {
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/texts/:id' element={<SingleText />} />
         <Route path='/texts/' element={<Texts />} />
-        <Route path='/texts/add' element={<TextsAdd />} />
+        <Route path='/texts/add' element={<TextUpdate />} />
         <Route path='/texts/categories/:id' element={<Categories />} />
         <Route path='/texts/update/:id' element={<TextUpdate />} />
       </Routes>

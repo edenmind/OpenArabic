@@ -46,14 +46,23 @@ async function getText(req, reply) {
 }
 
 async function updateText(req, reply) {
-  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const { name } = req.body
+  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
+  const { title, author, category, sentences, source, texts } = req.body
+  const { arabic, english } = texts
   const updateDoc = {
     $set: {
-      name,
+      title,
+      category,
+      texts: {
+        arabic,
+        english,
+      },
+      author,
+      source,
+      sentences,
     },
   }
-  const result = await texts.updateOne({ id: new ObjectId(req.params.id) }, updateDoc, { upsert: true })
+  const result = await textsCollection.updateOne({ id: new ObjectId(req.params.id) }, updateDoc, { upsert: true })
   reply.send({
     message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
   })
