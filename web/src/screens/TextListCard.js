@@ -7,32 +7,34 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 function TextListCard(props) {
-  return props.texts.map((text, index) => (
-    <Grid item md={4} xs={12} key={index}>
-      <Card>
-        <CardMedia component='img' height='194' image={`/${index}.png`} />
-        <CardContent>
-          <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
-            {text.category}
-          </Typography>
-          <Typography variant='h5' component='div'>
-            {text.title}
-          </Typography>
-          <Typography sx={{ mb: 1.5 }} color='text.secondary'>
-            {text.author}
-          </Typography>
-          <div dir='rtl'>
-            <Typography variant='h5'>{wordProcessing.truncateString(text.sentences)}</Typography>
-          </div>
-        </CardContent>
-        <CardActions>
-          <Link to={`/texts/${text.id}`}>
-            <Button size='small'>Read More</Button>
-          </Link>
-        </CardActions>
-      </Card>
-    </Grid>
-  ))
+  return props.texts
+    .filter((order) => order.status !== 'Draft')
+    .map((text, index) => (
+      <Grid item md={4} xs={12} key={index}>
+        <Card>
+          <CardMedia component='img' height='194' image={`/${index}.png`} />
+          <CardContent>
+            <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
+              {text.category}
+            </Typography>
+            <Typography variant='h5' component='div'>
+              {text.title}
+            </Typography>
+            <Typography sx={{ mb: 1.5 }} color='text.secondary'>
+              {text.author}
+            </Typography>
+            <div dir='rtl'>
+              <Typography variant='h5'>{wordProcessing.truncateString(text.sentences)}</Typography>
+            </div>
+          </CardContent>
+          <CardActions>
+            <Link to={`/texts/${text.id}`}>
+              <Button size='small'>Read More</Button>
+            </Link>
+          </CardActions>
+        </Card>
+      </Grid>
+    ))
 }
 
 TextListCard.propTypes = {

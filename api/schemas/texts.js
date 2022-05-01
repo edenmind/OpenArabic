@@ -22,6 +22,7 @@ const getTextOpts = {
         properties: {
           id: { type: 'string' },
           title: { type: 'string' },
+          status: { type: 'string' },
           author: { type: 'string' },
           category: { type: 'string' },
           source: { type: 'string' },
@@ -39,9 +40,10 @@ const updateTextOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source', 'sentences', 'texts'],
+      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status'],
       properties: {
         title: { type: 'string' },
+        status: { type: 'string' },
         author: { type: 'string' },
         category: { type: 'string' },
         source: { type: 'string' },
@@ -65,9 +67,10 @@ const postTextOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source', 'sentences', 'texts'],
+      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status'],
       properties: {
         title: { type: 'string' },
+        status: { type: 'string' },
         author: { type: 'string' },
         category: { type: 'string' },
         source: { type: 'string' },

@@ -1,14 +1,17 @@
 import * as React from 'react'
 import * as wordProcessing from '../services/wordProcessing'
 
-import { Button, TextField } from '@mui/material'
+import { Button, Chip, TextField, Tooltip } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Fragment } from 'react'
 import MatchingIndicator from '../components/MatchingIndicator'
 import Paper from '@mui/material/Paper'
+import SnackBar from '../components/SnackBar'
 import Stack from '@mui/material/Stack'
+import axios from 'axios'
 import { styled } from '@mui/material/styles'
+import { useParams } from 'react-router-dom'
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -19,8 +22,19 @@ const TextAddSentences = () => {
   const dispatch = useDispatch()
 
   const { text } = useSelector((state) => state.text)
-  const [englishSentenceCount, setEnglishSentenceCount] = React.useState(1)
+  const [englishSentenceCount, setEnglishSentenceCount] = React.useState(0)
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)
+  const [open, setOpen] = React.useState(false)
+  const [status, setStatus] = React.useState('')
+  const { id } = useParams()
+
+  const handleClose = (reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpen(false)
+  }
 
   function handleChangeEnglish(event) {
     const englishSentence = wordProcessing.splitTextToSentences(event.target.value)
@@ -78,15 +92,100 @@ const TextAddSentences = () => {
       }
       sentences.push(sentence)
     }
-
+    setStatus(`${sentences.length} sentences generated`)
+    setOpen(true)
     dispatch({ type: 'SET_SENTENCES', sentences })
   }
+
+  const handleAdd = () => {
+    const { title, author, category, sentences, source, texts, status } = text
+    const { arabic, english } = texts
+    axios({
+      method: 'post',
+      url: `${process.env.REACT_APP_API_URL}/texts`,
+      data: {
+        title,
+        category,
+        status,
+        texts: {
+          arabic,
+          english,
+        },
+        author,
+        source,
+        sentences,
+      },
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          setOpen(true)
+          setStatus(`Added draft: ${title}!`)
+        } else {
+          setStatus(`Error: ${response.data.message}`)
+          setOpen(true)
+        }
+      })
+      .catch((err) => console.log(err))
+  }
+
+  const handleUpdate = () => {
+    const { title, author, category, sentences, source, texts, status } = text
+    const { arabic, english } = texts
+    axios({
+      method: 'put',
+      url: `${process.env.REACT_APP_API_URL}/texts/${id}`,
+      data: {
+        title,
+        category,
+        status,
+        texts: {
+          arabic,
+          english,
+        },
+        author,
+        source,
+        sentences,
+      },
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          setOpen(true)
+          setStatus(`Updated draft: ${response.data.message}`)
+        } else {
+          setStatus(`Error: ${response.data.message}`)
+          setOpen(true)
+        }
+      })
+      .catch((err) => console.log(err))
+  }
+
+  const englishSentencesCountMessage = `English: ${englishSentenceCount}`
+  const arabicSentencesCountMessage = `Arabic: ${arabicSentenceCount}`
 
   return (
     <Fragment>
       <Stack direction='row' spacing={2}>
         <MatchingIndicator entity='Sentences' firstCondition={englishSentenceCount} secondCondition={arabicSentenceCount} />
-        <Button onClick={() => generateSentences()}>Generate Words</Button>
+        <Chip label={englishSentencesCountMessage} />
+        <Chip label={arabicSentencesCountMessage} />
+
+        <Tooltip title='Save an unfinished draft of the text.'>
+          {id ? (
+            <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => handleUpdate()}>
+              Save Draft
+            </Button>
+          ) : (
+            <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => handleAdd()}>
+              Save Draft
+            </Button>
+          )}
+        </Tooltip>
+
+        <Tooltip title='Generate english and arabic word pairs for matching.'>
+          <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => generateSentences()}>
+            Generate Words
+          </Button>
+        </Tooltip>
       </Stack>
       <Stack direction='row' spacing={2}>
         <Item>
@@ -116,6 +215,7 @@ const TextAddSentences = () => {
           />
         </Item>
       </Stack>
+      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity='success' message={status} />
     </Fragment>
   )
 }

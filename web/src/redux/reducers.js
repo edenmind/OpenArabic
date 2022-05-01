@@ -5,6 +5,7 @@ const initialState = {
   text: {
     arabic: [''],
     english: [''],
+    status: 'Draft',
     wordByWord: [['']],
     title: '',
     texts: { arabic: '', english: '' },
@@ -15,12 +16,7 @@ const initialState = {
       {
         english: '',
         arabic: '',
-        words: [
-          {
-            english: '',
-            arabic: '',
-          },
-        ],
+        words: [],
       },
     ],
   },
@@ -50,6 +46,12 @@ export const textReducer = createReducer(initialState, {
   },
   GET_CATEGORY: (state) => {
     return state.text.category
+  },
+  SET_STATUS: (state, action) => {
+    state.text.status = action.status
+  },
+  GET_STATUS: (state) => {
+    return state.text.status
   },
   SET_ENGLISH_TEXT: (state, action) => {
     state.text.texts.english = action.english

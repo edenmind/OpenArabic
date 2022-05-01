@@ -2,6 +2,7 @@ import * as apiService from '../services/apiService'
 
 import { Button, Container, IconButton, Tooltip } from '@mui/material'
 
+import ConfirmationDialog from '../components/ConfirmationDialog'
 import { DataGrid } from '@mui/x-data-grid'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import EditIcon from '@mui/icons-material/Edit'
@@ -17,12 +18,20 @@ export default function Texts() {
   const [texts, setTexts] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
+  const [openDialog, setOpenDialog] = React.useState(false)
+  const [selectedText, setSelectedText] = React.useState(null)
 
   const columns = [
     {
       field: 'title',
       headerName: 'Title',
       width: 250,
+      editable: false,
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
+      width: 150,
       editable: false,
     },
     {
@@ -71,7 +80,7 @@ export default function Texts() {
           </Tooltip>
         </Link>,
         <Tooltip title='Delete text'>
-          <IconButton color='primary' aria-label='upload picture' component='span' onClick={() => handleDeleteClick(params.row.id)}>
+          <IconButton color='primary' aria-label='upload picture' component='span' onClick={() => handleClickOpen(params.row.id)}>
             <DeleteForeverIcon />
           </IconButton>
         </Tooltip>,
@@ -89,17 +98,18 @@ export default function Texts() {
       .catch((err) => console.log(err))
   }, [])
 
-  const handleDeleteClick = (textId) => {
+  const handleDeleteClick = () => {
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/texts/${textId}`)
+      .delete(`${process.env.REACT_APP_API_URL}/texts/${selectedText}`)
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)
+          setOpenDialog(false)
         }
       })
       .catch((err) => console.log(err))
 
-    const newTexts = texts.filter((item) => item.id !== textId)
+    const newTexts = texts.filter((item) => item.id !== selectedText)
     setTexts(newTexts)
   }
 
@@ -109,6 +119,15 @@ export default function Texts() {
     }
 
     setOpenSnackbar(false)
+  }
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false)
+  }
+
+  const handleClickOpen = (id) => {
+    setSelectedText(id)
+    setOpenDialog(true)
   }
 
   return isLoading ? (
@@ -127,6 +146,8 @@ export default function Texts() {
         </Link>
         <Footer />
       </Container>
+      <ConfirmationDialog openState={openDialog} handleCloseDialog={handleCloseDialog} handleAction={handleDeleteClick} confirmationQuestion='Are you sure you want to delete this text?' />
+
       <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Text deleted!' />
     </React.Fragment>
   )

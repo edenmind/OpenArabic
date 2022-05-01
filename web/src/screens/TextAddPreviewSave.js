@@ -30,6 +30,7 @@ function TextAddPreviewSave() {
       data: {
         title,
         category,
+        status: 'Published',
         texts: {
           arabic,
           english,
@@ -85,15 +86,12 @@ function TextAddPreviewSave() {
 
   return (
     <Fragment>
-      <br />
-      <br />
-      <br />
-      <br />
-      <Stack direction='row' spacing={2}>
+      <Stack direction='row' spacing={2} style={{ paddingTop: '50px' }}>
         {text.title.length > 4 ? <Chip label='Title' color='success' /> : <Chip label='Title' color='error' />}
         {text.category.length > 4 ? <Chip label='Category' color='success' /> : <Chip label='Category' color='error' />}
         {text.source.length > 4 ? <Chip label='Source' color='success' /> : <Chip label='Source' color='error' />}
         {text.author.length > 4 ? <Chip label='Author' color='success' /> : <Chip label='Author' color='error' />}
+        {text.sentences.length > 4 ? <Chip label='Sentences' color='success' /> : <Chip label='Sentences' color='error' />}
 
         {id ? <Button onClick={handleUpdate}>Update Text</Button> : <Button onClick={handleAdd}>Add Text</Button>}
         <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message={status} />

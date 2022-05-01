@@ -13,8 +13,8 @@ async function listTexts(req, reply) {
 async function addText(req, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
-  const { title, author, category, source, sentences, texts } = req.body
-  const data = { title, author, category, source, id, sentences, texts }
+  const { title, author, category, source, sentences, texts, status } = req.body
+  const data = { title, author, category, source, id, sentences, texts, status }
   const result = await textsCollection.insertOne(data)
 
   reply.code(201).send(result.insertedId)
@@ -33,12 +33,13 @@ async function getText(req, reply) {
 
 async function updateText(req, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const { title, author, category, sentences, source, texts } = req.body
+  const { title, author, category, sentences, source, texts, status } = req.body
   const { arabic, english } = texts
   const updateDoc = {
     $set: {
       title,
       category,
+      status,
       texts: {
         arabic,
         english,
