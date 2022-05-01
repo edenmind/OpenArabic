@@ -1,5 +1,3 @@
-'use strict'
-
 const { getTextsOpts, getTextOpts, updateTextOpts, postTextOpts, deleteTextOpts } = require('../schemas/texts')
 
 async function texts(fastify) {

@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "This project was bootstrapped with Fastify-CLI.",
   "main": "app.js",
   "directories": {
@@ -24,13 +24,19 @@
     "@fastify/sensible": "4.0.0",
     "@fastify/swagger": "6.0.0",
     "dotenv": "^16.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-security": "^1.5.0",
+    "eslint-plugin-unicorn": "^42.0.0",
     "fastify": "^3.29.0",
     "fastify-cli": "^2.15.0",
     "fastify-plugin": "^3.0.1",
     "mongodb": "^4.5.0",
+    "prettier": "^2.6.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "eslint": "^8.14.0",
     "tap": "^16.1.0"
   }
 }

@@ -22,8 +22,7 @@ module.exports = {
     'react-redux',
     'mui-unused-classes',
     'react-redux',
-    'unicorn',
-    'react-redux-smell'
+    'unicorn'
   ],
   rules: {
     'import/named': 2,

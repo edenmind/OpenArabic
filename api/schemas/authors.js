@@ -1,8 +1,6 @@
-'use strict'
-
 const { listAuthors, addAuthor, getAuthor, updateAuthor, deleteAuthor } = require('../controllers/authors')
 
-const getAuthorsOpts = {
+const getAuthorsOptions = {
   schema: {
     response: {
       200: {
@@ -11,79 +9,85 @@ const getAuthorsOpts = {
           type: 'object',
           properties: {
             id: { type: 'string' },
-            name: { type: 'string' },
-          },
-        },
-      },
-    },
+            name: { type: 'string' }
+          }
+        }
+      }
+    }
   },
-  handler: listAuthors,
+  handler: listAuthors
 }
 
-const getAuthorOpts = {
+const getAuthorOptions = {
   schema: {
     response: {
       200: {
         type: 'object',
         properties: {
           id: { type: 'string' },
-          name: { type: 'string' },
-        },
-      },
-    },
+          name: { type: 'string' }
+        }
+      }
+    }
   },
-  handler: getAuthor,
+  handler: getAuthor
 }
 
-const updateAuthorOpts = {
+const updateAuthorOptions = {
   schema: {
     body: {
       type: 'object',
       required: ['name'],
       properties: {
-        name: { type: 'string' },
-      },
+        name: { type: 'string' }
+      }
     },
     response: {
       200: {
         type: 'object',
         properties: {
-          message: { type: 'string' },
-        },
-      },
-    },
+          message: { type: 'string' }
+        }
+      }
+    }
   },
-  handler: updateAuthor,
+  handler: updateAuthor
 }
 
-const postAuthorOpts = {
+const postAuthorOptions = {
   schema: {
     body: {
       type: 'object',
       required: ['name'],
       properties: {
         name: { type: 'string' },
-        id: { type: 'string' },
-      },
+        id: { type: 'string' }
+      }
     },
     response: {
       201: {
-        type: 'string',
-      },
-    },
+        type: 'string'
+      }
+    }
   },
-  handler: addAuthor,
+  handler: addAuthor
 }
 
-const deleteAuthorOpts = {
+const deleteAuthorOptions = {
   schema: {
     response: {
       200: {
-        type: 'string',
-      },
-    },
+        type: 'string'
+      }
+    }
   },
-  handler: deleteAuthor,
+  handler: deleteAuthor
 }
 
-module.exports = { getAuthorsOpts, getAuthorOpts, updateAuthorOpts, postAuthorOpts, deleteAuthorOpts }
+module.exports = {
+  getAuthorsOpts: getAuthorsOptions,
+  getAuthorOpts: getAuthorOptions,
+  updateAuthorOpts: updateAuthorOptions,
+  postAuthorOpts: postAuthorOptions,
+  deleteAuthorOpts: deleteAuthorOptions
+}

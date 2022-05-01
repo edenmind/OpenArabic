@@ -1,20 +1,19 @@
 'use strict'
 
-const { title } = require('process')
 const { listTexts, addText, getText, updateText, deleteText } = require('../controllers/Texts')
 
-const getTextsOpts = {
+const getTextsOptions = {
   schema: {
     response: {
       200: {
-        type: 'array',
-      },
-    },
+        type: 'array'
+      }
+    }
   },
-  handler: listTexts,
+  handler: listTexts
 }
 
-const getTextOpts = {
+const getTextOptions = {
   schema: {
     response: {
       200: {
@@ -28,15 +27,15 @@ const getTextOpts = {
           source: { type: 'string' },
           sentences: { type: 'array' },
           texts: { arabic: { type: 'object' }, english: { type: 'object' } },
-          vocabularyCollection: { arabic: { type: 'array' }, english: { type: 'array' } },
-        },
-      },
-    },
+          vocabularyCollection: { arabic: { type: 'array' }, english: { type: 'array' } }
+        }
+      }
+    }
   },
-  handler: getText,
+  handler: getText
 }
 
-const updateTextOpts = {
+const updateTextOptions = {
   schema: {
     body: {
       type: 'object',
@@ -48,22 +47,22 @@ const updateTextOpts = {
         category: { type: 'string' },
         source: { type: 'string' },
         sentences: { type: 'array' },
-        texts: { type: 'object' },
-      },
+        texts: { type: 'object' }
+      }
     },
     response: {
       200: {
         type: 'object',
         properties: {
-          message: { type: 'string' },
-        },
-      },
-    },
+          message: { type: 'string' }
+        }
+      }
+    }
   },
-  handler: updateText,
+  handler: updateText
 }
 
-const postTextOpts = {
+const postTextOptions = {
   schema: {
     body: {
       type: 'object',
@@ -75,27 +74,33 @@ const postTextOpts = {
         category: { type: 'string' },
         source: { type: 'string' },
         sentences: { type: 'array' },
-        texts: { type: 'object' },
-      },
+        texts: { type: 'object' }
+      }
     },
     response: {
       201: {
-        type: 'string',
-      },
-    },
+        type: 'string'
+      }
+    }
   },
-  handler: addText,
+  handler: addText
 }
 
-const deleteTextOpts = {
+const deleteTextOptions = {
   schema: {
     response: {
       200: {
-        type: 'string',
-      },
-    },
+        type: 'string'
+      }
+    }
   },
-  handler: deleteText,
+  handler: deleteText
 }
 
-module.exports = { getTextsOpts, getTextOpts, updateTextOpts, postTextOpts, deleteTextOpts }
+module.exports = {
+  getTextsOpts: getTextsOptions,
+  getTextOpts: getTextOptions,
+  updateTextOpts: updateTextOptions,
+  postTextOpts: postTextOptions,
+  deleteTextOpts: deleteTextOptions
+}

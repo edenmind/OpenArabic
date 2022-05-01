@@ -1,6 +1,10 @@
-'use strict'
-
-const { getCategoriesOpts, getCategoryOpts, updateCategoryOpts, postCategoryOpts, deleteCategoryOpts } = require('../schemas/categories')
+const {
+  getCategoriesOpts,
+  getCategoryOpts,
+  updateCategoryOpts,
+  postCategoryOpts,
+  deleteCategoryOpts
+} = require('../schemas/categories')
 
 async function categories(fastify) {
   fastify.get('/categories', getCategoriesOpts)

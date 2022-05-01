@@ -3,27 +3,29 @@ const COLLECTIONS = require('../constants/collections.js')
 
 const ObjectId = require('mongodb').ObjectId
 
-async function listTexts(req, reply) {
+async function listTexts(request, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const textList = req.params.id ? await texts.find({ category: req.params.id }).toArray() : await texts.find({}).toArray()
+  const textList = request.params.id
+    ? await texts.find({ category: request.params.id }).toArray()
+    : await texts.find({}).toArray()
 
   reply.code(200).send(textList)
 }
 
-async function addText(req, reply) {
+async function addText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
-  const { title, author, category, source, sentences, texts, status } = req.body
+  const { title, author, category, source, sentences, texts, status } = request.body
   const data = { title, author, category, source, id, sentences, texts, status }
   const result = await textsCollection.insertOne(data)
 
   reply.code(201).send(result.insertedId)
 }
 
-async function getText(req, reply) {
+async function getText(request, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
 
-  const text = await texts.findOne({ id: new ObjectId(req.params.id) })
+  const text = await texts.findOne({ id: new ObjectId(request.params.id) })
 
   const vocabularyCollection = produceVocabularyCollection(text)
   text.vocabularyCollection = vocabularyCollection
@@ -31,33 +33,35 @@ async function getText(req, reply) {
   text ? reply.send(text) : reply.notFound('The Text was not found')
 }
 
-async function updateText(req, reply) {
+async function updateText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const { title, author, category, sentences, source, texts, status } = req.body
+  const { title, author, category, sentences, source, texts, status } = request.body
   const { arabic, english } = texts
-  const updateDoc = {
+  const updateDocument = {
     $set: {
       title,
       category,
       status,
       texts: {
         arabic,
-        english,
+        english
       },
       author,
       source,
-      sentences,
-    },
+      sentences
+    }
   }
-  const result = await textsCollection.updateOne({ id: new ObjectId(req.params.id) }, updateDoc, { upsert: true })
+  const result = await textsCollection.updateOne({ id: new ObjectId(request.params.id) }, updateDocument, {
+    upsert: true
+  })
   reply.send({
-    message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
+    message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`
   })
 }
 
-async function deleteText(req, reply) {
+async function deleteText(request, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const result = await texts.deleteOne({ id: new ObjectId(req.params.id) })
+  const result = await texts.deleteOne({ id: new ObjectId(request.params.id) })
   result.deletedCount ? reply.send('Deleted') : reply.internalServerError('Could not delete Text.')
 }
 
@@ -73,34 +77,34 @@ function produceVocabularyCollection(text) {
   const arabicVocabulary = []
   const englishVocabulary = []
 
-  text.sentences.forEach((sentence) => {
+  for (const sentence of text.sentences) {
     if (arabicVocabulary.length === 5) {
-      return
+      continue
     }
-    sentence.words.forEach((word) => {
+    for (const word of sentence.words) {
       if (arabicVocabulary.length === 5) {
-        return
+        continue
       }
       const wordId = uuidv4()
 
       const arabicWord = {
         word: word.arabic,
-        wordId,
+        wordId
       }
 
       const englishWord = {
         word: word.english,
-        wordId,
+        wordId
       }
 
       arabicVocabulary.push(arabicWord)
       englishVocabulary.push(englishWord)
-    })
-  })
+    }
+  }
 
   return {
     arabic: shuffleArray(arabicVocabulary),
-    english: shuffleArray(englishVocabulary),
+    english: shuffleArray(englishVocabulary)
   }
 }
 

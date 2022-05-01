@@ -1,6 +1,10 @@
-'use strict'
-
-const { getAuthorsOpts, getAuthorOpts, updateAuthorOpts, postAuthorOpts, deleteAuthorOpts } = require('../schemas/authors')
+const {
+  getAuthorsOpts,
+  getAuthorOpts,
+  updateAuthorOpts,
+  postAuthorOpts,
+  deleteAuthorOpts
+} = require('../schemas/authors')
 
 async function authors(fastify) {
   fastify.get('/authors', getAuthorsOpts)

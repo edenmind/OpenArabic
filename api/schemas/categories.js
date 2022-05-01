@@ -1,8 +1,12 @@
-'use strict'
+const {
+  listCategories,
+  addCategory,
+  getCategory,
+  updateCategory,
+  deleteCategory
+} = require('../controllers/categories')
 
-const { listCategories, addCategory, getCategory, updateCategory, deleteCategory } = require('../controllers/Categories')
-
-const getCategoriesOpts = {
+const getCategoriesOptions = {
   schema: {
     response: {
       200: {
@@ -11,16 +15,16 @@ const getCategoriesOpts = {
           type: 'object',
           properties: {
             id: { type: 'string' },
-            name: { type: 'string' },
-          },
-        },
-      },
-    },
+            name: { type: 'string' }
+          }
+        }
+      }
+    }
   },
-  handler: listCategories,
+  handler: listCategories
 }
 
-const getCategoryOpts = {
+const getCategoryOptions = {
   schema: {
     response: {
       200: {
@@ -28,63 +32,69 @@ const getCategoryOpts = {
         properties: {
           id: { type: 'string' },
 
-          name: { type: 'string' },
-        },
-      },
-    },
+          name: { type: 'string' }
+        }
+      }
+    }
   },
-  handler: getCategory,
+  handler: getCategory
 }
 
-const updateCategoryOpts = {
+const updateCategoryOptions = {
   schema: {
     body: {
       type: 'object',
       required: ['name'],
       properties: {
-        name: { type: 'string' },
-      },
+        name: { type: 'string' }
+      }
     },
     response: {
       200: {
         type: 'object',
         properties: {
-          message: { type: 'string' },
-        },
-      },
-    },
+          message: { type: 'string' }
+        }
+      }
+    }
   },
-  handler: updateCategory,
+  handler: updateCategory
 }
 
-const postCategoryOpts = {
+const postCategoryOptions = {
   schema: {
     body: {
       type: 'object',
       required: ['name'],
       properties: {
         name: { type: 'string' },
-        id: { type: 'string' },
-      },
+        id: { type: 'string' }
+      }
     },
     response: {
       201: {
-        type: 'string',
-      },
-    },
+        type: 'string'
+      }
+    }
   },
-  handler: addCategory,
+  handler: addCategory
 }
 
-const deleteCategoryOpts = {
+const deleteCategoryOptions = {
   schema: {
     response: {
       200: {
-        type: 'string',
-      },
-    },
+        type: 'string'
+      }
+    }
   },
-  handler: deleteCategory,
+  handler: deleteCategory
 }
 
-module.exports = { getCategoriesOpts, getCategoryOpts, updateCategoryOpts, postCategoryOpts, deleteCategoryOpts }
+module.exports = {
+  getCategoriesOpts: getCategoriesOptions,
+  getCategoryOpts: getCategoryOptions,
+  updateCategoryOpts: updateCategoryOptions,
+  postCategoryOpts: postCategoryOptions,
+  deleteCategoryOpts: deleteCategoryOptions
+}
