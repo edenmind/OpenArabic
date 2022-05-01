@@ -1,3 +1,5 @@
+'use strict'
+
 const schema = {
   type: 'object',
   required: ['MONGO_DB_URL'],
@@ -8,4 +10,6 @@ const schema = {
   }
 }
 
-module.exports = { schema }
+module.exports = {
+  schema
+}

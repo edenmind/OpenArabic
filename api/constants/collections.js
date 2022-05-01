@@ -1,3 +1,5 @@
+'use strict'
+
 const collections = {
   TEXTS: 'texts',
   CATEGORIES: 'categories',

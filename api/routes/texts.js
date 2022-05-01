@@ -1,5 +1,8 @@
+'use strict'
+
 const { getTextsOpts, getTextOpts, updateTextOpts, postTextOpts, deleteTextOpts } = require('../schemas/texts')
 
+// eslint-disable-next-line putout/putout
 async function texts(fastify) {
   fastify.get('/texts', getTextsOpts)
   fastify.get('/texts/categories/:id', getTextsOpts)

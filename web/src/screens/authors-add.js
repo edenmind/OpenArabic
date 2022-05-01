@@ -1,11 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 
-import Footer from '../components/footer'
+import Footer from '../components/footer.js'
 import { Link } from 'react-router-dom'
-import Nav from '../components/nav'
+import Nav from '../components/nav.js'
 import React from 'react'
-import SnackBar from '../components/snack-bar'
+import SnackBar from '../components/snack-bar.js'
 import axios from 'axios'
 
 const AuthorsAdd = () => {
@@ -60,7 +59,7 @@ const AuthorsAdd = () => {
 
         <div style={divStyle}>
           <Stack spacing={2} direction="row">
-            <Button variant="contained" onClick={addAuthor} disabled={5 > author.length}>
+            <Button variant="contained" onClick={addAuthor} disabled={author.length < 5}>
               Add
             </Button>
             <Link to="/authors">

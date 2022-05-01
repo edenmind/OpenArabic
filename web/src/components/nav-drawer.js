@@ -1,6 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable unicorn/prevent-abbreviations */
-
 import * as React from 'react'
 
 import { Box, Button, Divider, Drawer, List, ListItem } from '@mui/material'
@@ -28,7 +25,8 @@ function NavDrawer(props) {
         sx={{ width: 250 }}
         role="presentation"
         onClick={props.toggleDrawer('left', false)}
-        onKeyDown={props.toggleDrawer('left', false)}>
+        onKeyDown={props.toggleDrawer('left', false)}
+      >
         <List>
           {categories.map((category, index) => (
             <ListItem key={index}>

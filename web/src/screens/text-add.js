@@ -1,28 +1,29 @@
-/* eslint-disable react/react-in-jsx-scope */
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Box from '@mui/material/Box'
-import Heading from './text-add-heading'
-import Nav from '../components/nav'
-import Progress from '../components/progress'
-import Sentences from './text-add-sentence'
+import Heading from './text-add-heading.js'
+import Nav from '../components/nav.js'
+import Progress from '../components/progress.js'
+import Sentences from './text-add-sentence.js'
 import Tab from '@mui/material/Tab'
-import { TabPanel } from '../components/tab-panel'
+import { TabPanel } from '../components/tab-panel.js'
 import Tabs from '@mui/material/Tabs'
-import TextAddPreview from './text-add-preview'
-import TextAddWords from './text-add-words'
-import { getText } from '../services/api-service'
+import TextAddPreview from './text-add-preview.js'
+import TextAddWords from './text-add-words.js'
+import { getText } from '../services/api-service.js'
 import { useParams } from 'react-router-dom'
 
 const selector = (state) => state.text
 
 function a11yProperties(index) {
   return {
+    // eslint-disable-next-line quote-props
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`
   }
 }
+
 export default function TextAdd() {
   const [value, setValue] = React.useState(0)
 
@@ -43,6 +44,7 @@ export default function TextAdd() {
     } else {
       dispatch({ type: 'RESET_TEXT' })
     }
+
     setIsLoading(false)
   }, [dispatch, id])
 

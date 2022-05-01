@@ -1,10 +1,9 @@
-/* eslint-disable react/react-in-jsx-scope */
 import * as React from 'react'
 
 import { Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
-import MenuSelect from '../components/menu-select'
+import MenuSelect from '../components/menu-select.js'
 import axios from 'axios'
 
 const selector = (state) => state.text
@@ -20,12 +19,13 @@ const TextAddHeading = () => {
 
   const [categories, setCategories] = React.useState([])
   const [authors, setAuthors] = React.useState([])
+  // eslint-disable-next-line putout/objects-braces-inside-array
   const [statuses] = React.useState([
     { id: 1, name: 'Draft' },
     { id: 2, name: 'Published' }
   ])
 
-  const text = useSelector(selector)
+  const { text } = useSelector(selector)
 
   React.useEffect(() => {
     axios

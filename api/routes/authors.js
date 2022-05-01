@@ -1,3 +1,5 @@
+'use strict'
+
 const {
   getAuthorsOpts,
   getAuthorOpts,
@@ -6,6 +8,7 @@ const {
   deleteAuthorOpts
 } = require('../schemas/authors')
 
+// eslint-disable-next-line putout/putout
 async function authors(fastify) {
   fastify.get('/authors', getAuthorsOpts)
   fastify.post('/authors', postAuthorOpts)

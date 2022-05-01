@@ -1,14 +1,13 @@
-/* eslint-disable react/react-in-jsx-scope */
 import * as React from 'react'
-import * as wordProcessing from '../services/word-processing'
+import * as wordProcessing from '../services/word-processing.js'
 
 import { Button, Chip, TextField, Tooltip } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Fragment } from 'react'
-import MatchingIndicator from '../components/matching-indicator'
+import MatchingIndicator from '../components/matching-indicator.js'
 import Paper from '@mui/material/Paper'
-import SnackBar from '../components/snack-bar'
+import SnackBar from '../components/snack-bar.js'
 import Stack from '@mui/material/Stack'
 import axios from 'axios'
 import { styled } from '@mui/material/styles'
@@ -24,7 +23,7 @@ const selector = (state) => state.text
 const TextAddSentences = () => {
   const dispatch = useDispatch()
 
-  const text = useSelector(selector)
+  const { text } = useSelector(selector)
   const [englishSentenceCount, setEnglishSentenceCount] = React.useState(0)
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)
   const [open, setOpen] = React.useState(false)
@@ -42,7 +41,9 @@ const TextAddSentences = () => {
   function handleChangeEnglish(event) {
     const englishSentence = wordProcessing.splitTextToSentences(event.target.value)
     setEnglishSentenceCount(englishSentence.length)
+
     const englishWords = []
+
     for (const sentence of englishSentence) {
       const theEnglishWordsSentence = wordProcessing.splitSentencesToWords(sentence)
       englishWords.push(theEnglishWordsSentence)
@@ -57,12 +58,15 @@ const TextAddSentences = () => {
     const arabicSentence = wordProcessing.splitTextToSentences(event.target.value)
     const cleanWords = wordProcessing.cleanWordFromInvalidCharacters(event.target.value)
     const arabicSentencesProcessed = wordProcessing.splitTextToSentences(cleanWords)
+
     setArabicSentenceCount(arabicSentencesProcessed.length)
 
     const arabicWords = []
+
     for (const sentence of arabicSentencesProcessed) {
       const theArabicWordsSentence = wordProcessing.splitSentencesToWords(sentence)
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
+
       arabicWords.push(cleanFromNullAndEmpty)
     }
 
@@ -95,6 +99,7 @@ const TextAddSentences = () => {
       }
       sentences.push(sentence)
     }
+
     setStatusMessage(`${sentences.length} sentences generated`)
     setOpen(true)
     dispatch({ type: 'SET_SENTENCES', sentences })
@@ -103,6 +108,7 @@ const TextAddSentences = () => {
   const handleAdd = () => {
     const { title, author, category, sentences, source, texts, status } = text
     const { arabic, english } = texts
+
     axios({
       method: 'post',
       url: `${process.env.REACT_APP_API_URL}/texts`,
@@ -134,6 +140,7 @@ const TextAddSentences = () => {
   const handleUpdate = () => {
     const { title, author, category, sentences, source, texts, status } = text
     const { arabic, english } = texts
+
     axios({
       method: 'put',
       url: `${process.env.REACT_APP_API_URL}/texts/${id}`,

@@ -1,11 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 
-import Footer from '../components/footer'
+import Footer from '../components/footer.js'
 import { Link } from 'react-router-dom'
-import Nav from '../components/nav'
+import Nav from '../components/nav.js'
 import React from 'react'
-import SnackBar from '../components/snack-bar'
+import SnackBar from '../components/snack-bar.js'
 import axios from 'axios'
 
 const CategoriesAdd = () => {
@@ -41,7 +40,7 @@ const CategoriesAdd = () => {
       .catch((error) => console.log(error))
   }
 
-  const validCategoryLength = 5 > category.length
+  const validCategoryLength = category.length < 5
 
   return (
     <React.Fragment>

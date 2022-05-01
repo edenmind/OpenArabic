@@ -1,7 +1,9 @@
+'use strict'
+
 const { v4: uuidv4 } = require('uuid')
 const COLLECTIONS = require('../constants/collections.js')
 
-const ObjectId = require('mongodb').ObjectId
+const { ObjectId } = require('mongodb')
 
 async function listTexts(request, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
@@ -16,7 +18,16 @@ async function addText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
   const { title, author, category, source, sentences, texts, status } = request.body
-  const data = { title, author, category, source, id, sentences, texts, status }
+  const data = {
+    title,
+    author,
+    category,
+    source,
+    id,
+    sentences,
+    texts,
+    status
+  }
   const result = await textsCollection.insertOne(data)
 
   reply.code(201).send(result.insertedId)
@@ -54,6 +65,7 @@ async function updateText(request, reply) {
   const result = await textsCollection.updateOne({ id: new ObjectId(request.params.id) }, updateDocument, {
     upsert: true
   })
+
   reply.send({
     message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`
   })
@@ -73,6 +85,7 @@ const shuffleArray = (array) => {
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
 }
+
 function produceVocabularyCollection(text) {
   const arabicVocabulary = []
   const englishVocabulary = []
@@ -81,10 +94,12 @@ function produceVocabularyCollection(text) {
     if (arabicVocabulary.length === 5) {
       continue
     }
+
     for (const word of sentence.words) {
       if (arabicVocabulary.length === 5) {
         continue
       }
+
       const wordId = uuidv4()
 
       const arabicWord = {
@@ -108,4 +123,10 @@ function produceVocabularyCollection(text) {
   }
 }
 
-module.exports = { listTexts, addText, getText, updateText, deleteText }
+module.exports = {
+  listTexts,
+  addText,
+  getText,
+  updateText,
+  deleteText
+}

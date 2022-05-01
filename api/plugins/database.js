@@ -1,3 +1,6 @@
+'use strict'
+
+/* eslint-disable prefer-arrow-callback */
 const fastifyMongo = require('@fastify/mongodb')
 const fastifyPlugin = require('fastify-plugin')
 

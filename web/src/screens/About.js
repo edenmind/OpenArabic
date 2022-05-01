@@ -1,8 +1,7 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Box, Button, Container, Link, List, ListItem, Stack, Typography } from '@mui/material'
 
-import Footer from '../components/footer'
-import Nav from '../components/nav'
+import Footer from '../components/footer.js'
+import Nav from '../components/nav.js'
 import React from 'react'
 import axios from 'axios'
 
@@ -17,20 +16,24 @@ const About = () => {
       .catch((error) => console.log(error))
   }, [])
 
+  // eslint-disable-next-line no-extra-parens
   const authorsList = authors.map((author, index) => (
     <ListItem key={index}>
       <Typography variant="span">{author.name}</Typography>
     </ListItem>
   ))
 
+  const title = 'h6.fontSize'
+  const subTitle = 'h5.fontSize'
+
   return (
     <React.Fragment>
       <Nav />
       <Container maxWidth="lg">
         <Typography component="div">
-          <Box sx={{ fontSize: 'h6.fontSize', m: 2 }}>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</Box>
+          <Box sx={{ fontSize: title, m: 2 }}>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</Box>
 
-          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Audience</Box>
+          <Box sx={{ fontSize: subTitle, m: 2 }}>Audience</Box>
 
           <Box sx={{ m: 2 }}>
             If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
@@ -46,13 +49,13 @@ const About = () => {
             might come in handy.
           </Box>
 
-          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Technological Platform</Box>
+          <Box sx={{ fontSize: subTitle, m: 2 }}>Technological Platform</Box>
           <Box sx={{ m: 2 }}>
             The platform that OpenArabic runs upon is built using Open Source tools such as React Native, Fastify,
             MongoDB and Kubernetes.
           </Box>
 
-          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Foundation</Box>
+          <Box sx={{ fontSize: subTitle, m: 2 }}>Foundation</Box>
           <Box sx={{ m: 2 }}>
             The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first
             generations of Muslims understanding with texts from Islamic Scholars such as:
@@ -60,7 +63,7 @@ const About = () => {
 
           <List>{authorsList}</List>
 
-          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Founder</Box>
+          <Box sx={{ fontSize: subTitle, m: 2 }}>Founder</Box>
           <Box sx={{ m: 2 }}>
             OpenArabic.io was founded by Yūnus Andréasson in 1442 AH or 2020 AD. Yūnus is a convert to Islam since ~20
             years ago residing in Sweden working as a Software Developer. If you want to reach out, then please send an
@@ -68,7 +71,7 @@ const About = () => {
             <Link href="https://twitter.com/YunusAndreasson">Twitter</Link>.
           </Box>
 
-          <Box sx={{ fontSize: 'h5.fontSize', m: 2 }}>Contact</Box>
+          <Box sx={{ fontSize: subTitle, m: 2 }}>Contact</Box>
           <Box sx={{ m: 2 }}>
             If you find any bugs 🐛 or have any feature suggestions 💭 on how to improve OpenArabic, then please use any
             of the following channels:.

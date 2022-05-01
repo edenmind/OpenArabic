@@ -1,11 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope */
-import * as apiService from '../services/api-service'
+import * as apiService from '../services/api-service.js'
 
 import { Box, Grid } from '@mui/material'
 import React, { Fragment } from 'react'
 
-import Progress from '../components/progress'
-import TextListCard from './text-list-card'
+import Progress from '../components/progress.js'
+import TextListCard from './text-list-card.js'
 
 const TextList = (properties) => {
   const [texts, setTexts] = React.useState([])

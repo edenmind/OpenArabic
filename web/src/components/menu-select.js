@@ -1,6 +1,3 @@
-/* eslint-disable unicorn/prevent-abbreviations */
-/* eslint-disable react/react-in-jsx-scope */
-
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 
 import PropTypes from 'prop-types'
@@ -14,7 +11,8 @@ function MenuSelect(props) {
         id={props.Heading}
         value={props.value}
         label={props.Heading}
-        onChange={props.onChangeFunc}>
+        onChange={props.onChangeFunc}
+      >
         <MenuItem disabled value="">
           <em>Select...</em>
         </MenuItem>

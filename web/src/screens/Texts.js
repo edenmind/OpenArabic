@@ -1,18 +1,17 @@
-/* eslint-disable react/react-in-jsx-scope */
-import * as apiService from '../services/api-service'
+import * as apiService from '../services/api-service.js'
 
 import { Button, Container, IconButton, Tooltip } from '@mui/material'
 
-import ConfirmationDialog from '../components/confirmation-dialog'
+import ConfirmationDialog from '../components/confirmation-dialog.js'
 import { DataGrid } from '@mui/x-data-grid'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import EditIcon from '@mui/icons-material/Edit'
-import Footer from '../components/footer'
+import Footer from '../components/footer.js'
 import { Link } from 'react-router-dom'
-import Nav from '../components/nav'
-import Progress from '../components/progress'
+import Nav from '../components/nav.js'
+import Progress from '../components/progress.js'
 import React from 'react'
-import SnackBar from '../components/snack-bar'
+import SnackBar from '../components/snack-bar.js'
 import axios from 'axios'
 
 export default function Texts() {
@@ -22,6 +21,7 @@ export default function Texts() {
   const [openDialog, setOpenDialog] = React.useState(false)
   const [selectedText, setSelectedText] = React.useState()
 
+  // eslint-disable-next-line putout/objects-braces-inside-array
   const columns = [
     {
       field: 'title',
@@ -85,7 +85,8 @@ export default function Texts() {
             color="primary"
             aria-label="upload picture"
             component="span"
-            onClick={() => handleClickOpen(parameters.row.id)}>
+            onClick={() => handleClickOpen(parameters.row.id)}
+          >
             <DeleteForeverIcon />
           </IconButton>
         </Tooltip>

@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Button, Card, CardActions, CardContent, Divider, Typography } from '@mui/material'
 
 import { Fragment } from 'react'

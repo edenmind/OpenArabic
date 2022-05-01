@@ -1,16 +1,15 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Button, Chip, Stack } from '@mui/material'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import SnackBar from '../components/snack-bar'
+import SnackBar from '../components/snack-bar.js'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 const selector = (state) => state.text
 
 function TextAddPreviewSave() {
-  const text = useSelector(selector)
+  const { text } = useSelector(selector)
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const { id } = useParams()
@@ -21,12 +20,14 @@ function TextAddPreviewSave() {
     if (reason === 'clickaway') {
       return
     }
+
     setOpenSnackbar(false)
   }
 
   const handleAdd = () => {
     const { title, author, category, sentences, source, texts } = text
     const { arabic, english } = texts
+
     axios({
       method: 'post',
       url: `${process.env.REACT_APP_API_URL}/texts`,
@@ -57,14 +58,16 @@ function TextAddPreviewSave() {
   }
 
   const handleUpdate = () => {
-    const { title, author, category, sentences, source, texts } = text
+    const { title, author, category, sentences, source, texts, status } = text
     const { arabic, english } = texts
+
     axios({
       method: 'put',
       url: `${process.env.REACT_APP_API_URL}/texts/${id}`,
       data: {
         title,
         category,
+        status,
         texts: {
           arabic,
           english

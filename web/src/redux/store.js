@@ -1,4 +1,5 @@
-import * as reducers from './reducers'
+/* eslint-disable putout/remove-empty-newline-after-import */
+import * as reducers from './reducers.js'
 
 import { configureStore } from '@reduxjs/toolkit'
 

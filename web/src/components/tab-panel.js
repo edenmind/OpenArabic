@@ -1,5 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
-
 import Box from '@mui/material/Box'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
@@ -13,7 +11,8 @@ export function TabPanel(properties) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
-      {...other}>
+      {...other}
+    >
       {value === index && (
         <Box sx={{ p: 3 }}>
           <Typography>{children}</Typography>

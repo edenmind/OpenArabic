@@ -29,6 +29,7 @@ export const cleanWordFromInvalidCharacters = (wordToClean) => {
     '،',
     '-'
   ]
+
   for (const character of invalidCharacters) {
     wordToClean = wordToClean.replaceAll(character, '')
   }
@@ -42,6 +43,7 @@ export const truncateString = (sentences, number_ = 135) => {
   }
 
   let ingress = ''
+
   for (const sentence of sentences) {
     ingress += sentence.arabic
   }

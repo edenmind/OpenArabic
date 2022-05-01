@@ -1,10 +1,8 @@
-/* eslint-disable react/react-in-jsx-scope */
-
 import * as React from 'react'
 
 import Box from '@mui/material/Box'
-import NavAppBar from './nav-app-bar'
-import NavDrawer from './nav-drawer'
+import NavAppBar from './nav-app-bar.js'
+import NavDrawer from './nav-drawer.js'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function Nav() {

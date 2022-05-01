@@ -1,10 +1,9 @@
-/* eslint-disable react/react-in-jsx-scope */
 import React, { Fragment } from 'react'
 
 import { Container } from '@mui/material'
-import Footer from '../components/footer'
-import Nav from '../components/nav'
-import TextList from './text-list'
+import Footer from '../components/footer.js'
+import Nav from '../components/nav.js'
+import TextList from './text-list.js'
 import { useParams } from 'react-router-dom'
 
 const Home = () => {

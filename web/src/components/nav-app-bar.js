@@ -1,12 +1,9 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable unicorn/prevent-abbreviations */
-
 import AppBar from '@mui/material/AppBar'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import { Link } from 'react-router-dom'
-import LoginButton from './login-button'
-import LogoutButton from './logout-button'
+import LoginButton from './login-button.js'
+import LogoutButton from './logout-button.js'
 import MenuIcon from '@mui/icons-material/Menu'
 import PropTypes from 'prop-types'
 import Toolbar from '@mui/material/Toolbar'
@@ -22,7 +19,8 @@ function NavAppBar(props) {
           color="inherit"
           aria-label="menu"
           onClick={props.toggleDrawer('left', true)}
-          sx={{ mr: 2 }}>
+          sx={{ mr: 2 }}
+        >
           <MenuIcon />
         </IconButton>
         <Typography component="div" sx={{ flexGrow: 1 }}>

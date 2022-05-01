@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Box } from '@mui/system'
 import { Fragment } from 'react'
 import PropTypes from 'prop-types'

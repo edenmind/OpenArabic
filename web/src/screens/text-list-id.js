@@ -1,11 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Container, Divider, Grid } from '@mui/material'
 
 import CircularProgress from '@mui/material/CircularProgress'
-import Footer from '../components/footer'
-import Nav from '../components/nav'
+import Footer from '../components/footer.js'
+import Nav from '../components/nav.js'
 import React from 'react'
-import TextListIdSentences from './text-list-id-sentences'
+import TextListIdSentences from './text-list-id-sentences.js'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
@@ -31,7 +30,8 @@ function TextListId() {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      style={{ minHeight: '100vh' }}>
+      style={{ minHeight: '100vh' }}
+    >
       <Grid item xs={3}>
         <CircularProgress />
       </Grid>

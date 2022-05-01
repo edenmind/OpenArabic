@@ -1,11 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
 
-import Footer from '../components/footer'
-import Nav from '../components/nav'
+import Footer from '../components/footer.js'
+import Nav from '../components/nav.js'
 import React from 'react'
-import SnackBar from '../components/snack-bar'
+import SnackBar from '../components/snack-bar.js'
 import axios from 'axios'
 
 const CategoriesUpdate = () => {

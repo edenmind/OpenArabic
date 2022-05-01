@@ -1,6 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable unicorn/prevent-abbreviations */
-
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material'
 
 import PropTypes from 'prop-types'
@@ -11,7 +8,8 @@ function ConfirmationDialog(props) {
       open={props.openState}
       onClose={props.handleCloseDialog}
       aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description">
+      aria-describedby="alert-dialog-description"
+    >
       <DialogTitle id="alert-dialog-title">{'Confirm'}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">{props.confirmationQuestion}</DialogContentText>

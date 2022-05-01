@@ -1,6 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable unicorn/prevent-abbreviations */
-
 import { Chip } from '@mui/material'
 import PropTypes from 'prop-types'
 

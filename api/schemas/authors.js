@@ -1,3 +1,5 @@
+'use strict'
+
 const { listAuthors, addAuthor, getAuthor, updateAuthor, deleteAuthor } = require('../controllers/authors')
 
 const getAuthorsOptions = {

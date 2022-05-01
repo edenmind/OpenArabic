@@ -1,13 +1,12 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Button, Container } from '@mui/material'
 
-import AuthorsList from './authors-list'
-import ConfirmationDialog from '../components/confirmation-dialog'
-import Footer from '../components/footer'
+import AuthorsList from './authors-list.js'
+import ConfirmationDialog from '../components/confirmation-dialog.js'
+import Footer from '../components/footer.js'
 import { Link } from 'react-router-dom'
-import Nav from '../components/nav'
+import Nav from '../components/nav.js'
 import React from 'react'
-import SnackBar from '../components/snack-bar'
+import SnackBar from '../components/snack-bar.js'
 import axios from 'axios'
 
 const Authors = () => {

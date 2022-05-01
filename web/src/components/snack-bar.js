@@ -1,14 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable unicorn/prevent-abbreviations */
-
 import MuiAlert from '@mui/material/Alert'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Snackbar } from '@mui/material'
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
-})
+// eslint-disable-next-line react/display-name
+const Alert = React.forwardRef((props, ref) => <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />)
 
 function SnackBar(props) {
   return (

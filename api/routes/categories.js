@@ -1,3 +1,5 @@
+'use strict'
+
 const {
   getCategoriesOpts,
   getCategoryOpts,
@@ -6,6 +8,7 @@ const {
   deleteCategoryOpts
 } = require('../schemas/categories')
 
+// eslint-disable-next-line putout/putout
 async function categories(fastify) {
   fastify.get('/categories', getCategoriesOpts)
   fastify.post('/categories', postCategoryOpts)
