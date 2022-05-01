@@ -22,7 +22,8 @@ const TextAddHeading = () => {
   // eslint-disable-next-line putout/objects-braces-inside-array
   const [statuses] = React.useState([
     { id: 1, name: 'Draft' },
-    { id: 2, name: 'Published' }
+    { id: 2, name: 'Validated' },
+    { id: 3, name: 'Published' }
   ])
 
   const { text } = useSelector(selector)

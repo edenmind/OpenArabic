@@ -1,6 +1,7 @@
 import { Box, Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
+import Chip from '@mui/material/Chip'
 import { Fragment } from 'react'
 
 const selector = (state) => state.text
@@ -38,7 +39,10 @@ function TextAddWords() {
       </Fragment>
     ))
   ) : (
-    <h3>No words added... please add some sentences and try again.</h3>
+    <Fragment>
+      <Chip color="warning" label="No Words Added" />
+      <h3>Please add some sentences and generate a list of words.</h3>
+    </Fragment>
   )
 }
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as wordProcessing from '../services/word-processing.js'
 
-import { Button, Chip, TextField, Tooltip } from '@mui/material'
+import { Button, ButtonGroup, Chip, TextField, Tooltip } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Fragment } from 'react'
@@ -183,23 +183,25 @@ const TextAddSentences = () => {
         <Chip label={englishSentencesCountMessage} />
         <Chip label={arabicSentencesCountMessage} />
 
-        <Tooltip title="Save an unfinished draft of the text.">
-          {id ? (
-            <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => handleUpdate()}>
-              Save Draft
-            </Button>
-          ) : (
-            <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => handleAdd()}>
-              Save Draft
-            </Button>
-          )}
-        </Tooltip>
+        <ButtonGroup variant="outlined">
+          <Tooltip title="Save an unfinished draft of the text.">
+            {id ? (
+              <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => handleUpdate()}>
+                Save Draft
+              </Button>
+            ) : (
+              <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => handleAdd()}>
+                Save Draft
+              </Button>
+            )}
+          </Tooltip>
 
-        <Tooltip title="Generate english and arabic word pairs for matching.">
-          <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => generateSentences()}>
-            Generate Words
-          </Button>
-        </Tooltip>
+          <Tooltip title="Generate english and arabic word pairs for matching.">
+            <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => generateSentences()}>
+              Generate Words
+            </Button>
+          </Tooltip>
+        </ButtonGroup>
       </Stack>
       <Stack direction="row" spacing={2}>
         <Item>

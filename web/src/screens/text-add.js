@@ -10,6 +10,7 @@ import Tab from '@mui/material/Tab'
 import { TabPanel } from '../components/tab-panel.js'
 import Tabs from '@mui/material/Tabs'
 import TextAddPreview from './text-add-preview.js'
+import TextAddPublish from './text-add-publish.js'
 import TextAddWords from './text-add-words.js'
 import { getText } from '../services/api-service.js'
 import { useParams } from 'react-router-dom'
@@ -65,6 +66,7 @@ export default function TextAdd() {
               <Tab label="Sentences" {...a11yProperties(1)} />
               <Tab label="Words" {...a11yProperties(2)} />
               <Tab label="Preview" {...a11yProperties(3)} />
+              <Tab label="Publish" {...a11yProperties(4)} />
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -78,6 +80,9 @@ export default function TextAdd() {
           </TabPanel>
           <TabPanel value={value} index={3}>
             <TextAddPreview />
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+            <TextAddPublish />
           </TabPanel>
         </Box>
       </Box>

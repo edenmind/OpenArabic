@@ -1,9 +1,8 @@
-import { Container, Divider } from '@mui/material'
+import { Chip, Container, Divider } from '@mui/material'
+import React, { Fragment } from 'react'
 
 import Footer from '../components/footer.js'
 import Grid from '@mui/material/Grid'
-import React from 'react'
-import SaveText from './text-add-preview-save.js'
 import TextListIdSentences from './text-list-id-sentences.js'
 import { useSelector } from 'react-redux'
 
@@ -28,13 +27,15 @@ function TextAddPreview() {
           <h4>{text.source}</h4>
           <Divider width="200" />
           <TextListIdSentences sentences={text.sentences} />
-          <SaveText />
         </Grid>
         <Footer />
       </Container>
     </React.Fragment>
   ) : (
-    <h3>No text to preview... please add some sentences and try again.</h3>
+    <Fragment>
+      <Chip color="warning" label="No Preview Available" />
+      <h3>Please add some information in the other tabs and try again.</h3>
+    </Fragment>
   )
 }
 
