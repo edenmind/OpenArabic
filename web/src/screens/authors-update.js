@@ -2,14 +2,14 @@
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
 
-import Footer from '../components/Footer'
-import Nav from '../components/Nav'
+import Footer from '../components/footer'
+import Nav from '../components/nav'
 import React from 'react'
-import SnackBar from '../components/SnackBar'
+import SnackBar from '../components/snack-bar'
 import axios from 'axios'
 
-const CategoriesUpdate = () => {
-  const [category, setCategory] = React.useState('')
+const AuthorsUpdate = () => {
+  const [author, setAuthor] = React.useState('')
   const [open, setOpen] = React.useState(false)
   const [status, setStatus] = React.useState('')
 
@@ -29,24 +29,24 @@ const CategoriesUpdate = () => {
 
   React.useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/categories/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/authors/${id}`)
       .then((response) => {
-        setCategory(response.data.name)
+        setAuthor(response.data.name)
       })
       .catch((error) => console.log(error))
   }, [id])
 
-  const updateCategory = () => {
+  const updateAuthor = () => {
     axios({
       method: 'put',
-      url: `${process.env.REACT_APP_API_URL}/categories/${id}`,
+      url: `${process.env.REACT_APP_API_URL}/authors/${id}`,
       data: {
-        name: category
+        name: author
       }
     })
       .then((response) => {
         if (response.status === 200) {
-          setStatus('Updated category: ' + response.data.message)
+          setStatus(`Updated author: ${response.data.message}`)
           setOpen(true)
         }
       })
@@ -57,7 +57,7 @@ const CategoriesUpdate = () => {
     <React.Fragment>
       <Nav />
       <Container maxWidth="lg">
-        <h2>Update Category</h2>
+        <h2>Update Author</h2>
 
         <FormControl fullWidth>
           <TextField
@@ -65,26 +65,27 @@ const CategoriesUpdate = () => {
             id="outlined-basic"
             label="Name"
             variant="outlined"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
+            value={author}
+            onChange={(event) => setAuthor(event.target.value)}
           />
         </FormControl>
 
         <div style={divStyle}>
           <Stack spacing={2} direction="row">
-            <Button variant="contained" onClick={updateCategory}>
+            <Button variant="contained" onClick={updateAuthor}>
               Update
             </Button>
-            <Link to="/categories">
+            <Link to="/authors">
               <Button variant="outlined">Back</Button>
             </Link>
           </Stack>
         </div>
         <Footer />
       </Container>
+
       <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity="success" message={status} />
     </React.Fragment>
   )
 }
 
-export default CategoriesUpdate
+export default AuthorsUpdate

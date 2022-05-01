@@ -3,34 +3,34 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Box from '@mui/material/Box'
-import Heading from './TextAddHeading'
-import Nav from '../components/Nav'
-import Progress from '../components/Progress'
-import Sentences from './TextAddSentences'
+import Heading from './text-add-heading'
+import Nav from '../components/nav'
+import Progress from '../components/progress'
+import Sentences from './text-add-sentence'
 import Tab from '@mui/material/Tab'
-import { TabPanel } from '../components/TabPanel'
+import { TabPanel } from '../components/tab-panel'
 import Tabs from '@mui/material/Tabs'
-import TextAddPreview from './TextAddPreview'
-import TextAddWords from './TextAddWords'
-import { getText } from '../services/apiService'
+import TextAddPreview from './text-add-preview'
+import TextAddWords from './text-add-words'
+import { getText } from '../services/api-service'
 import { useParams } from 'react-router-dom'
 
+const selector = (state) => state.text
+
+function a11yProperties(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`
+  }
+}
 export default function TextAdd() {
   const [value, setValue] = React.useState(0)
 
-  const selector = (state) => state.text
   const { text } = useSelector(selector)
   const [isLoading, setIsLoading] = React.useState(true)
 
-  function a11yProperties(index) {
-    return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`
-    }
-  }
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
+  const handleChange = (event, value) => {
+    setValue(value)
   }
 
   const { id } = useParams()

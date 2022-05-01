@@ -1,4 +1,4 @@
-import Home from '../screens/Home'
+import Home from '../screens/home'
 import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 

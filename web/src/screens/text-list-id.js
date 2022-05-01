@@ -2,10 +2,10 @@
 import { Container, Divider, Grid } from '@mui/material'
 
 import CircularProgress from '@mui/material/CircularProgress'
-import Footer from '../components/Footer'
-import Nav from '../components/Nav'
+import Footer from '../components/footer'
+import Nav from '../components/nav'
 import React from 'react'
-import TextListIdSentences from './TextListIdSentences'
+import TextListIdSentences from './text-list-id-sentences'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 

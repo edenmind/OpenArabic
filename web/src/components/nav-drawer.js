@@ -1,3 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable unicorn/prevent-abbreviations */
+
 import * as React from 'react'
 
 import { Box, Button, Divider, Drawer, List, ListItem } from '@mui/material'
@@ -16,7 +19,7 @@ function NavDrawer(props) {
       .then((response) => {
         setCategories(response.data)
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }, [])
 
   return (

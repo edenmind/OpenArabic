@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+
 import { CircularProgress, Grid } from '@mui/material'
 
 function Progress() {

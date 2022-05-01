@@ -1,9 +1,12 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable unicorn/prevent-abbreviations */
+
 import AppBar from '@mui/material/AppBar'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import { Link } from 'react-router-dom'
-import LoginButton from './LoginButton'
-import LogoutButton from './LogoutButton'
+import LoginButton from './login-button'
+import LogoutButton from './logout-button'
 import MenuIcon from '@mui/icons-material/Menu'
 import PropTypes from 'prop-types'
 import Toolbar from '@mui/material/Toolbar'

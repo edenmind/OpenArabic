@@ -9,10 +9,10 @@ export const getTexts = async (id) => {
 
 export const getText = (id) => async (dispatch) => {
   const url = `${process.env.REACT_APP_API_URL}/texts/${id}`
-  const res = await axios.get(url).catch((err) => console.log(err))
+  const response = await axios.get(url).catch((error) => console.log(error))
 
   dispatch({
     type: 'SET_TEXT',
-    text: res.data
+    text: response.data
   })
 }

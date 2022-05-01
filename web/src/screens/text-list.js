@@ -1,12 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
-import * as apiService from '../services/apiService'
+import * as apiService from '../services/api-service'
 
 import { Box, Grid } from '@mui/material'
 import React, { Fragment } from 'react'
 
-import Progress from '../components/Progress'
-import PropTypes from 'prop-types'
-import TextListCard from './TextListCard'
+import Progress from '../components/progress'
+import TextListCard from './text-list-card'
 
 const TextList = (properties) => {
   const [texts, setTexts] = React.useState([])
@@ -35,12 +34,6 @@ const TextList = (properties) => {
       </Box>
     </Fragment>
   )
-}
-
-TextList.propTypes = {
-  heading: PropTypes.node,
-  subHeading: PropTypes.node,
-  id: PropTypes.string
 }
 
 export default TextList

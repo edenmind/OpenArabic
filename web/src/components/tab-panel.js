@@ -1,9 +1,11 @@
+/* eslint-disable react/react-in-jsx-scope */
+
 import Box from '@mui/material/Box'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
 
-export function TabPanel(props) {
-  const { children, value, index, ...other } = props
+export function TabPanel(properties) {
+  const { children, value, index, ...other } = properties
 
   return (
     <div

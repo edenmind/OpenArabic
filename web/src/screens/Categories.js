@@ -1,20 +1,20 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Button, Container } from '@mui/material'
 
-import CategoryList from './CategoriesList'
-import ConfirmationDialog from '../components/ConfirmationDialog'
-import Footer from '../components/Footer'
+import CategoryList from './categories-list'
+import ConfirmationDialog from '../components/confirmation-dialog'
+import Footer from '../components/footer'
 import { Link } from 'react-router-dom'
-import Nav from '../components/Nav'
+import Nav from '../components/nav'
 import React from 'react'
-import SnackBar from '../components/SnackBar'
+import SnackBar from '../components/snack-bar'
 import axios from 'axios'
 
 function Categories() {
   const [categories, setCategories] = React.useState([])
   const [openDialog, setOpenDialog] = React.useState(false)
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
-  const [selectedCategory, setSelectedCategory] = React.useState(null)
+  const [selectedCategory, setSelectedCategory] = React.useState()
 
   const handleClickOpen = (category) => {
     setSelectedCategory(category)
@@ -44,8 +44,8 @@ function Categories() {
       })
       .catch((error) => console.log(error))
 
-    const newCategories = categories.filter((item) => item.id !== selectedCategory.id)
-    setCategories(newCategories)
+    const categoriesAfterDelete = categories.filter((item) => item.id !== selectedCategory.id)
+    setCategories(categoriesAfterDelete)
     handleCloseDialog()
   }
 

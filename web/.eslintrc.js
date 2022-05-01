@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-module */
 module.exports = {
   env: {
     browser: true,
@@ -21,10 +22,11 @@ module.exports = {
     'react-redux',
     'mui-unused-classes',
     'react-redux',
-    'unicorn'
+    'unicorn',
+    'react-redux-smell'
   ],
   rules: {
-    unicorn: ['warn'],
+    'import/named': 2,
     quotes: [2, 'single', { avoidEscape: true }],
     'prettier/prettier': [
       'warn',
@@ -49,7 +51,7 @@ module.exports = {
     'plugin:react-redux/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react/recommended',
-    'plugin:unicorn/recommended'
+    'plugin:unicorn/all'
   ],
   settings: {
     react: {

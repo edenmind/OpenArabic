@@ -1,14 +1,14 @@
 /* eslint-disable react/react-in-jsx-scope */
 import * as React from 'react'
-import * as wordProcessing from '../services/wordProcessing'
+import * as wordProcessing from '../services/word-processing'
 
 import { Button, Chip, TextField, Tooltip } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Fragment } from 'react'
-import MatchingIndicator from '../components/MatchingIndicator'
+import MatchingIndicator from '../components/matching-indicator'
 import Paper from '@mui/material/Paper'
-import SnackBar from '../components/SnackBar'
+import SnackBar from '../components/snack-bar'
 import Stack from '@mui/material/Stack'
 import axios from 'axios'
 import { styled } from '@mui/material/styles'
@@ -19,10 +19,11 @@ const Item = styled(Paper)(({ theme }) => ({
   width: 1100
 }))
 
+const selector = (state) => state.text
+
 const TextAddSentences = () => {
   const dispatch = useDispatch()
 
-  const selector = (state) => state.text
   const text = useSelector(selector)
   const [englishSentenceCount, setEnglishSentenceCount] = React.useState(0)
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)

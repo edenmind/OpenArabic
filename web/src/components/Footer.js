@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+
 import { Link, Stack } from '@mui/material'
 
 function Footer() {

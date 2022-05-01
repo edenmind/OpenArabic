@@ -1,15 +1,15 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Container, Divider } from '@mui/material'
 
-import Footer from '../components/Footer'
+import Footer from '../components/footer'
 import Grid from '@mui/material/Grid'
 import React from 'react'
-import SaveText from './TextAddPreviewSave'
-import TextListIdSentences from './TextListIdSentences'
+import SaveText from './text-add-preview-save'
+import TextListIdSentences from './text-list-id-sentences'
 import { useSelector } from 'react-redux'
 
+const selector = (state) => state.text
 function TextAddPreview() {
-  const selector = (state) => state.text
   const { text } = useSelector(selector)
 
   return text.sentences.length > 1 ? (

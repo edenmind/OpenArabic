@@ -4,8 +4,10 @@ import * as React from 'react'
 import { Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
-import MenuSelect from '../components/MenuSelect'
+import MenuSelect from '../components/menu-select'
 import axios from 'axios'
+
+const selector = (state) => state.text
 
 const TextAddHeading = () => {
   const dispatch = useDispatch()
@@ -23,7 +25,6 @@ const TextAddHeading = () => {
     { id: 2, name: 'Published' }
   ])
 
-  const selector = (state) => state.text
   const text = useSelector(selector)
 
   React.useEffect(() => {

@@ -2,9 +2,9 @@
 import React, { Fragment } from 'react'
 
 import { Container } from '@mui/material'
-import Footer from '../components/Footer'
-import Nav from '../components/Nav'
-import TextList from './TextList'
+import Footer from '../components/footer'
+import Nav from '../components/nav'
+import TextList from './text-list'
 import { useParams } from 'react-router-dom'
 
 const Home = () => {

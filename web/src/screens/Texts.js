@@ -1,18 +1,18 @@
 /* eslint-disable react/react-in-jsx-scope */
-import * as apiService from '../services/apiService'
+import * as apiService from '../services/api-service'
 
 import { Button, Container, IconButton, Tooltip } from '@mui/material'
 
-import ConfirmationDialog from '../components/ConfirmationDialog'
+import ConfirmationDialog from '../components/confirmation-dialog'
 import { DataGrid } from '@mui/x-data-grid'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import EditIcon from '@mui/icons-material/Edit'
-import Footer from '../components/Footer'
+import Footer from '../components/footer'
 import { Link } from 'react-router-dom'
-import Nav from '../components/Nav'
-import Progress from '../components/Progress'
+import Nav from '../components/nav'
+import Progress from '../components/progress'
 import React from 'react'
-import SnackBar from '../components/SnackBar'
+import SnackBar from '../components/snack-bar'
 import axios from 'axios'
 
 export default function Texts() {
@@ -20,7 +20,7 @@ export default function Texts() {
   const [isLoading, setIsLoading] = React.useState(true)
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [openDialog, setOpenDialog] = React.useState(false)
-  const [selectedText, setSelectedText] = React.useState(null)
+  const [selectedText, setSelectedText] = React.useState()
 
   const columns = [
     {
@@ -114,8 +114,8 @@ export default function Texts() {
       })
       .catch((error) => console.log(error))
 
-    const newTexts = texts.filter((item) => item.id !== selectedText)
-    setTexts(newTexts)
+    const textsAfterDelete = texts.filter((item) => item.id !== selectedText)
+    setTexts(textsAfterDelete)
   }
 
   const handleCloseSnackbar = (reason) => {

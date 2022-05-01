@@ -1,4 +1,4 @@
-import * as wordProcessing from '../services/wordProcessing'
+import * as wordProcessing from '../services/word-processing'
 
 describe('test wordProcessing', () => {
   it('should clean invalid char from text', () => {

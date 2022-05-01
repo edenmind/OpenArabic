@@ -1,18 +1,18 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import About from './screens/About'
-import AuthorAdd from './screens/AuthorsAdd'
-import AuthorUpdate from './screens/AuthorsUpdate'
-import Authors from './screens/Authors'
-import Category from './screens/Categories'
-import CategoryAdd from './screens/CategoriesAdd'
-import CategoryUpdate from './screens/CategoriesUpdate'
-import Home from './screens/Home'
-import Privacy from './screens/Privacy'
-import SingleText from './screens/TextListId'
-import TextAdd from './screens/TextAdd'
-import Texts from './screens/Texts'
+import About from './screens/about'
+import AuthorAdd from './screens/authors-add'
+import AuthorUpdate from './screens/authors-update'
+import Authors from './screens/authors'
+import Category from './screens/categories'
+import CategoryAdd from './screens/categories-add'
+import CategoryUpdate from './screens/categories-update'
+import Home from './screens/home'
+import Privacy from './screens/privacy'
+import SingleText from './screens/text-list-id'
+import TextAdd from './screens/text-add'
+import Texts from './screens/texts'
 
 export default function App() {
   return (

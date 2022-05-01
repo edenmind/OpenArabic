@@ -1,3 +1,6 @@
+/* eslint-disable unicorn/prevent-abbreviations */
+/* eslint-disable react/react-in-jsx-scope */
+
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 
 import PropTypes from 'prop-types'

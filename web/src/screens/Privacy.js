@@ -1,8 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Box, Container, Link, Typography } from '@mui/material'
 
-import Footer from '../components/Footer'
-import Nav from '../components/Nav'
+import Footer from '../components/footer'
+import Nav from '../components/nav'
 import React from 'react'
 
 const Privacy = () => (

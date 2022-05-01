@@ -3,12 +3,13 @@ import { Button, Chip, Stack } from '@mui/material'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import SnackBar from '../components/SnackBar'
+import SnackBar from '../components/snack-bar'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
+const selector = (state) => state.text
+
 function TextAddPreviewSave() {
-  const selector = (state) => state.text
   const text = useSelector(selector)
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)

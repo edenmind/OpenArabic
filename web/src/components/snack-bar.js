@@ -1,3 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable unicorn/prevent-abbreviations */
+
 import MuiAlert from '@mui/material/Alert'
 import PropTypes from 'prop-types'
 import React from 'react'

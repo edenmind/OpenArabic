@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import * as wordProcessing from '../services/wordProcessing'
+import * as wordProcessing from '../services/word-processing'
 
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 
