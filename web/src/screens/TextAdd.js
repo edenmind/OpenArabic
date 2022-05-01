@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -21,10 +22,10 @@ export default function TextAdd() {
   const { text } = useSelector(selector)
   const [isLoading, setIsLoading] = React.useState(true)
 
-  function a11yProps(index) {
+  function a11yProperties(index) {
     return {
       id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`
     }
   }
 
@@ -53,15 +54,15 @@ export default function TextAdd() {
     <React.Fragment>
       <Nav />
 
-      <Box width='100%' display='flex' justifyContent='center' alignItems='center'>
-        <Box width='90%' justifyContent='center' alignItems='center'>
+      <Box width="100%" display="flex" justifyContent="center" alignItems="center">
+        <Box width="90%" justifyContent="center" alignItems="center">
           <h2>{title}</h2>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <Tabs value={value} onChange={handleChange} aria-label='basic tabs example'>
-              <Tab label='Heading' {...a11yProps(0)} />
-              <Tab label='Sentences' {...a11yProps(1)} />
-              <Tab label='Words' {...a11yProps(2)} />
-              <Tab label='Preview' {...a11yProps(3)} />
+            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+              <Tab label="Heading" {...a11yProperties(0)} />
+              <Tab label="Sentences" {...a11yProperties(1)} />
+              <Tab label="Words" {...a11yProperties(2)} />
+              <Tab label="Preview" {...a11yProperties(3)} />
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>

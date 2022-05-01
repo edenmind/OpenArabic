@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Container, Divider, Grid } from '@mui/material'
 
 import CircularProgress from '@mui/material/CircularProgress'
@@ -20,11 +21,17 @@ function TextListId() {
         setText(response.data)
         setIsLoading(false)
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }, [id])
 
   return isLoading ? (
-    <Grid container spacing={0} direction='column' alignItems='center' justifyContent='center' style={{ minHeight: '100vh' }}>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      style={{ minHeight: '100vh' }}>
       <Grid item xs={3}>
         <CircularProgress />
       </Grid>
@@ -32,12 +39,12 @@ function TextListId() {
   ) : (
     <React.Fragment>
       <Nav />
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         <center>
           <h1>{text.title}</h1>
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
-          <Divider width='300' />
+          <Divider width="300" />
           <TextListIdSentences sentences={text.sentences} />
         </center>
         <Footer />

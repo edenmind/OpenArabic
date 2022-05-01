@@ -2,11 +2,11 @@ import { createTheme } from '@mui/material/styles'
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'dark'
   },
   typography: {
-    fontFamily: ['Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(','),
-  },
+    fontFamily: ['Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(',')
+  }
 })
 
 export default darkTheme

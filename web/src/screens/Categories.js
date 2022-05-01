@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Button, Container } from '@mui/material'
 
 import CategoryList from './CategoriesList'
@@ -30,7 +31,7 @@ function Categories() {
       .then((response) => {
         setCategories(response.data)
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }, [])
 
   const deleteCategory = () => {
@@ -41,7 +42,7 @@ function Categories() {
           setOpenSnackbar(true)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
 
     const newCategories = categories.filter((item) => item.id !== selectedCategory.id)
     setCategories(newCategories)
@@ -59,15 +60,25 @@ function Categories() {
   return (
     <React.Fragment>
       <Nav />
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         <h2>Categories</h2>
 
         <CategoryList category={categories} handleClickOpen={handleClickOpen} />
-        <ConfirmationDialog openState={openDialog} handleCloseDialog={handleCloseDialog} handleAction={deleteCategory} confirmationQuestion='Are you sure you want to delete this category?' />
-        <SnackBar handleCloseSnackbar={handleCloseSnackbar} openSnackBar={openSnackBar} severity='success' message='Category deleted!' />
+        <ConfirmationDialog
+          openState={openDialog}
+          handleCloseDialog={handleCloseDialog}
+          handleAction={deleteCategory}
+          confirmationQuestion="Are you sure you want to delete this category?"
+        />
+        <SnackBar
+          handleCloseSnackbar={handleCloseSnackbar}
+          openSnackBar={openSnackBar}
+          severity="success"
+          message="Category deleted!"
+        />
         <br />
-        <Link to='/categories/add'>
-          <Button variant='contained'>Add</Button>
+        <Link to="/categories/add">
+          <Button variant="contained">Add</Button>
         </Link>
         <Footer />
       </Container>

@@ -16,10 +16,10 @@ const initialState = {
       {
         english: '',
         arabic: '',
-        words: [],
-      },
-    ],
-  },
+        words: []
+      }
+    ]
+  }
 }
 
 export const textReducer = createReducer(initialState, {
@@ -107,5 +107,5 @@ export const textReducer = createReducer(initialState, {
   },
   SET_ARABIC_WORDS: (state, action) => {
     state.text.arabicWords = action.arabicWords
-  },
+  }
 })

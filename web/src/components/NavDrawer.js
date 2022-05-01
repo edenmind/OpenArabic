@@ -21,12 +21,16 @@ function NavDrawer(props) {
 
   return (
     <Drawer anchor={'left'} open={props.state.left} onClose={props.toggleDrawer('left', false)}>
-      <Box sx={{ width: 250 }} role='presentation' onClick={props.toggleDrawer('left', false)} onKeyDown={props.toggleDrawer('left', false)}>
+      <Box
+        sx={{ width: 250 }}
+        role="presentation"
+        onClick={props.toggleDrawer('left', false)}
+        onKeyDown={props.toggleDrawer('left', false)}>
         <List>
           {categories.map((category, index) => (
             <ListItem key={index}>
               <Link to={`/texts/categories/${category.name}`}>
-                <Button variant='text'>{category.name}</Button>
+                <Button variant="text">{category.name}</Button>
               </Link>
             </ListItem>
           ))}
@@ -39,7 +43,7 @@ function NavDrawer(props) {
               {['Texts', 'Categories', 'Authors'].map((item, index) => (
                 <ListItem key={index}>
                   <Link to={`/${item}`}>
-                    <Button variant='text'>{item}</Button>
+                    <Button variant="text">{item}</Button>
                   </Link>
                 </ListItem>
               ))}
@@ -54,6 +58,7 @@ function NavDrawer(props) {
 NavDrawer.propTypes = {
   isAuthenticated: PropTypes.bool,
   toggleDrawer: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired
 }
 
 export default NavDrawer

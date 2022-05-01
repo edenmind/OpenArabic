@@ -1,10 +1,10 @@
+/* eslint-disable react/react-in-jsx-scope */
 import * as React from 'react'
 
 import { Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
 import MenuSelect from '../components/MenuSelect'
-import PropTypes from 'prop-types'
 import axios from 'axios'
 
 const TextAddHeading = () => {
@@ -20,10 +20,11 @@ const TextAddHeading = () => {
   const [authors, setAuthors] = React.useState([])
   const [statuses] = React.useState([
     { id: 1, name: 'Draft' },
-    { id: 2, name: 'Published' },
+    { id: 2, name: 'Published' }
   ])
 
-  const { text } = useSelector((state) => state.text)
+  const selector = (state) => state.text
+  const text = useSelector(selector)
 
   React.useEffect(() => {
     axios
@@ -31,29 +32,38 @@ const TextAddHeading = () => {
       .then((response) => {
         setCategories(response.data)
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
     axios
       .get(`${process.env.REACT_APP_API_URL}/authors`)
       .then((response) => {
         setAuthors(response.data)
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }, [])
 
   return (
     <Stack spacing={2} style={{ width: '700px' }}>
-      <TextField fullWidth id='outlined-basic' label='Title' variant='outlined' value={text.title} onChange={setTitle} />
-      <TextField fullWidth id='outlined-basic' label='Source' variant='outlined' value={text.source} onChange={setSource} />
-      <MenuSelect Heading='Status' Values={statuses} value={text.status} onChangeFunc={setStatus} />
-      <MenuSelect Heading='Author' Values={authors} value={text.author} onChangeFunc={setAuthor} />
-      <MenuSelect Heading='Category' Values={categories} value={text.category} onChangeFunc={setCategory} />
+      <TextField
+        fullWidth
+        id="outlined-basic"
+        label="Title"
+        variant="outlined"
+        value={text.title}
+        onChange={setTitle}
+      />
+      <TextField
+        fullWidth
+        id="outlined-basic"
+        label="Source"
+        variant="outlined"
+        value={text.source}
+        onChange={setSource}
+      />
+      <MenuSelect Heading="Status" Values={statuses} value={text.status} onChangeFunc={setStatus} />
+      <MenuSelect Heading="Author" Values={authors} value={text.author} onChangeFunc={setAuthor} />
+      <MenuSelect Heading="Category" Values={categories} value={text.category} onChangeFunc={setCategory} />
     </Stack>
   )
-}
-
-TextAddHeading.propTypes = {
-  Authors: PropTypes.array.isRequired,
-  Categories: PropTypes.array.isRequired,
 }
 
 export default TextAddHeading

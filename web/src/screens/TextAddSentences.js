@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import * as React from 'react'
 import * as wordProcessing from '../services/wordProcessing'
 
@@ -15,17 +16,18 @@ import { useParams } from 'react-router-dom'
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
-  width: 1100,
+  width: 1100
 }))
 
 const TextAddSentences = () => {
   const dispatch = useDispatch()
 
-  const { text } = useSelector((state) => state.text)
+  const selector = (state) => state.text
+  const text = useSelector(selector)
   const [englishSentenceCount, setEnglishSentenceCount] = React.useState(0)
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)
   const [open, setOpen] = React.useState(false)
-  const [status, setStatus] = React.useState('')
+  const [statusMessage, setStatusMessage] = React.useState('')
   const { id } = useParams()
 
   const handleClose = (reason) => {
@@ -40,10 +42,10 @@ const TextAddSentences = () => {
     const englishSentence = wordProcessing.splitTextToSentences(event.target.value)
     setEnglishSentenceCount(englishSentence.length)
     const englishWords = []
-    englishSentence.forEach((sentence) => {
+    for (const sentence of englishSentence) {
       const theEnglishWordsSentence = wordProcessing.splitSentencesToWords(sentence)
       englishWords.push(theEnglishWordsSentence)
-    })
+    }
 
     dispatch({ type: 'SET_ENGLISH_TEXT', english: event.target.value })
     dispatch({ type: 'SET_ENGLISH_SENTENCE', englishSentence })
@@ -57,11 +59,11 @@ const TextAddSentences = () => {
     setArabicSentenceCount(arabicSentencesProcessed.length)
 
     const arabicWords = []
-    arabicSentencesProcessed.forEach((sentence) => {
+    for (const sentence of arabicSentencesProcessed) {
       const theArabicWordsSentence = wordProcessing.splitSentencesToWords(sentence)
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
       arabicWords.push(cleanFromNullAndEmpty)
-    })
+    }
 
     dispatch({ type: 'SET_ARABIC_TEXT', arabic: event.target.value })
     dispatch({ type: 'SET_ARABIC_SENTENCE', arabicSentence })
@@ -71,8 +73,8 @@ const TextAddSentences = () => {
   const generateSentences = () => {
     const sentences = []
 
-    for (let i = 0; i < text.arabicSentence.length; i++) {
-      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(text.arabicSentence[i])
+    for (let index = 0; index < text.arabicSentence.length; index++) {
+      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(text.arabicSentence[index])
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
 
       const words = []
@@ -80,19 +82,19 @@ const TextAddSentences = () => {
       for (const element of cleanFromNullAndEmpty) {
         const word = {
           arabic: element,
-          english: '',
+          english: ''
         }
         words.push(word)
       }
 
       const sentence = {
-        english: text.englishSentence[i],
-        arabic: text.arabicSentence[i],
-        words,
+        english: text.englishSentence[index],
+        arabic: text.arabicSentence[index],
+        words
       }
       sentences.push(sentence)
     }
-    setStatus(`${sentences.length} sentences generated`)
+    setStatusMessage(`${sentences.length} sentences generated`)
     setOpen(true)
     dispatch({ type: 'SET_SENTENCES', sentences })
   }
@@ -109,23 +111,23 @@ const TextAddSentences = () => {
         status,
         texts: {
           arabic,
-          english,
+          english
         },
         author,
         source,
-        sentences,
-      },
+        sentences
+      }
     })
       .then((response) => {
         if (response.status === 201) {
           setOpen(true)
-          setStatus(`Added draft: ${title}!`)
+          setStatusMessage(`Added draft: ${title}!`)
         } else {
-          setStatus(`Error: ${response.data.message}`)
+          setStatusMessage(`Error: ${response.data.message}`)
           setOpen(true)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }
 
   const handleUpdate = () => {
@@ -140,23 +142,23 @@ const TextAddSentences = () => {
         status,
         texts: {
           arabic,
-          english,
+          english
         },
         author,
         source,
-        sentences,
-      },
+        sentences
+      }
     })
       .then((response) => {
         if (response.status === 200) {
           setOpen(true)
-          setStatus(`Updated draft: ${response.data.message}`)
+          setStatusMessage(`Updated draft: ${response.data.message}`)
         } else {
-          setStatus(`Error: ${response.data.message}`)
+          setStatusMessage(`Error: ${response.data.message}`)
           setOpen(true)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }
 
   const englishSentencesCountMessage = `English: ${englishSentenceCount}`
@@ -164,12 +166,16 @@ const TextAddSentences = () => {
 
   return (
     <Fragment>
-      <Stack direction='row' spacing={2}>
-        <MatchingIndicator entity='Sentences' firstCondition={englishSentenceCount} secondCondition={arabicSentenceCount} />
+      <Stack direction="row" spacing={2}>
+        <MatchingIndicator
+          entity="Sentences"
+          firstCondition={englishSentenceCount}
+          secondCondition={arabicSentenceCount}
+        />
         <Chip label={englishSentencesCountMessage} />
         <Chip label={arabicSentencesCountMessage} />
 
-        <Tooltip title='Save an unfinished draft of the text.'>
+        <Tooltip title="Save an unfinished draft of the text.">
           {id ? (
             <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => handleUpdate()}>
               Save Draft
@@ -181,23 +187,23 @@ const TextAddSentences = () => {
           )}
         </Tooltip>
 
-        <Tooltip title='Generate english and arabic word pairs for matching.'>
+        <Tooltip title="Generate english and arabic word pairs for matching.">
           <Button disabled={englishSentenceCount !== arabicSentenceCount} onClick={() => generateSentences()}>
             Generate Words
           </Button>
         </Tooltip>
       </Stack>
-      <Stack direction='row' spacing={2}>
+      <Stack direction="row" spacing={2}>
         <Item>
-          <div dir='rtl'>
+          <div dir="rtl">
             <TextField
               InputProps={{ style: { fontSize: 30, lineHeight: 1.65 } }}
               value={text.texts.arabic}
-              label='Arabic'
+              label="Arabic"
               multiline
               rows={21}
               fullWidth
-              variant='filled'
+              variant="filled"
               onChange={handleChangeArabic}
             />
           </div>
@@ -206,16 +212,16 @@ const TextAddSentences = () => {
           <TextField
             InputProps={{ style: { fontSize: 20, lineHeight: 2.47 } }}
             value={text.texts.english}
-            label='English'
+            label="English"
             multiline
             rows={21}
             fullWidth
-            variant='filled'
+            variant="filled"
             onChange={handleChangeEnglish}
           />
         </Item>
       </Stack>
-      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity='success' message={status} />
+      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity="success" message={statusMessage} />
     </Fragment>
   )
 }

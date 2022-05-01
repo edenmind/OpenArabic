@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import * as apiService from '../services/apiService'
 
 import { Button, Container, IconButton, Tooltip } from '@mui/material'
@@ -26,66 +27,70 @@ export default function Texts() {
       field: 'title',
       headerName: 'Title',
       width: 250,
-      editable: false,
+      editable: false
     },
     {
       field: 'status',
       headerName: 'Status',
       width: 150,
-      editable: false,
+      editable: false
     },
     {
       field: 'author',
       headerName: 'Author',
       width: 250,
-      editable: false,
+      editable: false
     },
     {
       field: 'source',
       headerName: 'Source',
       width: 250,
-      editable: false,
+      editable: false
     },
     {
       field: 'category',
       headerName: 'Category',
       width: 120,
-      editable: false,
+      editable: false
     },
     {
       field: 'sentences',
       headerName: 'Sentences',
       sortable: false,
       width: 120,
-      valueGetter: (params) => `${params.row.sentences.length}`,
+      valueGetter: (parameters) => `${parameters.row.sentences.length}`
     },
     {
       field: 'charters',
       headerName: 'Characters',
       sortable: false,
       width: 120,
-      valueGetter: (params) => `${params.row.texts.arabic.length}`,
+      valueGetter: (parameters) => `${parameters.row.texts.arabic.length}`
     },
     {
       field: 'actions',
       type: 'actions',
       headerName: 'Actions',
       width: 120,
-      getActions: (params) => [
-        <Link to={`/texts/update/${params.row.id}`}>
-          <Tooltip title='Edit text'>
-            <IconButton color='primary' aria-label='upload picture' component='span'>
+      getActions: (parameters) => [
+        <Link to={`/texts/update/${parameters.row.id}`} key="link">
+          <Tooltip title="Edit text">
+            <IconButton color="primary" aria-label="upload picture" component="span">
               <EditIcon />
             </IconButton>
           </Tooltip>
         </Link>,
-        <Tooltip title='Delete text'>
-          <IconButton color='primary' aria-label='upload picture' component='span' onClick={() => handleClickOpen(params.row.id)}>
+        <Tooltip title="Delete text" key="tooltip">
+          <IconButton
+            color="primary"
+            aria-label="upload picture"
+            component="span"
+            onClick={() => handleClickOpen(parameters.row.id)}>
             <DeleteForeverIcon />
           </IconButton>
-        </Tooltip>,
-      ],
-    },
+        </Tooltip>
+      ]
+    }
   ]
 
   React.useEffect(() => {
@@ -95,7 +100,7 @@ export default function Texts() {
         setTexts(data)
         setIsLoading(false)
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }, [])
 
   const handleDeleteClick = () => {
@@ -107,7 +112,7 @@ export default function Texts() {
           setOpenDialog(false)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
 
     const newTexts = texts.filter((item) => item.id !== selectedText)
     setTexts(newTexts)
@@ -135,20 +140,30 @@ export default function Texts() {
   ) : (
     <React.Fragment>
       <Nav />
-      <Container maxWidth='false'>
+      <Container maxWidth="false">
         <h2>Texts</h2>
         <div style={{ height: 800, width: '100%', paddingBottom: '35px' }}>
           <DataGrid rows={texts} columns={columns} pageSize={15} rowsPerPageOptions={[5]} />
         </div>
 
-        <Link to='/texts/add'>
-          <Button variant='contained'>Add Text</Button>
+        <Link to="/texts/add">
+          <Button variant="contained">Add Text</Button>
         </Link>
         <Footer />
       </Container>
-      <ConfirmationDialog openState={openDialog} handleCloseDialog={handleCloseDialog} handleAction={handleDeleteClick} confirmationQuestion='Are you sure you want to delete this text?' />
+      <ConfirmationDialog
+        openState={openDialog}
+        handleCloseDialog={handleCloseDialog}
+        handleAction={handleDeleteClick}
+        confirmationQuestion="Are you sure you want to delete this text?"
+      />
 
-      <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Text deleted!' />
+      <SnackBar
+        openSnackBar={openSnackBar}
+        handleCloseSnackbar={handleCloseSnackbar}
+        severity="success"
+        message="Text deleted!"
+      />
     </React.Fragment>
   )
 }

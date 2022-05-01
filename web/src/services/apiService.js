@@ -13,6 +13,6 @@ export const getText = (id) => async (dispatch) => {
 
   dispatch({
     type: 'SET_TEXT',
-    text: res.data,
+    text: res.data
   })
 }

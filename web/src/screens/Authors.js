@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Button, Container } from '@mui/material'
 
 import AuthorsList from './AuthorsList'
@@ -30,7 +31,7 @@ const Authors = () => {
       .then((response) => {
         setAuthors(response.data)
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }, [])
 
   const deleteAuthor = () => {
@@ -41,7 +42,7 @@ const Authors = () => {
           setOpenSnackbar(true)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
 
     const newAuthors = authors.filter((item) => item.id !== selectedAuthor.id)
     setAuthors(newAuthors)
@@ -59,16 +60,26 @@ const Authors = () => {
   return (
     <React.Fragment>
       <Nav />
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         <h2>Authors</h2>
 
         <AuthorsList authors={authors} handleClickOpen={handleClickOpen} />
-        <ConfirmationDialog confirmationQuestion='Are you sure you want to delete this author?' handleAction={deleteAuthor} handleCloseDialog={handleCloseDialog} openState={openDialog} />
-        <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Author deleted!' />
+        <ConfirmationDialog
+          confirmationQuestion="Are you sure you want to delete this author?"
+          handleAction={deleteAuthor}
+          handleCloseDialog={handleCloseDialog}
+          openState={openDialog}
+        />
+        <SnackBar
+          openSnackBar={openSnackBar}
+          handleCloseSnackbar={handleCloseSnackbar}
+          severity="success"
+          message="Author deleted!"
+        />
         <br />
 
-        <Link to='/authors/add'>
-          <Button variant='contained'>Add</Button>
+        <Link to="/authors/add">
+          <Button variant="contained">Add</Button>
         </Link>
         <Footer />
       </Container>

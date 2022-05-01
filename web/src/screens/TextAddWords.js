@@ -1,9 +1,12 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Box, Stack, TextField } from '@mui/material'
-import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { Fragment } from 'react'
+
+const selector = (state) => state.text
 function TextAddWords() {
-  const { text } = useSelector((state) => state.text)
+  const text = useSelector(selector)
   const dispatch = useDispatch()
 
   const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {
@@ -27,7 +30,7 @@ function TextAddWords() {
                 onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
                 rows={1}
                 fullWidth
-                variant='outlined'
+                variant="outlined"
               />
             </Box>
           ))}

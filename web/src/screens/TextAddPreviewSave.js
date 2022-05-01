@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Button, Chip, Stack } from '@mui/material'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,7 +8,8 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 function TextAddPreviewSave() {
-  const { text } = useSelector((state) => state.text)
+  const selector = (state) => state.text
+  const text = useSelector(selector)
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const { id } = useParams()
@@ -33,12 +35,12 @@ function TextAddPreviewSave() {
         status: 'Published',
         texts: {
           arabic,
-          english,
+          english
         },
         author,
         source,
-        sentences,
-      },
+        sentences
+      }
     })
       .then((response) => {
         if (response.status === 201) {
@@ -50,7 +52,7 @@ function TextAddPreviewSave() {
           setOpenSnackbar(true)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }
 
   const handleUpdate = () => {
@@ -64,12 +66,12 @@ function TextAddPreviewSave() {
         category,
         texts: {
           arabic,
-          english,
+          english
         },
         author,
         source,
-        sentences,
-      },
+        sentences
+      }
     })
       .then((response) => {
         if (response.status === 200) {
@@ -81,20 +83,29 @@ function TextAddPreviewSave() {
           setOpenSnackbar(true)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }
 
   return (
     <Fragment>
-      <Stack direction='row' spacing={2} style={{ paddingTop: '50px' }}>
-        {text.title.length > 4 ? <Chip label='Title' color='success' /> : <Chip label='Title' color='error' />}
-        {text.category.length > 4 ? <Chip label='Category' color='success' /> : <Chip label='Category' color='error' />}
-        {text.source.length > 4 ? <Chip label='Source' color='success' /> : <Chip label='Source' color='error' />}
-        {text.author.length > 4 ? <Chip label='Author' color='success' /> : <Chip label='Author' color='error' />}
-        {text.sentences.length > 4 ? <Chip label='Sentences' color='success' /> : <Chip label='Sentences' color='error' />}
+      <Stack direction="row" spacing={2} style={{ paddingTop: '50px' }}>
+        {text.title.length > 4 ? <Chip label="Title" color="success" /> : <Chip label="Title" color="error" />}
+        {text.category.length > 4 ? <Chip label="Category" color="success" /> : <Chip label="Category" color="error" />}
+        {text.source.length > 4 ? <Chip label="Source" color="success" /> : <Chip label="Source" color="error" />}
+        {text.author.length > 4 ? <Chip label="Author" color="success" /> : <Chip label="Author" color="error" />}
+        {text.sentences.length > 4 ? (
+          <Chip label="Sentences" color="success" />
+        ) : (
+          <Chip label="Sentences" color="error" />
+        )}
 
         {id ? <Button onClick={handleUpdate}>Update Text</Button> : <Button onClick={handleAdd}>Add Text</Button>}
-        <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message={status} />
+        <SnackBar
+          openSnackBar={openSnackBar}
+          handleCloseSnackbar={handleCloseSnackbar}
+          severity="success"
+          message={status}
+        />
       </Stack>
     </Fragment>
   )

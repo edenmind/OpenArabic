@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
 
@@ -13,7 +14,7 @@ const CategoriesUpdate = () => {
   const [status, setStatus] = React.useState('')
 
   const divStyle = {
-    padding: '10px',
+    padding: '10px'
   }
 
   const handleClose = (reason) => {
@@ -32,7 +33,7 @@ const CategoriesUpdate = () => {
       .then((response) => {
         setCategory(response.data.name)
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }, [id])
 
   const updateCategory = () => {
@@ -40,8 +41,8 @@ const CategoriesUpdate = () => {
       method: 'put',
       url: `${process.env.REACT_APP_API_URL}/categories/${id}`,
       data: {
-        name: category,
-      },
+        name: category
+      }
     })
       .then((response) => {
         if (response.status === 200) {
@@ -49,32 +50,39 @@ const CategoriesUpdate = () => {
           setOpen(true)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }
 
   return (
     <React.Fragment>
       <Nav />
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         <h2>Update Category</h2>
 
         <FormControl fullWidth>
-          <TextField fullWidth id='outlined-basic' label='Name' variant='outlined' value={category} onChange={(event) => setCategory(event.target.value)} />
+          <TextField
+            fullWidth
+            id="outlined-basic"
+            label="Name"
+            variant="outlined"
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+          />
         </FormControl>
 
         <div style={divStyle}>
-          <Stack spacing={2} direction='row'>
-            <Button variant='contained' onClick={updateCategory}>
+          <Stack spacing={2} direction="row">
+            <Button variant="contained" onClick={updateCategory}>
               Update
             </Button>
-            <Link to='/categories'>
-              <Button variant='outlined'>Back</Button>
+            <Link to="/categories">
+              <Button variant="outlined">Back</Button>
             </Link>
           </Stack>
         </div>
         <Footer />
       </Container>
-      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity='success' message={status} />
+      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity="success" message={status} />
     </React.Fragment>
   )
 }

@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function Nav() {
   const [state, setState] = React.useState({
-    left: false,
+    left: false
   })
 
   const { isAuthenticated } = useAuth0()

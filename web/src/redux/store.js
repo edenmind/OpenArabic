@@ -4,6 +4,6 @@ import { configureStore } from '@reduxjs/toolkit'
 
 export default configureStore({
   reducer: {
-    text: reducers.textReducer,
-  },
+    text: reducers.textReducer
+  }
 })

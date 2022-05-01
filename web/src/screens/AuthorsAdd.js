@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 
 import Footer from '../components/Footer'
@@ -12,7 +13,7 @@ const AuthorsAdd = () => {
   const [openSnackBar, setOpenSnackBar] = React.useState(false)
 
   const divStyle = {
-    padding: '10px',
+    padding: '10px'
   }
 
   const handleCloseSnackbar = (reason) => {
@@ -28,8 +29,8 @@ const AuthorsAdd = () => {
       method: 'post',
       url: `${process.env.REACT_APP_API_URL}/authors`,
       data: {
-        name: author,
-      },
+        name: author
+      }
     })
       .then((response) => {
         if (response.status === 201) {
@@ -37,32 +38,44 @@ const AuthorsAdd = () => {
           setAuthor('')
         }
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   }
 
   return (
     <React.Fragment>
       <Nav />
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         <h2>Add Author</h2>
 
         <FormControl fullWidth>
-          <TextField fullWidth id='outlined-basic' label='Name' variant='outlined' value={author} onChange={(event) => setAuthor(event.target.value)} />
+          <TextField
+            fullWidth
+            id="outlined-basic"
+            label="Name"
+            variant="outlined"
+            value={author}
+            onChange={(event) => setAuthor(event.target.value)}
+          />
         </FormControl>
 
         <div style={divStyle}>
-          <Stack spacing={2} direction='row'>
-            <Button variant='contained' onClick={addAuthor} disabled={5 > author.length}>
+          <Stack spacing={2} direction="row">
+            <Button variant="contained" onClick={addAuthor} disabled={5 > author.length}>
               Add
             </Button>
-            <Link to='/authors'>
-              <Button variant='outlined'>Back</Button>
+            <Link to="/authors">
+              <Button variant="outlined">Back</Button>
             </Link>
           </Stack>
         </div>
         <Footer />
       </Container>
-      <SnackBar openSnackBar={openSnackBar} handleCloseSnackbar={handleCloseSnackbar} severity='success' message='Added new author!' />
+      <SnackBar
+        openSnackBar={openSnackBar}
+        handleCloseSnackbar={handleCloseSnackbar}
+        severity="success"
+        message="Added new author!"
+      />
     </React.Fragment>
   )
 }

@@ -17,7 +17,10 @@ const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(
   <React.StrictMode>
-    <Auth0Provider domain='dev-7yb6kp7f.eu.auth0.com' clientId='qMfwZdOKxHHnPwPLQturQ9LB4x2OAEKX' redirectUri={window.location.origin}>
+    <Auth0Provider
+      domain="dev-7yb6kp7f.eu.auth0.com"
+      clientId="qMfwZdOKxHHnPwPLQturQ9LB4x2OAEKX"
+      redirectUri={window.location.origin}>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <Provider store={store}>
@@ -25,5 +28,5 @@ root.render(
         </Provider>
       </ThemeProvider>
     </Auth0Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

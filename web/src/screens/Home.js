@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import React, { Fragment } from 'react'
 
 import { Container } from '@mui/material'
@@ -20,7 +21,7 @@ const Home = () => {
     <Fragment />
   ) : (
     <Fragment>
-      Let's start learning classical arabic, <em>inshāʾAllāh</em> 🚀'
+      Let us start learning classical arabic, <em>inshāʾAllāh</em> 🚀`
       <br />
       <br />
     </Fragment>
@@ -29,7 +30,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <Nav />
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         <TextList id={id} heading={heading} subHeading={subHeading} />
         <Footer />
       </Container>

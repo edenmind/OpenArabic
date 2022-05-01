@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Container, Divider } from '@mui/material'
 
 import Footer from '../components/Footer'
@@ -13,12 +14,18 @@ function TextAddPreview() {
 
   return text.sentences.length > 1 ? (
     <React.Fragment>
-      <Container maxWidth='lg'>
-        <Grid container spacing={0} direction='column' alignItems='center' justify='center' style={{ minHeight: '100vh' }}>
+      <Container maxWidth="lg">
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justify="center"
+          style={{ minHeight: '100vh' }}>
           <h1>{text.title}</h1>
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
-          <Divider width='200' />
+          <Divider width="200" />
           <TextListIdSentences sentences={text.sentences} />
           <SaveText />
         </Grid>

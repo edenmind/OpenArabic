@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import AppBar from '@mui/material/AppBar'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
@@ -13,25 +11,31 @@ import Typography from '@mui/material/Typography'
 
 function NavAppBar(props) {
   return (
-    <AppBar position='static'>
+    <AppBar position="static">
       <Toolbar>
-        <IconButton size='large' edge='start' color='inherit' aria-label='menu' onClick={props.toggleDrawer('left', true)} sx={{ mr: 2 }}>
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={props.toggleDrawer('left', true)}
+          sx={{ mr: 2 }}>
           <MenuIcon />
         </IconButton>
-        <Typography component='div' sx={{ flexGrow: 1 }}>
-          <Link to='/'>
-            <Button variant='text'>
+        <Typography component="div" sx={{ flexGrow: 1 }}>
+          <Link to="/">
+            <Button variant="text">
               <h3>OpenArabic</h3>
             </Button>
           </Link>
         </Typography>
 
-        <Link to='/about'>
-          <Button variant='text'>About</Button>
+        <Link to="/about">
+          <Button variant="text">About</Button>
         </Link>
 
-        <Link to='/privacy'>
-          <Button variant='text'>Privacy</Button>
+        <Link to="/privacy">
+          <Button variant="text">Privacy</Button>
         </Link>
 
         {!props.isAuthenticated && <LoginButton />}
@@ -43,7 +47,7 @@ function NavAppBar(props) {
 
 NavAppBar.propTypes = {
   isAuthenticated: PropTypes.bool,
-  toggleDrawer: PropTypes.func.isRequired,
+  toggleDrawer: PropTypes.func.isRequired
 }
 
 export default NavAppBar
