@@ -3,7 +3,7 @@
 const { createReducer } = require('@reduxjs/toolkit')
 
 const initialState = {
-  arabicWords: [],
+  arabicWords: [''],
   text: {
     arabic: [''],
     english: [''],
@@ -13,6 +13,7 @@ const initialState = {
     texts: { arabic: '', english: '' },
     category: '',
     author: '',
+    arabicSentence: [''],
     source: '',
     // eslint-disable-next-line putout/objects-braces-inside-array
     sentences: [

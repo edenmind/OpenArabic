@@ -2957,12 +2957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-object-assign-to-merge-spread@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@putout/plugin-convert-object-assign-to-merge-spread@npm:5.0.0"
+"@putout/plugin-convert-object-assign-to-merge-spread@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-convert-object-assign-to-merge-spread@npm:6.0.0"
   peerDependencies:
-    putout: ">=11"
-  checksum: 034ebffcc517508c88058d4b49cd18d94a62012ad27fddc8129de5bc2f284005f8ef5be15d3c09d1191d3c7d2c465ff5a9bb0e5c616182fb519cd216bd531a20
+    putout: ">=25"
+  checksum: ed6f80b11a72917ad1cbbee9e8ab5337b9a119423fc88f7a33ac64d47024b75320db4a294bc2294e8f7e767cdea1d416adff936be8cf86b6141643ed991ed48c
   languageName: node
   linkType: hard
 
@@ -11739,7 +11739,7 @@ __metadata:
     eslint-plugin-unicorn: ^42.0.0
     history: ^5.3.0
     prettier: ^2.6.2
-    putout: ^25.17.0
+    putout: ^25.17.1
     react: ^18.1.0
     react-dom: ^18.1.0
     react-redux: ^8.0.1
@@ -13101,9 +13101,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^25.17.0":
-  version: 25.17.0
-  resolution: "putout@npm:25.17.0"
+"putout@npm:^25.17.1":
+  version: 25.17.1
+  resolution: "putout@npm:25.17.1"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13157,7 +13157,7 @@ __metadata:
     "@putout/plugin-convert-map-to-for-of": ^2.0.0
     "@putout/plugin-convert-math-pow": ^4.0.0
     "@putout/plugin-convert-mock-require-to-mock-import": ^3.0.0
-    "@putout/plugin-convert-object-assign-to-merge-spread": ^5.0.0
+    "@putout/plugin-convert-object-assign-to-merge-spread": ^6.0.0
     "@putout/plugin-convert-quotes-to-backticks": ^2.0.0
     "@putout/plugin-convert-reduce-to-for-of": ^1.0.0
     "@putout/plugin-convert-template-to-string": ^1.0.0
@@ -13258,7 +13258,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 21f5a52650a76ab8af984c8efc68ade9fbb2f944cd80cd3fdde38a4d5e569c691cacec0363d4ed592fe33799d8500def55906d114af81ec94f34128c4f0c3e12
+  checksum: 9a24fec30c1afda9aa0ce981c80c015bdda05ba26f62fe40d5f504db826ed3da381382a9657ddcf2651f66c14387678f96580d47904865fa271219078df3c452
   languageName: node
   linkType: hard
 

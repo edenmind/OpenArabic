@@ -1,13 +1,17 @@
 import { Box, Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
+import TextAddWordsGenerate from './text-add-words-generate.js'
 
 import Chip from '@mui/material/Chip'
 import { Fragment } from 'react'
 
-const selector = (state) => state.text
+const selectorText = (state) => state.text
+const selectorArabicWords = (state) => state.text
 
 function TextAddWords() {
-  const { text } = useSelector(selector)
+  const { text } = useSelector(selectorText)
+  const { arabicWords } = useSelector(selectorArabicWords)
+
   const dispatch = useDispatch()
 
   const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {
@@ -41,7 +45,11 @@ function TextAddWords() {
   ) : (
     <Fragment>
       <Chip color="warning" label="No Words Added" />
-      <h3>Please add some sentences and generate a list of words.</h3>
+
+      <br />
+      <br />
+
+      {text.arabicSentence.length > 1 ? <TextAddWordsGenerate /> : <Chip color="warning" label="No Sentences Added" />}
     </Fragment>
   )
 }

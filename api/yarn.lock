@@ -1157,12 +1157,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-object-assign-to-merge-spread@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@putout/plugin-convert-object-assign-to-merge-spread@npm:5.0.0"
+"@putout/plugin-convert-object-assign-to-merge-spread@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-convert-object-assign-to-merge-spread@npm:6.0.0"
   peerDependencies:
-    putout: ">=11"
-  checksum: 034ebffcc517508c88058d4b49cd18d94a62012ad27fddc8129de5bc2f284005f8ef5be15d3c09d1191d3c7d2c465ff5a9bb0e5c616182fb519cd216bd531a20
+    putout: ">=25"
+  checksum: ed6f80b11a72917ad1cbbee9e8ab5337b9a119423fc88f7a33ac64d47024b75320db4a294bc2294e8f7e767cdea1d416adff936be8cf86b6141643ed991ed48c
   languageName: node
   linkType: hard
 
@@ -1172,6 +1172,15 @@ __metadata:
   peerDependencies:
     putout: ">=25"
   checksum: 17c484b6cda134d583fadc715770c3e07a93b19caf5ea0518a333ca6e80be04d8e105450fe64a88efa1a5fabfad5b8c40115f787b89ca2de4a9feac88d5d032f
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-convert-reduce-to-for-of@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "@putout/plugin-convert-reduce-to-for-of@npm:1.0.1"
+  peerDependencies:
+    putout: ">=25"
+  checksum: db65749a205bba583a086163404e542f424297a6e5c715302fab9360cd6c278e39372ecd98eccdd7dc3e4f82646018aeb60bbea05c07b623b045b80b263006c1
   languageName: node
   linkType: hard
 
@@ -1658,12 +1667,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-useless-operand@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "@putout/plugin-remove-useless-operand@npm:1.1.0"
+"@putout/plugin-remove-useless-operand@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-remove-useless-operand@npm:2.0.0"
   peerDependencies:
-    putout: ">=16"
-  checksum: f81f62a8870f4b3d9be3dd37e5f6988970a86a705f627ee7bd7f990702dabdf2eb4a2f6e94d176f078d30ba91294953c489c9190856fe842de88eebd6052d492
+    putout: ">=25"
+  checksum: 65fd0b3e754a377645bb3bfc8af3627bd34b371236a590cf2b11824a4a39e01ded5058dc962f9b2fe0581bd9f7765dbb0b177de5f5c5f5748b97edd9f64169a4
   languageName: node
   linkType: hard
 
@@ -2537,7 +2546,7 @@ __metadata:
     fastify-plugin: ^3.0.1
     mongodb: ^4.5.0
     prettier: ^2.6.2
-    putout: ^25.16.0
+    putout: ^25.17.1
     tap: ^16.1.0
     uuid: ^8.3.2
   languageName: unknown
@@ -7151,9 +7160,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^25.16.0":
-  version: 25.16.0
-  resolution: "putout@npm:25.16.0"
+"putout@npm:^25.17.1":
+  version: 25.17.1
+  resolution: "putout@npm:25.17.1"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -7207,8 +7216,9 @@ __metadata:
     "@putout/plugin-convert-map-to-for-of": ^2.0.0
     "@putout/plugin-convert-math-pow": ^4.0.0
     "@putout/plugin-convert-mock-require-to-mock-import": ^3.0.0
-    "@putout/plugin-convert-object-assign-to-merge-spread": ^5.0.0
+    "@putout/plugin-convert-object-assign-to-merge-spread": ^6.0.0
     "@putout/plugin-convert-quotes-to-backticks": ^2.0.0
+    "@putout/plugin-convert-reduce-to-for-of": ^1.0.0
     "@putout/plugin-convert-template-to-string": ^1.0.0
     "@putout/plugin-convert-to-arrow-function": ^3.0.0
     "@putout/plugin-convert-typeof-to-is-type": ^2.0.0
@@ -7261,7 +7271,7 @@ __metadata:
     "@putout/plugin-remove-useless-functions": ^2.0.0
     "@putout/plugin-remove-useless-map": ^1.0.0
     "@putout/plugin-remove-useless-new": ^2.0.0
-    "@putout/plugin-remove-useless-operand": ^1.0.0
+    "@putout/plugin-remove-useless-operand": ^2.0.0
     "@putout/plugin-remove-useless-return": ^4.0.0
     "@putout/plugin-remove-useless-spread": ^5.0.0
     "@putout/plugin-remove-useless-template-expressions": ^1.0.0
@@ -7307,7 +7317,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: df3e6144b464f9c42f90f6aeed7b078639c17ca115d0d4de8bcd7f4768782b30c9fd3e51e9b64399e0270c45cfa2a7d80d42b054be991173aab35e57fdcd2359
+  checksum: 9a24fec30c1afda9aa0ce981c80c015bdda05ba26f62fe40d5f504db826ed3da381382a9657ddcf2651f66c14387678f96580d47904865fa271219078df3c452
   languageName: node
   linkType: hard
 
