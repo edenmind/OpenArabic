@@ -13,7 +13,9 @@ function TextAddPublish() {
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const { id } = useParams()
-  const [status, setStatus] = React.useState('')
+
+  const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -33,7 +35,7 @@ function TextAddPublish() {
   }
 
   const handleAdd = () => {
-    const { title, author, category, sentences, source, texts } = text
+    const { title, author, category, sentences, source, texts, status } = text
     const { arabic, english } = texts
 
     axios({
