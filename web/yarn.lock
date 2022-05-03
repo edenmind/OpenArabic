@@ -2912,12 +2912,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-for-to-for-of@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@putout/plugin-convert-for-to-for-of@npm:3.0.0"
+"@putout/plugin-convert-for-to-for-of@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@putout/plugin-convert-for-to-for-of@npm:4.0.0"
   peerDependencies:
-    putout: ">=24"
-  checksum: 83fa60f8a3950997b9e0add4abdb1a32b8193d6193f6b6c68b1333df3b2141a80566b2cb5f9511f294f410acc47d40981d159f038300ae0f15dfeb4db5be8c95
+    putout: ">=25"
+  checksum: 965daf463e4fe4d111b7a3a3b1e497a5026ad745c370466c70aa49cf8d0a4c8afa927d2979b8e93fdbf585d203e8564cc11cbda212e5e9386876a667d461b8a2
   languageName: node
   linkType: hard
 
@@ -11739,7 +11739,7 @@ __metadata:
     eslint-plugin-unicorn: ^42.0.0
     history: ^5.3.0
     prettier: ^2.6.2
-    putout: ^25.17.1
+    putout: ^25.17.2
     react: ^18.1.0
     react-dom: ^18.1.0
     react-redux: ^8.0.1
@@ -13101,9 +13101,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^25.17.1":
-  version: 25.17.1
-  resolution: "putout@npm:25.17.1"
+"putout@npm:^25.17.2":
+  version: 25.17.2
+  resolution: "putout@npm:25.17.2"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13152,7 +13152,7 @@ __metadata:
     "@putout/plugin-convert-esm-to-commonjs": ^4.0.0
     "@putout/plugin-convert-for-each-to-for-of": ^7.0.0
     "@putout/plugin-convert-for-in-to-for-of": ^2.0.0
-    "@putout/plugin-convert-for-to-for-of": ^3.0.0
+    "@putout/plugin-convert-for-to-for-of": ^4.0.0
     "@putout/plugin-convert-index-of-to-includes": ^1.0.0
     "@putout/plugin-convert-map-to-for-of": ^2.0.0
     "@putout/plugin-convert-math-pow": ^4.0.0
@@ -13258,7 +13258,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 9a24fec30c1afda9aa0ce981c80c015bdda05ba26f62fe40d5f504db826ed3da381382a9657ddcf2651f66c14387678f96580d47904865fa271219078df3c452
+  checksum: 40c2ee6489ddd77b85274254683b3c036992b51aeb30db16bf497b4245d9bccb5ae6d05882cdb599e2d643a12403795311c0e91c400dd6efdcd2baf55390a636
   languageName: node
   linkType: hard
 
