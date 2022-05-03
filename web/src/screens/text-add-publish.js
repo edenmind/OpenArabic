@@ -1,8 +1,8 @@
-import { Button, Chip, Container, Stack } from '@mui/material'
+import { Button, Chip, Stack } from '@mui/material'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-
+import MenuSelect from '../components/menu-select.js'
 import SnackBar from '../components/snack-bar.js'
 import axios from 'axios'
 
@@ -16,6 +16,13 @@ function TextAddPublish() {
   const [status, setStatus] = React.useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  // eslint-disable-next-line putout/objects-braces-inside-array
+  const [statuses] = React.useState([
+    { id: 1, name: 'Draft' },
+    { id: 2, name: 'Validated' },
+    { id: 3, name: 'Published' }
+  ])
 
   const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
@@ -98,8 +105,9 @@ function TextAddPublish() {
 
   return (
     <Fragment>
-      <Stack spacing={0} style={{ paddingBottom: '70px', width: '700px' }}>
-        <Stack direction="row" spacing={2} style={{ paddingTop: '50px' }}>
+      <Stack spacing={0} style={{ paddingBottom: '50px', width: '700px' }}>
+        <h4>Validation</h4>
+        <Stack direction="row" spacing={2}>
           {text.title.length > 4 ? <Chip label="Title" color="success" /> : <Chip label="Title" color="error" />}
           {text.category.length > 4 ? (
             <Chip label="Category" color="success" />
@@ -113,16 +121,27 @@ function TextAddPublish() {
           ) : (
             <Chip label="Sentences" color="error" />
           )}
-
-          {id ? <Button onClick={handleUpdate}>Update Text</Button> : <Button onClick={handleAdd}>Add Text</Button>}
-          <SnackBar
-            openSnackBar={openSnackBar}
-            handleCloseSnackbar={handleCloseSnackbar}
-            severity="success"
-            message={status}
-          />
         </Stack>
       </Stack>
+      <Stack spacing={0} style={{ paddingBottom: '30px', width: '700px' }}>
+        <h4>Status</h4>
+        <MenuSelect Heading="Status" Values={statuses} value={text.status} onChangeFunc={setStatus} />
+      </Stack>
+      {id ? (
+        <Button variant="contained" onClick={handleUpdate}>
+          Update Status
+        </Button>
+      ) : (
+        <Button variant="contained" onClick={handleAdd}>
+          Add Text
+        </Button>
+      )}
+      <SnackBar
+        openSnackBar={openSnackBar}
+        handleCloseSnackbar={handleCloseSnackbar}
+        severity="success"
+        message={status}
+      />
     </Fragment>
   )
 }

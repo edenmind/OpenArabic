@@ -15,17 +15,8 @@ const TextAddHeading = () => {
   const setCategory = (event) => dispatch({ type: 'SET_CATEGORY', category: event.target.value })
   const setAuthor = (event) => dispatch({ type: 'SET_AUTHOR', author: event.target.value })
   const setSource = (event) => dispatch({ type: 'SET_SOURCE', source: event.target.value })
-  const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
-
   const [categories, setCategories] = React.useState([])
   const [authors, setAuthors] = React.useState([])
-  // eslint-disable-next-line putout/objects-braces-inside-array
-  const [statuses] = React.useState([
-    { id: 1, name: 'Draft' },
-    { id: 2, name: 'Validated' },
-    { id: 3, name: 'Published' }
-  ])
-
   const { text } = useSelector(selector)
 
   React.useEffect(() => {
@@ -61,7 +52,7 @@ const TextAddHeading = () => {
         value={text.source}
         onChange={setSource}
       />
-      <MenuSelect Heading="Status" Values={statuses} value={text.status} onChangeFunc={setStatus} />
+
       <MenuSelect Heading="Author" Values={authors} value={text.author} onChangeFunc={setAuthor} />
       <MenuSelect Heading="Category" Values={categories} value={text.category} onChangeFunc={setCategory} />
     </Stack>

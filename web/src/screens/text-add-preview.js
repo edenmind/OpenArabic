@@ -4,12 +4,14 @@ import React, { Fragment } from 'react'
 import Footer from '../components/footer.js'
 import Grid from '@mui/material/Grid'
 import TextListIdSentences from './text-list-id-sentences.js'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 const selector = (state) => state.text
 
 function TextAddPreview() {
   const { text } = useSelector(selector)
+  const dispatch = useDispatch()
+  const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
 
   return text.sentences.length > 1 ? (
     <React.Fragment>
