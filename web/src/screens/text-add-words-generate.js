@@ -30,12 +30,17 @@ const TextAddWordsGenerate = (props) => {
 
       const words = []
 
-      for (const element of cleanFromNullAndEmpty) {
+      for (const cleanWord of cleanFromNullAndEmpty) {
+        const illegalCharactersRemoved = wordProcessing.cleanWordFromInvalidCharacters(cleanWord)
+
         const word = {
-          arabic: element,
+          arabic: illegalCharactersRemoved,
           english: ''
         }
-        words.push(word)
+
+        if (word.arabic !== '' && word.arabic !== undefined && word.arabic !== null) {
+          words.push(word)
+        }
       }
 
       const sentence = {

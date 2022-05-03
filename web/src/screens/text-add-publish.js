@@ -42,7 +42,7 @@ function TextAddPublish() {
       data: {
         title,
         category,
-        status: 'Published',
+        status,
         texts: {
           arabic,
           english
