@@ -503,7 +503,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@isaacs/import-jsx@npm:*, @isaacs/import-jsx@npm:^4.0.1":
+"@isaacs/import-jsx@npm:^4.0.1":
   version: 4.0.1
   resolution: "@isaacs/import-jsx@npm:4.0.1"
   dependencies:
@@ -957,12 +957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-is-array@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "@putout/plugin-apply-is-array@npm:2.1.0"
+"@putout/plugin-apply-is-array@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-apply-is-array@npm:3.0.0"
   peerDependencies:
-    putout: ">=21"
-  checksum: 4740a34dfbb75b201edd98543430d42808c59b56d3013abd1642b9a50f68f9af6557c6b43b2628003514f7b141df45d0fa24b5953d20ecb4c801f742c477e477
+    putout: ">=25"
+  checksum: db82df4d4d252e8f678fa7d7cbf880a33ae5ce508fa8e03283c42c7feb4330ffe153302c5a2df27498fb53bf8f875736fd5b27d08dbbf0990f6049d59d80307d
   languageName: node
   linkType: hard
 
@@ -1485,12 +1485,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-nested-blocks@npm:^5.0.0":
-  version: 5.0.1
-  resolution: "@putout/plugin-remove-nested-blocks@npm:5.0.1"
+"@putout/plugin-remove-nested-blocks@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-remove-nested-blocks@npm:6.0.0"
   peerDependencies:
-    putout: ">=24"
-  checksum: ae21c38184f407e12b811b490974833e516620b56b33a47ccbe8e0303edd3650b299bd4809d6c11a4b015439b18c917cfbe20a278cce4225ae2809fbe613bb25
+    putout: ">=25"
+  checksum: 4dc394f8f8fc69ae2607a19497bd93ffa801027db256b628fa7c76bf5a580a02f69df6864e0b63af15cf92aca3bfdae10873cba93fcacdfb4215a7c0e6d569e8
   languageName: node
   linkType: hard
 
@@ -2034,14 +2034,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 18.0.8
-  resolution: "@types/react@npm:18.0.8"
+"@types/react@npm:^17":
+  version: 17.0.44
+  resolution: "@types/react@npm:17.0.44"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 12d0e6bc390709926d8eaeb7d2edb4ef9c9fbe8eac41cb0619d958386700547bff91c880c2a12a9eb1e0d09afa4f1e86fd1b93164c627824465b72123f149f3b
+  checksum: ebee02778ca08f954c316dc907802264e0121c87b8fa2e7e0156ab0ef2a1b0a09d968c016a3600ec4c9a17dc09b4274f292d9b15a1a5369bb7e4072def82808f
   languageName: node
   linkType: hard
 
@@ -2546,8 +2546,8 @@ __metadata:
     fastify-plugin: ^3.0.1
     mongodb: ^4.5.0
     prettier: ^2.6.2
-    putout: ^25.17.2
-    tap: ^16.1.0
+    putout: ^25.17.4
+    tap: ^16.2.0
     uuid: ^8.3.2
   languageName: unknown
   linkType: soft
@@ -4893,7 +4893,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ink@npm:*, ink@npm:^3.2.0":
+"ink@npm:^3.2.0":
   version: 3.2.0
   resolution: "ink@npm:3.2.0"
   dependencies:
@@ -7160,9 +7160,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^25.17.2":
-  version: 25.17.2
-  resolution: "putout@npm:25.17.2"
+"putout@npm:^25.17.4":
+  version: 25.17.4
+  resolution: "putout@npm:25.17.4"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -7194,7 +7194,7 @@ __metadata:
     "@putout/plugin-apply-destructuring": ^5.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
     "@putout/plugin-apply-if-condition": ^1.0.0
-    "@putout/plugin-apply-is-array": ^2.0.0
+    "@putout/plugin-apply-is-array": ^3.0.0
     "@putout/plugin-apply-numeric-separators": ^1.0.0
     "@putout/plugin-apply-optional-chaining": ^2.0.0
     "@putout/plugin-browserlist": ^1.0.0
@@ -7251,7 +7251,7 @@ __metadata:
     "@putout/plugin-remove-duplicates-from-logical-expressions": ^1.0.0
     "@putout/plugin-remove-empty": ^8.0.0
     "@putout/plugin-remove-iife": ^1.0.0
-    "@putout/plugin-remove-nested-blocks": ^5.0.0
+    "@putout/plugin-remove-nested-blocks": ^6.0.0
     "@putout/plugin-remove-unreachable-code": ^1.0.0
     "@putout/plugin-remove-unreferenced-variables": ^2.0.0
     "@putout/plugin-remove-unused-expressions": ^5.0.0
@@ -7317,7 +7317,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 40c2ee6489ddd77b85274254683b3c036992b51aeb30db16bf497b4245d9bccb5ae6d05882cdb599e2d643a12403795311c0e91c400dd6efdcd2baf55390a636
+  checksum: 0a7353aab7962c563ed3536a13fc5faaadd48fda0b33304780c051962b3f75dd01ab8316edff41893179f8864a6e8800ec60e5a22aba261e517d5e3373e3abdf
   languageName: node
   linkType: hard
 
@@ -7372,12 +7372,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:*":
-  version: 18.1.0
-  resolution: "react@npm:18.1.0"
+"react@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "react@npm:17.0.2"
   dependencies:
     loose-envify: ^1.1.0
-  checksum: 5bb296b561b43ef2220395da4faac86c14a087c8c80e1a7598a5740f01ee605c11eaf249985c1e2000971c4cd32ccb46d40f00479bbd9fb6b1c7cf857393b7d4
+    object-assign: ^4.1.1
+  checksum: b254cc17ce3011788330f7bbf383ab653c6848902d7936a87b09d835d091e3f295f7e9dd1597c6daac5dc80f90e778c8230218ba8ad599f74adcc11e33b9d61b
   languageName: node
   linkType: hard
 
@@ -8582,18 +8583,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tap@npm:^16.1.0":
-  version: 16.1.0
-  resolution: "tap@npm:16.1.0"
+"tap@npm:^16.2.0":
+  version: 16.2.0
+  resolution: "tap@npm:16.2.0"
   dependencies:
-    "@isaacs/import-jsx": "*"
-    "@types/react": "*"
+    "@isaacs/import-jsx": ^4.0.1
+    "@types/react": ^17
     chokidar: ^3.3.0
     findit: ^2.0.0
     foreground-child: ^2.0.0
     fs-exists-cached: ^1.0.0
     glob: ^7.1.6
-    ink: "*"
+    ink: ^3.2.0
     isexe: ^2.0.0
     istanbul-lib-processinfo: ^2.0.2
     jackspeak: ^1.4.1
@@ -8602,7 +8603,7 @@ __metadata:
     mkdirp: ^1.0.4
     nyc: ^15.1.0
     opener: ^1.5.1
-    react: "*"
+    react: ^17.0.2
     rimraf: ^3.0.0
     signal-exit: ^3.0.6
     source-map-support: ^0.5.16
@@ -8610,7 +8611,7 @@ __metadata:
     tap-parser: ^11.0.1
     tap-yaml: ^1.0.0
     tcompare: ^5.0.7
-    treport: "*"
+    treport: ^3.0.3
     which: ^2.0.2
   peerDependencies:
     coveralls: ^3.1.1
@@ -8628,7 +8629,7 @@ __metadata:
       optional: true
   bin:
     tap: bin/run.js
-  checksum: 0dae47e6a4d3574c82b2927e1145e39a9a823966e99f195b96c5d3efca0e0968710890047e84f71b126ba7a10f148e50f6f492207d9e2c059eb98f278098ad32
+  checksum: 9293ed9f8bec61c195eef76d81b5d4cd8c1f68cdd1b9a6b2b8e58d515ba746f64ccfe1e0328d00c280ce2de385329d5f587c1d8b2ce7aa5dad6236694a505365
   languageName: node
   linkType: hard
 
@@ -8726,7 +8727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"treport@npm:*":
+"treport@npm:^3.0.3":
   version: 3.0.3
   resolution: "treport@npm:3.0.3"
   dependencies:

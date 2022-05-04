@@ -15,6 +15,7 @@ function TextAddPublish() {
   const { id } = useParams()
 
   const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
+  const [postMessage, setPostMessage] = React.useState('')
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -57,13 +58,13 @@ function TextAddPublish() {
       .then((response) => {
         if (response.status === 201) {
           setOpenSnackbar(true)
-          setStatus(`Added: ${title}!`)
+          setPostMessage(`Added: ${title}!`)
           setTimeout(() => {
             dispatch({ type: 'RESET_TEXT' })
             navigate('/texts')
-          }, 1000)
+          }, 1500)
         } else {
-          setStatus(`Error: ${response.data.message}`)
+          setPostMessage(`Error: ${response.data.message}`)
           setOpenSnackbar(true)
         }
       })
@@ -93,12 +94,12 @@ function TextAddPublish() {
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)
-          setStatus(`Updated text: ${response.data.message}`)
+          setPostMessage(`Updated text: ${response.data.message}`)
           setTimeout(() => {
             navigate('/texts')
-          }, 1000)
+          }, 1500)
         } else {
-          setStatus(`Error: ${response.data.message}`)
+          setPostMessage(`Error: ${response.data.message}`)
           setOpenSnackbar(true)
         }
       })
@@ -142,7 +143,7 @@ function TextAddPublish() {
         openSnackBar={openSnackBar}
         handleCloseSnackbar={handleCloseSnackbar}
         severity="success"
-        message={status}
+        message={postMessage}
       />
     </Fragment>
   )

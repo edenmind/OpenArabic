@@ -1,3 +1,5 @@
+/* eslint-disable newline-per-chained-call */
+
 'use strict'
 
 const { v4: uuidv4 } = require('uuid')
@@ -11,16 +13,19 @@ async function listTexts(request, reply) {
     ? await texts.find({ category: request.params.id }).toArray()
     : await texts.find({}).toArray()
 
-  reply.code(200).send(textList)
+  const textListSortedByCreated = textList.sort((a, b) => a.createdAt - b.createdAt)
+  reply.code(200).send(textListSortedByCreated)
 }
 
 async function addText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
+  const createdAt = new Date().toISOString().slice(0, 10)
   const { title, author, category, source, sentences, texts, status } = request.body
   const data = {
     title,
     author,
+    createdAt,
     category,
     source,
     id,
@@ -46,6 +51,7 @@ async function getText(request, reply) {
 
 async function updateText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
+  const updatedAt = new Date().toISOString().slice(0, 10)
   const { title, author, category, sentences, source, texts, status } = request.body
   const { arabic, english } = texts
   const updateDocument = {
@@ -53,6 +59,7 @@ async function updateText(request, reply) {
       title,
       category,
       status,
+      updatedAt,
       texts: {
         arabic,
         english

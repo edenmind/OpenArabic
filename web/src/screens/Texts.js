@@ -32,6 +32,18 @@ export default function Texts() {
     {
       field: 'status',
       headerName: 'Status',
+      width: 175,
+      editable: false
+    },
+    {
+      field: 'createdAt',
+      headerName: 'Created',
+      width: 150,
+      editable: false
+    },
+    {
+      field: 'updatedAt',
+      headerName: 'Updated',
       width: 150,
       editable: false
     },

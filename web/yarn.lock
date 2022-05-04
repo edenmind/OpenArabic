@@ -2757,12 +2757,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-is-array@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "@putout/plugin-apply-is-array@npm:2.1.0"
+"@putout/plugin-apply-is-array@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-apply-is-array@npm:3.0.0"
   peerDependencies:
-    putout: ">=21"
-  checksum: 4740a34dfbb75b201edd98543430d42808c59b56d3013abd1642b9a50f68f9af6557c6b43b2628003514f7b141df45d0fa24b5953d20ecb4c801f742c477e477
+    putout: ">=25"
+  checksum: db82df4d4d252e8f678fa7d7cbf880a33ae5ce508fa8e03283c42c7feb4330ffe153302c5a2df27498fb53bf8f875736fd5b27d08dbbf0990f6049d59d80307d
   languageName: node
   linkType: hard
 
@@ -3285,12 +3285,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-nested-blocks@npm:^5.0.0":
-  version: 5.0.1
-  resolution: "@putout/plugin-remove-nested-blocks@npm:5.0.1"
+"@putout/plugin-remove-nested-blocks@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-remove-nested-blocks@npm:6.0.0"
   peerDependencies:
-    putout: ">=24"
-  checksum: ae21c38184f407e12b811b490974833e516620b56b33a47ccbe8e0303edd3650b299bd4809d6c11a4b015439b18c917cfbe20a278cce4225ae2809fbe613bb25
+    putout: ">=25"
+  checksum: 4dc394f8f8fc69ae2607a19497bd93ffa801027db256b628fa7c76bf5a580a02f69df6864e0b63af15cf92aca3bfdae10873cba93fcacdfb4215a7c0e6d569e8
   languageName: node
   linkType: hard
 
@@ -11739,7 +11739,7 @@ __metadata:
     eslint-plugin-unicorn: ^42.0.0
     history: ^5.3.0
     prettier: ^2.6.2
-    putout: ^25.17.2
+    putout: ^25.17.4
     react: ^18.1.0
     react-dom: ^18.1.0
     react-redux: ^8.0.1
@@ -13101,9 +13101,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^25.17.2":
-  version: 25.17.2
-  resolution: "putout@npm:25.17.2"
+"putout@npm:^25.17.4":
+  version: 25.17.4
+  resolution: "putout@npm:25.17.4"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13135,7 +13135,7 @@ __metadata:
     "@putout/plugin-apply-destructuring": ^5.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
     "@putout/plugin-apply-if-condition": ^1.0.0
-    "@putout/plugin-apply-is-array": ^2.0.0
+    "@putout/plugin-apply-is-array": ^3.0.0
     "@putout/plugin-apply-numeric-separators": ^1.0.0
     "@putout/plugin-apply-optional-chaining": ^2.0.0
     "@putout/plugin-browserlist": ^1.0.0
@@ -13192,7 +13192,7 @@ __metadata:
     "@putout/plugin-remove-duplicates-from-logical-expressions": ^1.0.0
     "@putout/plugin-remove-empty": ^8.0.0
     "@putout/plugin-remove-iife": ^1.0.0
-    "@putout/plugin-remove-nested-blocks": ^5.0.0
+    "@putout/plugin-remove-nested-blocks": ^6.0.0
     "@putout/plugin-remove-unreachable-code": ^1.0.0
     "@putout/plugin-remove-unreferenced-variables": ^2.0.0
     "@putout/plugin-remove-unused-expressions": ^5.0.0
@@ -13258,7 +13258,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 40c2ee6489ddd77b85274254683b3c036992b51aeb30db16bf497b4245d9bccb5ae6d05882cdb599e2d643a12403795311c0e91c400dd6efdcd2baf55390a636
+  checksum: 0a7353aab7962c563ed3536a13fc5faaadd48fda0b33304780c051962b3f75dd01ab8316edff41893179f8864a6e8800ec60e5a22aba261e517d5e3373e3abdf
   languageName: node
   linkType: hard
 
