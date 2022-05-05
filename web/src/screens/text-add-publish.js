@@ -5,11 +5,21 @@ import { useNavigate, useParams } from 'react-router-dom'
 import MenuSelect from '../components/menu-select.js'
 import SnackBar from '../components/snack-bar.js'
 import axios from 'axios'
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import TextField from '@mui/material/TextField'
 
 const selector = (state) => state.text
 
 function TextAddPublish() {
   const { text } = useSelector(selector)
+
+  const [value, setValue] = React.useState(new Date())
+
+  const handleChange = (value) => {
+    setValue(value)
+  }
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const { id } = useParams()
@@ -126,9 +136,20 @@ function TextAddPublish() {
           )}
         </Stack>
       </Stack>
-      <Stack spacing={0} style={{ paddingBottom: '30px', width: '700px' }}>
+      <Stack spacing={0} style={{ paddingBottom: '50px', width: '700px' }}>
         <h4>Status</h4>
         <MenuSelect Heading="Status" Values={statuses} value={text.status} onChangeFunc={setStatus} />
+
+        <h4>Publication Date</h4>
+        <LocalizationProvider dateAdapter={AdapterMoment}>
+          <DesktopDatePicker
+            label="Date desktop"
+            inputFormat="YYYY-MM-DD"
+            value={value}
+            onChange={handleChange}
+            renderInput={(params) => <TextField {...params} />}
+          />
+        </LocalizationProvider>
       </Stack>
       {id ? (
         <Button variant="contained" onClick={handleUpdate}>
