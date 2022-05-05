@@ -3,6 +3,7 @@ import * as wordProcessing from '../services/word-processing.js'
 
 import { Chip, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
+import LoadingButton from '@mui/lab/LoadingButton'
 
 import { Fragment } from 'react'
 import MatchingIndicator from '../components/matching-indicator.js'
@@ -25,8 +26,13 @@ const TextAddSentences = () => {
   const { text } = useSelector(selector)
   const [englishSentenceCount, setEnglishSentenceCount] = React.useState(0)
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)
+  const [loading, setLoading] = React.useState(false)
 
   const { id } = useParams()
+
+  const handleClick = () => {
+    setLoading(true)
+  }
 
   function handleChangeEnglish(event) {
     const englishSentence = wordProcessing.splitTextToSentences(event.target.value)
@@ -78,6 +84,15 @@ const TextAddSentences = () => {
         />
         <Chip label={englishSentencesCountMessage} />
         <Chip label={arabicSentencesCountMessage} />
+        <LoadingButton
+          size="small"
+          onClick={handleClick}
+          loading={loading}
+          loadingIndicator="Loading..."
+          variant="outlined"
+        >
+          Fetch vocals
+        </LoadingButton>
       </Stack>
       <Stack direction="row" spacing={2}>
         <Item>

@@ -38,13 +38,13 @@ export default function Texts() {
     {
       field: 'createdAt',
       headerName: 'Created',
-      width: 150,
+      width: 200,
       editable: false
     },
     {
       field: 'updatedAt',
       headerName: 'Updated',
-      width: 150,
+      width: 200,
       editable: false
     },
     {

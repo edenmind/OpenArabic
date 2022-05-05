@@ -16,7 +16,7 @@ def get_vowels(unvoweled):
 def set_vowels():
     unvoweled = request.args.get('unvoweled')
     voweled = get_vowels(unvoweled)
-    # deepcode ignore XSS: <please specify a reason of ignoring this>
+    # deepcode ignore XSS: <running inside of cluster>
     return voweled
 
 
