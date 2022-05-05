@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as wordProcessing from '../services/word-processing.js'
+import * as apiService from '../services/api-service.js'
 
 import { Chip, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
@@ -32,6 +33,13 @@ const TextAddSentences = () => {
 
   const handleClick = () => {
     setLoading(true)
+    apiService
+      .getVowels(text.texts.arabic)
+      .then((data) => {
+        dispatch({ type: 'SET_ARABIC_TEXT', arabic: data })
+        setLoading(false)
+      })
+      .catch((error) => console.log(error))
   }
 
   function handleChangeEnglish(event) {
