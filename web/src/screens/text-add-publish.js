@@ -15,11 +15,7 @@ const selector = (state) => state.text
 function TextAddPublish() {
   const { text } = useSelector(selector)
 
-  const [value, setValue] = React.useState(new Date())
-
-  const handleChange = (value) => {
-    setValue(value)
-  }
+  const [publishAt, setPublishAt] = React.useState(new Date())
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const { id } = useParams()
@@ -55,6 +51,7 @@ function TextAddPublish() {
       data: {
         title,
         category,
+        publishAt,
         status,
         texts: {
           arabic,
@@ -82,7 +79,7 @@ function TextAddPublish() {
   }
 
   const handleUpdate = () => {
-    const { title, author, category, sentences, source, texts, status } = text
+    const { title, author, category, sentences, source, texts, status, publishAt } = text
     const { arabic, english } = texts
 
     axios({
@@ -91,6 +88,7 @@ function TextAddPublish() {
       data: {
         title,
         category,
+        publishAt,
         status,
         texts: {
           arabic,
@@ -145,8 +143,8 @@ function TextAddPublish() {
           <DesktopDatePicker
             label="Date desktop"
             inputFormat="YYYY-MM-DD"
-            value={value}
-            onChange={handleChange}
+            value={publishAt}
+            onChange={setPublishAt}
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>

@@ -13,7 +13,7 @@ async function listTexts(request, reply) {
     ? await texts.find({ category: request.params.id }).toArray()
     : await texts.find({}).toArray()
 
-  const textListSortedByCreatedAt = textList.sort((a, b) => a.createdAt - b.createdAt)
+  const textListSortedByCreatedAt = textList.sort((a, b) => a.publishAt - b.publishAt)
   reply.code(200).send(textListSortedByCreatedAt)
 }
 
@@ -21,11 +21,12 @@ async function addText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
   const createdAt = new Date()
-  const { title, author, category, source, sentences, texts, status } = request.body
+  const { title, author, category, source, sentences, texts, publishAt, status } = request.body
   const data = {
     title,
     author,
     createdAt,
+    publishAt,
     category,
     source,
     id,
@@ -52,13 +53,14 @@ async function getText(request, reply) {
 async function updateText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const updatedAt = new Date()
-  const { title, author, category, sentences, source, texts, status } = request.body
+  const { title, author, category, sentences, source, texts, publishAt, status } = request.body
   const { arabic, english } = texts
   const updateDocument = {
     $set: {
       title,
       category,
       status,
+      publishAt,
       updatedAt,
       texts: {
         arabic,

@@ -3307,6 +3307,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/plugin-new@npm:^1.0.0":
+  version: 1.0.3
+  resolution: "@putout/plugin-new@npm:1.0.3"
+  peerDependencies:
+    putout: ">=26"
+  checksum: af7d895da42cff1ab38db6c8b3abe1979b35161d81b7944ce68c47749631f2d2fe0818481185cadb5f80179970fa78b5a9c3bac68eeeba2075be5270938ca200
+  languageName: node
+  linkType: hard
+
 "@putout/plugin-nodejs@npm:^4.0.0":
   version: 4.3.0
   resolution: "@putout/plugin-nodejs@npm:4.3.0"
@@ -3644,15 +3653,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-useless-new@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "@putout/plugin-remove-useless-new@npm:2.1.1"
-  peerDependencies:
-    putout: ">=25"
-  checksum: 0cdf2eefc85c6bda8834b979c415dfcd079153ec34a703a1abf5f0eed23590ba4bc195cc8174b3c094803699fcc2a6adb78182a6ac3748b4b97972be6c678532
-  languageName: node
-  linkType: hard
-
 "@putout/plugin-remove-useless-operand@npm:^2.0.0":
   version: 2.0.0
   resolution: "@putout/plugin-remove-useless-operand@npm:2.0.0"
@@ -3770,12 +3770,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-strict-mode@npm:^4.0.0":
-  version: 4.1.1
-  resolution: "@putout/plugin-strict-mode@npm:4.1.1"
+"@putout/plugin-strict-mode@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-strict-mode@npm:5.0.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: ab7267b17d0ba2d790bdd71a42acba84a2ca4f5a064cfef6987f25a0be4f1a166aa211c621d3f3e915b2ac8f0e6723f364e5b933c6eb393548913c77f4d49ca5
+    putout: ">=26"
+  checksum: e26e389e027e6c6a7f8bff44f8985bdeb32c4c3078c75eeddfaeac08534bb4e593ed8ef0925db34308e3d89111eaa09fa4bbe39dc39b3561f8ee0a31ac61daba
   languageName: node
   linkType: hard
 
@@ -11945,7 +11945,7 @@ __metadata:
     moment: ^2.29.3
     moment-timezone: ^0.5.34
     prettier: ^2.6.2
-    putout: ^25.17.4
+    putout: ^26.0.0
     react: ^18.1.0
     react-dom: ^18.1.0
     react-moment: ^1.1.2
@@ -13308,9 +13308,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^25.17.4":
-  version: 25.17.4
-  resolution: "putout@npm:25.17.4"
+"putout@npm:^26.0.0":
+  version: 26.0.0
+  resolution: "putout@npm:26.0.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13382,6 +13382,7 @@ __metadata:
     "@putout/plugin-merge-duplicate-imports": ^6.0.0
     "@putout/plugin-merge-if-statements": ^3.0.0
     "@putout/plugin-montag": ^1.0.0
+    "@putout/plugin-new": ^1.0.0
     "@putout/plugin-nodejs": ^4.0.0
     "@putout/plugin-npmignore": ^2.0.0
     "@putout/plugin-package-json": ^4.0.0
@@ -13418,7 +13419,6 @@ __metadata:
     "@putout/plugin-remove-useless-for-of": ^2.0.0
     "@putout/plugin-remove-useless-functions": ^2.0.0
     "@putout/plugin-remove-useless-map": ^1.0.0
-    "@putout/plugin-remove-useless-new": ^2.0.0
     "@putout/plugin-remove-useless-operand": ^2.0.0
     "@putout/plugin-remove-useless-return": ^4.0.0
     "@putout/plugin-remove-useless-spread": ^5.0.0
@@ -13432,7 +13432,7 @@ __metadata:
     "@putout/plugin-simplify-ternary": ^2.0.0
     "@putout/plugin-split-nested-destructuring": ^1.0.0
     "@putout/plugin-split-variable-declarations": ^2.0.0
-    "@putout/plugin-strict-mode": ^4.0.0
+    "@putout/plugin-strict-mode": ^5.0.0
     "@putout/plugin-tape": ^9.0.0
     "@putout/plugin-try-catch": ^1.0.0
     "@putout/plugin-typescript": ^2.0.0
@@ -13465,7 +13465,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 0a7353aab7962c563ed3536a13fc5faaadd48fda0b33304780c051962b3f75dd01ab8316edff41893179f8864a6e8800ec60e5a22aba261e517d5e3373e3abdf
+  checksum: a57db21e7ffe5ec2756ed276ccaa0e80322d76902c894838bf05b88f63da5482a8588d9e53bb7bba657f408071d01ac351d31cd2a70434b5c48489705cb6537e
   languageName: node
   linkType: hard
 

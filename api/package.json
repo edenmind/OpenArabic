@@ -34,11 +34,11 @@
     "fastify-plugin": "^3.0.1",
     "mongodb": "^4.5.0",
     "prettier": "^2.6.2",
-    "putout": "^25.17.4",
+    "putout": "^26.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "eslint": "^8.14.0",
+    "eslint": "^8.15.0",
     "tap": "^16.2.0"
   }
 }

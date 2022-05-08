@@ -48,6 +48,12 @@ export default function Texts() {
       editable: false
     },
     {
+      field: 'publishAt',
+      headerName: 'Published',
+      width: 200,
+      editable: false
+    },
+    {
       field: 'author',
       headerName: 'Author',
       width: 250,
