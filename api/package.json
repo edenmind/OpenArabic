@@ -23,6 +23,7 @@
     "@fastify/rate-limit": "6.0.0",
     "@fastify/sensible": "4.0.0",
     "@fastify/swagger": "6.0.0",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",

@@ -3,6 +3,8 @@
 'use strict'
 
 const { v4: uuidv4 } = require('uuid')
+const axios = require('axios').default
+
 const COLLECTIONS = require('../constants/collections.js')
 
 const { ObjectId } = require('mongodb')
@@ -48,6 +50,14 @@ async function getText(request, reply) {
   text.vocabularyCollection = vocabularyCollection
 
   text ? reply.send(text) : reply.notFound('The Text was not found')
+}
+
+async function getTashkeel(request, reply) {
+  const { text } = request.body
+  const url = `http://localhost:5002/tashkeel?unvoweled=${text}`
+  const response = await axios.get(url)
+
+  reply.send(response.data)
 }
 
 async function updateText(request, reply) {
@@ -136,6 +146,7 @@ module.exports = {
   listTexts,
   addText,
   getText,
+  getTashkeel,
   updateText,
   deleteText
 }
