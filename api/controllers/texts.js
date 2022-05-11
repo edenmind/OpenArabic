@@ -53,8 +53,9 @@ async function getText(request, reply) {
 }
 
 async function getTashkeel(request, reply) {
-  const { text } = request.body
-  const url = `http://localhost:5002/tashkeel?unvoweled=${text}`
+  const { encodedText } = request.body
+
+  const url = `http://localhost:5002/tashkeel?unvoweled=${encodedText}`
   const response = await axios.get(url)
 
   reply.send(response.data)

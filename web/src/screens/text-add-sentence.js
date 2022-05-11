@@ -36,6 +36,7 @@ const TextAddSentences = () => {
     apiService
       .getVowels(text.texts.arabic)
       .then((data) => {
+        console.log('data', data)
         dispatch({ type: 'SET_ARABIC_TEXT', arabic: data })
         setLoading(false)
       })

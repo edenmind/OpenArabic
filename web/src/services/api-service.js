@@ -8,18 +8,17 @@ export const getTexts = async (id) => {
 
 export const getVowels = async (text) => {
   const url = `${process.env.REACT_APP_API_URL}/texts/tashkeel`
-
-  axios({
+  const encodedText = encodeURIComponent(text)
+  const response = await axios({
     method: 'post',
     url,
+
     data: {
-      text
+      encodedText
     }
   })
-    .then((response) => {
-      return response.data
-    })
-    .catch((error) => console.log(error))
+
+  return response.data
 }
 
 export const getText = (id) => async (dispatch) => {
