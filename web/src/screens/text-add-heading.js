@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import MenuSelect from '../components/menu-select.js'
 import axios from 'axios'
+import StandardImageList from '../components/standard-image-list.js'
 
 const selector = (state) => state.text
 
@@ -55,6 +56,8 @@ const TextAddHeading = () => {
 
       <MenuSelect Heading="Author" Values={authors} value={text.author} onChangeFunc={setAuthor} />
       <MenuSelect Heading="Category" Values={categories} value={text.category} onChangeFunc={setCategory} />
+      <h4>Header Image</h4>
+      <StandardImageList />
     </Stack>
   )
 }
