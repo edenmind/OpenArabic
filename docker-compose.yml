@@ -18,8 +18,11 @@ services:
     ports:
       - 5002:5002
     restart: always
-
-
+  static:
+    build: ./static
+    ports:
+      - 8080:80
+    restart: always
 volumes:
   db-data:
   mongo-config:

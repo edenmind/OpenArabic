@@ -27,6 +27,7 @@ function TextAddPreview() {
           <h1>{text.title}</h1>
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
+          <img src={text.image} alt={text.title} width={700} />
           <Divider width="200" />
           <TextListIdSentences sentences={text.sentences} />
         </Grid>

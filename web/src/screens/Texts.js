@@ -32,25 +32,13 @@ export default function Texts() {
     {
       field: 'status',
       headerName: 'Status',
-      width: 175,
-      editable: false
-    },
-    {
-      field: 'createdAt',
-      headerName: 'Created',
-      width: 200,
-      editable: false
-    },
-    {
-      field: 'updatedAt',
-      headerName: 'Updated',
-      width: 200,
+      width: 125,
       editable: false
     },
     {
       field: 'publishAt',
       headerName: 'Published',
-      width: 200,
+      width: 250,
       editable: false
     },
     {
@@ -69,6 +57,12 @@ export default function Texts() {
       field: 'category',
       headerName: 'Category',
       width: 120,
+      editable: false
+    },
+    {
+      field: 'image',
+      headerName: 'Image',
+      width: 350,
       editable: false
     },
     {

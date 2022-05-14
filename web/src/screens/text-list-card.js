@@ -11,7 +11,7 @@ function TextListCard(properties) {
     .map((text, index) => (
       <Grid item md={4} xs={12} key={index}>
         <Card>
-          <CardMedia component="img" height="194" image={`/${index}.png`} />
+          <CardMedia component="img" height="194" image={text.image} />
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
               {text.category}

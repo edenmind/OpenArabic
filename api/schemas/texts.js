@@ -1,6 +1,6 @@
 'use strict'
 
-const { listTexts, addText, getTashkeel, getText, updateText, deleteText } = require('../controllers/Texts')
+const { listTexts, addText, getTashkeel, getText, updateText, deleteText, getImages } = require('../controllers/Texts')
 
 const getTextsOptions = {
   schema: {
@@ -22,6 +22,7 @@ const getTextOptions = {
           id: { type: 'string' },
           title: { type: 'string' },
           status: { type: 'string' },
+          image: { image: 'string' },
           createdAt: { type: 'string' },
           updatedAt: { type: 'string' },
           publishAt: { type: 'string' },
@@ -49,14 +50,26 @@ const getTashkeelOptions = {
   handler: getTashkeel
 }
 
+const getImagesOptions = {
+  schema: {
+    response: {
+      200: {
+        type: 'array'
+      }
+    }
+  },
+  handler: getImages
+}
+
 const updateTextOptions = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status'],
+      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image'],
       properties: {
         title: { type: 'string' },
         status: { type: 'string' },
+        image: { type: 'string' },
         author: { type: 'string' },
         updatedAt: { type: 'string' },
         publishAt: { type: 'string' },
@@ -82,10 +95,11 @@ const postTextOptions = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status'],
+      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image'],
       properties: {
         title: { type: 'string' },
         status: { type: 'string' },
+        image: { type: 'string' },
         createdAt: { type: 'string' },
         publishAt: { type: 'string' },
         author: { type: 'string' },
@@ -121,5 +135,6 @@ module.exports = {
   updateTextOpts: updateTextOptions,
   postTextOpts: postTextOptions,
   deleteTextOpts: deleteTextOptions,
-  getTashkeelOpts: getTashkeelOptions
+  getTashkeelOpts: getTashkeelOptions,
+  getImagesOpts: getImagesOptions
 }

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable newline-per-chained-call */
 
 'use strict'
@@ -23,10 +24,11 @@ async function addText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
   const createdAt = new Date()
-  const { title, author, category, source, sentences, texts, publishAt, status } = request.body
+  const { title, author, category, source, sentences, texts, publishAt, status, image } = request.body
   const data = {
     title,
     author,
+    image,
     createdAt,
     publishAt,
     category,
@@ -52,6 +54,41 @@ async function getText(request, reply) {
   text ? reply.send(text) : reply.notFound('The Text was not found')
 }
 
+function getImages(request, reply) {
+  // eslint-disable-next-line putout/objects-braces-inside-array
+  const headerImages = [
+    {
+      img: 'http://localhost:8080/feature.png'
+    },
+    {
+      img: 'http://localhost:8080/feature.png'
+    },
+    {
+      img: 'http://localhost:8080/feature.png'
+    },
+    {
+      img: 'http://localhost:8080/feature.png'
+    },
+    {
+      img: 'http://localhost:8080/feature.png'
+    },
+    {
+      img: 'http://localhost:8080/feature.png'
+    },
+    {
+      img: 'http://localhost:8080/feature.png'
+    },
+    {
+      img: 'http://localhost:8080/feature.png'
+    },
+    {
+      img: 'http://localhost:8080/feature.png'
+    }
+  ]
+
+  reply.send(headerImages)
+}
+
 async function getTashkeel(request, reply) {
   const { encodedText } = request.body
 
@@ -64,13 +101,14 @@ async function getTashkeel(request, reply) {
 async function updateText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const updatedAt = new Date()
-  const { title, author, category, sentences, source, texts, publishAt, status } = request.body
+  const { title, author, category, sentences, source, texts, publishAt, status, image } = request.body
   const { arabic, english } = texts
   const updateDocument = {
     $set: {
       title,
       category,
       status,
+      image,
       publishAt,
       updatedAt,
       texts: {
@@ -149,5 +187,6 @@ module.exports = {
   getText,
   getTashkeel,
   updateText,
-  deleteText
+  deleteText,
+  getImages
 }

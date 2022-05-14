@@ -15,12 +15,12 @@ const selector = (state) => state.text
 function TextAddPublish() {
   const { text } = useSelector(selector)
 
-  const [publishAt, setPublishAt] = React.useState(new Date())
-
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const { id } = useParams()
 
   const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
+  const setPublishAt = (event) => dispatch({ type: 'SET_PUBLISH_AT', publishAt: event.target.value })
+
   const [postMessage, setPostMessage] = React.useState('')
 
   const dispatch = useDispatch()
@@ -42,7 +42,7 @@ function TextAddPublish() {
   }
 
   const handleAdd = () => {
-    const { title, author, category, sentences, source, texts, status } = text
+    const { title, author, category, sentences, source, texts, status, image, publishAt } = text
     const { arabic, english } = texts
 
     axios({
@@ -53,6 +53,7 @@ function TextAddPublish() {
         category,
         publishAt,
         status,
+        image,
         texts: {
           arabic,
           english
@@ -79,7 +80,7 @@ function TextAddPublish() {
   }
 
   const handleUpdate = () => {
-    const { title, author, category, sentences, source, texts, status, publishAt } = text
+    const { title, author, image, category, sentences, source, texts, status, publishAt } = text
     const { arabic, english } = texts
 
     axios({
@@ -89,6 +90,7 @@ function TextAddPublish() {
         title,
         category,
         publishAt,
+        image,
         status,
         texts: {
           arabic,
@@ -143,7 +145,7 @@ function TextAddPublish() {
           <DesktopDatePicker
             label="Date desktop"
             inputFormat="YYYY-MM-DD"
-            value={publishAt}
+            value={text.publishAt}
             onChange={setPublishAt}
             renderInput={(params) => <TextField {...params} />}
           />

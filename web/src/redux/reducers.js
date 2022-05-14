@@ -8,6 +8,7 @@ const initialState = {
     arabic: [''],
     english: [''],
     status: 'Draft',
+    publishAt: new Date(),
     wordByWord: [['']],
     title: '',
     texts: { arabic: '', english: '' },
@@ -87,5 +88,12 @@ module.exports.textReducer = createReducer(initialState, {
   GET_ARABIC_WORDS: (state) => state.text.arabicWords,
   SET_ARABIC_WORDS: (state, action) => {
     state.text.arabicWords = action.arabicWords
-  }
+  },
+  SET_IMAGE: (state, action) => {
+    state.text.image = action.image
+  },
+  SET_PUBLISH_AT: (state, action) => {
+    state.text.publishAt = action.publishAt
+  },
+  GET_IMAGES: (state) => state.text.images
 })

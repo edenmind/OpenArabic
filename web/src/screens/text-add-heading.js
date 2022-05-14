@@ -16,8 +16,11 @@ const TextAddHeading = () => {
   const setCategory = (event) => dispatch({ type: 'SET_CATEGORY', category: event.target.value })
   const setAuthor = (event) => dispatch({ type: 'SET_AUTHOR', author: event.target.value })
   const setSource = (event) => dispatch({ type: 'SET_SOURCE', source: event.target.value })
+
   const [categories, setCategories] = React.useState([])
   const [authors, setAuthors] = React.useState([])
+  const [images, setImages] = React.useState([])
+
   const { text } = useSelector(selector)
 
   React.useEffect(() => {
@@ -31,6 +34,13 @@ const TextAddHeading = () => {
       .get(`${process.env.REACT_APP_API_URL}/authors`)
       .then((response) => {
         setAuthors(response.data)
+      })
+      .catch((error) => console.log(error))
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/texts/images`)
+      .then((response) => {
+        console.log(response.data)
+        setImages(response.data)
       })
       .catch((error) => console.log(error))
   }, [])
@@ -56,8 +66,7 @@ const TextAddHeading = () => {
 
       <MenuSelect Heading="Author" Values={authors} value={text.author} onChangeFunc={setAuthor} />
       <MenuSelect Heading="Category" Values={categories} value={text.category} onChangeFunc={setCategory} />
-      <h4>Header Image</h4>
-      <StandardImageList />
+      <StandardImageList images={images} />
     </Stack>
   )
 }
