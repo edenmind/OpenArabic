@@ -1,24 +1,25 @@
 /* eslint-disable import/namespace */
-import { ENDPOINT, HOST } from '../constants/urls'
+import { ENDPOINT, HOST } from '../constants/urls.js'
 
 import { Button } from 'react-native-paper'
-import COLORS from '../constants/colors'
+import COLORS from '../constants/colors.js'
 import React from 'react'
-import SCREENS from '../constants/screens'
+import SCREENS from '../constants/screens.js'
 import { Share } from 'react-native'
-import TextDrawer from './TextDrawer'
-import UI from '../constants/ui'
+import TextDrawer from './text-drawer.js'
+import UI from '../constants/ui.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import defaultExport from './TextTabs'
+import defaultExport from './text-tabs.js'
 import { useSelector } from 'react-redux'
 
 const Stack = createNativeStackNavigator()
+const selector = (state) => state.text
 
 export default function Text() {
-  const selector = (state) => state.text
   const { text } = useSelector(selector)
 
   const onShare = async () => {
+    // eslint-disable-next-line putout/keyword-spacing
     try {
       await Share.share({
         message: text.title,
@@ -44,9 +45,7 @@ export default function Text() {
           headerStyle: {
             backgroundColor: COLORS.shinyOlive
           },
-          headerRight: () => (
-            <Button icon="export-variant" mode="text" color={COLORS.darkOlive} onPress={onShare} />
-          )
+          headerRight: () => <Button icon="export-variant" mode="text" color={COLORS.darkOlive} onPress={onShare} />
         }}
       />
     </Stack.Navigator>

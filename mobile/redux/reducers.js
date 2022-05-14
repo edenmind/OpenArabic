@@ -1,4 +1,5 @@
-import { GET_CATEGORIES, GET_TEXT, GET_TEXTS, RESET_TEXTS } from './actions'
+/* eslint-disable putout/keyword-spacing */
+import { GET_CATEGORIES, GET_TEXT, GET_TEXTS, RESET_TEXTS } from './actions.js'
 
 const initialStateCategories = {
   categories: []
@@ -11,6 +12,7 @@ const initialStateText = {
 const initialStateTexts = {
   texts: []
 }
+
 function categoriesReducer(state = initialStateCategories, action) {
   switch (action.type) {
     case GET_CATEGORIES:

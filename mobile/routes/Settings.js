@@ -1,9 +1,9 @@
-import COLORS from '../constants/colors'
+import COLORS from '../constants/colors.js'
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
-import SCREENS from '../constants/screens'
+import SCREENS from '../constants/screens.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import defaultExport from '../screens/About'
+import defaultExport from '../screens/about.js'
 
 const Stack = createNativeStackNavigator()
 
