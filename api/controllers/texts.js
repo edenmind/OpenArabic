@@ -54,41 +54,6 @@ async function getText(request, reply) {
   text ? reply.send(text) : reply.notFound('The Text was not found')
 }
 
-function getImages(request, reply) {
-  // eslint-disable-next-line putout/objects-braces-inside-array
-  const headerImages = [
-    {
-      img: 'http://localhost:8080/feature.png'
-    },
-    {
-      img: 'http://localhost:8080/feature.png'
-    },
-    {
-      img: 'http://localhost:8080/feature.png'
-    },
-    {
-      img: 'http://localhost:8080/feature.png'
-    },
-    {
-      img: 'http://localhost:8080/feature.png'
-    },
-    {
-      img: 'http://localhost:8080/feature.png'
-    },
-    {
-      img: 'http://localhost:8080/feature.png'
-    },
-    {
-      img: 'http://localhost:8080/feature.png'
-    },
-    {
-      img: 'http://localhost:8080/feature.png'
-    }
-  ]
-
-  reply.send(headerImages)
-}
-
 async function getTashkeel(request, reply) {
   const { encodedText } = request.body
 
@@ -187,6 +152,5 @@ module.exports = {
   getText,
   getTashkeel,
   updateText,
-  deleteText,
-  getImages
+  deleteText
 }

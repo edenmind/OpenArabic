@@ -1,6 +1,6 @@
 'use strict'
 
-const { listTexts, addText, getTashkeel, getText, updateText, deleteText, getImages } = require('../controllers/Texts')
+const { listTexts, addText, getTashkeel, getText, updateText, deleteText } = require('../controllers/Texts')
 
 const getTextsOptions = {
   schema: {
@@ -48,17 +48,6 @@ const getTashkeelOptions = {
     }
   },
   handler: getTashkeel
-}
-
-const getImagesOptions = {
-  schema: {
-    response: {
-      200: {
-        type: 'array'
-      }
-    }
-  },
-  handler: getImages
 }
 
 const updateTextOptions = {
@@ -135,6 +124,5 @@ module.exports = {
   updateTextOpts: updateTextOptions,
   postTextOpts: postTextOptions,
   deleteTextOpts: deleteTextOptions,
-  getTashkeelOpts: getTashkeelOptions,
-  getImagesOpts: getImagesOptions
+  getTashkeelOpts: getTashkeelOptions
 }

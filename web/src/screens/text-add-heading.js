@@ -37,7 +37,7 @@ const TextAddHeading = () => {
       })
       .catch((error) => console.log(error))
     axios
-      .get(`${process.env.REACT_APP_API_URL}/texts/images`)
+      .get(`${process.env.REACT_APP_API_URL}/images`)
       .then((response) => {
         console.log(response.data)
         setImages(response.data)

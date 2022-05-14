@@ -3,7 +3,6 @@
 const {
   getTextsOpts,
   getTashkeelOpts,
-  getImagesOpts,
   getTextOpts,
   updateTextOpts,
   postTextOpts,
@@ -14,7 +13,6 @@ const {
 async function texts(fastify) {
   fastify.get('/texts', getTextsOpts)
   fastify.post('/texts/tashkeel', getTashkeelOpts)
-  fastify.get('/texts/images', getImagesOpts)
   fastify.get('/texts/categories/:id', getTextsOpts)
   fastify.post('/texts', postTextOpts)
   fastify.get('/texts/:id', getTextOpts)
