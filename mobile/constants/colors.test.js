@@ -10,7 +10,7 @@ it('lightOlive should be correct', () => {
 })
 
 it('shinyOlive should be correct', () => {
-  expect(COLORS.shinyOlive).toBe('#fcfffc')
+  expect(COLORS.shinyOlive).toBe('#fdfffd')
 })
 
 it('darkOlive should be correct', () => {

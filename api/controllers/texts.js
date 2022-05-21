@@ -58,6 +58,7 @@ async function getTashkeel(request, reply) {
   const { encodedText } = request.body
 
   const url = `http://localhost:5002/tashkeel?unvoweled=${encodedText}`
+  // deepcode ignore Ssrf: <review later>
   const response = await axios.get(url)
 
   reply.send(response.data)

@@ -63,19 +63,19 @@ function About() {
         project on GitHub.
       </Paragraph>
       <Title style={style.english}>Contact Us</Title>
-      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(email)}>
+      <Button style={style.button} mode="outlined" testID="email" onPress={() => Linking.openURL(email)}>
         <Text>Email</Text>
       </Button>
-      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(twitter)}>
+      <Button style={style.button} mode="outlined" testID="twitter" onPress={() => Linking.openURL(twitter)}>
         <Text>Twitter</Text>
       </Button>
-      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(github)}>
+      <Button style={style.button} mode="outlined" testID="github" onPress={() => Linking.openURL(github)}>
         <Text>GitHub</Text>
       </Button>
-      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(instagram)}>
+      <Button style={style.button} mode="outlined" testID="instagram" onPress={() => Linking.openURL(instagram)}>
         <Text>Instagram</Text>
       </Button>
-      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(facebook)}>
+      <Button style={style.button} mode="outlined" testID="facebook" onPress={() => Linking.openURL(facebook)}>
         <Text>Facebook</Text>
       </Button>
     </ScrollView>

@@ -8,16 +8,16 @@ test('create new category', async (t) => {
   const app = await build(t)
 
   // act
-  const res = await app.inject({
+  const result = await app.inject({
     url: '/categories',
     method: 'POST',
     payload: {
-      name: 'the_name',
-    },
+      name: 'the_name'
+    }
   })
 
   //assert
-  t.equal(res.statusCode, 201)
+  t.equal(result.statusCode, 201)
 })
 
 test('list categories', async (t) => {
@@ -27,18 +27,18 @@ test('list categories', async (t) => {
     url: '/categories',
     method: 'POST',
     payload: {
-      name: 'the_name',
-    },
+      name: 'the_name'
+    }
   })
 
   // act
-  const res = await app.inject({
+  const result = await app.inject({
     url: '/categories',
-    method: 'GET',
+    method: 'GET'
   })
 
   //assert
-  t.equal(res.statusCode, 200)
+  t.equal(result.statusCode, 200)
 })
 
 test('get category that does not exist', async (t) => {
@@ -46,13 +46,13 @@ test('get category that does not exist', async (t) => {
   const app = await build(t)
 
   // act
-  const res = await app.inject({
+  const result = await app.inject({
     url: '/categories/abc',
-    method: 'GET',
+    method: 'GET'
   })
 
   //assert
-  t.equal(res.statusCode, 500)
+  t.equal(result.statusCode, 500)
 })
 
 test('delete category that does not exist', async (t) => {
@@ -61,13 +61,13 @@ test('delete category that does not exist', async (t) => {
   const id = '62518818661588692cdb0d65' //non existing id
 
   // act
-  const res = await app.inject({
+  const result = await app.inject({
     url: '/categories/' + id,
-    method: 'DELETE',
+    method: 'DELETE'
   })
 
   //assert
-  t.equal(res.statusCode, 500)
+  t.equal(result.statusCode, 500)
 })
 
 test('update category that does not exist', async (t) => {
@@ -75,16 +75,16 @@ test('update category that does not exist', async (t) => {
   const app = await build(t)
 
   // act
-  const res = await app.inject({
+  const result = await app.inject({
     url: '/categories/abc',
     method: 'PUT',
     payload: {
-      name: 'the_name',
-    },
+      name: 'the_name'
+    }
   })
 
   //assert
-  t.equal(res.statusCode, 500)
+  t.equal(result.statusCode, 500)
 })
 
 test('update category', async (t) => {
@@ -95,74 +95,24 @@ test('update category', async (t) => {
     url: '/categories',
     method: 'POST',
     payload: {
-      name: 'the_name',
-    },
+      name: 'the_name'
+    }
   })
 
   const id = raw.body
   const idTrimmed = id.replaceAll('"', '')
 
   // act
-  const res = await app.inject({
+  const result = await app.inject({
     url: `/categories/${idTrimmed}`,
     method: 'PUT',
     payload: {
-      name: 'the_other_name',
-    },
+      name: 'the_other_name'
+    }
   })
 
   //assert
-  t.equal(res.statusCode, 200)
-})
-
-test('get category', async (t) => {
-  //arrange
-  const app = await build(t)
-
-  const raw = await app.inject({
-    url: '/categories',
-    method: 'POST',
-    payload: {
-      name: 'the_name',
-    },
-  })
-
-  const id = raw.body
-  const idTrimmed = id.replaceAll('"', '')
-
-  // act
-  const res = await app.inject({
-    url: `/categories/${idTrimmed}`,
-    method: 'GET',
-  })
-
-  //assert
-  t.equal(res.statusCode, 200)
-})
-
-test('delete category', async (t) => {
-  //arrange
-  const app = await build(t)
-
-  const raw = await app.inject({
-    url: '/categories',
-    method: 'POST',
-    payload: {
-      name: 'the_name',
-    },
-  })
-
-  const id = raw.body
-  const idTrimmed = id.replaceAll('"', '')
-
-  // act
-  const res = await app.inject({
-    url: `/categories/${idTrimmed}`,
-    method: 'DELETE',
-  })
-
-  //assert
-  t.equal(res.statusCode, 200)
+  t.equal(result.statusCode, 200)
 })
 
 test('get category that should not be found', async (t) => {
@@ -171,11 +121,11 @@ test('get category that should not be found', async (t) => {
   const id = '62518818661588692cdb0d65' //non existing id
 
   // act
-  const res = await app.inject({
+  const result = await app.inject({
     url: `/categories/${id}`,
-    method: 'GET',
+    method: 'GET'
   })
 
   //assert
-  t.equal(res.statusCode, 404)
+  t.equal(result.statusCode, 404)
 })

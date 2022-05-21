@@ -2,7 +2,7 @@ export const splitTextToSentences = (text) => text.split('\n')
 export const removeEmptyAndNull = (words) => words.filter((word) => word !== '').filter((word) => word != undefined)
 export const splitSentencesToWords = (sentence) => sentence.split(' ')
 export const cleanWordFromInvalidCharacters = (wordToClean) => {
-  return wordToClean.replace(/[\d!"#$%&()+,./:;<>?@[\]|،؟“]/g, '')
+  return wordToClean.replace(/[\d!"#$%&()*+,./:;<>?@[\]|،؟“]/g, '')
 }
 
 export const truncateString = (sentences, number_ = 135) => {

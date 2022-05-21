@@ -3126,12 +3126,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-math-pow@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@putout/plugin-convert-math-pow@npm:4.0.0"
+"@putout/plugin-convert-math-pow@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-convert-math-pow@npm:5.0.0"
   peerDependencies:
-    putout: ">=6.20"
-  checksum: 58135721bfb1e22e987ac1d356960d4deb81c95675e5fab491ebfb3ca090b9817a3a259bdeeea31c7ff0630a41aeb0f8b964f643d449c9fa6d26c417a295137f
+    putout: ">=26"
+  checksum: f75e9339d3f26b3a7f7d666e6abb8d47d85d43bd68b4aa45346e132150e4709463d194ae8d2100ebc1adc77cb358e3e35d3bfe125071071847a51d5a213d64c4
   languageName: node
   linkType: hard
 
@@ -3168,6 +3168,15 @@ __metadata:
   peerDependencies:
     putout: ">=25"
   checksum: db65749a205bba583a086163404e542f424297a6e5c715302fab9360cd6c278e39372ecd98eccdd7dc3e4f82646018aeb60bbea05c07b623b045b80b263006c1
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-convert-sqrt-to-hypot@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "@putout/plugin-convert-sqrt-to-hypot@npm:1.0.1"
+  peerDependencies:
+    putout: ">=26"
+  checksum: f9214678a49df3d332617185b816fcbe09e0f59034f62266fd57075132c36217814d591ab5ef16a2c01baa254e330dd12dea11c7b64b66e4c4b5a68769106ec3
   languageName: node
   linkType: hard
 
@@ -3216,12 +3225,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-eslint@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "@putout/plugin-eslint@npm:2.1.0"
+"@putout/plugin-eslint@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-eslint@npm:3.0.0"
   peerDependencies:
     putout: ">=20"
-  checksum: 09d7ace09094c17088e229785ae39f53b5ff430c5f16a16568b79a6c46dac83201e11987d0f91360f91da5fa58985152f82f090a1dc7790afb5a7a6bee455e41
+  checksum: 377790394b1bc8b854f43820fb0121687f347c784fc78f2bb11aeca1bd869dafb0d0fa38ab34769e6cdbef13a29d7bf2fc9e85a4342fbb1576539f832d0ac97b
   languageName: node
   linkType: hard
 
@@ -3580,6 +3589,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/plugin-remove-useless-assign@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-remove-useless-assign@npm:1.0.0"
+  peerDependencies:
+    putout: ">=26"
+  checksum: dfed50f3c43d982d9cc00b275728610d824cf19da2b5218ba82971cd435ebb03759e58a2c5cbf20c7bec71854c331e45ad2d8d62aaf0df36b2d298ad1ff06241
+  languageName: node
+  linkType: hard
+
 "@putout/plugin-remove-useless-conditions@npm:^1.0.0":
   version: 1.1.0
   resolution: "@putout/plugin-remove-useless-conditions@npm:1.1.0"
@@ -3660,6 +3678,15 @@ __metadata:
   peerDependencies:
     putout: ">=25"
   checksum: 65fd0b3e754a377645bb3bfc8af3627bd34b371236a590cf2b11824a4a39e01ded5058dc962f9b2fe0581bd9f7765dbb0b177de5f5c5f5748b97edd9f64169a4
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-remove-useless-replace@npm:^1.0.1":
+  version: 1.0.4
+  resolution: "@putout/plugin-remove-useless-replace@npm:1.0.4"
+  peerDependencies:
+    putout: ">=26"
+  checksum: de76c0593432d80730921d03d10a00d53a5cad0152625ed4c8fdf381fe757b6cc087dd51c96241d40404fc7fdab4179f8ebe15979d727e95d0abefb7d936e65b
   languageName: node
   linkType: hard
 
@@ -3816,18 +3843,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/processor-css@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@putout/processor-css@npm:4.0.0"
+"@putout/processor-css@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/processor-css@npm:5.0.0"
   dependencies:
     cosmiconfig: ^7.0.0
     deepmerge: ^4.2.2
-    once: ^1.4.0
     stylelint: ^14.1.0
     stylelint-config-standard: ^25.0.0
   peerDependencies:
-    putout: ">=25"
-  checksum: b9aa1674b1ad704f31b8db71d6c679050d7116af54e4dad2633ca09ed49556e10ea880e31ff419d22aaa17d16110d2baca9be7c9d05d3877ccca0b2fa86259d9
+    putout: ">=26"
+  checksum: df9311f7d63231740087bc09c7a56767f583a15bc62a087348911c704fc2e40cc6649070666387c31d668539f001ac71f5f8e63210fbd54d1d3723badf834b45
   languageName: node
   linkType: hard
 
@@ -11946,7 +11972,7 @@ __metadata:
     moment: ^2.29.3
     moment-timezone: ^0.5.34
     prettier: ^2.6.2
-    putout: ^26.1.2
+    putout: ^26.6.0
     react: ^18.1.0
     react-dom: ^18.1.0
     react-moment: ^1.1.2
@@ -13309,9 +13335,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.1.2":
-  version: 26.1.2
-  resolution: "putout@npm:26.1.2"
+"putout@npm:^26.6.0":
+  version: 26.6.0
+  resolution: "putout@npm:26.6.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13363,17 +13389,18 @@ __metadata:
     "@putout/plugin-convert-for-to-for-of": ^4.0.0
     "@putout/plugin-convert-index-of-to-includes": ^1.0.0
     "@putout/plugin-convert-map-to-for-of": ^2.0.0
-    "@putout/plugin-convert-math-pow": ^4.0.0
+    "@putout/plugin-convert-math-pow": ^5.0.0
     "@putout/plugin-convert-mock-require-to-mock-import": ^3.0.0
     "@putout/plugin-convert-object-assign-to-merge-spread": ^6.0.0
     "@putout/plugin-convert-quotes-to-backticks": ^2.0.0
     "@putout/plugin-convert-reduce-to-for-of": ^1.0.0
+    "@putout/plugin-convert-sqrt-to-hypot": ^1.0.0
     "@putout/plugin-convert-template-to-string": ^1.0.0
     "@putout/plugin-convert-to-arrow-function": ^3.0.0
     "@putout/plugin-convert-typeof-to-is-type": ^2.0.0
     "@putout/plugin-declare-before-reference": ^1.0.0
     "@putout/plugin-declare-undefined-variables": ^7.0.0
-    "@putout/plugin-eslint": ^2.0.0
+    "@putout/plugin-eslint": ^3.0.0
     "@putout/plugin-extract-object-properties": ^8.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
     "@putout/plugin-github": ^3.0.0
@@ -13412,6 +13439,7 @@ __metadata:
     "@putout/plugin-remove-useless-array-constructor": ^1.0.0
     "@putout/plugin-remove-useless-array-entries": ^1.0.0
     "@putout/plugin-remove-useless-array-from": ^2.0.0
+    "@putout/plugin-remove-useless-assign": ^1.0.0
     "@putout/plugin-remove-useless-conditions": ^1.0.0
     "@putout/plugin-remove-useless-constructor": ^1.0.0
     "@putout/plugin-remove-useless-continue": ^1.0.0
@@ -13421,6 +13449,7 @@ __metadata:
     "@putout/plugin-remove-useless-functions": ^2.0.0
     "@putout/plugin-remove-useless-map": ^1.0.0
     "@putout/plugin-remove-useless-operand": ^2.0.0
+    "@putout/plugin-remove-useless-replace": ^1.0.1
     "@putout/plugin-remove-useless-return": ^4.0.0
     "@putout/plugin-remove-useless-spread": ^5.0.0
     "@putout/plugin-remove-useless-template-expressions": ^1.0.0
@@ -13438,7 +13467,7 @@ __metadata:
     "@putout/plugin-try-catch": ^1.0.0
     "@putout/plugin-typescript": ^2.0.0
     "@putout/plugin-webpack": ^1.0.0
-    "@putout/processor-css": ^4.0.0
+    "@putout/processor-css": ^5.0.0
     "@putout/processor-ignore": ^3.0.0
     "@putout/processor-javascript": ^4.0.0
     "@putout/processor-json": ^5.0.0
@@ -13466,7 +13495,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 703b2e539345a8baa36e24d35e71ebad16b98cc798b9cbdbb8381dafab3beccaf6a3d5b03d4a2f2e7a73d47507c4fb377967db110dfc9f0f2cf69f8d733a0006
+  checksum: 22692c33b5902eb64c70c9d45b43750c174ae0b8c231888d53c8b0e09204b80a7c53bd85a14f5fd5b00ececbd39b91cfaa3748aaf429b5fe898ee31bf22f90fc
   languageName: node
   linkType: hard
 

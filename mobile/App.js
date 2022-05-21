@@ -1,4 +1,3 @@
-// eslint-disable-next-line unicorn/filename-case
 import React, { useEffect } from 'react'
 import { events, track } from './services/analytics.js'
 import PAPERTHEME from './constants/paper-theme.js'
