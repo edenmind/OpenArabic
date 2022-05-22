@@ -8,6 +8,6 @@ describe('<ModalScrollView />', () => {
   it('renders without crashing', () => {
     // @ts-ignore
     const renderer = new ShallowRenderer()
-    renderer.render(<ModalScrollView visible={false} text="abc" hideModal={console.log('test')} />)
+    renderer.render(<ModalScrollView title="abc" hideModal={() => {}} visible={true} content={'content'} />)
   })
 })

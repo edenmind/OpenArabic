@@ -8193,6 +8193,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"events@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "events@npm:1.1.1"
+  checksum: 40431eb005cc4c57861b93d44c2981a49e7feb99df84cf551baed299ceea4444edf7744733f6a6667e942af687359b1f4a87ec1ec4f21d5127dac48a782039b9
+  languageName: node
+  linkType: hard
+
 "exec-async@npm:^2.2.0":
   version: 2.2.0
   resolution: "exec-async@npm:2.2.0"
@@ -14110,6 +14117,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-animation-library@npm:^0.0.8":
+  version: 0.0.8
+  resolution: "react-native-animation-library@npm:0.0.8"
+  dependencies:
+    events: ^1.1.1
+  peerDependencies:
+    react: 15.4.1
+    react-native: 0.38.0
+  checksum: 7eb48bcff8c0658bad58943751021b5281f7d742b9fe402b761227891f4997b9967d9f972f6b85dbdbb835dcf4023c5a0bf4621b4e61b31e57d1d85d9e0ce25b
+  languageName: node
+  linkType: hard
+
 "react-native-codegen@npm:^0.0.17":
   version: 0.0.17
   resolution: "react-native-codegen@npm:0.0.17"
@@ -15189,6 +15208,7 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-native: 0.68.2
+    react-native-animation-library: ^0.0.8
     react-native-error-boundary: ^1.1.13
     react-native-gesture-handler: ~2.2.1
     react-native-pager-view: 5.4.15

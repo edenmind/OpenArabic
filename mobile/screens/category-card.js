@@ -65,7 +65,7 @@ CategoryCard.propTypes = {
   setShouldReload: PropTypes.func.isRequired,
   navigation: PropTypes.object,
   text: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     title: PropTypes.string,
     image: PropTypes.string,
     author: PropTypes.string,

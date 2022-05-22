@@ -1,13 +1,13 @@
 import { describe, it, jest } from '@jest/globals'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 import React from 'react'
-import SnackButton from './snack-button.js'
+import PressableOpacity from './pressable-opacity.js'
 
 jest.useFakeTimers()
-describe('<SnackButton />', () => {
+describe('<ModalScrollView />', () => {
   it('renders without crashing', () => {
     // @ts-ignore
     const renderer = new ShallowRenderer()
-    renderer.render(<SnackButton visible={true} onDismissSnackBar={() => {}} text={'abc'} />)
+    renderer.render(<PressableOpacity />)
   })
 })

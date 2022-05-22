@@ -19,7 +19,7 @@ describe('<CategoryCard />', () => {
       }
     }
 
-    const { getByTestId } = render(<CategoryCard text={textMock} setShouldReload={false} />)
+    const { getByTestId } = render(<CategoryCard text={textMock} setShouldReload={() => {}} />)
     const foundButton = getByTestId(testIdName)
 
     expect(foundButton).toBeTruthy()

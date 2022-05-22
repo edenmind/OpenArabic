@@ -10,7 +10,7 @@ describe('<Heading />', () => {
       title: 'title',
       author: 'author',
       source: 'source',
-      readTime: 'readTime'
+      image: 'image'
     }
 
     // @ts-ignore
