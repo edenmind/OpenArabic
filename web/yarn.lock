@@ -11972,7 +11972,7 @@ __metadata:
     moment: ^2.29.3
     moment-timezone: ^0.5.34
     prettier: ^2.6.2
-    putout: ^26.6.0
+    putout: ^26.7.0
     react: ^18.1.0
     react-dom: ^18.1.0
     react-moment: ^1.1.2
@@ -13335,9 +13335,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.6.0":
-  version: 26.6.0
-  resolution: "putout@npm:26.6.0"
+"putout@npm:^26.7.0":
+  version: 26.7.0
+  resolution: "putout@npm:26.7.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13495,7 +13495,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 22692c33b5902eb64c70c9d45b43750c174ae0b8c231888d53c8b0e09204b80a7c53bd85a14f5fd5b00ececbd39b91cfaa3748aaf429b5fe898ee31bf22f90fc
+  checksum: 243216053e6925f661e674210ab6f93ac62c9d694256917221adca4232037f9317430c9455b7f8f577b6ffc1cc58c1e18815b7b74cd10ef8bf64f6258cb34a5f
   languageName: node
   linkType: hard
 

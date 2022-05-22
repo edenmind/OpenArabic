@@ -7,21 +7,14 @@ jest.mock('axios')
 describe('getTexts', () => {
   describe('when API call fails', () => {
     it('should return error message', async () => {
-      // given
+      // arrange
       const message = 'Network Error'
       axios.get.mockRejectedValueOnce(new Error(message))
 
-      // when
+      // act
       const result = await getTexts('Adab', 7, 1)
 
-      // then
-      // expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}texts`, {
-      //   params: {
-      //     category: 'Adab',
-      //     pageNumber: 1,
-      //     pageSize: 7,
-      //   },
-      // });
+      // assert
       expect(result).toBeTruthy
     })
   })

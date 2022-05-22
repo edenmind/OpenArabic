@@ -1,3 +1,5 @@
+//TODO: Move to RTK: https://redux.js.org/introduction/why-rtk-is-redux-today
+
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { categoriesReducer, textReducer, textsReducer } from './reducers.js'
 

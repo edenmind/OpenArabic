@@ -1,5 +1,5 @@
 import { Box, Stack, TextField } from '@mui/material'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector, Provider } from 'react-redux'
 import TextAddWordsGenerate from './text-add-words-generate.js'
 
 import Chip from '@mui/material/Chip'
