@@ -23,6 +23,18 @@ services:
     ports:
       - 8080:80
     restart: always
+  api:
+    build: ./api
+    ports:
+      - 3000:3000
+    environment:
+      - MONGO_DB_URL=mongodb://user:password@mongo:27017/openarabic
+    restart: always
+  web:
+    build: ./web
+    ports:
+      - 3001:3001
+    restart: always
 volumes:
   db-data:
   mongo-config:

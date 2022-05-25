@@ -1130,6 +1130,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/plugin-convert-imul-to-multiplication@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-convert-imul-to-multiplication@npm:1.0.0"
+  peerDependencies:
+    putout: ">=26"
+  checksum: 80b60d8d510a7b60413cc941739fde0a3b36659fe94ca12b611d7bf8f74c534979ace59ed3d4e51dacf304a28076ff40dd9da7a2f204e12da85b8da92f46d7a2
+  languageName: node
+  linkType: hard
+
 "@putout/plugin-convert-index-of-to-includes@npm:^1.0.0":
   version: 1.1.0
   resolution: "@putout/plugin-convert-index-of-to-includes@npm:1.1.0"
@@ -2567,7 +2576,7 @@ __metadata:
     eslint: ^8.16.0
     eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-putout: ^15.1.1
+    eslint-plugin-putout: ^15.3.0
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^42.0.0
     fastify: ^3.29.0
@@ -2575,7 +2584,7 @@ __metadata:
     fastify-plugin: ^3.0.1
     mongodb: ^4.6.0
     prettier: ^2.6.2
-    putout: ^26.6.0
+    putout: ^26.9.0
     tap: ^16.2.0
     uuid: ^8.3.2
   languageName: unknown
@@ -3668,9 +3677,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^15.1.1":
-  version: 15.1.1
-  resolution: "eslint-plugin-putout@npm:15.1.1"
+"eslint-plugin-putout@npm:^15.3.0":
+  version: 15.3.0
+  resolution: "eslint-plugin-putout@npm:15.3.0"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -3686,8 +3695,8 @@ __metadata:
     typescript: ^4.5.2
   peerDependencies:
     eslint: ">=8.0.0"
-    putout: ">=25"
-  checksum: 90f8df91cd2fba00b58959c29292b48ce057aeba973895841afc4b6bc46f088ae77e2418c5249f84fd70256fb5fa724154d3d4ab297ee8f780cd37d42d56f582
+    putout: ">=26"
+  checksum: 26561bc17e539965e620140ad4a42e674ff6f86f6018a6ce8b3b781a9e0621f428000455bbd77064a75e3a39dd6bdc40bdf6981853eacb31615f52c9c784cc8f
   languageName: node
   linkType: hard
 
@@ -6977,9 +6986,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.6.0":
-  version: 26.6.0
-  resolution: "putout@npm:26.6.0"
+"putout@npm:^26.9.0":
+  version: 26.9.0
+  resolution: "putout@npm:26.9.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -7029,6 +7038,7 @@ __metadata:
     "@putout/plugin-convert-for-each-to-for-of": ^7.0.0
     "@putout/plugin-convert-for-in-to-for-of": ^2.0.0
     "@putout/plugin-convert-for-to-for-of": ^4.0.0
+    "@putout/plugin-convert-imul-to-multiplication": ^1.0.0
     "@putout/plugin-convert-index-of-to-includes": ^1.0.0
     "@putout/plugin-convert-map-to-for-of": ^2.0.0
     "@putout/plugin-convert-math-pow": ^5.0.0
@@ -7137,7 +7147,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 22692c33b5902eb64c70c9d45b43750c174ae0b8c231888d53c8b0e09204b80a7c53bd85a14f5fd5b00ececbd39b91cfaa3748aaf429b5fe898ee31bf22f90fc
+  checksum: b3deee53efff330c6f79883d1fa79ff3edb97a345e9df28253e9b707183af12b471bfa92e9383fde4a63cd0a9982b770456d91f9685da1f39bf2cd1917051503
   languageName: node
   linkType: hard
 

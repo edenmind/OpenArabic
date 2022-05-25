@@ -27,7 +27,7 @@ const initialState = {
   }
 }
 
-module.exports.textReducer = createReducer(initialState, {
+export default createReducer(initialState, {
   SET_TITLE: (state, action) => {
     state.text.title = action.title
   },

@@ -3108,6 +3108,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/plugin-convert-imul-to-multiplication@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-convert-imul-to-multiplication@npm:1.0.0"
+  peerDependencies:
+    putout: ">=26"
+  checksum: 80b60d8d510a7b60413cc941739fde0a3b36659fe94ca12b611d7bf8f74c534979ace59ed3d4e51dacf304a28076ff40dd9da7a2f204e12da85b8da92f46d7a2
+  languageName: node
+  linkType: hard
+
 "@putout/plugin-convert-index-of-to-includes@npm:^1.0.0":
   version: 1.1.0
   resolution: "@putout/plugin-convert-index-of-to-includes@npm:1.1.0"
@@ -7864,9 +7873,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^15.1.1":
-  version: 15.1.1
-  resolution: "eslint-plugin-putout@npm:15.1.1"
+"eslint-plugin-putout@npm:^15.3.0":
+  version: 15.3.0
+  resolution: "eslint-plugin-putout@npm:15.3.0"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -7882,8 +7891,8 @@ __metadata:
     typescript: ^4.5.2
   peerDependencies:
     eslint: ">=8.0.0"
-    putout: ">=25"
-  checksum: 90f8df91cd2fba00b58959c29292b48ce057aeba973895841afc4b6bc46f088ae77e2418c5249f84fd70256fb5fa724154d3d4ab297ee8f780cd37d42d56f582
+    putout: ">=26"
+  checksum: 26561bc17e539965e620140ad4a42e674ff6f86f6018a6ce8b3b781a9e0621f428000455bbd77064a75e3a39dd6bdc40bdf6981853eacb31615f52c9c784cc8f
   languageName: node
   linkType: hard
 
@@ -11962,7 +11971,7 @@ __metadata:
     eslint-plugin-import: ^2.26.0
     eslint-plugin-mui-unused-classes: ^1.0.3
     eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-putout: ^15.1.1
+    eslint-plugin-putout: ^15.3.0
     eslint-plugin-react-hooks: ^4.5.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.5.0
@@ -11972,11 +11981,11 @@ __metadata:
     moment: ^2.29.3
     moment-timezone: ^0.5.34
     prettier: ^2.6.2
-    putout: ^26.7.0
+    putout: ^26.9.0
     react: ^18.1.0
     react-dom: ^18.1.0
     react-moment: ^1.1.2
-    react-redux: ^8.0.1
+    react-redux: ^8.0.2
     react-router-dom: ^6.3.0
     react-scripts: ^5.0.1
     react-test-renderer: ^18.1.0
@@ -13335,9 +13344,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.7.0":
-  version: 26.7.0
-  resolution: "putout@npm:26.7.0"
+"putout@npm:^26.9.0":
+  version: 26.9.0
+  resolution: "putout@npm:26.9.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13387,6 +13396,7 @@ __metadata:
     "@putout/plugin-convert-for-each-to-for-of": ^7.0.0
     "@putout/plugin-convert-for-in-to-for-of": ^2.0.0
     "@putout/plugin-convert-for-to-for-of": ^4.0.0
+    "@putout/plugin-convert-imul-to-multiplication": ^1.0.0
     "@putout/plugin-convert-index-of-to-includes": ^1.0.0
     "@putout/plugin-convert-map-to-for-of": ^2.0.0
     "@putout/plugin-convert-math-pow": ^5.0.0
@@ -13495,7 +13505,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 243216053e6925f661e674210ab6f93ac62c9d694256917221adca4232037f9317430c9455b7f8f577b6ffc1cc58c1e18815b7b74cd10ef8bf64f6258cb34a5f
+  checksum: b3deee53efff330c6f79883d1fa79ff3edb97a345e9df28253e9b707183af12b471bfa92e9383fde4a63cd0a9982b770456d91f9685da1f39bf2cd1917051503
   languageName: node
   linkType: hard
 
@@ -13682,9 +13692,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-redux@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "react-redux@npm:8.0.1"
+"react-redux@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "react-redux@npm:8.0.2"
   dependencies:
     "@babel/runtime": ^7.12.1
     "@types/hoist-non-react-statics": ^3.3.1
@@ -13710,7 +13720,7 @@ __metadata:
       optional: true
     redux:
       optional: true
-  checksum: d7c004b4bfb4e4cd9a5fc21fa30734cf2fc1c04b1483f0c0ea1446e00b7792e9d7ef16cf62d38254f68f6058bac34f759da6a204772a0982e029d2e83cc80512
+  checksum: 44c1739c45dad04ecc65a290897c73828ff0bf43f2b7618ed5ef6d4ceecedae38e76cecd189a5ecedf579c28ead05427bc000fb45ad30b9fcd5c2be27cd3ac73
   languageName: node
   linkType: hard
 
