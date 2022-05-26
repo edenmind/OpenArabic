@@ -2,15 +2,19 @@
 # Start a local development environment with a seeded MongoDB.
 
 function usage {
-        echo "Usage: $(basename "$0") [-hmaswd]" 2>&1
+        echo ''
+        echo '━━━━━━━━ OpenArabic Developer Environment - 0.1.0 ━━━━━━━━'
+        echo ''
+        echo "Usage: $(basename "$0") [-hmatswe]" 2>&1
+        echo ''
         echo '   -h   display usage information'
         echo '   -m   start MongoDB database'
-        echo '   -a   start API Server using Fastify and Node.JS'
+        echo '   -a   start API Server using Fastify and Node.js'
         echo '   -t   start Tashkeel Microservice using Python'
         echo '   -s   start Static Content Server using Vercel Serve'
         echo '   -w   start Frontend React.js'
         echo '   -e   start Expo Mobile'
-        exit 1
+        exit 0
 }
 
 if [[ ${#} -eq 0 ]]; then
@@ -44,10 +48,6 @@ while getopts ${optstring} arg; do
     e)
       EXPO=true
       ;;
-    :)
-      echo "$0: Must supply an argument to -$OPTARG." >&2
-      exit 1
-      ;;
     ?)
       echo "Invalid option: -${OPTARG}."
       exit 2
@@ -59,30 +59,35 @@ echo "Setting up local development environment..."
  
 if [[ ${MONGO} ]]; then
   echo "Starting MongoDB..."
-  docker run --name mongo -d -p 27017:27017 mongo
+  if [ ! "$(docker ps -q -f name=mongo)" ]; then
+    if [ "$(docker ps -aq -f status=exited -f name=mongo)" ]; then
+        docker rm mongo
+    fi
+    docker run --name mongo -d -p 27017:27017 mongo
+  fi
 fi
 
 if [[ ${TASHKEEL} ]]; then
-  echo "Starting static content in ./static"
+  echo "Starting tashkeel service in ./static"
   # gunicorn...
 fi
  
 if [[ ${API} ]]; then
   echo "Starting backend API in ./api"
-  yarn dev --prefix ./api
+  yarn --cwd ./api dev
 fi
  
 if [[ ${STATIC} ]]; then
   echo "Starting static content in ./static"
-  yarn start --prefix ./static
+  yarn --cwd ./static dev
 fi
  
 if [[ ${WEB} ]]; then
   echo "Staring frontend web app in ./web"
-  yarn start --prefix ./web
+  yarn --cwd ./web start
 fi
 
 if [[ ${EXPO} ]]; then
   echo "Starting Expo mobile app in ./mobile"
-  yarn start --prefix ./mobile 
+  yarn --cwd ./mobile start
 fi
