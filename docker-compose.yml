@@ -13,28 +13,36 @@ services:
     volumes:
       - db-data:/data/db
       - mongo-config:/data/configdb
-  tashkeel:
-    build: ./services/tashkeel
-    ports:
-      - 5002:5002
-    restart: always
   static:
     build: ./static
     ports:
-      - 8080:80
+      - 3010:3010
+    restart: always
+  tashkeel:
+    build: ./services/tashkeel
+    ports:
+      - 3020:3020
     restart: always
   api:
     build: ./api
     ports:
-      - 3000:3000
+      - 3030:3030
     environment:
+      - TASHKEEL_URL=http://tashkeel:3020
       - MONGO_DB_URL=mongodb://user:password@mongo:27017/openarabic
     restart: always
+    depends_on:
+      - mongo
+      - static
+      - tashkeel
   web:
     build: ./web
     ports:
-      - 3001:3001
+      - 3040:3040
     restart: always
+    depends_on:
+      - api
+
 volumes:
   db-data:
   mongo-config:

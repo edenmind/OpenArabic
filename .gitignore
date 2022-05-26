@@ -42,6 +42,7 @@ mobile/google-sa.json
 *.icloud
 mobile/google-sa.json
 frontend/node_modules/*
+static/node_modules/*
 .dccache
 web/.dccache
 api/.dccache

@@ -3,7 +3,7 @@
 const path = require('path')
 const AutoLoad = require('@fastify/autoload')
 const fastifyEnv = require('@fastify/env')
-const { schema } = require('./schemas/fastify-environment')
+const { schema } = require('./schemas/environment')
 
 module.exports = async function (fastify, options) {
   fastify.register(fastifyEnv, {

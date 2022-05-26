@@ -6,6 +6,9 @@ const schema = {
   properties: {
     MONGO_DB_URL: {
       type: 'string'
+    },
+    TASHKEEL_URL: {
+      type: 'string'
     }
   }
 }
