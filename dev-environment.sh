@@ -8,7 +8,7 @@ function usage {
         echo "Usage: $(basename "$0") [-hmatswe]" 2>&1
         echo ''
         echo '   -h   display usage information'
-        echo '   -m   start MongoDB database'
+        echo '   -m   start MongoDB database with seeded data'
         echo '   -a   start API Server using Fastify and Node.js'
         echo '   -t   start Tashkeel Microservice using Python'
         echo '   -s   start Static Content Server using Vercel Serve'
@@ -63,7 +63,9 @@ if [[ ${MONGO} ]]; then
     if [ "$(docker ps -aq -f status=exited -f name=mongo)" ]; then
         docker rm mongo
     fi
-    docker run --name mongo -d -p 27017:27017 mongo
+    docker run --name mongo -d -p 27017:27017 mongo:focal-5
+    docker exec -i mongo sh -c 'mongoimport -c mongo -d openarabic --drop' < ./database/seed/devdata.json
+
   fi
 fi
 

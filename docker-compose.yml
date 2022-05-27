@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mongo:
-    image: mongo
+    build: ./database
     ports:
       - 27017:27017
     restart: always
