@@ -11,7 +11,7 @@ jobs:
   pr-compliance:
     runs-on: ubuntu-latest
     steps:
-      - uses: mtfoley/pr-compliance-action@main
+      - uses: mtfoley/pr-compliance-action@v1.1.0
         with:
           watch-files: |
             mobile/package.json

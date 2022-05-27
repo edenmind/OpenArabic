@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: web
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: web
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: web
+    spec:
+      containers:
+        - image: web
+          name: web
+          ports:
+            - containerPort: 3040
+          resources: {}
+      restartPolicy: Always
+status: {}

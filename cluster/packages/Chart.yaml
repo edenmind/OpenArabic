@@ -1,0 +1,4 @@
+name: OpenArabic
+description: Deployment of OpenArabic and all micro services
+version: 0.1.0
+apiVersion: v1

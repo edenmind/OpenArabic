@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: api
+    spec:
+      containers:
+        - env:
+            - name: MONGO_DB_URL
+            - name: TASHKEEL_URL
+          image: api
+          name: api
+          ports:
+            - containerPort: 3030
+          resources: {}
+      restartPolicy: Always
+status: {}

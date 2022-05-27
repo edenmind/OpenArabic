@@ -1,9 +1,14 @@
 #!/bin/bash
 # Start a local development environment with a seeded MongoDB.
 
+MONGO_VERSION=mongo:5-focal
+MONGO_CONTAINER_NAME=mongo
+MONGO_EXPORT=./database/mock/devdata-export.json
+MONGO_IMPORT=./database/mock/devdata-import.json
+
 function usage {
         echo ''
-        echo '━━━━━━━━ OpenArabic Developer Environment - 0.1.0 ━━━━━━━━'
+        echo '━━━━━━━━ OpenArabic Dev eXperience - 0.1.0 ━━━━━━━━'
         echo ''
         echo "Usage: $(basename "$0") [-hmatswe]" 2>&1
         echo ''
@@ -14,6 +19,8 @@ function usage {
         echo '   -s   start Static Content Server using Vercel Serve'
         echo '   -w   start Frontend React.js'
         echo '   -e   start Expo Mobile'
+        echo '   -x   extract seed data from MongoDB'
+        echo '   -i   import seed data into MongoDB'
         exit 0
 }
 
@@ -22,7 +29,7 @@ if [[ ${#} -eq 0 ]]; then
 fi
 
 # list of arguments expected in the input
-optstring=":hmatswe"
+optstring=":hmatswexi"
 
 while getopts ${optstring} arg; do
   case ${arg} in
@@ -48,6 +55,12 @@ while getopts ${optstring} arg; do
     e)
       EXPO=true
       ;;
+    x)
+      EXPORT=true
+      ;;
+    i)
+      IMPORT=true
+      ;;
     ?)
       echo "Invalid option: -${OPTARG}."
       exit 2
@@ -58,15 +71,24 @@ done
 echo "Setting up local development environment..."
  
 if [[ ${MONGO} ]]; then
-  echo "Starting MongoDB..."
-  if [ ! "$(docker ps -q -f name=mongo)" ]; then
-    if [ "$(docker ps -aq -f status=exited -f name=mongo)" ]; then
-        docker rm mongo
+  if [ ! "$(docker ps -q -f name=$MONGO_CONTAINER_NAME)" ]; then
+    if [ "$(docker ps -aq -f status=exited -f name=$MONGO_CONTAINER_NAME)" ]; then
+        docker rm $MONGO_CONTAINER_NAME
     fi
-    docker run --name mongo -d -p 27017:27017 mongo:focal-5
-    docker exec -i mongo sh -c 'mongoimport -c mongo -d openarabic --drop' < ./database/seed/devdata.json
-
+    echo "Starting MongoDB..."
+    docker run --name $MONGO_CONTAINER_NAME -d -p 27017:27017 $MONGO_VERSION
   fi
+  echo "MongoDB is already running..."
+fi
+
+if [[ ${IMPORT} ]]; then
+  echo "Importing seed data to MongoDB..."
+  docker exec -i $MONGO_CONTAINER_NAME sh -c 'mongoimport -c openarabic -d openarabic --drop' < $MONGO_IMPORT
+fi
+
+if [[ ${EXPORT} ]]; then
+  echo "Export data to MongoDB..."
+  docker exec -i $MONGO_CONTAINER_NAME sh -c 'mongoexport -c openarabic -d openarabic' > $MONGO_EXPORT
 fi
 
 if [[ ${TASHKEEL} ]]; then
