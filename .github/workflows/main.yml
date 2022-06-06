@@ -1,9 +1,7 @@
 name: Build, Push and Deploy OpenArabic
 
 env:
-  REGISTRY_NAME: docker.io/therealedenmind
-  CLUSTER_NAME: edenmind-k8s
-  CLUSTER_RESOURCE_GROUP: edenmind-rg
+  REGISTRY_NAME: registry.digitalocean.com/edenmind-oci-repository
 
 on:
   push:
@@ -27,7 +25,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and Push API to Docker Hub
+      - name: Build and Push API to Container Registry
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./api/Dockerfile
@@ -35,15 +33,7 @@ jobs:
           context: ./api
           push: true
 
-      - name: Build and Push Database to Docker Hub
-        uses: docker/build-push-action@v3.0.0
-        with:
-          file: ./database/Dockerfile
-          tags: therealedenmind/oa-database:${{ github.sha }}
-          context: ./database
-          push: true
-      
-      - name: Build and Push Tashkeel to Docker Hub
+      - name: Build and Push Tashkeel to Container Registry
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./services/tashkeel/Dockerfile
@@ -51,15 +41,7 @@ jobs:
           context: ./services/tashkeel/
           push: true
 
-      - name: Build and Push Static to Docker Hub
-        uses: docker/build-push-action@v3.0.0
-        with:
-          file: ./static/Dockerfile
-          tags: therealedenmind/oa-static:${{ github.sha }}
-          context: ./static
-          push: true
-
-      - name: Build and Push Web to Docker Hub
+      - name: Build and Push Web to Container Registry
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./web/Dockerfile
