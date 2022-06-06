@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tashkeel
+  name: tashkeel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tashkeel
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: tashkeel
+    spec:
+      containers:
+        - image: tashkeel
+          name: tashkeel
+          ports:
+            - containerPort: 3020
+          resources: {}
+      restartPolicy: Always

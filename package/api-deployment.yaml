@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - env:
+            - name: MONGO_DB_URL
+            - name: TASHKEEL_URL
+          image: api
+          name: api
+          ports:
+            - containerPort: 3030
+          resources: {}
+      restartPolicy: Always
