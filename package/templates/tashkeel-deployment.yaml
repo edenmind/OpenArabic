@@ -1,24 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  creationTimestamp: null
   labels:
-    app: tashkeel
+    io.kompose.service: tashkeel
   name: tashkeel
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tashkeel
+      io.kompose.service: tashkeel
   strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: tashkeel
+        io.kompose.service: tashkeel
     spec:
       containers:
-        - image: tashkeel
+        - image: registry.digitalocean.com/edenmind-oci-repository/tashkeel:{BUILD_ID}
           name: tashkeel
           ports:
             - containerPort: 3020
           resources: {}
       restartPolicy: Always
+status: {}

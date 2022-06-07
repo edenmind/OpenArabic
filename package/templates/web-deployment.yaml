@@ -1,24 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  creationTimestamp: null
   labels:
-    app: web
+    io.kompose.service: web
   name: web
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      io.kompose.service: web
   strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: web
+        io.kompose.service: web
     spec:
       containers:
-        - image: web
+        - image: registry.digitalocean.com/edenmind-oci-repository/web:{BUILD_ID}
           name: web
           ports:
             - containerPort: 3040
           resources: {}
       restartPolicy: Always
+status: {}

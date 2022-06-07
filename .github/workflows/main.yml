@@ -1,15 +1,20 @@
 name: Build, Push and Deploy OpenArabic
 
-env:
-  REGISTRY_NAME: registry.digitalocean.com/edenmind-oci-repository
-
 on:
   push:
-    branches: [main]
+    branches: [YunusAndreasson/issue675]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare
+        id: prep
+        run: |
+          branch=${GITHUB_REF##*/}
+          sha=${GITHUB_SHA::8}
+          ts=$(date +%s)
+          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+
       - name: Checkout
         uses: actions/checkout@v2.4.2
 
@@ -29,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./api/Dockerfile
-          tags: therealedenmind/oa-api:${{ github.sha }}
+          tags: registry.digitalocean.com/edenmind-oci-repository/api:${{ steps.prep.outputs.BUILD_ID }}
           context: ./api
           push: true
 
@@ -37,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./services/tashkeel/Dockerfile
-          tags: therealedenmind/oa-tashkeel:${{ github.sha }}
+          tags: registry.digitalocean.com/edenmind-oci-repository/tashkeel:${{ steps.prep.outputs.BUILD_ID }}
           context: ./services/tashkeel/
           push: true
 
@@ -45,6 +50,34 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./web/Dockerfile
-          tags: therealedenmind/oa-web:${{ github.sha }}
+          tags: registry.digitalocean.com/edenmind-oci-repository/web:${{ steps.prep.outputs.BUILD_ID }}
           context: ./web
           push: true
+
+      - name: Replace SHA tag for containers and Helm chart
+        uses: cschleiden/replace-tokens@v1.1
+        with:
+          files: '["packages/**/*.yaml"]'
+        env:
+          BUILD_ID: ${{ steps.prep.outputs.BUILD_ID }}
+
+      - name: Install Helm
+        uses: Azure/setup-helm@v1
+        with:
+          version: ${{ env.HELM_VERSION_TO_INSTALL }}
+        env:
+          HELM_VERSION_TO_INSTALL: 3.9.0
+
+      - name: Login to registry using Helm
+        run: |
+          helm registry login registry.digitalocean.com/edenmind-oci-repository --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Save helm chart to local registry
+        run: |
+          helm chart save packages/chart registry.digitalocean.com/edenmind-oci-repository/openarabic:${{ steps.prep.outputs.BUILD_ID }}
+
+      - name: Publish chart to registry
+        env:
+          HELM_EXPERIMENTAL_OCI: 1
+        run: |
+          helm chart push registry.digitalocean.com/edenmind-oci-repository/openarabic:${{ steps.prep.outputs.BUILD_ID }}
