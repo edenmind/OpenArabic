@@ -27,7 +27,7 @@ jobs:
       - name: Docker Login
         uses: docker/login-action@v2.0.0
         with:
-          registry: registry.digitalocean.com/edenmind-oci-repository/
+          registry: registry.digitalocean.com/openarabic/
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./api/Dockerfile
-          tags: registry.digitalocean.com/edenmind-oci-repository/api:${{ steps.prep.outputs.BUILD_ID }}
+          tags: registry.digitalocean.com/openarabic/api:${{ steps.prep.outputs.BUILD_ID }}
           context: ./api
           push: true
 
@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./services/tashkeel/Dockerfile
-          tags: registry.digitalocean.com/edenmind-oci-repository/tashkeel:${{ steps.prep.outputs.BUILD_ID }}
+          tags: registry.digitalocean.com/openarabic/tashkeel:${{ steps.prep.outputs.BUILD_ID }}
           context: ./services/tashkeel/
           push: true
 
@@ -51,7 +51,7 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./web/Dockerfile
-          tags: registry.digitalocean.com/edenmind-oci-repository/web:${{ steps.prep.outputs.BUILD_ID }}
+          tags: registry.digitalocean.com/openarabic/web:${{ steps.prep.outputs.BUILD_ID }}
           context: ./web
           push: true
 
@@ -71,14 +71,14 @@ jobs:
 
       - name: Login to registry using Helm
         run: |
-          helm registry login registry.digitalocean.com/edenmind-oci-repository --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
+          helm registry login registry.digitalocean.com/openarabic --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Save helm chart to local registry
         run: |
-          helm chart save packages/chart registry.digitalocean.com/edenmind-oci-repository/openarabic:${{ steps.prep.outputs.BUILD_ID }}
+          helm chart save packages/chart registry.digitalocean.com/openarabic/openarabic:${{ steps.prep.outputs.BUILD_ID }}
 
       - name: Publish chart to registry
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm chart push registry.digitalocean.com/edenmind-oci-repository/openarabic:${{ steps.prep.outputs.BUILD_ID }}
+          helm chart push registry.digitalocean.com/openarabic/openarabic:${{ steps.prep.outputs.BUILD_ID }}
