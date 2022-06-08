@@ -1,4 +1,4 @@
 name: OpenArabic
 description: A Helm Chart for OpenArabic
-version: #{BUILD_ID}#
+version: 0.1.0
 apiVersion: v1
