@@ -21,7 +21,7 @@ spec:
         - env:
             - name: MONGO_DB_URL
             - name: TASHKEEL_URL
-          image: registry.digitalocean.com/edenmind-oci-repository/api:{BUILD_ID}
+          image: registry.digitalocean.com/edenmind-oci-repository/api:#{BUILD_ID}#
           name: api
           ports:
             - containerPort: 3030
