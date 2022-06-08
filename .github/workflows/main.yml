@@ -58,7 +58,7 @@ jobs:
       - name: Replace SHA tag for containers and Helm chart
         uses: cschleiden/replace-tokens@v1.1
         with:
-          files: '["packages/**/*.yaml"]'
+          files: '["web/packages/**/*.yaml"]'
         env:
           BUILD_ID: ${{ steps.prep.outputs.BUILD_ID }}
 
@@ -75,10 +75,10 @@ jobs:
 
       - name: Save helm chart to local registry
         run: |
-          helm chart save packages/chart registry.digitalocean.com/openarabic/openarabic:${{ steps.prep.outputs.BUILD_ID }}
+          helm package ./package
 
       - name: Publish chart to registry
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm chart push registry.digitalocean.com/openarabic/openarabic:${{ steps.prep.outputs.BUILD_ID }}
+          helm OpenArabic-${{ steps.prep.outputs.BUILD_ID }}  registry.digitalocean.com/openarabic/
