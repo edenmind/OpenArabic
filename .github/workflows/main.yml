@@ -81,4 +81,4 @@ jobs:
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm OpenArabic-${{ steps.prep.outputs.BUILD_ID }}  registry.digitalocean.com/openarabic/
+          helm push OpenArabic*.tgz  oci://registry.digitalocean.com/openarabic/
