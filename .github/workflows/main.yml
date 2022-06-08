@@ -10,10 +10,8 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          branch=${GITHUB_REF##*/}
           sha=${GITHUB_SHA::8}
-          ts=$(date +%s)
-          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+          echo "::set-output name=BUILD_ID::${sha}"
 
       - name: Checkout
         uses: actions/checkout@v2.4.2
