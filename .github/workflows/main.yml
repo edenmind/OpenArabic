@@ -31,29 +31,29 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and Push API to Container Registry
-        uses: docker/build-push-action@v3.0.0
-        with:
-          file: ./api/Dockerfile
-          tags: registry.digitalocean.com/openarabic/api:${{ steps.prep.outputs.BUILD_ID }}
-          context: ./api
-          push: true
+      # - name: Build and Push API to Container Registry
+      #   uses: docker/build-push-action@v3.0.0
+      #   with:
+      #     file: ./api/Dockerfile
+      #     tags: registry.digitalocean.com/openarabic/api:${{ steps.prep.outputs.BUILD_ID }}
+      #     context: ./api
+      #     push: true
 
-      - name: Build and Push Tashkeel to Container Registry
-        uses: docker/build-push-action@v3.0.0
-        with:
-          file: ./services/tashkeel/Dockerfile
-          tags: registry.digitalocean.com/openarabic/tashkeel:${{ steps.prep.outputs.BUILD_ID }}
-          context: ./services/tashkeel/
-          push: true
+      # - name: Build and Push Tashkeel to Container Registry
+      #   uses: docker/build-push-action@v3.0.0
+      #   with:
+      #     file: ./services/tashkeel/Dockerfile
+      #     tags: registry.digitalocean.com/openarabic/tashkeel:${{ steps.prep.outputs.BUILD_ID }}
+      #     context: ./services/tashkeel/
+      #     push: true
 
-      - name: Build and Push Web to Container Registry
-        uses: docker/build-push-action@v3.0.0
-        with:
-          file: ./web/Dockerfile
-          tags: registry.digitalocean.com/openarabic/web:${{ steps.prep.outputs.BUILD_ID }}
-          context: ./web
-          push: true
+      # - name: Build and Push Web to Container Registry
+      #   uses: docker/build-push-action@v3.0.0
+      #   with:
+      #     file: ./web/Dockerfile
+      #     tags: registry.digitalocean.com/openarabic/web:${{ steps.prep.outputs.BUILD_ID }}
+      #     context: ./web
+      #     push: true
 
       - name: Replace SHA tag for containers and Helm chart
         uses: cschleiden/replace-tokens@v1.1
@@ -81,4 +81,4 @@ jobs:
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm push OpenArabic*.tgz registry.digitalocean.com/openarabic
+          helm push OpenArabic*.tgz oci://registry.digitalocean.com/openarabic
