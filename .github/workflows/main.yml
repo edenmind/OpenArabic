@@ -10,8 +10,10 @@ jobs:
       - name: Prepare
         id: prep
         run: |
+          branch=${GITHUB_REF##*/}
           sha=${GITHUB_SHA::8}
-          echo "::set-output name=BUILD_ID::${sha}"
+          ts=$(date +%s)
+          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
 
       - name: Checkout
         uses: actions/checkout@v2.4.2
@@ -79,4 +81,4 @@ jobs:
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm push OpenArabic*.tgz oci://registry.digitalocean.com/openarabic/helm:1
+          helm push OpenArabic-0.1.0.tgz oci://registry.digitalocean.com/openarabic/helm:${{ steps.prep.outputs.BUILD_ID }}
