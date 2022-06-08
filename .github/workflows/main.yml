@@ -81,4 +81,4 @@ jobs:
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm push open-arabic*.tgz oci://registry.digitalocean.com/openarabic
+          helm push open-arabic-helm*.tgz oci://registry.digitalocean.com/openarabic
