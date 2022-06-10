@@ -18,7 +18,7 @@ spec:
         io.kompose.service: tashkeel
     spec:
       containers:
-        - image: registry.digitalocean.com/edenmind-oci-repository/tashkeel:#{BUILD_ID}#
+        - image: registry.digitalocean.com/openarabic/tashkeel:#{BUILD_ID}#
           name: tashkeel
           ports:
             - containerPort: 3020
