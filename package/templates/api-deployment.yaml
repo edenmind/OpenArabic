@@ -5,7 +5,7 @@ metadata:
     io.kompose.service: api
   name: api
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       io.kompose.service: api
@@ -37,7 +37,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: 5000
+              port: 3030
             periodSeconds: 10
             initialDelaySeconds: 30
           name: api

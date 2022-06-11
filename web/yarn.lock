@@ -3686,12 +3686,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-useless-spread@npm:^5.0.0":
-  version: 5.3.0
-  resolution: "@putout/plugin-remove-useless-spread@npm:5.3.0"
+"@putout/plugin-remove-useless-spread@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-remove-useless-spread@npm:6.0.0"
   peerDependencies:
-    putout: ">=16"
-  checksum: bab5ab6b0355a1e6a183796182409ab01c86ee095c9b176043b9c8dff843fbb76e72a90d01be877a6bef61ff390a6a974b1be918676f8ee390c5d8048bb57cbf
+    putout: ">=26"
+  checksum: 85af5d2e4a591bcb1a573dca28afc87dede4102a4524d5a0ed013810389381358a7c09c00dee2cff0eed431675e2b43e6b7b514fd0d79bd70646fbbd4d53c408
   languageName: node
   linkType: hard
 
@@ -11973,7 +11973,7 @@ __metadata:
     moment: ^2.29.3
     moment-timezone: ^0.5.34
     prettier: ^2.6.2
-    putout: ^26.13.0
+    putout: ^26.14.0
     react: ^18.1.0
     react-dom: ^18.1.0
     react-moment: ^1.1.2
@@ -13336,9 +13336,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.13.0":
-  version: 26.13.0
-  resolution: "putout@npm:26.13.0"
+"putout@npm:^26.14.0":
+  version: 26.14.0
+  resolution: "putout@npm:26.14.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13453,7 +13453,7 @@ __metadata:
     "@putout/plugin-remove-useless-operand": ^2.0.0
     "@putout/plugin-remove-useless-replace": ^1.0.1
     "@putout/plugin-remove-useless-return": ^4.0.0
-    "@putout/plugin-remove-useless-spread": ^5.0.0
+    "@putout/plugin-remove-useless-spread": ^6.0.0
     "@putout/plugin-remove-useless-template-expressions": ^1.0.0
     "@putout/plugin-remove-useless-type-conversion": ^2.0.0
     "@putout/plugin-remove-useless-typeof": ^1.0.0
@@ -13497,7 +13497,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: fa9aa468f77e8de83e4be9aa9698b7b550e050e9a43d436190d3dcbb527e7d12d712759abdf04c0bdf3b537a91c73c09f82eb679cd2bd329f1c472d818d4d3e1
+  checksum: bd0cde0dd9100b57645c09dfbbda5564430275af996e5d94b47d68681f4d043827053bb8c534f2e2e2baf6235d06ae75192067ffa7e70d59a171f9c8c007ac95
   languageName: node
   linkType: hard
 

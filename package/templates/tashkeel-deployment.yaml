@@ -19,4 +19,17 @@ spec:
           name: tashkeel
           ports:
             - containerPort: 3020
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+            requests:
+              memory: 200Mi
+              cpu: 150m
+          livenessProbe:
+            httpGet:
+              path: /tashkeel?unvoweled=abc
+              port: 3020
+            periodSeconds: 30
+            initialDelaySeconds: 30
       restartPolicy: Always

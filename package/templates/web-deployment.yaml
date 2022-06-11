@@ -5,7 +5,7 @@ metadata:
     io.kompose.service: web
   name: web
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       io.kompose.service: web
@@ -24,8 +24,8 @@ spec:
               memory: 1024Mi
               cpu: 1000m
             requests:
-              memory: 100Mi
-              cpu: 150m
+              memory: 50Mi
+              cpu: 100m
           livenessProbe:
             httpGet:
               path: /

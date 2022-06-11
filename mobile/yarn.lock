@@ -14161,13 +14161,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-pager-view@npm:5.4.24":
-  version: 5.4.24
-  resolution: "react-native-pager-view@npm:5.4.24"
+"react-native-pager-view@npm:5.4.15":
+  version: 5.4.15
+  resolution: "react-native-pager-view@npm:5.4.15"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 5f296492ce7f386e5d4fabac4e85e0bc1cea39fe9ac070d1879cc0444f174014e1add708356b6c53a58b2b9bed9b1c1dff1799a8a3ba10b49b2efc2e1fdbda8a
+  checksum: 037257c1c370610c56184e19c5e02dee04fc70a9c4216b14c0611ec9566ff1dfe075e49e3404a0a03b6e4335e5b226d1092b38022eaa36e66c05c35ff909961f
   languageName: node
   linkType: hard
 
@@ -14215,16 +14215,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:~3.13.1":
-  version: 3.13.1
-  resolution: "react-native-screens@npm:3.13.1"
+"react-native-screens@npm:~3.11.1":
+  version: 3.11.1
+  resolution: "react-native-screens@npm:3.11.1"
   dependencies:
     react-freeze: ^1.0.0
     warn-once: ^0.1.0
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: aaab7071f65ea7b3be197417e073d0cad06c80fcb2a956faaeb020322c8002963f4d14ba96550484e96d156a48a29989c1485f47ec4bcd98c9701fe8de5c7cc1
+  checksum: 8792203c2a1f9ab80b33814f78e7bd10be8c09dcc105f44fa22ca70f4417bc028613f49831c8972fbb49531ef45433e8971f07d6e0365d3da3042dc40f30f7a3
   languageName: node
   linkType: hard
 
@@ -15191,11 +15191,11 @@ __metadata:
     react-native: 0.68.2
     react-native-error-boundary: ^1.1.13
     react-native-gesture-handler: ~2.2.1
-    react-native-pager-view: 5.4.24
+    react-native-pager-view: 5.4.15
     react-native-paper: ^4.12.1
     react-native-reanimated: ~2.8.0
     react-native-safe-area-context: 4.2.4
-    react-native-screens: ~3.13.1
+    react-native-screens: ~3.11.1
     react-native-share: ^7.6.0
     react-native-tab-view: ^3.1.1
     react-native-vector-icons: ^9.1.0
