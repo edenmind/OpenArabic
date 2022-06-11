@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     io.kompose.service: web
   name: web
@@ -10,10 +9,8 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: web
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         io.kompose.service: web
     spec:
@@ -22,6 +19,17 @@ spec:
           name: web
           ports:
             - containerPort: 3040
-          resources: {}
+          resources:
+            limits:
+              memory: 1024Mi
+              cpu: 1000m
+            requests:
+              memory: 100Mi
+              cpu: 150m
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3040
+            periodSeconds: 10
+            initialDelaySeconds: 30
       restartPolicy: Always
-status: {}

@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     io.kompose.service: tashkeel
   name: tashkeel
@@ -10,10 +9,8 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: tashkeel
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         io.kompose.service: tashkeel
     spec:
@@ -22,6 +19,4 @@ spec:
           name: tashkeel
           ports:
             - containerPort: 3020
-          resources: {}
       restartPolicy: Always
-status: {}

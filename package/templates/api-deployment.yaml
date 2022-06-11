@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     io.kompose.service: api
   name: api
@@ -10,21 +9,38 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: api
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         io.kompose.service: api
     spec:
       containers:
         - env:
             - name: MONGO_DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: MONGO_DB_URL
             - name: TASHKEEL_URL
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: TASHKEEL_URL
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+            requests:
+              memory: 200Mi
+              cpu: 150m
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            periodSeconds: 10
+            initialDelaySeconds: 30
           name: api
           ports:
             - containerPort: 3030
-          resources: {}
       restartPolicy: Always
-status: {}
