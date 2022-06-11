@@ -19,13 +19,13 @@ spec:
           name: web
           ports:
             - containerPort: 3040
-          resources:
-            limits:
-              memory: 1024Mi
-              cpu: 1000m
-            requests:
-              memory: 50Mi
-              cpu: 100m
+          # resources:
+          #   limits:
+          #     memory: 1024Mi
+          #     cpu: 1000m
+          #   requests:
+          #     memory: 50Mi
+          #     cpu: 100m
           livenessProbe:
             httpGet:
               path: /

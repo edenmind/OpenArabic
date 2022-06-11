@@ -5,7 +5,7 @@ metadata:
     io.kompose.service: api
   name: api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: api
@@ -27,13 +27,13 @@ spec:
                   name: api-config
                   key: TASHKEEL_URL
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
-          resources:
-            limits:
-              memory: 512Mi
-              cpu: 1000m
-            requests:
-              memory: 200Mi
-              cpu: 150m
+          # resources:
+          #   limits:
+          #     memory: 512Mi
+          #     cpu: 1000m
+          #   requests:
+          #     memory: 200Mi
+          #     cpu: 150m
           livenessProbe:
             httpGet:
               path: /

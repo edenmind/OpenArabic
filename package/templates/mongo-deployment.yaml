@@ -34,14 +34,26 @@ spec:
                   name: mongo-config
                   key: MONGO_INITDB_ROOT_USERNAME
           image: mongo:5-focal
-          resources:
-            limits:
-              memory: 2048Mi
-              cpu: 1000m
-            requests:
-              memory: 250Mi
-              cpu: 100m
+          # resources:
+          #   limits:
+          #     memory: 2048Mi
+          #     cpu: 1000m
+          #   requests:
+          #     memory: 250Mi
+          #     cpu: 100m
+          volumeMounts:
+            - mountPath: /data/db
+              name: db-data
+            - mountPath: /data/configdb
+              name: mongo-config
           name: mongo
           ports:
             - containerPort: 27017
       restartPolicy: Always
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: db-data
+        - name: mongo-config
+          persistentVolumeClaim:
+            claimName: mongo-config
