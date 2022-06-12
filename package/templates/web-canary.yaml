@@ -13,7 +13,7 @@ spec:
     port: 3040
     targetPort: 3040
     gateways:
-    - public-gateway.openarabic.svc.cluster.local
+    - public-gateway
     hosts:
     - web.openarabic.io
     trafficPolicy:
