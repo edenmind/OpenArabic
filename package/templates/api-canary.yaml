@@ -10,8 +10,8 @@ spec:
     name: api
   progressDeadlineSeconds: 60
   service:
-    port: 3040
-    targetPort: 3040
+    port: 3030
+    targetPort: 3030
     gateways:
     - public-gateway
     hosts:
