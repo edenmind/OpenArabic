@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    io.kompose.service: api
+    app: api
   name: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: api
+      app: api
   template:
     metadata:
       labels:
-        io.kompose.service: api
+        app: api
     spec:
       containers:
         - env:
