@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: tashkeel
+  name: tashkeel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: tashkeel
+  template:
+    metadata:
+      labels:
+        io.kompose.service: tashkeel
+    spec:
+      containers:
+        - image: registry.digitalocean.com/openarabic/tashkeel:#{BUILD_ID}#
+          name: tashkeel
+          ports:
+            - containerPort: 3020
+          # resources:
+          #   limits:
+          #     memory: 512Mi
+          #     cpu: 1000m
+          #   requests:
+          #     memory: 200Mi
+          #     cpu: 150m
+          livenessProbe:
+            httpGet:
+              path: /tashkeel?unvoweled=abc
+              port: 3020
+            periodSeconds: 30
+            initialDelaySeconds: 30
+      restartPolicy: Always

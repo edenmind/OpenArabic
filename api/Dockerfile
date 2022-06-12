@@ -1,17 +1,12 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /app
-
-COPY api.csproj ./
-RUN dotnet restore
-
+FROM node:lts-alpine
+ENV NODE_ENV=production
+ENV FASTIFY_PORT=3030
+ENV FASTIFY_ADDRESS=0.0.0.0
+WORKDIR /usr/src/app
+COPY ["package.json", "yarn.lock", "./"]
+RUN yarn install --production && mv node_modules ../ && yarn global add fastify-cli@3.1.0 && yarn cache clean
 COPY . .
-RUN dotnet publish -c Release -o out
-
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
-WORKDIR /app
-COPY --from=build /app/out ./
-
-ENV ASPNETCORE_URLS=http://+:5001
-EXPOSE 5001
-
-ENTRYPOINT ["dotnet", "api.dll"]
+EXPOSE 3030
+RUN chown -R node /usr/src/app
+USER node
+CMD ["yarn", "start"]

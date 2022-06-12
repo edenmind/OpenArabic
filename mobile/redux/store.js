@@ -1,9 +1,14 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+//TODO: Move to RTK: https://redux.js.org/introduction/why-rtk-is-redux-today
+
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import { categoriesReducer, textReducer, textsReducer } from './reducers.js'
+
 import thunk from 'redux-thunk'
-import { categoriesReducer, textReducer, textsReducer } from './reducers'
+
 const rootReducer = combineReducers({
   categories: categoriesReducer,
   text: textReducer,
   texts: textsReducer
 })
+
 export const store = createStore(rootReducer, applyMiddleware(thunk))

@@ -1,102 +1,84 @@
 name: Build, Push and Deploy OpenArabic
 
-env:
-  REGISTRY_NAME: docker.io/therealedenmind
-  CLUSTER_NAME: edenmind-k8s
-  CLUSTER_RESOURCE_GROUP: edenmind-rg
-
 on:
   push:
-    branches: [main]
+    branches: [YunusAndreasson/issue675]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare
+        id: prep
+        run: |
+          branch=${GITHUB_REF##*/}
+          sha=${GITHUB_SHA::8}
+          ts=$(date +%s)
+          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+
       - name: Checkout
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v2.4.2
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1.2.0
+        uses: docker/setup-qemu-action@v2.0.0
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1.6.0
+        uses: docker/setup-buildx-action@v2.0.0
 
       - name: Docker Login
-        uses: docker/login-action@v1.12.0
+        uses: docker/login-action@v2.0.0
         with:
+          registry: registry.digitalocean.com/openarabic/
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and Push API to Docker Hub
-        uses: docker/build-push-action@v2.3.0
+      - name: Build and Push API to Container Registry
+        uses: docker/build-push-action@v3.0.0
         with:
           file: ./api/Dockerfile
-          tags: therealedenmind/oa-api:${{ github.sha }}
+          tags: registry.digitalocean.com/openarabic/api:${{ steps.prep.outputs.BUILD_ID }}
           context: ./api
           push: true
 
-      - name: Build and Push Web to Docker Hub
-        uses: docker/build-push-action@v2.7.0
-        with:
-          file: ./mobile/Dockerfile
-          tags: therealedenmind/oa-app:${{ github.sha }}
-          context: ./mobile
-          push: true
-
-      - name: Build and Push Webpromo to Docker Hub
-        uses: docker/build-push-action@v2.7.0
-        with:
-          file: ./webpromo/Dockerfile
-          tags: therealedenmind/oa-webpromo:${{ github.sha }}
-          context: ./webpromo
-          push: true
-
-      - name: Build and Push Tashkeel to Docker Hub
-        uses: docker/build-push-action@v2.7.0
+      - name: Build and Push Tashkeel to Container Registry
+        uses: docker/build-push-action@v3.0.0
         with:
           file: ./services/tashkeel/Dockerfile
-          tags: therealedenmind/oa-tashkeel:${{ github.sha }}
-          context: ./services/tashkeel
+          tags: registry.digitalocean.com/openarabic/tashkeel:${{ steps.prep.outputs.BUILD_ID }}
+          context: ./services/tashkeel/
           push: true
 
-      - name: Set target k8s cluster
-        uses: Azure/aks-set-context@v1.1
+      - name: Build and Push Web to Container Registry
+        uses: docker/build-push-action@v3.0.0
         with:
-          creds: "${{ secrets.AZURE_CREDENTIALS }}"
-          cluster-name: ${{ env.CLUSTER_NAME }}
-          resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
+          file: ./web/Dockerfile
+          tags: registry.digitalocean.com/openarabic/web:${{ steps.prep.outputs.BUILD_ID }}
+          context: ./web
+          push: true
 
-      - name: Create secret in k8s cluster for API
-        uses: Azure/k8s-create-secret@v1.1
+      - name: Replace SHA tag for containers and Helm chart
+        uses: cschleiden/replace-tokens@v1.1
         with:
-          secret-type: generic
-          secret-name: api-credentials
-          namespace: openarabic
-          arguments: |
-            --from-literal=ASPNETCORE_AUTHORITY=${{ secrets.ASPNETCORE_AUTHORITY }}
-            --from-literal=ASPNETCORE_AUDIENCE=${{ secrets.ASPNETCORE_AUDIENCE }}
-            --from-literal=ASPNETCORE_ORIGINS=${{ secrets.ASPNETCORE_ORIGINS }}
-            --from-literal=ASPNETCORE_SENDGRID_KEY=${{ secrets.ASPNETCORE_SENDGRID_KEY }}   
-            --from-literal=ASPNETCORE_CONNECTION_STRING="${{ secrets.ASPNETCORE_CONNECTION_STRING }}"
-            --from-literal=ASPNETCORE_TASHKEEL_SERVICE_URL="${{ secrets.ASPNETCORE_TASHKEEL_SERVICE_URL }}"
-
-      - name: Replace SHA tag for containers
-        uses: cschleiden/replace-tokens@v1
-        with:
-          files: '["./k8s/*.yaml"]'
+          files: '["package/**/*.yaml"]'
         env:
-          API_TAG: therealedenmind/oa-api:${{ github.sha }}
-          WEBPROMO_TAG: therealedenmind/oa-webpromo:${{ github.sha }}
-          TASHKEEL_TAG: therealedenmind/oa-tashkeel:${{ github.sha }}
-          APP_TAG: therealedenmind/oa-app:${{ github.sha }}
+          BUILD_ID: ${{ steps.prep.outputs.BUILD_ID }}
 
-
-      - name: Deploy API, Frontend and Database to k8s
-        uses: Azure/k8s-deploy@v1.5
+      - name: Install Helm
+        uses: Azure/setup-helm@v1
         with:
-          namespace: openarabic
-          manifests: |
-            ./k8s/web.yaml
-            ./k8s/api.yaml
-            ./k8s/tashkeel.yaml
-            ./k8s/app.yaml
+          version: ${{ env.HELM_VERSION_TO_INSTALL }}
+        env:
+          HELM_VERSION_TO_INSTALL: 3.9.0
+
+      - name: Login to registry using Helm
+        run: |
+          helm registry login registry.digitalocean.com/openarabic --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Save helm chart to local registry
+        run: |
+          helm package ./package
+
+      - name: Publish chart to registry
+        env:
+          HELM_EXPERIMENTAL_OCI: 1
+        run: |
+          helm push open-arabic-helm*.tgz oci://registry.digitalocean.com/openarabic

@@ -1,15 +1,50 @@
-version: "3.8"
+# To start docker-compose: docker-compose --env-file ./docker-compose-default.env up
+
+version: '3.8'
 
 services:
+  mongo:
+    build: ./database
+    ports:
+      - 27017:27017
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - db-data:/data/db
+      - mongo-config:/data/configdb
+  static:
+    build: ./static
+    ports:
+      - 3010:3010
+    restart: always
+  tashkeel:
+    build: ./services/tashkeel
+    ports:
+      - 3020:3020
+    restart: always
   api:
-    image: api
-    build:
-      context: .
-      dockerfile: ./api/Dockerfile
+    build: ./api
+    ports:
+      - 3030:3030
+    environment:
+      - TASHKEEL_URL=${TASHKEEL_URL}
+      - MONGO_DB_URL=${MONGO_DB_URL}
+    restart: always
+    depends_on:
+      - mongo
+      - static
+      - tashkeel
   web:
-    image: web
-    build:
-      context: .
-      dockerfile: ./web/Dockerfile
-  database:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    build: ./web
+    ports:
+      - 3040:3040
+    restart: always
+    depends_on:
+      - api
+
+volumes:
+  db-data:
+  mongo-config:

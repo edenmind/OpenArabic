@@ -1,14 +1,24 @@
-### STAGE 1: Build ###
-FROM node:latest AS build
+# build
+FROM node:lts-alpine AS BUILD
+
+ENV NODE_ENV=production
+ENV REACT_APP_API_URL=http://localhost:3030
+
 WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
-RUN npm install
+COPY ["package.json", "yarn.lock", "./"]
+RUN yarn install --production && mv node_modules ../
 COPY . .
-RUN npm run deploy
+RUN ../node_modules/.bin/react-scripts build
 
-### STAGE 2: Run ###
-FROM nginx:latest
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist/frontend /usr/share/nginx/html
+# deploy
+FROM node:lts-alpine
 
-EXPOSE 5000
+ENV PORT=3040
+
+COPY --from=BUILD /usr/src/app/build /app
+RUN yarn global add serve@13.0.2 && chown -R node /app
+
+USER node
+EXPOSE 3040
+
+CMD ["serve", "/app", "--cors"]

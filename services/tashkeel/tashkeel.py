@@ -2,8 +2,10 @@
 
 import mishkal.tashkeel
 from flask import Flask, request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 voweler = mishkal.tashkeel.TashkeelClass()
 
 
@@ -16,6 +18,7 @@ def get_vowels(unvoweled):
 def set_vowels():
     unvoweled = request.args.get('unvoweled')
     voweled = get_vowels(unvoweled)
+    # deepcode ignore XSS: <running inside of cluster>
     return voweled
 
 

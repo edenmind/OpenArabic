@@ -6,17 +6,32 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.4.2
+
       - name: Test using Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3.3.0
         with:
           node-version: "16"
-      - name: yarn install
+          check-latest: true
+
+      - name: test mobile
         working-directory: ./mobile
-        run: yarn install
-      - name: yarn test
-        working-directory: ./mobile
-        run: yarn test
+        run: |
+          yarn install
+          yarn test
+
+      - name: test web
+        working-directory: ./web
+        run: |
+          yarn install
+          yarn test
+
+      # Figure out how to start and seed Docker
+      # - name: test api
+      #   working-directory: ./api
+      #   run: |
+      #     yarn install
+      #     yarn test
 
       - name: Tests ✅
         if: ${{ success() }}
