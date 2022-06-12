@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    io.kompose.service: web
+    app: web
   name: web
 spec:
   replicas: 2
   selector:
     matchLabels:
-      io.kompose.service: web
+      app: web
   template:
     metadata:
       labels:
-        io.kompose.service: web
+        app: web
     spec:
       containers:
-        - image: registry.digitalocean.com/openarabic/web:#{BUILD_ID}#
+        - image: registry.digitalocean.com/openarabic/web:issue675-a70624b3-1654974581
           name: web
           ports:
             - containerPort: 3040
