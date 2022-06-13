@@ -406,6 +406,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fastify/error@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@fastify/error@npm:2.0.0"
+  checksum: ecf0834966b2bfb33ff834e3d55fe4dc04cbe9f822fda6c937b12cce4f162be4f8b0577ee665bc856d7012b1640c12472a1829a22ae38d287342c90b0f33a595
+  languageName: node
+  linkType: hard
+
 "@fastify/error@npm:^3.0.0":
   version: 3.0.0
   resolution: "@fastify/error@npm:3.0.0"
@@ -494,6 +501,16 @@ __metadata:
     openapi-types: ^11.0.0
     rfdc: ^1.3.0
   checksum: dd87aee4023970b3317ce445e3a6b68a9b9e280a4f6e4b32e15c3f101ed4d494234068918338dc5eddc1f8bca04c2085881685f273aebc61a29655f47abf0a06
+  languageName: node
+  linkType: hard
+
+"@fastify/under-pressure@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@fastify/under-pressure@npm:7.0.0"
+  dependencies:
+    "@fastify/error": ^2.0.0
+    fastify-plugin: ^3.0.0
+  checksum: bf4f348bb8540c9ff90530f73e1dd27050d9ffa3103d3ad8f3d57a2216d5aa2c220ec615ee18cc0341f14f338bcd81038e06f25d5321b8d7ab9f58b59eb782f8
   languageName: node
   linkType: hard
 
@@ -2616,8 +2633,9 @@ __metadata:
     eslint-plugin-putout: ^15.6.0
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^42.0.0
-    fastify: ^4.0.1
+    fastify: ^4.0.2
     fastify-cli: ^4.1.1
+    fastify-healthcheck: ^4.0.0
     fastify-plugin: ^3.0.1
     mongodb: ^4.7.0
     prettier: ^2.6.2
@@ -4064,6 +4082,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-json-stringify@npm:^4.1.0":
+  version: 4.2.0
+  resolution: "fast-json-stringify@npm:4.2.0"
+  dependencies:
+    ajv: ^8.10.0
+    ajv-formats: ^2.1.1
+    deepmerge: ^4.2.2
+    fast-uri: ^2.0.0
+    rfdc: ^1.2.0
+    string-similarity: ^4.0.1
+  checksum: 285e024b779157b43748abaf1ddbe1ace40093773eca299f69d797f9b8c2f2252881a8d077174d0c4a91b3d2d9e7467bf76edb1c0aac7ad47368ae046f60f24a
+  languageName: node
+  linkType: hard
+
 "fast-levenshtein@npm:^2.0.6":
   version: 2.0.6
   resolution: "fast-levenshtein@npm:2.0.6"
@@ -4132,6 +4164,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fastify-healthcheck@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "fastify-healthcheck@npm:4.0.0"
+  dependencies:
+    "@fastify/under-pressure": ^7.0.0
+  checksum: f37758a876f811841947cfa53c1751d628ba072a88545bcd5cb9301bef3f958740500b003ab739e30d3480f4dcc696397f6f8ea1c9df64b292c31a27ef4a89b4
+  languageName: node
+  linkType: hard
+
 "fastify-plugin@npm:^3.0.0, fastify-plugin@npm:^3.0.1":
   version: 3.0.1
   resolution: "fastify-plugin@npm:3.0.1"
@@ -4139,7 +4180,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^4.0.0, fastify@npm:^4.0.1":
+"fastify@npm:^4.0.0":
   version: 4.0.1
   resolution: "fastify@npm:4.0.1"
   dependencies:
@@ -4158,6 +4199,29 @@ __metadata:
     semver: ^7.3.7
     tiny-lru: ^8.0.2
   checksum: 136e0e4a55fb285d91b7d0b1084f18b2a8f3fcd7f657fbfa7d35698d480e1409a40798b22bd3f9ad41d472500e3488d10b21fa92984c68b4ea555cc249f8e48d
+  languageName: node
+  linkType: hard
+
+"fastify@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "fastify@npm:4.0.2"
+  dependencies:
+    "@fastify/ajv-compiler": ^3.1.0
+    "@fastify/error": ^3.0.0
+    "@fastify/fast-json-stringify-compiler": ^3.0.0
+    abstract-logging: ^2.0.1
+    avvio: ^8.1.3
+    fast-json-stringify: ^4.1.0
+    find-my-way: ^6.3.0
+    light-my-request: ^5.0.0
+    pino: ^8.0.0
+    process-warning: ^2.0.0
+    proxy-addr: ^2.0.7
+    rfdc: ^1.3.0
+    secure-json-parse: ^2.4.0
+    semver: ^7.3.7
+    tiny-lru: ^8.0.2
+  checksum: 142ee4df83cd08333b90ce91f3c070403548f38d99bd2327d605ccdccdb3e301195dce92ab2a2b376d79fbb5575509664b66781ee6f1726d9fe6d6adf4a22b87
   languageName: node
   linkType: hard
 
