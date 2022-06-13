@@ -2,7 +2,7 @@ name: Build, Push and Deploy OpenArabic
 
 on:
   push:
-    branches: [YunusAndreasson/issue675]
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
