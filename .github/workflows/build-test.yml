@@ -26,12 +26,12 @@ jobs:
           yarn install
           yarn test
 
-      # Figure out how to start and seed Docker
-      # - name: test api
-      #   working-directory: ./api
-      #   run: |
-      #     yarn install
-      #     yarn test
+     
+      - name: test api
+        working-directory: ./api
+        run: |
+          yarn install
+      #     yarn test  # Figure out how to start and seed Docker
 
       - name: Tests ✅
         if: ${{ success() }}
