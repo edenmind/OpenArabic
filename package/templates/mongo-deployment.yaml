@@ -41,6 +41,14 @@ spec:
           #   requests:
           #     memory: 250Mi
           #     cpu: 100m
+          livenessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - echo 'db.stats().ok' | mongo mongo:27017 --quiet
+            initialDelaySeconds: 45
+            timeoutSeconds: 5
           volumeMounts:
             - mountPath: /data/db
               name: db-data
@@ -57,3 +65,5 @@ spec:
         - name: mongo-config
           persistentVolumeClaim:
             claimName: mongo-config
+
+            echo 'db.stats().ok' | mongo mongo:27017 --quiet
