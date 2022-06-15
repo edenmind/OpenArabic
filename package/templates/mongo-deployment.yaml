@@ -34,13 +34,13 @@ spec:
                   name: mongo-config
                   key: MONGO_INITDB_ROOT_USERNAME
           image: mongo:5-focal
-          # resources:
-          #   limits:
-          #     memory: 2048Mi
-          #     cpu: 1000m
-          #   requests:
-          #     memory: 250Mi
-          #     cpu: 100m
+          resources:
+            limits:
+              memory: 2048Mi
+              cpu: 1000m
+            requests:
+              memory: 250Mi
+              cpu: 100m
           livenessProbe:
             exec:
               command:
