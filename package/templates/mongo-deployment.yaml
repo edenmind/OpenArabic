@@ -34,19 +34,19 @@ spec:
                   name: mongo-config
                   key: MONGO_INITDB_ROOT_USERNAME
           image: mongo:5-focal
-          # resources:
-          #   limits:
-          #     memory: 2048Mi
-          #     cpu: 1000m
-          #   requests:
-          #     memory: 250Mi
-          #     cpu: 100m
+          resources:
+            limits:
+              memory: 2048Mi
+              cpu: 1000m
+            requests:
+              memory: 250Mi
+              cpu: 100m
           livenessProbe:
             exec:
               command:
-              - /bin/sh
-              - -c
-              - echo 'db.stats().ok' | mongo mongo:27017 --quiet
+                - /bin/sh
+                - -c
+                - echo 'db.stats().ok' | mongo mongo:27017 --quiet
             initialDelaySeconds: 45
             periodSeconds: 30
             timeoutSeconds: 5
@@ -66,5 +66,3 @@ spec:
         - name: mongo-config
           persistentVolumeClaim:
             claimName: mongo-config
-
-            echo 'db.stats().ok' | mongo mongo:27017 --quiet
