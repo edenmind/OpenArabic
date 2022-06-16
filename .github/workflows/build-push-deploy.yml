@@ -73,6 +73,10 @@ jobs:
         run: |
           helm registry login registry.digitalocean.com/openarabic --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Lint and validate package
+        run: |
+          helm lint ./package && helm template ./package
+
       - name: Save helm chart to local registry
         run: |
           helm package ./package
