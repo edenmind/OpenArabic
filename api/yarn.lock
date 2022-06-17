@@ -429,6 +429,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fastify/fast-json-stringify-compiler@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@fastify/fast-json-stringify-compiler@npm:3.0.1"
+  dependencies:
+    fast-json-stringify: ^4.2.0
+  checksum: 14137dc41895a7920978e99a84abb9c3a0600a4707a3862badb8382d6c58e5c7da2bafb5c34a399316724d7ad3e4f0cdc72f4415566c6a896934c8df7f9b2431
+  languageName: node
+  linkType: hard
+
 "@fastify/helmet@npm:^9.1.0":
   version: 9.1.0
   resolution: "@fastify/helmet@npm:9.1.0"
@@ -1284,12 +1293,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-eslint@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@putout/plugin-eslint@npm:3.0.0"
+"@putout/plugin-eslint@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@putout/plugin-eslint@npm:4.0.0"
   peerDependencies:
-    putout: ">=20"
-  checksum: 377790394b1bc8b854f43820fb0121687f347c784fc78f2bb11aeca1bd869dafb0d0fa38ab34769e6cdbef13a29d7bf2fc9e85a4342fbb1576539f832d0ac97b
+    putout: ">=26"
+  checksum: 65facaebe9734c4f50edcc61b8c83925aa6f57212128bede0833d3b4c22fd08b2e8604188e3bea0e280446a4a8dfa5777e1bb71133a3f0983a634d7c57995326
   languageName: node
   linkType: hard
 
@@ -2633,14 +2642,14 @@ __metadata:
     eslint-plugin-putout: ^15.6.0
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^42.0.0
-    fastify: ^4.0.2
+    fastify: ^4.0.3
     fastify-cli: ^4.1.1
     fastify-healthcheck: ^4.0.0
     fastify-plugin: ^3.0.1
     mongodb: ^4.7.0
-    prettier: ^2.6.2
-    putout: ^26.14.0
-    tap: ^16.2.0
+    prettier: ^2.7.1
+    putout: ^26.15.0
+    tap: ^16.3.0
     uuid: ^8.3.2
   languageName: unknown
   linkType: soft
@@ -4082,7 +4091,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:^4.1.0":
+"fast-json-stringify@npm:^4.2.0":
   version: 4.2.0
   resolution: "fast-json-stringify@npm:4.2.0"
   dependencies:
@@ -4202,16 +4211,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "fastify@npm:4.0.2"
+"fastify@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "fastify@npm:4.0.3"
   dependencies:
     "@fastify/ajv-compiler": ^3.1.0
     "@fastify/error": ^3.0.0
-    "@fastify/fast-json-stringify-compiler": ^3.0.0
+    "@fastify/fast-json-stringify-compiler": ^3.0.1
     abstract-logging: ^2.0.1
     avvio: ^8.1.3
-    fast-json-stringify: ^4.1.0
     find-my-way: ^6.3.0
     light-my-request: ^5.0.0
     pino: ^8.0.0
@@ -4221,7 +4229,7 @@ __metadata:
     secure-json-parse: ^2.4.0
     semver: ^7.3.7
     tiny-lru: ^8.0.2
-  checksum: 142ee4df83cd08333b90ce91f3c070403548f38d99bd2327d605ccdccdb3e301195dce92ab2a2b376d79fbb5575509664b66781ee6f1726d9fe6d6adf4a22b87
+  checksum: 8b449e2567eb0e0826ad16e9a6ceec4b8bdd6dfc1bf418429fee0b5abd167b0ceaf3b8ec01ef5108d0319de37f0cc67e2b657d534385c830e747226982aad28a
   languageName: node
   linkType: hard
 
@@ -7045,12 +7053,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.6.2":
-  version: 2.6.2
-  resolution: "prettier@npm:2.6.2"
+"prettier@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
+  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
   languageName: node
   linkType: hard
 
@@ -7121,9 +7129,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.14.0":
-  version: 26.14.0
-  resolution: "putout@npm:26.14.0"
+"putout@npm:^26.15.0":
+  version: 26.15.0
+  resolution: "putout@npm:26.15.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -7187,7 +7195,7 @@ __metadata:
     "@putout/plugin-convert-typeof-to-is-type": ^2.0.0
     "@putout/plugin-declare-before-reference": ^1.0.0
     "@putout/plugin-declare-undefined-variables": ^7.0.0
-    "@putout/plugin-eslint": ^3.0.0
+    "@putout/plugin-eslint": ^4.0.0
     "@putout/plugin-extract-object-properties": ^8.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
     "@putout/plugin-github": ^3.0.0
@@ -7282,7 +7290,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: bd0cde0dd9100b57645c09dfbbda5564430275af996e5d94b47d68681f4d043827053bb8c534f2e2e2baf6235d06ae75192067ffa7e70d59a171f9c8c007ac95
+  checksum: 4371e8035ed96cb4a13c4175a1c97ffbcad89a27355d0bab4b0ace0abd9bb58ba4e6a618efec138973bf7c73c1d138b0e64f54be0f2f89c06c132d79ebcecbad
   languageName: node
   linkType: hard
 
@@ -8518,9 +8526,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tap@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "tap@npm:16.2.0"
+"tap@npm:^16.3.0":
+  version: 16.3.0
+  resolution: "tap@npm:16.3.0"
   dependencies:
     "@isaacs/import-jsx": ^4.0.1
     "@types/react": ^17
@@ -8564,7 +8572,7 @@ __metadata:
       optional: true
   bin:
     tap: bin/run.js
-  checksum: 9293ed9f8bec61c195eef76d81b5d4cd8c1f68cdd1b9a6b2b8e58d515ba746f64ccfe1e0328d00c280ce2de385329d5f587c1d8b2ce7aa5dad6236694a505365
+  checksum: d5243af29dcd0742f164ba42729724ffcff26f0ff60ada9e8df65535004e7851fb197b0cedf01d2ec215cb0cc20b8eeddaf29c9cea40c5e7758744cbde550c44
   languageName: node
   linkType: hard
 

@@ -69,6 +69,11 @@ jobs:
         env:
           HELM_VERSION_TO_INSTALL: 3.9.0
 
+      - name: Lint and validate
+        run: |
+          helm template ./package  
+          helm lint ./package
+
       - name: Login to registry using Helm
         run: |
           helm registry login registry.digitalocean.com/openarabic --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
