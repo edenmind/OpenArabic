@@ -26,9 +26,9 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
-        run: yarn install
         working-directory: ./mobile
+        run: yarn install
 
       - name: 🚀 Publish app
-        run: expo publish --non-interactive
         working-directory: ./mobile
+        run: expo publish --non-interactive
