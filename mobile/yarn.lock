@@ -14248,10 +14248,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-share@npm:^7.6.0":
-  version: 7.6.0
-  resolution: "react-native-share@npm:7.6.0"
-  checksum: fd5d65d9c066cf7d8fd2ee690741d4ad71b71f38cb256fb42ded7d6ead5521e78a4b78d9283353a8a6722bcdfa9aa621e5b8629030c3d62e74d67ffdcab57c8f
+"react-native-share@npm:^7.6.2":
+  version: 7.6.2
+  resolution: "react-native-share@npm:7.6.2"
+  checksum: 3c523fa3914b59c095e2b57ceb18ffea782d9ce11a793804be36987663d05a77cc54f631c6afa3988efbb99bc24cde0217f7deb5443549236b34843f18fb62a2
   languageName: node
   linkType: hard
 
@@ -15216,7 +15216,7 @@ __metadata:
     react-native-reanimated: ~2.8.0
     react-native-safe-area-context: 4.2.4
     react-native-screens: ~3.11.1
-    react-native-share: ^7.6.0
+    react-native-share: ^7.6.2
     react-native-tab-view: ^3.1.1
     react-native-vector-icons: ^9.1.0
     react-redux: ^8.0.2
