@@ -15,7 +15,7 @@ spec:
         app: web
     spec:
       containers:
-        - image: registry.digitalocean.com/openarabic/web:issue675-a70624b3-1654974581
+        - image: registry.digitalocean.com/openarabic/web:#{BUILD_ID}#
           name: web
           ports:
             - containerPort: 3040
