@@ -6,18 +6,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    services:
-      mongodb:
-        image: mongo:5-focal
-        ports:
-          - 27017:27017
-        env:
-          MONGO_INITDB_ROOT_USERNAME: root
-          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_MOCK_PASSWORD }}
-          MONGO_INITDB_DATABASE: openarabic
-
     steps:
       - uses: actions/checkout@v2.4.2
+
+      - name: 🏗 Start MongoDB
+        uses: supercharge/mongodb-github-action@1.7.0
+        with:
+          mongodb-version: "5.0"
+          mongodb-username: openarabic
+          mongodb-password: ${{ secrets.MONGO_MOCK_PASSWORD }}
+          mongodb-db: openarabic
 
       - name: 🏗 Setup Node.js
         uses: actions/setup-node@v3.3.0
@@ -29,7 +27,7 @@ jobs:
         working-directory: ./api
         env:
           PORT: 3030
-          API_MONGO_DB_URL: mongodb://root:${{ secrets.MONGO_MOCK_PASSWORD }}@localhost:27017/openarabic
+          API_MONGO_DB_URL: mongodb://openarabic:${{ secrets.MONGO_MOCK_PASSWORD }}@localhost:27017/openarabic
           API_TASHKEEL_URL: http://localhost:3020
         run: |
           echo $API_MONGO_DB_URL
