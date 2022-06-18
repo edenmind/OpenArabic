@@ -12,7 +12,7 @@ jobs:
         ports:
           - 27017:27017
         env:
-          MONGO_INITDB_ROOT_USERNAME: user
+          MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_MOCK_PASSWORD }}
           MONGO_INITDB_DATABASE: openarabic
 
