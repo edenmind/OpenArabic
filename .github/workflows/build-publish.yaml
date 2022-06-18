@@ -24,6 +24,10 @@ jobs:
         with:
           expo-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
+      
+      - name: 🏗 Set publish URL
+        working-directory: ./mobile
+        run: cp ./constants/urls.publish.js ./constants/urls.js
 
       - name: 📦 Install dependencies
         working-directory: ./mobile
