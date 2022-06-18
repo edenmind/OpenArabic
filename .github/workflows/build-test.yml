@@ -13,7 +13,7 @@ jobs:
           - 27017:27017
         env:
           MONGO_INITDB_ROOT_USERNAME: root
-          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_INITDB_ROOT_PASSWORD }}
+          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_MOCK_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v2.4.2
@@ -26,6 +26,10 @@ jobs:
 
       - name: 🧪 Test API
         working-directory: ./api
+        env:
+          PORT: 3030
+          API_MONGO_DB_URL: mongodb://root:${{ secrets.MONGO_MOCK_PASSWORD }}@localhost:27017/openarabic
+          API_TASHKEEL_URL: http://localhost:3020
         run: |
           yarn install
           yarn test

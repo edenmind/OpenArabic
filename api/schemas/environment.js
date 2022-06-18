@@ -2,12 +2,12 @@
 
 const schema = {
   type: 'object',
-  required: ['MONGO_DB_URL'],
+  required: ['API_MONGO_DB_URL'],
   properties: {
-    MONGO_DB_URL: {
+    API_MONGO_DB_URL: {
       type: 'string'
     },
-    TASHKEEL_URL: {
+    API_TASHKEEL_URL: {
       type: 'string'
     }
   }
