@@ -7,7 +7,7 @@
     "tests": "tests"
   },
   "scripts": {
-    "test": "tap \"tests/**/*.test.js\"",
+    "test": "tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70",
     "start": "fastify start -l info app.js",
     "dev": "fastify start -w -l info -P app.js"
   },

@@ -5,35 +5,53 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:5-focal
+        ports:
+          - 27017:27017
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_MOCK_PASSWORD }}
+          MONGO_INITDB_DATABASE: openarabic
+
     steps:
       - uses: actions/checkout@v2.4.2
 
-      - name: Test using Node.js
+      - name: Test mongo connection
+        run: |
+          mongosh --host localhost --port 27017 --username root --password ${{ secrets.MONGO_MOCK_PASSWORD }} --authenticationDatabase "admin" --file ./database/init-database-and-user.js
+
+      - name: 🏗 Setup Node.js
         uses: actions/setup-node@v3.3.0
         with:
           node-version: "16"
           check-latest: true
 
-      - name: test mobile
+      - name: 🧪 Test API
+        working-directory: ./api
+        env:
+          PORT: 3030
+          API_MONGO_DB_URL: mongodb://user:password@localhost:27017/openarabic
+          API_TASHKEEL_URL: http://localhost:3020
+        run: |
+          yarn install
+          yarn test
+
+      - name: 🧪 Test mobile
         working-directory: ./mobile
         run: |
           yarn install
           yarn test
 
-      - name: test web
+      - name: 🧪 Test Web
         working-directory: ./web
         run: |
           yarn install
           yarn test
 
-     
-      - name: test api
-        working-directory: ./api
-        run: |
-          yarn install
-      #     yarn test  # Figure out how to start and seed Docker
-
-      - name: Tests ✅
+      - name: ✅ Tests
         if: ${{ success() }}
         run: |
           curl --request POST \
@@ -47,7 +65,7 @@ jobs:
             "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
 
-      - name: Tests 🚨
+      - name: 🚨 Tests
         if: ${{ failure() }}
         run: |
           curl --request POST \
