@@ -14,6 +14,7 @@ jobs:
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_MOCK_PASSWORD }}
+          MONGO_INITDB_DATABASE: openarabic
 
     steps:
       - uses: actions/checkout@v2.4.2
@@ -31,6 +32,7 @@ jobs:
           API_MONGO_DB_URL: mongodb://root:${{ secrets.MONGO_MOCK_PASSWORD }}@localhost:27017/openarabic
           API_TASHKEEL_URL: http://localhost:3020
         run: |
+          echo $API_MONGO_DB_URL
           yarn install
           yarn test
 
