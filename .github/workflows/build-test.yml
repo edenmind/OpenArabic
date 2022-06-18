@@ -27,7 +27,7 @@ jobs:
         working-directory: ./api
         env:
           PORT: 3030
-          API_MONGO_DB_URL: mongodb://openarabic:${{ secrets.MONGO_MOCK_PASSWORD }}@localhost:27017/openarabic
+          API_MONGO_DB_URL: mongodb://openarabic:${{ secrets.MONGO_MOCK_PASSWORD }}@localhost:27017
           API_TASHKEEL_URL: http://localhost:3020
         run: |
           echo $API_MONGO_DB_URL
