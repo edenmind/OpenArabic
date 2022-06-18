@@ -33,10 +33,9 @@ jobs:
         working-directory: ./api
         env:
           PORT: 3030
-          API_MONGO_DB_URL: mongodb://root:password@localhost:27017/openarabic
+          API_MONGO_DB_URL: mongodb://user:password@localhost:27017/openarabic
           API_TASHKEEL_URL: http://localhost:3020
         run: |
-          echo $API_MONGO_DB_URL
           yarn install
           yarn test
 
