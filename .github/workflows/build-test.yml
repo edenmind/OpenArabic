@@ -12,14 +12,16 @@ jobs:
         ports:
           - 27017:27017
         env:
-          MONGO_INITDB_ROOT_USERNAME: root
-          MONGO_INITDB_ROOT_PASSWORD: password
+          MONGO_INITDB_ROOT_USERNAME: user
+          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_MOCK_PASSWORD }}
           MONGO_INITDB_DATABASE: openarabic
-        volumes:
-          - /database/init:/docker-entrypoint-initdb.d/
 
     steps:
       - uses: actions/checkout@v2.4.2
+
+      - name: Test mongo connection
+        run: |
+          mongosh --host localhost --port 27017 --username root --password ${{ secrets.MONGO_MOCK_PASSWORD }} --authenticationDatabase "admin" --file ./database/init-database-and-user.js
 
       - name: 🏗 Setup Node.js
         uses: actions/setup-node@v3.3.0
@@ -31,7 +33,7 @@ jobs:
         working-directory: ./api
         env:
           PORT: 3030
-          API_MONGO_DB_URL: mongodb://user:password@localhost:27017/openarabic
+          API_MONGO_DB_URL: mongodb://root:password@localhost:27017/openarabic
           API_TASHKEEL_URL: http://localhost:3020
         run: |
           echo $API_MONGO_DB_URL
