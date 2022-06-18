@@ -1,7 +1,7 @@
 import { describe, it, jest } from '@jest/globals'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 import React from 'react'
-import App from './app.js'
+import App from './App.js'
 
 jest.useFakeTimers()
 describe('<App />', () => {
