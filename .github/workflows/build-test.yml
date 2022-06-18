@@ -19,7 +19,8 @@ jobs:
       - uses: actions/checkout@v2.4.2
 
       - name: Test mongo connection
-        run: "sudo mongo localhost:27017"
+        run: |
+          mongo --host localhost --port 27017 --user root --password  ${{ secrets.MONGO_MOCK_PASSWORD }} --eval "db.getSiblingDB('openarabic').collection('init').insertOne({ init: 'true' })"
 
       - name: 🏗 Setup Node.js
         uses: actions/setup-node@v3.3.0
