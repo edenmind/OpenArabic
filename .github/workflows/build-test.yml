@@ -16,7 +16,7 @@ jobs:
           MONGO_INITDB_ROOT_PASSWORD: password
           MONGO_INITDB_DATABASE: openarabic
         volumes:
-          - ./database/init:/docker-entrypoint-initdb.d/
+          - /database/init:/docker-entrypoint-initdb.d/
 
     steps:
       - uses: actions/checkout@v2.4.2
