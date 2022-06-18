@@ -10,6 +10,7 @@ import { StyleSheet } from 'react-native'
 import TextList from '../screens/category.js'
 import { getCategories } from '../services/api-service.js'
 import { useFocusEffect } from '@react-navigation/core'
+import packageJson from '../package.json'
 
 const selector = (state) => state.categories
 
@@ -52,19 +53,16 @@ export default function TextDrawer() {
     }, [dispatch])
   )
 
-  const version = 'Version 1.2.0'
-  const title = 'OpenArabic'
-
   function CustomDrawerContent(props) {
     return (
       <Fragment>
         <DrawerContentScrollView {...props}>
-          <Title style={style.title}>{title}</Title>
+          <Title style={style.title}>{packageJson.displayName}</Title>
 
           <DrawerItemList {...props} />
         </DrawerContentScrollView>
 
-        <Caption style={style.info}>{version}</Caption>
+        <Caption style={style.info}>{packageJson.version}</Caption>
       </Fragment>
     )
   }
