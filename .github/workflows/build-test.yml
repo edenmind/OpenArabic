@@ -20,7 +20,7 @@ jobs:
 
       - name: Test mongo connection
         run: |
-          mongosh --host localhost --port 27017 -u root -p  ${{ secrets.MONGO_MOCK_PASSWORD }} --eval "db.getSiblingDB('openarabic').collection('init').insertOne({ init: 'true' })"
+          mongosh --host localhost --port 27017 -u root -p ${{ secrets.MONGO_MOCK_PASSWORD }} --eval "db.getSiblingDB('openarabic').collection('init').insertOne({ init: 'true' })"
 
       - name: 🏗 Setup Node.js
         uses: actions/setup-node@v3.3.0
