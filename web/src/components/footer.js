@@ -1,4 +1,5 @@
 import { Link, Stack } from '@mui/material'
+import packageJson from '../../package.json'
 
 function Footer() {
   const stickyFooterStyle = {
@@ -21,7 +22,7 @@ function Footer() {
           <img src="/android.svg" alt="Android" />
         </Link>
       </Stack>
-      Copyright © 1443/2022 Edenmind. All rights reserved.
+      {packageJson.displayName} {packageJson.version}. Copyright © 1443/2022 Edenmind. All rights reserved.
     </div>
   )
 }

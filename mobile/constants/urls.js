@@ -1,5 +1,5 @@
 export const HOST = {
-  backend: 'http://localhost:3000'
+  backend: 'http://localhost:3030'
 }
 
 export const ENDPOINT = {

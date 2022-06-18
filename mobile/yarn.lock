@@ -3824,12 +3824,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-eslint@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@putout/plugin-eslint@npm:3.0.0"
+"@putout/plugin-eslint@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@putout/plugin-eslint@npm:4.0.0"
   peerDependencies:
-    putout: ">=20"
-  checksum: 377790394b1bc8b854f43820fb0121687f347c784fc78f2bb11aeca1bd869dafb0d0fa38ab34769e6cdbef13a29d7bf2fc9e85a4342fbb1576539f832d0ac97b
+    putout: ">=26"
+  checksum: 65facaebe9734c4f50edcc61b8c83925aa6f57212128bede0833d3b4c22fd08b2e8604188e3bea0e280446a4a8dfa5777e1bb71133a3f0983a634d7c57995326
   languageName: node
   linkType: hard
 
@@ -7918,12 +7918,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "eslint-plugin-react-hooks@npm:4.5.0"
+"eslint-plugin-react-hooks@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "eslint-plugin-react-hooks@npm:4.6.0"
   peerDependencies:
     eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
-  checksum: 0389377de635dd9b769f6f52e2c9e6ab857a0cdfecc3734c95ce81676a752e781bb5c44fd180e01953a03a77278323d90729776438815557b069ceb988ab1f9f
+  checksum: 23001801f14c1d16bf0a837ca7970d9dd94e7b560384b41db378b49b6e32dc43d6e2790de1bd737a652a86f81a08d6a91f402525061b47719328f586a57e86c3
   languageName: node
   linkType: hard
 
@@ -10547,7 +10547,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-expo@npm:^45.0.0":
+"jest-expo@npm:^45.0.1":
   version: 45.0.1
   resolution: "jest-expo@npm:45.0.1"
   dependencies:
@@ -13775,12 +13775,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.6.2":
-  version: 2.6.2
-  resolution: "prettier@npm:2.6.2"
+"prettier@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
+  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
   languageName: node
   linkType: hard
 
@@ -13919,9 +13919,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.14.0":
-  version: 26.14.0
-  resolution: "putout@npm:26.14.0"
+"putout@npm:^26.15.0":
+  version: 26.15.0
+  resolution: "putout@npm:26.15.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13985,7 +13985,7 @@ __metadata:
     "@putout/plugin-convert-typeof-to-is-type": ^2.0.0
     "@putout/plugin-declare-before-reference": ^1.0.0
     "@putout/plugin-declare-undefined-variables": ^7.0.0
-    "@putout/plugin-eslint": ^3.0.0
+    "@putout/plugin-eslint": ^4.0.0
     "@putout/plugin-extract-object-properties": ^8.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
     "@putout/plugin-github": ^3.0.0
@@ -14080,7 +14080,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: bd0cde0dd9100b57645c09dfbbda5564430275af996e5d94b47d68681f4d043827053bb8c534f2e2e2baf6235d06ae75192067ffa7e70d59a171f9c8c007ac95
+  checksum: 4371e8035ed96cb4a13c4175a1c97ffbcad89a27355d0bab4b0ace0abd9bb58ba4e6a618efec138973bf7c73c1d138b0e64f54be0f2f89c06c132d79ebcecbad
   languageName: node
   linkType: hard
 
@@ -15283,7 +15283,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-putout: ^15.6.0
     eslint-plugin-react: ^7.30.0
-    eslint-plugin-react-hooks: ^4.5.0
+    eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-native: ^4.0.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.5.0
@@ -15292,10 +15292,10 @@ __metadata:
     expo-analytics-amplitude: ~11.2.0
     expo-updates: ~0.13.2
     jest: ^26.6.3
-    jest-expo: ^45.0.0
-    prettier: ^2.6.2
+    jest-expo: ^45.0.1
+    prettier: ^2.7.1
     prop-types: ^15.8.1
-    putout: ^26.14.0
+    putout: ^26.15.0
     react: 17.0.2
     react-dom: 17.0.2
     react-native: 0.68.2
