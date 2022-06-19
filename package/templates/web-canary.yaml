@@ -24,7 +24,7 @@ spec:
       perTryTimeout: 1s
       retryOn: 'gateway-error,connect-failure,refused-stream'
   analysis:
-    interval: 1m
+    interval: 30s
     threshold: 5
     maxWeight: 50
     stepWeight: 10
@@ -32,7 +32,7 @@ spec:
       - name: request-success-rate
         thresholdRange:
           min: 99
-        interval: 1m
+        interval: 30s
       - name: request-duration
         thresholdRange:
           max: 500
