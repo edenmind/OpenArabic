@@ -2,7 +2,6 @@
 FROM node:lts-alpine AS BUILD
 
 ENV NODE_ENV=production
-ENV REACT_APP_API_URL=http://localhost:3030
 
 WORKDIR /usr/src/app
 COPY ["package.json", "yarn.lock", "./"]
