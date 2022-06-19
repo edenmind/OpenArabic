@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: static
+  name: static
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: static
+  template:
+    metadata:
+      labels:
+        app: static
+    spec:
+      containers:
+          image: registry.digitalocean.com/openarabic/static:#{BUILD_ID}#
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+            requests:
+              memory: 50Mi
+              cpu: 50m
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3010
+            periodSeconds: 10
+            initialDelaySeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3010
+            periodSeconds: 10
+            initialDelaySeconds: 30
+          volumeMounts:
+            - mountPath: /static
+              name: static
+          name: static
+          ports:
+            - containerPort: 3010
+      restartPolicy: Always
+      volumes:
+        - name: static
+          persistentVolumeClaim:
+            claimName: static
