@@ -15,7 +15,9 @@ spec:
         app: api
     spec:
       containers:
-        - env:
+        - name: api
+          image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
+          env:
             - name: MONGO_DB_URL
               valueFrom:
                 secretKeyRef:
@@ -26,7 +28,6 @@ spec:
                 secretKeyRef:
                   name: api-config
                   key: TASHKEEL_URL
-          image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
           resources:
             limits:
               memory: 512Mi
@@ -46,7 +47,6 @@ spec:
               port: 3030
             periodSeconds: 10
             initialDelaySeconds: 30
-          name: api
           ports:
             - containerPort: 3030
       restartPolicy: Always

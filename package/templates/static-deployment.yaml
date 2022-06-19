@@ -15,6 +15,7 @@ spec:
         app: static
     spec:
       containers:
+        - name: static
           image: registry.digitalocean.com/openarabic/static:#{BUILD_ID}#
           resources:
             limits:
@@ -38,7 +39,6 @@ spec:
           volumeMounts:
             - mountPath: /static
               name: static
-          name: static
           ports:
             - containerPort: 3010
       restartPolicy: Always

@@ -15,8 +15,8 @@ spec:
         app: web
     spec:
       containers:
-        - image: registry.digitalocean.com/openarabic/web:#{BUILD_ID}#
-          name: web
+        - name: web
+          image: registry.digitalocean.com/openarabic/web:#{BUILD_ID}#
           ports:
             - containerPort: 3040
           resources:
