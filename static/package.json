@@ -3,9 +3,9 @@
   "packageManager": "yarn@3.1.1",
   "scripts": {
     "start": "serve",
-    "dev": "serve ./open-source-dev-images -p 3010"
+    "dev": "serve ./static -p 3010"
   },
   "dependencies": {
-    "serve": "^13.0.2"
+    "serve": "^13.0"
   }
 }
