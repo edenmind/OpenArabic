@@ -10,6 +10,7 @@ npm-debug.*
 *.orig.*
 web-build/
 constants/amplitude.js
+.env
 
 # macOS
 .DS_Store
