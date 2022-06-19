@@ -5,7 +5,13 @@ metadata:
     app: static
   name: static
 spec:
-  replicas: 2
+  minReadySeconds: 5
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
   selector:
     matchLabels:
       app: static

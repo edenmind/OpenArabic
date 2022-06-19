@@ -5,7 +5,13 @@ metadata:
     app: web
   name: web
 spec:
-  replicas: 3
+  minReadySeconds: 5
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
   selector:
     matchLabels:
       app: web
