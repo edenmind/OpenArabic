@@ -18,12 +18,12 @@ spec:
         - name: api
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
           env:
-            - name: MONGO_DB_URL
+            - name: API_MONGO_DB_URL
               valueFrom:
                 secretKeyRef:
                   name: api-config
                   key: MONGO_DB_URL
-            - name: TASHKEEL_URL
+            - name: API_TASHKEEL_URL
               valueFrom:
                 secretKeyRef:
                   name: api-config
