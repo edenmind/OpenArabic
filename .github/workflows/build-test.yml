@@ -19,17 +19,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.2
 
-      - name: Test mongo connection
+      - name: 🏗  Initilize MongoDB
         run: |
           mongosh --host localhost --port 27017 --username root --password ${{ secrets.MONGO_MOCK_PASSWORD }} --authenticationDatabase "admin" --file ./database/init-database-and-user.js
 
-      - name: 🏗 Setup Node.js
+      - name: 🏗  Setup Node.js
         uses: actions/setup-node@v3.3.0
         with:
           node-version: "16"
           check-latest: true
 
-      - name: 🧪 Test API
+      - name: 🧪  Test API
         working-directory: ./api
         env:
           PORT: 3030
@@ -39,19 +39,19 @@ jobs:
           yarn install
           yarn test
 
-      - name: 🧪 Test mobile
+      - name: 🧪  Test mobile
         working-directory: ./mobile
         run: |
           yarn install
           yarn test
 
-      - name: 🧪 Test Web
+      - name: 🧪  Test Web
         working-directory: ./web
         run: |
           yarn install
           yarn test
 
-      - name: ✅ Tests
+      - name: ✅  Tests
         if: ${{ success() }}
         run: |
           curl --request POST \
@@ -65,7 +65,7 @@ jobs:
             "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
 
-      - name: 🚨 Tests
+      - name: 🚨  Tests
         if: ${{ failure() }}
         run: |
           curl --request POST \

@@ -8,10 +8,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: 🏗 Setup repo
+      - name: 🏗  Setup repo
         uses: actions/checkout@v2
 
-      - name: 🏗 Setup Node
+      - name: 🏗  Setup Node
         uses: actions/setup-node@v3.3.0
         with:
           node-version: "16"
@@ -19,20 +19,20 @@ jobs:
           cache: yarn
           cache-dependency-path: mobile/yarn.lock
 
-      - name: 🏗 Setup Expo
+      - name: 🏗  Setup Expo
         uses: expo/expo-github-action@v7
         with:
           expo-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
       
-      - name: 🏗 Set publish URL
+      - name: 🏗  Set publish URL
         working-directory: ./mobile
         run: cp ./constants/urls.publish.js ./constants/urls.js
 
-      - name: 📦 Install dependencies
+      - name: 📦  Install dependencies
         working-directory: ./mobile
         run: yarn install
 
-      - name: 🚀 Publish app
+      - name: 🚀  Publish app
         working-directory: ./mobile
         run: expo publish --non-interactive

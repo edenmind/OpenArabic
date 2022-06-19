@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🏗 Prepare
+      - name: 🏗  Prepare
         id: prep
         run: |
           branch=${GITHUB_REF##*/}
@@ -15,23 +15,34 @@ jobs:
           ts=$(date +%s)
           echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
 
-      - name: 🏗 Checkout
+      - name: 🏗  Checkout
         uses: actions/checkout@v2.4.2
 
-      - name: 🏗 Set up QEMU
+      - name: 🏗  Set up QEMU
         uses: docker/setup-qemu-action@v2.0.0
 
-      - name: 🏗 Set up Docker Buildx
+      - name: 🏗  Set up Docker Buildx
         uses: docker/setup-buildx-action@v2.0.0
 
-      - name: 🏗 Docker Login
+      - name: 🏗  Docker Login
         uses: docker/login-action@v2.0.0
         with:
           registry: registry.digitalocean.com/openarabic/
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: 📦 Build and Push Static to Container Registry
+      - name: 🏗  Install Helm
+        uses: Azure/setup-helm@v1
+        with:
+          version: ${{ env.HELM_VERSION_TO_INSTALL }}
+        env:
+          HELM_VERSION_TO_INSTALL: 3.9.0
+
+      - name: 🏗  Login to registry using Helm
+        run: |
+          helm registry login registry.digitalocean.com/openarabic --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: 📦  Build and Push Static to Container Registry
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./static/Dockerfile
@@ -39,7 +50,7 @@ jobs:
           context: ./static
           push: true
 
-      - name: 📦 Build and Push API to Container Registry
+      - name: 📦  Build and Push API to Container Registry
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./api/Dockerfile
@@ -47,7 +58,7 @@ jobs:
           context: ./api
           push: true
 
-      - name: 📦 Build and Push Tashkeel to Container Registry
+      - name: 📦  Build and Push Tashkeel to Container Registry
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./services/tashkeel/Dockerfile
@@ -55,7 +66,7 @@ jobs:
           context: ./services/tashkeel/
           push: true
 
-      - name: 📦 Build and Push Web to Container Registry
+      - name: 📦  Build and Push Web to Container Registry
         uses: docker/build-push-action@v3.0.0
         with:
           file: ./web/Dockerfile
@@ -63,34 +74,23 @@ jobs:
           context: ./web
           push: true
 
-      - name: 🔎 Replace SHA tag for containers and Helm chart
+      - name: 🔎  Replace SHA tag for containers and Helm chart
         uses: cschleiden/replace-tokens@v1.1
         with:
           files: '["package/**/*.yaml"]'
         env:
           BUILD_ID: ${{ steps.prep.outputs.BUILD_ID }}
 
-      - name: 📦 Install Helm
-        uses: Azure/setup-helm@v1
-        with:
-          version: ${{ env.HELM_VERSION_TO_INSTALL }}
-        env:
-          HELM_VERSION_TO_INSTALL: 3.9.0
-
-      - name: 🔎 Lint and validate
+      - name: 🔎  Lint and validate
         run: |
           helm template ./package  
           helm lint ./package
 
-      - name: 🏗 Login to registry using Helm
-        run: |
-          helm registry login registry.digitalocean.com/openarabic --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      - name: 🏗 Save helm chart to local registry
+      - name: 🏗  Save helm chart to local registry
         run: |
           helm package ./package
 
-      - name: 🚀 Publish chart to registry
+      - name: 🚀  Publish chart to registry
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
