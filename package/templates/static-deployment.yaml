@@ -36,13 +36,6 @@ spec:
               port: 3010
             periodSeconds: 10
             initialDelaySeconds: 30
-          volumeMounts:
-            - mountPath: /static
-              name: static
           ports:
             - containerPort: 3010
       restartPolicy: Always
-      volumes:
-        - name: static
-          persistentVolumeClaim:
-            claimName: static
