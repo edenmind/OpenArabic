@@ -41,12 +41,6 @@ spec:
               port: 3030
             periodSeconds: 10
             initialDelaySeconds: 30
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 3030
-            periodSeconds: 10
-            initialDelaySeconds: 60
           ports:
             - containerPort: 3030
       restartPolicy: Always
