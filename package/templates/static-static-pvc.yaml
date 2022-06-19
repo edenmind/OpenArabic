@@ -6,7 +6,7 @@ metadata:
   name: static
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
