@@ -1,0 +1,29 @@
+---
+# https://raw.githubusercontent.com/mongodb/mongodb-kubernetes-operator/master/config/samples/mongodb.com_v1_mongodbcommunity_cr.yaml
+apiVersion: mongodbcommunity.mongodb.com/v1
+kind: MongoDBCommunity
+metadata:
+  name: openarabic
+  namespace: mongodb
+spec:
+  members: 2
+  type: ReplicaSet
+  version: "5.0.9"
+  security:
+    authentication:
+      modes: ["SCRAM"]
+  users:
+    - name: oa-user
+      db: openarabic
+      passwordSecretRef:
+        name: oa-user-password
+      roles:
+        - name: readWrite
+          db: openarabic
+        - name: clusterAdmin
+          db: admin
+        - name: userAdminAnyDatabase
+          db: admin
+      scramCredentialsSecretName: my-scram
+  additionalMongodConfig:
+    storage.wiredTiger.engineConfig.journalCompressor: zlib
