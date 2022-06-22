@@ -10547,7 +10547,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-expo@npm:^45.0.1":
+"jest-expo@npm:^45.0.0":
   version: 45.0.1
   resolution: "jest-expo@npm:45.0.1"
   dependencies:
@@ -15292,7 +15292,7 @@ __metadata:
     expo-analytics-amplitude: ~11.2.0
     expo-updates: ~0.13.2
     jest: ^26.6.3
-    jest-expo: ^45.0.1
+    jest-expo: ^45.0.0
     prettier: ^2.7.1
     prop-types: ^15.8.1
     putout: ^26.15.0
