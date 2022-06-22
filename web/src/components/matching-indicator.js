@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 function MatchingIndicator(props) {
   const notMatchingMessage = `${props.entity} are not matching`
   const matchingMessage = `${props.entity} are matching`
+
   return props.firstCondition === props.secondCondition ? (
     <Chip label={matchingMessage} color="success" />
   ) : (

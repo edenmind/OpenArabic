@@ -34,6 +34,11 @@ spec:
                 secretKeyRef:
                   name: api-config
                   key: TASHKEEL_URL
+            - name: API_IMAGES_URL
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: IMAGES_URL
           resources:
             limits:
               memory: 512Mi

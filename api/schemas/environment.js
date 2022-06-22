@@ -9,6 +9,9 @@ const schema = {
     },
     API_TASHKEEL_URL: {
       type: 'string'
+    },
+    API_IMAGES_URL: {
+      type: 'string'
     }
   }
 }

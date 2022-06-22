@@ -27,30 +27,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth0/auth0-react@npm:^1.10.1":
-  version: 1.10.1
-  resolution: "@auth0/auth0-react@npm:1.10.1"
+"@auth0/auth0-react@npm:^1.0":
+  version: 1.10.2
+  resolution: "@auth0/auth0-react@npm:1.10.2"
   dependencies:
-    "@auth0/auth0-spa-js": ^1.21.0
+    "@auth0/auth0-spa-js": ^1.22.0
   peerDependencies:
     react: ^16.11.0 || ^17 || ^18
     react-dom: ^16.11.0 || ^17 || ^18
-  checksum: f177af7458b7fd7881386471497c99473ea78264552debfb06ca38cc5b500897bef7a2b4ace76c07782bb50df14031c47b7a371fd8a3491376820c00cbbdfb50
+  checksum: a798877dea95b60cc9b1e7c2f4cccf2fd7e13d5240d550219895a49d6cd3f71d984ddec3a49c9957a7679a9f9121b1f0c5e8dfbe63c2791b8ee3a68cf723052f
   languageName: node
   linkType: hard
 
-"@auth0/auth0-spa-js@npm:^1.21.0":
-  version: 1.21.0
-  resolution: "@auth0/auth0-spa-js@npm:1.21.0"
+"@auth0/auth0-spa-js@npm:^1.22.0":
+  version: 1.22.1
+  resolution: "@auth0/auth0-spa-js@npm:1.22.1"
   dependencies:
     abortcontroller-polyfill: ^1.7.3
     browser-tabs-lock: ^1.2.15
-    core-js: ^3.20.3
+    core-js: ^3.22.6
     es-cookie: ^1.3.2
     fast-text-encoding: ^1.0.3
-    promise-polyfill: ^8.2.1
+    promise-polyfill: ^8.2.3
     unfetch: ^4.2.0
-  checksum: 97096f122aa2fb05a117b07090e33d24a0a169d192416761c262028d79ca7162c1dbb13eba723fe3f18210f497b44506c6a6948e9563b8db82e81a66fadc1f3c
+  checksum: b66d4252997c8d2433b81e009872b066ebf94cdf9a51b9822ac2b846d082ad97b3a75f7d6ab41055dc80796f57d253f26f871cc9618d21b14d515f90dd51d95d
   languageName: node
   linkType: hard
 
@@ -1743,6 +1743,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@date-io/moment@npm:^2.0":
+  version: 2.14.0
+  resolution: "@date-io/moment@npm:2.14.0"
+  dependencies:
+    "@date-io/core": ^2.14.0
+  peerDependencies:
+    moment: ^2.24.0
+  peerDependenciesMeta:
+    moment:
+      optional: true
+  checksum: ceea1f4b2245fda1b81fa9440e84cc4c3d1f8e1285a111effb3ed503e84982f227b8c6ce1cadf1d92738a3a5edb2d9c7eed8b06003c91d086680d9137fd77248
+  languageName: node
+  linkType: hard
+
 "@date-io/moment@npm:^2.11.0":
   version: 2.13.2
   resolution: "@date-io/moment@npm:2.13.2"
@@ -1754,20 +1768,6 @@ __metadata:
     moment:
       optional: true
   checksum: e5750123e43e7e45b75fbaf854d56b09141f2c344036000295dab129a9b7e130c95d6d3180e3748eec8106a641198564caf37d7008e704461911ef348119d1d3
-  languageName: node
-  linkType: hard
-
-"@date-io/moment@npm:^2.14.0":
-  version: 2.14.0
-  resolution: "@date-io/moment@npm:2.14.0"
-  dependencies:
-    "@date-io/core": ^2.14.0
-  peerDependencies:
-    moment: ^2.24.0
-  peerDependenciesMeta:
-    moment:
-      optional: true
-  checksum: ceea1f4b2245fda1b81fa9440e84cc4c3d1f8e1285a111effb3ed503e84982f227b8c6ce1cadf1d92738a3a5edb2d9c7eed8b06003c91d086680d9137fd77248
   languageName: node
   linkType: hard
 
@@ -1835,6 +1835,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/is-prop-valid@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "@emotion/is-prop-valid@npm:1.1.3"
+  dependencies:
+    "@emotion/memoize": ^0.7.4
+  checksum: 511997c3bbaab5a967db65b65a111afc46c4aac8b3b87a436fd9e3dc2891829a9ada1405b77326f407d93934ee3b831e62248b498c071089312c5be080af75dd
+  languageName: node
+  linkType: hard
+
 "@emotion/memoize@npm:^0.7.4, @emotion/memoize@npm:^0.7.5":
   version: 0.7.5
   resolution: "@emotion/memoize@npm:0.7.5"
@@ -1842,7 +1851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.9.3":
+"@emotion/react@npm:^11.0":
   version: 11.9.3
   resolution: "@emotion/react@npm:11.9.3"
   dependencies:
@@ -1905,14 +1914,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.8.1":
-  version: 11.8.1
-  resolution: "@emotion/styled@npm:11.8.1"
+"@emotion/styled@npm:^11.0":
+  version: 11.9.3
+  resolution: "@emotion/styled@npm:11.9.3"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@emotion/babel-plugin": ^11.7.1
-    "@emotion/is-prop-valid": ^1.1.2
-    "@emotion/serialize": ^1.0.2
+    "@emotion/is-prop-valid": ^1.1.3
+    "@emotion/serialize": ^1.0.4
     "@emotion/utils": ^1.1.0
   peerDependencies:
     "@babel/core": ^7.0.0
@@ -1923,7 +1932,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 67150fa788785c34e285b90acecc91fe7a63babceaefbeffd053bed0fa31f72a05bfeeb9d15620766e543e007b9ccac2e836812eec2e791f962ec4e52731ae4c
+  checksum: 16d9ef8c5840b13ec47f91f9963b64ec8a94197fe99bb3bd4e9f7404a09bb65a333e9ab6590af97c0090360816db70e8c920731198c3a30fbb2c2cfd5e8d8a65
   languageName: node
   linkType: hard
 
@@ -1965,7 +1974,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/roboto@npm:^4.5.7":
+"@fontsource/roboto@npm:^4.0":
   version: 4.5.7
   resolution: "@fontsource/roboto@npm:4.5.7"
   checksum: 3f9afc7f4c77e517e804e65823db5aea2513e8352fbc26cf7ea8b8b11e7dc6eff48d7a2855ed71e3a6b727446b2bf137629e2389fe3d676be45d95dd9992b558
@@ -2259,9 +2268,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/base@npm:5.0.0-alpha.85":
-  version: 5.0.0-alpha.85
-  resolution: "@mui/base@npm:5.0.0-alpha.85"
+"@mui/base@npm:5.0.0-alpha.86":
+  version: 5.0.0-alpha.86
+  resolution: "@mui/base@npm:5.0.0-alpha.86"
   dependencies:
     "@babel/runtime": ^7.17.2
     "@emotion/is-prop-valid": ^1.1.2
@@ -2278,11 +2287,11 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 36970ceeaf95298f28b284632ad4f7fd78da93334f30f93fe789233b64f2745d4af2f51e8bd108e49863b0c70071859d1100eaf902a16cb51f79db731e81600e
+  checksum: fea157d932b7230c155ff2cdce167cfe4763ae819367513db551f2cafda89b627a06701ae963b10b9b6a57242480288830f177bc823973eb79c14f26e4be81b0
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^5.8.4":
+"@mui/icons-material@npm:^5.0":
   version: 5.8.4
   resolution: "@mui/icons-material@npm:5.8.4"
   dependencies:
@@ -2298,13 +2307,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/lab@npm:^5.0.0-alpha.86":
-  version: 5.0.0-alpha.86
-  resolution: "@mui/lab@npm:5.0.0-alpha.86"
+"@mui/lab@npm:^5.0.0-alpha.87":
+  version: 5.0.0-alpha.87
+  resolution: "@mui/lab@npm:5.0.0-alpha.87"
   dependencies:
     "@babel/runtime": ^7.17.2
-    "@mui/base": 5.0.0-alpha.85
-    "@mui/system": ^5.8.4
+    "@mui/base": 5.0.0-alpha.86
+    "@mui/system": ^5.8.5
     "@mui/utils": ^5.8.4
     "@mui/x-date-pickers": 5.0.0-alpha.1
     clsx: ^1.1.1
@@ -2338,17 +2347,17 @@ __metadata:
       optional: true
     moment:
       optional: true
-  checksum: e73e4b175cbc220078bdb150fcde57b971096978bcb4efada541e35fe924232074f6bbbc0ce9b94eea54838fe7719e87060ac86a3026823060359299f2767fce
+  checksum: e7fe3e33f3b5e9c6f097a8e9e244d0345a3d5f6286ebc8f4d67bc2132761b27c1fdcf7c663a4dec9bc4d27943d04d1291946d38e39af3b8457247070b5594288
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.8.4":
-  version: 5.8.4
-  resolution: "@mui/material@npm:5.8.4"
+"@mui/material@npm:^5.0":
+  version: 5.8.5
+  resolution: "@mui/material@npm:5.8.5"
   dependencies:
     "@babel/runtime": ^7.17.2
-    "@mui/base": 5.0.0-alpha.85
-    "@mui/system": ^5.8.4
+    "@mui/base": 5.0.0-alpha.86
+    "@mui/system": ^5.8.5
     "@mui/types": ^7.1.4
     "@mui/utils": ^5.8.4
     "@types/react-transition-group": ^4.4.4
@@ -2370,7 +2379,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 904d545254981a38c8b28218b8219c324ab564a6387a8ebbc7ba0511c779c9cb29dbbd0cb97ae617eadedece75465def3beeee87541623f6b1b82b9b045e5855
+  checksum: c315c5e7ca2eb3a0afce76066f0ba816932d46252ea8ab572895e27a85dcf9952cb2128ce3b87b087ce5e86c844c85cf7876c0112f058111539290b4a387e8e7
   languageName: node
   linkType: hard
 
@@ -2411,9 +2420,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/system@npm:^5.8.4":
-  version: 5.8.4
-  resolution: "@mui/system@npm:5.8.4"
+"@mui/system@npm:^5.8.5":
+  version: 5.8.5
+  resolution: "@mui/system@npm:5.8.5"
   dependencies:
     "@babel/runtime": ^7.17.2
     "@mui/private-theming": ^5.8.4
@@ -2435,7 +2444,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 304cc1c95b165fa6fbf604d416cf94bcaa9c4c06bdb3475eb7bc2d473cd657ac12a3dfd09a5ceb3d185119b3e3d3d019a5861b37f4f4f63b3c5f1123155b0022
+  checksum: ffce524a6dcd5cd74b045a36386ebeb35ef0bfc2629ce12e2d630a85e8cdfca0cdc842375b930ea66d7d7588493af96c87320528aca39937c2a645c5a7642cd8
   languageName: node
   linkType: hard
 
@@ -2481,9 +2490,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^5.12.0":
-  version: 5.12.0
-  resolution: "@mui/x-data-grid@npm:5.12.0"
+"@mui/x-data-grid@npm:^5.0":
+  version: 5.12.2
+  resolution: "@mui/x-data-grid@npm:5.12.2"
   dependencies:
     "@babel/runtime": ^7.17.2
     "@mui/utils": ^5.4.1
@@ -2494,7 +2503,8 @@ __metadata:
     "@mui/material": ^5.4.1
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
-  checksum: e906b1a2c48c01874aea55d5acd3abe04177ddf16f6dc926ec9aea05dc70c14bca501314e49e2206a062df5c39ad74b07d212a5c7972c0a7923ada04bf37700f
+    react-dom: ^17.0.2 || ^18.0.0
+  checksum: e23a45cc64c85996f30bbfb9885ca3a3364b40895eab64d77178b84b07f1c1941df93414896932496eb95e1d0d539c1666e2d729547c45c4c6f80cfbb6294a33
   languageName: node
   linkType: hard
 
@@ -2626,9 +2636,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/cli-cache@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@putout/cli-cache@npm:1.1.0"
+"@putout/cli-cache@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@putout/cli-cache@npm:2.0.1"
   dependencies:
     file-entry-cache: ^6.0.1
     find-cache-dir: ^3.3.2
@@ -2636,7 +2646,7 @@ __metadata:
     imurmurhash: ^0.1.4
     json-stable-stringify-without-jsonify: ^1.0.1
     try-to-catch: ^3.0.0
-  checksum: 848a5a3ce4cfb355ea9f497ac69c93b50a5e6760fc8ad53fc531e7fd5832804b546423fa71d0b117fc3cc8343cd63ae65f09907cdba33435af4c8331313385a4
+  checksum: 27322dfc93c05a38bad4abdf13d8deb23930c51d2c05c56751b7f9bf0983c71c3cee47827bf8a9e818952c378bd0c45e60bc5cd98f86e4d8dc8c128db646ca63
   languageName: node
   linkType: hard
 
@@ -3156,12 +3166,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-mock-require-to-mock-import@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@putout/plugin-convert-mock-require-to-mock-import@npm:3.0.0"
+"@putout/plugin-convert-mock-require-to-mock-import@npm:^4.0.0":
+  version: 4.1.0
+  resolution: "@putout/plugin-convert-mock-require-to-mock-import@npm:4.1.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: 4a161c781a5cb783634073d46cb261eee81f46d10ac639b3d83a34a3fdb135a5332348cba697c8fb7450c7a973f4c8b25632211e4bb37056c4b67e7b68997912
+    putout: ">=26"
+  checksum: a76949f893ad6194a7e7922ab0679be9e96ccd3766b76c85bff045696184c9fdcc1f85c54dddb79407dce44594a5d7f1efc59724c660cfb54f0ed4582367999a
   languageName: node
   linkType: hard
 
@@ -3234,6 +3244,15 @@ __metadata:
   peerDependencies:
     putout: ">=21"
   checksum: faf9ee749bd49ea8f5e700ec541d7804bd407816f543bcb35b74731925117891566ca82706825707a0dc1b80a0a3afd149dcd72285b22054532638b2bc2e0bc2
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-declare-imports-first@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-declare-imports-first@npm:1.0.0"
+  peerDependencies:
+    putout: ">=26"
+  checksum: 4d147d57ab90b1339a7f3c6b2368b6859a57bfc9494abc510a3d36066ba5d806cfa5cfade1c6ba0bcfaa3aa97dde9a6178d59db95bd44ef1e0d47e68f602c8e3
   languageName: node
   linkType: hard
 
@@ -3962,7 +3981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reduxjs/toolkit@npm:^1.8.2":
+"@reduxjs/toolkit@npm:^1.0":
   version: 1.8.2
   resolution: "@reduxjs/toolkit@npm:1.8.2"
   dependencies:
@@ -4224,7 +4243,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.16.4":
+"@testing-library/jest-dom@npm:^5.0":
   version: 5.16.4
   resolution: "@testing-library/jest-dom@npm:5.16.4"
   dependencies:
@@ -4241,9 +4260,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "@testing-library/react@npm:13.1.1"
+"@testing-library/react@npm:^13.0":
+  version: 13.3.0
+  resolution: "@testing-library/react@npm:13.3.0"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@testing-library/dom": ^8.5.0
@@ -4251,16 +4270,16 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: 9a0043be5623630936e6badcd87bcbed14d6d6c64c2b16413b66de90c36670bbd6766b7fc6c09cfc67aa6c1c49d8123ed97d3897c4103836c77de40349b187c6
+  checksum: 98fd8616a7cae0ecfcbe97b5b3c5b91fbafccf449c04875395ccc0e3f0b139e53b3261b9536ec2169a5e2883a1be2098907209064061fe0c2ff21dfbc785dd40
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.1.1":
-  version: 14.1.1
-  resolution: "@testing-library/user-event@npm:14.1.1"
+"@testing-library/user-event@npm:^14.0":
+  version: 14.2.1
+  resolution: "@testing-library/user-event@npm:14.2.1"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: dd02aecbde64002aa3c58392137672156101fc3bb821f43db99e3c652e6a6d34b3eb29b2524eb41ad2a317cfdff6ab2e88d7027605d88dccaacf4f07a08dc7a9
+  checksum: 661d61a52a3ec954fe21d799f8203f0eaa7c43ea4f2c1b5916f3bb34a3609a8d7ac3dfaff5247c4511aed7ce122883c297bf59e9ffe086e375f42c98596802b9
   languageName: node
   linkType: hard
 
@@ -4660,7 +4679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-redux@npm:^7.1.24":
+"@types/react-redux@npm:^7.0":
   version: 7.1.24
   resolution: "@types/react-redux@npm:7.1.24"
   dependencies:
@@ -6605,10 +6624,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.20.3":
-  version: 3.22.0
-  resolution: "core-js@npm:3.22.0"
-  checksum: 88ac28dfb8e7fdcd80d32a69dc634900e3daf3bc873ebefb6f189b598ce96e9b68fe553428627e5c43f27749779389faceb865a2a120cf2d44f05795830b5cd7
+"core-js@npm:^3.22.6":
+  version: 3.23.2
+  resolution: "core-js@npm:3.23.2"
+  checksum: dc388ec8565610eff11d8ea81c390b002c8aeaaff20224b132737680c4ed13d1c2feddd4a4e803e9fa60cef633c66847e1cbc51d387c2c2cd8928927267af3a3
   languageName: node
   linkType: hard
 
@@ -7899,9 +7918,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^15.6.0":
-  version: 15.6.0
-  resolution: "eslint-plugin-putout@npm:15.6.0"
+"eslint-plugin-putout@npm:^15.7.0":
+  version: 15.7.0
+  resolution: "eslint-plugin-putout@npm:15.7.0"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -7918,7 +7937,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=26"
-  checksum: 72aa1923aa05f3dfdc21882f35aba01eb481195fc0e9f26709000e63a2280ae9229cf6ace1404aaf0c817d41ca18fe1d84b156320db9f4993f1ba19ad68dd230
+  checksum: f23508ae1ef83cc761e8e66ca12d5286e9c165901dc2a4a6a60384e97364e3ce18143dbb9da8d1d16cdce880acf9471f2dd44f4c8a5c2483dbeccb866b3dccd4
   languageName: node
   linkType: hard
 
@@ -11978,26 +11997,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "open-arabic@workspace:."
   dependencies:
-    "@auth0/auth0-react": ^1.10.1
-    "@date-io/moment": ^2.14.0
-    "@emotion/react": ^11.9.3
-    "@emotion/styled": ^11.8.1
-    "@fontsource/roboto": ^4.5.7
-    "@mui/icons-material": ^5.8.4
-    "@mui/lab": ^5.0.0-alpha.86
-    "@mui/material": ^5.8.4
-    "@mui/x-data-grid": ^5.12.0
-    "@reduxjs/toolkit": ^1.8.2
-    "@testing-library/jest-dom": ^5.16.4
-    "@testing-library/react": ^13.1.1
-    "@testing-library/user-event": ^14.1.1
-    "@types/react-redux": ^7.1.24
+    "@auth0/auth0-react": ^1.0
+    "@date-io/moment": ^2.0
+    "@emotion/react": ^11.0
+    "@emotion/styled": ^11.0
+    "@fontsource/roboto": ^4.0
+    "@mui/icons-material": ^5.0
+    "@mui/lab": ^5.0.0-alpha.87
+    "@mui/material": ^5.0
+    "@mui/x-data-grid": ^5.0
+    "@reduxjs/toolkit": ^1.0
+    "@testing-library/jest-dom": ^5.0
+    "@testing-library/react": ^13.0
+    "@testing-library/user-event": ^14.0
+    "@types/react-redux": ^7.0
     axios: ^0.27.2
     eslint-plugin-array-func: ^3.1.7
     eslint-plugin-import: ^2.26.0
     eslint-plugin-mui-unused-classes: ^1.0.3
     eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-putout: ^15.6.0
+    eslint-plugin-putout: ^15.7.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.5.0
@@ -12007,7 +12026,7 @@ __metadata:
     moment: ^2.29.3
     moment-timezone: ^0.5.34
     prettier: ^2.7.1
-    putout: ^26.15.0
+    putout: ^26.18.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.2
@@ -13292,7 +13311,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"promise-polyfill@npm:^8.2.1":
+"promise-polyfill@npm:^8.2.3":
   version: 8.2.3
   resolution: "promise-polyfill@npm:8.2.3"
   checksum: f320278bab8b8ce32f0e2f377d75aabe35c90a79f92b3e001db084d635da1fb8740ba8a26b5c1c2b4cdca5a4c988f9b6b3eb30f0b151d0362d3d9c1675024a8f
@@ -13370,14 +13389,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.15.0":
-  version: 26.15.0
-  resolution: "putout@npm:26.15.0"
+"putout@npm:^26.18.0":
+  version: 26.18.0
+  resolution: "putout@npm:26.18.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
     "@babel/types": ^7.12.6
-    "@putout/cli-cache": ^1.1.0
+    "@putout/cli-cache": ^2.0.1
     "@putout/cli-keypress": ^1.0.0
     "@putout/cli-match": ^1.0.0
     "@putout/cli-ruler": ^2.0.0
@@ -13426,7 +13445,7 @@ __metadata:
     "@putout/plugin-convert-index-of-to-includes": ^1.0.0
     "@putout/plugin-convert-map-to-for-of": ^2.0.0
     "@putout/plugin-convert-math-pow": ^5.0.0
-    "@putout/plugin-convert-mock-require-to-mock-import": ^3.0.0
+    "@putout/plugin-convert-mock-require-to-mock-import": ^4.0.0
     "@putout/plugin-convert-object-assign-to-merge-spread": ^6.0.0
     "@putout/plugin-convert-quotes-to-backticks": ^2.0.0
     "@putout/plugin-convert-reduce-to-for-of": ^1.0.0
@@ -13435,6 +13454,7 @@ __metadata:
     "@putout/plugin-convert-to-arrow-function": ^3.0.0
     "@putout/plugin-convert-typeof-to-is-type": ^2.0.0
     "@putout/plugin-declare-before-reference": ^1.0.0
+    "@putout/plugin-declare-imports-first": ^1.0.0
     "@putout/plugin-declare-undefined-variables": ^7.0.0
     "@putout/plugin-eslint": ^4.0.0
     "@putout/plugin-extract-object-properties": ^8.0.0
@@ -13531,7 +13551,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 4371e8035ed96cb4a13c4175a1c97ffbcad89a27355d0bab4b0ace0abd9bb58ba4e6a618efec138973bf7c73c1d138b0e64f54be0f2f89c06c132d79ebcecbad
+  checksum: 70eaa168ad282a93b381054cd65329c90a093d5bcfada571a12921281ddf8c3c2dc21cb674eaffa9425e99e849421a4c7f074e383ec194d4fee77e35decea2fe
   languageName: node
   linkType: hard
 

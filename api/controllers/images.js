@@ -1,37 +1,34 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable newline-per-chained-call */
-
 'use strict'
 
 function getImages(request, reply) {
   // eslint-disable-next-line putout/objects-braces-inside-array
   const headerImages = [
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}1.png`
     },
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}2.png`
     },
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}3.png`
     },
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}4.png`
     },
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}5.png`
     },
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}6.png`
     },
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}7.png`
     },
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}8.png`
     },
     {
-      img: 'http://localhost:8080/images/feature.png'
+      img: `${process.env.API_IMAGE_URL}9.png`
     }
   ]
 
