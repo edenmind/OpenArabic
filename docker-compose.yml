@@ -30,20 +30,20 @@ services:
     ports:
       - 3030:3030
     environment:
-      - TASHKEEL_URL=${TASHKEEL_URL}
-      - MONGO_DB_URL=${MONGO_DB_URL}
+      - API_TASHKEEL_URL=${API_TASHKEEL_URL}
+      - API_MONGO_DB_URL=${API_MONGO_DB_URL}
     restart: always
     depends_on:
       - mongo
       - static
       - tashkeel
-  web:
-    build: ./web
-    ports:
-      - 3040:3040
-    restart: always
-    depends_on:
-      - api
+  # web:
+  #   build: ./web
+  #   ports:
+  #     - 3040:3040
+  #   restart: always
+  #   depends_on:
+  #     - api
 
 volumes:
   db-data:

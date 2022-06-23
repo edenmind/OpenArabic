@@ -27,7 +27,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth0/auth0-react@npm:^1.0":
+"@auth0/auth0-react@npm:^1.x":
   version: 1.10.2
   resolution: "@auth0/auth0-react@npm:1.10.2"
   dependencies:
@@ -1743,20 +1743,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@date-io/moment@npm:^2.0":
-  version: 2.14.0
-  resolution: "@date-io/moment@npm:2.14.0"
-  dependencies:
-    "@date-io/core": ^2.14.0
-  peerDependencies:
-    moment: ^2.24.0
-  peerDependenciesMeta:
-    moment:
-      optional: true
-  checksum: ceea1f4b2245fda1b81fa9440e84cc4c3d1f8e1285a111effb3ed503e84982f227b8c6ce1cadf1d92738a3a5edb2d9c7eed8b06003c91d086680d9137fd77248
-  languageName: node
-  linkType: hard
-
 "@date-io/moment@npm:^2.11.0":
   version: 2.13.2
   resolution: "@date-io/moment@npm:2.13.2"
@@ -1768,6 +1754,20 @@ __metadata:
     moment:
       optional: true
   checksum: e5750123e43e7e45b75fbaf854d56b09141f2c344036000295dab129a9b7e130c95d6d3180e3748eec8106a641198564caf37d7008e704461911ef348119d1d3
+  languageName: node
+  linkType: hard
+
+"@date-io/moment@npm:^2.x":
+  version: 2.14.0
+  resolution: "@date-io/moment@npm:2.14.0"
+  dependencies:
+    "@date-io/core": ^2.14.0
+  peerDependencies:
+    moment: ^2.24.0
+  peerDependenciesMeta:
+    moment:
+      optional: true
+  checksum: ceea1f4b2245fda1b81fa9440e84cc4c3d1f8e1285a111effb3ed503e84982f227b8c6ce1cadf1d92738a3a5edb2d9c7eed8b06003c91d086680d9137fd77248
   languageName: node
   linkType: hard
 
@@ -1851,7 +1851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.0":
+"@emotion/react@npm:^11.x":
   version: 11.9.3
   resolution: "@emotion/react@npm:11.9.3"
   dependencies:
@@ -1914,7 +1914,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.0":
+"@emotion/styled@npm:^11.x":
   version: 11.9.3
   resolution: "@emotion/styled@npm:11.9.3"
   dependencies:
@@ -1974,7 +1974,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/roboto@npm:^4.0":
+"@fontsource/roboto@npm:^4.x":
   version: 4.5.7
   resolution: "@fontsource/roboto@npm:4.5.7"
   checksum: 3f9afc7f4c77e517e804e65823db5aea2513e8352fbc26cf7ea8b8b11e7dc6eff48d7a2855ed71e3a6b727446b2bf137629e2389fe3d676be45d95dd9992b558
@@ -2291,7 +2291,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^5.0":
+"@mui/icons-material@npm:^5.x":
   version: 5.8.4
   resolution: "@mui/icons-material@npm:5.8.4"
   dependencies:
@@ -2351,7 +2351,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.0":
+"@mui/material@npm:^5.x":
   version: 5.8.5
   resolution: "@mui/material@npm:5.8.5"
   dependencies:
@@ -2490,7 +2490,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^5.0":
+"@mui/x-data-grid@npm:^5.x":
   version: 5.12.2
   resolution: "@mui/x-data-grid@npm:5.12.2"
   dependencies:
@@ -3082,6 +3082,15 @@ __metadata:
   peerDependencies:
     putout: ">=16"
   checksum: f1ff883060d59ee33ba9d97d980077c6a93115a34162873b81e00fd4ed6641b13aea2f5b2b93657d0e3a2e90ea4308cbe0b2e5b960d03c0fe0ccbac6b5787fcf
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-convert-const-to-let@npm:^1.0.0":
+  version: 1.1.2
+  resolution: "@putout/plugin-convert-const-to-let@npm:1.1.2"
+  peerDependencies:
+    putout: ">=26"
+  checksum: 25b302f4627402bf3b03ed75b0d7231a064b5039fa201a80965e97ed1a72b97516a95488c0450a1ec5c6a97b0e1d12e428d4c4b8db9479ebf0ebdecec6ea860a
   languageName: node
   linkType: hard
 
@@ -11997,15 +12006,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "open-arabic@workspace:."
   dependencies:
-    "@auth0/auth0-react": ^1.0
-    "@date-io/moment": ^2.0
-    "@emotion/react": ^11.0
-    "@emotion/styled": ^11.0
-    "@fontsource/roboto": ^4.0
-    "@mui/icons-material": ^5.0
+    "@auth0/auth0-react": ^1.x
+    "@date-io/moment": ^2.x
+    "@emotion/react": ^11.x
+    "@emotion/styled": ^11.x
+    "@fontsource/roboto": ^4.x
+    "@mui/icons-material": ^5.x
     "@mui/lab": ^5.0.0-alpha.87
-    "@mui/material": ^5.0
-    "@mui/x-data-grid": ^5.0
+    "@mui/material": ^5.x
+    "@mui/x-data-grid": ^5.x
     "@reduxjs/toolkit": ^1.0
     "@testing-library/jest-dom": ^5.0
     "@testing-library/react": ^13.0
@@ -12026,7 +12035,7 @@ __metadata:
     moment: ^2.29.3
     moment-timezone: ^0.5.34
     prettier: ^2.7.1
-    putout: ^26.18.0
+    putout: ^26.19.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.2
@@ -13389,9 +13398,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^26.18.0":
-  version: 26.18.0
-  resolution: "putout@npm:26.18.0"
+"putout@npm:^26.19.0":
+  version: 26.19.0
+  resolution: "putout@npm:26.19.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13436,6 +13445,7 @@ __metadata:
     "@putout/plugin-convert-commonjs-to-esm": ^9.0.0
     "@putout/plugin-convert-comparison-to-boolean": ^3.0.0
     "@putout/plugin-convert-concat-to-flat": ^1.0.0
+    "@putout/plugin-convert-const-to-let": ^1.0.0
     "@putout/plugin-convert-equal-to-strict-equal": ^1.0.0
     "@putout/plugin-convert-esm-to-commonjs": ^5.0.0
     "@putout/plugin-convert-for-each-to-for-of": ^7.0.0
@@ -13551,7 +13561,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 70eaa168ad282a93b381054cd65329c90a093d5bcfada571a12921281ddf8c3c2dc21cb674eaffa9425e99e849421a4c7f074e383ec194d4fee77e35decea2fe
+  checksum: 520d5f27c5f617f53e59fa018c540194b0e2467b3d642b119b8f10f45ba261241654a1ba646844ce065af3ad814b35fc615c9eda86223bcdb9d2de30f84ab9be
   languageName: node
   linkType: hard
 
