@@ -8,7 +8,7 @@ const initialState = {
     arabic: [''],
     english: [''],
     status: 'Draft',
-    publishAt: new Date(),
+    publishAt: new Date().toUTCString(),
     wordByWord: [['']],
     title: '',
     texts: { arabic: '', english: '' },
