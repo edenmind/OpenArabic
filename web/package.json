@@ -12,7 +12,7 @@
     "@mui/icons-material": "^5.0",
     "@mui/lab": "^5.0.0-alpha.87",
     "@mui/material": "^5.0",
-    "@mui/x-data-grid": "^5.0",
+    "@mui/x-data-grid": "^5.12",
     "@reduxjs/toolkit": "^1.0",
     "@testing-library/jest-dom": "^5.0",
     "@testing-library/react": "^13.0",
