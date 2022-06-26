@@ -2,7 +2,7 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable unicorn/consistent-function-scoping */
 import { ENDPOINT, HOST } from '../constants/urls.js'
-import { GET_CATEGORIES, GET_TEXT, GET_TEXTS } from '../redux/actions.js'
+import { SET_CATEGORIES, SET_TEXT, SET_TEXTS } from '../redux/actions.js'
 import axios from 'axios'
 
 export const getTexts =
@@ -16,7 +16,7 @@ export const getTexts =
     const res = await axios.get(url).catch((error) => console.log(error))
 
     dispatch({
-      type: GET_TEXTS,
+      type: SET_TEXTS,
       payload: res.data
     })
   }
@@ -26,7 +26,7 @@ export const getCategories = () => async (dispatch) => {
   const res = await axios.get(url).catch((error) => console.log(error))
 
   dispatch({
-    type: GET_CATEGORIES,
+    type: SET_CATEGORIES,
     payload: res.data
   })
 }
@@ -36,7 +36,7 @@ export const getText = (id) => async (dispatch) => {
   const res = await axios.get(url).catch((error) => console.log(error))
 
   dispatch({
-    type: GET_TEXT,
+    type: SET_TEXT,
     payload: res.data
   })
 }

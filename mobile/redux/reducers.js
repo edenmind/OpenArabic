@@ -1,5 +1,5 @@
 /* eslint-disable putout/keyword-spacing */
-import { GET_CATEGORIES, GET_TEXT, GET_TEXTS, RESET_TEXTS } from './actions.js'
+import { SET_CATEGORIES, SET_TEXT, SET_TEXTS, RESET_TEXTS } from './actions.js'
 
 const initialStateCategories = {
   categories: []
@@ -15,7 +15,7 @@ const initialStateTexts = {
 
 function categoriesReducer(state = initialStateCategories, action) {
   switch (action.type) {
-    case GET_CATEGORIES:
+    case SET_CATEGORIES:
       return { ...state, categories: action.payload }
     default:
       return state
@@ -24,7 +24,7 @@ function categoriesReducer(state = initialStateCategories, action) {
 
 function textReducer(state = initialStateText, action) {
   switch (action.type) {
-    case GET_TEXT:
+    case SET_TEXT:
       return { ...state, text: action.payload }
     case RESET_TEXTS:
       return {
@@ -37,7 +37,7 @@ function textReducer(state = initialStateText, action) {
 
 function textsReducer(state = initialStateTexts, action) {
   switch (action.type) {
-    case GET_TEXTS:
+    case SET_TEXTS:
       return { ...state, texts: action.payload }
     default:
       return state
