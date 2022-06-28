@@ -11,7 +11,7 @@
     "@fontsource/roboto": "^4.0",
     "@mui/icons-material": "^5.0",
     "@mui/lab": "^5.0.0-alpha.87",
-    "@mui/material": "^5.0",
+    "@mui/material": "^5.8",
     "@mui/x-data-grid": "^5.0",
     "@reduxjs/toolkit": "^1.0",
     "@testing-library/jest-dom": "^5.0",
