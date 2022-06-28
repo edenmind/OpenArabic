@@ -22,7 +22,7 @@
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-mui-unused-classes": "^1.0.3",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^4.1.0",
     "eslint-plugin-putout": "^15.7.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-redux": "^4.0.0",
