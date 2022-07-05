@@ -10,7 +10,7 @@
     "@emotion/styled": "^11.0",
     "@fontsource/roboto": "^4.0",
     "@mui/icons-material": "^5.0",
-    "@mui/lab": "^5.0.0-alpha.87",
+    "@mui/lab": "^5.0.0-alpha.89",
     "@mui/material": "^5.0",
     "@mui/x-data-grid": "^5.0",
     "@reduxjs/toolkit": "^1.0",
