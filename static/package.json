@@ -6,6 +6,6 @@
     "dev": "serve ./static -p 3010"
   },
   "dependencies": {
-    "serve": "^13.0"
+    "serve": "^14.0"
   }
 }
