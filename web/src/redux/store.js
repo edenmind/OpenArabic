@@ -1,10 +1,11 @@
 /* eslint-disable putout/remove-empty-newline-after-import */
-import createReducer from './reducers.js'
-
+import { textReducer } from './reducers.js'
 import { configureStore } from '@reduxjs/toolkit'
 
-export default configureStore({
+const store = configureStore({
   reducer: {
-    text: createReducer
+    text: textReducer
   }
 })
+
+export { store }
