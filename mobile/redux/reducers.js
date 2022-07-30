@@ -1,5 +1,6 @@
 /* eslint-disable putout/keyword-spacing */
-import { SET_CATEGORIES, SET_TEXT, SET_TEXTS, RESET_TEXTS } from './actions.js'
+import * as actions from './actions.js'
+import { createReducer } from '@reduxjs/toolkit'
 
 const initialStateCategories = {
   categories: []
@@ -13,35 +14,57 @@ const initialStateTexts = {
   texts: []
 }
 
-function categoriesReducer(state = initialStateCategories, action) {
-  switch (action.type) {
-    case SET_CATEGORIES:
-      return { ...state, categories: action.payload }
-    default:
-      return state
-  }
-}
+const categoriesReducer = createReducer(initialStateCategories, (builder) => {
+  builder.addCase(actions.SET_CATEGORIES, (state, action) => {
+    return { ...state, categories: action.payload }
+  })
+})
 
-function textReducer(state = initialStateText, action) {
-  switch (action.type) {
-    case SET_TEXT:
+const textReducer = createReducer(initialStateText, (builder) => {
+  builder
+    .addCase(actions.SET_TEXT, (state, action) => {
       return { ...state, text: action.payload }
-    case RESET_TEXTS:
-      return {
-        ...initialStateText
-      }
-    default:
-      return state
-  }
-}
+    })
+    .addCase(actions.RESET_TEXTS, () => {
+      return { ...initialStateText }
+    })
+})
 
-function textsReducer(state = initialStateTexts, action) {
-  switch (action.type) {
-    case SET_TEXTS:
-      return { ...state, texts: action.payload }
-    default:
-      return state
-  }
-}
+const textsReducer = createReducer(initialStateTexts, (builder) => {
+  builder.addCase(actions.SET_TEXTS, (state, action) => {
+    return { ...state, texts: action.payload }
+  })
+})
+
+// function categoriesReducer(state = initialStateCategories, action) {
+//   switch (action.type) {
+//     case SET_CATEGORIES:
+//       return { ...state, categories: action.payload }
+//     default:
+//       return state
+//   }
+// }
+
+// function textReducer(state = initialStateText, action) {
+//   switch (action.type) {
+//     case SET_TEXT:
+//       return { ...state, text: action.payload }
+//     case RESET_TEXTS:
+//       return {
+//         ...initialStateText
+//       }
+//     default:
+//       return state
+//   }
+// }
+
+// function textsReducer(state = initialStateTexts, action) {
+//   switch (action.type) {
+//     case SET_TEXTS:
+//       return { ...state, texts: action.payload }
+//     default:
+//       return state
+//   }
+// }
 
 export { categoriesReducer, textReducer, textsReducer }

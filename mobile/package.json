@@ -16,10 +16,11 @@
     "@react-navigation/material-top-tabs": "^6.2.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
+    "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
-    "eslint-plugin-putout": "^15.7.0",
+    "eslint-plugin-putout": "^15.8.0",
     "eslint-plugin-security": "^1.5.0",
-    "eslint-plugin-unicorn": "^42.0.0",
+    "eslint-plugin-unicorn": "^43.0.0",
     "expo": "^45.0.6",
     "expo-analytics-amplitude": "~11.2.0",
     "expo-updates": "~0.13.2",
@@ -38,8 +39,7 @@
     "react-native-tab-view": "^3.1.1",
     "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.0.2",
-    "redux": "^4.2.0",
-    "redux-thunk": "^2.4.1"
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

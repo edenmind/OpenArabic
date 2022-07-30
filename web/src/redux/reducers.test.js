@@ -1,7 +1,8 @@
-import reducers from './reducers.js'
+import { textReducer } from './reducers.js'
+import * as actions from './actions.js'
 
 test('reducers SET_ENGLISH_WORDS', () => {
-  const state = reducers(
+  const state = textReducer(
     {
       text: {
         arabic: [''],
@@ -25,7 +26,7 @@ test('reducers SET_ENGLISH_WORDS', () => {
         ]
       }
     },
-    { type: 'SET_ENGLISH_WORDS', englishWords: [['englishWords']] }
+    { type: actions.SET_ENGLISH_WORDS, englishWords: [['englishWords']] }
   )
   expect(state).toEqual({
     text: {
@@ -54,7 +55,7 @@ test('reducers SET_ENGLISH_WORDS', () => {
 })
 
 test('reducers SET_ENGLISH_SENTENCE', () => {
-  const state = reducers(
+  const state = textReducer(
     {
       text: {
         arabic: [''],
@@ -78,7 +79,7 @@ test('reducers SET_ENGLISH_SENTENCE', () => {
         ]
       }
     },
-    { type: 'SET_ENGLISH_SENTENCE', englishSentence: ['englishSentence'] }
+    { type: actions.SET_ENGLISH_SENTENCE, englishSentence: ['englishSentence'] }
   )
   expect(state).toEqual({
     text: {
@@ -107,7 +108,7 @@ test('reducers SET_ENGLISH_SENTENCE', () => {
 })
 
 test('reducers  SET_STATUS', () => {
-  const state = reducers(
+  const state = textReducer(
     {
       text: {
         arabic: [''],
@@ -131,7 +132,7 @@ test('reducers  SET_STATUS', () => {
         ]
       }
     },
-    { type: 'SET_STATUS', status: 'Published' }
+    { type: actions.SET_STATUS, status: 'Published' }
   )
   expect(state).toEqual({
     text: {

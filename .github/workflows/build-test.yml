@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.2
 
-      - name: 🏗  Initilize MongoDB
+      - name: 🏗  Initialize MongoDB
         run: |
           mongosh --host localhost --port 27017 --username root --password ${{ secrets.MONGO_MOCK_PASSWORD }} --authenticationDatabase "admin" --file ./database/init-database-and-user.js
 
