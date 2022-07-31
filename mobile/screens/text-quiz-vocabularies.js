@@ -23,7 +23,7 @@ function TextQuizVocabularies(props) {
       key={index}
       text={arabic.word}
       func={() => props.pressArabicWordHandler(index, arabic.wordId)}
-      selected={props.arabicSelectedCollection[index] ? props.arabicSelectedCollection[index] : false}
+      selected={props.arabicSelectedCollection[index] ?? false}
     />
   ))
 
@@ -33,7 +33,7 @@ function TextQuizVocabularies(props) {
       key={index}
       text={english.word}
       func={() => props.pressEnglishWordHandler(index, english.wordId)}
-      selected={props.englishSelectedCollection[index] ? props.englishSelectedCollection[index] : false}
+      selected={props.englishSelectedCollection[index] ?? false}
     />
   ))
 
