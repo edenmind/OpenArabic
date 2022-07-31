@@ -10,20 +10,44 @@ const styles = StyleSheet.create({
   arabic: {
     fontSize: 25
   },
-  chipNotSelected: {
+  chipNotSelectedArabic: {
     backgroundColor: COLORS.lightOlive,
+    direction: 'rtl',
     height: 50,
     margin: 15
   },
-  chipSelected: {
+  chipNotSelectedEnglish: {
+    backgroundColor: COLORS.lightOlive,
+    direction: 'ltr',
+    height: 50,
+    margin: 15
+  },
+  chipSelectedArabic: {
     backgroundColor: COLORS.primary,
+    direction: 'rtl',
+    height: 50,
+    margin: 15
+  },
+  chipSelectedEnglish: {
+    backgroundColor: COLORS.primary,
+    direction: 'ltr',
     height: 50,
     margin: 15
   },
   english: {
-    fontSize: 13
+    fontSize: 16
   }
 })
+
+const getStyle = (props) => {
+  if (props.language === 'arabic') {
+    return props.selected ? styles.chipSelectedArabic : styles.chipNotSelectedArabic
+  }
+
+  if (props.language === 'english') {
+    return props.selected ? styles.chipSelectedEnglish : styles.chipNotSelectedEnglish
+  }
+}
 
 const SelectableChip = (props) => (
   <Chip
@@ -31,7 +55,7 @@ const SelectableChip = (props) => (
     onPress={props.func}
     backgroundColor={COLORS.leaf}
     textStyle={props.language === 'arabic' ? styles.arabic : styles.english}
-    style={props.selected ? styles.chipSelected : styles.chipNotSelected}
+    style={getStyle(props)}
   >
     {props.text || 'No text'}
   </Chip>

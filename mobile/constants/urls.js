@@ -1,5 +1,5 @@
 export const HOST = {
-  backend: 'http://localhost:3030'
+  backend: 'https://backend.openarabic.io'
 }
 
 export const ENDPOINT = {
