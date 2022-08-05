@@ -28,7 +28,7 @@
     "dotenv": "^16.0.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-putout": "^16.0.0",
+    "eslint-plugin-putout": "^16.0.1",
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-unicorn": "^43.0.2",
     "fastify": "^4.3.0",
