@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { store } from './redux/store.js'
+import store from './redux/store.js'
 import About from './screens/about.js'
 import AuthorAdd from './screens/authors-add.js'
 import AuthorUpdate from './screens/authors-update.js'
@@ -17,8 +17,8 @@ import Texts from './screens/texts.js'
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Provider store={store}>
+      <Provider store={store}>
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/authors" element={<Authors />} />
@@ -33,8 +33,8 @@ export default function App() {
           <Route path="/texts/add" element={<TextAdd />} />
           <Route path="/texts/categories/:id" element={<Home />} />
           <Route path="/texts/update/:id" element={<TextAdd />} />
-        </Provider>
-      </Routes>
+        </Routes>
+      </Provider>
     </BrowserRouter>
   )
 }

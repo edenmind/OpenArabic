@@ -1,6 +1,4 @@
-# To start docker-compose: docker-compose --env-file ./docker-compose-default.env up
-
-version: '3.8'
+# docker-compose --env-file ./docker-compose-default.env up
 
 services:
   mongo:
@@ -25,25 +23,25 @@ services:
     ports:
       - 3020:3020
     restart: always
-  # api:
-  #   build: ./api
-  #   ports:
-  #     - 3030:3030
-  #   environment:
-  #     - API_TASHKEEL_URL=${API_TASHKEEL_URL}
-  #     - API_MONGO_DB_URL=${API_MONGO_DB_URL}
-  #   restart: always
-  #   depends_on:
-  #     - mongo
-  #     - static
-  #     - tashkeel
-  # web:
-  #   build: ./web
-  #   ports:
-  #     - 3040:3040
-  #   restart: always
-  #   depends_on:
-  #     - api
+  api:
+    build: ./api
+    ports:
+      - 3030:3030
+    environment:
+      - API_TASHKEEL_URL=${API_TASHKEEL_URL}
+      - API_MONGO_DB_URL=${API_MONGO_DB_URL}
+    restart: always
+    depends_on:
+      - mongo
+      - static
+      - tashkeel
+  web:
+    build: ./web
+    ports:
+      - 3040:3040
+    restart: always
+    depends_on:
+      - api
 
 volumes:
   db-data:
