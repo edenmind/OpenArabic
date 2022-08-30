@@ -8,7 +8,7 @@
     "@date-io/moment": "^2.0",
     "@emotion/react": "^11.0",
     "@emotion/styled": "^11.0",
-    "@fontsource/roboto": "^4.0",
+    "@fontsource/roboto": "^4.5",
     "@mui/icons-material": "^5.0",
     "@mui/lab": "^5.0.0-alpha.92",
     "@mui/material": "^5.0",
