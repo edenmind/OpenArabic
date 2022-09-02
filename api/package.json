@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fastify/autoload": "^5.2.0",
+    "@fastify/autoload": "^5.3.1",
     "@fastify/cors": "^8.1.0",
     "@fastify/env": "^4.1.0",
     "@fastify/helmet": "^9.1.0",
