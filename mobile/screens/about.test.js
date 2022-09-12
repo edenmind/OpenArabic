@@ -8,6 +8,11 @@ jest.useFakeTimers()
 
 describe('<About />', () => {
   afterEach(cleanup)
+
+  it('renders correctly', () => {
+    const tree = renderer.create(<About />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
   it('has 1 child', () => {
     const tree = renderer.create(<About />).toJSON()
     // @ts-ignore

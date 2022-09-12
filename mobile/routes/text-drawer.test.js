@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { Provider } from 'react-redux'
 
 jest.useFakeTimers()
-describe('<AboutNavigator />', () => {
+describe('<TextDrawer />', () => {
   it('renders without crashing', () => {
     // @ts-ignore
     const renderer = new ShallowRenderer()

@@ -1,0 +1,1982 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About /> renders correctly 1`] = `
+<RCTScrollView
+  style={
+    {
+      "backgroundColor": "#fdfffd",
+      "direction": "ltr",
+      "flex": 1,
+      "lineHeight": 20,
+      "padding": 10,
+      "writingDirection": "ltr",
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "500",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 20,
+                "letterSpacing": 0.15,
+                "lineHeight": 30,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      Audience
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 14,
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you in that process, inshāʾAllāh.
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 14,
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in handy.
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "500",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 20,
+                "letterSpacing": 0.15,
+                "lineHeight": 30,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      Foundation
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 14,
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first generations of Muslims understanding with texts from Islamic Scholars such as:
+    </Text>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            al-Hasan al-Basri
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Imām Abū Ḥanīfa
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Imām Mālik bin Anas
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Imām al-Shāfiʿī
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Imām Aḥmad ibn Ḥanbal
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Ibn Rājab al-Hanbali
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Ibn Taymiyyah
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Ibn Qayyim al-Jawziyya
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Shams ad-Dīn adh-Dhahabī
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Imām Nawawī
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Ibn Kathīr
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Ibn Ḥajar al-ʿAsqalānī
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          false,
+          [
+            {
+              "padding": 8,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "marginVertical": 6,
+                "paddingLeft": 8,
+              },
+              {
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "fontSize": 16,
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            al-Fuḍayl ibn ʻIyāḍ
+          </Text>
+        </View>
+      </View>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "500",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 20,
+                "letterSpacing": 0.15,
+                "lineHeight": 30,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      Open Source
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 14,
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify, and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic project on GitHub.
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "500",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 20,
+                "letterSpacing": 0.15,
+                "lineHeight": 30,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    >
+      Contact Us
+    </Text>
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "transparent",
+          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 0.5,
+          "elevation": 0,
+          "margin": 10,
+          "minWidth": 64,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            {
+              "borderRadius": 4,
+            },
+          ]
+        }
+        testID="email"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "letterSpacing": 1,
+                    "marginHorizontal": 16,
+                    "marginVertical": 9,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  {
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "color": "#6200ee",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  {
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Email
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "transparent",
+          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 0.5,
+          "elevation": 0,
+          "margin": 10,
+          "minWidth": 64,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            {
+              "borderRadius": 4,
+            },
+          ]
+        }
+        testID="twitter"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "letterSpacing": 1,
+                    "marginHorizontal": 16,
+                    "marginVertical": 9,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  {
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "color": "#6200ee",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  {
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Twitter
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "transparent",
+          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 0.5,
+          "elevation": 0,
+          "margin": 10,
+          "minWidth": 64,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            {
+              "borderRadius": 4,
+            },
+          ]
+        }
+        testID="github"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "letterSpacing": 1,
+                    "marginHorizontal": 16,
+                    "marginVertical": 9,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  {
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "color": "#6200ee",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  {
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              GitHub
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "transparent",
+          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 0.5,
+          "elevation": 0,
+          "margin": 10,
+          "minWidth": 64,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            {
+              "borderRadius": 4,
+            },
+          ]
+        }
+        testID="instagram"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "letterSpacing": 1,
+                    "marginHorizontal": 16,
+                    "marginVertical": 9,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  {
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "color": "#6200ee",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  {
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Instagram
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "transparent",
+          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 0.5,
+          "elevation": 0,
+          "margin": 10,
+          "minWidth": 64,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            {
+              "borderRadius": 4,
+            },
+          ]
+        }
+        testID="facebook"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "letterSpacing": 1,
+                    "marginHorizontal": 16,
+                    "marginVertical": 9,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  {
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "color": "#6200ee",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  {
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Facebook
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

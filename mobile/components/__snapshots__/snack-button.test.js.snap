@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SnackButton /> renders correctly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      [
+        {
+          "bottom": 0,
+          "position": "absolute",
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityLiveRegion="polite"
+      collapsable={false}
+      pointerEvents="box-none"
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#000000",
+          "borderRadius": 4,
+          "elevation": 6,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 8,
+          "opacity": 0,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 5,
+            "width": 0,
+          },
+          "shadowOpacity": 0.24,
+          "shadowRadius": 6,
+          "transform": [
+            {
+              "scale": 0.9,
+            },
+          ],
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            [
+              {
+                "flex": 1,
+                "flexWrap": "wrap",
+                "marginLeft": 16,
+                "marginVertical": 14,
+              },
+              {
+                "color": "#ffffff",
+                "marginRight": 16,
+              },
+            ],
+          ]
+        }
+      >
+        abc
+      </Text>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
