@@ -5,7 +5,6 @@ import Text from './text.js'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store.js'
 import { NavigationContainer } from '@react-navigation/native'
-
 jest.useFakeTimers()
 
 describe('<TextNavigator />', () => {

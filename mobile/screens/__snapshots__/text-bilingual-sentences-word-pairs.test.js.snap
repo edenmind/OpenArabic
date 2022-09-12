@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders correctly 1`] = `
+[
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "fontSize": 25,
+          "paddingBottom": 5,
+          "paddingTop": 15,
+          "textAlign": "right",
+        },
+      ]
+    }
+  >
+    وحشة
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        undefined,
+      ]
+    }
+  >
+    alienation
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "fontSize": 25,
+          "paddingBottom": 5,
+          "paddingTop": 15,
+          "textAlign": "right",
+        },
+      ]
+    }
+  >
+    ربه
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        undefined,
+      ]
+    }
+  >
+    his Lord
+  </Text>,
+]
+`;

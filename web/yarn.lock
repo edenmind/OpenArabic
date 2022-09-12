@@ -8082,9 +8082,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "eslint-plugin-putout@npm:16.2.0"
+"eslint-plugin-putout@npm:^16.2.1":
+  version: 16.2.1
+  resolution: "eslint-plugin-putout@npm:16.2.1"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -8103,7 +8103,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=26"
-  checksum: efe2608fda91cd44e46b320c251ff7728674b7acf241311124cce08ff0a7a04e498e3c4d2acbd780a8a81e43368d0566c58d8331f2c86ca8418c57aa72c2977b
+  checksum: 7a6e43ce03b07064ccd61f25abc42be7d933bd720452ddbc3e44f680a03dcfed3a027f52f59e2d8ad02bb11cb23b82a97f53476d202a677bc6449c4a0e561d53
   languageName: node
   linkType: hard
 
@@ -12210,7 +12210,7 @@ __metadata:
     eslint-plugin-import: ^2.26.0
     eslint-plugin-mui-unused-classes: ^1.0.3
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^16.2.0
+    eslint-plugin-putout: ^16.2.1
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.5.0
@@ -12230,7 +12230,7 @@ __metadata:
     react-test-renderer: ^18.2.0
     redux: ^4.2.0
     url: ^0.11.0
-    web-vitals: ^3.0.0
+    web-vitals: ^3.0.1
   languageName: unknown
   linkType: soft
 
@@ -16648,10 +16648,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-vitals@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "web-vitals@npm:3.0.0"
-  checksum: f38976829727d7de01808e496f2d9e0859b09a7af90a6df2fe2bccac23ad480333210544c18f3ad567188e3f5a16c9aa22ea223c329e9828905cf3b38e4b05d7
+"web-vitals@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "web-vitals@npm:3.0.1"
+  checksum: 7990d14812b599601146db6a179008deff16c165f355e93764968748a416101ef4120fd4d562d45b235b683b96ea8d00f06529bfd8708d04effcb57723949c3b
   languageName: node
   linkType: hard
 

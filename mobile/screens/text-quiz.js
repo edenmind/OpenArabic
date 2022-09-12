@@ -63,6 +63,7 @@ const TextQuiz = () => {
       englishSelectedCollection[englishCurrentSelectedIndex] = false
       setEnglishSelected([...englishSelectedCollection])
       setIsSecondWord(false)
+      // eslint-disable-next-line putout/add-newline-before-return
       return
     }
 
@@ -92,6 +93,7 @@ const TextQuiz = () => {
       arabicSelectedCollection[arabicCurrentSelectedIndex] = false
       setArabicSelected([...arabicSelectedCollection])
       setIsSecondWord(false)
+      // eslint-disable-next-line putout/add-newline-before-return
       return
     }
 

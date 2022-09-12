@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextBilingualHeading /> renders correctly 1`] = `
+[
+  <Image
+    source={
+      {
+        "uri": "image",
+      }
+    }
+    style={
+      {
+        "height": 250,
+        "width": "100%",
+      }
+    }
+  />,
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "System",
+            "fontWeight": "500",
+            "writingDirection": "ltr",
+          },
+          [
+            {
+              "fontSize": 20,
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+            },
+            {
+              "paddingTop": 55,
+              "textAlign": "center",
+            },
+          ],
+        ],
+      ]
+    }
+  >
+    title
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "writingDirection": "ltr",
+          },
+          [
+            {
+              "fontSize": 16,
+              "letterSpacing": 0.5,
+              "lineHeight": 24,
+              "marginVertical": 2,
+            },
+            {
+              "textAlign": "center",
+            },
+          ],
+        ],
+      ]
+    }
+  >
+    author
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "rgba(0, 0, 0, 0.54)",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "writingDirection": "ltr",
+          },
+          [
+            {
+              "fontSize": 12,
+              "letterSpacing": 0.4,
+              "lineHeight": 20,
+              "marginVertical": 2,
+            },
+            {
+              "paddingBottom": 10,
+              "textAlign": "center",
+            },
+          ],
+        ],
+      ]
+    }
+  >
+    source
+  </Text>,
+]
+`;

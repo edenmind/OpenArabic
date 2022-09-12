@@ -4,6 +4,8 @@ import Category from './category.js'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 import { Provider } from 'react-redux'
 import { store } from '../redux/store.js'
+import NAVIGATIONTHEME from '../constants/navigation-theme.js'
+import { NavigationContainer } from '@react-navigation/native'
 
 jest.useFakeTimers()
 
@@ -20,7 +22,12 @@ describe('<Category />', () => {
 
     renderer.render(
       <Provider store={store}>
-        <Category route={route} />
+        <NavigationContainer
+          // @ts-ignore
+          theme={NAVIGATIONTHEME}
+        >
+          <Category route={route} />
+        </NavigationContainer>
       </Provider>
     )
   })
