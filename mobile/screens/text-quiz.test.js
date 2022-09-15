@@ -6,7 +6,7 @@ import TextQuiz from './text-quiz.js'
 import renderer from 'react-test-renderer'
 
 jest.useFakeTimers()
-
+jest.mock('../components/spinner.js')
 describe('<TextQuiz />', () => {
   it('renders correctly', () => {
     const tree = renderer
@@ -16,6 +16,7 @@ describe('<TextQuiz />', () => {
         </Provider>
       )
       .toJSON()
+
     expect(tree).toMatchSnapshot()
   })
 })

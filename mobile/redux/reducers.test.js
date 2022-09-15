@@ -4,7 +4,7 @@ import { expect, it } from '@jest/globals'
 
 it('categoriesReducer should return the initial state', () => {
   expect(categoriesReducer(undefined, {})).toEqual({
-    categories: ['placeholder1', 'placeholder2', 'placeholder3']
+    categories: [{ name: 'No categories', id: '123' }]
   })
 })
 
@@ -16,10 +16,9 @@ it('textReducer should return the initial state', () => {
       status: 'Draft',
       publishAt: new Date().toUTCString(),
       wordByWord: [['']],
-      title: 'abc',
       image: 'abc',
       texts: { arabic: '', english: '' },
-      category: '',
+      category: 'abc',
       author: '',
       arabicSentence: [''],
       source: '',

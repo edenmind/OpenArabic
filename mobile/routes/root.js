@@ -19,7 +19,7 @@ const Root = () => (
     theme={NAVIGATIONTHEME}
   >
     <Tab.Navigator
-      activeColor={COLORS.darkOlive}
+      activeColor={COLORS.leaf}
       inactiveColor={COLORS.branch}
       barStyle={{ backgroundColor: COLORS.shinyOlive }}
     >
@@ -29,7 +29,7 @@ const Root = () => (
         component={Text}
         options={{
           tabBarLabel: UI.null,
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="script-text" color={color} size={25} />
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="script-text" color={color} size={27} />
         }}
       />
       <Tab.Screen
@@ -37,7 +37,7 @@ const Root = () => (
         component={Settings}
         options={{
           tabBarLabel: UI.null,
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="cog" color={color} size={25} />
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="cog" color={color} size={27} />
         }}
       />
     </Tab.Navigator>

@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders correctly 1`] = `
-[
+Array [
   <Text
     style={
-      [
-        {
+      Array [
+        Object {
           "color": "#000000",
           "fontFamily": "System",
           "fontWeight": "400",
         },
-        {
+        Object {
           "textAlign": "left",
         },
-        {
+        Object {
           "fontSize": 25,
           "paddingBottom": 5,
           "paddingTop": 15,
@@ -26,13 +26,13 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
   </Text>,
   <Text
     style={
-      [
-        {
+      Array [
+        Object {
           "color": "#000000",
           "fontFamily": "System",
           "fontWeight": "400",
         },
-        {
+        Object {
           "textAlign": "left",
         },
         undefined,
@@ -43,16 +43,16 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
   </Text>,
   <Text
     style={
-      [
-        {
+      Array [
+        Object {
           "color": "#000000",
           "fontFamily": "System",
           "fontWeight": "400",
         },
-        {
+        Object {
           "textAlign": "left",
         },
-        {
+        Object {
           "fontSize": 25,
           "paddingBottom": 5,
           "paddingTop": 15,
@@ -65,13 +65,13 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
   </Text>,
   <Text
     style={
-      [
-        {
+      Array [
+        Object {
           "color": "#000000",
           "fontFamily": "System",
           "fontWeight": "400",
         },
-        {
+        Object {
           "textAlign": "left",
         },
         undefined,
