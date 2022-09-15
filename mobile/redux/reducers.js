@@ -4,7 +4,7 @@ import * as actions from './actions.js'
 import { createReducer } from '@reduxjs/toolkit'
 
 const initialStateCategories = {
-  categories: ['placeholder1', 'placeholder2', 'placeholder3']
+  categories: [{ name: 'No categories', id: '123' }]
 }
 
 const initialStateText = {
@@ -14,10 +14,9 @@ const initialStateText = {
     status: 'Draft',
     publishAt: new Date().toUTCString(),
     wordByWord: [['']],
-    title: 'abc',
     image: 'abc',
     texts: { arabic: '', english: '' },
-    category: '',
+    category: 'abc',
     author: '',
     arabicSentence: [''],
     source: '',

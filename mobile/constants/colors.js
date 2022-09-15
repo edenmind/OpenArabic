@@ -6,7 +6,7 @@ const COLORS = {
   white: '#ffffff',
   branch: '#929481',
   darkGrey: '#cccccc',
-  primary: '#2eee1a'
+  primary: '#a4cfbe'
 }
 
 export default COLORS

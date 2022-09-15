@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
     margin: 15
   },
   chipSelectedArabic: {
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.leaf,
     direction: 'rtl',
     height: 50,
     margin: 15
   },
   chipSelectedEnglish: {
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.leaf,
     direction: 'ltr',
     height: 50,
     margin: 15
@@ -66,6 +66,5 @@ export default SelectableChip
 SelectableChip.propTypes = {
   text: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired,
-  func: PropTypes.func.isRequired,
-  selected: PropTypes.bool.isRequired
+  func: PropTypes.func.isRequired
 }
