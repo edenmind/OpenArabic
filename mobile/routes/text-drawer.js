@@ -38,7 +38,7 @@ export default function TextDrawer() {
       name={category.name}
       key={index}
       component={TextList}
-      initialParams={{ category: category.id }}
+      initialParams={{ category: category.name }}
       options={{
         title: category.name,
         headerShown: true,
