@@ -28,15 +28,17 @@ function TextAddWords() {
 
           {sentence.words.map((word, indexArabicWord) => (
             <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
-              {word.arabic}
-              <TextField
-                InputProps={{ style: { fontSize: 15 } }}
-                value={word.english}
-                onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
-                rows={1}
-                fullWidth
-                variant="outlined"
-              />
+              <p>
+                {word.arabic}
+                <TextField
+                  InputProps={{ style: { fontSize: 15 } }}
+                  value={word.english}
+                  onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
+                  rows={1}
+                  fullWidth
+                  variant="outlined"
+                />
+              </p>
             </Box>
           ))}
         </Stack>
