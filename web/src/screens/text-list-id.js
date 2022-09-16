@@ -42,6 +42,7 @@ function TextListId() {
       <Container maxWidth="lg">
         <center>
           <h1>{text.title}</h1>
+          <img src={text.image} />
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
           <Divider width="300" />
