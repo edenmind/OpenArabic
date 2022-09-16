@@ -1,16 +1,16 @@
-import { Caption, Title } from 'react-native-paper'
+import { Caption, Title, Text } from 'react-native-paper'
 /* eslint-disable import/namespace */
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import COLORS from '../constants/colors.js'
 import SCREENS from '../constants/screens.js'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 import TextList from '../screens/category.js'
 import { getCategories } from '../services/api-service.js'
 import { useFocusEffect } from '@react-navigation/core'
 import packageJson from '../package.json'
+import icon from '../assets/logo.png'
 
 const selector = (state) => state.categories
 
@@ -20,7 +20,12 @@ export default function TextDrawer() {
   const dispatch = useDispatch()
 
   const style = StyleSheet.create({
-    info: {
+    icon: {
+      height: 55,
+      marginLeft: 17,
+      width: 55
+    },
+    semver: {
       bottom: 10,
       left: 0,
       margin: 16,
@@ -30,6 +35,13 @@ export default function TextDrawer() {
       fontWeight: 'bold',
       marginBottom: 10,
       marginLeft: 17
+    },
+    version: {
+      bottom: 15,
+      color: COLORS.darkOlive,
+      left: 0,
+      margin: 16,
+      position: 'absolute'
     }
   })
 
@@ -57,12 +69,14 @@ export default function TextDrawer() {
     return (
       <Fragment>
         <DrawerContentScrollView {...props}>
+          <Image source={icon} style={style.icon} />
           <Title style={style.title}>{packageJson.displayName}</Title>
 
           <DrawerItemList {...props} />
         </DrawerContentScrollView>
 
-        <Caption style={style.info}>{packageJson.version}</Caption>
+        <Text style={style.version}>Version</Text>
+        <Caption style={style.semver}>{packageJson.version}</Caption>
       </Fragment>
     )
   }
@@ -85,15 +99,15 @@ export default function TextDrawer() {
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
-        unmountOnBlur: true,
         drawerStyle: {
-          width: 150
+          width: 175
         },
         headerStyle: {
           backgroundColor: COLORS.shinyOlive
         },
         headerTintColor: COLORS.darkOlive,
-        drawerActiveBackgroundColor: COLORS.shinyOlive
+        drawerActiveTintColor: COLORS.lightOlive,
+        drawerActiveBackgroundColor: COLORS.darkOlive
       }}
     >
       {homeScreen}

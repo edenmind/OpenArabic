@@ -29,7 +29,7 @@ const Root = () => (
         component={Text}
         options={{
           tabBarLabel: UI.null,
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="script-text" color={color} size={27} />
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="script-text" color={color} size={25} />
         }}
       />
       <Tab.Screen
@@ -37,7 +37,7 @@ const Root = () => (
         component={Settings}
         options={{
           tabBarLabel: UI.null,
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="cog" color={color} size={27} />
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="information" color={color} size={25} />
         }}
       />
     </Tab.Navigator>

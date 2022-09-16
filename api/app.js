@@ -1,6 +1,6 @@
 'use strict'
 
-const path = require('path')
+const path = require('node:path')
 const AutoLoad = require('@fastify/autoload')
 const fastifyEnv = require('@fastify/env')
 const { schema } = require('./schemas/environment')
