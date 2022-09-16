@@ -12,11 +12,11 @@
     "test-update": "jest -u"
   },
   "dependencies": {
-    "@react-navigation/drawer": "^6.4.4",
-    "@react-navigation/material-bottom-tabs": "^6.2.3",
-    "@react-navigation/material-top-tabs": "^6.2.3",
-    "@react-navigation/native": "^6.0.12",
-    "@react-navigation/native-stack": "^6.8.0",
+    "@react-navigation/drawer": "^6.5.0",
+    "@react-navigation/material-bottom-tabs": "^6.2.4",
+    "@react-navigation/material-top-tabs": "^6.2.4",
+    "@react-navigation/native": "^6.0.13",
+    "@react-navigation/native-stack": "^6.9.0",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "eslint-plugin-putout": "^16.3.0",
