@@ -1,8 +1,7 @@
 import * as wordProcessing from '../services/word-processing.js'
 
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 function TextListCard(properties) {
@@ -11,26 +10,23 @@ function TextListCard(properties) {
     .map((text, index) => (
       <Grid item md={4} xs={12} key={index}>
         <Card>
-          <CardMedia component="img" height="194" image={text.image} />
-          <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              {text.category}
-            </Typography>
-            <Typography variant="h5" component="div">
-              {text.title}
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {text.author}
-            </Typography>
-            <div dir="rtl">
-              <Typography variant="h5">{wordProcessing.truncateString(text.sentences)}</Typography>
-            </div>
-          </CardContent>
-          <CardActions>
-            <Link to={`/texts/${text.id}`}>
-              <Button size="small">Read More</Button>
-            </Link>
-          </CardActions>
+          <CardActionArea href={`/texts/${text.id}`}>
+            <CardMedia component="img" height="194" image={text.image} />
+            <CardContent>
+              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                {text.category}
+              </Typography>
+              <Typography variant="h5" component="div">
+                {text.title}
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                {text.author}
+              </Typography>
+              <div dir="rtl">
+                <Typography variant="h5">{wordProcessing.truncateString(text.sentences)}</Typography>
+              </div>
+            </CardContent>
+          </CardActionArea>
         </Card>
       </Grid>
     ))

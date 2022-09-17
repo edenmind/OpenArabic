@@ -42,7 +42,7 @@ function TextListId() {
       <Container maxWidth="lg">
         <center>
           <h1>{text.title}</h1>
-          <img src={text.image} />
+          <img src={text.image} style={{ width: '100%', height: '100%' }} />
           <h3>{text.author}</h3>
           <h4>{text.source}</h4>
           <Divider width="300" />
