@@ -1,7 +1,7 @@
 /* eslint-disable import/namespace */
 /* eslint-disable react-native/no-raw-text */
 
-import { Button, List, Paragraph, Text, Title } from 'react-native-paper'
+import { Button, Divider, List, Paragraph, Text, Title } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet } from 'react-native'
 
 import COLORS from '../constants/colors.js'
@@ -17,6 +17,10 @@ function About() {
       lineHeight: 20,
       padding: 10,
       writingDirection: 'ltr'
+    },
+    scroll: {
+      backgroundColor: COLORS.shinyOlive,
+      paddingBottom: 25
     }
   })
 
@@ -63,6 +67,9 @@ function About() {
         project on GitHub.
       </Paragraph>
       <Title style={style.english}>Contact Us</Title>
+      <Paragraph style={style.english}>
+        Please use any of the following channels to report bugs or requests new features.
+      </Paragraph>
       <Button style={style.button} mode="outlined" testID="email" onPress={() => Linking.openURL(email)}>
         <Text>Email</Text>
       </Button>
@@ -78,6 +85,7 @@ function About() {
       <Button style={style.button} mode="outlined" testID="facebook" onPress={() => Linking.openURL(facebook)}>
         <Text>Facebook</Text>
       </Button>
+      <Divider style={style.scroll} />
     </ScrollView>
   )
 }
