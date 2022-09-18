@@ -117,8 +117,13 @@ export default function Texts() {
   }, [])
 
   const handleDeleteClick = () => {
-    axios
-      .delete(`${process.env.REACT_APP_API_URL}/texts/${selectedText}`)
+    axios({
+      method: 'delete',
+      url: `${process.env.REACT_APP_API_URL}/texts/${selectedText}`,
+      headers: {
+        auth: `${process.env.REACT_APP_KEY}`
+      }
+    })
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)

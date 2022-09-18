@@ -11,6 +11,9 @@ test('create new text', async (t) => {
   const result = await app.inject({
     url: '/texts',
     method: 'POST',
+    headers: {
+      auth: 'somesecurekey'
+    },
     payload: {
       title: 'abc',
       status: 'abc',
@@ -72,7 +75,10 @@ test('delete text that does not exist', async (t) => {
   // act
   const result = await app.inject({
     url: '/texts/' + id,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      auth: 'somesecurekey'
+    }
   })
 
   //assert
@@ -86,6 +92,9 @@ test('update text that does not exist', async (t) => {
   // act
   const result = await app.inject({
     url: '/texts/does_not_exist',
+    headers: {
+      auth: 'somesecurestring'
+    },
     method: 'PUT',
     payload: {
       name: 'the_name'

@@ -21,10 +21,18 @@ async function listTexts(request, reply) {
 }
 
 async function addText(request, reply) {
+  const { headers, body } = request
+
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
   const createdAt = new Date()
-  const { title, author, category, source, sentences, texts, publishAt, status, image } = request.body
+  const { title, author, category, source, sentences, texts, publishAt, status, image } = body
+  const { auth } = headers
+
+  if (auth !== process.env.API_KEY) {
+    throw 'Error: Not authorized with' + auth
+  }
+
   const data = {
     title,
     author,
@@ -65,9 +73,17 @@ async function getTashkeel(request, reply) {
 }
 
 async function updateText(request, reply) {
+  const { body, headers } = request
+
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const updatedAt = new Date()
-  const { title, author, category, sentences, source, texts, publishAt, status, image } = request.body
+  const { auth } = headers
+
+  if (auth !== process.env.API_KEY) {
+    throw 'Error'
+  }
+
+  const { title, author, category, sentences, source, texts, publishAt, status, image } = body
   const { arabic, english } = texts
   const updateDocument = {
     $set: {
@@ -96,6 +112,12 @@ async function updateText(request, reply) {
 }
 
 async function deleteText(request, reply) {
+  const { auth } = request.headers
+
+  if (auth !== process.env.API_KEY) {
+    throw 'Error: Not authorized with' + auth
+  }
+
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const result = await texts.deleteOne({ id: new ObjectId(request.params.id) })
   result.deletedCount ? reply.send('Deleted') : reply.internalServerError('Could not delete Text.')

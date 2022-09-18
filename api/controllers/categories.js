@@ -11,9 +11,17 @@ async function listCategories(request, reply) {
 }
 
 async function addCategory(request, reply) {
+  const { body, headers } = request
+
+  const { auth } = headers
+
+  if (auth !== process.env.API_KEY) {
+    throw 'Error: Not authorized with' + auth
+  }
+
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
   const id = new ObjectId()
-  const { name } = request.body
+  const { name } = body
   const data = {
     name,
     id
@@ -35,8 +43,16 @@ async function getCategory(request, reply) {
 }
 
 async function updateCategory(request, reply) {
+  const { body, headers } = request
+
+  const { auth } = headers
+
+  if (auth !== process.env.API_KEY) {
+    throw 'Error: Not authorized with' + auth
+  }
+
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
-  const { name } = request.body
+  const { name } = body
   const updateDocument = {
     $set: {
       name
@@ -50,6 +66,12 @@ async function updateCategory(request, reply) {
 }
 
 async function deleteCategory(request, reply) {
+  const { auth } = request.headers
+
+  if (auth !== process.env.API_KEY) {
+    throw 'Error: Not authorized with' + auth
+  }
+
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
   const result = await categories.deleteOne({ id: new ObjectId(request.params.id) })
 

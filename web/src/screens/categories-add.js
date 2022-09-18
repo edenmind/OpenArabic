@@ -27,6 +27,9 @@ const CategoriesAdd = () => {
     axios({
       method: 'post',
       url: `${process.env.REACT_APP_API_URL}/categories`,
+      headers: {
+        auth: `${process.env.REACT_APP_KEY}`
+      },
       data: {
         name: category
       }

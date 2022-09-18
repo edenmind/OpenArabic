@@ -48,6 +48,9 @@ function TextAddPublish() {
     axios({
       method: 'post',
       url: `${process.env.REACT_APP_API_URL}/texts`,
+      headers: {
+        auth: `${process.env.REACT_APP_KEY}`
+      },
       data: {
         title,
         category,
@@ -86,6 +89,9 @@ function TextAddPublish() {
     axios({
       method: 'put',
       url: `${process.env.REACT_APP_API_URL}/texts/${id}`,
+      headers: {
+        auth: `${process.env.REACT_APP_KEY}`
+      },
       data: {
         title,
         category,
