@@ -11,6 +11,9 @@ test('create new category', async (t) => {
   const result = await app.inject({
     url: '/categories',
     method: 'POST',
+    headers: {
+      auth: 'somesecurekey'
+    },
     payload: {
       name: 'the_name'
     }
@@ -62,7 +65,10 @@ test('delete category that does not exist', async (t) => {
 
   // act
   const result = await app.inject({
-    url: '/categories/' + id,
+    url: `/categories/${id}`,
+    headers: {
+      auth: 'somesecurekey'
+    },
     method: 'DELETE'
   })
 
@@ -94,6 +100,9 @@ test('update category', async (t) => {
   const raw = await app.inject({
     url: '/categories',
     method: 'POST',
+    headers: {
+      auth: 'somesecurekey'
+    },
     payload: {
       name: 'the_name'
     }
@@ -106,6 +115,9 @@ test('update category', async (t) => {
   const result = await app.inject({
     url: `/categories/${idTrimmed}`,
     method: 'PUT',
+    headers: {
+      auth: 'somesecurekey'
+    },
     payload: {
       name: 'the_other_name'
     }

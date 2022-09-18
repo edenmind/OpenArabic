@@ -34,8 +34,13 @@ function Categories() {
   }, [])
 
   const deleteCategory = () => {
-    axios
-      .delete(`${process.env.REACT_APP_API_URL}/categories/${selectedCategory.id}`)
+    axios({
+      method: 'delete',
+      url: `${process.env.REACT_APP_API_URL}/categories/${selectedCategory.id}`,
+      headers: {
+        auth: `${process.env.REACT_APP_KEY}`
+      }
+    })
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)

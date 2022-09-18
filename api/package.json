@@ -7,7 +7,7 @@
     "tests": "tests"
   },
   "scripts": {
-    "test": "tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70",
+    "test": "API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70",
     "start": "fastify start -l info app.js",
     "dev": "fastify start -w -l info -P app.js"
   },
@@ -31,7 +31,7 @@
     "eslint-plugin-putout": "^16.3.0",
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-unicorn": "^43.0.2",
-    "fastify": "^4.5.3",
+    "fastify": "^4.6.0",
     "fastify-cli": "^5.4.1",
     "fastify-healthcheck": "^4.2.0",
     "fastify-plugin": "^4.2.1",

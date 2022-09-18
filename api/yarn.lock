@@ -2719,7 +2719,7 @@ __metadata:
     eslint-plugin-putout: ^16.3.0
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^43.0.2
-    fastify: ^4.5.3
+    fastify: ^4.6.0
     fastify-cli: ^5.4.1
     fastify-healthcheck: ^4.2.0
     fastify-plugin: ^4.2.1
@@ -4337,9 +4337,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^4.5.3":
-  version: 4.5.3
-  resolution: "fastify@npm:4.5.3"
+"fastify@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "fastify@npm:4.6.0"
   dependencies:
     "@fastify/ajv-compiler": ^3.1.1
     "@fastify/error": ^3.0.0
@@ -4355,7 +4355,7 @@ __metadata:
     secure-json-parse: ^2.4.0
     semver: ^7.3.7
     tiny-lru: ^8.0.2
-  checksum: 2c5b1d10ced5517a443127146986ffe7100c2e964fba67b4521361d2d26173faf109f2d7b060dd09beec54e04abe67280b3070728a2fd1cf4cb8d8d543873aff
+  checksum: ac696de3a3675023223b2814196ffac28bb212daeb45feb2fb4b8b4385f66742eaef8367070d81d9281a29dc1603dc906d54e0e020713e7466784a948e5b925c
   languageName: node
   linkType: hard
 
