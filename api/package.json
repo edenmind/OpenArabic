@@ -37,7 +37,7 @@
     "fastify-plugin": "^4.2.1",
     "mongodb": "^4.9.1",
     "prettier": "^2.7.1",
-    "putout": "^27.8.0",
+    "putout": "^27.11.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
