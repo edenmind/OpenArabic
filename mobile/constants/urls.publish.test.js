@@ -1,9 +1,9 @@
-import { HOST, ENDPOINT } from './urls.js'
+import { HOST, ENDPOINT } from './urls.publish.js'
 import { expect, it } from '@jest/globals'
 
 describe('urls', () => {
   it('backend should be correct', () => {
-    expect(HOST.backend).toBe('http://localhost:3030')
+    expect(HOST.backend).toBe('https://backend.openarabic.io')
   })
 
   it('texts should be correct', () => {
