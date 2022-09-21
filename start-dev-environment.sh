@@ -20,6 +20,7 @@ function usage {
   echo '   -e   start Expo Mobile'
   echo '   -x   extract current data from MongoDB'
   echo '   -i   import seed data into MongoDB'
+  echo '   -r   release mobile app'
   exit 0
 }
 
@@ -28,7 +29,7 @@ if [[ ${#} -eq 0 ]]; then
 fi
 
 # list of arguments expected in the input
-optstring=":hmatswexi"
+optstring=":hmatswexir"
 
 while getopts ${optstring} arg; do
   case ${arg} in
@@ -59,6 +60,9 @@ while getopts ${optstring} arg; do
     ;;
   i)
     IMPORT=true
+    ;;
+  r)
+    RELEASE=true
     ;;
   ?)
     echo "Invalid option: -${OPTARG}."
@@ -118,4 +122,11 @@ fi
 if [[ ${EXPO} ]]; then
   echo "Starting Expo mobile app in ./mobile"
   yarn --cwd ./mobile start
+fi
+
+if [[ ${RELEASE} ]]; then
+  echo "Starting release of Mobile"
+  cp ./mobile/constants/urls.publish.js ./mobile/constants/urls.js
+  echo "Releasing..."
+  cp ./mobile/constants/urls.development.js ./mobile/constants/urls.js
 fi

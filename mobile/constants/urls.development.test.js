@@ -1,4 +1,4 @@
-import { HOST, ENDPOINT } from './urls.js'
+import { HOST, ENDPOINT } from './urls.development.js'
 import { expect, it } from '@jest/globals'
 
 describe('urls', () => {
