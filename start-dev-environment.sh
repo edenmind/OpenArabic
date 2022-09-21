@@ -76,10 +76,11 @@ echo "Setting up local development environment..."
 if [[ ${MONGO} ]]; then
   if [ ! "$(docker ps -q -f name=$MONGO_CONTAINER_NAME)" ]; then
     if [ "$(docker ps -aq -f status=exited -f name=$MONGO_CONTAINER_NAME)" ]; then
-      docker rm $MONGO_CONTAINER_NAME
+      docker start $MONGO_CONTAINER_NAME
+      exit 0
     fi
     echo "Starting MongoDB..."
-    docker run --name $MONGO_CONTAINER_NAME -d -p 27017:27017 $MONGO_VERSION
+    docker run --name $MONGO_CONTAINER_NAME -d -p 27017:27017 --mount source=v1,target=/data/db --mount source=v2,target=/data/configdb $MONGO_VERSION
     exit 0
   fi
   echo "MongoDB is already running..."
