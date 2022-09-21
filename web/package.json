@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.11.0",
-    "@date-io/moment": "^2.15.0",
+    "@date-io/moment": "^2.16.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fontsource/roboto": "^4.5.8",
