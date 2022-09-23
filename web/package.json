@@ -10,8 +10,13 @@
     "@emotion/styled": "^11.10.4",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.10.6",
+<<<<<<< HEAD
     "@mui/lab": "^5.0.0-alpha.101",
     "@mui/material": "^5.10.7",
+=======
+    "@mui/lab": "^5.0.0-alpha.100",
+    "@mui/material": "^5.10.6",
+>>>>>>> 2de85c282 (Add english peek to card in ingress)
     "@mui/x-data-grid": "^5.17.4",
     "@mui/x-date-pickers": "^5.0.3",
     "@reduxjs/toolkit": "^1.8.5",
