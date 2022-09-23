@@ -4,6 +4,7 @@ import COLORS from '../constants/colors.js'
 import { Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import { StyleSheet } from 'react-native'
+import LANGUAGES from '../constants/languages.js'
 
 const styles = StyleSheet.create({
   arabic: {
@@ -39,11 +40,11 @@ const styles = StyleSheet.create({
 })
 
 const getStyle = (props) => {
-  if (props.language === 'arabic') {
+  if (props.language === LANGUAGES.arabic) {
     return props.selected ? styles.chipSelectedArabic : styles.chipNotSelectedArabic
   }
 
-  if (props.language === 'english') {
+  if (props.language === LANGUAGES.english) {
     return props.selected ? styles.chipSelectedEnglish : styles.chipNotSelectedEnglish
   }
 }
@@ -53,7 +54,7 @@ const SelectableChip = (props) => (
     mode="flat"
     onPress={props.func}
     backgroundColor={COLORS.leaf}
-    textStyle={props.language === 'arabic' ? styles.arabic : styles.english}
+    textStyle={props.language === LANGUAGES.arabic ? styles.arabic : styles.english}
     style={getStyle(props)}
   >
     {props.text || 'No text'}

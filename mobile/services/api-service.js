@@ -1,28 +1,20 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
 /* eslint-disable unicorn/consistent-function-scoping */
-import { ENDPOINT, HOST } from '../constants/urls.js'
 import axios from 'axios'
+import * as url from './url-service.js'
 
-export const getTexts =
-  (category = '') =>
-  async (dispatch) => {
-    const url =
-      category === ''
-        ? `${HOST.backend}/${ENDPOINT.texts}` // if category is empty get texts in all categories
-        : `${HOST.backend}/${ENDPOINT.texts}/${ENDPOINT.categories}/${category}`
+export const getTexts = (id) => async (dispatch) => {
+  const res = await axios.get(url.categoryWithId(id)).catch((error) => console.log(error))
 
-    const res = await axios.get(url).catch((error) => console.log(error))
-
-    dispatch({
-      type: 'SET_TEXTS',
-      payload: res.data
-    })
-  }
+  dispatch({
+    type: 'SET_TEXTS',
+    payload: res.data
+  })
+}
 
 export const getCategories = () => async (dispatch) => {
-  const url = `${HOST.backend}/${ENDPOINT.categories}`
-  const res = await axios.get(url).catch((error) => console.log(error))
+  const res = await axios.get(url.categories()).catch((error) => console.log(error))
 
   dispatch({
     type: 'SET_CATEGORIES',
@@ -31,8 +23,7 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const getText = (id) => async (dispatch) => {
-  const url = `${HOST.backend}/${ENDPOINT.texts}/${id}`
-  const res = await axios.get(url).catch((error) => console.log(error))
+  const res = await axios.get(url.textWithId(id)).catch((error) => console.log(error))
 
   dispatch({
     type: 'SET_TEXT',
