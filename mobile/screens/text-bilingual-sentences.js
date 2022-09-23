@@ -33,7 +33,8 @@ const style = StyleSheet.create({
   },
   showWordsButton: {
     paddingLeft: 100,
-    paddingRight: 100
+    paddingRight: 100,
+    paddingTop: 15
   },
   showWordsText: {
     color: COLORS.darkGrey
