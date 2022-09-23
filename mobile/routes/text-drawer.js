@@ -71,7 +71,6 @@ export default function TextDrawer() {
         <DrawerContentScrollView {...props}>
           <Image source={icon} style={style.icon} />
           <Title style={style.title}>{packageJson.displayName}</Title>
-
           <DrawerItemList {...props} />
         </DrawerContentScrollView>
 

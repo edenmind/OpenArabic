@@ -1,7 +1,5 @@
 /* eslint-disable import/namespace */
-
 import { StyleSheet, View } from 'react-native'
-
 import PropTypes from 'prop-types'
 import React from 'react'
 import SelectableChip from '../components/selectable-chip.js'

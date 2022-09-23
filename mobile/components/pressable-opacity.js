@@ -1,6 +1,5 @@
 /* eslint-disable import/namespace */
 import { Animated, Pressable } from 'react-native'
-
 import PropTypes from 'prop-types'
 import React from 'react'
 

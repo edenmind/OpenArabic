@@ -12,7 +12,7 @@ describe('getTexts', () => {
       axios.get.mockRejectedValueOnce(new Error(message))
 
       // act
-      const result = await getTexts('Adab', 7, 1)
+      const result = getTexts('Adab', 7, 1)
 
       // assert
       expect(result).toBeTruthy
@@ -24,7 +24,7 @@ describe('getTexts', () => {
       axios.get.mockResolvedValueOnce()
 
       // act
-      const result = await getTexts('Adab', 7, 1)
+      const result = getTexts('Adab', 7, 1)
 
       // assert
       expect(result).toBeTruthy
@@ -40,7 +40,7 @@ describe('getCategories', () => {
       axios.get.mockRejectedValueOnce(new Error(message))
 
       // when
-      const result = await getCategories()
+      const result = getCategories()
 
       // then
       expect(result).toBeTruthy
@@ -52,7 +52,7 @@ describe('getCategories', () => {
       axios.get.mockResolvedValueOnce()
 
       // act
-      const result = await getCategories()
+      const result = getCategories()
 
       // assert
       expect(result).toBeTruthy
@@ -68,7 +68,7 @@ describe('getText', () => {
       axios.get.mockRejectedValueOnce(new Error(message))
 
       // when
-      const result = await getText(1)
+      const result = getText(1)
 
       // then
       expect(result).toBeTruthy
@@ -81,7 +81,7 @@ describe('getText', () => {
 
       // act
 
-      const result = await getText('1')
+      const result = getText('1')
 
       // assert
       expect(result).toBeTruthy

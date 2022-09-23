@@ -1,7 +1,6 @@
 /* eslint-disable putout/objects-braces-inside-array */
 /* eslint-disable import/namespace */
 import React, { Fragment, useEffect, useState } from 'react'
-
 import COLORS from '../constants/colors.js'
 import PropTypes from 'prop-types'
 import Quiz from '../screens/text-quiz.js'

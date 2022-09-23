@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import COLORS from '../constants/colors.js'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import NAVIGATIONTHEME from '../constants/navigation-theme.js'
