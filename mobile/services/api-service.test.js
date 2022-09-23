@@ -24,7 +24,7 @@ describe('getTexts', () => {
       axios.get.mockResolvedValueOnce()
 
       // act
-      const result = getTexts('Adab', 7, 1)
+      const result = getTexts('7')
 
       // assert
       expect(result).toBeTruthy

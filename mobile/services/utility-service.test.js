@@ -1,6 +1,20 @@
 import * as util from './utility-service.js'
 import { expect, describe, it } from '@jest/globals'
 
+describe('space', () => {
+  it('should add space after dot', () => {
+    // Arrange
+    // eslint-disable-next-line operator-linebreak
+    const noSpaced = 'This is a test.Space should be added.'
+    const spaced = 'This is a test. Space should be added.'
+
+    // Act
+    const spacedActual = util.addSpaceAfterDot(noSpaced)
+
+    // Assert
+    expect(spacedActual).toEqual(spaced)
+  })
+})
 describe('truncate', () => {
   it('should truncate', () => {
     // Arrange

@@ -31,7 +31,9 @@ const style = StyleSheet.create({
 
 const prepareIngress = (text, length) => {
   const noLineBreaks = utility.removeLineBreak(text)
-  return utility.truncate(noLineBreaks, length)
+  const spaceAfterDot = utility.addSpaceAfterDot(noLineBreaks)
+
+  return utility.truncate(spaceAfterDot, length)
 }
 
 export default function CategoryCard(props) {

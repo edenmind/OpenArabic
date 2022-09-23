@@ -8,5 +8,9 @@ export const truncate = (stringToTruncate, truncateLength) => {
 
 export const removeLineBreak = (stringWithLineBreaks) => stringWithLineBreaks.replace(/(\r\n|\n|\r)/gm, '')
 
+export const addSpaceAfterDot = (text) => {
+  return text.replace(/\s*([!,.:;?]+)(?!\s*$)\s*/g, '$1 ')
+}
+
 export const filterArrayFromEmptyElements = (arrayToFilter, filterFunction) =>
   arrayToFilter.filter((element) => filterFunction(element))

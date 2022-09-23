@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SelectableChip from '../components/selectable-chip.js'
+import LANGUAGES from '../constants/languages.js'
 
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
@@ -17,7 +18,7 @@ function TextQuizVocabularies(props) {
 
   const arabicVocabularies = props.vocabularyCollection.arabic.map((arabic, index) => (
     <SelectableChip
-      language="arabic"
+      language={LANGUAGES.arabic}
       key={index}
       text={arabic.word}
       func={() => props.pressArabicWordHandler(index, arabic.wordId)}
@@ -27,7 +28,7 @@ function TextQuizVocabularies(props) {
 
   const englishVocabularies = props.vocabularyCollection.english.map((english, index) => (
     <SelectableChip
-      language="english"
+      language={LANGUAGES.english}
       key={index}
       text={english.word}
       func={() => props.pressEnglishWordHandler(index, english.wordId)}
