@@ -1,10 +1,8 @@
 /* eslint-disable import/namespace */
 import * as util from '../services/utility-service.js'
-
 import { Button, Text } from 'react-native-paper'
 import React, { Fragment } from 'react'
 import { StyleSheet, View } from 'react-native'
-
 import COLORS from '../constants/colors.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import PropTypes from 'prop-types'

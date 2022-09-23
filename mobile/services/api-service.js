@@ -9,7 +9,7 @@ export const getTexts =
   async (dispatch) => {
     const url =
       category === ''
-        ? `${HOST.backend}/${ENDPOINT.texts}`
+        ? `${HOST.backend}/${ENDPOINT.texts}` // if category is empty get texts in all categories
         : `${HOST.backend}/${ENDPOINT.texts}/${ENDPOINT.categories}/${category}`
 
     const res = await axios.get(url).catch((error) => console.log(error))

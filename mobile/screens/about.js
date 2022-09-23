@@ -3,7 +3,6 @@
 
 import { Button, Divider, List, Paragraph, Text, Title } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet } from 'react-native'
-
 import COLORS from '../constants/colors.js'
 import React from 'react'
 

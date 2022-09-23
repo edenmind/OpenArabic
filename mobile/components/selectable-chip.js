@@ -1,6 +1,5 @@
 /* eslint-disable import/namespace */
 import * as React from 'react'
-
 import COLORS from '../constants/colors.js'
 import { Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'

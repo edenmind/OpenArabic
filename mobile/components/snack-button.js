@@ -1,7 +1,6 @@
-import * as React from 'react'
-
 // eslint-disable-next-line import/namespace
 import { StyleSheet, View } from 'react-native'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import { Snackbar } from 'react-native-paper'
 import PAPERTHEME from '../constants/paper-theme.js'

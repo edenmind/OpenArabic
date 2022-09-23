@@ -1,5 +1,3 @@
-//TODO: Move to RTK: https://redux.js.org/introduction/why-rtk-is-redux-today
-
 import { configureStore } from '@reduxjs/toolkit'
 import { categoriesReducer, textReducer, textsReducer } from './reducers.js'
 

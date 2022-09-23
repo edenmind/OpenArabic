@@ -1,6 +1,5 @@
 /* eslint-disable import/namespace */
 import React, { Fragment } from 'react'
-
 import SnackButton from '../components/snack-button.js'
 import Spinner from '../components/spinner.js'
 import TextQuizVocabularies from './text-quiz-vocabularies.js'
@@ -72,8 +71,6 @@ const TextQuiz = () => {
   }
 
   const pressEnglishWordHandler = (index, englishWordId) => {
-    console.log(englishWordId)
-
     if (correctAnswers.includes(englishWordId)) {
       return
     } // do nothing

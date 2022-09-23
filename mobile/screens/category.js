@@ -1,9 +1,7 @@
 /* eslint-disable import/namespace */
 import * as api from '../services/api-service.js'
-
 import React, { Fragment, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { FlatList } from 'react-native'
 import PropTypes from 'prop-types'
 import Spinner from '../components/spinner.js'

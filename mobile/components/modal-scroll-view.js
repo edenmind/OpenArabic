@@ -1,5 +1,4 @@
 import { Button, Modal, Portal, Text, Title } from 'react-native-paper'
-
 import COLORS from '../constants/colors.js'
 import PropTypes from 'prop-types'
 import React from 'react'

@@ -2,7 +2,6 @@
 import { Caption, Subheading, Title } from 'react-native-paper'
 import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
-
 import PropTypes from 'prop-types'
 
 const style = StyleSheet.create({
@@ -27,7 +26,6 @@ export default function TextBilingualHeading(props) {
   return (
     <Fragment>
       <Image source={{ uri: props.heading.image }} style={style.image} />
-
       <Title style={style.title}>{props.heading.title}</Title>
       <Subheading style={style.author}>{props.heading.author}</Subheading>
       <Caption style={style.source}>{props.heading.source}</Caption>
