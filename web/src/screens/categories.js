@@ -1,5 +1,4 @@
 import { Button, Container } from '@mui/material'
-
 import CategoryList from './categories-list.js'
 import ConfirmationDialog from '../components/confirmation-dialog.js'
 import Footer from '../components/footer.js'

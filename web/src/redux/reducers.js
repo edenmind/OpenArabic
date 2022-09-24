@@ -13,7 +13,7 @@ const initialState = {
     publishAt: new Date().toUTCString(),
     wordByWord: [['']],
     title: '',
-    texts: { arabic: 'abc', english: 'abc' },
+    texts: { arabic: '', english: '' },
     category: '',
     author: '',
     arabicSentence: [''],
@@ -59,7 +59,7 @@ const textReducer = createReducer(initialState, (builder) => {
       }
     })
     .addCase(actions.RESET_TEXT, () => {
-      initialState
+      return { ...initialState }
     })
     .addCase(actions.SET_WORD_BY_WORD, (state, action) => {
       state.text.wordByWord = action.wordByWord

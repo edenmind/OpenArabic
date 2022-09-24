@@ -19,6 +19,7 @@ function TextAddPublish() {
   const { id } = useParams()
 
   const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
+  const resetText = () => dispatch({ type: 'RESET_TEXT' })
   const setPublishAt = (event) => dispatch({ type: 'SET_PUBLISH_AT', publishAt: event.target.value })
 
   const [postMessage, setPostMessage] = React.useState('')
@@ -71,7 +72,7 @@ function TextAddPublish() {
           setOpenSnackbar(true)
           setPostMessage(`Added: ${title}!`)
           setTimeout(() => {
-            dispatch({ type: 'RESET_TEXT' })
+            resetText()
             navigate('/texts')
           }, 1500)
         } else {
@@ -110,6 +111,7 @@ function TextAddPublish() {
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)
+          resetText()
           setPostMessage(`Updated text: ${response.data.message}`)
           setTimeout(() => {
             navigate('/texts')
