@@ -13,7 +13,7 @@ const initialState = {
     publishAt: new Date().toUTCString(),
     wordByWord: [['']],
     title: '',
-    texts: { arabic: '', english: '' },
+    texts: { arabic: 'abc', english: 'abc' },
     category: '',
     author: '',
     arabicSentence: [''],
@@ -32,7 +32,6 @@ const initialState = {
 const textReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(actions.SET_TITLE, (state, action) => {
-      console.log('set title')
       state.text.title = action.title
     })
     .addCase(actions.SET_AUTHOR, (state, action) => {
