@@ -1,5 +1,4 @@
 import { Button, Container } from '@mui/material'
-
 import AuthorsList from './authors-list.js'
 import ConfirmationDialog from '../components/confirmation-dialog.js'
 import Footer from '../components/footer.js'
@@ -61,7 +60,6 @@ const Authors = () => {
       <Nav />
       <Container maxWidth="lg">
         <h2>Authors</h2>
-
         <AuthorsList authors={authors} handleClickOpen={handleClickOpen} />
         <ConfirmationDialog
           confirmationQuestion="Are you sure you want to delete this author?"
@@ -76,7 +74,6 @@ const Authors = () => {
           message="Author deleted!"
         />
         <br />
-
         <Link to="/authors/add">
           <Button variant="contained">Add</Button>
         </Link>

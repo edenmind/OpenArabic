@@ -1,8 +1,6 @@
 import * as React from 'react'
-
 import { Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-
 import MenuSelect from '../components/menu-select.js'
 import axios from 'axios'
 import StandardImageList from '../components/standard-image-list.js'
