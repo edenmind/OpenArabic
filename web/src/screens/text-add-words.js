@@ -25,6 +25,8 @@ function TextAddWords() {
           <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
             <p>
               {word.arabic}
+              {word.arabic.length > 10 && <Chip color="warning" label="Long Arabic Word" />}
+              {word.english.length > 10 && <Chip color="warning" label="Long English Word" />}
               <TextField
                 InputProps={{ style: { fontSize: 15 } }}
                 value={word.english}
