@@ -146,6 +146,11 @@ function produceVocabularyCollection(text) {
         continue
       }
 
+      if (!word.quiz) {
+        // break if word is not for quiz
+        continue
+      }
+
       const wordId = uuidv4()
 
       const arabicWord = {

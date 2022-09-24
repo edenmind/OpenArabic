@@ -23,6 +23,7 @@ const initialState = {
       {
         english: '',
         arabic: '',
+        quiz: false,
         words: []
       }
     ]
@@ -89,6 +90,11 @@ const textReducer = createReducer(initialState, (builder) => {
     })
     .addCase(actions.SET_PUBLISH_AT, (state, action) => {
       state.text.publishAt = action.publishAt
+    })
+    .addCase(actions.UPDATE_SENTENCE_QUIZ, (state, action) => {
+      // eslint-disable-next-line putout/long-properties-destructuring
+      const { indexSentence, indexArabicWord, quiz } = action.value
+      state.text.sentences[indexSentence].words[indexArabicWord].quiz = quiz
     })
 })
 
