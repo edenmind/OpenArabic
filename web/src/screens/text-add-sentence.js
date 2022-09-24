@@ -19,7 +19,6 @@ const selector = (state) => state.text
 
 const TextAddSentences = () => {
   const dispatch = useDispatch()
-
   const { text } = useSelector(selector)
   const [englishSentenceCount, setEnglishSentenceCount] = React.useState(0)
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)

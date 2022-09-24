@@ -14,40 +14,38 @@ function TextAddWords() {
     dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
   }
 
-  return text.sentences.length > 1 ? (
-    text.sentences.map((sentence, indexSentence) => (
-      <Fragment key={indexSentence}>
-        <Stack spacing={0} style={{ paddingBottom: '70px', width: '700px' }}>
-          <h3>
-            {sentence.english}: {sentence.arabic}
-          </h3>
+  const sentences = text.sentences.map((sentence, indexSentence) => (
+    <Fragment key={indexSentence}>
+      <Stack spacing={0} style={{ paddingBottom: '70px', width: '700px' }}>
+        <h3>
+          {sentence.english}: {sentence.arabic}
+        </h3>
 
-          {sentence.words.map((word, indexArabicWord) => (
-            <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
-              <p>
-                {word.arabic}
-                <TextField
-                  InputProps={{ style: { fontSize: 15 } }}
-                  value={word.english}
-                  onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
-                  rows={1}
-                  fullWidth
-                  variant="outlined"
-                />
-              </p>
-            </Box>
-          ))}
-        </Stack>
-      </Fragment>
-    ))
-  ) : (
+        {sentence.words.map((word, indexArabicWord) => (
+          <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
+            <p>
+              {word.arabic}
+              <TextField
+                InputProps={{ style: { fontSize: 15 } }}
+                value={word.english}
+                onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
+                rows={1}
+                fullWidth
+                variant="outlined"
+              />
+            </p>
+          </Box>
+        ))}
+      </Stack>
+    </Fragment>
+  ))
+
+  return (
     <Fragment>
-      <Chip color="warning" label="No Words Added" />
-
-      <br />
-      <br />
-
       {text.arabicSentence.length > 1 ? <TextAddWordsGenerate /> : <Chip color="warning" label="No Sentences Added" />}
+      <br />
+      <br />
+      {sentences}
     </Fragment>
   )
 }

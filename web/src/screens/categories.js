@@ -1,5 +1,8 @@
 import { Button, Container } from '@mui/material'
+<<<<<<< HEAD
 import * as api from '../services/api-service.js'
+=======
+>>>>>>> 522fe2788 (fixes #1141)
 import CategoryList from './categories-list.js'
 import ConfirmationDialog from '../components/confirmation-dialog.js'
 import Footer from '../components/footer.js'
