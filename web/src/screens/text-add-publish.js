@@ -20,6 +20,7 @@ function TextAddPublish() {
   const [postMessage, setPostMessage] = React.useState('')
 
   const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
+  const resetText = () => dispatch({ type: 'RESET_TEXT' })
   const setPublishAt = (event) => dispatch({ type: 'SET_PUBLISH_AT', publishAt: event.target.value })
 
   const dispatch = useDispatch()
@@ -48,6 +49,10 @@ function TextAddPublish() {
           setOpenSnackbar(true)
           setPostMessage('Text added!')
           setTimeout(() => {
+<<<<<<< HEAD
+=======
+            resetText()
+>>>>>>> 7fa45e440 (Add english peek to card in ingress)
             navigate('/texts')
           }, 1500)
         } else {
@@ -64,7 +69,12 @@ function TextAddPublish() {
       .then((res) => {
         if (res) {
           setOpenSnackbar(true)
+<<<<<<< HEAD
           setPostMessage('Text updated!')
+=======
+          resetText()
+          setPostMessage(`Updated text: ${response.data.message}`)
+>>>>>>> 7fa45e440 (Add english peek to card in ingress)
           setTimeout(() => {
             navigate('/texts')
           }, 1500)
