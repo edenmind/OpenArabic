@@ -1,7 +1,6 @@
 import * as React from 'react'
 import * as wordProcessing from '../services/word-processing.js'
 import * as apiService from '../services/api-service.js'
-
 import { Chip, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import LoadingButton from '@mui/lab/LoadingButton'
@@ -63,7 +62,8 @@ const TextAddSentences = () => {
     const arabicWords = []
 
     for (const sentence of arabicSentencesProcessed) {
-      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(sentence)
+      const cleanSentence = wordProcessing.cleanWordFromInvalidCharacters(sentence)
+      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(cleanSentence)
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
 
       arabicWords.push(cleanFromNullAndEmpty)
