@@ -5,16 +5,9 @@ export const cleanWordFromInvalidCharacters = (wordToClean) => {
   return wordToClean.replace(/[\d!"#$%&()*+,./:;<>?@[\]|،؟“]/g, '')
 }
 
-export const truncateString = (sentences, number_ = 135) => {
-  if (sentences.length === 0) {
-    return 'No text to display...'
-  }
-
-  let ingress = ''
-
-  for (const sentence of sentences) {
-    ingress += sentence.arabic
-  }
-
-  return `${ingress.slice(0, number_)}...`
+export const truncate = (stringToTruncate, truncateLength) => {
+  const cleanString = stringToTruncate.replace(' \n', '')
+  return cleanString.length > truncateLength
+    ? `${cleanString.slice(0, Math.max(0, truncateLength - 1))}...`
+    : cleanString
 }
