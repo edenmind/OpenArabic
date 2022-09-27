@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import MenuSelect from '../components/menu-select.js'
 import SnackBar from '../components/snack-bar.js'
-import axios from 'axios'
+import * as api from '../services/api-service.js'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
@@ -14,14 +14,13 @@ const selector = (state) => state.text
 
 function TextAddPublish() {
   const { text } = useSelector(selector)
+  const { id } = useParams()
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
-  const { id } = useParams()
+  const [postMessage, setPostMessage] = React.useState('')
 
   const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
   const setPublishAt = (event) => dispatch({ type: 'SET_PUBLISH_AT', publishAt: event.target.value })
-
-  const [postMessage, setPostMessage] = React.useState('')
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -41,81 +40,36 @@ function TextAddPublish() {
     setOpenSnackbar(false)
   }
 
-  const handleAdd = () => {
-    const { title, author, category, sentences, source, texts, status, image, publishAt } = text
-    const { arabic, english } = texts
-
-    axios({
-      method: 'post',
-      url: `${process.env.REACT_APP_API_URL}/texts`,
-      headers: {
-        auth: `${process.env.REACT_APP_KEY}`
-      },
-      data: {
-        title,
-        category,
-        publishAt,
-        status,
-        image,
-        texts: {
-          arabic,
-          english
-        },
-        author,
-        source,
-        sentences
-      }
-    })
-      .then((response) => {
-        if (response.status === 201) {
+  const addText = () => {
+    api
+      .addText(text)
+      .then((res) => {
+        if (res) {
           setOpenSnackbar(true)
-          setPostMessage(`Added: ${title}!`)
+          setPostMessage('Text added!')
           setTimeout(() => {
-            dispatch({ type: 'RESET_TEXT' })
             navigate('/texts')
           }, 1500)
         } else {
-          setPostMessage(`Error: ${response.data.message}`)
+          setPostMessage('Could not add text!')
           setOpenSnackbar(true)
         }
       })
       .catch((error) => console.log(error))
   }
 
-  const handleUpdate = () => {
-    const { title, author, image, category, sentences, source, texts, status, publishAt } = text
-    const { arabic, english } = texts
-
-    axios({
-      method: 'put',
-      url: `${process.env.REACT_APP_API_URL}/texts/${id}`,
-      headers: {
-        auth: `${process.env.REACT_APP_KEY}`
-      },
-      data: {
-        title,
-        category,
-        publishAt,
-        image,
-        status,
-        texts: {
-          arabic,
-          english
-        },
-        author,
-        source,
-        sentences
-      }
-    })
-      .then((response) => {
-        if (response.status === 200) {
+  const updateText = () => {
+    api
+      .updateText(text, id)
+      .then((res) => {
+        if (res) {
           setOpenSnackbar(true)
-          setPostMessage(`Updated text: ${response.data.message}`)
+          setPostMessage('Text updated!')
           setTimeout(() => {
             navigate('/texts')
           }, 1500)
         } else {
-          setPostMessage(`Error: ${response.data.message}`)
+          setPostMessage('Could not update text!')
           setOpenSnackbar(true)
         }
       })
@@ -158,11 +112,11 @@ function TextAddPublish() {
         </LocalizationProvider>
       </Stack>
       {id ? (
-        <Button variant="contained" onClick={handleUpdate}>
+        <Button variant="contained" onClick={updateText}>
           Update Status
         </Button>
       ) : (
-        <Button variant="contained" onClick={handleAdd}>
+        <Button variant="contained" onClick={addText}>
           Add Text
         </Button>
       )}

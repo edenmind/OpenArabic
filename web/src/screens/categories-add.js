@@ -1,11 +1,10 @@
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
-
+import * as api from '../services/api-service.js'
 import Footer from '../components/footer.js'
 import { Link } from 'react-router-dom'
 import Nav from '../components/nav.js'
 import React from 'react'
 import SnackBar from '../components/snack-bar.js'
-import axios from 'axios'
 
 const CategoriesAdd = () => {
   const [category, setCategory] = React.useState('')
@@ -24,18 +23,10 @@ const CategoriesAdd = () => {
   }
 
   const addCategory = () => {
-    axios({
-      method: 'post',
-      url: `${process.env.REACT_APP_API_URL}/categories`,
-      headers: {
-        auth: `${process.env.REACT_APP_KEY}`
-      },
-      data: {
-        name: category
-      }
-    })
-      .then((response) => {
-        if (response.status === 201) {
+    api
+      .addCategory(category)
+      .then((res) => {
+        if (res) {
           setOpen(true)
           setCategory('')
         }

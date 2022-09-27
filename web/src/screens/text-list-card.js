@@ -1,7 +1,5 @@
 import * as wordProcessing from '../services/word-processing.js'
-
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
-
 import PropTypes from 'prop-types'
 
 function TextListCard(properties) {

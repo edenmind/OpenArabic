@@ -1,11 +1,9 @@
 import * as React from 'react'
-
 import { Stack, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-
 import MenuSelect from '../components/menu-select.js'
-import axios from 'axios'
 import StandardImageList from '../components/standard-image-list.js'
+import * as api from '../services/api-service.js'
 
 const selector = (state) => state.text
 
@@ -24,24 +22,17 @@ const TextAddHeading = () => {
   const { text } = useSelector(selector)
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/categories`)
-      .then((response) => {
-        setCategories(response.data)
-      })
+    api
+      .getCategories()
+      .then((res) => setCategories(res))
       .catch((error) => console.log(error))
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/authors`)
-      .then((response) => {
-        setAuthors(response.data)
-      })
+    api
+      .getAuthors()
+      .then((res) => setAuthors(res))
       .catch((error) => console.log(error))
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/images`)
-      .then((response) => {
-        console.log(response.data)
-        setImages(response.data)
-      })
+    api
+      .getImages()
+      .then((res) => setImages(res))
       .catch((error) => console.log(error))
   }, [])
 

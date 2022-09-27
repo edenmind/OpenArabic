@@ -1,17 +1,13 @@
 import { Box, Stack, TextField } from '@mui/material'
-import { useDispatch, useSelector, Provider } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import TextAddWordsGenerate from './text-add-words-generate.js'
-
 import Chip from '@mui/material/Chip'
 import { Fragment } from 'react'
 
 const selectorText = (state) => state.text
-const selectorArabicWords = (state) => state.text
 
 function TextAddWords() {
   const { text } = useSelector(selectorText)
-  const { arabicWords } = useSelector(selectorArabicWords)
-
   const dispatch = useDispatch()
 
   const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {

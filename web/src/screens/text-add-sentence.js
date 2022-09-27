@@ -5,14 +5,11 @@ import * as apiService from '../services/api-service.js'
 import { Chip, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import LoadingButton from '@mui/lab/LoadingButton'
-
 import { Fragment } from 'react'
 import MatchingIndicator from '../components/matching-indicator.js'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
-
 import { styled } from '@mui/material/styles'
-import { useParams } from 'react-router-dom'
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -29,14 +26,11 @@ const TextAddSentences = () => {
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)
   const [loading, setLoading] = React.useState(false)
 
-  const { id } = useParams()
-
   const handleClick = () => {
     setLoading(true)
     apiService
       .getVowels(text.texts.arabic)
       .then((data) => {
-        console.log('data', data)
         dispatch({ type: 'SET_ARABIC_TEXT', arabic: data })
         setLoading(false)
       })
