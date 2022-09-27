@@ -1,10 +1,10 @@
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
+import * as api from '../services/api-service.js'
 import Footer from '../components/footer.js'
 import Nav from '../components/nav.js'
 import React from 'react'
 import SnackBar from '../components/snack-bar.js'
-import axios from 'axios'
 
 const AuthorsUpdate = () => {
   const [author, setAuthor] = React.useState('')
@@ -26,25 +26,18 @@ const AuthorsUpdate = () => {
   const { id } = useParams()
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/authors/${id}`)
-      .then((response) => {
-        setAuthor(response.data.name)
-      })
+    api
+      .getAuthor(id)
+      .then((res) => setAuthor(res))
       .catch((error) => console.log(error))
   }, [id])
 
   const updateAuthor = () => {
-    axios({
-      method: 'put',
-      url: `${process.env.REACT_APP_API_URL}/authors/${id}`,
-      data: {
-        name: author
-      }
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          setStatus(`Updated author: ${response.data.message}`)
+    api
+      .updateAuthor(author, id)
+      .then((res) => {
+        if (res) {
+          setStatus('Updated author!')
           setOpen(true)
         }
       })

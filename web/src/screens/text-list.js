@@ -1,8 +1,6 @@
-import * as apiService from '../services/api-service.js'
-
+import * as api from '../services/api-service.js'
 import { Box, Grid } from '@mui/material'
 import React, { Fragment } from 'react'
-
 import Progress from '../components/progress.js'
 import TextListCard from './text-list-card.js'
 
@@ -11,7 +9,7 @@ const TextList = (properties) => {
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
-    apiService
+    api
       .getTexts(properties.id)
       .then((data) => {
         setTexts(data)

@@ -1,18 +1,15 @@
 import { Box, Button, Container, Link, List, ListItem, Stack, Typography } from '@mui/material'
-
 import Footer from '../components/footer.js'
 import Nav from '../components/nav.js'
 import React from 'react'
-import axios from 'axios'
+import * as api from '../services/api-service.js'
 
 const About = () => {
   const [authors, setAuthors] = React.useState([])
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/authors`)
-      .then((response) => {
-        setAuthors(response.data)
-      })
+    api
+      .getAuthors()
+      .then((res) => setAuthors(res))
       .catch((error) => console.log(error))
   }, [])
 

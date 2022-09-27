@@ -1,5 +1,4 @@
 import { Box, Container, Link, Typography } from '@mui/material'
-
 import Footer from '../components/footer.js'
 import Nav from '../components/nav.js'
 import React from 'react'

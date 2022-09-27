@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import * as api from '../services/api-service.js'
 import Box from '@mui/material/Box'
 import Heading from './text-add-heading.js'
 import Nav from '../components/nav.js'
@@ -12,7 +12,6 @@ import Tabs from '@mui/material/Tabs'
 import TextAddPreview from './text-add-preview.js'
 import TextAddPublish from './text-add-publish.js'
 import TextAddWords from './text-add-words.js'
-import { getText } from '../services/api-service.js'
 import { useParams } from 'react-router-dom'
 
 const selector = (state) => state.text
@@ -41,7 +40,7 @@ export default function TextAdd() {
 
   useEffect(() => {
     if (id) {
-      dispatch(getText(id))
+      dispatch(api.getTextToRedux(id))
     } else {
       dispatch({ type: 'RESET_TEXT' })
     }
