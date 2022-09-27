@@ -1,12 +1,11 @@
 import { Container, Divider, Grid } from '@mui/material'
-
 import CircularProgress from '@mui/material/CircularProgress'
 import Footer from '../components/footer.js'
 import Nav from '../components/nav.js'
 import React from 'react'
 import TextListIdSentences from './text-list-id-sentences.js'
-import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import * as api from '../services/api-service.js'
 
 function TextListId() {
   const { id } = useParams()
@@ -14,10 +13,10 @@ function TextListId() {
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/texts/${id}`)
-      .then((response) => {
-        setText(response.data)
+    api
+      .getText(id)
+      .then((res) => {
+        setText(res)
         setIsLoading(false)
       })
       .catch((error) => console.log(error))

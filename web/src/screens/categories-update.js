@@ -4,7 +4,7 @@ import Footer from '../components/footer.js'
 import Nav from '../components/nav.js'
 import React from 'react'
 import SnackBar from '../components/snack-bar.js'
-import axios from 'axios'
+import * as api from '../services/api-service.js'
 
 const CategoriesUpdate = () => {
   const [category, setCategory] = React.useState('')
@@ -26,25 +26,18 @@ const CategoriesUpdate = () => {
   const { id } = useParams()
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/categories/${id}`)
-      .then((response) => {
-        setCategory(response.data.name)
-      })
+    api
+      .getCategory(id)
+      .then((res) => setCategory(res))
       .catch((error) => console.log(error))
   }, [id])
 
   const updateCategory = () => {
-    axios({
-      method: 'put',
-      url: `${process.env.REACT_APP_API_URL}/categories/${id}`,
-      data: {
-        name: category
-      }
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          setStatus('Updated category: ' + response.data.message)
+    api
+      .updateCategory(category, id)
+      .then((res) => {
+        if (res) {
+          setStatus('Updated category!')
           setOpen(true)
         }
       })

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import Nav from '../components/nav.js'
 import React from 'react'
 import SnackBar from '../components/snack-bar.js'
-import axios from 'axios'
+import * as api from '../services/api-service.js'
 
 const AuthorsAdd = () => {
   const [author, setAuthor] = React.useState('')
-  const [openSnackBar, setOpenSnackBar] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
 
   const divStyle = {
     padding: '10px'
@@ -19,20 +19,15 @@ const AuthorsAdd = () => {
       return
     }
 
-    setOpenSnackBar(false)
+    setOpen(false)
   }
 
   const addAuthor = () => {
-    axios({
-      method: 'post',
-      url: `${process.env.REACT_APP_API_URL}/authors`,
-      data: {
-        name: author
-      }
-    })
-      .then((response) => {
-        if (response.status === 201) {
-          setOpenSnackBar(true)
+    api
+      .addAuthor(author)
+      .then((res) => {
+        if (res) {
+          setOpen(true)
           setAuthor('')
         }
       })
@@ -69,7 +64,7 @@ const AuthorsAdd = () => {
         <Footer />
       </Container>
       <SnackBar
-        openSnackBar={openSnackBar}
+        openSnackBar={open}
         handleCloseSnackbar={handleCloseSnackbar}
         severity="success"
         message="Added new author!"

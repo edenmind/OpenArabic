@@ -1,7 +1,4 @@
-import * as apiService from '../services/api-service.js'
-
 import { Button, Container, IconButton, Tooltip } from '@mui/material'
-
 import ConfirmationDialog from '../components/confirmation-dialog.js'
 import { DataGrid } from '@mui/x-data-grid'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
@@ -12,7 +9,7 @@ import Nav from '../components/nav.js'
 import Progress from '../components/progress.js'
 import React from 'react'
 import SnackBar from '../components/snack-bar.js'
-import axios from 'axios'
+import * as api from '../services/api-service.js'
 
 export default function Texts() {
   const [texts, setTexts] = React.useState([])
@@ -66,20 +63,6 @@ export default function Texts() {
       editable: false
     },
     {
-      field: 'sentences',
-      headerName: 'Sentences',
-      sortable: false,
-      width: 120,
-      valueGetter: (parameters) => `${parameters.row.sentences.length}`
-    },
-    {
-      field: 'charters',
-      headerName: 'Characters',
-      sortable: false,
-      width: 120,
-      valueGetter: (parameters) => `${parameters.row.texts.arabic.length}`
-    },
-    {
       field: 'actions',
       type: 'actions',
       headerName: 'Actions',
@@ -107,7 +90,7 @@ export default function Texts() {
   ]
 
   React.useEffect(() => {
-    apiService
+    api
       .getTexts()
       .then((data) => {
         setTexts(data)
@@ -116,24 +99,19 @@ export default function Texts() {
       .catch((error) => console.log(error))
   }, [])
 
-  const handleDeleteClick = () => {
-    axios({
-      method: 'delete',
-      url: `${process.env.REACT_APP_API_URL}/texts/${selectedText}`,
-      headers: {
-        auth: `${process.env.REACT_APP_KEY}`
-      }
-    })
+  const deleteText = () => {
+    api
+      .deleteText(selectedText)
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)
-          setOpenDialog(false)
         }
       })
       .catch((error) => console.log(error))
 
     const textsAfterDelete = texts.filter((item) => item.id !== selectedText)
     setTexts(textsAfterDelete)
+    handleCloseDialog()
   }
 
   const handleCloseSnackbar = (reason) => {
@@ -172,7 +150,7 @@ export default function Texts() {
       <ConfirmationDialog
         openState={openDialog}
         handleCloseDialog={handleCloseDialog}
-        handleAction={handleDeleteClick}
+        handleAction={deleteText}
         confirmationQuestion="Are you sure you want to delete this text?"
       />
 

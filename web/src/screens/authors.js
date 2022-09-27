@@ -2,14 +2,14 @@ import { Button, Container } from '@mui/material'
 import AuthorsList from './authors-list.js'
 import ConfirmationDialog from '../components/confirmation-dialog.js'
 import Footer from '../components/footer.js'
+import * as api from '../services/api-service.js'
 import { Link } from 'react-router-dom'
 import Nav from '../components/nav.js'
 import React from 'react'
 import SnackBar from '../components/snack-bar.js'
-import axios from 'axios'
 
 const Authors = () => {
-  const [authors, setAuthors] = React.useState([])
+  const [authors, setAuthors] = React.useState([''])
   const [openDialog, setOpenDialog] = React.useState(false)
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [selectedAuthor, setSelectedAuthor] = React.useState()
@@ -24,17 +24,15 @@ const Authors = () => {
   }
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/authors`)
-      .then((response) => {
-        setAuthors(response.data)
-      })
+    api
+      .getAuthors()
+      .then((res) => setAuthors(res))
       .catch((error) => console.log(error))
   }, [])
 
   const deleteAuthor = () => {
-    axios
-      .delete(`${process.env.REACT_APP_API_URL}/authors/${selectedAuthor.id}`)
+    api
+      .deleteAuthor(selectedAuthor.id)
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)

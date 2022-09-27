@@ -1,7 +1,5 @@
 import * as wordProcessing from '../services/word-processing.js'
-
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
-
 import PropTypes from 'prop-types'
 
 function TextListCard(properties) {
@@ -39,12 +37,12 @@ function TextListCard(properties) {
 TextListCard.propTypes = {
   texts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.string.isOptional,
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired
     })
-  ).isRequired
+  )
 }
 
 export default TextListCard

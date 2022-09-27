@@ -1,4 +1,5 @@
 import { Button, Container } from '@mui/material'
+import * as api from '../services/api-service.js'
 import CategoryList from './categories-list.js'
 import ConfirmationDialog from '../components/confirmation-dialog.js'
 import Footer from '../components/footer.js'
@@ -6,7 +7,6 @@ import { Link } from 'react-router-dom'
 import Nav from '../components/nav.js'
 import React from 'react'
 import SnackBar from '../components/snack-bar.js'
-import axios from 'axios'
 
 function Categories() {
   const [categories, setCategories] = React.useState([])
@@ -24,22 +24,15 @@ function Categories() {
   }
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/categories`)
-      .then((response) => {
-        setCategories(response.data)
-      })
+    api
+      .getCategories()
+      .then((res) => setCategories(res))
       .catch((error) => console.log(error))
   }, [])
 
   const deleteCategory = () => {
-    axios({
-      method: 'delete',
-      url: `${process.env.REACT_APP_API_URL}/categories/${selectedCategory.id}`,
-      headers: {
-        auth: `${process.env.REACT_APP_KEY}`
-      }
-    })
+    api
+      .deleteCategory(selectedCategory.id)
       .then((response) => {
         if (response.status === 200) {
           setOpenSnackbar(true)
