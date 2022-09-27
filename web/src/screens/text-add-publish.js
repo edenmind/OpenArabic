@@ -49,10 +49,6 @@ function TextAddPublish() {
           setOpenSnackbar(true)
           setPostMessage('Text added!')
           setTimeout(() => {
-<<<<<<< HEAD
-=======
-            resetText()
->>>>>>> 7fa45e440 (Add english peek to card in ingress)
             navigate('/texts')
           }, 1500)
         } else {
@@ -69,12 +65,7 @@ function TextAddPublish() {
       .then((res) => {
         if (res) {
           setOpenSnackbar(true)
-<<<<<<< HEAD
           setPostMessage('Text updated!')
-=======
-          resetText()
-          setPostMessage(`Updated text: ${response.data.message}`)
->>>>>>> 7fa45e440 (Add english peek to card in ingress)
           setTimeout(() => {
             navigate('/texts')
           }, 1500)

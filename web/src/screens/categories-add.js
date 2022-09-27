@@ -1,8 +1,5 @@
 import { Button, Container, FormControl, Stack, TextField } from '@mui/material'
-<<<<<<< HEAD
 import * as api from '../services/api-service.js'
-=======
->>>>>>> 522fe2788 (fixes #1141)
 import Footer from '../components/footer.js'
 import { Link } from 'react-router-dom'
 import Nav from '../components/nav.js'
