@@ -1,3 +1,5 @@
+/* eslint-disable putout/nonblock-statement-body-newline */
+/* eslint-disable security/detect-object-injection */
 /* eslint-disable import/namespace */
 import React, { Fragment } from 'react'
 import SnackButton from '../components/snack-button.js'
@@ -9,11 +11,12 @@ const selector = (state) => state.text
 
 const TextQuiz = () => {
   const numberOfWordInQuiz = 4
-  const celebrationText = 'MashaAllah! You made it... 🎉🎉🎉'
+  const celebrationText = 'MashaAllah! 🎉 Let us get some new words...'
 
   const { text } = useSelector(selector)
-  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
 
+  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
+  const [currentBatch, setCurrentBatch] = React.useState(0)
   const [arabicCurrentSelectedWordId, setArabicSelectedWordId] = React.useState('')
   const [englishCurrentSelectedWordId, setEngSelectedWordId] = React.useState('')
   const [isSecondWord, setIsSecondWord] = React.useState(false)
@@ -22,7 +25,6 @@ const TextQuiz = () => {
   const [correctAnswers, setCorrectAnswers] = React.useState([])
   const [arabicSelectedCollection, setArabicSelected] = React.useState([])
   const [englishSelectedCollection, setEnglishSelected] = React.useState([])
-
   const addWordIdToCorrectAnswers = (wordId) => {
     setCorrectAnswers([...correctAnswers, wordId])
   }
@@ -53,7 +55,15 @@ const TextQuiz = () => {
       addWordIdToCorrectAnswers(arabicWordId)
       setIsSecondWord(false)
       handleSetArabic(index, arabicWordId)
-      correctAnswers.length === numberOfWordInQuiz && setCelebrationSnackBarVisibility(true) // show celebration
+
+      if (correctAnswers.length === numberOfWordInQuiz) {
+        setCelebrationSnackBarVisibility(true)
+        setTimeout(() => {
+          setCurrentBatch(currentBatch + 1)
+          resetState()
+        }, 1500)
+      } // show celebration
+
       return
     }
 
@@ -80,7 +90,14 @@ const TextQuiz = () => {
       addWordIdToCorrectAnswers(englishWordId)
       setIsSecondWord(false)
       handleSetEnglish(index, englishWordId)
-      correctAnswers.length === numberOfWordInQuiz && setCelebrationSnackBarVisibility(true) // show celebration
+
+      if (correctAnswers.length === numberOfWordInQuiz) {
+        setCelebrationSnackBarVisibility(true)
+        setTimeout(() => {
+          setCurrentBatch(currentBatch + 1)
+          resetState()
+        }, 1500)
+      } // show celebration
 
       return
     }
@@ -98,9 +115,21 @@ const TextQuiz = () => {
     handleSetEnglish(index, englishWordId)
   }
 
+  const resetState = () => {
+    setArabicSelectedWordId('')
+    setEngSelectedWordId('')
+    setIsSecondWord(false)
+    setArabicSelectedIndex('')
+    setEnglishSelectedIndex('')
+    setCorrectAnswers([])
+    setArabicSelected([])
+    setEnglishSelected([])
+  }
+
   return text.title ? (
     <Fragment>
       <TextQuizVocabularies
+        currentBatch={currentBatch}
         arabicSelectedCollection={arabicSelectedCollection}
         englishSelectedCollection={englishSelectedCollection}
         pressArabicWordHandler={pressArabicWordHandler}
