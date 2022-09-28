@@ -5,9 +5,7 @@
 
 const { v4: uuidv4 } = require('uuid')
 const axios = require('axios').default
-
 const COLLECTIONS = require('../constants/collections.js')
-
 const { ObjectId } = require('mongodb')
 
 async function listTexts(request, reply) {
@@ -135,32 +133,37 @@ const shuffleArray = (array) => {
 function produceVocabularyCollection(text) {
   const arabicVocabulary = []
   const englishVocabulary = []
+  let batch = 0
+  let counter = 0
 
   for (const sentence of text.sentences) {
-    if (arabicVocabulary.length === 5) {
-      continue
-    }
-
     for (const word of sentence.words) {
-      if (arabicVocabulary.length === 5) {
+      if (!word.quiz) {
         continue
       }
 
-      if (!word.quiz) {
-        // break if word is not for quiz
-        continue
+      if (counter === 5) {
+        ++batch
+        counter = 0
       }
+
+      ++counter
+
+      // eslint-disable-next-line putout/putout
+      console.log('batch:', batch)
 
       const wordId = uuidv4()
 
       const arabicWord = {
         word: word.arabic,
-        wordId
+        wordId,
+        batch
       }
 
       const englishWord = {
         word: word.english,
-        wordId
+        wordId,
+        batch
       }
 
       arabicVocabulary.push(arabicWord)

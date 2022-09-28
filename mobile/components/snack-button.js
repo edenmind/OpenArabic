@@ -14,6 +14,7 @@ const SnackButton = (props) => {
         visible={props.visible}
         onDismiss={props.onDismissSnackBar}
         theme={PAPERTHEME}
+        duration={1000}
         backgroundColor={COLORS.leaf}
       >
         {props.text}

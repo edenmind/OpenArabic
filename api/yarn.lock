@@ -556,9 +556,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/swagger@npm:^7.6.0":
-  version: 7.6.0
-  resolution: "@fastify/swagger@npm:7.6.0"
+"@fastify/swagger@npm:^7.6.1":
+  version: 7.6.1
+  resolution: "@fastify/swagger@npm:7.6.1"
   dependencies:
     "@fastify/static": ^6.0.0
     fastify-plugin: ^4.0.0
@@ -566,7 +566,7 @@ __metadata:
     openapi-types: ^12.0.0
     rfdc: ^1.3.0
     yaml: ^2.1.1
-  checksum: 8109067d5f3f64afb101cd5fc600b866a059c7c9a654264c4c0df6d57e273008181985b8030d72711c35e0aaa4da2a84cb5b759ae159ec6e99ecf6d3ae650b00
+  checksum: db3fde9cadbd28e8dad9bdaa71388cd8f3085841b08e671ef560b5a3054d462dc88ed5263a4b6c78dea84e4450a3506cb5eb7a03375055fbf4d2f29f1bd37f26
   languageName: node
   linkType: hard
 
@@ -2710,7 +2710,7 @@ __metadata:
     "@fastify/rate-limit": ^7.4.0
     "@fastify/sensible": ^5.1.1
     "@fastify/static": ^6.5.0
-    "@fastify/swagger": ^7.6.0
+    "@fastify/swagger": ^7.6.1
     axios: ^0.27.2
     dotenv: ^16.0.2
     eslint: ^8.24.0
@@ -2720,7 +2720,7 @@ __metadata:
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^43.0.2
     fastify: ^4.6.0
-    fastify-cli: ^5.4.2
+    fastify-cli: ^5.5.0
     fastify-healthcheck: ^4.2.0
     fastify-plugin: ^4.2.1
     mongodb: ^4.10.0
@@ -4260,9 +4260,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-cli@npm:^5.4.2":
-  version: 5.4.2
-  resolution: "fastify-cli@npm:5.4.2"
+"fastify-cli@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "fastify-cli@npm:5.5.0"
   dependencies:
     chalk: ^4.1.2
     chokidar: ^3.5.2
@@ -4281,7 +4281,7 @@ __metadata:
     yargs-parser: ^21.1.1
   bin:
     fastify: cli.js
-  checksum: 156b145ea9dbe219d28b0374a5b1855380f90685dddf5b0411d96abc5315b4b603877463af9864ab3e4fadd21e32ef20b42b3c433681e2ae70d8a79e9047ca0f
+  checksum: 067c3afc308d494cbc4a7d486f76e7d7e99f8b8ad6aa48a8136a9255d6ce36608c97e53dea4b6d4f67c75af220c0ca8065487cb81b299563013db34dc6fef948
   languageName: node
   linkType: hard
 
