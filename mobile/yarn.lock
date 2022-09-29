@@ -7797,6 +7797,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-haptics@npm:~11.3.0":
+  version: 11.3.0
+  resolution: "expo-haptics@npm:11.3.0"
+  peerDependencies:
+    expo: "*"
+  checksum: b70692deeb1d36f4d4f9ddfc78dcc6f66fcfe0bf4be7994921eec811b9c6d7a0621959e68e03a73beac998986f8fd2e8988bd9f9827f08e86231adf3ce30deeb
+  languageName: node
+  linkType: hard
+
 "expo-json-utils@npm:~0.3.0":
   version: 0.3.0
   resolution: "expo-json-utils@npm:0.3.0"
@@ -14698,6 +14707,7 @@ __metadata:
     expo-application: ~4.2.2
     expo-constants: ~13.2.4
     expo-device: ~4.3.0
+    expo-haptics: ~11.3.0
     expo-updates: ~0.14.6
     jest: ^26.6.3
     jest-expo: ^46.0.1

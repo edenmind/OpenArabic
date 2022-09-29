@@ -27,6 +27,7 @@
     "expo-application": "~4.2.2",
     "expo-constants": "~13.2.4",
     "expo-device": "~4.3.0",
+    "expo-haptics": "~11.3.0",
     "expo-updates": "~0.14.6",
     "node-notifier": "^10.0.1",
     "prop-types": "^15.8.1",

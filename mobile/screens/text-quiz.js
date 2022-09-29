@@ -6,6 +6,7 @@ import SnackButton from '../components/snack-button.js'
 import Spinner from '../components/spinner.js'
 import TextQuizVocabularies from './text-quiz-vocabularies.js'
 import { useSelector } from 'react-redux'
+import * as Haptics from 'expo-haptics'
 
 const selector = (state) => state.text
 
@@ -55,8 +56,10 @@ const TextQuiz = () => {
       addWordIdToCorrectAnswers(arabicWordId)
       setIsSecondWord(false)
       handleSetArabic(index, arabicWordId)
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
       if (correctAnswers.length === numberOfWordInQuiz) {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
         setCelebrationSnackBarVisibility(true)
         setTimeout(() => {
           setCurrentBatch(currentBatch + 1)
@@ -90,8 +93,10 @@ const TextQuiz = () => {
       addWordIdToCorrectAnswers(englishWordId)
       setIsSecondWord(false)
       handleSetEnglish(index, englishWordId)
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
       if (correctAnswers.length === numberOfWordInQuiz) {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
         setCelebrationSnackBarVisibility(true)
         setTimeout(() => {
           setCurrentBatch(currentBatch + 1)
