@@ -45,9 +45,9 @@ export default function TextDrawer() {
     }
   })
 
-  const categoryItems = categories.map((category, index) => (
+  const categoryItems = categories.map((category) => (
     <Drawer.Screen
-      name={category.name}
+      name={category.id}
       key={category.id}
       component={TextList}
       initialParams={{ category: category.name }}

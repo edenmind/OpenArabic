@@ -21,11 +21,15 @@ function TextListCard(properties) {
                 {text.author}
               </Typography>
               <div dir="rtl">
-                <Typography variant="h5">{wordProcessing.truncate(text.texts.arabic, 125)}</Typography>
+                <Typography variant="h5">
+                  {text.texts.arabic != undefined && wordProcessing.truncate(text.texts.arabic, 125)}
+                </Typography>
               </div>
               <div dir="ltr">
                 <br />
-                <Typography>{wordProcessing.truncate(text.texts.english, 125)}</Typography>
+                <Typography>
+                  {text.texts.english != undefined && wordProcessing.truncate(text.texts.english, 125)}
+                </Typography>
               </div>
             </CardContent>
           </CardActionArea>

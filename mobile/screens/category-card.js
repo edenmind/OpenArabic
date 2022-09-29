@@ -52,8 +52,12 @@ export default function CategoryCard(props) {
         <Card.Cover source={{ uri: props.text.image }} />
         <Card.Title title={props.text.title} subtitle={`${props.text.author} — ${props.text.source}`} />
         <Card.Content>
-          <Paragraph>{prepareIngress(props.text.texts.english, 125)}</Paragraph>
-          <Paragraph style={style.arabic}>{prepareIngress(props.text.texts.arabic, 100)}</Paragraph>
+          <Paragraph>
+            {props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)}
+          </Paragraph>
+          <Paragraph style={style.arabic}>
+            {props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)}
+          </Paragraph>
         </Card.Content>
         <Card.Actions style={style.cardAction}>
           <Caption>{category}</Caption>
