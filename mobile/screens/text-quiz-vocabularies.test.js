@@ -13,9 +13,12 @@ const pressEnglishWordHandler = () => {}
 describe('<TextQuizVocabularies />', () => {
   it('has 1 child', () => {
     const vocabularyCollection = {
-      arabic: [{ word: 'a', wordId: '1' }],
-      english: [{ word: 'e', wordId: '1' }]
+      numberOfBatches: 1,
+      arabic: [[{ word: 'a', wordId: '1' }]],
+      english: [[{ word: 'e', wordId: '1' }]]
     }
+
+    const currentBatch = 0
 
     const arabicSelectedCollection = [true, true, true]
     const englishSelectedCollection = [true, true, true]
@@ -24,6 +27,7 @@ describe('<TextQuizVocabularies />', () => {
       .create(
         <Provider store={store}>
           <TextQuizVocabularies
+            currentBatch={currentBatch}
             vocabularyCollection={vocabularyCollection}
             pressArabicWordHandler={pressArabicWordHandler}
             pressEnglishWordHandler={pressEnglishWordHandler}

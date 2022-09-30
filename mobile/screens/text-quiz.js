@@ -12,7 +12,7 @@ const selector = (state) => state.text
 
 const TextQuiz = () => {
   const numberOfWordInQuiz = 4
-  const celebrationText = 'MashaAllah! 🎉 Let us get some new words...'
+  const celebrationText = 'MashaAllah - All Words Correct 🎉🎉🎉 '
 
   const { text } = useSelector(selector)
 
@@ -61,9 +61,16 @@ const TextQuiz = () => {
       if (correctAnswers.length === numberOfWordInQuiz) {
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
         setCelebrationSnackBarVisibility(true)
+
         setTimeout(() => {
-          setCurrentBatch(currentBatch + 1)
           resetState()
+
+          if (currentBatch === text.vocabularyCollection.numberOfBatches - 1) {
+            setCurrentBatch(0)
+            return
+          }
+
+          setCurrentBatch(currentBatch + 1)
         }, 1500)
       } // show celebration
 
@@ -98,9 +105,16 @@ const TextQuiz = () => {
       if (correctAnswers.length === numberOfWordInQuiz) {
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
         setCelebrationSnackBarVisibility(true)
+
         setTimeout(() => {
-          setCurrentBatch(currentBatch + 1)
           resetState()
+
+          if (currentBatch === text.vocabularyCollection.numberOfBatches - 1) {
+            setCurrentBatch(0)
+            return
+          }
+
+          setCurrentBatch(currentBatch + 1)
         }, 1500)
       } // show celebration
 

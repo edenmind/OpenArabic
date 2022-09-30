@@ -6,6 +6,6 @@
     "dev": "serve ./open-source-dev-images -p 3010"
   },
   "dependencies": {
-    "serve": "^14.0"
+    "serve": "^14.0.1"
   }
 }

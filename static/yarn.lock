@@ -607,7 +607,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"serve@npm:^14.0":
+"serve@npm:^14.0.1":
   version: 14.0.1
   resolution: "serve@npm:14.0.1"
   dependencies:
@@ -655,7 +655,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "static@workspace:."
   dependencies:
-    serve: ^14.0
+    serve: ^14.0.1
   languageName: unknown
   linkType: soft
 

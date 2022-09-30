@@ -2512,9 +2512,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^5.17.4":
-  version: 5.17.4
-  resolution: "@mui/x-data-grid@npm:5.17.4"
+"@mui/x-data-grid@npm:^5.17.5":
+  version: 5.17.5
+  resolution: "@mui/x-data-grid@npm:5.17.5"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@mui/utils": ^5.10.3
@@ -2526,7 +2526,7 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: 9f88883fd9c99600ade8debc78d81ac4829690dede2c440f8feffae7832c3147c6e5d9e5a894b9fa36c043add4d2698496f82ab1988139f602375dbaed1f59a2
+  checksum: 7db9a241d13ed0b37a1e7c7a495b835d9cb4f86b4d12cc3c55ad6d237823e62380610bc59a8944c24c25f9d6f8be576d131b8f4d5cf5f6ee3358d7063f9243ac
   languageName: node
   linkType: hard
 
@@ -12094,7 +12094,7 @@ __metadata:
     "@mui/icons-material": ^5.10.6
     "@mui/lab": ^5.0.0-alpha.101
     "@mui/material": ^5.10.7
-    "@mui/x-data-grid": ^5.17.4
+    "@mui/x-data-grid": ^5.17.5
     "@mui/x-date-pickers": ^5.0.3
     "@reduxjs/toolkit": ^1.8.5
     "@testing-library/jest-dom": ^5.16.5
