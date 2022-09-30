@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-object-injection */
 /* eslint-disable prettier/prettier */
 /* eslint-disable newline-per-chained-call */
 
@@ -56,6 +57,8 @@ async function getText(request, reply) {
 
   const vocabularyCollection = produceVocabularyCollection(text)
   text.vocabularyCollection = vocabularyCollection
+  // eslint-disable-next-line putout/putout
+  console.log('vocabularyCollection', vocabularyCollection)
 
   text ? reply.send(text) : reply.notFound('The Text was not found')
 }
@@ -131,49 +134,78 @@ const shuffleArray = (array) => {
 }
 
 function produceVocabularyCollection(text) {
-  const arabicVocabulary = []
-  const englishVocabulary = []
-  let batch = 0
-  let counter = 0
+  const arabicVocabulary = [[]]
+  const englishVocabulary = [[]]
+
+  const maxWordsInBatch = 5
+  let currentBatchNumber = 0
+  let wordsInCurrentBatch = 0
+
+  let numberOfWords = 0
+
+  for (const sentence of text.sentences) {
+    for (const word of sentence.words) {
+      if (word.quiz) {
+        ++numberOfWords
+        // eslint-disable-next-line putout/putout
+        console.log('sentence number:', numberOfWords)
+      }
+    }
+  }
+
+  const maxNumberOfBatches = Math.floor(numberOfWords / maxWordsInBatch)
 
   for (const sentence of text.sentences) {
     for (const word of sentence.words) {
       if (!word.quiz) {
+        // don't add words not suitable for the quiz
         continue
       }
 
-      if (counter === 5) {
-        ++batch
-        counter = 0
+      // eslint-disable-next-line putout/putout
+      console.log('max number:', maxNumberOfBatches)
+
+      if (currentBatchNumber === maxNumberOfBatches) {
+        break
       }
 
-      ++counter
-
-      // eslint-disable-next-line putout/putout
-      console.log('batch:', batch)
-
+      // Prepare the word to add
       const wordId = uuidv4()
 
       const arabicWord = {
         word: word.arabic,
-        wordId,
-        batch
+        wordId
       }
 
       const englishWord = {
         word: word.english,
-        wordId,
-        batch
+        wordId
       }
 
-      arabicVocabulary.push(arabicWord)
-      englishVocabulary.push(englishWord)
+      arabicVocabulary[currentBatchNumber].push(arabicWord)
+      englishVocabulary[currentBatchNumber].push(englishWord)
+
+      ++wordsInCurrentBatch
+
+      // prepare the next batch
+      if (wordsInCurrentBatch === maxWordsInBatch) {
+        // Shuffle words in current batch so they don't appear next each other
+        arabicVocabulary[currentBatchNumber] = shuffleArray(arabicVocabulary[currentBatchNumber])
+        englishVocabulary[currentBatchNumber] = shuffleArray(englishVocabulary[currentBatchNumber])
+        // Proceed to next batch
+        ++currentBatchNumber
+        // Initialize the new batches array
+        arabicVocabulary[currentBatchNumber] = []
+        englishVocabulary[currentBatchNumber] = []
+        wordsInCurrentBatch = 0
+      }
     }
   }
 
   return {
-    arabic: shuffleArray(arabicVocabulary),
-    english: shuffleArray(englishVocabulary)
+    numberOfBatches: currentBatchNumber,
+    arabic: arabicVocabulary,
+    english: englishVocabulary
   }
 }
 

@@ -9,7 +9,7 @@ import LANGUAGES from '../constants/languages.js'
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
     chipContainer: {
-      paddingTop: 30,
+      paddingTop: 25,
       width: '50%'
     },
     container: {
@@ -17,29 +17,25 @@ function TextQuizVocabularies(props) {
     }
   })
 
-  const arabicVocabularies = props.vocabularyCollection.arabic
-    .filter((arabic) => arabic.batch == props.currentBatch)
-    .map((arabic, index) => (
-      <SelectableChip
-        language={LANGUAGES.arabic}
-        key={index}
-        text={arabic.word}
-        func={() => props.pressArabicWordHandler(index, arabic.wordId)}
-        selected={props.arabicSelectedCollection[index] ?? false}
-      />
-    ))
+  const arabicVocabularies = props.vocabularyCollection.arabic[props.currentBatch].map((arabic, index) => (
+    <SelectableChip
+      language={LANGUAGES.arabic}
+      key={index}
+      text={arabic.word}
+      func={() => props.pressArabicWordHandler(index, arabic.wordId)}
+      selected={props.arabicSelectedCollection[index] ?? false}
+    />
+  ))
 
-  const englishVocabularies = props.vocabularyCollection.english
-    .filter((english) => english.batch == props.currentBatch)
-    .map((english, index) => (
-      <SelectableChip
-        language={LANGUAGES.english}
-        key={index}
-        text={english.word}
-        func={() => props.pressEnglishWordHandler(index, english.wordId)}
-        selected={props.englishSelectedCollection[index] ?? false}
-      />
-    ))
+  const englishVocabularies = props.vocabularyCollection.english[props.currentBatch].map((english, index) => (
+    <SelectableChip
+      language={LANGUAGES.english}
+      key={index}
+      text={english.word}
+      func={() => props.pressEnglishWordHandler(index, english.wordId)}
+      selected={props.englishSelectedCollection[index] ?? false}
+    />
+  ))
 
   return (
     <View style={styles.container}>
