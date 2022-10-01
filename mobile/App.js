@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import Root from './routes/root.js'
 import { store } from './redux/store.js'
 import * as Sentry from 'sentry-expo'
+import ErrorBoundary from 'react-native-error-boundary'
 
 export default function App() {
   Sentry.init({
@@ -13,10 +14,12 @@ export default function App() {
   })
 
   return (
-    <Provider store={store}>
-      <PaperProvider theme={PAPERTHEME}>
-        <Root />
-      </PaperProvider>
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <PaperProvider theme={PAPERTHEME}>
+          <Root />
+        </PaperProvider>
+      </Provider>
+    </ErrorBoundary>
   )
 }
