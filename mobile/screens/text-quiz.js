@@ -9,12 +9,14 @@ import { useSelector } from 'react-redux'
 import * as Haptics from 'expo-haptics'
 
 const selector = (state) => state.text
+const textLoadSelector = (state) => state.textLoading
 
 const TextQuiz = () => {
   const numberOfWordInQuiz = 4
   const celebrationText = 'MashaAllah - All Words Correct 🎉🎉🎉 '
 
   const { text } = useSelector(selector)
+  const { textLoading } = useSelector(textLoadSelector)
 
   const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
   const [currentBatch, setCurrentBatch] = React.useState(0)
@@ -145,7 +147,7 @@ const TextQuiz = () => {
     setEnglishSelected([])
   }
 
-  return text.title ? (
+  return textLoading ? (
     <Fragment>
       <TextQuizVocabularies
         currentBatch={currentBatch}

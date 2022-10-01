@@ -6,7 +6,8 @@ import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 
-const selector = (state) => state.text
+const textSelector = (state) => state.text
+const textLoadSelector = (state) => state.textLoading
 
 export default function TextArabic() {
   const style = StyleSheet.create({
@@ -20,9 +21,10 @@ export default function TextArabic() {
     }
   })
 
-  const { text } = useSelector(selector)
+  const { text } = useSelector(textSelector)
+  const { textLoading } = useSelector(textLoadSelector)
 
-  return text.title ? (
+  return textLoading ? (
     <ScrollView>
       <Paragraph style={style.arabic}>{text.texts.arabic}</Paragraph>
     </ScrollView>

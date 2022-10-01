@@ -1,3 +1,664 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TextArabic /> renders correctly 1`] = `null`;
+exports[`<TextArabic /> renders correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <Image
+      source={
+        Object {
+          "uri": "abc",
+        }
+      }
+      style={
+        Object {
+          "height": 250,
+          "width": "100%",
+        }
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "500",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 20,
+                "letterSpacing": 0.15,
+                "lineHeight": 30,
+                "marginVertical": 2,
+              },
+              Object {
+                "paddingTop": 55,
+                "textAlign": "center",
+              },
+            ],
+          ],
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 16,
+                "letterSpacing": 0.5,
+                "lineHeight": 24,
+                "marginVertical": 2,
+              },
+              Object {
+                "textAlign": "center",
+              },
+            ],
+          ],
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "rgba(0, 0, 0, 0.54)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 12,
+                "letterSpacing": 0.4,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "paddingBottom": 10,
+                "textAlign": "center",
+              },
+            ],
+          ],
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "paddingBottom": 55,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "direction": "rtl",
+              "flex": 1,
+              "fontSize": 25,
+              "lineHeight": 33,
+              "paddingBottom": 10,
+              "paddingLeft": 33,
+              "paddingRight": 33,
+              "paddingTop": 33,
+              "writingDirection": "rtl",
+            },
+          ]
+        }
+      >
+        a1
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "direction": "ltr",
+              "flex": 1,
+              "lineHeight": 25,
+              "paddingLeft": 33,
+              "paddingRight": 33,
+              "writingDirection": "ltr",
+            },
+          ]
+        }
+      >
+        e1
+      </Text>
+      <View
+        collapsable={false}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 0,
+            "minWidth": 64,
+            "paddingLeft": 100,
+            "paddingRight": 100,
+            "paddingTop": 15,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#6200ee",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#cccccc",
+                    },
+                  ]
+                }
+              >
+                Vocabulary
+              </Text>
+            </Text>
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "direction": "rtl",
+              "flex": 1,
+              "fontSize": 25,
+              "lineHeight": 33,
+              "paddingBottom": 10,
+              "paddingLeft": 33,
+              "paddingRight": 33,
+              "paddingTop": 33,
+              "writingDirection": "rtl",
+            },
+          ]
+        }
+      >
+        a2
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "direction": "ltr",
+              "flex": 1,
+              "lineHeight": 25,
+              "paddingLeft": 33,
+              "paddingRight": 33,
+              "writingDirection": "ltr",
+            },
+          ]
+        }
+      >
+        e2
+      </Text>
+      <View
+        collapsable={false}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 0,
+            "minWidth": 64,
+            "paddingLeft": 100,
+            "paddingRight": 100,
+            "paddingTop": 15,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#6200ee",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#cccccc",
+                    },
+                  ]
+                }
+              >
+                Vocabulary
+              </Text>
+            </Text>
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "direction": "rtl",
+              "flex": 1,
+              "fontSize": 25,
+              "lineHeight": 33,
+              "paddingBottom": 10,
+              "paddingLeft": 33,
+              "paddingRight": 33,
+              "paddingTop": 33,
+              "writingDirection": "rtl",
+            },
+          ]
+        }
+      >
+        a3
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "direction": "ltr",
+              "flex": 1,
+              "lineHeight": 25,
+              "paddingLeft": 33,
+              "paddingRight": 33,
+              "writingDirection": "ltr",
+            },
+          ]
+        }
+      >
+        e3
+      </Text>
+      <View
+        collapsable={false}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 0,
+            "minWidth": 64,
+            "paddingLeft": 100,
+            "paddingRight": 100,
+            "paddingTop": 15,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#6200ee",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#cccccc",
+                    },
+                  ]
+                }
+              >
+                Vocabulary
+              </Text>
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
