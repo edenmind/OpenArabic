@@ -30,9 +30,9 @@ function NavDrawer(props) {
         <List>
           {categories.map((category, index) => (
             <ListItem key={index}>
-              <Link to={`/texts/categories/${category.name}`}>
-                <Button variant="text">{category.name}</Button>
-              </Link>
+              <Button component={Link} to={`/texts/categories/${category.name}`}>
+                {category.name}
+              </Button>
             </ListItem>
           ))}
         </List>
@@ -43,9 +43,9 @@ function NavDrawer(props) {
             <List>
               {['Texts', 'Categories', 'Authors'].map((item, index) => (
                 <ListItem key={index}>
-                  <Link to={`/${item}`}>
-                    <Button variant="text">{item}</Button>
-                  </Link>
+                  <Button component={Link} to={`/${item}`}>
+                    {item}
+                  </Button>
                 </ListItem>
               ))}
             </List>

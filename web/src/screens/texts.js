@@ -142,9 +142,9 @@ export default function Texts() {
           <DataGrid rows={texts} columns={columns} pageSize={15} rowsPerPageOptions={[5]} />
         </div>
 
-        <Link to="/texts/add">
-          <Button variant="contained">Add Text</Button>
-        </Link>
+        <Button variant="contained" component={Link} to="/texts/add">
+          Add Text
+        </Button>
         <Footer />
       </Container>
       <ConfirmationDialog

@@ -21,7 +21,7 @@ function TextAddWords() {
     <Fragment key={indexSentence}>
       <Stack spacing={0} style={{ paddingBottom: '70px', width: '700px' }}>
         <h3>
-          {sentence.english}: {sentence.arabic}
+          {sentence.english} {sentence.arabic}
         </h3>
 
         {sentence.words.map((word, indexArabicWord) => (
@@ -51,7 +51,7 @@ function TextAddWords() {
 
   return (
     <Fragment>
-      {text.arabicSentence.length > 1 ? <TextAddWordsGenerate /> : <Chip color="warning" label="No Sentences Added" />}
+      {<TextAddWordsGenerate />}
       <br />
       <br />
       {sentences}
