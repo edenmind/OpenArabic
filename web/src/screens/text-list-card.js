@@ -1,6 +1,7 @@
 import * as wordProcessing from '../services/word-processing.js'
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
+import { Link as RouterLink } from 'react-router-dom'
 
 function TextListCard(properties) {
   return properties.texts
@@ -8,7 +9,7 @@ function TextListCard(properties) {
     .map((text, index) => (
       <Grid item md={4} xs={12} key={index}>
         <Card>
-          <CardActionArea href={`/texts/${text.id}`}>
+          <CardActionArea component={RouterLink} to={`/texts/${text.id}`}>
             <CardMedia component="img" height="194" image={text.image} />
             <CardContent>
               <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

@@ -21,6 +21,7 @@ root.render(
       domain="dev-7yb6kp7f.eu.auth0.com"
       clientId="qMfwZdOKxHHnPwPLQturQ9LB4x2OAEKX"
       redirectUri={window.location.origin}
+      useRefreshTokens={true}
     >
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
