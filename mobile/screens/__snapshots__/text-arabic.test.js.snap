@@ -1,3 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TextArabic /> renders correctly 1`] = `null`;
+exports[`<TextArabic /> renders correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 14,
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              Object {
+                "direction": "rtl",
+                "flex": 1,
+                "fontSize": 25,
+                "lineHeight": 45,
+                "padding": 25,
+                "writingDirection": "rtl",
+              },
+            ],
+          ],
+        ]
+      }
+    />
+  </View>
+</RCTScrollView>
+`;

@@ -23,10 +23,21 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const getText = (id) => async (dispatch) => {
-  const res = await axios.get(url.textWithId(id)).catch((error) => console.log(error))
+  dispatch({
+    type: 'RESET_TEXT'
+  })
+  dispatch({
+    type: 'SET_TEXT_LOADED',
+    payload: false
+  })
 
+  const res = await axios.get(url.textWithId(id)).catch((error) => console.log(error))
   dispatch({
     type: 'SET_TEXT',
     payload: res.data
+  })
+  dispatch({
+    type: 'SET_TEXT_LOADED',
+    payload: true
   })
 }

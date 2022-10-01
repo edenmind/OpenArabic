@@ -47,18 +47,8 @@ function TextQuizVocabularies(props) {
 
 TextQuizVocabularies.propTypes = {
   vocabularyCollection: PropTypes.shape({
-    arabic: PropTypes.arrayOf(
-      PropTypes.shape({
-        word: PropTypes.string.isRequired,
-        wordId: PropTypes.string.isRequired
-      })
-    ),
-    english: PropTypes.arrayOf(
-      PropTypes.shape({
-        word: PropTypes.string.isRequired,
-        wordId: PropTypes.string.isRequired
-      })
-    )
+    arabic: PropTypes.array.isRequired,
+    english: PropTypes.array.isRequired
   }),
   currentBatch: PropTypes.number.isRequired,
   pressEnglishWordHandler: PropTypes.func.isRequired,

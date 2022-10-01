@@ -8,11 +8,13 @@ import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 
 const selector = (state) => state.text
+const textLoadSelector = (state) => state.textLoading
 
 export default function TextBilingual() {
   const { text } = useSelector(selector)
+  const { textLoading } = useSelector(textLoadSelector)
 
-  return text.title ? (
+  return textLoading ? (
     <ScrollView>
       <Heading heading={text} />
       <Sentences sentences={text.sentences} />
