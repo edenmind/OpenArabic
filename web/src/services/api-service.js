@@ -1,7 +1,9 @@
 import axios from 'axios'
 
-export const getTexts = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}/texts`)
+export const getTexts = async (id) => {
+  const url = id ? `${process.env.REACT_APP_API_URL}/texts/categories/${id}` : `${process.env.REACT_APP_API_URL}/texts`
+  const response = await axios.get(url)
+
   return response.data
 }
 
