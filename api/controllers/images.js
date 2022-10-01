@@ -29,6 +29,15 @@ function getImages(request, reply) {
     },
     {
       img: `${process.env.API_IMAGES_URL}9.png`
+    },
+    {
+      img: `${process.env.API_IMAGES_URL}10.png`
+    },
+    {
+      img: `${process.env.API_IMAGES_URL}11.png`
+    },
+    {
+      img: `${process.env.API_IMAGES_URL}12.png`
     }
   ]
 
