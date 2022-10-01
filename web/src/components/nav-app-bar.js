@@ -24,20 +24,17 @@ function NavAppBar(props) {
           <MenuIcon />
         </IconButton>
         <Typography component="div" sx={{ flexGrow: 1 }}>
-          <Link to="/">
-            <Button variant="text">
-              <h3>OpenArabic</h3>
-            </Button>
-          </Link>
+          <Button component={Link} to="/">
+            <h3>OpenArabic</h3>
+          </Button>
         </Typography>
+        <Button component={Link} to="/about">
+          About
+        </Button>
 
-        <Link to="/about">
-          <Button variant="text">About</Button>
-        </Link>
-
-        <Link to="/privacy">
-          <Button variant="text">Privacy</Button>
-        </Link>
+        <Button component={Link} to="/privacy">
+          Privacy
+        </Button>
 
         {!props.isAuthenticated && <LoginButton />}
         {props.isAuthenticated && <LogoutButton />}
