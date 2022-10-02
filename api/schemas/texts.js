@@ -54,7 +54,18 @@ const updateTextOptions = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image'],
+      required: [
+        'title',
+        'author',
+        'category',
+        'source',
+        'sentences',
+        'texts',
+        'status',
+        'image',
+        'updatedAt',
+        'publishAt'
+      ],
       properties: {
         title: { type: 'string' },
         status: { type: 'string' },
@@ -84,7 +95,18 @@ const postTextOptions = {
   schema: {
     body: {
       type: 'object',
-      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image'],
+      required: [
+        'title',
+        'author',
+        'category',
+        'source',
+        'sentences',
+        'texts',
+        'status',
+        'image',
+        'publishAt',
+        'createdAt'
+      ],
       properties: {
         title: { type: 'string' },
         status: { type: 'string' },
