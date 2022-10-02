@@ -23,6 +23,23 @@ test('create new category', async (t) => {
   t.equal(result.statusCode, 201)
 })
 
+test('create new category w/o auth key', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/categories',
+    method: 'POST',
+    payload: {
+      name: 'the_name'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 500)
+})
+
 test('list categories', async (t) => {
   //arrange
   const app = await build(t)
