@@ -1,3 +1,4 @@
+/* eslint-disable putout/nonblock-statement-body-newline */
 import { Button, Chip, Stack } from '@mui/material'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,6 +19,7 @@ function TextAddPublish() {
 
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [postMessage, setPostMessage] = React.useState('')
+  const [postState, setPostState] = React.useState('')
 
   const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
   const resetText = () => dispatch({ type: 'RESET_TEXT' })
@@ -45,36 +47,47 @@ function TextAddPublish() {
     api
       .addText(text)
       .then((res) => {
-        if (res) {
+        if (res.success) {
           setOpenSnackbar(true)
-          setPostMessage('Text added!')
+          setPostMessage(res.message)
+          setPostState('success')
           setTimeout(() => {
+            resetText()
             navigate('/texts')
           }, 1500)
-        } else {
-          setPostMessage('Could not add text!')
-          setOpenSnackbar(true)
+
+          return
         }
+
+        setPostMessage(res.message)
+        setPostState('error')
+        setOpenSnackbar(true)
       })
       .catch((error) => console.log(error))
   }
 
   const updateText = () => {
+    console.log('starting')
     api
       .updateText(text, id)
       .then((res) => {
-        if (res) {
+        if (res.success) {
           setOpenSnackbar(true)
-          setPostMessage('Text updated!')
-          setTimeout(() => {
-            navigate('/texts')
-          }, 1500)
-        } else {
-          setPostMessage('Could not update text!')
-          setOpenSnackbar(true)
+          setPostState('success')
+          setPostMessage(res.message)
+          console.log('success')
+
+          return
         }
+
+        console.log('failure')
+
+        setPostState('error')
+        setPostMessage(res.message)
+        setOpenSnackbar(true)
       })
       .catch((error) => console.log(error))
+    console.log('pass through')
   }
 
   return (
@@ -124,7 +137,7 @@ function TextAddPublish() {
       <SnackBar
         openSnackBar={openSnackBar}
         handleCloseSnackbar={handleCloseSnackbar}
-        severity="success"
+        severity={postState}
         message={postMessage}
       />
     </Fragment>

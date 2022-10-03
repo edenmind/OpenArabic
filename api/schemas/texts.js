@@ -54,18 +54,7 @@ const updateTextOptions = {
   schema: {
     body: {
       type: 'object',
-      required: [
-        'title',
-        'author',
-        'category',
-        'source',
-        'sentences',
-        'texts',
-        'status',
-        'image',
-        'updatedAt',
-        'publishAt'
-      ],
+      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image', 'publishAt'],
       properties: {
         title: { type: 'string' },
         status: { type: 'string' },
@@ -75,7 +64,7 @@ const updateTextOptions = {
         publishAt: { type: 'string' },
         category: { type: 'string' },
         source: { type: 'string' },
-        sentences: { type: 'array' },
+        sentences: { type: 'array', minItems: 10 },
         texts: { type: 'object' }
       }
     },
@@ -95,18 +84,7 @@ const postTextOptions = {
   schema: {
     body: {
       type: 'object',
-      required: [
-        'title',
-        'author',
-        'category',
-        'source',
-        'sentences',
-        'texts',
-        'status',
-        'image',
-        'publishAt',
-        'createdAt'
-      ],
+      required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image', 'publishAt'],
       properties: {
         title: { type: 'string' },
         status: { type: 'string' },
@@ -116,7 +94,7 @@ const postTextOptions = {
         author: { type: 'string' },
         category: { type: 'string' },
         source: { type: 'string' },
-        sentences: { type: 'array' },
+        sentences: { type: 'array', minItems: 10 },
         texts: { type: 'object' }
       }
     },
