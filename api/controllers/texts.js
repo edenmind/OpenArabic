@@ -46,9 +46,23 @@ async function addText(request, reply) {
     texts,
     status
   }
-  const result = await textsCollection.insertOne(data)
 
-  reply.code(201).send(result.insertedId)
+  let checkForEmptySuccess = true
+  let checkForEmptyMessage = ''
+
+  for (const key in data) {
+    if (data[key].length === 0) {
+      checkForEmptySuccess = false
+      checkForEmptyMessage = `${key} must have a value!`
+    }
+  }
+
+  if (checkForEmptySuccess) {
+    const result = await textsCollection.insertOne(data)
+    reply.code(201).send(result.insertedId)
+  } else {
+    reply.internalServerError(checkForEmptyMessage)
+  }
 }
 
 async function getText(request, reply) {
@@ -58,8 +72,6 @@ async function getText(request, reply) {
 
   const vocabularyCollection = produceVocabularyCollection(text)
   text.vocabularyCollection = vocabularyCollection
-  // eslint-disable-next-line putout/putout
-  console.log('vocabularyCollection', vocabularyCollection)
 
   text ? reply.send(text) : reply.notFound('The text was not found')
 }
@@ -87,7 +99,7 @@ async function updateText(request, reply) {
 
   const { title, author, category, sentences, source, texts, publishAt, status, image } = body
   const { arabic, english } = texts
-  const updateDocument = {
+  const data = {
     $set: {
       title,
       category,
@@ -104,13 +116,30 @@ async function updateText(request, reply) {
       sentences
     }
   }
-  const result = await textsCollection.updateOne({ id: new ObjectId(request.params.id) }, updateDocument, {
-    upsert: true
-  })
 
-  reply.send({
-    message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`
-  })
+  // eslint-disable-next-line putout/putout
+  console.log('the data:', data)
+
+  let checkForEmptySuccess = true
+  let checkForEmptyMessage = ''
+
+  for (const key in data.$set) {
+    if (data.$set[key].length === 0) {
+      checkForEmptySuccess = false
+      checkForEmptyMessage = `${key} must have a value!`
+    }
+  }
+
+  if (checkForEmptySuccess) {
+    const result = await textsCollection.updateOne({ id: new ObjectId(request.params.id) }, data, {
+      upsert: true
+    })
+    reply.send({
+      message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`
+    })
+  } else {
+    reply.internalServerError(checkForEmptyMessage)
+  }
 }
 
 async function deleteText(request, reply) {

@@ -23,13 +23,42 @@ test('create new text', async (t) => {
       author: 'abc',
       category: 'abc',
       source: 'abc',
-      sentences: ['abc', 'abc', 'abc'],
+      sentences: ['abc', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc'],
       texts: {}
     }
   })
 
   //assert
   t.equal(result.statusCode, 201)
+})
+
+test('create new text with the few sentences', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts',
+    method: 'POST',
+    headers: {
+      auth: 'somesecurekey'
+    },
+    payload: {
+      title: 'abc',
+      status: 'abc',
+      image: 'abc',
+      createdAt: 'abc',
+      publishAt: 'abc',
+      author: 'abc',
+      category: 'abc',
+      source: 'abc',
+      sentences: ['abc', 'abc', 'abc', 'abc', 'abc'],
+      texts: {}
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 400)
 })
 
 test('create new text w/o auth header', async (t) => {
@@ -55,7 +84,7 @@ test('create new text w/o auth header', async (t) => {
   })
 
   //assert
-  t.equal(result.statusCode, 500)
+  t.equal(result.statusCode, 400)
 })
 
 test('try to create new text with not enough data', async (t) => {

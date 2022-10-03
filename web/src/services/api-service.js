@@ -124,11 +124,11 @@ export const updateCategory = async (category, id) => {
   return result.status === 200
 }
 
-export const addText = (text) => {
+export const addText = async (text) => {
   const { title, author, image, category, sentences, source, texts, status, publishAt } = text
   const { arabic, english } = texts
 
-  axios({
+  const response = await axios({
     method: 'post',
     url: `${process.env.REACT_APP_API_URL}/texts`,
     headers: {
@@ -148,11 +148,24 @@ export const addText = (text) => {
       source,
       sentences
     }
+  }).catch((error) => {
+    return {
+      success: false,
+      message: error
+    }
   })
-    .then((response) => {
-      return response.status === 201
-    })
-    .catch((error) => console.log(error))
+
+  if (response.status === 201) {
+    return {
+      success: true,
+      message: 'The text was created!'
+    }
+  }
+
+  return {
+    success: false,
+    message: 'Error: ' + response.message.response.data.message
+  }
 }
 
 export const getText = async (id) => {
@@ -170,11 +183,11 @@ export const getTextToRedux = (id) => async (dispatch) => {
   })
 }
 
-export const updateText = (text, id) => {
+export const updateText = async (text, id) => {
   const { title, author, image, category, sentences, source, texts, status, publishAt } = text
   const { arabic, english } = texts
 
-  axios({
+  const response = await axios({
     method: 'put',
     url: `${process.env.REACT_APP_API_URL}/texts/${id}`,
     headers: {
@@ -194,11 +207,26 @@ export const updateText = (text, id) => {
       source,
       sentences
     }
+  }).catch((error) => {
+    return {
+      success: false,
+      message: error
+    }
   })
-    .then((response) => {
-      return response.status === 200
-    })
-    .catch((error) => console.log(error))
+
+  console.log('the response:', response)
+
+  if (response.status == 200) {
+    return {
+      success: true,
+      message: response.data.message
+    }
+  }
+
+  return {
+    success: false,
+    message: 'Error: ' + response.message.response.data.message
+  }
 }
 
 export const deleteText = async (id) => {
