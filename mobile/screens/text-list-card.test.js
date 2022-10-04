@@ -1,7 +1,8 @@
-import { expect, describe, it, jest } from '@jest/globals'
-import { render } from '@testing-library/react-native'
+import { describe, expect, it, jest } from '@jest/globals'
+
+import CategoryCard from './text-list-card.js'
 import React from 'react'
-import CategoryCard from './category-card.js'
+import { render } from '@testing-library/react-native'
 import renderer from 'react-test-renderer'
 
 jest.useFakeTimers()

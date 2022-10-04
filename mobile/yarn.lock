@@ -7846,13 +7846,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-modules-core@npm:0.11.5":
-  version: 0.11.5
-  resolution: "expo-modules-core@npm:0.11.5"
+"expo-modules-core@npm:0.11.6":
+  version: 0.11.6
+  resolution: "expo-modules-core@npm:0.11.6"
   dependencies:
     compare-versions: ^3.4.0
     invariant: ^2.2.4
-  checksum: 304e60c5f8b6b9c8f13f13fffa111bb9819b15bc06c6ff173d70857da6d25dc3039325c1b27c013c9646a7158c61298972a97a6db3fe0c6399bef70b7410337a
+  checksum: b027a16e3622b888da13b20a7dbeeb6e9f269d07e7bb9f9a5f5c6c4ddb60994aab80c2f89a81cfa7b8f68a14bd83dd51c705eaec1b99d06b64fa68961a180d34
   languageName: node
   linkType: hard
 
@@ -7896,9 +7896,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:^46.0.13":
-  version: 46.0.13
-  resolution: "expo@npm:46.0.13"
+"expo@npm:^46.0.14":
+  version: 46.0.14
+  resolution: "expo@npm:46.0.14"
   dependencies:
     "@babel/runtime": ^7.14.0
     "@expo/cli": 0.3.1
@@ -7913,7 +7913,7 @@ __metadata:
     expo-font: ~10.2.1
     expo-keep-awake: ~10.2.0
     expo-modules-autolinking: 0.10.3
-    expo-modules-core: 0.11.5
+    expo-modules-core: 0.11.6
     fbemitter: ^3.0.0
     getenv: ^1.0.0
     invariant: ^2.2.4
@@ -7926,7 +7926,7 @@ __metadata:
       optional: true
   bin:
     expo: bin/cli.js
-  checksum: bd3e355cacddb467fcc23d66a467a63bc34e27655abfcde44c18fcf9faec58cb18cff18711dc80812b1e2a0a7559ced9c96b980f70f062ed784269b83d2d60b3
+  checksum: c0bbe6fae9aacf17a085098f198e4d778c96103cd2eb4149e9b1808e70e716e3fd4e9312e1b6c1915d50af9a603ffd351620386faa9368d9630fc99ab2da6e94
   languageName: node
   linkType: hard
 
@@ -9992,7 +9992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-expo@npm:^46.0.1":
+"jest-expo@npm:^46.0.0":
   version: 46.0.1
   resolution: "jest-expo@npm:46.0.1"
   dependencies:
@@ -13725,9 +13725,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:^4.12.4":
-  version: 4.12.4
-  resolution: "react-native-paper@npm:4.12.4"
+"react-native-paper@npm:^4.12.5":
+  version: 4.12.5
+  resolution: "react-native-paper@npm:4.12.5"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.7
     color: ^3.1.2
@@ -13736,7 +13736,7 @@ __metadata:
     react: "*"
     react-native: "*"
     react-native-vector-icons: "*"
-  checksum: 7e286c2d373977a6d942a55ae3483ecb093aefa492cc6f9b4f49a2961afc8603ce106300723d41864acd8eb39beb8f87f0560ececd4fa644e0d56c37ea326e31
+  checksum: 016236b716180025f56642185b53fcf39f795f3da4db8690d34027054ca80e20820423abd77ad4cf386fd759541dfe36a0207e48e62a46e4eb170f55556ab327
   languageName: node
   linkType: hard
 
@@ -14703,14 +14703,14 @@ __metadata:
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^44.0.0
-    expo: ^46.0.13
+    expo: ^46.0.14
     expo-application: ~4.2.2
     expo-constants: ~13.2.4
     expo-device: ~4.3.0
     expo-haptics: ~11.3.0
     expo-updates: ~0.14.6
     jest: ^26.6.3
-    jest-expo: ^46.0.1
+    jest-expo: ^46.0.0
     node-notifier: ^10.0.1
     prettier: ^2.7.1
     prop-types: ^15.8.1
@@ -14722,7 +14722,7 @@ __metadata:
     react-native-gesture-handler: ~2.5.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 5.4.24
-    react-native-paper: ^4.12.4
+    react-native-paper: ^4.12.5
     react-native-reanimated: ~2.9.1
     react-native-safe-area-context: 4.3.1
     react-native-screens: ~3.15.0
@@ -14733,7 +14733,7 @@ __metadata:
     react-test-renderer: ^18.2.0
     redux: ^4.2.0
     redux-mock-store: ^1.5.4
-    sentry-expo: ~5.0.2
+    sentry-expo: ~5.0.0
   languageName: unknown
   linkType: soft
 
@@ -14936,7 +14936,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sentry-expo@npm:~5.0.2":
+"sentry-expo@npm:~5.0.0":
   version: 5.0.2
   resolution: "sentry-expo@npm:5.0.2"
   dependencies:

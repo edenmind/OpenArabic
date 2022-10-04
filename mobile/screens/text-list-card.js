@@ -1,6 +1,8 @@
 /* eslint-disable import/namespace */
 import * as utility from '../services/utility-service.js'
+
 import { Caption, Card, Paragraph } from 'react-native-paper'
+
 import COLORS from '../constants/colors.js'
 import PressableOpacity from '../components/pressable-opacity.js'
 import PropTypes from 'prop-types'
@@ -36,7 +38,7 @@ const prepareIngress = (text, length) => {
   return utility.truncate(spaceAfterDot, length)
 }
 
-export default function CategoryCard(props) {
+export default function TextListCard(props) {
   const category = `#${props.text.category.toLowerCase()}`
 
   return (
@@ -67,7 +69,7 @@ export default function CategoryCard(props) {
   )
 }
 
-CategoryCard.propTypes = {
+TextListCard.propTypes = {
   setShouldReload: PropTypes.func.isRequired,
   navigation: PropTypes.object,
   text: PropTypes.shape({

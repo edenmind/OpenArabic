@@ -1,16 +1,17 @@
-import { Caption, Title, Text } from 'react-native-paper'
+import { Caption, Text, Title } from 'react-native-paper'
 /* eslint-disable import/namespace */
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
+import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import COLORS from '../constants/colors.js'
 import SCREENS from '../constants/screens.js'
-import { StyleSheet, Image } from 'react-native'
-import TextList from '../screens/category.js'
+import TextList from '../screens/text-list.js'
 import { getCategories } from '../services/api-service.js'
-import { useFocusEffect } from '@react-navigation/core'
-import packageJson from '../package.json'
 import icon from '../assets/logo.png'
+import packageJson from '../package.json'
+import { useFocusEffect } from '@react-navigation/core'
 
 const selector = (state) => state.categories
 
