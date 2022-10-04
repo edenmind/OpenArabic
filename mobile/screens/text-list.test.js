@@ -1,11 +1,12 @@
 import { describe, it, jest } from '@jest/globals'
-import React from 'react'
-import Category from './category.js'
-import ShallowRenderer from 'react-test-renderer/shallow' // ES6
-import { Provider } from 'react-redux'
-import { store } from '../redux/store.js'
+
+import Category from './text-list.js'
 import NAVIGATIONTHEME from '../constants/navigation-theme.js'
 import { NavigationContainer } from '@react-navigation/native'
+import { Provider } from 'react-redux'
+import React from 'react'
+import ShallowRenderer from 'react-test-renderer/shallow' // ES6
+import { store } from '../redux/store.js'
 
 jest.useFakeTimers()
 

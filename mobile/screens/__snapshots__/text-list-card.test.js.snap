@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoryCard /> renders correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+>
+  <View
+    collapsable={false}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "backgroundColor": "#fdfffd",
+          "borderColor": "rgba(0, 0, 0, 0.12)",
+          "borderRadius": 4,
+          "elevation": 1,
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 10,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 0.5,
+            "width": 0,
+          },
+          "shadowOpacity": 0.24,
+          "shadowRadius": 0.75,
+        }
+      }
+    >
+      <View
+        accessibilityState={
+          Object {
+            "disabled": true,
+          }
+        }
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+        testID="textCard"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#eeeeee",
+                "height": 195,
+                "overflow": "hidden",
+              },
+              Object {
+                "borderTopLeftRadius": 4,
+                "borderTopRightRadius": 4,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Image
+            siblings={
+              Array [
+                "withTheme(Card.Cover)",
+                "withTheme(Card.Title)",
+                "Card.Content",
+                "Card.Actions",
+              ]
+            }
+            source={
+              Object {
+                "uri": undefined,
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "height": undefined,
+                  "justifyContent": "flex-end",
+                  "padding": 16,
+                  "width": undefined,
+                },
+                Object {
+                  "borderTopLeftRadius": 4,
+                  "borderTopRightRadius": 4,
+                },
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingLeft": 16,
+              },
+              Object {
+                "minHeight": 72,
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                      "writingDirection": "ltr",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 20,
+                        "letterSpacing": 0.15,
+                        "lineHeight": 30,
+                        "marginVertical": 2,
+                      },
+                      Array [
+                        Object {
+                          "minHeight": 30,
+                          "paddingRight": 16,
+                        },
+                        Object {
+                          "marginBottom": 0,
+                        },
+                        undefined,
+                      ],
+                    ],
+                  ],
+                ]
+              }
+            >
+              someTitle
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                      "writingDirection": "ltr",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 12,
+                        "letterSpacing": 0.4,
+                        "lineHeight": 20,
+                        "marginVertical": 2,
+                      },
+                      Array [
+                        Object {
+                          "marginVertical": 0,
+                          "minHeight": 20,
+                          "paddingRight": 16,
+                        },
+                        undefined,
+                      ],
+                    ],
+                  ],
+                ]
+              }
+            >
+              someAuthor — undefined
+            </Text>
+          </View>
+          <View />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingHorizontal": 16,
+              },
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 14,
+                      "letterSpacing": 0.25,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            someEnglish
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 14,
+                      "letterSpacing": 0.25,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    Object {
+                      "direction": "rtl",
+                      "fontSize": 18,
+                      "lineHeight": 30,
+                      "writingDirection": "rtl",
+                    },
+                  ],
+                ],
+              ]
+            }
+          >
+            someArabic
+          </Text>
+        </View>
+        <View
+          index={3}
+          siblings={
+            Array [
+              "withTheme(Card.Cover)",
+              "withTheme(Card.Title)",
+              "Card.Content",
+              "Card.Actions",
+            ]
+          }
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "padding": 8,
+              },
+              Object {
+                "marginLeft": 10,
+                "paddingBottom": 20,
+                "paddingTop": 20,
+              },
+            ]
+          }
+          total={4}
+        >
+          <Text
+            compact={true}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            #somecategory
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

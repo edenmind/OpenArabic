@@ -20,6 +20,7 @@
     "@reduxjs/toolkit": "^1.8.5",
     "@sentry/react-native": "4.2.2",
     "axios": "^0.27.2",
+    "axios-retry": "^3.3.1",
     "eslint-plugin-putout": "^16.3.0",
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-unicorn": "^44.0.0",

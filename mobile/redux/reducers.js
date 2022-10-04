@@ -1,6 +1,7 @@
 /* eslint-disable putout/objects-braces-inside-array */
 /* eslint-disable putout/keyword-spacing */
 import * as actions from './actions.js'
+
 import { createReducer } from '@reduxjs/toolkit'
 
 const initialStateCategories = {
@@ -62,7 +63,8 @@ const initialStateTexts = {
 }
 
 const initialStateLoading = {
-  textLoading: true
+  textLoading: true,
+  textsLoading: true
 }
 
 const categoriesReducer = createReducer(initialStateCategories, (builder) => {
@@ -93,5 +95,11 @@ const textLoadingReducer = createReducer(initialStateLoading, (builder) => {
   })
 })
 
+const textsLoadingReducer = createReducer(initialStateLoading, (builder) => {
+  builder.addCase(actions.SET_TEXTS_LOADED, (state, action) => {
+    return { ...state, textsLoading: action.payload }
+  })
+})
+
 // eslint-disable-next-line putout/add-newlines-between-specifiers
-export { categoriesReducer, textReducer, textsReducer, textLoadingReducer }
+export { categoriesReducer, textReducer, textsReducer, textLoadingReducer, textsLoadingReducer }

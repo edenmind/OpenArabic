@@ -11,20 +11,19 @@ import TextListCard from './text-list-card.js'
 import { useFocusEffect } from '@react-navigation/native'
 
 const selector = (state) => state.texts
+const textsLoadSelector = (state) => state.textsLoading
 
 export default function TextList({ route, navigation }) {
   const { category } = route.params
-  const [isLoading, setIsLoading] = useState(true)
   const [shouldReload, setShouldReload] = useState(true)
   const { texts } = useSelector(selector)
+  const { textsLoading } = useSelector(textsLoadSelector)
   const dispatch = useDispatch()
 
   useFocusEffect(
     React.useCallback(() => {
       if (shouldReload) {
-        setIsLoading(true)
         category === 'All' ? dispatch(api.getTexts('')) : dispatch(api.getTexts(category))
-        setIsLoading(false)
       }
     }, [category, dispatch, shouldReload])
   )
@@ -33,12 +32,12 @@ export default function TextList({ route, navigation }) {
     <TextListCard text={item} navigation={navigation} setShouldReload={setShouldReload} />
   )
 
-  return isLoading ? (
-    <Spinner />
-  ) : (
+  return textsLoading ? (
     <Fragment>
       <FlatList testID="flatList" data={texts} renderItem={renderItem} keyExtractor={(item) => item.id} />
     </Fragment>
+  ) : (
+    <Spinner />
   )
 }
 
