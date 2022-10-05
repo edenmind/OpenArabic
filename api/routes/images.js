@@ -1,9 +1,9 @@
 'use strict'
 
-const { getImagesOpts } = require('../schemas/images')
+const { getImagesOptions } = require('../schemas/images')
 
 // eslint-disable-next-line putout/putout
 async function images(fastify) {
-  fastify.get('/images', getImagesOpts)
+  fastify.get('/images', getImagesOptions)
 }
 module.exports = images

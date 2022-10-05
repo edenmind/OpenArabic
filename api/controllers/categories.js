@@ -12,7 +12,6 @@ async function listCategories(request, reply) {
 
 async function addCategory(request, reply) {
   const { body, headers } = request
-
   const { auth } = headers
 
   if (auth !== process.env.API_KEY) {
@@ -44,7 +43,6 @@ async function getCategory(request, reply) {
 
 async function updateCategory(request, reply) {
   const { body, headers } = request
-
   const { auth } = headers
 
   if (auth !== process.env.API_KEY) {

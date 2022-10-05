@@ -14,5 +14,5 @@ const getImagesOptions = {
 }
 
 module.exports = {
-  getImagesOpts: getImagesOptions
+  getImagesOptions
 }

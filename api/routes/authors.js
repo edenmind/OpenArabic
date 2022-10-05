@@ -1,19 +1,19 @@
 'use strict'
 
 const {
-  getAuthorsOpts,
-  getAuthorOpts,
-  updateAuthorOpts,
-  postAuthorOpts,
-  deleteAuthorOpts
+  getAuthorsOptions,
+  getAuthorOptions,
+  updateAuthorOptions,
+  postAuthorOptions,
+  deleteAuthorOptions
 } = require('../schemas/authors')
 
 // eslint-disable-next-line putout/putout
 async function authors(fastify) {
-  fastify.get('/authors', getAuthorsOpts)
-  fastify.post('/authors', postAuthorOpts)
-  fastify.get('/authors/:id', getAuthorOpts)
-  fastify.put('/authors/:id', updateAuthorOpts)
-  fastify.delete('/authors/:id', deleteAuthorOpts)
+  fastify.get('/authors', getAuthorsOptions)
+  fastify.post('/authors', postAuthorOptions)
+  fastify.get('/authors/:id', getAuthorOptions)
+  fastify.put('/authors/:id', updateAuthorOptions)
+  fastify.delete('/authors/:id', deleteAuthorOptions)
 }
 module.exports = authors

@@ -1,19 +1,19 @@
 'use strict'
 
 const {
-  getCategoriesOpts,
-  getCategoryOpts,
-  updateCategoryOpts,
-  postCategoryOpts,
-  deleteCategoryOpts
+  getCategoriesOptions,
+  getCategoryOptions,
+  updateCategoryOptions,
+  postCategoryOptions,
+  deleteCategoryOptions
 } = require('../schemas/categories')
 
 // eslint-disable-next-line putout/putout
 async function categories(fastify) {
-  fastify.get('/categories', getCategoriesOpts)
-  fastify.post('/categories', postCategoryOpts)
-  fastify.get('/categories/:id', getCategoryOpts)
-  fastify.put('/categories/:id', updateCategoryOpts)
-  fastify.delete('/categories/:id', deleteCategoryOpts)
+  fastify.get('/categories', getCategoriesOptions)
+  fastify.post('/categories', postCategoryOptions)
+  fastify.get('/categories/:id', getCategoryOptions)
+  fastify.put('/categories/:id', updateCategoryOptions)
+  fastify.delete('/categories/:id', deleteCategoryOptions)
 }
 module.exports = categories
