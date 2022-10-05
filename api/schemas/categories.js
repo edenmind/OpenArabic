@@ -94,9 +94,9 @@ const deleteCategoryOptions = {
 }
 
 module.exports = {
-  getCategoriesOpts: getCategoriesOptions,
-  getCategoryOpts: getCategoryOptions,
-  updateCategoryOpts: updateCategoryOptions,
-  postCategoryOpts: postCategoryOptions,
-  deleteCategoryOpts: deleteCategoryOptions
+  getCategoriesOptions,
+  getCategoryOptions,
+  updateCategoryOptions,
+  postCategoryOptions,
+  deleteCategoryOptions
 }

@@ -8,25 +8,26 @@
 const axios = require('axios').default
 const COLLECTIONS = require('../constants/collections.js')
 const { produceVocabularyCollection } = require('../services/utils')
-
 const { ObjectId } = require('mongodb')
 
 async function listTexts(request, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const textList = request.params.id
-    ? await texts.find({ category: request.params.id }).toArray()
-    : await texts.find({}).toArray()
-
+  const textList = await texts.find({}).toArray()
   const textListSortedByCreatedAt = textList.sort((a, b) => a.publishAt - b.publishAt)
 
-  request.bugsnag.notify(new Error('This is a generic error'))
+  reply.code(200).send(textListSortedByCreatedAt)
+}
+
+async function listTextsWithId(request, reply) {
+  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
+  const textList = await texts.find({ category: request.params.id }).toArray()
+  const textListSortedByCreatedAt = textList.sort((a, b) => a.publishAt - b.publishAt)
 
   reply.code(200).send(textListSortedByCreatedAt)
 }
 
 async function addText(request, reply) {
   const { headers, body } = request
-
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId()
   const createdAt = new Date()
@@ -71,10 +72,9 @@ async function addText(request, reply) {
 
 async function getText(request, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-
   const text = await texts.findOne({ id: new ObjectId(request.params.id) })
-
   const vocabularyCollection = produceVocabularyCollection(text)
+
   text.vocabularyCollection = vocabularyCollection
 
   text ? reply.send(text) : reply.notFound('The text was not found')
@@ -82,9 +82,7 @@ async function getText(request, reply) {
 
 async function getTashkeel(request, reply) {
   const { encodedText } = request.body
-
   const url = `${process.env.API_TASHKEEL_URL}/tashkeel?unvoweled=${encodedText}`
-  // deepcode ignore Ssrf: <review later>
   const response = await axios.get(url)
 
   reply.send(response.data)
@@ -92,7 +90,6 @@ async function getTashkeel(request, reply) {
 
 async function updateText(request, reply) {
   const { body, headers } = request
-
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const updatedAt = new Date()
   const { auth } = headers
@@ -159,6 +156,7 @@ async function deleteText(request, reply) {
 
 module.exports = {
   listTexts,
+  listTextsWithId,
   addText,
   getText,
   getTashkeel,

@@ -1,22 +1,23 @@
 'use strict'
 
 const {
-  getTextsOpts,
-  getTashkeelOpts,
-  getTextOpts,
-  updateTextOpts,
-  postTextOpts,
-  deleteTextOpts
+  getTextsOptions,
+  getTextsWithIdOptions,
+  getTashkeelOptions,
+  getTextOptions,
+  updateTextOptions,
+  postTextOptions,
+  deleteTextOptions
 } = require('../schemas/texts')
 
 // eslint-disable-next-line putout/putout
 async function texts(fastify) {
-  fastify.get('/texts', getTextsOpts)
-  fastify.post('/texts/tashkeel', getTashkeelOpts)
-  fastify.get('/texts/categories/:id', getTextsOpts)
-  fastify.post('/texts', postTextOpts)
-  fastify.get('/texts/:id', getTextOpts)
-  fastify.put('/texts/:id', updateTextOpts)
-  fastify.delete('/texts/:id', deleteTextOpts)
+  fastify.get('/texts', getTextsOptions)
+  fastify.post('/texts/tashkeel', getTashkeelOptions)
+  fastify.get('/texts/categories/:id', getTextsWithIdOptions)
+  fastify.post('/texts', postTextOptions)
+  fastify.get('/texts/:id', getTextOptions)
+  fastify.put('/texts/:id', updateTextOptions)
+  fastify.delete('/texts/:id', deleteTextOptions)
 }
 module.exports = texts

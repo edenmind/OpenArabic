@@ -87,9 +87,9 @@ const deleteAuthorOptions = {
 }
 
 module.exports = {
-  getAuthorsOpts: getAuthorsOptions,
-  getAuthorOpts: getAuthorOptions,
-  updateAuthorOpts: updateAuthorOptions,
-  postAuthorOpts: postAuthorOptions,
-  deleteAuthorOpts: deleteAuthorOptions
+  getAuthorsOptions,
+  getAuthorOptions,
+  updateAuthorOptions,
+  postAuthorOptions,
+  deleteAuthorOptions
 }
