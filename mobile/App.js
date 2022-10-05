@@ -7,8 +7,10 @@ import React from 'react'
 import Root from './routes/root.js'
 import { store } from './redux/store.js'
 
-Bugsnag.start()
-Bugsnag.notify(new Error('Test error'))
+Bugsnag.start({
+  apiKey: '77c30e82c802aed265d4d31617059924'
+})
+
 export default function App() {
   return (
     <ErrorBoundary>
