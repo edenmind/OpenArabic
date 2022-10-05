@@ -103,11 +103,7 @@ function TextAddPublish() {
           )}
           {text.source.length > 4 ? <Chip label="Source" color="success" /> : <Chip label="Source" color="error" />}
           {text.author.length > 4 ? <Chip label="Author" color="success" /> : <Chip label="Author" color="error" />}
-          {text.sentences.length > 4 ? (
-            <Chip label="Sentences" color="success" />
-          ) : (
-            <Chip label="Sentences" color="error" />
-          )}
+          {text.sentences.length > 4 ? <Chip label="Words" color="success" /> : <Chip label="Words" color="error" />}
         </Stack>
       </Stack>
       <Stack spacing={0} style={{ paddingBottom: '50px', width: '700px' }}>

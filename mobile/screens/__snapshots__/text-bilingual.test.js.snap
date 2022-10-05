@@ -5,12 +5,12 @@ exports[`<TextArabic /> renders correctly 1`] = `
   <View>
     <Image
       source={
-        Object {
+        {
           "uri": "abc",
         }
       }
       style={
-        Object {
+        {
           "height": 250,
           "width": "100%",
         }
@@ -18,33 +18,33 @@ exports[`<TextArabic /> renders correctly 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
+        [
+          {
             "color": "#000000",
             "fontFamily": "System",
             "fontWeight": "400",
           },
-          Object {
+          {
             "textAlign": "left",
           },
-          Array [
-            Object {
+          [
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "rgba(0, 0, 0, 0.87)",
               "fontFamily": "System",
               "fontWeight": "500",
               "writingDirection": "ltr",
             },
-            Array [
-              Object {
+            [
+              {
                 "fontSize": 20,
                 "letterSpacing": 0.15,
                 "lineHeight": 30,
                 "marginVertical": 2,
               },
-              Object {
+              {
                 "paddingTop": 55,
                 "textAlign": "center",
               },
@@ -55,33 +55,33 @@ exports[`<TextArabic /> renders correctly 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
+        [
+          {
             "color": "#000000",
             "fontFamily": "System",
             "fontWeight": "400",
           },
-          Object {
+          {
             "textAlign": "left",
           },
-          Array [
-            Object {
+          [
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "rgba(0, 0, 0, 0.87)",
               "fontFamily": "System",
               "fontWeight": "400",
               "writingDirection": "ltr",
             },
-            Array [
-              Object {
+            [
+              {
                 "fontSize": 16,
                 "letterSpacing": 0.5,
                 "lineHeight": 24,
                 "marginVertical": 2,
               },
-              Object {
+              {
                 "textAlign": "center",
               },
             ],
@@ -91,33 +91,33 @@ exports[`<TextArabic /> renders correctly 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
+        [
+          {
             "color": "#000000",
             "fontFamily": "System",
             "fontWeight": "400",
           },
-          Object {
+          {
             "textAlign": "left",
           },
-          Array [
-            Object {
+          [
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "rgba(0, 0, 0, 0.54)",
               "fontFamily": "System",
               "fontWeight": "400",
               "writingDirection": "ltr",
             },
-            Array [
-              Object {
+            [
+              {
                 "fontSize": 12,
                 "letterSpacing": 0.4,
                 "lineHeight": 20,
                 "marginVertical": 2,
               },
-              Object {
+              {
                 "paddingBottom": 10,
                 "textAlign": "center",
               },
@@ -128,23 +128,23 @@ exports[`<TextArabic /> renders correctly 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "paddingBottom": 55,
         }
       }
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "direction": "rtl",
               "flex": 1,
               "fontSize": 25,
@@ -162,16 +162,16 @@ exports[`<TextArabic /> renders correctly 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "direction": "ltr",
               "flex": 1,
               "lineHeight": 25,
@@ -187,7 +187,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -199,7 +199,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
             "paddingRight": 100,
             "paddingTop": 15,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -211,7 +211,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": false,
             }
           }
@@ -225,11 +225,11 @@ exports[`<TextArabic /> renders correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -237,8 +237,8 @@ exports[`<TextArabic /> renders correctly 1`] = `
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -251,32 +251,32 @@ exports[`<TextArabic /> renders correctly 1`] = `
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "#6200ee",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -287,16 +287,16 @@ exports[`<TextArabic /> renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#000000",
                       "fontFamily": "System",
                       "fontWeight": "400",
                     },
-                    Object {
+                    {
                       "textAlign": "left",
                     },
-                    Object {
+                    {
                       "color": "#cccccc",
                     },
                   ]
@@ -310,16 +310,16 @@ exports[`<TextArabic /> renders correctly 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "direction": "rtl",
               "flex": 1,
               "fontSize": 25,
@@ -337,16 +337,16 @@ exports[`<TextArabic /> renders correctly 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "direction": "ltr",
               "flex": 1,
               "lineHeight": 25,
@@ -362,7 +362,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -374,7 +374,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
             "paddingRight": 100,
             "paddingTop": 15,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -386,7 +386,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": false,
             }
           }
@@ -400,11 +400,11 @@ exports[`<TextArabic /> renders correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -412,8 +412,8 @@ exports[`<TextArabic /> renders correctly 1`] = `
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -426,32 +426,32 @@ exports[`<TextArabic /> renders correctly 1`] = `
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "#6200ee",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -462,16 +462,16 @@ exports[`<TextArabic /> renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#000000",
                       "fontFamily": "System",
                       "fontWeight": "400",
                     },
-                    Object {
+                    {
                       "textAlign": "left",
                     },
-                    Object {
+                    {
                       "color": "#cccccc",
                     },
                   ]
@@ -485,16 +485,16 @@ exports[`<TextArabic /> renders correctly 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "direction": "rtl",
               "flex": 1,
               "fontSize": 25,
@@ -512,16 +512,16 @@ exports[`<TextArabic /> renders correctly 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "direction": "ltr",
               "flex": 1,
               "lineHeight": 25,
@@ -537,7 +537,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -549,7 +549,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
             "paddingRight": 100,
             "paddingTop": 15,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -561,7 +561,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": false,
             }
           }
@@ -575,11 +575,11 @@ exports[`<TextArabic /> renders correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -587,8 +587,8 @@ exports[`<TextArabic /> renders correctly 1`] = `
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -601,32 +601,32 @@ exports[`<TextArabic /> renders correctly 1`] = `
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "#6200ee",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -637,16 +637,16 @@ exports[`<TextArabic /> renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#000000",
                       "fontFamily": "System",
                       "fontWeight": "400",
                     },
-                    Object {
+                    {
                       "textAlign": "left",
                     },
-                    Object {
+                    {
                       "color": "#cccccc",
                     },
                   ]

@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoryCard /> renders correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "#fdfffd",
+          "borderColor": "rgba(0, 0, 0, 0.12)",
+          "borderRadius": 4,
+          "elevation": 1,
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 10,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0.5,
+            "width": 0,
+          },
+          "shadowOpacity": 0.24,
+          "shadowRadius": 0.75,
+        }
+      }
+    >
+      <View
+        accessibilityState={
+          {
+            "disabled": true,
+          }
+        }
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+        testID="textCard"
+      >
+        <View
+          style={
+            [
+              {
+                "backgroundColor": "#eeeeee",
+                "height": 195,
+                "overflow": "hidden",
+              },
+              {
+                "borderTopLeftRadius": 4,
+                "borderTopRightRadius": 4,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Image
+            siblings={
+              [
+                "withTheme(Card.Cover)",
+                "withTheme(Card.Title)",
+                "Card.Content",
+                "Card.Actions",
+              ]
+            }
+            source={
+              {
+                "uri": undefined,
+              }
+            }
+            style={
+              [
+                {
+                  "flex": 1,
+                  "height": undefined,
+                  "justifyContent": "flex-end",
+                  "padding": 16,
+                  "width": undefined,
+                },
+                {
+                  "borderTopLeftRadius": 4,
+                  "borderTopRightRadius": 4,
+                },
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingLeft": 16,
+              },
+              {
+                "minHeight": 72,
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                      "writingDirection": "ltr",
+                    },
+                    [
+                      {
+                        "fontSize": 20,
+                        "letterSpacing": 0.15,
+                        "lineHeight": 30,
+                        "marginVertical": 2,
+                      },
+                      [
+                        {
+                          "minHeight": 30,
+                          "paddingRight": 16,
+                        },
+                        {
+                          "marginBottom": 0,
+                        },
+                        undefined,
+                      ],
+                    ],
+                  ],
+                ]
+              }
+            >
+              someTitle
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                      "writingDirection": "ltr",
+                    },
+                    [
+                      {
+                        "fontSize": 12,
+                        "letterSpacing": 0.4,
+                        "lineHeight": 20,
+                        "marginVertical": 2,
+                      },
+                      [
+                        {
+                          "marginVertical": 0,
+                          "minHeight": 20,
+                          "paddingRight": 16,
+                        },
+                        undefined,
+                      ],
+                    ],
+                  ],
+                ]
+              }
+            >
+              someAuthor — undefined
+            </Text>
+          </View>
+          <View />
+        </View>
+        <View
+          style={
+            [
+              {
+                "paddingHorizontal": 16,
+              },
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "writingDirection": "ltr",
+                  },
+                  [
+                    {
+                      "fontSize": 14,
+                      "letterSpacing": 0.25,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            someEnglish
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "writingDirection": "ltr",
+                  },
+                  [
+                    {
+                      "fontSize": 14,
+                      "letterSpacing": 0.25,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    {
+                      "direction": "rtl",
+                      "fontSize": 18,
+                      "lineHeight": 30,
+                      "writingDirection": "rtl",
+                    },
+                  ],
+                ],
+              ]
+            }
+          >
+            someArabic
+          </Text>
+        </View>
+        <View
+          index={3}
+          siblings={
+            [
+              "withTheme(Card.Cover)",
+              "withTheme(Card.Title)",
+              "Card.Content",
+              "Card.Actions",
+            ]
+          }
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "padding": 8,
+              },
+              {
+                "marginLeft": 10,
+                "paddingBottom": 20,
+                "paddingTop": 20,
+              },
+            ]
+          }
+          total={4}
+        >
+          <Text
+            compact={true}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "writingDirection": "ltr",
+                  },
+                  [
+                    {
+                      "fontSize": 12,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 20,
+                      "marginVertical": 2,
+                    },
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            #somecategory
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

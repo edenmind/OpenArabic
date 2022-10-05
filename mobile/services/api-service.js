@@ -1,15 +1,28 @@
+import * as url from './url-service.js'
+
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable operator-linebreak */
 /* eslint-disable unicorn/consistent-function-scoping */
 import axios from 'axios'
-import * as url from './url-service.js'
+import axiosRetry from 'axios-retry'
+
+axiosRetry(axios, { retries: 3 })
 
 export const getTexts = (id) => async (dispatch) => {
+  dispatch({
+    type: 'SET_TEXTS_LOADED',
+    payload: false
+  })
   const res = await axios.get(url.categoryWithId(id)).catch((error) => console.log(error))
 
   dispatch({
     type: 'SET_TEXTS',
     payload: res.data
+  })
+
+  dispatch({
+    type: 'SET_TEXTS_LOADED',
+    payload: true
   })
 }
 

@@ -17,6 +17,7 @@ async function listTexts(request, reply) {
     : await texts.find({}).toArray()
 
   const textListSortedByCreatedAt = textList.sort((a, b) => a.publishAt - b.publishAt)
+
   reply.code(200).send(textListSortedByCreatedAt)
 }
 

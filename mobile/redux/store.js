@@ -1,12 +1,14 @@
+import { categoriesReducer, textLoadingReducer, textReducer, textsLoadingReducer, textsReducer } from './reducers.js'
+
 import { configureStore } from '@reduxjs/toolkit'
-import { categoriesReducer, textReducer, textsReducer, textLoadingReducer } from './reducers.js'
 
 const store = configureStore({
   reducer: {
     categories: categoriesReducer,
     text: textReducer,
     texts: textsReducer,
-    textLoading: textLoadingReducer
+    textLoading: textLoadingReducer,
+    textsLoading: textsLoadingReducer
   }
 })
 

@@ -16,6 +16,7 @@ it('textReducer should return the initial state', () => {
       status: 'Draft',
       publishAt: new Date().toUTCString(),
       wordByWord: [['']],
+      title: '',
       image: 'abc',
       texts: { arabic: '', english: '' },
       category: 'abc',
