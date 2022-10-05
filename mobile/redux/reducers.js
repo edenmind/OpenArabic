@@ -13,6 +13,7 @@ const initialStateText = {
     arabic: ['a1', 'a2', 'a3'],
     english: ['e1', 'e2', 'e3'],
     status: 'Draft',
+    title: '',
     publishAt: new Date().toUTCString(),
     wordByWord: [['']],
     image: 'abc',

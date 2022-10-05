@@ -18,7 +18,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "opacity": 1,
       }
     }
@@ -26,7 +26,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "#fdfffd",
           "borderColor": "rgba(0, 0, 0, 0.12)",
           "borderRadius": 4,
@@ -36,7 +36,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
           "marginRight": 10,
           "marginTop": 10,
           "shadowColor": "#000000",
-          "shadowOffset": Object {
+          "shadowOffset": {
             "height": 0.5,
             "width": 0,
           },
@@ -47,7 +47,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
     >
       <View
         accessibilityState={
-          Object {
+          {
             "disabled": true,
           }
         }
@@ -61,7 +61,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Object {
+          {
             "flexGrow": 1,
             "flexShrink": 1,
           }
@@ -70,13 +70,13 @@ exports[`<CategoryCard /> renders correctly 1`] = `
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "backgroundColor": "#eeeeee",
                 "height": 195,
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderTopLeftRadius": 4,
                 "borderTopRightRadius": 4,
               },
@@ -86,7 +86,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
         >
           <Image
             siblings={
-              Array [
+              [
                 "withTheme(Card.Cover)",
                 "withTheme(Card.Title)",
                 "Card.Content",
@@ -94,20 +94,20 @@ exports[`<CategoryCard /> renders correctly 1`] = `
               ]
             }
             source={
-              Object {
+              {
                 "uri": undefined,
               }
             }
             style={
-              Array [
-                Object {
+              [
+                {
                   "flex": 1,
                   "height": undefined,
                   "justifyContent": "flex-end",
                   "padding": 16,
                   "width": undefined,
                 },
-                Object {
+                {
                   "borderTopLeftRadius": 4,
                   "borderTopRightRadius": 4,
                 },
@@ -117,14 +117,14 @@ exports[`<CategoryCard /> renders correctly 1`] = `
         </View>
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "space-between",
                 "paddingLeft": 16,
               },
-              Object {
+              {
                 "minHeight": 72,
               },
               undefined,
@@ -133,8 +133,8 @@ exports[`<CategoryCard /> renders correctly 1`] = `
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "flex": 1,
                   "flexDirection": "column",
                   "justifyContent": "center",
@@ -145,38 +145,38 @@ exports[`<CategoryCard /> renders correctly 1`] = `
             <Text
               numberOfLines={1}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "textAlign": "left",
                     },
-                    Object {
+                    {
                       "color": "rgba(0, 0, 0, 0.87)",
                       "fontFamily": "System",
                       "fontWeight": "500",
                       "writingDirection": "ltr",
                     },
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 20,
                         "letterSpacing": 0.15,
                         "lineHeight": 30,
                         "marginVertical": 2,
                       },
-                      Array [
-                        Object {
+                      [
+                        {
                           "minHeight": 30,
                           "paddingRight": 16,
                         },
-                        Object {
+                        {
                           "marginBottom": 0,
                         },
                         undefined,
@@ -191,34 +191,34 @@ exports[`<CategoryCard /> renders correctly 1`] = `
             <Text
               numberOfLines={1}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "textAlign": "left",
                     },
-                    Object {
+                    {
                       "color": "rgba(0, 0, 0, 0.54)",
                       "fontFamily": "System",
                       "fontWeight": "400",
                       "writingDirection": "ltr",
                     },
-                    Array [
-                      Object {
+                    [
+                      {
                         "fontSize": 12,
                         "letterSpacing": 0.4,
                         "lineHeight": 20,
                         "marginVertical": 2,
                       },
-                      Array [
-                        Object {
+                      [
+                        {
                           "marginVertical": 0,
                           "minHeight": 20,
                           "paddingRight": 16,
@@ -237,8 +237,8 @@ exports[`<CategoryCard /> renders correctly 1`] = `
         </View>
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "paddingHorizontal": 16,
               },
               undefined,
@@ -248,27 +248,27 @@ exports[`<CategoryCard /> renders correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "textAlign": "left",
                   },
-                  Object {
+                  {
                     "color": "rgba(0, 0, 0, 0.87)",
                     "fontFamily": "System",
                     "fontWeight": "400",
                     "writingDirection": "ltr",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 14,
                       "letterSpacing": 0.25,
                       "lineHeight": 20,
@@ -284,33 +284,33 @@ exports[`<CategoryCard /> renders correctly 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "textAlign": "left",
                   },
-                  Object {
+                  {
                     "color": "rgba(0, 0, 0, 0.87)",
                     "fontFamily": "System",
                     "fontWeight": "400",
                     "writingDirection": "ltr",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 14,
                       "letterSpacing": 0.25,
                       "lineHeight": 20,
                       "marginVertical": 2,
                     },
-                    Object {
+                    {
                       "direction": "rtl",
                       "fontSize": 18,
                       "lineHeight": 30,
@@ -327,7 +327,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
         <View
           index={3}
           siblings={
-            Array [
+            [
               "withTheme(Card.Cover)",
               "withTheme(Card.Title)",
               "Card.Content",
@@ -335,14 +335,14 @@ exports[`<CategoryCard /> renders correctly 1`] = `
             ]
           }
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-start",
                 "padding": 8,
               },
-              Object {
+              {
                 "marginLeft": 10,
                 "paddingBottom": 20,
                 "paddingTop": 20,
@@ -354,27 +354,27 @@ exports[`<CategoryCard /> renders correctly 1`] = `
           <Text
             compact={true}
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "textAlign": "left",
                   },
-                  Object {
+                  {
                     "color": "rgba(0, 0, 0, 0.54)",
                     "fontFamily": "System",
                     "fontWeight": "400",
                     "writingDirection": "ltr",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "fontSize": 12,
                       "letterSpacing": 0.4,
                       "lineHeight": 20,

@@ -3,7 +3,7 @@
 exports[`<SnackButton /> renders correctly 1`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
       "justifyContent": "space-between",
     }
@@ -13,8 +13,8 @@ exports[`<SnackButton /> renders correctly 1`] = `
     emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
-      Array [
-        Object {
+      [
+        {
           "bottom": 0,
           "position": "absolute",
           "width": "100%",
@@ -29,7 +29,7 @@ exports[`<SnackButton /> renders correctly 1`] = `
       collapsable={false}
       pointerEvents="box-none"
       style={
-        Object {
+        {
           "alignItems": "center",
           "backgroundColor": "#3e423a",
           "borderRadius": 4,
@@ -39,14 +39,14 @@ exports[`<SnackButton /> renders correctly 1`] = `
           "margin": 8,
           "opacity": 0,
           "shadowColor": "#000000",
-          "shadowOffset": Object {
+          "shadowOffset": {
             "height": 5,
             "width": 0,
           },
           "shadowOpacity": 0.24,
           "shadowRadius": 6,
-          "transform": Array [
-            Object {
+          "transform": [
+            {
               "scale": 0.9,
             },
           ],
@@ -55,23 +55,23 @@ exports[`<SnackButton /> renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Array [
-              Object {
+            [
+              {
                 "flex": 1,
                 "flexWrap": "wrap",
                 "marginLeft": 16,
                 "marginVertical": 14,
               },
-              Object {
+              {
                 "color": "#ffffff",
                 "marginRight": 16,
               },
