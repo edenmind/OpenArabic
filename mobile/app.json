@@ -30,6 +30,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["sentry-expo"]
+    "plugins": ["@bugsnag/plugin-expo-eas-sourcemaps"],
+    "extra": {
+      "bugsnag": {
+        "apiKey": "77c30e82c802aed265d4d31617059924"
+      }
+    }
   }
 }

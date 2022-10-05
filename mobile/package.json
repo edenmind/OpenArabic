@@ -12,13 +12,16 @@
     "test-update": "jest -u"
   },
   "dependencies": {
+    "@bugsnag/expo": "^46.0.0",
+    "@bugsnag/plugin-expo-eas-sourcemaps": "^46.0.1",
+    "@bugsnag/source-maps": "^2.3.1",
+    "@react-native-community/netinfo": "9.3.0",
     "@react-navigation/drawer": "^6.5.0",
     "@react-navigation/material-bottom-tabs": "^6.2.4",
     "@react-navigation/material-top-tabs": "^6.2.4",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
     "@reduxjs/toolkit": "^1.8.5",
-    "@sentry/react-native": "4.2.2",
     "axios": "^1.0.0",
     "axios-retry": "^3.3.1",
     "eslint-plugin-putout": "^16.3.0",
@@ -27,7 +30,9 @@
     "expo": "^46.0.14",
     "expo-application": "~4.2.2",
     "expo-constants": "~13.2.4",
+    "expo-crypto": "~11.0.0",
     "expo-device": "~4.3.0",
+    "expo-file-system": "~14.1.0",
     "expo-haptics": "~11.3.0",
     "expo-updates": "~0.14.6",
     "node-notifier": "^10.0.1",
@@ -47,8 +52,7 @@
     "react-native-tab-view": "^3.1.1",
     "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.0.4",
-    "redux": "^4.2.0",
-    "sentry-expo": "~5.0.0"
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

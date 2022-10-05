@@ -1,3 +1,4 @@
+/* eslint-disable putout/putout */
 /* eslint-disable security/detect-object-injection */
 /* eslint-disable prettier/prettier */
 /* eslint-disable newline-per-chained-call */
@@ -17,6 +18,8 @@ async function listTexts(request, reply) {
     : await texts.find({}).toArray()
 
   const textListSortedByCreatedAt = textList.sort((a, b) => a.publishAt - b.publishAt)
+
+  request.bugsnag.notify(new Error('This is a generic error'))
 
   reply.code(200).send(textListSortedByCreatedAt)
 }
@@ -117,9 +120,6 @@ async function updateText(request, reply) {
       sentences
     }
   }
-
-  // eslint-disable-next-line putout/putout
-  console.log('the data:', data)
 
   let checkForEmptySuccess = true
   let checkForEmptyMessage = ''
