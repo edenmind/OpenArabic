@@ -24,7 +24,7 @@
     "@fastify/sensible": "^5.1.1",
     "@fastify/static": "^6.5.0",
     "@fastify/swagger": "^7.6.1",
-    "axios": "^1.0.0",
+    "axios": "^1.1.2",
     "dotenv": "^16.0.3",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
