@@ -1,5 +1,21 @@
 import axios from 'axios'
 
+export const getTranslation = async (arabicWord) => {
+  const res = await axios.post(
+    'https://translation.googleapis.com/language/translate/v2?key=' + process.env.REACT_APP_GOOGLE_API_KEY,
+    {
+      q: arabicWord,
+      source: 'ar',
+      target: 'en'
+    }
+  )
+  const { translatedText } = res.data.data.translations[0]
+
+  console.log(translatedText)
+
+  return translatedText
+}
+
 export const getTexts = async (id) => {
   const url = id ? `${process.env.REACT_APP_API_URL}/texts/categories/${id}` : `${process.env.REACT_APP_API_URL}/texts`
   const response = await axios.get(url)
