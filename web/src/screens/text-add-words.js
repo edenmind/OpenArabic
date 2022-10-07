@@ -1,7 +1,10 @@
-import { Switch, Chip, Box, Stack, TextField } from '@mui/material'
+import * as api from '../services/api-service.js'
+
+import { Box, Button, Chip, Stack, Switch, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import TextAddWordsGenerate from './text-add-words-generate.js'
+
 import { Fragment } from 'react'
+import TextAddWordsGenerate from './text-add-words-generate.js'
 
 const selectorText = (state) => state.text
 
@@ -28,10 +31,7 @@ function TextAddWords() {
           <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
             <p>
               {word.arabic}
-              <Switch
-                checked={word.quiz}
-                onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
-              />
+
               {word.arabic.length > 10 && <Chip color="warning" label="Long Arabic Word" />}
               {word.english.length > 10 && <Chip color="warning" label="Long English Word" />}
               <TextField
@@ -41,6 +41,18 @@ function TextAddWords() {
                 rows={1}
                 fullWidth
                 variant="outlined"
+              />
+              <Button
+                onClick={async () => {
+                  const arabicWord = await api.getTranslation(word.arabic)
+                  handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
+                }}
+              >
+                Get Word
+              </Button>
+              <Switch
+                checked={word.quiz}
+                onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
               />
             </p>
           </Box>
