@@ -2,8 +2,8 @@ import * as api from '../services/api-service.js'
 
 import { Box, Button, Chip, Stack, Switch, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-
-import { Fragment } from 'react'
+import SnackBar from '../components/snack-bar.js'
+import React, { Fragment } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
 
 const selectorText = (state) => state.text
@@ -11,6 +11,17 @@ const selectorText = (state) => state.text
 function TextAddWords() {
   const { text } = useSelector(selectorText)
   const dispatch = useDispatch()
+  const [openSnackBar, setOpenSnackbar] = React.useState(false)
+  const [postState, setPostState] = React.useState('')
+  const [postMessage, setPostMessage] = React.useState('')
+  const handleSave = async (arabic, english) => {
+    console.log('arabic and english:', arabic, english)
+    const result = await api.postTranslation(arabic, english)
+
+    setOpenSnackbar(true)
+    setPostMessage(result.message)
+    setPostState(result.state)
+  }
 
   const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {
     dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
@@ -18,6 +29,14 @@ function TextAddWords() {
 
   const handleChangeQuiz = (indexSentence, indexArabicWord, quiz) => {
     dispatch({ type: 'UPDATE_SENTENCE_QUIZ', value: { indexSentence, indexArabicWord, quiz } })
+  }
+
+  const handleCloseSnackbar = (reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpenSnackbar(false)
   }
 
   const sentences = text.sentences.map((sentence, indexSentence) => (
@@ -48,7 +67,15 @@ function TextAddWords() {
                   handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
                 }}
               >
-                Get Word
+                Fetch
+              </Button>
+              <Button
+                onClick={async () => {
+                  const englishWord = await api.getTranslation(word.arabic)
+                  handleSave(word.arabic, englishWord)
+                }}
+              >
+                Save
               </Button>
               <Switch
                 checked={word.quiz}
@@ -58,6 +85,12 @@ function TextAddWords() {
           </Box>
         ))}
       </Stack>
+      <SnackBar
+        openSnackBar={openSnackBar}
+        handleCloseSnackbar={handleCloseSnackbar}
+        severity={postState}
+        message={postMessage}
+      />
     </Fragment>
   ))
 

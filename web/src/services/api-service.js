@@ -16,6 +16,48 @@ export const getTranslation = async (arabicWord) => {
   return translatedText
 }
 
+export const postTranslation = async (arabic, english) => {
+  const translatedWord = {
+    arabic,
+    english
+  }
+  console.log('postTranslation', arabic, english)
+
+  const url = `${process.env.REACT_APP_API_URL}/translations`
+
+  const result = await axios({
+    method: 'post',
+    url,
+
+    data: {
+      translatedWord
+    }
+  }).catch((error) => {
+    return { message: error.message, state: 'error' }
+  })
+  console.log('the result:', result)
+
+  if (result.status === 201) {
+    return { message: 'The word was added!', state: 'success' }
+  }
+
+  return { message: result.message, state: 'error' }
+}
+
+export const getTranslationWord = async (arabicWord) => {
+  const url = `${process.env.REACT_APP_API_URL}/translations/${arabicWord}`
+  const result = await axios({
+    method: 'get',
+    url
+  }).catch((error) => {
+    return { message: error.message, state: 'error' }
+  })
+
+  if (result.status === 200) {
+    return result.data
+  }
+}
+
 export const getTexts = async (id) => {
   const url = id ? `${process.env.REACT_APP_API_URL}/texts/categories/${id}` : `${process.env.REACT_APP_API_URL}/texts`
   const response = await axios.get(url)
