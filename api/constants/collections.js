@@ -4,7 +4,7 @@ const collections = {
   TEXTS: 'texts',
   CATEGORIES: 'categories',
   AUTHORS: 'authors',
-  TRANSLATIONS: 'translations'
+  WORDS: 'words'
 }
 
 module.exports = collections

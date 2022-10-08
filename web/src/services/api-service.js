@@ -23,7 +23,7 @@ export const postTranslation = async (arabic, english) => {
   }
   console.log('postTranslation', arabic, english)
 
-  const url = `${process.env.REACT_APP_API_URL}/translations`
+  const url = `${process.env.REACT_APP_API_URL}/words`
 
   const result = await axios({
     method: 'post',
@@ -45,7 +45,7 @@ export const postTranslation = async (arabic, english) => {
 }
 
 export const getTranslationWord = async (arabicWord) => {
-  const url = `${process.env.REACT_APP_API_URL}/translations/${arabicWord}`
+  const url = `${process.env.REACT_APP_API_URL}/words/${arabicWord}`
   const result = await axios({
     method: 'get',
     url

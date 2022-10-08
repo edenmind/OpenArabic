@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import SnackBar from '../components/snack-bar.js'
 import React, { Fragment } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
+import TextAddWordsGetFromDatabase from './text-add-words-get-translations.js'
 
 const selectorText = (state) => state.text
 
@@ -24,6 +25,7 @@ function TextAddWords() {
   }
 
   const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {
+    console.log('this is what we got:', indexSentence, indexArabicWord, englishWords)
     dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
   }
 
@@ -51,8 +53,8 @@ function TextAddWords() {
             <p>
               {word.arabic}
 
-              {word.arabic.length > 10 && <Chip color="warning" label="Long Arabic Word" />}
-              {word.english.length > 10 && <Chip color="warning" label="Long English Word" />}
+              {word.arabic.length > 10 && <Chip sx={{ margin: 2 }} color="warning" label="Long Arabic Word" />}
+              {word.english.length > 10 && <Chip sx={{ margin: 2 }} color="warning" label="Long English Word" />}
               <TextField
                 InputProps={{ style: { fontSize: 15 } }}
                 value={word.english}
@@ -96,7 +98,8 @@ function TextAddWords() {
 
   return (
     <Fragment>
-      {<TextAddWordsGenerate />}
+      <TextAddWordsGenerate />
+      <TextAddWordsGetFromDatabase />
       <br />
       <br />
       {sentences}

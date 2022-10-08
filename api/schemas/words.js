@@ -1,8 +1,8 @@
 'use strict'
 
-const { addTranslation, getTranslation } = require('../controllers/translations')
+const { addWord, getWord } = require('../controllers/words')
 
-const postTranslationOptions = {
+const postWordOptions = {
   schema: {
     body: {
       type: 'object',
@@ -17,10 +17,10 @@ const postTranslationOptions = {
       }
     }
   },
-  handler: addTranslation
+  handler: addWord
 }
 
-const getTranslationOptions = {
+const getWordOptions = {
   schema: {
     response: {
       200: {
@@ -32,10 +32,10 @@ const getTranslationOptions = {
       }
     }
   },
-  handler: getTranslation
+  handler: getWord
 }
 
 module.exports = {
-  postTranslationOptions,
-  getTranslationOptions
+  postWordOptions,
+  getWordOptions
 }
