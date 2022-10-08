@@ -29,10 +29,10 @@ const TextAddWordsGetTranslations = () => {
         }
 
         // check if sentence.english words contains englishWords
-        if (
-          sentence.english.includes(capitalizeFirstLetter(englishWords)) ||
-          sentence.english.includes(makeAllLetterLowercase(englishWords))
-        ) {
+        const sentenceContainsCapitalized = sentence.english.includes(capitalizeFirstLetter(englishWords))
+        const sentenceContainsLowercase = sentence.english.includes(makeAllLetterLowercase(englishWords))
+
+        if (sentenceContainsCapitalized || sentenceContainsLowercase) {
           dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
           console.log('this is what we got:', englishWords)
         }

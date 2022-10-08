@@ -1,6 +1,6 @@
 import * as api from '../services/api-service.js'
 
-import { Box, Button, Chip, Stack, Switch, TextField } from '@mui/material'
+import { Box, Button, Chip, Stack, Switch, TextField, Tooltip } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import SnackBar from '../components/snack-bar.js'
 import React, { Fragment } from 'react'
@@ -63,22 +63,26 @@ function TextAddWords() {
                 fullWidth
                 variant="outlined"
               />
-              <Button
-                onClick={async () => {
-                  const arabicWord = await api.getTranslation(word.arabic)
-                  handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
-                }}
-              >
-                Fetch
-              </Button>
-              <Button
-                onClick={async () => {
-                  const englishWord = await api.getTranslation(word.arabic)
-                  handleSave(word.arabic, englishWord)
-                }}
-              >
-                Save
-              </Button>
+              <Tooltip title="Fetch word from Google Translation API">
+                <Button
+                  onClick={async () => {
+                    const arabicWord = await api.getTranslation(word.arabic)
+                    handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
+                  }}
+                >
+                  Fetch
+                </Button>
+              </Tooltip>
+              <Tooltip title="Save word to internal dictionary">
+                <Button
+                  onClick={async () => {
+                    const englishWord = await api.getTranslation(word.arabic)
+                    handleSave(word.arabic, englishWord)
+                  }}
+                >
+                  Save
+                </Button>
+              </Tooltip>
               <Switch
                 checked={word.quiz}
                 onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
