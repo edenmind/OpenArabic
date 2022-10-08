@@ -1,23 +1,44 @@
 import * as api from '../services/api-service.js'
 
-import { Box, Button, Chip, Stack, Switch, TextField } from '@mui/material'
+import { Box, Button, Chip, Stack, Switch, TextField, Tooltip } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-
-import { Fragment } from 'react'
+import SnackBar from '../components/snack-bar.js'
+import React, { Fragment } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
+import TextAddWordsGetFromDatabase from './text-add-words-get-translations.js'
 
 const selectorText = (state) => state.text
 
 function TextAddWords() {
   const { text } = useSelector(selectorText)
   const dispatch = useDispatch()
+  const [openSnackBar, setOpenSnackbar] = React.useState(false)
+  const [postState, setPostState] = React.useState('')
+  const [postMessage, setPostMessage] = React.useState('')
+  const handleSave = async (arabic, english) => {
+    console.log('arabic and english:', arabic, english)
+    const result = await api.postTranslation(arabic, english)
+
+    setOpenSnackbar(true)
+    setPostMessage(result.message)
+    setPostState(result.state)
+  }
 
   const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {
+    console.log('this is what we got:', indexSentence, indexArabicWord, englishWords)
     dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
   }
 
   const handleChangeQuiz = (indexSentence, indexArabicWord, quiz) => {
     dispatch({ type: 'UPDATE_SENTENCE_QUIZ', value: { indexSentence, indexArabicWord, quiz } })
+  }
+
+  const handleCloseSnackbar = (reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpenSnackbar(false)
   }
 
   const sentences = text.sentences.map((sentence, indexSentence) => (
@@ -32,8 +53,8 @@ function TextAddWords() {
             <p>
               {word.arabic}
 
-              {word.arabic.length > 10 && <Chip color="warning" label="Long Arabic Word" />}
-              {word.english.length > 10 && <Chip color="warning" label="Long English Word" />}
+              {word.arabic.length > 10 && <Chip sx={{ margin: 2 }} color="warning" label="Long Arabic Word" />}
+              {word.english.length > 10 && <Chip sx={{ margin: 2 }} color="warning" label="Long English Word" />}
               <TextField
                 InputProps={{ style: { fontSize: 15 } }}
                 value={word.english}
@@ -42,14 +63,26 @@ function TextAddWords() {
                 fullWidth
                 variant="outlined"
               />
-              <Button
-                onClick={async () => {
-                  const arabicWord = await api.getTranslation(word.arabic)
-                  handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
-                }}
-              >
-                Get Word
-              </Button>
+              <Tooltip title="Fetch word from Google Translation API">
+                <Button
+                  onClick={async () => {
+                    const arabicWord = await api.getTranslation(word.arabic)
+                    handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
+                  }}
+                >
+                  Fetch
+                </Button>
+              </Tooltip>
+              <Tooltip title="Save word to internal dictionary">
+                <Button
+                  onClick={async () => {
+                    const englishWord = await api.getTranslation(word.arabic)
+                    handleSave(word.arabic, englishWord)
+                  }}
+                >
+                  Save
+                </Button>
+              </Tooltip>
               <Switch
                 checked={word.quiz}
                 onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
@@ -58,12 +91,19 @@ function TextAddWords() {
           </Box>
         ))}
       </Stack>
+      <SnackBar
+        openSnackBar={openSnackBar}
+        handleCloseSnackbar={handleCloseSnackbar}
+        severity={postState}
+        message={postMessage}
+      />
     </Fragment>
   ))
 
   return (
     <Fragment>
-      {<TextAddWordsGenerate />}
+      <TextAddWordsGenerate />
+      <TextAddWordsGetFromDatabase />
       <br />
       <br />
       {sentences}

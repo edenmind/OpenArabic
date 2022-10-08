@@ -2759,14 +2759,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "axios@npm:1.0.0"
+"axios@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "axios@npm:1.1.2"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: 6270712ec3259d0603932edbd5f9da18f941e905a128585d4e9caf8e5ccaff988f2318f45c451ab43d0d52a40dc0f63cfb53c86073e5c689a017930e1b0e6227
+  checksum: 136c25a5031aa2845fdbda3006c36888bbe351b11d1195f1f898a23c5df1430febbdb1ad034a61f27967e83762d5b5a3e851fff8a363cb4badeb883f8ff21461
   languageName: node
   linkType: hard
 
@@ -2783,14 +2783,14 @@ __metadata:
     "@fastify/sensible": ^5.1.1
     "@fastify/static": ^6.5.0
     "@fastify/swagger": ^7.6.1
-    axios: ^1.0.0
+    axios: ^1.1.2
     dotenv: ^16.0.3
     eslint: ^8.24.0
     eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-putout: ^16.3.0
     eslint-plugin-security: ^1.5.0
-    eslint-plugin-unicorn: ^44.0.1
+    eslint-plugin-unicorn: ^44.0.2
     fastify: ^4.7.0
     fastify-bugsnag: ^1.0.1
     fastify-cli: ^5.5.0
@@ -3998,9 +3998,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:^44.0.1":
-  version: 44.0.1
-  resolution: "eslint-plugin-unicorn@npm:44.0.1"
+"eslint-plugin-unicorn@npm:^44.0.2":
+  version: 44.0.2
+  resolution: "eslint-plugin-unicorn@npm:44.0.2"
   dependencies:
     "@babel/helper-validator-identifier": ^7.19.1
     ci-info: ^3.4.0
@@ -4018,7 +4018,7 @@ __metadata:
     strip-indent: ^3.0.0
   peerDependencies:
     eslint: ">=8.23.1"
-  checksum: 5a237aa257195984e4d9dff89e5966ce86c2012694b725bff305b40949b02fc3777984ca9a9f707c561b8c1d32406eab94cd377903f969c804903bb455cf931c
+  checksum: b0ed6b3a60e36efab5b19a0e2a1ea4e4faba79ef315aa1eff9bdebaf28b70ada059837a0a4cdf20e0b678d8eee6155afc2c6300d0ff7d51b68eced4f0bcb56e0
   languageName: node
   linkType: hard
 

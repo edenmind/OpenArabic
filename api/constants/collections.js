@@ -3,7 +3,8 @@
 const collections = {
   TEXTS: 'texts',
   CATEGORIES: 'categories',
-  AUTHORS: 'authors'
+  AUTHORS: 'authors',
+  WORDS: 'words'
 }
 
 module.exports = collections
