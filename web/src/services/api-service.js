@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getTranslation = async (arabicWord) => {
   const res = await axios.post(
-    'https://translation.googleapis.com/language/translate/v2?key=' + process.env.REACT_APP_GOOGLE_API_KEY,
+    `https://translation.googleapis.com/language/translate/v2?key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
     {
       q: arabicWord,
       source: 'ar',
@@ -10,8 +10,6 @@ export const getTranslation = async (arabicWord) => {
     }
   )
   const { translatedText } = res.data.data.translations[0]
-
-  console.log(translatedText)
 
   return translatedText
 }
@@ -21,21 +19,18 @@ export const postTranslation = async (arabic, english) => {
     arabic,
     english
   }
-  console.log('postTranslation', arabic, english)
 
   const url = `${process.env.REACT_APP_API_URL}/words`
 
   const result = await axios({
     method: 'post',
     url,
-
     data: {
       translatedWord
     }
   }).catch((error) => {
     return { message: error.message, state: 'error' }
   })
-  console.log('the result:', result)
 
   if (result.status === 201) {
     return { message: 'The word was added!', state: 'success' }
@@ -58,8 +53,15 @@ export const getTranslationWord = async (arabicWord) => {
   }
 }
 
-export const getTexts = async (id) => {
-  const url = id ? `${process.env.REACT_APP_API_URL}/texts/categories/${id}` : `${process.env.REACT_APP_API_URL}/texts`
+export const getTexts = async () => {
+  const url = `${process.env.REACT_APP_API_URL}/texts`
+  const response = await axios.get(url)
+
+  return response.data
+}
+
+export const getTextsCategory = async (id) => {
+  const url = `${process.env.REACT_APP_API_URL}/texts/categories/${id}`
   const response = await axios.get(url)
 
   return response.data
@@ -71,7 +73,6 @@ export const getVowels = async (text) => {
   const response = await axios({
     method: 'post',
     url,
-
     data: {
       encodedText
     }
@@ -222,7 +223,7 @@ export const addText = async (text) => {
 
   return {
     success: false,
-    message: 'Error: ' + response.message.response.data.message
+    message: `Error: ${response.message.response.data.message}`
   }
 }
 
@@ -272,8 +273,6 @@ export const updateText = async (text, id) => {
     }
   })
 
-  console.log('the response:', response)
-
   if (response.status == 200) {
     return {
       success: true,
@@ -283,7 +282,7 @@ export const updateText = async (text, id) => {
 
   return {
     success: false,
-    message: 'Error: ' + response.message.response.data.message
+    message: `Error: ${response.message.response.data.message}`
   }
 }
 
