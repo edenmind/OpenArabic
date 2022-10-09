@@ -67,7 +67,6 @@ function TextAddPublish() {
   }
 
   const updateText = () => {
-    console.log('starting')
     api
       .updateText(text, id)
       .then((res) => {
@@ -75,19 +74,15 @@ function TextAddPublish() {
           setOpenSnackbar(true)
           setPostState('success')
           setPostMessage(res.message)
-          console.log('success')
 
           return
         }
-
-        console.log('failure')
 
         setPostState('error')
         setPostMessage(res.message)
         setOpenSnackbar(true)
       })
       .catch((error) => console.log(error))
-    console.log('pass through')
   }
 
   return (

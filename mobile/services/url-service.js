@@ -9,7 +9,5 @@ export const categories = () => {
 }
 
 export const categoryWithId = (category = '') => {
-  return category === ''
-    ? `${HOST.backend}/${ENDPOINT.texts}` // if category is empty get texts in all categories
-    : `${HOST.backend}/${ENDPOINT.texts}/${ENDPOINT.categories}/${category}`
+  return category === `${HOST.backend}/${ENDPOINT.texts}/${ENDPOINT.categories}/${category}`
 }

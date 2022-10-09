@@ -5,6 +5,14 @@ export const cleanWordFromInvalidCharacters = (wordToClean) => {
   return wordToClean.replace(/[\d!"#$%&()*+,./:;<>?@[\]|،؟“]/g, '')
 }
 
+export const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+export const makeAllLetterLowercase = (string) => {
+  return string.toLowerCase()
+}
+
 export const truncate = (stringToTruncate, truncateLength) => {
   const cleanString = stringToTruncate.replace(' \n', '')
   return cleanString.length > truncateLength

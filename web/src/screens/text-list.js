@@ -9,13 +9,25 @@ const TextList = (properties) => {
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
-    api
-      .getTexts(properties.id)
-      .then((data) => {
-        setTexts(data)
-        setIsLoading(false)
-      })
-      .catch((error) => console.log(error))
+    if (properties.id) {
+      // if id is set, fetch the text in category
+      api
+        .getTextsCategory(properties.id)
+        .then((data) => {
+          setTexts(data)
+          setIsLoading(false)
+        })
+        .catch((error) => console.log(error))
+    } else {
+      // if id is not set, fetch all texts for homepage
+      api
+        .getTexts()
+        .then((data) => {
+          setTexts(data)
+          setIsLoading(false)
+        })
+        .catch((error) => console.log(error))
+    }
   }, [properties.id])
 
   return isLoading ? (

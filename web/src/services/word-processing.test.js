@@ -55,4 +55,26 @@ describe('test wordProcessing', () => {
     // Assert
     expect(wordsWithoutNull.length).toBe(3)
   })
+
+  it('should capitalize', () => {
+    // Arrange
+    const word = 'word'
+
+    // Act
+    const capitalized = wordProcessing.capitalizeFirstLetter(word)
+
+    // Assert
+    expect(capitalized).toEqual('Word')
+  })
+
+  it('should lowercase', () => {
+    // Arrange
+    const word = 'Word'
+
+    // Act
+    const capitalized = wordProcessing.makeAllLetterLowercase(word)
+
+    // Assert
+    expect(capitalized).toEqual('word')
+  })
 })
