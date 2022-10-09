@@ -9,5 +9,5 @@ export const categories = () => {
 }
 
 export const categoryWithId = (category = '') => {
-  return category === `${HOST.backend}/${ENDPOINT.texts}/${ENDPOINT.categories}/${category}`
+  return `${HOST.backend}/${ENDPOINT.texts}/${ENDPOINT.categories}/${category}`
 }
