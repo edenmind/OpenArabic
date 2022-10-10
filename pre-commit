@@ -9,3 +9,5 @@ yarn --cwd ./api version minor
 yarn --cwd ./web version minor
 yarn --cwd ./static version minor
 yarn --cwd ./mobile version minor
+
+echo "Version updated"
