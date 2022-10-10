@@ -7,7 +7,7 @@
     "tests": "tests"
   },
   "scripts": {
-    "test": "API_KEY='somesecurekey' && tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70",
+    "test": "API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70",
     "test-local": "./tests/mongo-helper.sh -s && API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70 && ./tests/mongo-helper.sh -t",
     "start": "fastify start -l info app.js",
     "dev": "fastify start -w -l info -P app.js"
