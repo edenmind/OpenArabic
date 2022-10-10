@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70",
+    "test-local": "./tests/mongo-helper.sh -s && API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70 && ./tests/mongo-helper.sh -t",
     "start": "fastify start -l info app.js",
     "dev": "fastify start -w -l info -P app.js"
   },
@@ -32,7 +33,6 @@
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-unicorn": "^44.0.2",
     "fastify": "^4.7.0",
-    "fastify-bugsnag": "^1.0.1",
     "fastify-cli": "^5.5.0",
     "fastify-healthcheck": "^4.2.0",
     "fastify-plugin": "^4.2.1",
