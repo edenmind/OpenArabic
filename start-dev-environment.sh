@@ -31,7 +31,7 @@ if [[ ${#} -eq 0 ]]; then
 fi
 
 # list of arguments expected in the input
-optstring=":hmatswexirg"
+optstring=":hmatsweixrnp"
 
 while getopts ${optstring} arg; do
   case ${arg} in
