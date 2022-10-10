@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "0.5.0",
+  "version": "0.8.0",
   "description": "This project was bootstrapped with Fastify-CLI.",
   "main": "app.js",
   "directories": {
