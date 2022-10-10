@@ -21,6 +21,8 @@ function usage {
   echo '   -x   extract current data from MongoDB'
   echo '   -i   import seed data into MongoDB'
   echo '   -r   release mobile app'
+  echo '   -n   minor bump all versions'
+  echo '   -p   patch bump all versions'
   exit 0
 }
 
@@ -29,7 +31,7 @@ if [[ ${#} -eq 0 ]]; then
 fi
 
 # list of arguments expected in the input
-optstring=":hmatswexir"
+optstring=":hmatswexirg"
 
 while getopts ${optstring} arg; do
   case ${arg} in
@@ -63,6 +65,12 @@ while getopts ${optstring} arg; do
     ;;
   r)
     RELEASE=true
+    ;;
+  n)
+    MINOR=true
+    ;;
+  p)
+    PATCH=true
     ;;
   ?)
     echo "Invalid option: -${OPTARG}."
@@ -130,4 +138,25 @@ if [[ ${RELEASE} ]]; then
   cp ./mobile/constants/urls.publish.js ./mobile/constants/urls.js
   echo "Releasing..."
   cp ./mobile/constants/urls.development.js ./mobile/constants/urls.js
+fi
+
+if [[ ${EXPO} ]]; then
+  echo "Starting Expo mobile app in ./mobile"
+  yarn --cwd ./mobile start
+fi
+
+if [[ ${MINOR} ]]; then
+  echo "Updating all versions..."
+  yarn --cwd ./api version minor
+  yarn --cwd ./web version minor
+  yarn --cwd ./static version minor
+  yarn --cwd ./mobile version minor
+fi
+
+if [[ ${PATCH} ]]; then
+  echo "Updating all versions..."
+  yarn --cwd ./api version patch
+  yarn --cwd ./web version patch
+  yarn --cwd ./static version patch
+  yarn --cwd ./mobile version patch
 fi
