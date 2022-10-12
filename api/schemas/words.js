@@ -8,7 +8,14 @@ const postWordOptions = {
       type: 'object',
       required: ['translatedWord'],
       properties: {
-        translatedWord: { type: 'object' }
+        translatedWord: {
+          type: 'object',
+          required: ['arabic', 'english'],
+          properties: {
+            arabic: { type: 'string', minLength: 3 },
+            english: { type: 'string', minLength: 3 }
+          }
+        }
       }
     },
     response: {

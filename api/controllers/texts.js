@@ -63,8 +63,8 @@ async function addText(request, reply) {
   }
 
   if (checkForEmptySuccess) {
-    const result = await textsCollection.insertOne(data)
-    reply.code(201).send(result.insertedId)
+    await textsCollection.insertOne(data)
+    reply.code(201).send(id)
   } else {
     reply.internalServerError(checkForEmptyMessage)
   }

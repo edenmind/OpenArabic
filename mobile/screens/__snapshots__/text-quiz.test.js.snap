@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+[
+  <View
+    style={
+      {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "paddingTop": 25,
+          "width": "50%",
+        }
+      }
+    >
+      <View
+        backgroundColor="#a4cfbe"
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#e4f2d6",
+            "borderColor": "#e4f2d6",
+            "borderRadius": 16,
+            "borderStyle": "solid",
+            "borderWidth": 0.5,
+            "direction": "rtl",
+            "elevation": 0,
+            "flexDirection": "column",
+            "height": 50,
+            "margin": 15,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "disabled": false,
+              "selected": false,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "overflow": "hidden",
+              },
+              [
+                {
+                  "borderRadius": 16,
+                },
+                {
+                  "flexGrow": 1,
+                },
+              ],
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "flexGrow": 1,
+                  "paddingLeft": 4,
+                  "position": "relative",
+                },
+                {
+                  "paddingRight": 4,
+                },
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  [
+                    {
+                      "lineHeight": 24,
+                      "marginVertical": 4,
+                      "minHeight": 24,
+                      "textAlignVertical": "center",
+                    },
+                    {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                      "marginLeft": 8,
+                      "marginRight": 8,
+                    },
+                    {
+                      "fontSize": 25,
+                    },
+                  ],
+                ]
+              }
+            >
+              a
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "paddingTop": 25,
+          "width": "50%",
+        }
+      }
+    >
+      <View
+        backgroundColor="#a4cfbe"
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#e4f2d6",
+            "borderColor": "#e4f2d6",
+            "borderRadius": 16,
+            "borderStyle": "solid",
+            "borderWidth": 0.5,
+            "direction": "ltr",
+            "elevation": 0,
+            "flexDirection": "column",
+            "height": 50,
+            "margin": 15,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "disabled": false,
+              "selected": false,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "overflow": "hidden",
+              },
+              [
+                {
+                  "borderRadius": 16,
+                },
+                {
+                  "flexGrow": 1,
+                },
+              ],
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "flexGrow": 1,
+                  "paddingLeft": 4,
+                  "position": "relative",
+                },
+                {
+                  "paddingRight": 4,
+                },
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  [
+                    {
+                      "lineHeight": 24,
+                      "marginVertical": 4,
+                      "minHeight": 24,
+                      "textAlignVertical": "center",
+                    },
+                    {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                      "marginLeft": 8,
+                      "marginRight": 8,
+                    },
+                    {
+                      "fontSize": 16,
+                    },
+                  ],
+                ]
+              }
+            >
+              e
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      {
+        "flex": 1,
+        "justifyContent": "space-between",
+      }
+    }
+  />,
+]
+`;

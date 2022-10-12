@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Root /> screen with name "Texts" should match snapshot 1`] = `
+<ForwardRef(NavigationContainerInner)
+  theme={
+    {
+      "colors": {
+        "background": "#fdfffd",
+        "border": "#a4cfbe",
+        "card": "#fdfffd",
+        "notification": "#3e423a",
+        "primary": "#a4cfbe",
+        "text": "#3e423a",
+      },
+    }
+  }
+>
+  <MaterialBottomTabNavigator
+    activeColor="#a4cfbe"
+    barStyle={
+      {
+        "backgroundColor": "#fdfffd",
+      }
+    }
+    inactiveColor="#929481"
+  >
+    <Screen
+      component={[Function]}
+      label=""
+      name="Texts"
+      options={
+        {
+          "tabBarIcon": [Function],
+          "tabBarLabel": "",
+        }
+      }
+    />
+    <Screen
+      component={[Function]}
+      name="Settings"
+      options={
+        {
+          "tabBarIcon": [Function],
+          "tabBarLabel": "",
+        }
+      }
+    />
+  </MaterialBottomTabNavigator>
+</ForwardRef(NavigationContainerInner)>
+`;

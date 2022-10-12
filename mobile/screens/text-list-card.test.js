@@ -30,4 +30,11 @@ describe('<CategoryCard />', () => {
 
     expect(foundButton).toBeTruthy()
   })
+
+  it('should find the button via contactButton', () => {
+    const { getByTestId } = render(<CategoryCard text={textMock} setShouldReload={() => {}} />)
+    const foundButton = getByTestId('pressableOpacity')
+
+    expect(foundButton).toBeTruthy()
+  })
 })

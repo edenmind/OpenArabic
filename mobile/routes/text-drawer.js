@@ -84,6 +84,7 @@ export default function TextDrawer() {
   const homeScreen = (
     <Drawer.Screen
       name="All"
+      testID="homeScreen"
       component={TextList}
       initialParams={{ category: 'All' }}
       options={{

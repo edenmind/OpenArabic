@@ -13,3 +13,18 @@ it('renders without crashing', () => {
 
   renderer.render(<NavDrawer isAuthenticated={isAuthenticated} toggleDrawer={toggleDrawer} state={state} />)
 })
+
+it('should match snapshot when authenticated and open', () => {
+  const renderer = new ShallowRenderer()
+
+  const isAuthenticated = true
+  const state = {
+    left: true
+  }
+
+  renderer.render(<NavDrawer isAuthenticated={isAuthenticated} toggleDrawer={toggleDrawer} state={state} />)
+
+  const result = renderer.getRenderOutput()
+
+  expect(result).toMatchSnapshot()
+})

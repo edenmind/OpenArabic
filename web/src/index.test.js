@@ -11,4 +11,11 @@ describe('Application root', () => {
     global.document.getElementById = (id) => id === 'root' && div
     expect(ReactDOM.render).toHaveBeenCalled()
   })
+
+  it('should match snapshot', () => {
+    const div = document.createElement('div')
+    ReactDOM.render(<App />, div)
+    global.document.getElementById = (id) => id === 'root' && div
+    expect(ReactDOM.render).toMatchSnapshot()
+  })
 })

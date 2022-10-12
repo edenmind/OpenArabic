@@ -1,5 +1,6 @@
 import { textReducer } from './reducers.js'
 import * as actions from './actions.js'
+import { itIT } from '@mui/material/locale'
 
 test('reducers SET_ENGLISH_WORDS', () => {
   const state = textReducer(
@@ -158,3 +159,4 @@ test('reducers  SET_STATUS', () => {
     }
   })
 })
+
