@@ -77,4 +77,26 @@ describe('test wordProcessing', () => {
     // Assert
     expect(capitalized).toEqual('word')
   })
+
+  it('truncate should return the same string if it is shorter than truncate length', () => {
+    // Arrange
+    const word = 'word'
+
+    // Act
+    const truncated = wordProcessing.truncate(word, 5)
+
+    // Assert
+    expect(truncated).toEqual('word')
+  })
+
+  it('truncate should return the same string if it is equal to truncate length', () => {
+    // Arrange
+    const word = 'word'
+
+    // Act
+    const truncated = wordProcessing.truncate(word, 4)
+
+    // Assert
+    expect(truncated).toEqual('word')
+  })
 })

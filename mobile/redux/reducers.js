@@ -1,7 +1,6 @@
 /* eslint-disable putout/objects-braces-inside-array */
 /* eslint-disable putout/keyword-spacing */
 import * as actions from './actions.js'
-
 import { createReducer } from '@reduxjs/toolkit'
 
 const initialStateCategories = {
@@ -14,7 +13,7 @@ const initialStateText = {
     english: ['e1', 'e2', 'e3'],
     status: 'Draft',
     title: '',
-    publishAt: new Date().toUTCString(),
+    publishAt: '2021-01-01T00:00:00.000Z',
     wordByWord: [['']],
     image: 'abc',
     texts: { arabic: '', english: '' },
@@ -22,7 +21,11 @@ const initialStateText = {
     author: '',
     arabicSentence: [''],
     source: '',
-    vocabularyCollection: { arabic: ['a1', 'a2', 'a3'], english: ['e1', 'e2', 'e3'] },
+    vocabularyCollection: {
+      numberOfBatches: 1,
+      arabic: [[{ word: 'a', wordId: '1' }]],
+      english: [[{ word: 'e', wordId: '1' }]]
+    },
     // eslint-disable-next-line putout/objects-braces-inside-array
     sentences: [
       {

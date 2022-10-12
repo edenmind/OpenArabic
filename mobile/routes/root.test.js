@@ -9,4 +9,14 @@ describe('<Root />', () => {
     const renderer = new ShallowRenderer()
     renderer.render(<Root />)
   })
+
+  it('screen with name "Texts" should match snapshot', () => {
+    // @ts-ignore
+    const renderer = new ShallowRenderer()
+    renderer.render(<Root />)
+
+    const result = renderer.getRenderOutput()
+
+    expect(result).toMatchSnapshot()
+  })
 })

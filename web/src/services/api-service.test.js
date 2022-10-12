@@ -48,4 +48,40 @@ describe('fetchUsers', () => {
     // then
     expect(mock.history.get[0].url).toEqual(`${process.env.REACT_APP_API_URL}/texts/abc`)
   })
+
+  test('delete text should be called', async () => {
+    // given
+    mock.onDelete(`${process.env.REACT_APP_API_URL}/texts/abc`).reply(200)
+    // when
+    await api.deleteText('abc')
+    // then
+    expect(mock.history.delete[0].url).toEqual(`${process.env.REACT_APP_API_URL}/texts/abc`)
+  })
+
+  test('delete author should be called', async () => {
+    // given
+    mock.onDelete(`${process.env.REACT_APP_API_URL}/authors/abc`).reply(200)
+    // when
+    await api.deleteAuthor('abc')
+    // then
+    expect(mock.history.delete[0].url).toEqual(`${process.env.REACT_APP_API_URL}/authors/abc`)
+  })
+
+  test('delete category should be called', async () => {
+    // given
+    mock.onDelete(`${process.env.REACT_APP_API_URL}/categories/abc`).reply(200)
+    // when
+    await api.deleteCategory('abc')
+    // then
+    expect(mock.history.delete[0].url).toEqual(`${process.env.REACT_APP_API_URL}/categories/abc`)
+  })
+
+  test('update category should be called', async () => {
+    // given
+    mock.onPut(`${process.env.REACT_APP_API_URL}/categories/abc`).reply(200)
+    // when
+    await api.updateCategory('abc', 'abc')
+    // then
+    expect(mock.history.put[0].url).toEqual(`${process.env.REACT_APP_API_URL}/categories/abc`)
+  })
 })

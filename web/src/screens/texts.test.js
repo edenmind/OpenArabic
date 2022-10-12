@@ -6,3 +6,12 @@ it('renders without crashing', () => {
   const renderer = new ShallowRenderer()
   renderer.render(<Texts />)
 })
+
+it('should match snapshot', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<Texts />)
+
+  const result = renderer.getRenderOutput()
+
+  expect(result).toMatchSnapshot()
+})

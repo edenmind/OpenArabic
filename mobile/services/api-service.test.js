@@ -1,90 +1,94 @@
 import axios from 'axios'
-import { expect, describe, it, jest } from '@jest/globals'
+import { expect, describe, jest } from '@jest/globals'
 import { getCategories, getText, getTexts } from './api-service.js'
+import MockAdapter from 'axios-mock-adapter'
 
-jest.mock('axios')
-
+const mockDispatch = jest.fn()
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch
+}))
 describe('getTexts', () => {
-  describe('when API call fails', () => {
-    it('should return error message', async () => {
-      // arrange
-      const message = 'Network Error'
-      axios.get.mockRejectedValueOnce(new Error(message))
+  let mock
 
-      // act
-      const result = getTexts('Adab', 7, 1)
+  beforeAll(() => {
+    mock = new MockAdapter(axios)
+  })
 
-      // assert
-      expect(result).toBeTruthy
+  afterEach(() => {
+    mock.reset()
+  })
+
+  test('should dispatch SET_TEXTS_LOADED with false for getTexts', async () => {
+    mock.onGet().reply(200, { data: 'test' })
+    await getTexts('test')(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SET_TEXTS_LOADED',
+      payload: false
     })
   })
-  describe('when API call is successful', () => {
-    it('should return texts', async () => {
-      // arrange
-      axios.get.mockResolvedValueOnce()
 
-      // act
-      const result = getTexts('7')
-
-      // assert
-      expect(result).toBeTruthy
+  test('should dispatch RESET_TEXT for getText', async () => {
+    mock.onGet().reply(200, { data: 'test' })
+    await getText('test')(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'RESET_TEXT'
     })
   })
-})
 
-describe('getCategories', () => {
-  describe('when API call fails', () => {
-    it('should return error message', async () => {
-      // given
-      const message = 'Network Error'
-      axios.get.mockRejectedValueOnce(new Error(message))
-
-      // when
-      const result = getCategories()
-
-      // then
-      expect(result).toBeTruthy
+  test('should dispatch SET_TEXT_LOADED with false for getText', async () => {
+    mock.onGet().reply(200, { data: 'test' })
+    await getText('test')(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SET_TEXT_LOADED',
+      payload: false
     })
   })
-  describe('when API call is successful', () => {
-    it('should return category list', async () => {
-      // arrange
-      axios.get.mockResolvedValueOnce()
 
-      // act
-      const result = getCategories()
-
-      // assert
-      expect(result).toBeTruthy
+  test('should dispatch SET_TEXT_LOADED with true for getText', async () => {
+    mock.onGet().reply(200, { data: 'test' })
+    await getText('test')(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SET_TEXT_LOADED',
+      payload: true
     })
   })
-})
 
-describe('getText', () => {
-  describe('when API call fails', () => {
-    it('should return error message', async () => {
-      // given
-      const message = 'Network Error'
-      axios.get.mockRejectedValueOnce(new Error(message))
-
-      // when
-      const result = getText(1)
-
-      // then
-      expect(result).toBeTruthy
+  test('should dispatch SET_TEXTS_LOADED with true for getTexts', async () => {
+    mock.onGet().reply(200, { data: 'test' })
+    await getTexts('test')(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SET_TEXTS_LOADED',
+      payload: true
     })
   })
-  describe('when API call is successful', () => {
-    it('should return text', async () => {
-      // arrange
-      axios.get.mockResolvedValueOnce()
 
-      // act
-
-      const result = getText('1')
-
-      // assert
-      expect(result).toBeTruthy
+  test('categories should dispatch SET_CATEGORIES', async () => {
+    mock.onGet().reply(200, { data: 'test' })
+    await getCategories()(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SET_CATEGORIES',
+      payload: { data: 'test' }
     })
   })
+
+  test('getText should dispatch SET_TEXT', async () => {
+    mock.onGet().reply(200, { data: 'test' })
+    await getText('test')(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SET_TEXT',
+      payload: { data: 'test' }
+    })
+  })
+
+  test('getTexts should dispatch SET_TEXTS', async () => {
+    mock.onGet().reply(200, { data: 'test' })
+    await getTexts('test')(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SET_TEXTS',
+      payload: { data: 'test' }
+    })
+  })
+
+  
 })

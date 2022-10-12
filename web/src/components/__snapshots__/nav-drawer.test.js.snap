@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot when authenticated and open 1`] = `
+<ForwardRef(Drawer)
+  anchor="left"
+  open={true}
+>
+  <ForwardRef(Box)
+    role="presentation"
+    sx={
+      Object {
+        "width": 250,
+      }
+    }
+  >
+    <ForwardRef(List) />
+    <React.Fragment>
+      <ForwardRef(Divider)>
+        Administration
+      </ForwardRef(Divider)>
+      <ForwardRef(List)>
+        <ForwardRef(ListItem)>
+          <ForwardRef(Button)
+            component={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              }
+            }
+            to="/Texts"
+          >
+            Texts
+          </ForwardRef(Button)>
+        </ForwardRef(ListItem)>
+        <ForwardRef(ListItem)>
+          <ForwardRef(Button)
+            component={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              }
+            }
+            to="/Categories"
+          >
+            Categories
+          </ForwardRef(Button)>
+        </ForwardRef(ListItem)>
+        <ForwardRef(ListItem)>
+          <ForwardRef(Button)
+            component={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              }
+            }
+            to="/Authors"
+          >
+            Authors
+          </ForwardRef(Button)>
+        </ForwardRef(ListItem)>
+      </ForwardRef(List)>
+    </React.Fragment>
+  </ForwardRef(Box)>
+</ForwardRef(Drawer)>
+`;

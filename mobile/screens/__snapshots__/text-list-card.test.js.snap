@@ -14,6 +14,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  testID="pressableOpacity"
 >
   <View
     collapsable={false}

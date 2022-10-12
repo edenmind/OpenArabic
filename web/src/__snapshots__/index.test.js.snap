@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Application root should match snapshot 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      <App />,
+      <div />,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;

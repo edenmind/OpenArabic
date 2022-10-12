@@ -38,11 +38,12 @@ const prepareIngress = (text, length) => {
   return utility.truncate(spaceAfterDot, length)
 }
 
-export default function TextListCard(props) {
+export default function CategoryCard(props) {
   const category = `#${props.text.category.toLowerCase()}`
 
   return (
     <PressableOpacity
+      testID="pressableOpacity"
       onPress={() => {
         props.setShouldReload(false)
         props.navigation.navigate(SCREENS.textScreen, {
@@ -69,7 +70,7 @@ export default function TextListCard(props) {
   )
 }
 
-TextListCard.propTypes = {
+CategoryCard.propTypes = {
   setShouldReload: PropTypes.func.isRequired,
   navigation: PropTypes.object,
   text: PropTypes.shape({

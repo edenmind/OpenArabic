@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { Provider } from 'react-redux'
 
 jest.useFakeTimers()
+
 describe('<TextDrawer />', () => {
   it('renders without crashing', () => {
     // @ts-ignore

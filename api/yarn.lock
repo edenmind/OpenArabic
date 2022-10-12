@@ -500,14 +500,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/rate-limit@npm:^7.4.0":
-  version: 7.4.0
-  resolution: "@fastify/rate-limit@npm:7.4.0"
+"@fastify/rate-limit@npm:^7.5.0":
+  version: 7.5.0
+  resolution: "@fastify/rate-limit@npm:7.5.0"
   dependencies:
     fastify-plugin: ^4.0.0
     ms: ^2.1.3
-    tiny-lru: ^8.0.1
-  checksum: 17b51a6c5adec43b0c8f445cf6b1406724a010cd8f826d0eacf1f0e36d9b109e46c9d046418deeac04b7834612af36b27c1011adc1205d76701df8d47bc99630
+    tiny-lru: ^9.0.2
+  checksum: 3ad3fbc09eca86768bae351b7393bbcbddf8f7ffd03a62faf44f92b566a6c7f8b18d29fa79ec77525e6f4c1e075b1cc0bd8177d47efe7ab5ba5c7318ae277259
   languageName: node
   linkType: hard
 
@@ -526,21 +526,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/static@npm:^6.0.0":
-  version: 6.4.0
-  resolution: "@fastify/static@npm:6.4.0"
-  dependencies:
-    content-disposition: ^0.5.3
-    encoding-negotiator: ^2.0.1
-    fastify-plugin: ^3.0.0
-    glob: ^8.0.1
-    p-limit: ^3.1.0
-    readable-stream: ^3.4.0
-    send: ^0.18.0
-  checksum: c5aed767ee9aaab9631d3cfd9c35864cea86237427bd6d5f35c8d36c892cfdd8c027c57519c4ba1218114575b9b1c8a09ea0359faec9eb80f0d51a469ae26e11
-  languageName: node
-  linkType: hard
-
 "@fastify/static@npm:^6.5.0":
   version: 6.5.0
   resolution: "@fastify/static@npm:6.5.0"
@@ -556,17 +541,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/swagger@npm:^7.6.1":
-  version: 7.6.1
-  resolution: "@fastify/swagger@npm:7.6.1"
+"@fastify/swagger@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@fastify/swagger@npm:8.0.0"
   dependencies:
-    "@fastify/static": ^6.0.0
     fastify-plugin: ^4.0.0
     json-schema-resolver: ^2.0.0
     openapi-types: ^12.0.0
     rfdc: ^1.3.0
     yaml: ^2.1.1
-  checksum: db3fde9cadbd28e8dad9bdaa71388cd8f3085841b08e671ef560b5a3054d462dc88ed5263a4b6c78dea84e4450a3506cb5eb7a03375055fbf4d2f29f1bd37f26
+  checksum: 9ae177882f9c0230dff5c3b0cd2752af4e3a441483c3b8fdaa568fd3cd823aafd4fe93ad029b51a8192ffc0e853265bdf1a9b760ca8ea2a8747b4486def86408
   languageName: node
   linkType: hard
 
@@ -2712,10 +2696,10 @@ __metadata:
     "@fastify/env": ^4.1.0
     "@fastify/helmet": ^10.0.1
     "@fastify/mongodb": ^6.1.0
-    "@fastify/rate-limit": ^7.4.0
+    "@fastify/rate-limit": ^7.5.0
     "@fastify/sensible": ^5.1.1
     "@fastify/static": ^6.5.0
-    "@fastify/swagger": ^7.6.1
+    "@fastify/swagger": ^8.0.0
     axios: ^1.1.2
     dotenv: ^16.0.3
     eslint: ^8.25.0
@@ -2724,7 +2708,7 @@ __metadata:
     eslint-plugin-putout: ^16.3.0
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^44.0.2
-    fastify: ^4.7.0
+    fastify: ^4.8.1
     fastify-cli: ^5.5.0
     fastify-healthcheck: ^4.2.0
     fastify-plugin: ^4.2.1
@@ -3643,13 +3627,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"encoding-negotiator@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "encoding-negotiator@npm:2.0.1"
-  checksum: 3a9226dc47a327796c7c01d06eff0bf9a614ef9b8cbe3a7539d0c506ae92e603582c4fc5b5a61d093ff14a5d71b1b332d28a7dad73eda798a08ed73c08531c41
-  languageName: node
-  linkType: hard
-
 "encoding@npm:^0.1.13":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
@@ -4321,13 +4298,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-plugin@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "fastify-plugin@npm:3.0.1"
-  checksum: 131ba0a388f777829c3fb0fd5b75cf057688ce6d0ca354fb1ebf829767a8c853b0825762b9185b5200097454df0ede2f3095da2efe1aa1b3736d07f194e6d374
-  languageName: node
-  linkType: hard
-
 "fastify-plugin@npm:^4.0.0":
   version: 4.0.0
   resolution: "fastify-plugin@npm:4.0.0"
@@ -4364,16 +4334,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^4.7.0":
-  version: 4.7.0
-  resolution: "fastify@npm:4.7.0"
+"fastify@npm:^4.8.1":
+  version: 4.8.1
+  resolution: "fastify@npm:4.8.1"
   dependencies:
     "@fastify/ajv-compiler": ^3.3.1
     "@fastify/error": ^3.0.0
     "@fastify/fast-json-stringify-compiler": ^4.1.0
     abstract-logging: ^2.0.1
     avvio: ^8.2.0
-    find-my-way: ^7.2.0
+    find-my-way: ^7.3.0
     light-my-request: ^5.6.1
     pino: ^8.5.0
     process-warning: ^2.0.0
@@ -4382,7 +4352,7 @@ __metadata:
     secure-json-parse: ^2.5.0
     semver: ^7.3.7
     tiny-lru: ^9.0.2
-  checksum: 76bc9fb37a36623468d99d9bba2b7166199e663d1f9d0b44b731a6c84c6aa298b6c0d29c6e935c5c0cce18df6d60e48a29dca468f7a155caca05d861a875f80f
+  checksum: ff26d77a9b01001afe5c2db0f0ecd2625c85e12bc9c5b42ead87fd6f3a530a9aa9ab21dbd5949b6ff0f7d52ef77ee451f6391bdfb5006d84120046a5e9e95252
   languageName: node
   linkType: hard
 
@@ -4434,14 +4404,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-my-way@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "find-my-way@npm:7.2.0"
+"find-my-way@npm:^7.3.0":
+  version: 7.3.1
+  resolution: "find-my-way@npm:7.3.1"
   dependencies:
     fast-deep-equal: ^3.1.3
     fast-querystring: ^1.0.0
     safe-regex2: ^2.0.0
-  checksum: 87b763507ce4e1dd53066b7e0af8a57ee21dbeeab68ed908579d82a8de23791d370d8e9f9b2d2f604e66df17fcc2cac3f3a2d59d0c3f6ea10121da177a20f731
+  checksum: eec65665c34fbfeb323a52989de51b106485ec0d6182996fc70d42570a73f88b9637572bb8ae89332532da9ca856615e195768116aeede75d73b929b9534bf7a
   languageName: node
   linkType: hard
 
@@ -8964,7 +8934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-lru@npm:^8.0.1, tiny-lru@npm:^8.0.2":
+"tiny-lru@npm:^8.0.2":
   version: 8.0.2
   resolution: "tiny-lru@npm:8.0.2"
   checksum: ec4d884914626760eef05cd57850f21a153adeeb7c4242eb8d44a031f1bd8489f18c1bf5d6f10f0a11c5dcfe03b302f26b00f2b879b38853599486bf0dca8c97
