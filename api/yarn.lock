@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -419,12 +419,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/autoload@npm:^5.4.0":
-  version: 5.4.0
-  resolution: "@fastify/autoload@npm:5.4.0"
+"@fastify/autoload@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "@fastify/autoload@npm:5.4.1"
   dependencies:
     pkg-up: ^3.1.0
-  checksum: 47c3d6e164973759a80d74df658d54b141aebd6c18b6f5d32183772e705ec7a8e8d313a07b242babbfecfee73c2014cab59f8443a3435335e63ab48cb164bc52
+  checksum: bc9a63812b021cac7d1d1107d089e193ea4a3e7e7816e39810fc7354e3d1a9e383fc3cdbd514728be11df50a592a0b7f76bde433a9a396e6f01008c2412890dd
   languageName: node
   linkType: hard
 
@@ -2691,7 +2691,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "backend@workspace:."
   dependencies:
-    "@fastify/autoload": ^5.4.0
+    "@fastify/autoload": ^5.4.1
     "@fastify/cors": ^8.1.0
     "@fastify/env": ^4.1.0
     "@fastify/helmet": ^10.0.1
@@ -9158,11 +9158,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
