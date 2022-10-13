@@ -277,7 +277,7 @@ test('delete text that should not be found', async (t) => {
   })
 
   //assert
-  t.equal(result.statusCode, 500)
+  t.equal(result.statusCode, 403)
 })
 
 test('update text that should not be found', async (t) => {
@@ -311,6 +311,130 @@ test('update text without header should fail', async (t) => {
     method: 'PUT',
     payload: {
       name: 'the_name'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 400)
+})
+
+test('update text with wrong header should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts/abc',
+    method: 'PUT',
+    headers: {
+      auth: 'wrong'
+    },
+    payload: {
+      name: 'the_name'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 400)
+})
+
+test('update text with wrong id should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts/abc',
+    method: 'PUT',
+    headers: {
+      auth: 'somesecurestring'
+    },
+    payload: {
+      name: 'the_name'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 400)
+})
+test('delete text without header should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts/abc',
+    method: 'DELETE'
+  })
+
+  //assert
+  t.equal(result.statusCode, 403)
+})
+
+test('delete text with wrong header should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts/abc',
+    method: 'DELETE',
+    headers: {
+      auth: 'wrong'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 403)
+})
+
+test('delete text with wrong id should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts/abc',
+    method: 'DELETE',
+    headers: {
+      auth: 'somesecurestring'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 403)
+})
+
+test('create text without name should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts',
+    method: 'POST',
+    payload: {
+      name: ''
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 400)
+})
+
+test('update test without name should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts/abc',
+    method: 'PUT',
+    headers: {
+      auth: 'somesecurestring'
+    },
+    payload: {
+      name: ''
     }
   })
 

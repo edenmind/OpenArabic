@@ -23,8 +23,6 @@ function produceVocabularyCollection(text) {
     for (const word of sentence.words) {
       if (word.quiz) {
         ++numberOfWords
-        // eslint-disable-next-line putout/putout
-        console.log('sentence number:', numberOfWords)
       }
     }
   }
@@ -37,9 +35,6 @@ function produceVocabularyCollection(text) {
         // don't add words not suitable for the quiz
         continue
       }
-
-      // eslint-disable-next-line putout/putout
-      console.log('max number:', maxNumberOfBatches)
 
       if (currentBatchNumber === maxNumberOfBatches) {
         break

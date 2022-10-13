@@ -37,7 +37,7 @@ test('create new category w/o auth key', async (t) => {
   })
 
   //assert
-  t.equal(result.statusCode, 500)
+  t.equal(result.statusCode, 403)
 })
 
 test('list categories', async (t) => {
@@ -107,7 +107,7 @@ test('update category that does not exist', async (t) => {
   })
 
   //assert
-  t.equal(result.statusCode, 500)
+  t.equal(result.statusCode, 403)
 })
 
 test('update category', async (t) => {

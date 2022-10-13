@@ -1,3 +1,4 @@
+/* eslint-disable putout/keyword-spacing */
 /* eslint-disable putout/putout */
 /* eslint-disable security/detect-object-injection */
 /* eslint-disable prettier/prettier */
@@ -15,7 +16,11 @@ async function listTexts(request, reply) {
   const textList = await texts.find({}).toArray()
   const textListSortedByCreatedAt = textList.sort((a, b) => a.publishAt - b.publishAt)
 
-  reply.code(200).send(textListSortedByCreatedAt)
+  if (textListSortedByCreatedAt.length > 0) {
+    reply.code(200).send(textListSortedByCreatedAt)
+  } else {
+    reply.code(404).send('No texts found!')
+  }
 }
 
 async function listTextsWithId(request, reply) {
@@ -23,19 +28,24 @@ async function listTextsWithId(request, reply) {
   const textList = await texts.find({ category: request.params.id }).toArray()
   const textListSortedByCreatedAt = textList.sort((a, b) => a.publishAt - b.publishAt)
 
-  reply.code(200).send(textListSortedByCreatedAt)
+  if (textListSortedByCreatedAt.length > 0) {
+    reply.code(200).send(textListSortedByCreatedAt)
+  } else {
+    reply.code(404).send('No texts found!')
+  }
 }
 
 async function addText(request, reply) {
   const { headers, body } = request
-  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const id = new ObjectId()
-  const createdAt = new Date()
   const { title, author, category, source, sentences, texts, publishAt, status, image } = body
   const { auth } = headers
 
+  const id = new ObjectId()
+  const createdAt = new Date()
+  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
+
   if (auth !== process.env.API_KEY) {
-    throw 'Error: Not authorized with' + auth
+    reply.code(403).send('Not authorized!')
   }
 
   const data = {
@@ -52,32 +62,30 @@ async function addText(request, reply) {
     status
   }
 
-  let checkForEmptySuccess = true
-  let checkForEmptyMessage = ''
+  //check that no values are empty
+  const dataContainsEmptyValues = Object.values(data).some((value) => value.length === 0)
 
-  for (const key in data) {
-    if (data[key].length === 0) {
-      checkForEmptySuccess = false
-      checkForEmptyMessage = `${key} must have a value!`
-    }
+  if (dataContainsEmptyValues) {
+    reply.internalServerError('One or more values are empty!')
   }
 
-  if (checkForEmptySuccess) {
+  //try to insert the data
+  try {
     await textsCollection.insertOne(data)
     reply.code(201).send(id)
-  } else {
-    reply.internalServerError(checkForEmptyMessage)
+  } catch (error) {
+    reply.internalServerError(error)
   }
 }
 
 async function getText(request, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const text = await texts.findOne({ id: new ObjectId(request.params.id) })
-  const vocabularyCollection = produceVocabularyCollection(text)
 
-  text.vocabularyCollection = vocabularyCollection
+  // Produce vocabulary collection for text
+  text.vocabularyCollection = produceVocabularyCollection(text)
 
-  text ? reply.send(text) : reply.notFound('The text was not found')
+  text ? reply.code(200).send(text) : reply.notFound('The text was not found')
 }
 
 async function getTashkeel(request, reply) {
@@ -89,17 +97,20 @@ async function getTashkeel(request, reply) {
 }
 
 async function updateText(request, reply) {
-  const { body, headers } = request
-  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const updatedAt = new Date()
+  const { body, headers, params } = request
   const { auth } = headers
+  const { id } = params
 
   if (auth !== process.env.API_KEY) {
-    throw 'Error'
+    reply.code(403).send('Not authorized!')
   }
+
+  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
+  const updatedAt = new Date()
 
   const { title, author, category, sentences, source, texts, publishAt, status, image } = body
   const { arabic, english } = texts
+
   const data = {
     $set: {
       title,
@@ -118,41 +129,32 @@ async function updateText(request, reply) {
     }
   }
 
-  let checkForEmptySuccess = true
-  let checkForEmptyMessage = ''
+  const dataContainsEmptyValues = Object.values(data).some((value) => value.length === 0)
 
-  for (const key in data.$set) {
-    if (data.$set[key].length === 0) {
-      checkForEmptySuccess = false
-      checkForEmptyMessage = `${key} must have a value!`
-    }
+  if (dataContainsEmptyValues) {
+    reply.internalServerError('One or more values are empty!')
   }
 
-  if (checkForEmptySuccess) {
-    const result = await textsCollection.updateOne({ id: new ObjectId(request.params.id) }, data, {
-      upsert: true
-    })
-    reply.send({
-      message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`
-    })
-  } else {
-    reply.internalServerError(checkForEmptyMessage)
-  }
+  const result = await textsCollection.updateOne({ id: new ObjectId(id) }, data, {
+    upsert: true
+  })
+
+  reply.send({
+    message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`
+  })
 }
 
 async function deleteText(request, reply) {
   const { auth } = request.headers
 
   if (auth !== process.env.API_KEY) {
-    throw 'Error: Not authorized with' + auth
+    reply.code(403).send('Not authorized!')
   }
 
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const result = await texts.deleteOne({ id: new ObjectId(request.params.id) })
-  result.deletedCount ? reply.send('Deleted') : reply.internalServerError('Could not delete Text.')
+  result.deletedCount ? reply.code(204).send('Deleted') : reply.internalServerError('Could not delete text!')
 }
-
-// Helper functions
 
 module.exports = {
   listTexts,

@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fastify/autoload": "^5.4.0",
+    "@fastify/autoload": "^5.4.1",
     "@fastify/cors": "^8.1.0",
     "@fastify/env": "^4.1.0",
     "@fastify/helmet": "^10.0.1",
@@ -35,7 +35,7 @@
     "fastify": "^4.8.1",
     "fastify-cli": "^5.5.0",
     "fastify-healthcheck": "^4.2.0",
-    "fastify-plugin": "^4.2.1",
+    "fastify-plugin": "^4.3.0",
     "mongodb": "^4.10.0",
     "prettier": "^2.7.1",
     "putout": "^27.13.0",
