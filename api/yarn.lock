@@ -419,12 +419,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/autoload@npm:^5.4.0":
-  version: 5.4.0
-  resolution: "@fastify/autoload@npm:5.4.0"
+"@fastify/autoload@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "@fastify/autoload@npm:5.4.1"
   dependencies:
     pkg-up: ^3.1.0
-  checksum: 47c3d6e164973759a80d74df658d54b141aebd6c18b6f5d32183772e705ec7a8e8d313a07b242babbfecfee73c2014cab59f8443a3435335e63ab48cb164bc52
+  checksum: bc9a63812b021cac7d1d1107d089e193ea4a3e7e7816e39810fc7354e3d1a9e383fc3cdbd514728be11df50a592a0b7f76bde433a9a396e6f01008c2412890dd
   languageName: node
   linkType: hard
 
@@ -2691,7 +2691,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "backend@workspace:."
   dependencies:
-    "@fastify/autoload": ^5.4.0
+    "@fastify/autoload": ^5.4.1
     "@fastify/cors": ^8.1.0
     "@fastify/env": ^4.1.0
     "@fastify/helmet": ^10.0.1
@@ -2711,7 +2711,7 @@ __metadata:
     fastify: ^4.8.1
     fastify-cli: ^5.5.0
     fastify-healthcheck: ^4.2.0
-    fastify-plugin: ^4.2.1
+    fastify-plugin: ^4.3.0
     mongodb: ^4.10.0
     prettier: ^2.7.1
     putout: ^27.13.0
@@ -4309,6 +4309,13 @@ __metadata:
   version: 4.2.1
   resolution: "fastify-plugin@npm:4.2.1"
   checksum: 01eaa6644f21a50c0a83a8ac0dceea8f2d35bafd233788a10a7b60803bb0b27068677b718e05ce14f4e97778f0966389eedbbb16b4f3886d7fbbb6125788d681
+  languageName: node
+  linkType: hard
+
+"fastify-plugin@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "fastify-plugin@npm:4.3.0"
+  checksum: f4831ca6de3db276f6e5c9ae172c175631be07b24b91e1de17d0cd11c1bd29fe7f671deec591a4dfd26169d3de4f9d9ca385d0e7bddccf38c6d21b5764f8b77d
   languageName: node
   linkType: hard
 

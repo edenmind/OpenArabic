@@ -11,7 +11,7 @@ describe('<TextArabic />', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <Provider store={store}>
+        <Provider textLoading={false} store={store}>
           <TextArabic />
         </Provider>
       )
