@@ -21,7 +21,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/react-redux": "^7.1.24",
-    "axios": "^0.27.2",
+    "axios": "^1.1.2",
     "axios-mock-adapter": "^1.21.2",
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-import": "^2.26.0",
