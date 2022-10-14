@@ -36,6 +36,7 @@
     "fastify-cli": "^5.5.0",
     "fastify-healthcheck": "^4.2.0",
     "fastify-plugin": "^4.3.0",
+    "moment": "^2.29.4",
     "mongodb": "^4.10.0",
     "prettier": "^2.7.1",
     "putout": "^27.13.0",

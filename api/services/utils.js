@@ -1,6 +1,20 @@
 'use strict'
 
 const { v4: uuidv4 } = require('uuid')
+const moment = require('moment')
+
+//return time to read based on length of text
+const readingTime = (text) => {
+  const wordsPerMinute = 50
+  const numberOfWords = text.split(/\s/g).length
+  const minutes = numberOfWords / wordsPerMinute
+  const readTime = Math.ceil(minutes)
+
+  return readTime === 1 ? `${readTime} min read` : `${readTime} mins read`
+}
+
+//return time ago from date using moment
+const timeAgo = (date) => moment(date).fromNow()
 
 const shuffleArray = (array) => {
   return array
@@ -9,7 +23,7 @@ const shuffleArray = (array) => {
     .map(({ value }) => value)
 }
 
-function produceVocabularyCollection(text) {
+const produceVocabularyCollection = (text) => {
   const arabicVocabulary = [[]]
   const englishVocabulary = [[]]
 
@@ -82,5 +96,7 @@ function produceVocabularyCollection(text) {
 
 module.exports = {
   produceVocabularyCollection,
-  shuffleArray
+  shuffleArray,
+  timeAgo,
+  readingTime
 }

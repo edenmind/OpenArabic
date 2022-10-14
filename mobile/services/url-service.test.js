@@ -28,7 +28,7 @@ describe('url', () => {
     const urlExpected = 'http://localhost:3030/texts/categories/33'
 
     // Act
-    const urlActual = url.categoryWithId(33)
+    const urlActual = url.textsWithCategory(33)
 
     // Assert
     expect(urlExpected).toEqual(urlActual)
@@ -39,7 +39,7 @@ describe('url', () => {
     const urlExpected = 'http://localhost:3030/texts/categories/'
 
     // Act
-    const urlActual = url.categoryWithId()
+    const urlActual = url.textsWithCategory()
 
     // Assert
     expect(urlExpected).toEqual(urlActual)

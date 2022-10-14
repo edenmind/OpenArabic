@@ -89,6 +89,4 @@ describe('getTexts', () => {
       payload: { data: 'test' }
     })
   })
-
-  
 })

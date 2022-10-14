@@ -13630,7 +13630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"promise@npm:^8.0.3":
+"promise@npm:^8.2.0":
   version: 8.2.0
   resolution: "promise@npm:8.2.0"
   dependencies:
@@ -14164,9 +14164,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.69.5":
-  version: 0.69.5
-  resolution: "react-native@npm:0.69.5"
+"react-native@npm:0.69.6":
+  version: 0.69.6
+  resolution: "react-native@npm:0.69.6"
   dependencies:
     "@jest/create-cache-key-function": ^27.0.1
     "@react-native-community/cli": ^8.0.4
@@ -14189,7 +14189,7 @@ __metadata:
     mkdirp: ^0.5.1
     nullthrows: ^1.1.1
     pretty-format: ^26.5.2
-    promise: ^8.0.3
+    promise: ^8.2.0
     react-devtools-core: 4.24.0
     react-native-codegen: ^0.69.2
     react-native-gradle-plugin: ^0.0.7
@@ -14205,7 +14205,7 @@ __metadata:
     react: 18.0.0
   bin:
     react-native: cli.js
-  checksum: 4f7cfcd0d614cc6fe897a49197bd036210625c5eb547342ac7ebea45ab5febae73d6a9a7438f08f454d1e02c2e041b3f910461c4a6e5c6e0e44f5cfe70405990
+  checksum: d050b9f0389362368cd1286c02dd46cd84def9fcbf4774dcedd5cbc3aa9ad594de48f22c5458ec257c07646d79722256bc837b25205c3a52752d5c5b6a7873f4
   languageName: node
   linkType: hard
 
@@ -15110,7 +15110,7 @@ __metadata:
     putout: ^27.13.0
     react: 18.0.0
     react-dom: 18.0.0
-    react-native: 0.69.5
+    react-native: 0.69.6
     react-native-error-boundary: ^1.1.16
     react-native-gesture-handler: ~2.5.0
     react-native-get-random-values: ~1.8.0

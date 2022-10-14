@@ -8,12 +8,30 @@ import axiosRetry from 'axios-retry'
 
 axiosRetry(axios, { retries: 3 })
 
-export const getTexts = (id) => async (dispatch) => {
+export const getTexts = () => async (dispatch) => {
   dispatch({
     type: 'SET_TEXTS_LOADED',
     payload: false
   })
-  const res = await axios.get(url.categoryWithId(id)).catch((error) => console.log(error))
+  const res = await axios.get(url.texts).catch((error) => console.log(error))
+
+  dispatch({
+    type: 'SET_TEXTS',
+    payload: res.data
+  })
+
+  dispatch({
+    type: 'SET_TEXTS_LOADED',
+    payload: true
+  })
+}
+
+export const getTextsWithCategory = (category) => async (dispatch) => {
+  dispatch({
+    type: 'SET_TEXTS_LOADED',
+    payload: false
+  })
+  const res = await axios.get(url.textsWithCategory(category)).catch((error) => console.log(error))
 
   dispatch({
     type: 'SET_TEXTS',
