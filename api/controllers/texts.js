@@ -51,7 +51,7 @@ async function listTextsWithId(request, reply) {
     return {
       ...text,
       timeAgo: timeAgo(text.publishAt),
-      readingTime: readingTime(text.texts.arabic.text)
+      readingTime: readingTime(text.texts.arabic)
     }
   })
 
@@ -76,7 +76,8 @@ async function addText(request, reply) {
 
   //prepare the data to be inserted into the database
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const id = new ObjectId()
+  const id = new ObjectId() //generate a new id
+  const views = 0 //initially, the text has no views
   const createdAt = new Date()
   const data = {
     title,
@@ -89,6 +90,7 @@ async function addText(request, reply) {
     id,
     sentences,
     texts,
+    views,
     status
   }
 

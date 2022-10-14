@@ -231,7 +231,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                 ]
               }
             >
-              someAuthor — undefined
+              someAuthor · undefined views · undefined
             </Text>
           </View>
           <View />

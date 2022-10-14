@@ -42,7 +42,7 @@ const getTextOptions = {
           title: { type: 'string' },
           status: { type: 'string' },
           image: { type: 'string' },
-          views: { type: 'number' },
+          views: { type: 'string' },
           timeAgo: { type: 'string' },
           readingTime: { type: 'string' },
           createdAt: { type: 'string' },
