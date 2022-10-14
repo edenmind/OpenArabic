@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Category /> renders correctly 1`] = `
+<Context.Provider
+  value={
+    {
+      "getServerState": undefined,
+      "store": {
+        "@@observable": [Function],
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <ForwardRef(NavigationContainerInner)
+    theme={
+      {
+        "colors": {
+          "background": "#fdfffd",
+          "border": "#a4cfbe",
+          "card": "#fdfffd",
+          "notification": "#3e423a",
+          "primary": "#a4cfbe",
+          "text": "#3e423a",
+        },
+      }
+    }
+  >
+    <TextList />
+  </ForwardRef(NavigationContainerInner)>
+</Context.Provider>
+`;

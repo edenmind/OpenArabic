@@ -33,15 +33,4 @@ describe('url', () => {
     // Assert
     expect(urlExpected).toEqual(urlActual)
   })
-
-  it('should get category without id', () => {
-    // Arrange
-    const urlExpected = 'http://localhost:3030/texts/categories/'
-
-    // Act
-    const urlActual = url.categoryWithId()
-
-    // Assert
-    expect(urlExpected).toEqual(urlActual)
-  })
 })

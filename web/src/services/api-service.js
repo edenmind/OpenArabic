@@ -55,9 +55,15 @@ export const getTranslationWord = async (arabicWord) => {
 
 export const getTexts = async () => {
   const url = `${process.env.REACT_APP_API_URL}/texts`
-  const response = await axios.get(url)
 
-  return response.data
+  const result = await axios({
+    method: 'get',
+    url
+  }).catch((error) => {
+    return { message: error.message, state: 'error' }
+  })
+
+  return result.data
 }
 
 export const getTextsCategory = async (id) => {

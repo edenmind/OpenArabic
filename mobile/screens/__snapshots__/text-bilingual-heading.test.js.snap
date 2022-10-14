@@ -44,7 +44,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
               "marginVertical": 2,
             },
             {
-              "paddingTop": 55,
+              "paddingTop": 45,
               "textAlign": "center",
             },
           ],
@@ -108,6 +108,46 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
             "textAlign": "left",
           },
           {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "writingDirection": "ltr",
+          },
+          [
+            {
+              "fontSize": 16,
+              "letterSpacing": 0.5,
+              "lineHeight": 24,
+              "marginVertical": 2,
+            },
+            {
+              "fontStyle": "italic",
+              "paddingBottom": 10,
+              "textAlign": "center",
+            },
+          ],
+        ],
+      ]
+    }
+  >
+    source
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        [
+          {
+            "textAlign": "left",
+          },
+          {
             "color": "rgba(0, 0, 0, 0.54)",
             "fontFamily": "System",
             "fontWeight": "400",
@@ -128,8 +168,6 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
         ],
       ]
     }
-  >
-    source
-  </Text>,
+  />,
 ]
 `;

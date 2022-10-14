@@ -1,7 +1,7 @@
 /* eslint-disable import/namespace */
 import * as utility from '../services/utility-service.js'
 
-import { Caption, Card, Paragraph } from 'react-native-paper'
+import { Caption, Card, Paragraph, Text } from 'react-native-paper'
 
 import COLORS from '../constants/colors.js'
 import PressableOpacity from '../components/pressable-opacity.js'
@@ -39,7 +39,11 @@ const prepareIngress = (text, length) => {
 }
 
 export default function CategoryCard(props) {
+  //prepare hte texts
   const category = `#${props.text.category.toLowerCase()}`
+  const subtitle = `${props.text.author} · ${props.text.views} views · ${props.text.timeAgo}`
+  const english = props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)
+  const arabic = props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)
 
   return (
     <PressableOpacity
@@ -51,16 +55,12 @@ export default function CategoryCard(props) {
         })
       }}
     >
-      <Card style={style.card} testID="textCard">
+      <Card style={style.card} testID="textCard" mode="elevated">
         <Card.Cover source={{ uri: props.text.image }} />
-        <Card.Title title={props.text.title} subtitle={`${props.text.author} — ${props.text.source}`} />
+        <Card.Title title={props.text.title} subtitle={subtitle} />
         <Card.Content>
-          <Paragraph>
-            {props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)}
-          </Paragraph>
-          <Paragraph style={style.arabic}>
-            {props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)}
-          </Paragraph>
+          <Paragraph>{english}</Paragraph>
+          <Paragraph style={style.arabic}>{arabic}</Paragraph>
         </Card.Content>
         <Card.Actions style={style.cardAction}>
           <Caption>{category}</Caption>
@@ -76,6 +76,9 @@ CategoryCard.propTypes = {
   text: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,
+    views: PropTypes.number,
+    timeAgo: PropTypes.string,
+    readingTime: PropTypes.string,
     image: PropTypes.string,
     author: PropTypes.string,
     source: PropTypes.string,

@@ -12,12 +12,17 @@ const style = StyleSheet.create({
     height: 250,
     width: '100%'
   },
+  reading: {
+    paddingBottom: 10,
+    textAlign: 'center'
+  },
   source: {
+    fontStyle: 'italic',
     paddingBottom: 10,
     textAlign: 'center'
   },
   title: {
-    paddingTop: 55,
+    paddingTop: 45,
     textAlign: 'center'
   }
 })
@@ -28,7 +33,8 @@ export default function TextBilingualHeading(props) {
       <Image source={{ uri: props.heading.image }} style={style.image} />
       <Title style={style.title}>{props.heading.title}</Title>
       <Subheading style={style.author}>{props.heading.author}</Subheading>
-      <Caption style={style.source}>{props.heading.source}</Caption>
+      <Subheading style={style.source}>{props.heading.source}</Subheading>
+      <Caption style={style.reading}>{props.heading.readingTime}</Caption>
     </Fragment>
   )
 }
@@ -36,6 +42,7 @@ export default function TextBilingualHeading(props) {
 TextBilingualHeading.propTypes = {
   heading: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    readingTime: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     source: PropTypes.string.isRequired
