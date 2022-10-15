@@ -23,38 +23,48 @@ const TextAddWordsGenerate = (props) => {
   const generateSentences = () => {
     const sentences = []
 
-    for (const [index, element] of text.arabicSentence.entries()) {
-      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(element)
-      const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
-      const wordsNotInDictionaryRemoved = wordProcessing.removeWordsFromDictionary(cleanFromNullAndEmpty)
-
+    for (const [index, arabicSentence] of text.arabicSentence.entries()) {
       const words = []
 
-      for (const cleanWord of wordsNotInDictionaryRemoved) {
+      //split the arabic sentence into distinct words
+      const arabicWordsInSentence = wordProcessing.splitSentencesToWords(arabicSentence)
+      //remove all null and empty words
+      const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(arabicWordsInSentence)
+      //remove all words from our dictionary that contains words that should not be translated
+      const wordsInDictionaryRemoved = wordProcessing.removeWordsFromDictionary(cleanFromNullAndEmpty)
+
+      //loop through the words in the sentence and add them to the words array
+      for (const cleanWord of wordsInDictionaryRemoved) {
+        //remove all invalid characters from the word
         const illegalCharactersRemoved = wordProcessing.cleanWordFromInvalidCharacters(cleanWord)
+        //remove all words that are not arabic
         const nonArabicCharactersRemoved = wordProcessing.removeNonArabicCharacters(illegalCharactersRemoved)
 
-        const word = {
+        //if the word is  empty or null, then we wont add it
+        if (nonArabicCharactersRemoved === '' || nonArabicCharactersRemoved === null) {
+          continue
+        }
+
+        //prepare the words with its translation
+        const wordPair = {
           arabic: nonArabicCharactersRemoved,
           english: ''
         }
-
-        if (word.arabic !== '' && word.arabic !== undefined && word.arabic !== null) {
-          words.push(word)
-        }
+        //add the word to the words array
+        words.push(wordPair)
       }
 
       const sentence = {
         english: text.englishSentence[index],
-        arabic: element,
+        arabic: arabicSentence,
         words
       }
       sentences.push(sentence)
     }
 
+    dispatch({ type: 'SET_SENTENCES', sentences })
     setStatusMessage(`${sentences.length} sentences generated`)
     setOpen(true)
-    dispatch({ type: 'SET_SENTENCES', sentences })
   }
 
   return (

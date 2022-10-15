@@ -93,4 +93,22 @@ describe('fetchUsers', () => {
     // then
     expect(mock.history.put[0].url).toEqual(`${process.env.REACT_APP_API_URL}/authors/abc`)
   })
+
+  test('create category should be called', async () => {
+    // given
+    mock.onPost(`${process.env.REACT_APP_API_URL}/categories`).reply(200)
+    // when
+    await api.addCategory('abc')
+    // then
+    expect(mock.history.post[0].url).toEqual(`${process.env.REACT_APP_API_URL}/categories`)
+  })
+
+  test('create author should be called', async () => {
+    // given
+    mock.onPost(`${process.env.REACT_APP_API_URL}/authors`).reply(200)
+    // when
+    await api.addAuthor('abc')
+    // then
+    expect(mock.history.post[0].url).toEqual(`${process.env.REACT_APP_API_URL}/authors`)
+  })
 })
