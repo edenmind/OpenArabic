@@ -1,3 +1,5 @@
+import { getDictionary } from './dictionary.js'
+
 export const splitTextToSentences = (text) => text.split('\n')
 export const removeEmptyAndNull = (words) => words.filter((word) => word !== '').filter((word) => word != undefined)
 export const splitSentencesToWords = (sentence) => sentence.split(' ')
@@ -11,6 +13,17 @@ export const capitalizeFirstLetter = (string) => {
 
 export const makeAllLetterLowercase = (string) => {
   return string.toLowerCase()
+}
+
+//remove all non arabic characters
+export const removeNonArabicCharacters = (string) => {
+  return string.replace(/[^ء-ي]/g, '')
+}
+
+//check list against dictionary and remove words from the list that are in the dictionary
+export const removeWordsFromDictionary = (words) => {
+  const dictionary = getDictionary()
+  return words.filter((word) => !dictionary.includes(word))
 }
 
 export const truncate = (stringToTruncate, truncateLength) => {

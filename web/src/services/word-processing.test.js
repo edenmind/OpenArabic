@@ -99,4 +99,26 @@ describe('test wordProcessing', () => {
     // Assert
     expect(truncated).toEqual('word')
   })
+
+  it('word should be removed if it is found in dictionary', () => {
+    // Arrange
+    const word = ['أحمد', 'سارة']
+
+    // Act
+    const removed = wordProcessing.removeWordsFromDictionary(word)
+
+    // Assert
+    expect(removed).toEqual([])
+  })
+
+  it('should remove non arabic characters', () => {
+    // Arrange
+    const word = 'wordأحمد'
+
+    // Act
+    const removed = wordProcessing.removeNonArabicCharacters(word)
+
+    // Assert
+    expect(removed).toEqual('أحمد')
+  })
 })

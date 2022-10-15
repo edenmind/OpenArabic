@@ -84,4 +84,13 @@ describe('fetchUsers', () => {
     // then
     expect(mock.history.put[0].url).toEqual(`${process.env.REACT_APP_API_URL}/categories/abc`)
   })
+
+  test('update author should be called', async () => {
+    // given
+    mock.onPut(`${process.env.REACT_APP_API_URL}/authors/abc`).reply(200)
+    // when
+    await api.updateAuthor('abc', 'abc')
+    // then
+    expect(mock.history.put[0].url).toEqual(`${process.env.REACT_APP_API_URL}/authors/abc`)
+  })
 })

@@ -42,9 +42,12 @@ function TextAddWords() {
   const sentences = text.sentences.map((sentence, indexSentence) => (
     <Fragment key={indexSentence}>
       <Stack spacing={0} style={{ paddingBottom: '70px', width: '700px' }}>
-        <h3>
-          {sentence.english} {sentence.arabic}
-        </h3>
+        <p>
+          <h3>{sentence.english}</h3>
+        </p>
+        <p>
+          <h1>{sentence.arabic}</h1>
+        </p>
 
         {sentence.words.map((word, indexArabicWord) => (
           <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
@@ -92,6 +95,7 @@ function TextAddWords() {
                 </Button>
               </Tooltip>
               <FormControlLabel
+                sx={{ margin: 1 }}
                 value="Quiz"
                 control={
                   <Switch
@@ -100,7 +104,7 @@ function TextAddWords() {
                   />
                 }
                 label="Quiz"
-                labelPlacement="right"
+                labelPlacement="left"
               />
             </p>
           </Box>

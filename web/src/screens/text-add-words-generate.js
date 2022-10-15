@@ -23,17 +23,19 @@ const TextAddWordsGenerate = (props) => {
   const generateSentences = () => {
     const sentences = []
 
-    for (let index = 0; index < text.arabicSentence.length; index++) {
-      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(text.arabicSentence[index])
+    for (const [index, element] of text.arabicSentence.entries()) {
+      const theArabicWordsSentence = wordProcessing.splitSentencesToWords(element)
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
+      const wordsNotInDictionaryRemoved = wordProcessing.removeWordsFromDictionary(cleanFromNullAndEmpty)
 
       const words = []
 
-      for (const cleanWord of cleanFromNullAndEmpty) {
+      for (const cleanWord of wordsNotInDictionaryRemoved) {
         const illegalCharactersRemoved = wordProcessing.cleanWordFromInvalidCharacters(cleanWord)
+        const nonArabicCharactersRemoved = wordProcessing.removeNonArabicCharacters(illegalCharactersRemoved)
 
         const word = {
-          arabic: illegalCharactersRemoved,
+          arabic: nonArabicCharactersRemoved,
           english: ''
         }
 
@@ -44,7 +46,7 @@ const TextAddWordsGenerate = (props) => {
 
       const sentence = {
         english: text.englishSentence[index],
-        arabic: text.arabicSentence[index],
+        arabic: element,
         words
       }
       sentences.push(sentence)
