@@ -108,30 +108,33 @@ const postTextOptions = {
       type: 'object',
       required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image', 'publishAt'],
       properties: {
-        title: { type: 'string', minLength: 5 },
-        status: { type: 'string', minLength: 5 },
-        image: { type: 'string', minLength: 5 },
-        createdAt: { type: 'string', minLength: 5 },
-        publishAt: { type: 'string', minLength: 5 },
-        author: { type: 'string', minLength: 5 },
-        category: { type: 'string', minLength: 5 },
-        source: { type: 'string', minLength: 5 },
+        title: { type: 'string', minLength: 5, maxLength: 40 },
+        status: { type: 'string', minLength: 5, maxLength: 10 },
+        image: { type: 'string', minLength: 5, maxLength: 30 },
+        createdAt: { type: 'string', minLength: 5, maxLength: 40 },
+        publishAt: { type: 'string', minLength: 5, maxLength: 40 },
+        author: { type: 'string', minLength: 5, maxLength: 20 },
+        category: { type: 'string', minLength: 5, maxLength: 20 },
+        source: { type: 'string', minLength: 5, maxLength: 20 },
         sentences: {
           type: 'array',
           minItems: 3,
           items: {
             type: 'object',
+            required: ['arabic', 'english', 'words'],
             properties: {
-              arabic: { type: 'string', minLength: 10 },
-              english: { type: 'string', minLength: 10 },
-              word: {
+              arabic: { type: 'string', minLength: 5, maxLength: 100 },
+              english: { type: 'string', minLength: 5, maxLength: 100 },
+              words: {
                 type: 'array',
-                minItems: 2,
+                minItems: 3,
                 items: {
                   type: 'object',
+                  required: ['arabic', 'english'],
                   properties: {
-                    arabic: { type: 'string', minLength: 2 },
-                    english: { type: 'string', minLength: 2 }
+                    quiz: { type: 'boolean' },
+                    arabic: { type: 'string', minLength: 1, maxLength: 30 },
+                    english: { type: 'string', minLength: 1, maxLength: 30 }
                   }
                 }
               }
@@ -166,7 +169,6 @@ const deleteTextOptions = {
   },
   handler: deleteText
 }
-
 module.exports = {
   getTextsOptions,
   getTextsWithIdOptions,

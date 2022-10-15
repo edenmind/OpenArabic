@@ -101,6 +101,16 @@ async function addText(request, reply) {
     reply.internalServerError('One or more values are empty!')
   }
 
+  // check that at lest 15 words in sentences words has property quiz set to true
+  const sentencesWords = sentences.map((sentence) => sentence.words)
+  const sentencesWordsFlat = sentencesWords.flat()
+  const sentencesWordsFlatQuizTrue = sentencesWordsFlat.filter((word) => word.quiz === true)
+  const sentencesWordsFlatQuizTrueLength = sentencesWordsFlatQuizTrue.length
+
+  if (sentencesWordsFlatQuizTrueLength < 15) {
+    reply.internalServerError('At least 15 words in then sentences words must must have property quiz set to true!')
+  }
+
   //try to insert the data
   try {
     await textsCollection.insertOne(data)

@@ -18,7 +18,7 @@ test('create new text', async (t) => {
     },
     payload: {
       title: 'abcabcabcabc',
-      status: 'abcabcabcabc',
+      status: 'abcde',
       image: 'abcabcabcabc',
       createdAt: 'abcabcabcabc',
       publishAt: 'abcabcabcabc',
@@ -39,17 +39,6 @@ test('create new text', async (t) => {
               arabic: 'لله',
               english: 'Allah',
               quiz: true
-            }
-          ]
-        },
-        {
-          english: 'Praise be to Allah.',
-          arabic: 'الحمد لله.',
-          words: [
-            {
-              arabic: 'الحمد',
-              english: 'Praise',
-              quiz: false
             },
             {
               arabic: 'لله',
@@ -66,6 +55,77 @@ test('create new text', async (t) => {
               arabic: 'الحمد',
               english: 'Praise',
               quiz: false
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            }
+          ]
+        },
+        {
+          english: 'Praise be to Allah.',
+          arabic: 'الحمد لله.',
+          words: [
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: false
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
             },
             {
               arabic: 'لله',
