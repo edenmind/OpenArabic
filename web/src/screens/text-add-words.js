@@ -1,6 +1,6 @@
 import * as api from '../services/api-service.js'
 
-import { Box, Button, Chip, Stack, Switch, TextField, Tooltip } from '@mui/material'
+import { Box, Button, Chip, Stack, Switch, TextField, Tooltip, FormControlLabel } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import SnackBar from '../components/snack-bar.js'
 import React, { Fragment } from 'react'
@@ -16,7 +16,6 @@ function TextAddWords() {
   const [postState, setPostState] = React.useState('')
   const [postMessage, setPostMessage] = React.useState('')
   const handleSave = async (arabic, english) => {
-    console.log('arabic and english:', arabic, english)
     const result = await api.postTranslation(arabic, english)
 
     setOpenSnackbar(true)
@@ -25,7 +24,6 @@ function TextAddWords() {
   }
 
   const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {
-    console.log('this is what we got:', indexSentence, indexArabicWord, englishWords)
     dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
   }
 
@@ -83,9 +81,26 @@ function TextAddWords() {
                   Save
                 </Button>
               </Tooltip>
-              <Switch
-                checked={word.quiz}
-                onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
+              <Tooltip title="Remove the word">
+                <Button
+                  color="secondary"
+                  onClick={async () => {
+                    dispatch({ type: 'REMOVE_WORD_FROM_SENTENCE', value: { indexSentence, indexArabicWord } })
+                  }}
+                >
+                  Remove
+                </Button>
+              </Tooltip>
+              <FormControlLabel
+                value="Quiz"
+                control={
+                  <Switch
+                    checked={word.quiz}
+                    onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
+                  />
+                }
+                label="Quiz"
+                labelPlacement="right"
               />
             </p>
           </Box>

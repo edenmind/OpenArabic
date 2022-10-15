@@ -76,6 +76,12 @@ const textReducer = createReducer(initialState, (builder) => {
       const { indexSentence, indexArabicWord, englishWords } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].english = englishWords
     })
+    .addCase(actions.REMOVE_WORD_FROM_SENTENCE, (state, action) => {
+      // eslint-disable-next-line putout/long-properties-destructuring
+      const { indexSentence, indexArabicWord, englishWords } = action.value
+      //remove the word from the sentence
+      state.text.sentences[indexSentence].words.splice(indexArabicWord, 1)
+    })
     .addCase(actions.SET_ENGLISH_WORDS, (state, action) => {
       state.text.englishWords = action.englishWords
     })

@@ -1,5 +1,6 @@
 import { createAction } from '@reduxjs/toolkit'
 
+export const REMOVE_WORD_FROM_SENTENCE = createAction('REMOVE_WORD_FROM_SENTENCE')
 export const RESET_TEXT = createAction('RESET_TEXT')
 export const SET_ARABIC_SENTENCE = createAction('SET_ARABIC_SENTENCE')
 export const SET_ARABIC_TEXT = createAction('SET_ARABIC_TEXT')
