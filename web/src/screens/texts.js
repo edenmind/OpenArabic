@@ -27,6 +27,18 @@ export default function Texts() {
       editable: false
     },
     {
+      field: 'category',
+      headerName: 'Category',
+      width: 150,
+      editable: false
+    },
+    {
+      field: 'views',
+      headerName: 'Views',
+      width: 125,
+      editable: false
+    },
+    {
       field: 'status',
       headerName: 'Status',
       width: 125,
@@ -35,13 +47,19 @@ export default function Texts() {
     {
       field: 'publishAt',
       headerName: 'Published',
-      width: 250,
+      width: 225,
+      editable: false
+    },
+    {
+      field: 'updatedAt',
+      headerName: 'Updated',
+      width: 225,
       editable: false
     },
     {
       field: 'author',
       headerName: 'Author',
-      width: 250,
+      width: 225,
       editable: false
     },
     {
@@ -51,16 +69,29 @@ export default function Texts() {
       editable: false
     },
     {
-      field: 'category',
-      headerName: 'Category',
-      width: 120,
-      editable: false
+      field: 'sentences',
+      headerName: 'Sentences',
+      sortable: true,
+      width: 150,
+      valueGetter: (parameters) => `${parameters.row.sentences.length}`
     },
     {
-      field: 'image',
-      headerName: 'Image',
-      width: 350,
-      editable: false
+      field: 'charters',
+      headerName: 'Characters',
+      sortable: true,
+      width: 150,
+      valueGetter: (parameters) => `${parameters.row.texts.arabic.length}`
+    },
+    {
+      field: 'words',
+      headerName: 'Words',
+      sortable: true,
+      width: 150,
+      //the number of words in the sentences
+      valueGetter: (parameters) => {
+        const words = parameters.row.sentences.map((sentence) => sentence.words.length)
+        return `${words.reduce((a, b) => a + b, 0)}`
+      }
     },
     {
       field: 'actions',
