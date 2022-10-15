@@ -34,30 +34,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth0/auth0-react@npm:^1.11.0":
-  version: 1.11.0
-  resolution: "@auth0/auth0-react@npm:1.11.0"
+"@auth0/auth0-react@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "@auth0/auth0-react@npm:1.12.0"
   dependencies:
-    "@auth0/auth0-spa-js": ^1.22.2
+    "@auth0/auth0-spa-js": ^1.22.4
   peerDependencies:
     react: ^16.11.0 || ^17 || ^18
     react-dom: ^16.11.0 || ^17 || ^18
-  checksum: 0a7f8b380c7cf69e4817043161f382b7fe0932bfe459d3e31dc2f7ce35d261c033b1a862ad337c99c4ba7021bbeadf860bd6a2deb193919c91230e134f5d74d6
+  checksum: f80bc5e1734e20828601aa8ba5ccc251e032329cbbaaf1c4feac81773e30ce835a953879e5b7196bf4bd37bd82902fe731b87aa63f772c4f8e981dbcdd8af5b6
   languageName: node
   linkType: hard
 
-"@auth0/auth0-spa-js@npm:^1.22.2":
-  version: 1.22.4
-  resolution: "@auth0/auth0-spa-js@npm:1.22.4"
+"@auth0/auth0-spa-js@npm:^1.22.4":
+  version: 1.22.5
+  resolution: "@auth0/auth0-spa-js@npm:1.22.5"
   dependencies:
     abortcontroller-polyfill: ^1.7.3
     browser-tabs-lock: ^1.2.15
-    core-js: ^3.24.0
+    core-js: ^3.25.1
     es-cookie: ~1.3.2
-    fast-text-encoding: ^1.0.4
+    fast-text-encoding: ^1.0.6
     promise-polyfill: ^8.2.3
     unfetch: ^4.2.0
-  checksum: 7bd7242f2c4408d074437a9c0ba43aa0da46b6d3a2418f042760ca70e67bc129c4f8bd54f69f3763f9c30370b3ed0e16699e38bd457862cb6cb99b7190eb97d6
+  checksum: 54d9a8abaddff073e28dba6a89c1fe43762f06e53f40ad5c293786a1f76df94fa63642b97b94a612166ea8571414fd38de9f5b356d7a5e41e76180708ebc5936
   languageName: node
   linkType: hard
 
@@ -2584,9 +2584,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^5.17.6":
-  version: 5.17.6
-  resolution: "@mui/x-data-grid@npm:5.17.6"
+"@mui/x-data-grid@npm:^5.17.7":
+  version: 5.17.7
+  resolution: "@mui/x-data-grid@npm:5.17.7"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@mui/utils": ^5.10.3
@@ -2598,7 +2598,7 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: 02e23706f932c519aba917da95d922727178a2ba300b36a18466e57c16b80634fcb3759d66be2385db0fc753380dab90bbc0412a163655dc59b5b9747b78ee40
+  checksum: 64b02c3312c57c399b03be16d9dcfa2e16d70c204f42dc4f2f8cf667729911a64c88adff3e3d7106c30729467b14949239c3b288c5cd24dd5de89b27f883d477
   languageName: node
   linkType: hard
 
@@ -6765,10 +6765,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.24.0":
-  version: 3.25.1
-  resolution: "core-js@npm:3.25.1"
-  checksum: bfacb078e790913841e2d5008b9b6705ae56ed23f83c7f0ae08d330d874561012611089d53b71520105234ed0abba36f28d91b391514a16541a8c8d98c464239
+"core-js@npm:^3.25.1":
+  version: 3.25.5
+  resolution: "core-js@npm:3.25.5"
+  checksum: 208b308c49bc022f90d4349d4c99802a73c9d55053976b3c529f10014c1e37845926defad8c519f2c7f71ea0acf18d2b323ab6aaee34dc85b4c4b3ced0623f3f
   languageName: node
   linkType: hard
 
@@ -8563,7 +8563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-text-encoding@npm:^1.0.4":
+"fast-text-encoding@npm:^1.0.6":
   version: 1.0.6
   resolution: "fast-text-encoding@npm:1.0.6"
   checksum: 9d58f694314b3283e785bf61954902536da228607ad246905e30256f9ab8331f780ac987e7222c9f5eafd04168d07e12b8054c85cedb76a2c05af0e82387a903
@@ -11754,12 +11754,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.37":
-  version: 0.5.37
-  resolution: "moment-timezone@npm:0.5.37"
+"moment-timezone@npm:^0.5.38":
+  version: 0.5.38
+  resolution: "moment-timezone@npm:0.5.38"
   dependencies:
     moment: ">= 2.9.0"
-  checksum: b3fc24848a396ee3801331a4b5511591df0e22241e59f55200a475603f23a8429f01887294c7a0c005dae25b8e4bef20472fbc875ff20080f26fded066559f1a
+  checksum: ff7077de41f2c41a0026cd2b310154c14df8f918331a4ebe88f5872a599deb5e463b123c96990dc447b7474a81c9f3aef7ac57c3d0dfc3bfb9af2cc5b0bca826
   languageName: node
   linkType: hard
 
@@ -12207,7 +12207,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "open-arabic@workspace:."
   dependencies:
-    "@auth0/auth0-react": ^1.11.0
+    "@auth0/auth0-react": ^1.12.0
     "@bugsnag/js": ^7.18.0
     "@bugsnag/plugin-react": ^7.18.0
     "@date-io/moment": ^2.16.0
@@ -12217,7 +12217,7 @@ __metadata:
     "@mui/icons-material": ^5.10.9
     "@mui/lab": ^5.0.0-alpha.103
     "@mui/material": ^5.10.9
-    "@mui/x-data-grid": ^5.17.6
+    "@mui/x-data-grid": ^5.17.7
     "@mui/x-date-pickers": ^5.0.4
     "@reduxjs/toolkit": ^1.8.6
     "@testing-library/jest-dom": ^5.16.5
@@ -12238,7 +12238,7 @@ __metadata:
     eslint-plugin-unicorn: ^44.0.2
     history: ^5.3.0
     moment: ^2.29.4
-    moment-timezone: ^0.5.37
+    moment-timezone: ^0.5.38
     node-notifier: ^10.0.1
     prettier: ^2.7.1
     putout: ^27.13.0
