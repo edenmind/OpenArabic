@@ -26,16 +26,14 @@ function a11yProperties(index) {
 
 export default function TextAdd() {
   const [value, setValue] = React.useState(0)
-
-  const { text } = useSelector(selector)
   const [isLoading, setIsLoading] = React.useState(true)
+
+  const { id } = useParams()
+  const { text } = useSelector(selector)
 
   const handleChange = (event, value) => {
     setValue(value)
   }
-
-  const { id } = useParams()
-
   const dispatch = useDispatch()
 
   useEffect(() => {
