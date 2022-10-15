@@ -32,14 +32,4 @@ function AuthorsList(properties) {
   ))
 }
 
-AuthorsList.propTypes = {
-  authors: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    })
-  ).isRequired,
-  handleClickOpen: PropTypes.func.isRequired
-}
-
 export default AuthorsList
