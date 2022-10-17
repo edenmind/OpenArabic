@@ -21,7 +21,7 @@ const style = StyleSheet.create({
     writingDirection: 'rtl'
   },
   bottomPadding: {
-    paddingBottom: 55
+    paddingBottom: 155
   },
   english: {
     direction: 'ltr',
