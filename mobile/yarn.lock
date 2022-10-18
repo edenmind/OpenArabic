@@ -5588,14 +5588,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "axios@npm:1.1.2"
+"axios@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "axios@npm:1.1.3"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: 136c25a5031aa2845fdbda3006c36888bbe351b11d1195f1f898a23c5df1430febbdb1ad034a61f27967e83762d5b5a3e851fff8a363cb4badeb883f8ff21461
+  checksum: cab3b17bf6092c9387f7023d699db093cfa23650b56c4422cd474d124b78b2e3b5a520f932c330664a58ab85b867b1c25a95cace475ef72d236888c852b84e6d
   languageName: node
   linkType: hard
 
@@ -8138,6 +8138,17 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 83b400ccb68c6947c53426a9a30d5cfa384a8baf7797064ee2e9d5ecc121c302ac252b37ffaf618a262b8a9aa0bdfb45d204c66113569760989283785f087814
+  languageName: node
+  linkType: hard
+
+"expo-mail-composer@npm:~11.3.0":
+  version: 11.3.0
+  resolution: "expo-mail-composer@npm:11.3.0"
+  dependencies:
+    query-string: ^6.2.0
+  peerDependencies:
+    expo: "*"
+  checksum: 56b5e58aa2c6aaa546d73bc8cf19dac76c36bcc78e1272bc41348f9619a849e40651d73fc41add14a8071c870c1eee1e38c243a8625d99568013c8fbc84b386f
   languageName: node
   linkType: hard
 
@@ -13630,7 +13641,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"promise@npm:^8.0.3":
+"promise@npm:^8.2.0":
   version: 8.2.0
   resolution: "promise@npm:8.2.0"
   dependencies:
@@ -13863,6 +13874,18 @@ __metadata:
   version: 6.7.0
   resolution: "qs@npm:6.7.0"
   checksum: dfd5f6adef50e36e908cfa70a6233871b5afe66fbaca37ecc1da352ba29eb2151a3797991948f158bb37fccde51bd57845cb619a8035287bfc24e4591172c347
+  languageName: node
+  linkType: hard
+
+"query-string@npm:^6.2.0":
+  version: 6.14.1
+  resolution: "query-string@npm:6.14.1"
+  dependencies:
+    decode-uri-component: ^0.2.0
+    filter-obj: ^1.1.0
+    split-on-first: ^1.0.0
+    strict-uri-encode: ^2.0.0
+  checksum: f2c7347578fa0f3fd4eaace506470cb4e9dc52d409a7ddbd613f614b9a594d750877e193b5d5e843c7477b3b295b857ec328903c943957adc41a3efb6c929449
   languageName: node
   linkType: hard
 
@@ -14120,16 +14143,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:~3.15.0":
-  version: 3.15.0
-  resolution: "react-native-screens@npm:3.15.0"
+"react-native-screens@npm:3.18.2":
+  version: 3.18.2
+  resolution: "react-native-screens@npm:3.18.2"
   dependencies:
     react-freeze: ^1.0.0
     warn-once: ^0.1.0
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: ebc3cded19d594aafa748d5ab6e237533f68dc33e28a584c99b8a6cac993585919f01413b94e9801f01af4a138810575f55ee25f90d7a77cb13c49d3252edb2a
+  checksum: 8f7202baced736220710138469aea2c7b543662d820eb47170bfc98a0503f8c764d7509596ccbcc76cac6158e47a2c029444d6e1f78c20e98bcafeda15027ac1
   languageName: node
   linkType: hard
 
@@ -14164,9 +14187,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.69.5":
-  version: 0.69.5
-  resolution: "react-native@npm:0.69.5"
+"react-native@npm:0.69.6":
+  version: 0.69.6
+  resolution: "react-native@npm:0.69.6"
   dependencies:
     "@jest/create-cache-key-function": ^27.0.1
     "@react-native-community/cli": ^8.0.4
@@ -14189,7 +14212,7 @@ __metadata:
     mkdirp: ^0.5.1
     nullthrows: ^1.1.1
     pretty-format: ^26.5.2
-    promise: ^8.0.3
+    promise: ^8.2.0
     react-devtools-core: 4.24.0
     react-native-codegen: ^0.69.2
     react-native-gradle-plugin: ^0.0.7
@@ -14205,7 +14228,7 @@ __metadata:
     react: 18.0.0
   bin:
     react-native: cli.js
-  checksum: 4f7cfcd0d614cc6fe897a49197bd036210625c5eb547342ac7ebea45ab5febae73d6a9a7438f08f454d1e02c2e041b3f910461c4a6e5c6e0e44f5cfe70405990
+  checksum: d050b9f0389362368cd1286c02dd46cd84def9fcbf4774dcedd5cbc3aa9ad594de48f22c5458ec257c07646d79722256bc837b25205c3a52752d5c5b6a7873f4
   languageName: node
   linkType: hard
 
@@ -15080,7 +15103,7 @@ __metadata:
     "@reduxjs/toolkit": ^1.8.6
     "@testing-library/react-native": ^11.2.0
     "@types/jest": ^29.1.1
-    axios: ^1.1.2
+    axios: ^1.1.3
     axios-mock-adapter: ^1.21.2
     axios-retry: ^3.3.1
     eslint: ^8.25.0
@@ -15101,6 +15124,7 @@ __metadata:
     expo-device: ~4.3.0
     expo-file-system: ~14.1.0
     expo-haptics: ~11.3.0
+    expo-mail-composer: ~11.3.0
     expo-updates: ~0.14.6
     jest: ^29.1.2
     jest-expo: ^46.0.1
@@ -15110,7 +15134,7 @@ __metadata:
     putout: ^27.13.0
     react: 18.0.0
     react-dom: 18.0.0
-    react-native: 0.69.5
+    react-native: 0.69.6
     react-native-error-boundary: ^1.1.16
     react-native-gesture-handler: ~2.5.0
     react-native-get-random-values: ~1.8.0
@@ -15118,7 +15142,7 @@ __metadata:
     react-native-paper: ^4.12.5
     react-native-reanimated: ~2.9.1
     react-native-safe-area-context: 4.3.1
-    react-native-screens: ~3.15.0
+    react-native-screens: 3.18.2
     react-native-share: ^7.9.0
     react-native-tab-view: ^3.1.1
     react-native-vector-icons: ^9.2.0

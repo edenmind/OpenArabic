@@ -17,7 +17,7 @@ const TextAddWordsGetTranslations = () => {
         const englishWords = await api.getTranslationWord(word.arabic)
 
         // stop if there is no translation for this word
-        if (englishWords === undefined) {
+        if (englishWords.length === 0) {
           continue
         }
 
@@ -25,6 +25,7 @@ const TextAddWordsGetTranslations = () => {
         const sentenceContainsCapitalized = sentence.english.includes(wp.capitalizeFirstLetter(englishWords))
         const sentenceContainsLowercase = sentence.english.includes(wp.makeAllLetterLowercase(englishWords))
 
+        // if the database does not contain the translation, add it
         if (sentenceContainsCapitalized || sentenceContainsLowercase) {
           dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
         }

@@ -167,7 +167,7 @@ exports[`<TextArabic /> renders correctly 1`] = `
     <View
       style={
         {
-          "paddingBottom": 55,
+          "paddingBottom": 155,
         }
       }
     >

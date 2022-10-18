@@ -24,7 +24,10 @@ const Authors = () => {
   }
 
   React.useEffect(() => {
-    api.getAuthors().then((res) => setAuthors(res))
+    api
+      .getAuthors()
+      .then((res) => setAuthors(res))
+      .catch((error) => console.log(error))
   }, [])
 
   const deleteAuthor = () => {
