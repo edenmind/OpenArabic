@@ -2,7 +2,7 @@
 import { ENDPOINT, HOST } from '../constants/urls.js'
 import { Button } from 'react-native-paper'
 import COLORS from '../constants/colors.js'
-import React from 'react'
+import React, { Fragment } from 'react'
 import SCREENS from '../constants/screens.js'
 import { Share } from 'react-native'
 import TextDrawer from './text-drawer.js'
@@ -10,6 +10,7 @@ import UI from '../constants/ui.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import defaultExport from './text-tabs.js'
 import { useSelector } from 'react-redux'
+import * as MailComposer from 'expo-mail-composer'
 
 const Stack = createNativeStackNavigator()
 const selector = (state) => state.text
@@ -23,6 +24,19 @@ export default function Text() {
       await Share.share({
         message: text.title,
         url: `${HOST.backend}/${ENDPOINT.texts}/${text.id}`
+      })
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+
+  const onErrorReport = async () => {
+    // eslint-disable-next-line putout/keyword-spacing
+    try {
+      MailComposer.composeAsync({
+        recipients: ['salam@edenmin.com'],
+        subject: `Found an error in the text: ${text.title}`,
+        body: `Please describe the error you found in the text: ${text.id}...`
       })
     } catch (error) {
       alert(error.message)
@@ -44,7 +58,12 @@ export default function Text() {
           headerStyle: {
             backgroundColor: COLORS.shinyOlive
           },
-          headerRight: () => <Button icon="export-variant" mode="text" color={COLORS.darkOlive} onPress={onShare} />
+          headerRight: () => (
+            <Fragment>
+              <Button icon="bug" mode="text" color={COLORS.darkOlive} onPress={onErrorReport} />
+              <Button icon="export-variant" mode="text" color={COLORS.darkOlive} onPress={onShare} />
+            </Fragment>
+          )
         }}
       />
     </Stack.Navigator>
