@@ -115,12 +115,12 @@ export const updateAuthor = async (author, id) => {
   return result.status === 200
 }
 
-export const addCategory = async (category) => {
+export const addCategory = async (data) => {
   const result = await axios({
     method: 'post',
     url: `${process.env.REACT_APP_API_URL}/categories`,
     data: {
-      name: category
+      data
     },
     headers: {
       auth: `${process.env.REACT_APP_KEY}`
@@ -157,7 +157,7 @@ export const deleteAuthor = async (id) => {
 
 export const getCategory = async (id) => {
   const response = await axios.get(`${process.env.REACT_APP_API_URL}/categories/${id}`)
-  return response.data.name
+  return response.data
 }
 
 export const getCategories = async () => {
@@ -175,12 +175,12 @@ export const deleteCategory = async (id) => {
   })
   return response.status === 200
 }
-export const updateCategory = async (category, id) => {
+export const updateCategory = async (data, id) => {
   const result = await axios({
     method: 'put',
     url: `${process.env.REACT_APP_API_URL}/categories/${id}`,
     data: {
-      name: category
+      data
     },
     headers: {
       auth: `${process.env.REACT_APP_KEY}`
