@@ -17,7 +17,11 @@ const getCategoriesOptions = {
           type: 'object',
           properties: {
             id: { type: 'string' },
-            name: { type: 'string' }
+            name: { type: 'string' },
+            description: { type: 'string' },
+            createdAt: { type: 'string' },
+            updatedAt: { type: 'string' },
+            level: { type: 'string' }
           }
         }
       }
@@ -33,8 +37,11 @@ const getCategoryOptions = {
         type: 'object',
         properties: {
           id: { type: 'string' },
-
-          name: { type: 'string' }
+          name: { type: 'string' },
+          description: { type: 'string' },
+          createdAt: { type: 'string' },
+          updatedAt: { type: 'string' },
+          level: { type: 'string' }
         }
       }
     }
@@ -46,9 +53,16 @@ const updateCategoryOptions = {
   schema: {
     body: {
       type: 'object',
-      required: ['name'],
       properties: {
-        name: { type: 'string' }
+        data: {
+          type: 'object',
+          required: ['name', 'description', 'level'],
+          properties: {
+            name: { type: 'string', minLength: 5, maxLength: 50 },
+            description: { type: 'string', minLength: 10, maxLength: 250 },
+            level: { type: 'string', minLength: 2, maxLength: 2 }
+          }
+        }
       }
     },
     response: {
@@ -67,10 +81,16 @@ const postCategoryOptions = {
   schema: {
     body: {
       type: 'object',
-      required: ['name'],
       properties: {
-        name: { type: 'string' },
-        id: { type: 'string' }
+        data: {
+          type: 'object',
+          required: ['name', 'description', 'level'],
+          properties: {
+            name: { type: 'string', minLength: 5, maxLength: 50 },
+            description: { type: 'string', minLength: 10, maxLength: 250 },
+            level: { type: 'string', minLength: 2, maxLength: 2 }
+          }
+        }
       }
     },
     response: {

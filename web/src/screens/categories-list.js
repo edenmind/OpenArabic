@@ -1,19 +1,37 @@
+/* eslint-disable putout/keyword-spacing */
 import { Button, Card, CardActions, CardContent, Divider, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+
+const getLevelName = (level) => {
+  switch (level) {
+    case '10': {
+      return 'Introduction'
+    }
+    case '20': {
+      return 'Intermediate'
+    }
+    case '30': {
+      return 'Advanced'
+    }
+    default: {
+      return 'Unknown'
+    }
+  }
+}
 
 function CategoriesList(properties) {
   return properties.category.map((c, index) => (
     <Card sx={{ minWidth: 275 }} key={index}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Placeholder
+          {getLevelName(c.level)}
         </Typography>
         <Typography variant="h5" component="div">
           {c.name}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Placeholder
+          {c.description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -33,6 +51,8 @@ CategoriesList.propTypes = {
   category: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
+      description: PropTypes.string.isOptional,
+      level: PropTypes.string.isOptional,
       name: PropTypes.string.isRequired
     })
   ).isRequired,

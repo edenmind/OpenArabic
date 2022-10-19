@@ -15,7 +15,11 @@ test('create new category', async (t) => {
       auth: 'somesecurekey'
     },
     payload: {
-      name: 'the_name'
+      data: {
+        name: 'the_name',
+        description: 'the_description',
+        level: '20'
+      }
     }
   })
 
@@ -32,7 +36,11 @@ test('create new category w/o auth key', async (t) => {
     url: '/categories',
     method: 'POST',
     payload: {
-      name: 'the_name'
+      data: {
+        name: 'the_name',
+        description: 'the_description',
+        level: '20'
+      }
     }
   })
 
@@ -47,7 +55,11 @@ test('list categories', async (t) => {
     url: '/categories',
     method: 'POST',
     payload: {
-      name: 'the_name'
+      data: {
+        name: 'the_name',
+        description: 'the_description',
+        level: '20'
+      }
     }
   })
 
@@ -100,14 +112,21 @@ test('update category that does not exist', async (t) => {
   // act
   const result = await app.inject({
     url: '/categories/abc',
+    headers: {
+      auth: 'somesecurekey'
+    },
     method: 'PUT',
     payload: {
-      name: 'the_name'
+      data: {
+        name: 'the_name',
+        description: 'the_description',
+        level: '20'
+      }
     }
   })
 
   //assert
-  t.equal(result.statusCode, 403)
+  t.equal(result.statusCode, 500)
 })
 
 test('update category', async (t) => {
@@ -121,7 +140,11 @@ test('update category', async (t) => {
       auth: 'somesecurekey'
     },
     payload: {
-      name: 'the_name'
+      data: {
+        name: 'the_name',
+        description: 'the_description',
+        level: '20'
+      }
     }
   })
 
@@ -136,7 +159,11 @@ test('update category', async (t) => {
       auth: 'somesecurekey'
     },
     payload: {
-      name: 'the_other_name'
+      data: {
+        name: 'the_name',
+        description: 'the_description',
+        level: '20'
+      }
     }
   })
 

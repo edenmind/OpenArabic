@@ -7,8 +7,10 @@ async function listCategories(request, reply) {
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
   const result = await categories.find({}).toArray()
 
+  const categoriesOrderedByLevel = result.sort((a, b) => a.level - b.level)
+
   if (result.length > 0) {
-    reply.code(200).send(result)
+    reply.code(200).send(categoriesOrderedByLevel)
   } else {
     reply.code(404).send('No categories found!')
   }
@@ -24,11 +26,9 @@ async function addCategory(request, reply) {
 
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
   const id = new ObjectId()
-  const { name } = body
-  const data = {
-    name,
-    id
-  }
+  const { data } = body
+
+  data.id = id
   const result = await categories.insertOne(data)
 
   reply.code(201).send(result.insertedId)
@@ -48,7 +48,7 @@ async function getCategory(request, reply) {
 async function updateCategory(request, reply) {
   const { body, headers, params } = request
   const { auth } = headers
-  const { name } = body
+  const { data } = body
   const { id } = params
 
   if (auth !== process.env.API_KEY) {
@@ -58,7 +58,9 @@ async function updateCategory(request, reply) {
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
   const updateDocument = {
     $set: {
-      name
+      name: data.name,
+      description: data.description,
+      level: data.level
     }
   }
   const result = await categories.updateOne({ id: new ObjectId(id) }, updateDocument, { upsert: true })
