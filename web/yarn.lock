@@ -2584,9 +2584,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^5.17.7":
-  version: 5.17.7
-  resolution: "@mui/x-data-grid@npm:5.17.7"
+"@mui/x-data-grid@npm:^5.17.8":
+  version: 5.17.8
+  resolution: "@mui/x-data-grid@npm:5.17.8"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@mui/utils": ^5.10.3
@@ -2598,13 +2598,13 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: 64b02c3312c57c399b03be16d9dcfa2e16d70c204f42dc4f2f8cf667729911a64c88adff3e3d7106c30729467b14949239c3b288c5cd24dd5de89b27f883d477
+  checksum: db075c38507628912ade4bb4e7f7389274fd0733810a8cfc1ca89e2c08a88202e7ee62594037c08625f426e4346f676b443d007277b0532c07f7f0da6f51a084
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^5.0.4":
-  version: 5.0.4
-  resolution: "@mui/x-date-pickers@npm:5.0.4"
+"@mui/x-date-pickers@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "@mui/x-date-pickers@npm:5.0.5"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@date-io/core": ^2.15.0
@@ -2642,7 +2642,7 @@ __metadata:
       optional: true
     moment:
       optional: true
-  checksum: 1cebeb6955002cd5026f614277ef5f987dc83eb84fd0c2f424ab5cd863b992b356fc0af518d83b8b0768328e087361e920e5b123569495214e0152504da9680c
+  checksum: dc7d0fb8a4947301b5f3fd2db079232328d3b2841c525be61e5b90255ef1192d5759b8947046ed8a5afc3997cd6dd1dff6550f1d12bb7f95bd51e3916644ef3c
   languageName: node
   linkType: hard
 
@@ -3096,15 +3096,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-numeric-separators@npm:^1.0.0":
-  version: 1.2.1
-  resolution: "@putout/plugin-apply-numeric-separators@npm:1.2.1"
-  peerDependencies:
-    putout: ">=9"
-  checksum: 09fa93b2674ecd079315ef7f661b2c86d131795d3a49447ce2fc0eb276e113d4955a26701170d26c5632143964fc3e57557a9bb94c3a913a096b01e66c552e2a
-  languageName: node
-  linkType: hard
-
 "@putout/plugin-apply-optional-chaining@npm:^2.0.0":
   version: 2.0.2
   resolution: "@putout/plugin-apply-optional-chaining@npm:2.0.2"
@@ -3251,15 +3242,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-imul-to-multiplication@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@putout/plugin-convert-imul-to-multiplication@npm:1.0.0"
-  peerDependencies:
-    putout: ">=26"
-  checksum: 80b60d8d510a7b60413cc941739fde0a3b36659fe94ca12b611d7bf8f74c534979ace59ed3d4e51dacf304a28076ff40dd9da7a2f204e12da85b8da92f46d7a2
-  languageName: node
-  linkType: hard
-
 "@putout/plugin-convert-index-of-to-includes@npm:^1.0.0":
   version: 1.1.0
   resolution: "@putout/plugin-convert-index-of-to-includes@npm:1.1.0"
@@ -3275,15 +3257,6 @@ __metadata:
   peerDependencies:
     putout: ">=25"
   checksum: cd11ed4201c449d4daf122c64945b218cf30468d2bd2619dc03787811af1ea94b9ad4e64c5d00a86d525c172b57707207536dc56c5194b1d5d30476bf6ec12ea
-  languageName: node
-  linkType: hard
-
-"@putout/plugin-convert-math-pow@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@putout/plugin-convert-math-pow@npm:5.0.0"
-  peerDependencies:
-    putout: ">=26"
-  checksum: f75e9339d3f26b3a7f7d666e6abb8d47d85d43bd68b4aa45346e132150e4709463d194ae8d2100ebc1adc77cb358e3e35d3bfe125071071847a51d5a213d64c4
   languageName: node
   linkType: hard
 
@@ -3320,15 +3293,6 @@ __metadata:
   peerDependencies:
     putout: ">=25"
   checksum: db65749a205bba583a086163404e542f424297a6e5c715302fab9360cd6c278e39372ecd98eccdd7dc3e4f82646018aeb60bbea05c07b623b045b80b263006c1
-  languageName: node
-  linkType: hard
-
-"@putout/plugin-convert-sqrt-to-hypot@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "@putout/plugin-convert-sqrt-to-hypot@npm:1.0.1"
-  peerDependencies:
-    putout: ">=26"
-  checksum: f9214678a49df3d332617185b816fcbe09e0f59034f62266fd57075132c36217814d591ab5ef16a2c01baa254e330dd12dea11c7b64b66e4c4b5a68769106ec3
   languageName: node
   linkType: hard
 
@@ -3448,6 +3412,15 @@ __metadata:
   peerDependencies:
     putout: ">=25"
   checksum: c3eb4bddacbc0da6ef50c6b97a50f9a03225c739cdcd867261f71a36bfcdce071fed1847b249f4afa5b3a8ef93652f1c756af92b18c19efc228e76c9dd2b935c
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-math@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-math@npm:1.0.0"
+  peerDependencies:
+    putout: ">=28"
+  checksum: f3fe80a6baa698038d0f05845564ba7549643a961c29d3d269a1cc2c2e76b82d370e209e0461036cbc3600c2a61505782233c18dd9e475d11d955cbe86e050b6
   languageName: node
   linkType: hard
 
@@ -12217,8 +12190,8 @@ __metadata:
     "@mui/icons-material": ^5.10.9
     "@mui/lab": ^5.0.0-alpha.104
     "@mui/material": ^5.10.10
-    "@mui/x-data-grid": ^5.17.7
-    "@mui/x-date-pickers": ^5.0.4
+    "@mui/x-data-grid": ^5.17.8
+    "@mui/x-date-pickers": ^5.0.5
     "@reduxjs/toolkit": ^1.8.6
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -12241,7 +12214,7 @@ __metadata:
     moment-timezone: ^0.5.38
     node-notifier: ^10.0.1
     prettier: ^2.7.1
-    putout: ^27.13.0
+    putout: ^28.0.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.2
@@ -13614,9 +13587,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^27.13.0":
-  version: 27.13.0
-  resolution: "putout@npm:27.13.0"
+"putout@npm:^28.0.0":
+  version: 28.0.0
+  resolution: "putout@npm:28.0.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13651,7 +13624,6 @@ __metadata:
     "@putout/plugin-apply-early-return": ^2.0.0
     "@putout/plugin-apply-if-condition": ^1.0.0
     "@putout/plugin-apply-is-array": ^3.0.0
-    "@putout/plugin-apply-numeric-separators": ^1.0.0
     "@putout/plugin-apply-optional-chaining": ^2.0.0
     "@putout/plugin-browserlist": ^1.0.0
     "@putout/plugin-convert-apply-to-spread": ^3.0.0
@@ -13668,15 +13640,12 @@ __metadata:
     "@putout/plugin-convert-for-each-to-for-of": ^7.0.0
     "@putout/plugin-convert-for-in-to-for-of": ^2.0.0
     "@putout/plugin-convert-for-to-for-of": ^4.0.0
-    "@putout/plugin-convert-imul-to-multiplication": ^1.0.0
     "@putout/plugin-convert-index-of-to-includes": ^1.0.0
     "@putout/plugin-convert-map-to-for-of": ^2.0.0
-    "@putout/plugin-convert-math-pow": ^5.0.0
     "@putout/plugin-convert-mock-require-to-mock-import": ^4.0.0
     "@putout/plugin-convert-object-assign-to-merge-spread": ^6.0.0
     "@putout/plugin-convert-quotes-to-backticks": ^2.0.0
     "@putout/plugin-convert-reduce-to-for-of": ^1.0.0
-    "@putout/plugin-convert-sqrt-to-hypot": ^1.0.0
     "@putout/plugin-convert-template-to-string": ^1.0.0
     "@putout/plugin-convert-to-arrow-function": ^3.0.0
     "@putout/plugin-convert-typeof-to-is-type": ^2.0.0
@@ -13690,6 +13659,7 @@ __metadata:
     "@putout/plugin-gitignore": ^3.0.0
     "@putout/plugin-logical-expressions": ^1.0.0
     "@putout/plugin-madrun": ^14.0.0
+    "@putout/plugin-math": ^1.0.0
     "@putout/plugin-merge-destructuring-properties": ^6.0.0
     "@putout/plugin-merge-duplicate-imports": ^7.0.0
     "@putout/plugin-merge-if-statements": ^3.0.0
@@ -13776,7 +13746,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 0a2b26ee9484ce3396ca84f911d43d529dabc56ad19c27762b51380b6889784e3cca05597264728170df36e65e891e4828a361e1b501977471e321eb35e94bb0
+  checksum: a1c22d0c809870c2648a44a472ff11c17f6b79c4838b15a5258decc659f246888ed82b47275190117dd96b8dd66cf145b884d70c253f2bb045de31760306e752
   languageName: node
   linkType: hard
 
