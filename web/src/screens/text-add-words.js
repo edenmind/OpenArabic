@@ -16,7 +16,7 @@ function TextAddWords() {
   const [postState, setPostState] = React.useState('')
   const [postMessage, setPostMessage] = React.useState('')
   const handleSave = async (arabic, english) => {
-    const result = await api.postTranslation(arabic, english)
+    const result = await api.postWord(arabic, english)
 
     setOpenSnackbar(true)
     setPostMessage(result.message)

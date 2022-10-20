@@ -14,7 +14,7 @@ const TextAddWordsGetTranslations = () => {
   const checkIfWordExistsInDatabase = async () => {
     for (const [indexSentence, sentence] of text.sentences.entries()) {
       for (const [indexArabicWord, word] of sentence.words.entries()) {
-        const englishWords = await api.getTranslationWord(word.arabic)
+        const englishWords = await api.getTranslation(word.arabic)
 
         // stop if there is no translation for this word
         if (englishWords.length === 0) {

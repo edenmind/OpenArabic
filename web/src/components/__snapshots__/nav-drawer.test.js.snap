@@ -58,6 +58,19 @@ exports[`should match snapshot when authenticated and open 1`] = `
             Authors
           </ForwardRef(Button)>
         </ForwardRef(ListItem)>
+        <ForwardRef(ListItem)>
+          <ForwardRef(Button)
+            component={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              }
+            }
+            to="/Words"
+          >
+            Words
+          </ForwardRef(Button)>
+        </ForwardRef(ListItem)>
       </ForwardRef(List)>
     </React.Fragment>
   </ForwardRef(Box)>

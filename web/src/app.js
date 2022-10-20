@@ -13,6 +13,8 @@ import Privacy from './screens/privacy.js'
 import SingleText from './screens/text-list-id.js'
 import TextAdd from './screens/text-add.js'
 import Texts from './screens/texts.js'
+import Words from './screens/words.js'
+import WordsUpdate from './screens/words-update.js'
 
 export default function App() {
   return (
@@ -22,17 +24,19 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/authors" element={<Authors />} />
-          <Route path="/privacy" element={<Privacy />} />
           <Route path="/authors/add" element={<AuthorAdd />} />
           <Route path="/authors/update/:id" element={<AuthorUpdate />} />
           <Route path="/categories" element={<Category />} />
           <Route path="/categories/add" element={<CategoryAdd />} />
           <Route path="/categories/update/:id" element={<CategoryUpdate />} />
-          <Route path="/texts/" element={<Texts />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/texts/:id" element={<SingleText />} />
+          <Route path="/texts/" element={<Texts />} />
           <Route path="/texts/add" element={<TextAdd />} />
           <Route path="/texts/categories/:id" element={<Home />} />
           <Route path="/texts/update/:id" element={<TextAdd />} />
+          <Route path="/words" element={<Words />} />
+          <Route path="/words/update/:id" element={<WordsUpdate />} />
         </Routes>
       </Provider>
     </BrowserRouter>

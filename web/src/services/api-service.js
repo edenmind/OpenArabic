@@ -14,8 +14,8 @@ export const getTranslation = async (arabicWord) => {
   return translatedText
 }
 
-export const postTranslation = async (arabic, english) => {
-  const translatedWord = {
+export const postWord = async (arabic, english) => {
+  const word = {
     arabic,
     english
   }
@@ -26,7 +26,7 @@ export const postTranslation = async (arabic, english) => {
     method: 'post',
     url,
     data: {
-      translatedWord
+      word
     }
   }).catch((error) => {
     return { message: error.message, state: 'error' }
@@ -39,7 +39,7 @@ export const postTranslation = async (arabic, english) => {
   return { message: result.message, state: 'error' }
 }
 
-export const getTranslationWord = async (arabicWord) => {
+export const getWord = async (arabicWord) => {
   const url = `${process.env.REACT_APP_API_URL}/words/${arabicWord}`
   const result = await axios({
     method: 'get',
@@ -51,6 +51,44 @@ export const getTranslationWord = async (arabicWord) => {
   if (result.status === 200) {
     return result.data
   }
+}
+
+export const getWords = async () => {
+  const url = `${process.env.REACT_APP_API_URL}/words`
+
+  const result = await axios({
+    method: 'get',
+    url
+  }).catch((error) => {
+    return { message: error.message, state: 'error' }
+  })
+
+  return result.data
+}
+
+export const updateWord = async (word, id) => {
+  const result = await axios({
+    method: 'put',
+    url: `${process.env.REACT_APP_API_URL}/words/${id}`,
+    data: {
+      word
+    },
+    headers: {
+      auth: `${process.env.REACT_APP_KEY}`
+    }
+  })
+  return result.status === 200
+}
+
+export const deleteWord = async (id) => {
+  const response = await axios({
+    method: 'delete',
+    headers: {
+      auth: `${process.env.REACT_APP_KEY}`
+    },
+    url: `${process.env.REACT_APP_API_URL}/words/${id}`
+  })
+  return response.status === 200
 }
 
 export const getTexts = async () => {
