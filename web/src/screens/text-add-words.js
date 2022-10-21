@@ -15,8 +15,8 @@ function TextAddWords() {
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [postState, setPostState] = React.useState('')
   const [postMessage, setPostMessage] = React.useState('')
-  const handleSave = async (arabic, english) => {
-    const result = await api.postWord(arabic, english)
+  const handleSave = async (arabic, english, sentence) => {
+    const result = await api.postWord(arabic, english, sentence)
 
     setOpenSnackbar(true)
     setPostMessage(result.message)
@@ -78,7 +78,7 @@ function TextAddWords() {
                 <Button
                   onClick={async () => {
                     const englishWord = await api.getTranslation(word.arabic)
-                    handleSave(word.arabic, englishWord)
+                    handleSave(word.arabic, englishWord, sentence.arabic)
                   }}
                 >
                   Save

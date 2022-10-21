@@ -9,6 +9,7 @@ import SnackBar from '../components/snack-bar.js'
 const WordsUpdate = () => {
   const [english, setEnglish] = React.useState('')
   const [arabic, setArabic] = React.useState('')
+  const [sentence, setSentence] = React.useState('')
   const [open, setOpen] = React.useState(false)
   const [status, setStatus] = React.useState('')
 
@@ -30,9 +31,10 @@ const WordsUpdate = () => {
     api
       .getWord(id)
       .then((res) => {
-        const { english, arabic } = res
+        const { english, arabic, sentence } = res
         setEnglish(english)
         setArabic(arabic)
+        setSentence(sentence)
       })
       .catch((error) => console.log(error))
   }, [id])
@@ -40,7 +42,8 @@ const WordsUpdate = () => {
   const updateWord = () => {
     const word = {
       english,
-      arabic
+      arabic,
+      sentence
     }
     api
       .updateWord(word, id)
@@ -88,6 +91,17 @@ const WordsUpdate = () => {
               onChange={(event) => setArabic(event.target.value)}
             />
           </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="sentence"
+              label="Sentence"
+              variant="outlined"
+              value={sentence}
+              onChange={(event) => setSentence(event.target.value)}
+            />
+          </FormControl>
         </Box>
 
         <div style={divStyle}>
@@ -95,7 +109,7 @@ const WordsUpdate = () => {
             <Button variant="contained" onClick={updateWord}>
               Update
             </Button>
-            <Link to="/Words">
+            <Link to="/words">
               <Button variant="outlined">Back</Button>
             </Link>
           </Stack>
