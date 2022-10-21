@@ -30,7 +30,7 @@ export const postWord = async (arabic, english, sentence) => {
       word
     }
   }).catch((error) => {
-    return { message: error.message, state: 'error' }
+    return { message: error.response.data.message, state: 'error' }
   })
 
   if (result.status === 201) {
@@ -46,7 +46,7 @@ export const getWord = async (arabicWord) => {
     method: 'get',
     url
   }).catch((error) => {
-    return { message: error.message, state: 'error' }
+    return { message: error.response.data.message, state: 'error' }
   })
 
   if (result.status === 200) {
@@ -61,7 +61,7 @@ export const getWords = async () => {
     method: 'get',
     url
   }).catch((error) => {
-    return { message: error.message, state: 'error' }
+    return { message: error.response.data.message, state: 'error' }
   })
 
   return result.data
@@ -77,7 +77,10 @@ export const updateWord = async (word, id) => {
     headers: {
       auth: `${process.env.REACT_APP_KEY}`
     }
+  }).catch((error) => {
+    return { message: error.response.data.message, state: 'error' }
   })
+
   return result.status === 200
 }
 
@@ -88,6 +91,8 @@ export const deleteWord = async (id) => {
       auth: `${process.env.REACT_APP_KEY}`
     },
     url: `${process.env.REACT_APP_API_URL}/words/${id}`
+  }).catch((error) => {
+    return { message: error.response.data.message, state: 'error' }
   })
   return response.status === 200
 }
@@ -99,7 +104,7 @@ export const getTexts = async () => {
     method: 'get',
     url
   }).catch((error) => {
-    return { message: error.message, state: 'error' }
+    return { message: error.response.data.message, state: 'error' }
   })
 
   return result.data
@@ -136,7 +141,10 @@ export const addAuthor = async (author) => {
     headers: {
       auth: `${process.env.REACT_APP_KEY}`
     }
+  }).catch((error) => {
+    return { message: error.response.data.message, state: 'error' }
   })
+
   return result.status === 201
 }
 
@@ -150,7 +158,10 @@ export const updateAuthor = async (author, id) => {
     headers: {
       auth: `${process.env.REACT_APP_KEY}`
     }
+  }).catch((error) => {
+    return { message: error.response.data.message, state: 'error' }
   })
+
   return result.status === 200
 }
 
@@ -164,8 +175,15 @@ export const addCategory = async (data) => {
     headers: {
       auth: `${process.env.REACT_APP_KEY}`
     }
+  }).catch((error) => {
+    return { message: error.response.data.message, state: 'error' }
   })
-  return result.status === 201
+
+  if (result.status === 201) {
+    return { message: 'The category was added!', success: true }
+  }
+
+  return { message: result.message, success: false }
 }
 
 export const getImages = async () => {
