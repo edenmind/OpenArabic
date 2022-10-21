@@ -78,16 +78,47 @@ const updateTextOptions = {
       type: 'object',
       required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image', 'publishAt'],
       properties: {
-        title: { type: 'string' },
-        status: { type: 'string' },
-        image: { type: 'string' },
-        author: { type: 'string' },
-        updatedAt: { type: 'string' },
-        publishAt: { type: 'string' },
-        category: { type: 'string' },
-        source: { type: 'string' },
-        sentences: { type: 'array', minItems: 10 },
-        texts: { type: 'object' }
+        title: { type: 'string', minLength: 5, maxLength: 40 },
+        status: { type: 'string', minLength: 5, maxLength: 10 },
+        image: { type: 'string', minLength: 5, maxLength: 30 },
+        createdAt: { type: 'string', minLength: 5, maxLength: 40 },
+        updatedAt: { type: 'string', minLength: 5, maxLength: 40 },
+        publishAt: { type: 'string', minLength: 5, maxLength: 40 },
+        author: { type: 'string', minLength: 5, maxLength: 20 },
+        category: { type: 'string', minLength: 5, maxLength: 20 },
+        source: { type: 'string', minLength: 5, maxLength: 20 },
+        sentences: {
+          type: 'array',
+          minItems: 3,
+          items: {
+            type: 'object',
+            required: ['arabic', 'english', 'words'],
+            properties: {
+              arabic: { type: 'string', minLength: 5, maxLength: 100 },
+              english: { type: 'string', minLength: 5, maxLength: 100 },
+              words: {
+                type: 'array',
+                minItems: 3,
+                items: {
+                  type: 'object',
+                  required: ['arabic', 'english'],
+                  properties: {
+                    quiz: { type: 'boolean' },
+                    arabic: { type: 'string', minLength: 1, maxLength: 30 },
+                    english: { type: 'string', minLength: 1, maxLength: 30 }
+                  }
+                }
+              }
+            }
+          }
+        },
+        texts: {
+          type: 'object',
+          properties: {
+            arabic: { type: 'string', minLength: 50 },
+            english: { type: 'string', minLength: 50 }
+          }
+        }
       }
     },
     response: {

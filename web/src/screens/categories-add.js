@@ -1,3 +1,4 @@
+/* eslint-disable putout/nonblock-statement-body-newline */
 import { Button, Container, Box, Stack, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material'
 import * as api from '../services/api-service.js'
 import Footer from '../components/footer.js'
@@ -11,18 +12,20 @@ const CategoriesAdd = () => {
   const [level, setLevel] = React.useState('')
   const [description, setDescription] = React.useState('')
 
-  const [open, setOpen] = React.useState(false)
+  const [openSnackBar, setOpenSnackbar] = React.useState(false)
+  const [postMessage, setPostMessage] = React.useState('')
+  const [postState, setPostState] = React.useState('')
 
   const divStyle = {
     padding: '10px'
   }
 
-  const handleClose = (reason) => {
+  const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
       return
     }
 
-    setOpen(false)
+    setOpenSnackbar(false)
   }
 
   const addCategory = () => {
@@ -34,12 +37,17 @@ const CategoriesAdd = () => {
     api
       .addCategory(data)
       .then((res) => {
-        if (res) {
-          setOpen(true)
-          setName('')
-          setLevel('')
-          setDescription('')
+        if (res.success) {
+          setOpenSnackbar(true)
+          setPostMessage(res.message)
+          setPostState('success')
+
+          return
         }
+
+        setPostMessage(res.message)
+        setPostState('error')
+        setOpenSnackbar(true)
       })
       .catch((error) => console.log(error))
   }
@@ -107,10 +115,10 @@ const CategoriesAdd = () => {
       </Container>
 
       <SnackBar
-        openSnackBar={open}
-        handleCloseSnackbar={handleClose}
-        severity="success"
-        message="Added new category!"
+        openSnackBar={openSnackBar}
+        handleCloseSnackbar={handleCloseSnackbar}
+        severity={postState}
+        message={postMessage}
       />
     </React.Fragment>
   )
