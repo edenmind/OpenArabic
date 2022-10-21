@@ -29,7 +29,13 @@ export default function Words() {
     {
       field: 'english',
       headerName: 'English',
-      width: 250,
+      width: 450,
+      editable: false
+    },
+    {
+      field: 'sentence',
+      headerName: 'Sentence',
+      width: 750,
       editable: false
     },
     {
@@ -63,7 +69,6 @@ export default function Words() {
     api
       .getWords()
       .then((data) => {
-        console.log('first data', data)
         setWords(data)
         setIsLoading(false)
       })

@@ -41,7 +41,7 @@ function NavDrawer(props) {
           <Fragment>
             <Divider>Administration</Divider>
             <List>
-              {['Texts', 'Categories', 'Authors', 'Words'].map((item, index) => (
+              {['Categories', 'Authors', 'Texts', 'Words'].map((item, index) => (
                 <ListItem key={index}>
                   <Button component={Link} to={`/${item}`}>
                     {item}

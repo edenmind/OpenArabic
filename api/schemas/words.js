@@ -1,3 +1,5 @@
+/* eslint-disable putout/long-properties-destructuring */
+
 'use strict'
 
 const { addWord, getWord, getWords, deleteWord, updateWord, getWordTranslation } = require('../controllers/words')
@@ -10,10 +12,11 @@ const postWordOptions = {
       properties: {
         word: {
           type: 'object',
-          required: ['arabic', 'english'],
+          required: ['arabic', 'english', 'sentence'],
           properties: {
             arabic: { type: 'string', minLength: 3 },
-            english: { type: 'string', minLength: 3 }
+            english: { type: 'string', minLength: 3 },
+            sentence: { type: 'string', minLength: 5 }
           }
         }
       }
@@ -35,6 +38,7 @@ const getWordOptions = {
         properties: {
           arabic: { type: 'string' },
           english: { type: 'string' },
+          sentence: { type: 'string' },
           id: { type: 'string' }
         }
       }
@@ -51,6 +55,7 @@ const getWordTranslationOptions = {
         properties: {
           arabic: { type: 'string' },
           english: { type: 'string' },
+          sentence: { type: 'string' },
           id: { type: 'string' }
         }
       }
@@ -70,6 +75,7 @@ const getWordsOptions = {
           properties: {
             arabic: { type: 'string' },
             english: { type: 'string' },
+            sentence: { type: 'string' },
             id: { type: 'string' }
           }
         }
@@ -100,7 +106,8 @@ const updateWordOptions = {
         required: ['arabic', 'english'],
         properties: {
           arabic: { type: 'string', minLength: 3 },
-          english: { type: 'string', minLength: 3 }
+          english: { type: 'string', minLength: 3 },
+          sentence: { type: 'string', minLength: 5 }
         }
       }
     }

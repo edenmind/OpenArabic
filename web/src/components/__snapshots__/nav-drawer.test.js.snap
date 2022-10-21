@@ -27,19 +27,6 @@ exports[`should match snapshot when authenticated and open 1`] = `
                 "render": [Function],
               }
             }
-            to="/Texts"
-          >
-            Texts
-          </ForwardRef(Button)>
-        </ForwardRef(ListItem)>
-        <ForwardRef(ListItem)>
-          <ForwardRef(Button)
-            component={
-              Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              }
-            }
             to="/Categories"
           >
             Categories
@@ -56,6 +43,19 @@ exports[`should match snapshot when authenticated and open 1`] = `
             to="/Authors"
           >
             Authors
+          </ForwardRef(Button)>
+        </ForwardRef(ListItem)>
+        <ForwardRef(ListItem)>
+          <ForwardRef(Button)
+            component={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              }
+            }
+            to="/Texts"
+          >
+            Texts
           </ForwardRef(Button)>
         </ForwardRef(ListItem)>
         <ForwardRef(ListItem)>

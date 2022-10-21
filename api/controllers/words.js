@@ -89,11 +89,12 @@ async function deleteWord(request, reply) {
 async function updateWord(request, reply) {
   const words = this.mongo.db.collection(COLLECTIONS.WORDS)
   const { word } = request.body
-  const { arabic, english } = word
+  const { arabic, english, sentence } = word
   const updateDocument = {
     $set: {
       arabic,
-      english
+      english,
+      sentence
     }
   }
   const result = await words.updateOne({ id: new ObjectId(request.params.id) }, updateDocument, { upsert: true })
