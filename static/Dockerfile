@@ -1,4 +1,5 @@
-FROM node:lts-alpine
+#docker pull node:lts-alpine
+FROM node:lts-alpine 
 
 ENV NODE_ENV=production
 ENV PORT=3010
