@@ -13,18 +13,18 @@ jobs:
           - 27017:27017
         env:
           MONGO_INITDB_ROOT_USERNAME: root
-          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGO_MOCK_PASSWORD }}
+          MONGO_INITDB_ROOT_PASSWORD: password
           MONGO_INITDB_DATABASE: openarabic
 
     steps:
-      - uses: actions/checkout@v2.4.2
+      - uses: actions/checkout@v3
 
       - name: 🏗  Initialize MongoDB
         run: |
-          mongosh --host localhost --port 27017 --username root --password ${{ secrets.MONGO_MOCK_PASSWORD }} --authenticationDatabase "admin" --file ./database/init-database-and-user.js
+          mongosh --host localhost --port 27017 --username root --password password --authenticationDatabase "admin" --file ./database/init-database-and-user.js
 
       - name: 🏗  Setup Node.js
-        uses: actions/setup-node@v3.3.0
+        uses: actions/setup-node@v3
         with:
           node-version: "16"
           check-latest: true
