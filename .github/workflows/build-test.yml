@@ -82,7 +82,7 @@ jobs:
       - name: Code Coverage Report for Mobile
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: ./mobile/coverage/clover.xml
+          filename: ./mobile/coverage/cobertura-coverage.xml
           badge: true
           fail_below_min: true
           format: markdown
@@ -90,7 +90,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: '60 75'
+          thresholds: "60 75"
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
