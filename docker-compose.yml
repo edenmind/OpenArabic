@@ -1,4 +1,5 @@
 # docker-compose --env-file ./docker-compose-default.env up
+# builds all images with their respective lts tags
 
 services:
   mongo:
