@@ -1,4 +1,3 @@
-/* eslint-disable import/namespace */
 import * as util from '../services/utility-service.js'
 import { Button, Text } from 'react-native-paper'
 import React, { Fragment } from 'react'

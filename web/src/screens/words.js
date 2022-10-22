@@ -18,7 +18,6 @@ export default function Words() {
   const [openDialog, setOpenDialog] = React.useState(false)
   const [selectedWord, setSelectedWord] = React.useState()
 
-  // eslint-disable-next-line putout/objects-braces-inside-array
   const columns = [
     {
       field: 'arabic',

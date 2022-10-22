@@ -55,7 +55,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      Audience
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        Audience
+      </Text>
     </Text>
     <Text
       style={
@@ -98,7 +114,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you in that process, inshāʾAllāh.
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you in that process, inshāʾAllāh.
+      </Text>
     </Text>
     <Text
       style={
@@ -141,7 +173,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in handy.
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in handy.
+      </Text>
     </Text>
     <Text
       style={
@@ -184,7 +232,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      Foundation
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        Foundation
+      </Text>
     </Text>
     <Text
       style={
@@ -227,7 +291,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first generations of Muslims understanding with texts from Islamic Scholars such as:
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first generations of Muslims understanding with texts from Islamic Scholars such as:
+      </Text>
     </Text>
     <View
       accessibilityState={
@@ -1284,7 +1364,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      Open Source
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        Open Source
+      </Text>
     </Text>
     <Text
       style={
@@ -1327,7 +1423,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify, and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic project on GitHub.
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify, and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic project on GitHub.
+      </Text>
     </Text>
     <Text
       style={
@@ -1370,7 +1482,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      Contact Us
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        Contact Us
+      </Text>
     </Text>
     <Text
       style={
@@ -1413,7 +1541,23 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      Please use any of the following channels to report bugs or requests new features.
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        Please use any of the following channels to report bugs or requests new features.
+      </Text>
     </Text>
     <View
       collapsable={false}

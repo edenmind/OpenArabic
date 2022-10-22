@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/namespace
 import { StyleSheet, View } from 'react-native'
 import * as React from 'react'
 import PropTypes from 'prop-types'

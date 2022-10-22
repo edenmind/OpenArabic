@@ -18,7 +18,6 @@ const initialState = {
     author: '',
     arabicSentence: [''],
     source: '',
-    // eslint-disable-next-line putout/objects-braces-inside-array
     sentences: [
       {
         english: '',
@@ -72,12 +71,10 @@ const textReducer = createReducer(initialState, (builder) => {
       state.text.arabicSentence = action.arabicSentence
     })
     .addCase(actions.UPDATE_SENTENCE, (state, action) => {
-      // eslint-disable-next-line putout/long-properties-destructuring
       const { indexSentence, indexArabicWord, englishWords } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].english = englishWords
     })
     .addCase(actions.REMOVE_WORD_FROM_SENTENCE, (state, action) => {
-      // eslint-disable-next-line putout/long-properties-destructuring
       const { indexSentence, indexArabicWord, englishWords } = action.value
       //remove the word from the sentence
       state.text.sentences[indexSentence].words.splice(indexArabicWord, 1)
@@ -98,7 +95,6 @@ const textReducer = createReducer(initialState, (builder) => {
       state.text.publishAt = action.publishAt
     })
     .addCase(actions.UPDATE_SENTENCE_QUIZ, (state, action) => {
-      // eslint-disable-next-line putout/long-properties-destructuring
       const { indexSentence, indexArabicWord, quiz } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].quiz = quiz
     })

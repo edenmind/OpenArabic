@@ -1,10 +1,8 @@
 import { Caption, Text, Title } from 'react-native-paper'
-/* eslint-disable import/namespace */
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import COLORS from '../constants/colors.js'
 import SCREENS from '../constants/screens.js'
 import TextList from '../screens/text-list.js'

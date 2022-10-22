@@ -1,4 +1,3 @@
-/* eslint-disable import/namespace */
 import 'react-native-gesture-handler'
 import { ScrollView, StyleSheet } from 'react-native'
 import { Paragraph } from 'react-native-paper'

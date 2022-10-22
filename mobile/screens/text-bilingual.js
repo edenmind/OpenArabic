@@ -1,4 +1,3 @@
-/* eslint-disable import/namespace */
 import 'react-native-gesture-handler'
 import Heading from './text-bilingual-heading.js'
 import React from 'react'

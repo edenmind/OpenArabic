@@ -1,6 +1,3 @@
-/* eslint-disable putout/keyword-spacing */
-/* eslint-disable putout/putout */
-
 'use strict'
 
 const COLLECTIONS = require('../constants/collections.js')

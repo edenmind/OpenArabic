@@ -18,7 +18,6 @@ export default function Texts() {
   const [openDialog, setOpenDialog] = React.useState(false)
   const [selectedText, setSelectedText] = React.useState()
 
-  // eslint-disable-next-line putout/objects-braces-inside-array
   const columns = [
     {
       field: 'title',

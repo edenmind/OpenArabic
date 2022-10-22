@@ -1,5 +1,3 @@
-/* eslint-disable security/detect-object-injection */
-/* eslint-disable import/namespace */
 import { StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
 import React from 'react'

@@ -1,4 +1,3 @@
-/* eslint-disable putout/nonblock-statement-body-newline */
 import { Button, Chip, Stack } from '@mui/material'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -28,7 +27,6 @@ function TextAddPublish() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  // eslint-disable-next-line putout/objects-braces-inside-array
   const [statuses] = React.useState([
     { id: 1, name: 'Draft' },
     { id: 2, name: 'Validated' },

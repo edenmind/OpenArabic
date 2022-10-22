@@ -1,6 +1,5 @@
 import * as wordProcessing from '../services/word-processing.js'
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
-import PropTypes from 'prop-types'
 import { Link as RouterLink } from 'react-router-dom'
 
 export default function TextListCard(properties) {

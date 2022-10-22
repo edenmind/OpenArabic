@@ -1,6 +1,3 @@
-/* eslint-disable global-require */
-/* eslint-disable no-undef */
-
 import 'react-native-gesture-handler/jestSetup'
 import { jest } from '@jest/globals'
 
