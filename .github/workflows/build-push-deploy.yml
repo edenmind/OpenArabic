@@ -1,4 +1,4 @@
-name: Build, Push and Deploy OpenArabic
+name: Build, Push and Deploy
 
 on:
   push:
