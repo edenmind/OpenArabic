@@ -14,6 +14,7 @@ db.init_collection.insertMany([
 
 db.createUser({
   user: 'user',
+  // file deepcode ignore NoHardcodedPasswords: this is just an example
   pwd: 'password',
   roles: [
     {
