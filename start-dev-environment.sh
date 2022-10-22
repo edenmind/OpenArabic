@@ -87,7 +87,7 @@ if [[ ${MONGO} ]]; then
       docker start $MONGO_CONTAINER_NAME
       exit 0
     fi
-    echo "Starting MongoDB..."
+    echo "Starting MongoDB using $MONGO_VERSION..."
     docker run --name $MONGO_CONTAINER_NAME -d -p 27017:27017 --mount source=v1,target=/data/db --mount source=v2,target=/data/configdb $MONGO_VERSION
     exit 0
   fi
