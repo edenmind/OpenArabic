@@ -1,4 +1,3 @@
-/* eslint-disable import/namespace */
 import { ENDPOINT, HOST } from '../constants/urls.js'
 import { Button } from 'react-native-paper'
 import COLORS from '../constants/colors.js'
@@ -19,7 +18,6 @@ export default function Text() {
   const { text } = useSelector(selector)
 
   const onShare = async () => {
-    // eslint-disable-next-line putout/keyword-spacing
     try {
       await Share.share({
         message: text.title,
@@ -31,7 +29,6 @@ export default function Text() {
   }
 
   const onErrorReport = async () => {
-    // eslint-disable-next-line putout/keyword-spacing
     try {
       MailComposer.composeAsync({
         recipients: ['salam@edenmin.com'],

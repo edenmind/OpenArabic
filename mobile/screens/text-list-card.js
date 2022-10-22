@@ -1,8 +1,5 @@
-/* eslint-disable import/namespace */
 import * as utility from '../services/utility-service.js'
-
 import { Caption, Card, Paragraph, Text } from 'react-native-paper'
-
 import COLORS from '../constants/colors.js'
 import PressableOpacity from '../components/pressable-opacity.js'
 import PropTypes from 'prop-types'

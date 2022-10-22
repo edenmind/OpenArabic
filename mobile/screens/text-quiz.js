@@ -1,6 +1,3 @@
-/* eslint-disable putout/nonblock-statement-body-newline */
-/* eslint-disable security/detect-object-injection */
-/* eslint-disable import/namespace */
 import React, { Fragment } from 'react'
 import SnackButton from '../components/snack-button.js'
 import Spinner from '../components/spinner.js'
@@ -63,7 +60,6 @@ const TextQuiz = () => {
       if (correctAnswers.length === numberOfWordInQuiz) {
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
         setCelebrationSnackBarVisibility(true)
-
         setTimeout(() => {
           resetState()
 
@@ -84,7 +80,7 @@ const TextQuiz = () => {
       englishSelectedCollection[englishCurrentSelectedIndex] = false
       setEnglishSelected([...englishSelectedCollection])
       setIsSecondWord(false)
-      // eslint-disable-next-line putout/add-newline-before-return
+
       return
     }
 
@@ -107,7 +103,6 @@ const TextQuiz = () => {
       if (correctAnswers.length === numberOfWordInQuiz) {
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
         setCelebrationSnackBarVisibility(true)
-
         setTimeout(() => {
           resetState()
 

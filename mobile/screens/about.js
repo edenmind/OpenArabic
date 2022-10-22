@@ -1,6 +1,3 @@
-/* eslint-disable import/namespace */
-/* eslint-disable react-native/no-raw-text */
-
 import { Button, Divider, List, Paragraph, Text, Title } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet } from 'react-native'
 import COLORS from '../constants/colors.js'
@@ -31,20 +28,30 @@ function About() {
 
   return (
     <ScrollView style={style.english}>
-      <Title style={style.english}>Audience</Title>
+      <Title style={style.english}>
+        <Text>Audience</Text>
+      </Title>
       <Paragraph style={style.english}>
-        If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
-        OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
-        in that process, inshāʾAllāh.
+        <Text>
+          If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
+          OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
+          in that process, inshāʾAllāh.
+        </Text>
       </Paragraph>
       <Paragraph style={style.english}>
-        OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started,
-        then the Duolingo app available on iPhone and Android might come in handy.
+        <Text>
+          OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started,
+          then the Duolingo app available on iPhone and Android might come in handy.
+        </Text>
       </Paragraph>
-      <Title style={style.english}>Foundation</Title>
+      <Title style={style.english}>
+        <Text>Foundation</Text>
+      </Title>
       <Paragraph style={style.english}>
-        The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first
-        generations of Muslims understanding with texts from Islamic Scholars such as:
+        <Text>
+          The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first
+          generations of Muslims understanding with texts from Islamic Scholars such as:
+        </Text>
       </Paragraph>
       <List.Item title="al-Hasan al-Basri" />
       <List.Item title="Imām Abū Ḥanīfa" />
@@ -59,15 +66,21 @@ function About() {
       <List.Item title="Ibn Kathīr" />
       <List.Item title="Ibn Ḥajar al-ʿAsqalānī" />
       <List.Item title="al-Fuḍayl ibn ʻIyāḍ" />
-      <Title style={style.english}>Open Source</Title>
+      <Title style={style.english}>
+        <Text>Open Source</Text>
+      </Title>
       <Paragraph style={style.english}>
-        The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify,
-        and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic
-        project on GitHub.
+        <Text>
+          The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS,
+          Fastify, and Kubernetes. If you are interested in helping out with the development, then please check out the
+          OpenArabic project on GitHub.
+        </Text>
       </Paragraph>
-      <Title style={style.english}>Contact Us</Title>
+      <Title style={style.english}>
+        <Text>Contact Us</Text>
+      </Title>
       <Paragraph style={style.english}>
-        Please use any of the following channels to report bugs or requests new features.
+        <Text>Please use any of the following channels to report bugs or requests new features.</Text>
       </Paragraph>
       <Button style={style.button} mode="outlined" testID="email" onPress={() => Linking.openURL(email)}>
         <Text>Email</Text>

@@ -1,7 +1,6 @@
 'use strict'
 
 function getImages(request, reply) {
-  // eslint-disable-next-line putout/objects-braces-inside-array
   const headerImages = [
     {
       img: `${process.env.API_IMAGES_URL}1.png`

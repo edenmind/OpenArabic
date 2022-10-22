@@ -1,4 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
 export const truncate = (stringToTruncate, truncateLength) => {
   const cleanString = stringToTruncate.replace(' \n', '')
   return cleanString.length > truncateLength

@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak */
 import { ENDPOINT, HOST } from '../constants/urls.js'
 export const textWithId = (id) => {
   return `${HOST.backend}/${ENDPOINT.texts}/${id}`

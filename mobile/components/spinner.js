@@ -1,8 +1,6 @@
 import { ActivityIndicator } from 'react-native-paper'
 import COLORS from '../constants/colors.js'
 import React from 'react'
-/* eslint-disable import/namespace */
-/* eslint-disable import/named */
 import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({

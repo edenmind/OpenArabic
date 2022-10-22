@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/filename-case */
 import Bugsnag from '@bugsnag/expo'
 import ErrorBoundary from 'react-native-error-boundary'
 import PAPERTHEME from './constants/paper-theme.js'

@@ -1,4 +1,3 @@
-/* eslint-disable putout/remove-empty-newline-after-import */
 import { textReducer } from './reducers.js'
 import { configureStore } from '@reduxjs/toolkit'
 

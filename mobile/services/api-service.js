@@ -1,8 +1,4 @@
 import * as url from './url-service.js'
-
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable operator-linebreak */
-/* eslint-disable unicorn/consistent-function-scoping */
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 

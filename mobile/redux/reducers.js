@@ -1,5 +1,3 @@
-/* eslint-disable putout/objects-braces-inside-array */
-/* eslint-disable putout/keyword-spacing */
 import * as actions from './actions.js'
 import { createReducer } from '@reduxjs/toolkit'
 
@@ -26,7 +24,6 @@ const initialStateText = {
       arabic: [[{ word: 'a', wordId: '1' }]],
       english: [[{ word: 'e', wordId: '1' }]]
     },
-    // eslint-disable-next-line putout/objects-braces-inside-array
     sentences: [
       {
         english: 'e1',
@@ -105,5 +102,4 @@ const textsLoadingReducer = createReducer(initialStateLoading, (builder) => {
   })
 })
 
-// eslint-disable-next-line putout/add-newlines-between-specifiers
 export { categoriesReducer, textReducer, textsReducer, textLoadingReducer, textsLoadingReducer }

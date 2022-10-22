@@ -1,5 +1,3 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable security/detect-object-injection */
 import React, { Fragment } from 'react'
 import { Button, Tooltip } from '@mui/material'
 import * as api from '../services/api-service.js'

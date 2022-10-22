@@ -1,11 +1,3 @@
-/* eslint-disable security/detect-possible-timing-attacks */
-/* eslint-disable putout/long-properties-destructuring */
-/* eslint-disable putout/keyword-spacing */
-/* eslint-disable putout/putout */
-/* eslint-disable security/detect-object-injection */
-/* eslint-disable prettier/prettier */
-/* eslint-disable newline-per-chained-call */
-
 'use strict'
 
 const axios = require('axios').default
@@ -22,13 +14,11 @@ async function listTexts(request, reply) {
   const textListSortedByPublishAt = textList.sort((a, b) => a.publishAt - b.publishAt)
 
   //add properties for timeAgo and readingTime for each text
-  const textListWithProperties = textListSortedByPublishAt.map((text) => {
-    return {
-      ...text,
-      timeAgo: timeAgo(text.publishAt),
-      readingTime: readingTime(text.texts.arabic)
-    }
-  })
+  const textListWithProperties = textListSortedByPublishAt.map((text) => ({
+    ...text,
+    timeAgo: timeAgo(text.publishAt),
+    readingTime: readingTime(text.texts.arabic)
+  }))
 
   //send the texts
   if (textListWithProperties.length > 0) {
@@ -47,13 +37,11 @@ async function listTextsWithId(request, reply) {
   const textListSortedByPublishAt = textList.sort((a, b) => a.publishAt - b.publishAt)
 
   //add properties for timeAgo and readingTime for each text
-  const textListWithProperties = textListSortedByPublishAt.map((text) => {
-    return {
-      ...text,
-      timeAgo: timeAgo(text.publishAt),
-      readingTime: readingTime(text.texts.arabic)
-    }
-  })
+  const textListWithProperties = textListSortedByPublishAt.map((text) => ({
+    ...text,
+    timeAgo: timeAgo(text.publishAt),
+    readingTime: readingTime(text.texts.arabic)
+  }))
 
   //send the texts
   if (textListWithProperties.length > 0) {
@@ -104,7 +92,7 @@ async function addText(request, reply) {
   // check that at lest 15 words in sentences words has property quiz set to true
   const sentencesWords = sentences.map((sentence) => sentence.words)
   const sentencesWordsFlat = sentencesWords.flat()
-  const sentencesWordsFlatQuizTrue = sentencesWordsFlat.filter((word) => word.quiz === true)
+  const sentencesWordsFlatQuizTrue = sentencesWordsFlat.filter((word) => word.quiz)
   const sentencesWordsFlatQuizTrueLength = sentencesWordsFlatQuizTrue.length
 
   if (sentencesWordsFlatQuizTrueLength < 15) {
