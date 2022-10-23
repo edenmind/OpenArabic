@@ -11,9 +11,6 @@ RUN python -m pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
-RUN useradd appuser && chown -R appuser /app
-USER appuser
-
 EXPOSE 3020
 
 CMD ["gunicorn", "tashkeel:app", "--workers=1", "--threads=1", "--bind", "0.0.0.0:3020"]
