@@ -19,8 +19,8 @@ services:
     ports:
       - 3010:3010
     restart: always
-  tashkeel:
-    build: ./services/tashkeel
+  services:
+    build: ./services
     ports:
       - 3020:3020
     restart: always
