@@ -1,8 +1,5 @@
 'use strict'
 
-/* eslint-disable quote-props */
-/* eslint-disable unicorn/prefer-module */
-
 module.exports = {
   env: {
     browser: true,
@@ -79,7 +76,7 @@ module.exports = {
     'plugin:react-redux/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react/recommended',
-    'plugin:unicorn/all',
+    'plugin:unicorn/recommended',
     'plugin:security/recommended',
     'plugin:putout/recommended',
     'plugin:sonarjs/recommended',

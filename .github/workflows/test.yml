@@ -1,4 +1,4 @@
-name: Run Tests
+name: Run Tests and Linting
 on:
   push:
     branches-ignore: [main]
@@ -37,18 +37,21 @@ jobs:
           API_TASHKEEL_URL: http://localhost:3020
         run: |
           yarn install
+          yarn lint
           yarn test
 
       - name: 🧪  Test Mobile
         working-directory: ./mobile
         run: |
           yarn install
+          yarn lint
           yarn test
 
       - name: 🧪  Test Web
         working-directory: ./web
         run: |
           yarn install
+          yarn lint
           yarn test
 
       - name: ✅  Tests

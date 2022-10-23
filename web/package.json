@@ -54,7 +54,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false --collectCoverage=true",
     "test-update": "react-scripts test --updateSnapshot --watchAll=true",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint '**/*.js' --ignore-pattern node_modules/ --ignore-pattern coverage/"
   },
   "eslintConfig": {
     "extends": [

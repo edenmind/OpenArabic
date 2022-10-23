@@ -10,7 +10,8 @@
     "eject": "expo eject",
     "test": "JEST=true jest",
     "test-verbose": "JEST=true jest --silent=false",
-    "test-update": "jest -u"
+    "test-update": "jest -u",
+    "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
   "dependencies": {
     "@bugsnag/expo": "^46.0.0",
