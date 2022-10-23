@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: github-actions
-    directory: "/.github/workflows"
+    directory: "/.github/workflows/*.yaml"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
