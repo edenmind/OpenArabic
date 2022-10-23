@@ -1,14 +1,16 @@
 # OpenArabic
 
-A free and open-source Arabic language learning platform
+A free and open-source Arabic language learning platform with focus on classic Islamic text. Check out [The Road Ahead](https://github.com/orgs/edenmind/projects/4) project to see what is planned for the future, ʾIn shāʾ Allāh.
 
 ## Status
+
+[![Code QL](https://github.com/edenmind/OpenArabic/actions/workflows/code-ql.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/code-ql.yml)
 
 [![Build and Test](https://github.com/edenmind/OpenArabic/actions/workflows/test.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/test.yml)
 
 [![Deploy to Test Environment](https://github.com/edenmind/OpenArabic/actions/workflows/build-push-deploy.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/build-push-deploy.yml)
 
-[![Code QL](https://github.com/edenmind/OpenArabic/actions/workflows/code-ql.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/code-ql.yml)
+[![Publish to Expo](https://github.com/edenmind/OpenArabic/actions/workflows/build-publish.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/build-publish.yml)
 
 ## Start developing
 
@@ -35,14 +37,18 @@ The web interface should now be accessible from <http://localhost:3040>
 
 ## Technologies
 
-OpenArabic.io is built using some of the latest technologies such as:
+OpenArabic.io is built using some great open source technologies such as:
 
-- MongoDB as a database
-- Fastify (Node.js)
-- React Native (Expo)
-- Terraform (Digital Ocean)
-- Kubernetes (Digital Ocean)
-- GitOps (with Flux and Flagger)
+- Terraform  
+- MongoDB
+- Flux
+- Flagger
+- Kubernetes
+- Grafana
+- Prometheus
+- Fastify
+- ReactJS
+- React Native  
 
 ## Help wanted
 
