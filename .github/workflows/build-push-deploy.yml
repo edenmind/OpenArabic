@@ -58,11 +58,11 @@ jobs:
           context: ./api
           push: true
 
-      - name: 📦  Build and Push Tashkeel to Container Registry
+      - name: 📦  Build and Push Services to Container Registry
         uses: docker/build-push-action@v3
         with:
           file: ./services/Dockerfile
-          tags: registry.digitalocean.com/openarabic/services:${{ steps.prep.outputs.BUILD_ID }}
+          tags: registry.digitalocean.com/openarabic/tashkeel:${{ steps.prep.outputs.BUILD_ID }}
           context: ./services/
           push: true
 
