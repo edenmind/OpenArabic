@@ -8,7 +8,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: 🏗  Setup repo
+      - name: 🏗  Setup Repo
         uses: actions/checkout@v3
 
       - name: 🏗  Setup Node
@@ -25,14 +25,14 @@ jobs:
           expo-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
       
-      - name: 🏗  Set publish URL
+      - name: 🏗  Set Publish URL
         working-directory: ./mobile
         run: cp ./constants/urls.publish.js ./constants/urls.js
 
-      - name: 📦  Install dependencies
+      - name: 📦  Install Dependencies
         working-directory: ./mobile
         run: yarn install
 
-      - name: 🚀  Publish app
+      - name: 🚀  Publish App
         working-directory: ./mobile
         run: expo publish --non-interactive

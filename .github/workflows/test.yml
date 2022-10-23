@@ -39,7 +39,7 @@ jobs:
           yarn install
           yarn test
 
-      - name: 🧪  Test mobile
+      - name: 🧪  Test Mobile
         working-directory: ./mobile
         run: |
           yarn install
