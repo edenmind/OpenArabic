@@ -1,14 +1,18 @@
 # OpenArabic
 
-A free and open-source Arabic language learning platform. It is a community-driven project, and we welcome contributions from anyone.
+A free and open-source Arabic language learning platform
 
 ## Status
 
-[![Build and Test](https://github.com/edenmind/OpenArabic/actions/workflows/build-test.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/build-test.yml)
+[![Build and Test](https://github.com/edenmind/OpenArabic/actions/workflows/test.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/test.yml)
 
 [![Deploy to Test Environment](https://github.com/edenmind/OpenArabic/actions/workflows/build-push-deploy.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/build-push-deploy.yml)
 
+[![Code QL](https://github.com/edenmind/OpenArabic/actions/workflows/code-ql.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/code-ql.yml)
+
 ## Start developing
+
+OpenArabic is a community-driven project, and we welcome contributions from anyone.
 
 Begin with cloning the repository:
 
