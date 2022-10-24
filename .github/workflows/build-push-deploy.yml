@@ -36,7 +36,7 @@ jobs:
         with:
           version: ${{ env.HELM_VERSION_TO_INSTALL }}
         env:
-          HELM_VERSION_TO_INSTALL: 3.9.0
+          HELM_VERSION_TO_INSTALL: 3.10.1
 
       - name: 🏗  Login to registry using Helm
         run: |
@@ -81,17 +81,13 @@ jobs:
         env:
           BUILD_ID: ${{ steps.prep.outputs.BUILD_ID }}
 
+      # https://github.com/marketplace/actions/kubescape
       - name: 🔎  Lint and validate
-        run: |
-          helm template ./package  
-          helm lint ./package
-
-      - name: 🏗  Save helm chart to local registry
-        run: |
-          helm package ./package
+        working-directory: ./package
+        run: ./build.sh
 
       - name: 🚀  Publish chart to registry
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm push open-arabic-helm*.tgz oci://registry.digitalocean.com/openarabic
+          helm push ./chart/open-arabic-helm*.tgz oci://registry.digitalocean.com/openarabic
