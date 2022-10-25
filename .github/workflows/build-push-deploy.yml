@@ -74,7 +74,7 @@ jobs:
           context: ./web
           push: true
 
-      - name: 🔎  Replace SHA tag for containers and Helm chart
+      - name: 🔎  Replace SHA Tag for Containers and Helm Chart
         uses: cschleiden/replace-tokens@v1.1
         with:
           files: '["package/**/*.yaml"]'
@@ -86,8 +86,9 @@ jobs:
         working-directory: ./package
         run: ./build.sh
 
-      - name: 🚀  Publish chart to registry
+      - name: 🚀  Publish Chart to Registry
+        working-directory: ./package
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm push ./dist/open-arabic-helm*.tgz oci://registry.digitalocean.com/openarabic
+          helm push dist/open-arabic-helm*.tgz oci://registry.digitalocean.com/openarabic
