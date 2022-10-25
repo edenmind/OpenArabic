@@ -38,7 +38,7 @@ jobs:
         env:
           HELM_VERSION_TO_INSTALL: 3.10.1
 
-      - name: 🏗  Login to registry using Helm
+      - name: 🏗  Login to Registry With Helm
         run: |
           helm registry login registry.digitalocean.com/openarabic --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
 
@@ -82,7 +82,7 @@ jobs:
           BUILD_ID: ${{ steps.prep.outputs.BUILD_ID }}
 
       # https://github.com/marketplace/actions/kubescape
-      - name: 🔎  Lint and validate
+      - name: 🔎  Lint and Package
         working-directory: ./package
         run: ./build.sh
 
@@ -90,4 +90,4 @@ jobs:
         env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
-          helm push ./chart/open-arabic-helm*.tgz oci://registry.digitalocean.com/openarabic
+          helm push ./dist/open-arabic-helm*.tgz oci://registry.digitalocean.com/openarabic
