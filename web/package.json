@@ -13,7 +13,7 @@
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.10.9",
     "@mui/lab": "^5.0.0-alpha.104",
-    "@mui/material": "^5.10.10",
+    "@mui/material": "^5.10.11",
     "@mui/x-data-grid": "^5.17.8",
     "@mui/x-date-pickers": "^5.0.5",
     "@reduxjs/toolkit": "^1.8.6",
