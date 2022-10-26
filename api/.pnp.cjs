@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fastify/rate-limit", "npm:7.5.0"],\
             ["@fastify/sensible", "npm:5.1.1"],\
             ["@fastify/static", "npm:6.5.0"],\
-            ["@fastify/swagger", "npm:8.0.0"],\
+            ["@fastify/swagger", "npm:8.1.0"],\
             ["axios", "npm:1.1.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.26.0"],\
@@ -1613,10 +1613,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@fastify/swagger", [\
-        ["npm:8.0.0", {\
-          "packageLocation": "./.yarn/cache/@fastify-swagger-npm-8.0.0-6bba746a6b-9ae177882f.zip/node_modules/@fastify/swagger/",\
+        ["npm:8.1.0", {\
+          "packageLocation": "./.yarn/cache/@fastify-swagger-npm-8.1.0-9ce4ecb4ba-eae324cb55.zip/node_modules/@fastify/swagger/",\
           "packageDependencies": [\
-            ["@fastify/swagger", "npm:8.0.0"],\
+            ["@fastify/swagger", "npm:8.1.0"],\
             ["fastify-plugin", "npm:4.0.0"],\
             ["json-schema-resolver", "npm:2.0.0"],\
             ["openapi-types", "npm:12.0.2"],\
@@ -5496,7 +5496,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fastify/rate-limit", "npm:7.5.0"],\
             ["@fastify/sensible", "npm:5.1.1"],\
             ["@fastify/static", "npm:6.5.0"],\
-            ["@fastify/swagger", "npm:8.0.0"],\
+            ["@fastify/swagger", "npm:8.1.0"],\
             ["axios", "npm:1.1.3"],\
             ["dotenv", "npm:16.0.3"],\
             ["eslint", "npm:8.26.0"],\
