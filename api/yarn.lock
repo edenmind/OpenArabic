@@ -3473,7 +3473,7 @@ __metadata:
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^44.0.2
     fastify: ^4.9.2
-    fastify-cli: ^5.5.0
+    fastify-cli: ^5.5.1
     fastify-healthcheck: ^4.2.0
     fastify-plugin: ^4.3.0
     moment: ^2.29.4
@@ -5048,9 +5048,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-cli@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "fastify-cli@npm:5.5.0"
+"fastify-cli@npm:^5.5.1":
+  version: 5.5.1
+  resolution: "fastify-cli@npm:5.5.1"
   dependencies:
     chalk: ^4.1.2
     chokidar: ^3.5.2
@@ -5069,7 +5069,7 @@ __metadata:
     yargs-parser: ^21.1.1
   bin:
     fastify: cli.js
-  checksum: 067c3afc308d494cbc4a7d486f76e7d7e99f8b8ad6aa48a8136a9255d6ce36608c97e53dea4b6d4f67c75af220c0ca8065487cb81b299563013db34dc6fef948
+  checksum: 0dec81f085d22bd461cb9c2aacbfbafcf3903aeebfc1bfd5a8efa31c2927e9f5a873e24b839ca41b5abd0382474ba7f1d524830b202a365ee44365ac96839bda
   languageName: node
   linkType: hard
 
