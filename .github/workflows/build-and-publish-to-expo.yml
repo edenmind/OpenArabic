@@ -1,4 +1,4 @@
-name: Publish OpenArabic
+name: build-and-publish-to-expo
 
 on:
   push:
