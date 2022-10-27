@@ -118,9 +118,6 @@ jobs:
           output: both
           thresholds: "60 75"
 
-      - uses: jwalton/gh-find-current-pr@v1
-        id: finder
-
       - name: Add Coverage PR Comment for API
         uses: marocchino/sticky-pull-request-comment@v2
         with:
