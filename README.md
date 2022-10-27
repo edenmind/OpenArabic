@@ -1,18 +1,18 @@
 # OpenArabic
 
-A free and open-source Arabic language learning platform with focus on classic Islamic text. Check out [The Road Ahead](https://github.com/orgs/edenmind/projects/4) project to see what is planned for the future, ʾIn shāʾ Allāh.
+A free and open-source Arabic language learning platform with focus on classic Islamic texts. Check out [The Road Ahead](https://github.com/orgs/edenmind/projects/4) project to see what is planned for the future, ʾIn shāʾ Allāh.
 
 ## Status
 
-[![Code QL](https://github.com/edenmind/OpenArabic/actions/workflows/code-ql.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/code-ql.yml)
+[![analyze-with-codeql](https://github.com/edenmind/OpenArabic/actions/workflows/analyze-with-codeql.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/analyze-with-codeql.yml)
 
-[![Build and Test](https://github.com/edenmind/OpenArabic/actions/workflows/test.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/test.yml)
+[![test-and-lint](https://github.com/edenmind/OpenArabic/actions/workflows/test-and-lint.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/test-and-lint.yml)
 
-[![Deploy to Test Environment](https://github.com/edenmind/OpenArabic/actions/workflows/build-push-deploy.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/build-push-deploy.yml)
+[![build-push-and-deploy-containers](https://github.com/edenmind/OpenArabic/actions/workflows/build-push-and-deploy-containers.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/build-push-and-deploy-containers.yml)
 
-[![Publish to Expo](https://github.com/edenmind/OpenArabic/actions/workflows/build-publish.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/build-publish.yml)
+[![build-and-publish-to-expo](https://github.com/edenmind/OpenArabic/actions/workflows/build-and-publish-to-expo.yml/badge.svg)](https://github.com/edenmind/OpenArabic/actions/workflows/build-and-publish-to-expo.yml)
 
-## Start developing
+## Start Developing
 
 OpenArabic is a community-driven project, and we welcome contributions from anyone.
 
@@ -37,7 +37,7 @@ The web interface should now be accessible from <http://localhost:3040>
 
 ## Technologies
 
-OpenArabic.io is built using some great open source technologies such as:
+OpenArabic is built using some great open source technologies such as:
 
 - Terraform  
 - MongoDB
@@ -50,10 +50,10 @@ OpenArabic.io is built using some great open source technologies such as:
 - ReactJS
 - React Native  
 
-## Help wanted
+## Help Wanted
 
-If you have skills in any of these technologies and has an interest in helping taking OpenArabic.io further, then please join as a contributor.
+If you have skills in any of these technologies and has an interest in helping taking OpenArabic further, then please join as a contributor.
 
 ## Support
 
-If you need any help, then please drop an email to salam@edenmind.com
+If you need any help, then please drop an email to salam@edenmind.com or contact @YunusAndreasson on Twitter.
