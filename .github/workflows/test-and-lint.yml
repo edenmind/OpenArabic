@@ -37,21 +37,21 @@ jobs:
           API_TASHKEEL_URL: http://localhost:3020
         run: |
           yarn install
-          yarn lint
+          #yarn lint
           yarn test
 
       - name: 🧪  Test and Lint Mobile
         working-directory: ./mobile
         run: |
           yarn install
-          yarn lint
+          #yarn lint
           yarn test
 
       - name: 🧪  Test and Lint Web
         working-directory: ./web
         run: |
           yarn install
-          yarn lint
+          #yarn lint
           yarn test
 
       - name: ✅  Tests
@@ -117,9 +117,6 @@ jobs:
           indicators: true
           output: both
           thresholds: "60 75"
-
-      - uses: jwalton/gh-find-current-pr@v1
-        id: finder
 
       - name: Add Coverage PR Comment for API
         uses: marocchino/sticky-pull-request-comment@v2
