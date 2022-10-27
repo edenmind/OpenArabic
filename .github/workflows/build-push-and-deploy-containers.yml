@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
 jobs:
-  build:
+  build-push-and-deploy-containers:
     runs-on: ubuntu-latest
     steps:
       - name: 🏗  Prepare
