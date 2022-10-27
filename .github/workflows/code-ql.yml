@@ -18,8 +18,8 @@ on:
     - cron: '30 3 * * 5'
 
 jobs:
-  analyze:
-    name: Analyze
+  code-ql:
+    name: code-ql
     runs-on: ubuntu-latest
     permissions:
       actions: read

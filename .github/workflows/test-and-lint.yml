@@ -3,7 +3,7 @@ on:
   push:
     branches-ignore: [main]
 jobs:
-  test:
+  test-and-lint:
     runs-on: ubuntu-latest
     permissions: write-all
     services:
@@ -29,7 +29,7 @@ jobs:
           node-version: 18
           check-latest: true
 
-      - name: 🧪  Test API
+      - name: 🧪  Test and Lint API
         working-directory: ./api
         env:
           PORT: 3030
@@ -37,21 +37,21 @@ jobs:
           API_TASHKEEL_URL: http://localhost:3020
         run: |
           yarn install
-          # yarn lint
+          yarn lint
           yarn test
 
-      - name: 🧪  Test Mobile
+      - name: 🧪  Test and Lint Mobile
         working-directory: ./mobile
         run: |
           yarn install
-          # yarn lint
+          yarn lint
           yarn test
 
-      - name: 🧪  Test Web
+      - name: 🧪  Test and Lint Web
         working-directory: ./web
         run: |
           yarn install
-          # yarn lint
+          yarn lint
           yarn test
 
       - name: ✅  Tests
@@ -98,7 +98,30 @@ jobs:
       - uses: jwalton/gh-find-current-pr@v1
         id: finder
 
-      - name: Add Coverage PR Comment
+      - name: Add Coverage PR Comment for Mobile
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          number: ${{ steps.finder.outputs.pr }}
+          recreate: true
+          path: code-coverage-results.md
+
+      - name: Code Coverage Report for API
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: ./api/coverage/cobertura-coverage.xml
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: "60 75"
+
+      - uses: jwalton/gh-find-current-pr@v1
+        id: finder
+
+      - name: Add Coverage PR Comment for API
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           number: ${{ steps.finder.outputs.pr }}
