@@ -8,7 +8,7 @@
     "@bugsnag/js": "^7.18.0",
     "@bugsnag/plugin-react": "^7.18.0",
     "@date-io/moment": "^2.16.0",
-    "@emotion/react": "^11.10.4",
+    "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.4",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.10.9",
