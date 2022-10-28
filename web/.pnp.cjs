@@ -36,7 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@auth0/auth0-react", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:1.12.0"],\
             ["@bugsnag/js", "npm:7.18.0"],\
             ["@bugsnag/plugin-react", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:7.18.0"],\
-            ["@date-io/moment", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:2.16.0"],\
+            ["@date-io/moment", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:2.16.1"],\
             ["@emotion/react", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:11.10.5"],\
             ["@emotion/styled", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:11.10.5"],\
             ["@fontsource/roboto", "npm:4.5.8"],\
@@ -3594,10 +3594,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["npm:2.16.0", {\
-          "packageLocation": "./.yarn/cache/@date-io-moment-npm-2.16.0-1f6b09073c-5e80a1d908.zip/node_modules/@date-io/moment/",\
+        ["npm:2.16.1", {\
+          "packageLocation": "./.yarn/cache/@date-io-moment-npm-2.16.1-666a36a5c5-37a541661c.zip/node_modules/@date-io/moment/",\
           "packageDependencies": [\
-            ["@date-io/moment", "npm:2.16.0"]\
+            ["@date-io/moment", "npm:2.16.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -3615,10 +3615,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:2.16.0", {\
-          "packageLocation": "./.yarn/__virtual__/@date-io-moment-virtual-700fd39001/0/cache/@date-io-moment-npm-2.16.0-1f6b09073c-5e80a1d908.zip/node_modules/@date-io/moment/",\
+        ["virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:2.16.1", {\
+          "packageLocation": "./.yarn/__virtual__/@date-io-moment-virtual-3921a0ec6b/0/cache/@date-io-moment-npm-2.16.1-666a36a5c5-37a541661c.zip/node_modules/@date-io/moment/",\
           "packageDependencies": [\
-            ["@date-io/moment", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:2.16.0"],\
+            ["@date-io/moment", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:2.16.1"],\
             ["@date-io/core", "npm:2.16.0"],\
             ["@types/moment", null],\
             ["moment", "npm:2.29.4"]\
@@ -17820,7 +17820,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@auth0/auth0-react", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:1.12.0"],\
             ["@bugsnag/js", "npm:7.18.0"],\
             ["@bugsnag/plugin-react", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:7.18.0"],\
-            ["@date-io/moment", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:2.16.0"],\
+            ["@date-io/moment", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:2.16.1"],\
             ["@emotion/react", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:11.10.5"],\
             ["@emotion/styled", "virtual:5eba1cffb3bc9864256af4d69a5eb6f75fa7ada7da21c07a577dbdcc3a3363728bc91d2e22ab5251b5fa6b8a44fde5777e98543e6229d4a634570cb8073f85ad#npm:11.10.5"],\
             ["@fontsource/roboto", "npm:4.5.8"],\
