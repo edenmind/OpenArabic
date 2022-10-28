@@ -2063,9 +2063,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@date-io/moment@npm:^2.16.0":
-  version: 2.16.0
-  resolution: "@date-io/moment@npm:2.16.0"
+"@date-io/moment@npm:^2.16.1":
+  version: 2.16.1
+  resolution: "@date-io/moment@npm:2.16.1"
   dependencies:
     "@date-io/core": ^2.16.0
   peerDependencies:
@@ -2073,7 +2073,7 @@ __metadata:
   peerDependenciesMeta:
     moment:
       optional: true
-  checksum: 5e80a1d908b1f74066a226f4ef23da3d8a7db1238f2f6d4d5852d65167b9408e6d14369dda40c4e6d2a320f513e89979da4d8f7afd09b860349aae373795b451
+  checksum: 37a541661c504e1005904fab27b7b01d0c5d6c9c8c8a3b0a69d42a578aee8c52de7c181f917ad7acb14a9d7356d240c7e107777edf10efa11a453535977fc905
   languageName: node
   linkType: hard
 
@@ -12438,7 +12438,7 @@ __metadata:
     "@auth0/auth0-react": ^1.12.0
     "@bugsnag/js": ^7.18.0
     "@bugsnag/plugin-react": ^7.18.0
-    "@date-io/moment": ^2.16.0
+    "@date-io/moment": ^2.16.1
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@fontsource/roboto": ^4.5.8
