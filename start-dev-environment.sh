@@ -1,5 +1,6 @@
 #!/bin/bash
-# Start a local development environment with a seeded MongoDB.
+
+set -e -o pipefail -u
 
 MONGO_VERSION=mongo:5-focal
 MONGO_CONTAINER_NAME=mongo
@@ -9,7 +10,7 @@ function usage {
   echo ''
   echo '━━━━━━━━ OpenArabic Dev Xperience - 0.1.0 ━━━━━━━━'
   echo ''
-  echo "Usage: $(basename "$0") [-hmatswe]" 2>&1
+  echo "Usage: $(basename "$0") [-hmatsweixr]" 2>&1
   echo ''
   echo '   -h   display usage information'
   echo '   -m   start MongoDB database'
@@ -21,8 +22,6 @@ function usage {
   echo '   -x   extract current data from MongoDB'
   echo '   -i   import seed data into MongoDB'
   echo '   -r   release mobile app'
-  echo '   -n   minor bump all versions'
-  echo '   -p   patch bump all versions'
   exit 0
 }
 
@@ -31,12 +30,12 @@ if [[ ${#} -eq 0 ]]; then
 fi
 
 # list of arguments expected in the input
-optstring=":hmatsweixrnp"
+optstring=":hmatsweixr"
 
 while getopts ${optstring} arg; do
   case ${arg} in
   h)
-    echo "showing usage!"
+    echo "Showing usage..."
     usage
     ;;
   m)
@@ -65,12 +64,6 @@ while getopts ${optstring} arg; do
     ;;
   r)
     RELEASE=true
-    ;;
-  n)
-    MINOR=true
-    ;;
-  p)
-    PATCH=true
     ;;
   ?)
     echo "Invalid option: -${OPTARG}."
@@ -143,20 +136,4 @@ fi
 if [[ ${EXPO} ]]; then
   echo "Starting Expo mobile app in ./mobile"
   yarn --cwd ./mobile start
-fi
-
-if [[ ${MINOR} ]]; then
-  echo "Updating all versions..."
-  yarn --cwd ./api version minor
-  yarn --cwd ./web version minor
-  yarn --cwd ./static version minor
-  yarn --cwd ./mobile version minor
-fi
-
-if [[ ${PATCH} ]]; then
-  echo "Updating all versions..."
-  yarn --cwd ./api version patch
-  yarn --cwd ./web version patch
-  yarn --cwd ./static version patch
-  yarn --cwd ./mobile version patch
 fi
