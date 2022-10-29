@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -o pipefail -u
+set -e -o pipefail
 
 MONGO_VERSION=mongo:5-focal
 MONGO_CONTAINER_NAME=mongo
