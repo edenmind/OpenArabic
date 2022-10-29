@@ -1,4 +1,4 @@
-import { Link, Stack } from '@mui/material'
+import { Link, Stack, Button } from '@mui/material'
 import packageJson from '../../package.json'
 import { getHijriYear } from '../services/dates.js'
 
@@ -24,8 +24,16 @@ function Footer() {
           <img src="/android.svg" alt="Android" />
         </Link>
       </Stack>
-      {packageJson.displayName} {packageJson.version}. Copyright © {getHijriYear()} {packageJson.author}.{' '}
-      <Link href="https://raw.githubusercontent.com/edenmind/OpenArabic/main/docs/LICENSE">MIT License</Link>.
+      {packageJson.displayName} {packageJson.version}. Copyright © {getHijriYear()} {packageJson.author}.
+      <p>
+        <Link href="/privacy">Privacy</Link>
+        {' . '}
+        <Link href="https://raw.githubusercontent.com/edenmind/OpenArabic/main/docs/LICENSE">License</Link>
+        {' . '}
+        <Link href="https://github.com/edenmind/OpenArabic/issues">Issues</Link>
+        {' . '}
+        <Link href="https://github.com/edenmind/OpenArabic/discussions">Discussions</Link>
+      </p>
     </div>
   )
 }

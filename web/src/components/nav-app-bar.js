@@ -32,10 +32,6 @@ function NavAppBar(props) {
           About
         </Button>
 
-        <Button component={Link} to="/privacy">
-          Privacy
-        </Button>
-
         {!props.isAuthenticated && <LoginButton />}
         {props.isAuthenticated && <LogoutButton />}
       </Toolbar>
