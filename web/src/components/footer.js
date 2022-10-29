@@ -1,5 +1,6 @@
 import { Link, Stack } from '@mui/material'
 import packageJson from '../../package.json'
+import { getHijriYear } from '../services/dates.js'
 
 function Footer() {
   const stickyFooterStyle = {
@@ -13,12 +14,6 @@ function Footer() {
   const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.edenmind.OpenArabic'
 
   // get the hijri date
-  const hijriDate = new Date().toLocaleDateString('ar-SA-u-ca-islamic-civil', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  })
-
   return (
     <div style={stickyFooterStyle}>
       <Stack spacing={2} direction="row" style={{ paddingBottom: '15px' }}>
@@ -29,7 +24,8 @@ function Footer() {
           <img src="/android.svg" alt="Android" />
         </Link>
       </Stack>
-      {packageJson.displayName} {packageJson.version}. Copyright © {hijriDate} Edenmind. All rights reserved.
+      {packageJson.displayName} {packageJson.version}. Copyright © {getHijriYear()} {packageJson.author}.{' '}
+      <Link href="https://raw.githubusercontent.com/edenmind/OpenArabic/main/docs/LICENSE">MIT License</Link>.
     </div>
   )
 }
