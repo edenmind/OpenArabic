@@ -11,14 +11,9 @@ COPY . .
 RUN ../node_modules/.bin/react-scripts build
 
 # deploy
-FROM node:lts-alpine
+FROM nginx:stable-alpine
 
-ENV PORT=3040
+COPY --from=BUILD /usr/src/app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=BUILD /usr/src/app/build /app
-RUN yarn global add serve@13.0.2 && chown -R node /app
-
-USER node
 EXPOSE 3040
-
-CMD ["serve", "/app", "--cors"]
