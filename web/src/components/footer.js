@@ -10,10 +10,14 @@ function Footer() {
     marginRight: 'auto'
   }
 
+  const gitSha = '@(GIT_SHA)@'
   const appStoreLink = 'https://apps.apple.com/se/app/open-arabic/id1594031029?l=en'
   const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.edenmind.OpenArabic'
+  const commitLink = `https://github.com/edenmind/OpenArabic/commit/${gitSha}`
+  const licenseLink = 'https://raw.githubusercontent.com/edenmind/OpenArabic/main/docs/LICENSE'
+  const issuesLink = 'https://github.com/edenmind/OpenArabic/issues'
+  const discussionsLink = 'https://github.com/edenmind/OpenArabic/discussions'
 
-  // get the hijri date
   return (
     <div style={stickyFooterStyle}>
       <Stack spacing={2} direction="row" style={{ paddingBottom: '15px' }}>
@@ -24,15 +28,22 @@ function Footer() {
           <img src="/android.svg" alt="Android" />
         </Link>
       </Stack>
-      {packageJson.displayName} {packageJson.version}. Copyright © {getHijriYear()} {packageJson.author}.
+      <p>
+        {packageJson.displayName} {packageJson.version} Commit: <Link href={commitLink}>{gitSha}</Link>
+      </p>
+
       <p>
         <Link href="/privacy">Privacy</Link>
         {' . '}
-        <Link href="https://raw.githubusercontent.com/edenmind/OpenArabic/main/docs/LICENSE">License</Link>
+        <Link href={licenseLink}>License</Link>
         {' . '}
-        <Link href="https://github.com/edenmind/OpenArabic/issues">Issues</Link>
+        <Link href={issuesLink}>Issues</Link>
         {' . '}
-        <Link href="https://github.com/edenmind/OpenArabic/discussions">Discussions</Link>
+        <Link href={discussionsLink}>Discussions</Link>
+      </p>
+
+      <p>
+        Copyright © {getHijriYear()} {packageJson.author}.
       </p>
     </div>
   )

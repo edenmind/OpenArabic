@@ -3,7 +3,7 @@
   "displayName": "OpenArabic Web",
   "author": "The OpenArabic Authors",
   "license": "MIT",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.12.0",
