@@ -47,6 +47,10 @@ docker-compose --env-file ./docker-compose-default.env up
 
 We use the GitHub Flow branching model. The `main` branch is the default branch and is protected. All changes are made in feature branches, which are then merged into the `main` branch through the passing of a pull request. The `main` branch is deployed to production using progressive delivery techniques and GitOps principles. For more information, see [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow).
 
+## Versioning
+
+We use [CalVer](https://calver.org/) for versioning. CalVer is a versioning convention based on the project's release calendar, instead of arbitrary numbers. The calendar is based on the Islamic calendar, and the version number is the year and month of the release. For example, the version number for the release in the month of Ramadan in the year 1444 AH would be `1444.09`.
+
 ## Technologies
 
 The OpenArabic Platform is built using some great open-source technologies such as:
