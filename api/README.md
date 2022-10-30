@@ -1,23 +1,11 @@
-# Getting Started with Fastify-CLI [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+# API
 
-## Available Scripts
+The api is a NodeJS Fastify server that is used for administering the platform and serving the texts. Tests are executed using the TAP framework.
 
-In the project directory, you can run:
+## Start The Service
 
-### `npm run dev`
+`yarn dev`
 
-To start the app in dev mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Run Tests
 
-### `npm start`
-
-For production mode
-
-### `npm run test`
-
-Run the test cases.
-
-## Learn More
-
-To learn Fastify, check out the [Fastify documentation](https://www.fastify.io/docs/latest/).
+`yarn test-local`
