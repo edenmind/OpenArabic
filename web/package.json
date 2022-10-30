@@ -1,9 +1,13 @@
 {
-  "name": "open-arabic",
+  "name": "web",
   "displayName": "OpenArabic Web",
-  "author": "The OpenArabic Authors",
   "license": "MIT",
-  "version": "0.14.0",
+  "homepage": "https://openarabic.io",
+  "repository": "https://github.com/edenmind/OpenArabic",
+  "version": "1444.4.0",
+  "authors": [
+    "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
+  ],
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.12.0",
