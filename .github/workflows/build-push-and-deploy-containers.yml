@@ -12,8 +12,10 @@ jobs:
         run: |
           branch=${GITHUB_REF##*/}
           sha=${GITHUB_SHA::8}
+          fullsha=${GITHUB_SHA}
           ts=$(date +%s)
           echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+          echo "::set-output name=GIT_SHA::${fullsha}"
 
       - name: 🏗  Checkout
         uses: actions/checkout@v3
@@ -41,6 +43,15 @@ jobs:
       - name: 🏗  Login to Registry With Helm
         run: |
           helm registry login registry.digitalocean.com/openarabic --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: 🔎  Replace Commit SHA in Footer in Web
+        uses: cschleiden/replace-tokens@v1
+        with:
+          files: '["web/src/components/footer.js"]'
+          tokenPrefix: "@("
+          tokenSuffix: ")@"
+        env:
+          GIT_SHA: ${{ steps.prep.outputs.GIT_SHA }}
 
       - name: 📦  Build and Push Static to Container Registry
         uses: docker/build-push-action@v3
@@ -75,7 +86,7 @@ jobs:
           push: true
 
       - name: 🔎  Replace SHA Tag for Containers and Helm Chart
-        uses: cschleiden/replace-tokens@v1.1
+        uses: cschleiden/replace-tokens@v1
         with:
           files: '["package/**/*.yaml"]'
         env:
