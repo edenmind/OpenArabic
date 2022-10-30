@@ -12196,58 +12196,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open-arabic@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "open-arabic@workspace:."
-  dependencies:
-    "@auth0/auth0-react": ^1.12.0
-    "@bugsnag/js": ^7.18.0
-    "@bugsnag/plugin-react": ^7.18.0
-    "@date-io/moment": ^2.16.1
-    "@emotion/react": ^11.10.5
-    "@emotion/styled": ^11.10.5
-    "@fontsource/roboto": ^4.5.8
-    "@mui/icons-material": ^5.10.9
-    "@mui/lab": ^5.0.0-alpha.105
-    "@mui/material": ^5.10.11
-    "@mui/x-data-grid": ^5.17.8
-    "@mui/x-date-pickers": ^5.0.5
-    "@reduxjs/toolkit": ^1.8.6
-    "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^13.4.0
-    "@testing-library/user-event": ^14.4.3
-    "@types/react-redux": ^7.1.24
-    axios: ^0.27.2
-    axios-mock-adapter: ^1.21.2
-    eslint-plugin-array-func: ^3.1.7
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-mui-unused-classes: ^1.0.3
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^16.3.0
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-react-redux: ^4.0.0
-    eslint-plugin-security: ^1.5.0
-    eslint-plugin-sonarjs: ^0.16.0
-    eslint-plugin-unicorn: ^44.0.2
-    history: ^5.3.0
-    moment: ^2.29.4
-    moment-timezone: ^0.5.38
-    node-notifier: ^10.0.1
-    prettier: ^2.7.1
-    putout: ^28.0.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-moment: ^1.1.2
-    react-redux: ^8.0.4
-    react-router-dom: ^6.4.2
-    react-scripts: ^5.0.1
-    react-test-renderer: ^18.2.0
-    redux: ^4.2.0
-    url: ^0.11.0
-    web-vitals: ^3.0.4
-  languageName: unknown
-  linkType: soft
-
 "open@npm:^8.0.9, open@npm:^8.4.0":
   version: 8.4.0
   resolution: "open@npm:8.4.0"
@@ -16695,6 +16643,58 @@ __metadata:
   checksum: b618a8e049e0c64948eea09c372db490802bcc8bcb30230a2bc69d9e243b1a2fa54d0f0ae19d5e63f19381df86db2a9260ca15ef620e10024888eab487a77d56
   languageName: node
   linkType: hard
+
+"web@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "web@workspace:."
+  dependencies:
+    "@auth0/auth0-react": ^1.12.0
+    "@bugsnag/js": ^7.18.0
+    "@bugsnag/plugin-react": ^7.18.0
+    "@date-io/moment": ^2.16.1
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@fontsource/roboto": ^4.5.8
+    "@mui/icons-material": ^5.10.9
+    "@mui/lab": ^5.0.0-alpha.105
+    "@mui/material": ^5.10.11
+    "@mui/x-data-grid": ^5.17.8
+    "@mui/x-date-pickers": ^5.0.5
+    "@reduxjs/toolkit": ^1.8.6
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^13.4.0
+    "@testing-library/user-event": ^14.4.3
+    "@types/react-redux": ^7.1.24
+    axios: ^0.27.2
+    axios-mock-adapter: ^1.21.2
+    eslint-plugin-array-func: ^3.1.7
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-mui-unused-classes: ^1.0.3
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-putout: ^16.3.0
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-react-redux: ^4.0.0
+    eslint-plugin-security: ^1.5.0
+    eslint-plugin-sonarjs: ^0.16.0
+    eslint-plugin-unicorn: ^44.0.2
+    history: ^5.3.0
+    moment: ^2.29.4
+    moment-timezone: ^0.5.38
+    node-notifier: ^10.0.1
+    prettier: ^2.7.1
+    putout: ^28.0.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-moment: ^1.1.2
+    react-redux: ^8.0.4
+    react-router-dom: ^6.4.2
+    react-scripts: ^5.0.1
+    react-test-renderer: ^18.2.0
+    redux: ^4.2.0
+    url: ^0.11.0
+    web-vitals: ^3.0.4
+  languageName: unknown
+  linkType: soft
 
 "webidl-conversions@npm:^4.0.2":
   version: 4.0.2
