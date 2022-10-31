@@ -11,4 +11,17 @@ describe('test dates', () => {
     // Assert
     expect(hijriYear).toBe(expectedHijriYear)
   })
+
+  // should return expected time ago from string
+  it('should return expected time ago from string', () => {
+    // Arrange
+    const expectedTimeAgo = 'a few seconds ago'
+    const time = Date.now()
+
+    // Act
+    const timeAgo = dates.getTimeAgoFromString(time)
+
+    // Assert
+    expect(timeAgo).toBe(expectedTimeAgo)
+  })
 })

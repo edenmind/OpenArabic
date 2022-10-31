@@ -1,4 +1,5 @@
-import * as wordProcessing from '../services/word-processing.js'
+import { truncate } from '../services/word-processing.js'
+import { getTimeAgoFromString } from '../services/dates.js'
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -29,15 +30,16 @@ export default function TextListCard(properties) {
                 </Typography>
                 <div dir="rtl">
                   <Typography variant="h5">
-                    {text.texts.arabic != undefined && wordProcessing.truncate(text.texts.arabic, 125)}
+                    {text.texts.arabic != undefined && truncate(text.texts.arabic, 125)}
                   </Typography>
                 </div>
                 <div dir="ltr">
                   <br />
-                  <Typography>
-                    {text.texts.english != undefined && wordProcessing.truncate(text.texts.english, 125)}
-                  </Typography>
+                  <Typography>{text.texts.english != undefined && truncate(text.texts.english, 125)}</Typography>
                 </div>
+                <Typography sx={{ fontSize: 14, paddingTop: '10px' }} color="text.secondary">
+                  {`${text.views} views · ${getTimeAgoFromString(text.publishAt)}`}
+                </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
