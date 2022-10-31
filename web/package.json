@@ -21,7 +21,7 @@
     "@mui/lab": "^5.0.0-alpha.105",
     "@mui/material": "^5.10.11",
     "@mui/x-data-grid": "^5.17.9",
-    "@mui/x-date-pickers": "^5.0.5",
+    "@mui/x-date-pickers": "^5.0.6",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
