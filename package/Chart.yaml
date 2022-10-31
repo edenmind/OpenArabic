@@ -1,5 +1,5 @@
 name: open-arabic-helm
 description: A Helm Chart for OpenArabic
-version: 1444.0.9
+version: 1444.0.10
 apiVersion: v2
 icon: https://raw.githubusercontent.com/edenmind/OpenArabic/main/web/public/logo512.png
