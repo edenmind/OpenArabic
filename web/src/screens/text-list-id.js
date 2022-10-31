@@ -6,11 +6,7 @@ import React from 'react'
 import TextListIdSentences from './text-list-id-sentences.js'
 import { useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
-<<<<<<< HEAD
 import { getTimeAgoFromString } from '../services/dates.js'
-=======
-import { truncate } from '../services/word-processing.js'
->>>>>>> 2cc65c776 (feat(web): :sparkles: add title to pages for enhanced sharing)
 
 function TextListId() {
   const { id } = useParams()
