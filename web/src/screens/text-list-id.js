@@ -6,7 +6,7 @@ import React from 'react'
 import TextListIdSentences from './text-list-id-sentences.js'
 import { useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
-import { truncate } from '../services/word-processing.js'
+import { timeAgo } from '../services/dates.js'
 
 function TextListId() {
   const { id } = useParams()
@@ -49,9 +49,10 @@ function TextListId() {
       <Container maxWidth="lg">
         <center>
           <h1>{text.title}</h1>
-          <img src={text.image} style={{ width: '100%', height: '100%' }} />
-          <h3>{text.author}</h3>
+          <h2>{text.author}</h2>
           <h4>{text.source}</h4>
+          <img src={text.image} style={{ width: '100%', height: '100%' }} />
+          <h4>{`${text.views} views · ${timeAgo(text.publishedAt)}`}</h4>
           <Divider width="300" />
           <TextListIdSentences sentences={text.sentences} />
         </center>
