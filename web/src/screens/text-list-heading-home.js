@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
+import { getHijriDate } from '../services/dates.js'
 
 export const TextListHeadingHome = (properties) => {
   return (
@@ -12,10 +13,10 @@ export const TextListHeadingHome = (properties) => {
           <Typography sx={{ fontSize: 25, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
             بسم الله الرحمن الرحيم
           </Typography>
-          <Typography variant="h4" component="div" sx={{ fontWeight: 'medium' }}>
+          <p>{getHijriDate()}</p>
+          <Typography variant="h4" sx={{ fontWeight: 'medium' }}>
             {properties.heading}
           </Typography>
-
           <Typography variant="body1">
             <p>
               OpenArabic is a free and open-source Arabic language learning platform with a focus on classic Islamic
