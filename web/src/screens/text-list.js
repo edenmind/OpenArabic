@@ -3,6 +3,8 @@ import { Box, Grid } from '@mui/material'
 import React, { Fragment } from 'react'
 import Progress from '../components/progress.js'
 import TextListCard from './text-list-card.js'
+import { TextListHeadingHome } from './text-list-heading-home.js'
+import { TextListHeadingCategory } from './text-list-heading-category.js'
 
 const TextList = (properties) => {
   const [texts, setTexts] = React.useState([])
@@ -36,8 +38,12 @@ const TextList = (properties) => {
     <Progress />
   ) : (
     <Fragment>
-      <h2>{properties.heading}</h2>
-      <h4>{properties.subHeading}</h4>
+      {properties.id ? (
+        <TextListHeadingCategory heading={properties.heading} subHeading={properties.subHeading} />
+      ) : (
+        // if id is not set, show the heading
+        <TextListHeadingHome heading={properties.heading} subHeading={properties.subHeading} />
+      )}
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <TextListCard texts={texts} />
