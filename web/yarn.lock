@@ -3632,14 +3632,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-github@npm:^3.0.0":
-  version: 3.1.0
-  resolution: "@putout/plugin-github@npm:3.1.0"
+"@putout/plugin-github@npm:^4.0.0":
+  version: 4.2.0
+  resolution: "@putout/plugin-github@npm:4.2.0"
   dependencies:
     fast-deep-equal: ^3.1.3
   peerDependencies:
-    putout: ">=25"
-  checksum: 2583738f75091c98ca760197e03e9e1ec530c42deab4b46d8ab5a0af18cfd95135d8e2733b7fdbc630431aeaf24ada97e0fbd36bf7582644c131e9f74e88b38e
+    putout: ">=28"
+  checksum: c0154a772944863f5e7f422d84eb6753ada1ccd510702a329f24c12ac16f424d04492d9ca7e2837a31800d6dc6725f839f639a172027e6bda23279ce98639b23
   languageName: node
   linkType: hard
 
@@ -13790,9 +13790,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.0.0":
-  version: 28.0.0
-  resolution: "putout@npm:28.0.0"
+"putout@npm:^28.0.1":
+  version: 28.0.1
+  resolution: "putout@npm:28.0.1"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13858,7 +13858,7 @@ __metadata:
     "@putout/plugin-eslint": ^4.2.0
     "@putout/plugin-extract-object-properties": ^8.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
-    "@putout/plugin-github": ^3.0.0
+    "@putout/plugin-github": ^4.0.0
     "@putout/plugin-gitignore": ^3.0.0
     "@putout/plugin-logical-expressions": ^1.0.0
     "@putout/plugin-madrun": ^14.0.0
@@ -13949,7 +13949,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: a1c22d0c809870c2648a44a472ff11c17f6b79c4838b15a5258decc659f246888ed82b47275190117dd96b8dd66cf145b884d70c253f2bb045de31760306e752
+  checksum: 69496590147dfbc7e71009654d5ba18f4f56fc90186012245cdac570a2b0ce0eae9120689d3f4422dcb5994fa499123829d20c359892355e6eed0247607bbab9
   languageName: node
   linkType: hard
 
@@ -16917,7 +16917,7 @@ __metadata:
     moment-timezone: ^0.5.38
     node-notifier: ^10.0.1
     prettier: ^2.7.1
-    putout: ^28.0.0
+    putout: ^28.0.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.2

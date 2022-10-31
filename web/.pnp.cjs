@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["moment-timezone", "npm:0.5.38"],\
             ["node-notifier", "npm:10.0.1"],\
             ["prettier", "npm:2.7.1"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:5f667c73984ed00ed0af2d2ee5bb7487501bcb7981faa0f3174f6b4e10779d128272858d90e1bd616db7bd20b70e6922af9582ba35aeace0a368e003ee8b65c2#npm:18.2.0"],\
             ["react-moment", "virtual:5f667c73984ed00ed0af2d2ee5bb7487501bcb7981faa0f3174f6b4e10779d128272858d90e1bd616db7bd20b70e6922af9582ba35aeace0a368e003ee8b65c2#npm:1.1.2"],\
@@ -5018,15 +5018,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-codeframe-virtual-04a9ebf289/0/cache/@putout-formatter-codeframe-npm-4.0.1-9258807f43-6b40f50837.zip/node_modules/@putout/formatter-codeframe/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-codeframe-virtual-ec44a37911/0/cache/@putout-formatter-codeframe-npm-4.0.1-9258807f43-6b40f50837.zip/node_modules/@putout/formatter-codeframe/",\
           "packageDependencies": [\
-            ["@putout/formatter-codeframe", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
+            ["@putout/formatter-codeframe", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
             ["@babel/code-frame", "npm:7.16.7"],\
-            ["@putout/formatter-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/formatter-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
             ["chalk", "npm:4.1.2"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["table", "npm:6.8.0"]\
           ],\
           "packagePeers": [\
@@ -5044,14 +5044,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-dump-virtual-ba240c2687/0/cache/@putout-formatter-dump-npm-4.0.1-27f64e3a45-dc4d86f7e1.zip/node_modules/@putout/formatter-dump/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-dump-virtual-fe8aa17a40/0/cache/@putout-formatter-dump-npm-4.0.1-27f64e3a45-dc4d86f7e1.zip/node_modules/@putout/formatter-dump/",\
           "packageDependencies": [\
-            ["@putout/formatter-dump", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
-            ["@putout/formatter-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/formatter-dump", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
+            ["@putout/formatter-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
             ["chalk", "npm:4.1.2"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["table", "npm:6.8.0"]\
           ],\
           "packagePeers": [\
@@ -5069,13 +5069,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-frame-virtual-34a2e3caf5/0/cache/@putout-formatter-frame-npm-3.0.0-4abd3209ca-9c78bde9fa.zip/node_modules/@putout/formatter-frame/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-frame-virtual-41a1352bb9/0/cache/@putout-formatter-frame-npm-3.0.0-4abd3209ca-9c78bde9fa.zip/node_modules/@putout/formatter-frame/",\
           "packageDependencies": [\
-            ["@putout/formatter-frame", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/formatter-codeframe", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
+            ["@putout/formatter-frame", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/formatter-codeframe", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5092,12 +5092,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-json-virtual-b9892a27f9/0/cache/@putout-formatter-json-npm-2.0.0-97ba1b95ad-cc8287775e.zip/node_modules/@putout/formatter-json/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-json-virtual-3da320c603/0/cache/@putout-formatter-json-npm-2.0.0-97ba1b95ad-cc8287775e.zip/node_modules/@putout/formatter-json/",\
           "packageDependencies": [\
-            ["@putout/formatter-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/formatter-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5114,12 +5114,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-json-lines-virtual-92aa6d4181/0/cache/@putout-formatter-json-lines-npm-3.0.0-b391fc079a-dfff8d2bc0.zip/node_modules/@putout/formatter-json-lines/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-json-lines-virtual-e6f6b56f15/0/cache/@putout-formatter-json-lines-npm-3.0.0-b391fc079a-dfff8d2bc0.zip/node_modules/@putout/formatter-json-lines/",\
           "packageDependencies": [\
-            ["@putout/formatter-json-lines", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/formatter-json-lines", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5136,18 +5136,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-memory-virtual-0cd76e4f6e/0/cache/@putout-formatter-memory-npm-3.0.1-93b2eea1b4-deac51bd33.zip/node_modules/@putout/formatter-memory/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-memory-virtual-78e77722ee/0/cache/@putout-formatter-memory-npm-3.0.1-93b2eea1b4-deac51bd33.zip/node_modules/@putout/formatter-memory/",\
           "packageDependencies": [\
-            ["@putout/formatter-memory", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1"],\
-            ["@putout/formatter-dump", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
+            ["@putout/formatter-memory", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1"],\
+            ["@putout/formatter-dump", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
             ["@types/putout", null],\
             ["chalk", "npm:4.1.2"],\
             ["cli-progress", "npm:3.10.0"],\
             ["format-io", "npm:2.0.0"],\
             ["montag", "npm:1.2.1"],\
             ["once", "npm:1.4.0"],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5164,13 +5164,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-progress-virtual-4e4e0ff4d2/0/cache/@putout-formatter-progress-npm-4.0.0-2e62c85a00-0e75f4772d.zip/node_modules/@putout/formatter-progress/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-progress-virtual-112cd20354/0/cache/@putout-formatter-progress-npm-4.0.0-2e62c85a00-0e75f4772d.zip/node_modules/@putout/formatter-progress/",\
           "packageDependencies": [\
-            ["@putout/formatter-progress", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
-            ["@putout/formatter-dump", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
+            ["@putout/formatter-progress", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
+            ["@putout/formatter-dump", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5187,16 +5187,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.2", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-progress-bar-virtual-f981f77269/0/cache/@putout-formatter-progress-bar-npm-3.0.2-df03c0e076-b5c267d82f.zip/node_modules/@putout/formatter-progress-bar/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-progress-bar-virtual-20fabaa0ca/0/cache/@putout-formatter-progress-bar-npm-3.0.2-df03c0e076-b5c267d82f.zip/node_modules/@putout/formatter-progress-bar/",\
           "packageDependencies": [\
-            ["@putout/formatter-progress-bar", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.2"],\
-            ["@putout/formatter-dump", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
+            ["@putout/formatter-progress-bar", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.2"],\
+            ["@putout/formatter-dump", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
             ["@types/putout", null],\
             ["chalk", "npm:4.1.2"],\
             ["cli-progress", "npm:3.10.0"],\
             ["once", "npm:1.4.0"],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5213,13 +5213,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-formatter-stream-virtual-1395406485/0/cache/@putout-formatter-stream-npm-4.0.1-109cb59cc0-9438d0f5c0.zip/node_modules/@putout/formatter-stream/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-formatter-stream-virtual-ec0d746dcb/0/cache/@putout-formatter-stream-npm-4.0.1-109cb59cc0-9438d0f5c0.zip/node_modules/@putout/formatter-stream/",\
           "packageDependencies": [\
-            ["@putout/formatter-stream", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
+            ["@putout/formatter-stream", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
             ["@types/putout", null],\
             ["chalk", "npm:4.1.2"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["table", "npm:6.8.0"]\
           ],\
           "packagePeers": [\
@@ -5247,15 +5247,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-operator-add-args-virtual-3c0981d590/0/cache/@putout-operator-add-args-npm-3.0.1-15f96554b6-93e34da6f3.zip/node_modules/@putout/operator-add-args/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-operator-add-args-virtual-7435e549a3/0/cache/@putout-operator-add-args-npm-3.0.1-15f96554b6-93e34da6f3.zip/node_modules/@putout/operator-add-args/",\
           "packageDependencies": [\
-            ["@putout/operator-add-args", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1"],\
+            ["@putout/operator-add-args", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1"],\
             ["@babel/types", "npm:7.17.0"],\
             ["@putout/compare", "npm:9.2.1"],\
             ["@putout/engine-parser", "npm:5.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5272,14 +5272,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.6.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-operator-declare-virtual-ee1d4a4afd/0/cache/@putout-operator-declare-npm-4.6.0-8c71d18feb-2e8c469e48.zip/node_modules/@putout/operator-declare/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.6.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-operator-declare-virtual-992914d24c/0/cache/@putout-operator-declare-npm-4.6.0-8c71d18feb-2e8c469e48.zip/node_modules/@putout/operator-declare/",\
           "packageDependencies": [\
-            ["@putout/operator-declare", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.6.0"],\
+            ["@putout/operator-declare", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.6.0"],\
             ["@putout/compare", "npm:9.2.1"],\
             ["@putout/operate", "npm:8.2.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5296,12 +5296,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-operator-regexp-virtual-ddd99aec8c/0/cache/@putout-operator-regexp-npm-1.0.0-f2bba4eb49-2b8a7bffa3.zip/node_modules/@putout/operator-regexp/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-operator-regexp-virtual-c621aa854f/0/cache/@putout-operator-regexp-npm-1.0.0-f2bba4eb49-2b8a7bffa3.zip/node_modules/@putout/operator-regexp/",\
           "packageDependencies": [\
-            ["@putout/operator-regexp", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/operator-regexp", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["regexp-tree", "npm:0.1.24"]\
           ],\
           "packagePeers": [\
@@ -5319,12 +5319,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-array-at-virtual-8337251f66/0/cache/@putout-plugin-apply-array-at-npm-2.0.0-26a7181615-0c14976e94.zip/node_modules/@putout/plugin-apply-array-at/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-array-at-virtual-705aaf42c4/0/cache/@putout-plugin-apply-array-at-npm-2.0.0-26a7181615-0c14976e94.zip/node_modules/@putout/plugin-apply-array-at/",\
           "packageDependencies": [\
-            ["@putout/plugin-apply-array-at", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-apply-array-at", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5341,12 +5341,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-comparison-order-virtual-1639797980/0/cache/@putout-plugin-apply-comparison-order-npm-1.1.0-4877c28f8f-7f28899d89.zip/node_modules/@putout/plugin-apply-comparison-order/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-comparison-order-virtual-277a2593b6/0/cache/@putout-plugin-apply-comparison-order-npm-1.1.0-4877c28f8f-7f28899d89.zip/node_modules/@putout/plugin-apply-comparison-order/",\
           "packageDependencies": [\
-            ["@putout/plugin-apply-comparison-order", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-apply-comparison-order", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5363,12 +5363,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.2.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-destructuring-virtual-48306e6e92/0/cache/@putout-plugin-apply-destructuring-npm-5.2.1-012da67f64-032e80fcd8.zip/node_modules/@putout/plugin-apply-destructuring/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.2.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-destructuring-virtual-e123d9d50b/0/cache/@putout-plugin-apply-destructuring-npm-5.2.1-012da67f64-032e80fcd8.zip/node_modules/@putout/plugin-apply-destructuring/",\
           "packageDependencies": [\
-            ["@putout/plugin-apply-destructuring", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.2.1"],\
+            ["@putout/plugin-apply-destructuring", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.2.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5385,12 +5385,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-early-return-virtual-5a1c4001bc/0/cache/@putout-plugin-apply-early-return-npm-2.0.0-be309e7e58-28c6cbd670.zip/node_modules/@putout/plugin-apply-early-return/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-early-return-virtual-d88b38003d/0/cache/@putout-plugin-apply-early-return-npm-2.0.0-be309e7e58-28c6cbd670.zip/node_modules/@putout/plugin-apply-early-return/",\
           "packageDependencies": [\
-            ["@putout/plugin-apply-early-return", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-apply-early-return", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5407,12 +5407,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-if-condition-virtual-9a40df5c96/0/cache/@putout-plugin-apply-if-condition-npm-1.0.0-cf7e90bfaf-17b6457356.zip/node_modules/@putout/plugin-apply-if-condition/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-if-condition-virtual-7290945122/0/cache/@putout-plugin-apply-if-condition-npm-1.0.0-cf7e90bfaf-17b6457356.zip/node_modules/@putout/plugin-apply-if-condition/",\
           "packageDependencies": [\
-            ["@putout/plugin-apply-if-condition", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-apply-if-condition", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5429,12 +5429,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-is-array-virtual-0cfee29520/0/cache/@putout-plugin-apply-is-array-npm-3.0.0-c76d57f169-db82df4d4d.zip/node_modules/@putout/plugin-apply-is-array/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-is-array-virtual-962246dff5/0/cache/@putout-plugin-apply-is-array-npm-3.0.0-c76d57f169-db82df4d4d.zip/node_modules/@putout/plugin-apply-is-array/",\
           "packageDependencies": [\
-            ["@putout/plugin-apply-is-array", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/plugin-apply-is-array", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5451,12 +5451,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.2", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-optional-chaining-virtual-e63c762276/0/cache/@putout-plugin-apply-optional-chaining-npm-2.0.2-053242e191-af8ae9dbf7.zip/node_modules/@putout/plugin-apply-optional-chaining/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-apply-optional-chaining-virtual-26e583a560/0/cache/@putout-plugin-apply-optional-chaining-npm-2.0.2-053242e191-af8ae9dbf7.zip/node_modules/@putout/plugin-apply-optional-chaining/",\
           "packageDependencies": [\
-            ["@putout/plugin-apply-optional-chaining", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.2"],\
+            ["@putout/plugin-apply-optional-chaining", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.2"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5473,12 +5473,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-browserlist-virtual-7d9c3d5b11/0/cache/@putout-plugin-browserlist-npm-1.0.1-aa68f0dafb-5b61005494.zip/node_modules/@putout/plugin-browserlist/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-browserlist-virtual-10066674e1/0/cache/@putout-plugin-browserlist-npm-1.0.1-aa68f0dafb-5b61005494.zip/node_modules/@putout/plugin-browserlist/",\
           "packageDependencies": [\
-            ["@putout/plugin-browserlist", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1"],\
+            ["@putout/plugin-browserlist", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5495,12 +5495,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-apply-to-spread-virtual-ca09a3c97f/0/cache/@putout-plugin-convert-apply-to-spread-npm-3.1.0-1322980f8d-b9a30459d6.zip/node_modules/@putout/plugin-convert-apply-to-spread/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-apply-to-spread-virtual-0779a56d1b/0/cache/@putout-plugin-convert-apply-to-spread-npm-3.1.0-1322980f8d-b9a30459d6.zip/node_modules/@putout/plugin-convert-apply-to-spread/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-apply-to-spread", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0"],\
+            ["@putout/plugin-convert-apply-to-spread", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5517,12 +5517,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.3.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-arguments-to-rest-virtual-c369732b40/0/cache/@putout-plugin-convert-arguments-to-rest-npm-1.3.0-290d9e0d8b-8a016888b2.zip/node_modules/@putout/plugin-convert-arguments-to-rest/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.3.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-arguments-to-rest-virtual-3006e46c39/0/cache/@putout-plugin-convert-arguments-to-rest-npm-1.3.0-290d9e0d8b-8a016888b2.zip/node_modules/@putout/plugin-convert-arguments-to-rest/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-arguments-to-rest", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.3.0"],\
+            ["@putout/plugin-convert-arguments-to-rest", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.3.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5539,12 +5539,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-array-copy-to-slice-virtual-3c6d8e9986/0/cache/@putout-plugin-convert-array-copy-to-slice-npm-2.0.0-e8a42920ff-c597883a80.zip/node_modules/@putout/plugin-convert-array-copy-to-slice/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-array-copy-to-slice-virtual-a151e71a1a/0/cache/@putout-plugin-convert-array-copy-to-slice-npm-2.0.0-e8a42920ff-c597883a80.zip/node_modules/@putout/plugin-convert-array-copy-to-slice/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-array-copy-to-slice", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-convert-array-copy-to-slice", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5561,12 +5561,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-assignment-to-arrow-function-virtual-53a6dd6dd7/0/cache/@putout-plugin-convert-assignment-to-arrow-function-npm-1.2.0-64852386de-566c667244.zip/node_modules/@putout/plugin-convert-assignment-to-arrow-function/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-assignment-to-arrow-function-virtual-e9afcae92c/0/cache/@putout-plugin-convert-assignment-to-arrow-function-npm-1.2.0-64852386de-566c667244.zip/node_modules/@putout/plugin-convert-assignment-to-arrow-function/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-assignment-to-arrow-function", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0"],\
+            ["@putout/plugin-convert-assignment-to-arrow-function", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5583,12 +5583,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-assignment-to-comparison-virtual-43e4e5c3aa/0/cache/@putout-plugin-convert-assignment-to-comparison-npm-1.0.0-7f919337fc-4e3eec175d.zip/node_modules/@putout/plugin-convert-assignment-to-comparison/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-assignment-to-comparison-virtual-a9440c321f/0/cache/@putout-plugin-convert-assignment-to-comparison-npm-1.0.0-7f919337fc-4e3eec175d.zip/node_modules/@putout/plugin-convert-assignment-to-comparison/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-assignment-to-comparison", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-convert-assignment-to-comparison", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5605,13 +5605,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-commonjs-to-esm-virtual-87234754d2/0/cache/@putout-plugin-convert-commonjs-to-esm-npm-9.0.0-f56b46d55b-5257f3361b.zip/node_modules/@putout/plugin-convert-commonjs-to-esm/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-commonjs-to-esm-virtual-b678b67dc7/0/cache/@putout-plugin-convert-commonjs-to-esm-npm-9.0.0-f56b46d55b-5257f3361b.zip/node_modules/@putout/plugin-convert-commonjs-to-esm/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-commonjs-to-esm", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.0.0"],\
+            ["@putout/plugin-convert-commonjs-to-esm", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.0.0"],\
             ["@types/putout", null],\
             ["just-camel-case", "npm:4.0.2"],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5628,12 +5628,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-comparison-to-boolean-virtual-1bc206174d/0/cache/@putout-plugin-convert-comparison-to-boolean-npm-3.0.0-a830a7ae93-17b85b5baa.zip/node_modules/@putout/plugin-convert-comparison-to-boolean/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-comparison-to-boolean-virtual-ca73ce5f59/0/cache/@putout-plugin-convert-comparison-to-boolean-npm-3.0.0-a830a7ae93-17b85b5baa.zip/node_modules/@putout/plugin-convert-comparison-to-boolean/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-comparison-to-boolean", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/plugin-convert-comparison-to-boolean", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5650,12 +5650,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-concat-to-flat-virtual-f7baa24ea6/0/cache/@putout-plugin-convert-concat-to-flat-npm-1.0.0-f4a3a1a41b-f1ff883060.zip/node_modules/@putout/plugin-convert-concat-to-flat/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-concat-to-flat-virtual-9c312b4c40/0/cache/@putout-plugin-convert-concat-to-flat-npm-1.0.0-f4a3a1a41b-f1ff883060.zip/node_modules/@putout/plugin-convert-concat-to-flat/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-concat-to-flat", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-convert-concat-to-flat", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5672,12 +5672,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.2", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-const-to-let-virtual-4c57da67c7/0/cache/@putout-plugin-convert-const-to-let-npm-1.1.2-c64d5e186d-25b302f462.zip/node_modules/@putout/plugin-convert-const-to-let/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.2", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-const-to-let-virtual-9b5bd4dfae/0/cache/@putout-plugin-convert-const-to-let-npm-1.1.2-c64d5e186d-25b302f462.zip/node_modules/@putout/plugin-convert-const-to-let/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-const-to-let", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.2"],\
+            ["@putout/plugin-convert-const-to-let", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.2"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5694,12 +5694,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-equal-to-strict-equal-virtual-b7fc8bea8e/0/cache/@putout-plugin-convert-equal-to-strict-equal-npm-1.1.0-1c833e09ed-ef085b5f0e.zip/node_modules/@putout/plugin-convert-equal-to-strict-equal/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-equal-to-strict-equal-virtual-9a294626d3/0/cache/@putout-plugin-convert-equal-to-strict-equal-npm-1.1.0-1c833e09ed-ef085b5f0e.zip/node_modules/@putout/plugin-convert-equal-to-strict-equal/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-equal-to-strict-equal", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-convert-equal-to-strict-equal", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5716,12 +5716,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-esm-to-commonjs-virtual-5f8b74f3f6/0/cache/@putout-plugin-convert-esm-to-commonjs-npm-5.0.0-e1b46b3a06-2361d77cd6.zip/node_modules/@putout/plugin-convert-esm-to-commonjs/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-esm-to-commonjs-virtual-51246863de/0/cache/@putout-plugin-convert-esm-to-commonjs-npm-5.0.0-e1b46b3a06-2361d77cd6.zip/node_modules/@putout/plugin-convert-esm-to-commonjs/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-esm-to-commonjs", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/plugin-convert-esm-to-commonjs", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5738,12 +5738,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-for-each-to-for-of-virtual-9f36d0e02e/0/cache/@putout-plugin-convert-for-each-to-for-of-npm-7.0.0-85d4aca885-e33ae795bb.zip/node_modules/@putout/plugin-convert-for-each-to-for-of/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-for-each-to-for-of-virtual-1827008b55/0/cache/@putout-plugin-convert-for-each-to-for-of-npm-7.0.0-85d4aca885-e33ae795bb.zip/node_modules/@putout/plugin-convert-for-each-to-for-of/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-for-each-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.0"],\
+            ["@putout/plugin-convert-for-each-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5760,12 +5760,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-for-in-to-for-of-virtual-e66cf82ca3/0/cache/@putout-plugin-convert-for-in-to-for-of-npm-2.0.0-b1b2fa7a02-92af02178d.zip/node_modules/@putout/plugin-convert-for-in-to-for-of/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-for-in-to-for-of-virtual-c2b2f1e20a/0/cache/@putout-plugin-convert-for-in-to-for-of-npm-2.0.0-b1b2fa7a02-92af02178d.zip/node_modules/@putout/plugin-convert-for-in-to-for-of/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-for-in-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-convert-for-in-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5782,12 +5782,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-for-to-for-of-virtual-2809890e78/0/cache/@putout-plugin-convert-for-to-for-of-npm-4.0.0-2dd8013f08-965daf463e.zip/node_modules/@putout/plugin-convert-for-to-for-of/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-for-to-for-of-virtual-512ff2bca1/0/cache/@putout-plugin-convert-for-to-for-of-npm-4.0.0-2dd8013f08-965daf463e.zip/node_modules/@putout/plugin-convert-for-to-for-of/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-for-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
+            ["@putout/plugin-convert-for-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5804,12 +5804,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-index-of-to-includes-virtual-72d594d4eb/0/cache/@putout-plugin-convert-index-of-to-includes-npm-1.1.0-36d1119091-57d1107914.zip/node_modules/@putout/plugin-convert-index-of-to-includes/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-index-of-to-includes-virtual-c34b5dd2a5/0/cache/@putout-plugin-convert-index-of-to-includes-npm-1.1.0-36d1119091-57d1107914.zip/node_modules/@putout/plugin-convert-index-of-to-includes/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-index-of-to-includes", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-convert-index-of-to-includes", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5826,12 +5826,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-map-to-for-of-virtual-341374789a/0/cache/@putout-plugin-convert-map-to-for-of-npm-2.0.0-642d463fc0-cd11ed4201.zip/node_modules/@putout/plugin-convert-map-to-for-of/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-map-to-for-of-virtual-d05da4ee42/0/cache/@putout-plugin-convert-map-to-for-of-npm-2.0.0-642d463fc0-cd11ed4201.zip/node_modules/@putout/plugin-convert-map-to-for-of/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-map-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-convert-map-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5848,12 +5848,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-mock-require-to-mock-import-virtual-11c437b7eb/0/cache/@putout-plugin-convert-mock-require-to-mock-import-npm-4.1.0-4f08c9bdc3-a76949f893.zip/node_modules/@putout/plugin-convert-mock-require-to-mock-import/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-mock-require-to-mock-import-virtual-13d5366fba/0/cache/@putout-plugin-convert-mock-require-to-mock-import-npm-4.1.0-4f08c9bdc3-a76949f893.zip/node_modules/@putout/plugin-convert-mock-require-to-mock-import/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-mock-require-to-mock-import", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.1.0"],\
+            ["@putout/plugin-convert-mock-require-to-mock-import", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5870,12 +5870,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-object-assign-to-merge-spread-virtual-8365d7b12f/0/cache/@putout-plugin-convert-object-assign-to-merge-spread-npm-6.0.0-d4aa2ed9ac-ed6f80b11a.zip/node_modules/@putout/plugin-convert-object-assign-to-merge-spread/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-object-assign-to-merge-spread-virtual-faf306f2f7/0/cache/@putout-plugin-convert-object-assign-to-merge-spread-npm-6.0.0-d4aa2ed9ac-ed6f80b11a.zip/node_modules/@putout/plugin-convert-object-assign-to-merge-spread/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-object-assign-to-merge-spread", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
+            ["@putout/plugin-convert-object-assign-to-merge-spread", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5892,12 +5892,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-quotes-to-backticks-virtual-123c8a8eb3/0/cache/@putout-plugin-convert-quotes-to-backticks-npm-2.1.0-b13a126f83-17c484b6cd.zip/node_modules/@putout/plugin-convert-quotes-to-backticks/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-quotes-to-backticks-virtual-00baf34407/0/cache/@putout-plugin-convert-quotes-to-backticks-npm-2.1.0-b13a126f83-17c484b6cd.zip/node_modules/@putout/plugin-convert-quotes-to-backticks/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-quotes-to-backticks", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0"],\
+            ["@putout/plugin-convert-quotes-to-backticks", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5914,12 +5914,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-reduce-to-for-of-virtual-4e65b5070e/0/cache/@putout-plugin-convert-reduce-to-for-of-npm-1.0.1-7f5454fd33-db65749a20.zip/node_modules/@putout/plugin-convert-reduce-to-for-of/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-reduce-to-for-of-virtual-c5587cbf82/0/cache/@putout-plugin-convert-reduce-to-for-of-npm-1.0.1-7f5454fd33-db65749a20.zip/node_modules/@putout/plugin-convert-reduce-to-for-of/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-reduce-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1"],\
+            ["@putout/plugin-convert-reduce-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5936,12 +5936,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-template-to-string-virtual-d031e8eea1/0/cache/@putout-plugin-convert-template-to-string-npm-1.0.0-731e496934-9ca94a2c27.zip/node_modules/@putout/plugin-convert-template-to-string/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-template-to-string-virtual-3b79a0b81b/0/cache/@putout-plugin-convert-template-to-string-npm-1.0.0-731e496934-9ca94a2c27.zip/node_modules/@putout/plugin-convert-template-to-string/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-template-to-string", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-convert-template-to-string", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5958,12 +5958,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-to-arrow-function-virtual-a943a3bdb6/0/cache/@putout-plugin-convert-to-arrow-function-npm-3.0.0-0e77808910-5e357e13bd.zip/node_modules/@putout/plugin-convert-to-arrow-function/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-to-arrow-function-virtual-0e49e4c35b/0/cache/@putout-plugin-convert-to-arrow-function-npm-3.0.0-0e77808910-5e357e13bd.zip/node_modules/@putout/plugin-convert-to-arrow-function/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-to-arrow-function", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/plugin-convert-to-arrow-function", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -5980,12 +5980,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-typeof-to-is-type-virtual-ed0612740f/0/cache/@putout-plugin-convert-typeof-to-is-type-npm-2.0.0-4919103946-1a11ddd50f.zip/node_modules/@putout/plugin-convert-typeof-to-is-type/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-convert-typeof-to-is-type-virtual-884a26a41e/0/cache/@putout-plugin-convert-typeof-to-is-type-npm-2.0.0-4919103946-1a11ddd50f.zip/node_modules/@putout/plugin-convert-typeof-to-is-type/",\
           "packageDependencies": [\
-            ["@putout/plugin-convert-typeof-to-is-type", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-convert-typeof-to-is-type", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6002,12 +6002,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-declare-before-reference-virtual-68d44b5a84/0/cache/@putout-plugin-declare-before-reference-npm-1.1.0-e56ac5e472-faf9ee749b.zip/node_modules/@putout/plugin-declare-before-reference/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-declare-before-reference-virtual-cdd8abae71/0/cache/@putout-plugin-declare-before-reference-npm-1.1.0-e56ac5e472-faf9ee749b.zip/node_modules/@putout/plugin-declare-before-reference/",\
           "packageDependencies": [\
-            ["@putout/plugin-declare-before-reference", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-declare-before-reference", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6024,12 +6024,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-declare-imports-first-virtual-1bbd9bf6e2/0/cache/@putout-plugin-declare-imports-first-npm-2.1.0-07a408718c-6566d87831.zip/node_modules/@putout/plugin-declare-imports-first/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-declare-imports-first-virtual-ddeb2ccac5/0/cache/@putout-plugin-declare-imports-first-npm-2.1.0-07a408718c-6566d87831.zip/node_modules/@putout/plugin-declare-imports-first/",\
           "packageDependencies": [\
-            ["@putout/plugin-declare-imports-first", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0"],\
+            ["@putout/plugin-declare-imports-first", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6046,12 +6046,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-declare-undefined-variables-virtual-dc6a8d9d9d/0/cache/@putout-plugin-declare-undefined-variables-npm-7.0.1-141c6b2a81-51cf264a9b.zip/node_modules/@putout/plugin-declare-undefined-variables/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-declare-undefined-variables-virtual-9391515739/0/cache/@putout-plugin-declare-undefined-variables-npm-7.0.1-141c6b2a81-51cf264a9b.zip/node_modules/@putout/plugin-declare-undefined-variables/",\
           "packageDependencies": [\
-            ["@putout/plugin-declare-undefined-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.1"],\
+            ["@putout/plugin-declare-undefined-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6068,12 +6068,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-eslint-virtual-61b7b05ac3/0/cache/@putout-plugin-eslint-npm-4.2.0-cf23098fe6-900852f2c4.zip/node_modules/@putout/plugin-eslint/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-eslint-virtual-eb76f6012f/0/cache/@putout-plugin-eslint-npm-4.2.0-cf23098fe6-900852f2c4.zip/node_modules/@putout/plugin-eslint/",\
           "packageDependencies": [\
-            ["@putout/plugin-eslint", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.2.0"],\
+            ["@putout/plugin-eslint", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6090,12 +6090,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:8.3.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-extract-object-properties-virtual-d681135ebc/0/cache/@putout-plugin-extract-object-properties-npm-8.3.0-4b4d73eb98-2cda0e0df2.zip/node_modules/@putout/plugin-extract-object-properties/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:8.3.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-extract-object-properties-virtual-e1d88a6620/0/cache/@putout-plugin-extract-object-properties-npm-8.3.0-4b4d73eb98-2cda0e0df2.zip/node_modules/@putout/plugin-extract-object-properties/",\
           "packageDependencies": [\
-            ["@putout/plugin-extract-object-properties", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:8.3.0"],\
+            ["@putout/plugin-extract-object-properties", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:8.3.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6112,12 +6112,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-extract-sequence-expressions-virtual-6a02bcad42/0/cache/@putout-plugin-extract-sequence-expressions-npm-3.0.1-b02b6e626b-6c4463f5cc.zip/node_modules/@putout/plugin-extract-sequence-expressions/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-extract-sequence-expressions-virtual-25873661e5/0/cache/@putout-plugin-extract-sequence-expressions-npm-3.0.1-b02b6e626b-6c4463f5cc.zip/node_modules/@putout/plugin-extract-sequence-expressions/",\
           "packageDependencies": [\
-            ["@putout/plugin-extract-sequence-expressions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1"],\
+            ["@putout/plugin-extract-sequence-expressions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6127,20 +6127,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@putout/plugin-github", [\
-        ["npm:3.1.0", {\
-          "packageLocation": "./.yarn/cache/@putout-plugin-github-npm-3.1.0-e1b363418b-2583738f75.zip/node_modules/@putout/plugin-github/",\
+        ["npm:4.2.0", {\
+          "packageLocation": "./.yarn/cache/@putout-plugin-github-npm-4.2.0-42941b7e8d-c0154a7729.zip/node_modules/@putout/plugin-github/",\
           "packageDependencies": [\
-            ["@putout/plugin-github", "npm:3.1.0"]\
+            ["@putout/plugin-github", "npm:4.2.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-github-virtual-8f9ad3e7f3/0/cache/@putout-plugin-github-npm-3.1.0-e1b363418b-2583738f75.zip/node_modules/@putout/plugin-github/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-github-virtual-6e5a133333/0/cache/@putout-plugin-github-npm-4.2.0-42941b7e8d-c0154a7729.zip/node_modules/@putout/plugin-github/",\
           "packageDependencies": [\
-            ["@putout/plugin-github", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0"],\
+            ["@putout/plugin-github", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0"],\
             ["@types/putout", null],\
             ["fast-deep-equal", "npm:3.1.3"],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6157,12 +6157,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-gitignore-virtual-3464327608/0/cache/@putout-plugin-gitignore-npm-3.1.0-f556aab12e-1c391958f5.zip/node_modules/@putout/plugin-gitignore/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-gitignore-virtual-93d09d8f04/0/cache/@putout-plugin-gitignore-npm-3.1.0-f556aab12e-1c391958f5.zip/node_modules/@putout/plugin-gitignore/",\
           "packageDependencies": [\
-            ["@putout/plugin-gitignore", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0"],\
+            ["@putout/plugin-gitignore", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6179,12 +6179,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-logical-expressions-virtual-ca93fde309/0/cache/@putout-plugin-logical-expressions-npm-1.1.0-367132a580-80ababf8a2.zip/node_modules/@putout/plugin-logical-expressions/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-logical-expressions-virtual-365cc5e3a6/0/cache/@putout-plugin-logical-expressions-npm-1.1.0-367132a580-80ababf8a2.zip/node_modules/@putout/plugin-logical-expressions/",\
           "packageDependencies": [\
-            ["@putout/plugin-logical-expressions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-logical-expressions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6201,12 +6201,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:14.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-madrun-virtual-9122082b9d/0/cache/@putout-plugin-madrun-npm-14.2.0-8bd8c5064f-c3eb4bddac.zip/node_modules/@putout/plugin-madrun/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:14.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-madrun-virtual-3ad4d05925/0/cache/@putout-plugin-madrun-npm-14.2.0-8bd8c5064f-c3eb4bddac.zip/node_modules/@putout/plugin-madrun/",\
           "packageDependencies": [\
-            ["@putout/plugin-madrun", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:14.2.0"],\
+            ["@putout/plugin-madrun", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:14.2.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6223,12 +6223,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-math-virtual-29bc50bfaf/0/cache/@putout-plugin-math-npm-1.0.0-fcf84547d5-f3fe80a6ba.zip/node_modules/@putout/plugin-math/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-math-virtual-59532b6a3b/0/cache/@putout-plugin-math-npm-1.0.0-fcf84547d5-f3fe80a6ba.zip/node_modules/@putout/plugin-math/",\
           "packageDependencies": [\
-            ["@putout/plugin-math", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-math", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6245,12 +6245,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-merge-destructuring-properties-virtual-b2e25738ce/0/cache/@putout-plugin-merge-destructuring-properties-npm-6.1.0-024580a095-c04e142770.zip/node_modules/@putout/plugin-merge-destructuring-properties/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-merge-destructuring-properties-virtual-ec997d8613/0/cache/@putout-plugin-merge-destructuring-properties-npm-6.1.0-024580a095-c04e142770.zip/node_modules/@putout/plugin-merge-destructuring-properties/",\
           "packageDependencies": [\
-            ["@putout/plugin-merge-destructuring-properties", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.1.0"],\
+            ["@putout/plugin-merge-destructuring-properties", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6267,12 +6267,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-merge-duplicate-imports-virtual-1e23b135ad/0/cache/@putout-plugin-merge-duplicate-imports-npm-7.0.0-e99e1ea350-f07778b55d.zip/node_modules/@putout/plugin-merge-duplicate-imports/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-merge-duplicate-imports-virtual-77be7ad124/0/cache/@putout-plugin-merge-duplicate-imports-npm-7.0.0-e99e1ea350-f07778b55d.zip/node_modules/@putout/plugin-merge-duplicate-imports/",\
           "packageDependencies": [\
-            ["@putout/plugin-merge-duplicate-imports", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.0"],\
+            ["@putout/plugin-merge-duplicate-imports", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6289,12 +6289,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-merge-if-statements-virtual-d8db799c9f/0/cache/@putout-plugin-merge-if-statements-npm-3.1.0-ae592e44d9-98ecf53f7a.zip/node_modules/@putout/plugin-merge-if-statements/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-merge-if-statements-virtual-794f025ebf/0/cache/@putout-plugin-merge-if-statements-npm-3.1.0-ae592e44d9-98ecf53f7a.zip/node_modules/@putout/plugin-merge-if-statements/",\
           "packageDependencies": [\
-            ["@putout/plugin-merge-if-statements", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0"],\
+            ["@putout/plugin-merge-if-statements", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6311,12 +6311,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-montag-virtual-70fc19230f/0/cache/@putout-plugin-montag-npm-1.0.0-22fb3afc9b-be04696cf4.zip/node_modules/@putout/plugin-montag/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-montag-virtual-edc03e2fcd/0/cache/@putout-plugin-montag-npm-1.0.0-22fb3afc9b-be04696cf4.zip/node_modules/@putout/plugin-montag/",\
           "packageDependencies": [\
-            ["@putout/plugin-montag", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-montag", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6333,12 +6333,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.3", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-new-virtual-e3ba322aca/0/cache/@putout-plugin-new-npm-1.0.3-037135dec6-af7d895da4.zip/node_modules/@putout/plugin-new/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.3", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-new-virtual-83c0a1b8f8/0/cache/@putout-plugin-new-npm-1.0.3-037135dec6-af7d895da4.zip/node_modules/@putout/plugin-new/",\
           "packageDependencies": [\
-            ["@putout/plugin-new", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.3"],\
+            ["@putout/plugin-new", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.3"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6355,12 +6355,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-nodejs-virtual-8164e62965/0/cache/@putout-plugin-nodejs-npm-5.0.0-3be5665df1-4f9aeba84e.zip/node_modules/@putout/plugin-nodejs/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-nodejs-virtual-2b3c659cc4/0/cache/@putout-plugin-nodejs-npm-5.0.0-3be5665df1-4f9aeba84e.zip/node_modules/@putout/plugin-nodejs/",\
           "packageDependencies": [\
-            ["@putout/plugin-nodejs", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/plugin-nodejs", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6377,12 +6377,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-npmignore-virtual-eade6f7866/0/cache/@putout-plugin-npmignore-npm-2.0.1-4f87201198-ae148763d1.zip/node_modules/@putout/plugin-npmignore/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-npmignore-virtual-554c449a44/0/cache/@putout-plugin-npmignore-npm-2.0.1-4f87201198-ae148763d1.zip/node_modules/@putout/plugin-npmignore/",\
           "packageDependencies": [\
-            ["@putout/plugin-npmignore", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.1"],\
+            ["@putout/plugin-npmignore", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6399,12 +6399,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-package-json-virtual-23257b1af4/0/cache/@putout-plugin-package-json-npm-4.1.0-030f485dc2-94e0e20469.zip/node_modules/@putout/plugin-package-json/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-package-json-virtual-8c21c366b4/0/cache/@putout-plugin-package-json-npm-4.1.0-030f485dc2-94e0e20469.zip/node_modules/@putout/plugin-package-json/",\
           "packageDependencies": [\
-            ["@putout/plugin-package-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.1.0"],\
+            ["@putout/plugin-package-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6421,13 +6421,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:8.4.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-promises-virtual-ffb994fb10/0/cache/@putout-plugin-promises-npm-8.4.0-0d7bb215aa-fb929fa8d2.zip/node_modules/@putout/plugin-promises/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:8.4.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-promises-virtual-c339243433/0/cache/@putout-plugin-promises-npm-8.4.0-0d7bb215aa-fb929fa8d2.zip/node_modules/@putout/plugin-promises/",\
           "packageDependencies": [\
-            ["@putout/plugin-promises", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:8.4.0"],\
+            ["@putout/plugin-promises", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:8.4.0"],\
             ["@types/putout", null],\
             ["fullstore", "npm:3.0.0"],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6444,14 +6444,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:11.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-putout-virtual-b17229ba70/0/cache/@putout-plugin-putout-npm-11.1.0-6351db5e27-b2a3e767a0.zip/node_modules/@putout/plugin-putout/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:11.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-putout-virtual-2d4b90ee47/0/cache/@putout-plugin-putout-npm-11.1.0-6351db5e27-b2a3e767a0.zip/node_modules/@putout/plugin-putout/",\
           "packageDependencies": [\
-            ["@putout/plugin-putout", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:11.1.0"],\
+            ["@putout/plugin-putout", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:11.1.0"],\
             ["@types/putout", null],\
             ["fullstore", "npm:3.0.0"],\
             ["just-camel-case", "npm:6.0.1"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["try-catch", "npm:3.0.1"]\
           ],\
           "packagePeers": [\
@@ -6469,12 +6469,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-putout-config-virtual-ad5bcbc8ff/0/cache/@putout-plugin-putout-config-npm-2.0.0-ca908c71e2-74578244a6.zip/node_modules/@putout/plugin-putout-config/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-putout-config-virtual-e250d362ec/0/cache/@putout-plugin-putout-config-npm-2.0.0-ca908c71e2-74578244a6.zip/node_modules/@putout/plugin-putout-config/",\
           "packageDependencies": [\
-            ["@putout/plugin-putout-config", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-putout-config", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6491,12 +6491,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.5.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-regexp-virtual-fe6c8e3577/0/cache/@putout-plugin-regexp-npm-5.5.0-2212b2bef7-aa607c03ce.zip/node_modules/@putout/plugin-regexp/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.5.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-regexp-virtual-27feebef3d/0/cache/@putout-plugin-regexp-npm-5.5.0-2212b2bef7-aa607c03ce.zip/node_modules/@putout/plugin-regexp/",\
           "packageDependencies": [\
-            ["@putout/plugin-regexp", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.5.0"],\
+            ["@putout/plugin-regexp", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.5.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["regexp-tree", "npm:0.1.24"],\
             ["try-catch", "npm:3.0.1"]\
           ],\
@@ -6515,12 +6515,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-boolean-from-assertions-virtual-0daf172158/0/cache/@putout-plugin-remove-boolean-from-assertions-npm-1.1.0-923ff13665-9e8507870d.zip/node_modules/@putout/plugin-remove-boolean-from-assertions/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-boolean-from-assertions-virtual-a6ca4076a8/0/cache/@putout-plugin-remove-boolean-from-assertions-npm-1.1.0-923ff13665-9e8507870d.zip/node_modules/@putout/plugin-remove-boolean-from-assertions/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-boolean-from-assertions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-remove-boolean-from-assertions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6537,12 +6537,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-console-virtual-92db17c018/0/cache/@putout-plugin-remove-console-npm-5.0.0-c82b068585-3b7b8f8eb9.zip/node_modules/@putout/plugin-remove-console/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-console-virtual-09dc25bb39/0/cache/@putout-plugin-remove-console-npm-5.0.0-c82b068585-3b7b8f8eb9.zip/node_modules/@putout/plugin-remove-console/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-console", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/plugin-remove-console", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6559,12 +6559,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-constant-conditions-virtual-97fd684ecf/0/cache/@putout-plugin-remove-constant-conditions-npm-4.0.0-e37a6b460e-cf00cc99f7.zip/node_modules/@putout/plugin-remove-constant-conditions/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-constant-conditions-virtual-df8c5988d9/0/cache/@putout-plugin-remove-constant-conditions-npm-4.0.0-e37a6b460e-cf00cc99f7.zip/node_modules/@putout/plugin-remove-constant-conditions/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-constant-conditions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
+            ["@putout/plugin-remove-constant-conditions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6581,12 +6581,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-debugger-virtual-2f98703c21/0/cache/@putout-plugin-remove-debugger-npm-5.0.0-4bd89117b5-2894def80f.zip/node_modules/@putout/plugin-remove-debugger/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-debugger-virtual-c95d093990/0/cache/@putout-plugin-remove-debugger-npm-5.0.0-4bd89117b5-2894def80f.zip/node_modules/@putout/plugin-remove-debugger/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-debugger", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/plugin-remove-debugger", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6603,12 +6603,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-duplicate-case-virtual-d73ea89f26/0/cache/@putout-plugin-remove-duplicate-case-npm-2.0.0-193df0b8d3-26f3cfee41.zip/node_modules/@putout/plugin-remove-duplicate-case/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-duplicate-case-virtual-27482177ea/0/cache/@putout-plugin-remove-duplicate-case-npm-2.0.0-193df0b8d3-26f3cfee41.zip/node_modules/@putout/plugin-remove-duplicate-case/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-duplicate-case", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-remove-duplicate-case", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6625,13 +6625,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-duplicate-keys-virtual-ae8742b3db/0/cache/@putout-plugin-remove-duplicate-keys-npm-3.0.0-c5f1577d11-2073780374.zip/node_modules/@putout/plugin-remove-duplicate-keys/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-duplicate-keys-virtual-965eda2637/0/cache/@putout-plugin-remove-duplicate-keys-npm-3.0.0-c5f1577d11-2073780374.zip/node_modules/@putout/plugin-remove-duplicate-keys/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-duplicate-keys", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/plugin-remove-duplicate-keys", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
             ["fullstore", "npm:3.0.0"],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6648,12 +6648,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-empty-virtual-c55c0be7c6/0/cache/@putout-plugin-remove-empty-npm-9.0.0-619fc781d0-95f7763c8d.zip/node_modules/@putout/plugin-remove-empty/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-empty-virtual-bf36508513/0/cache/@putout-plugin-remove-empty-npm-9.0.0-619fc781d0-95f7763c8d.zip/node_modules/@putout/plugin-remove-empty/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-empty", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.0.0"],\
+            ["@putout/plugin-remove-empty", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6670,12 +6670,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-iife-virtual-b5ece8970e/0/cache/@putout-plugin-remove-iife-npm-2.0.0-fe959dcbcc-e0f7af6736.zip/node_modules/@putout/plugin-remove-iife/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-iife-virtual-31278f1007/0/cache/@putout-plugin-remove-iife-npm-2.0.0-fe959dcbcc-e0f7af6736.zip/node_modules/@putout/plugin-remove-iife/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-iife", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-remove-iife", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6692,12 +6692,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-nested-blocks-virtual-d73b405cd3/0/cache/@putout-plugin-remove-nested-blocks-npm-6.0.0-08d40c22f8-4dc394f8f8.zip/node_modules/@putout/plugin-remove-nested-blocks/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-nested-blocks-virtual-c6d043e56c/0/cache/@putout-plugin-remove-nested-blocks-npm-6.0.0-08d40c22f8-4dc394f8f8.zip/node_modules/@putout/plugin-remove-nested-blocks/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-nested-blocks", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
+            ["@putout/plugin-remove-nested-blocks", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6714,12 +6714,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unreachable-code-virtual-600211e595/0/cache/@putout-plugin-remove-unreachable-code-npm-1.2.0-9bb4a6fdea-01f43a378a.zip/node_modules/@putout/plugin-remove-unreachable-code/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unreachable-code-virtual-fee1a77370/0/cache/@putout-plugin-remove-unreachable-code-npm-1.2.0-9bb4a6fdea-01f43a378a.zip/node_modules/@putout/plugin-remove-unreachable-code/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-unreachable-code", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0"],\
+            ["@putout/plugin-remove-unreachable-code", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6736,12 +6736,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unreferenced-variables-virtual-e1ef878316/0/cache/@putout-plugin-remove-unreferenced-variables-npm-2.0.0-aa3f9a1ca2-30d6234ef0.zip/node_modules/@putout/plugin-remove-unreferenced-variables/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unreferenced-variables-virtual-26065674c3/0/cache/@putout-plugin-remove-unreferenced-variables-npm-2.0.0-aa3f9a1ca2-30d6234ef0.zip/node_modules/@putout/plugin-remove-unreferenced-variables/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-unreferenced-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-remove-unreferenced-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6758,12 +6758,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unused-expressions-virtual-de804dab17/0/cache/@putout-plugin-remove-unused-expressions-npm-5.0.0-8073a18eac-5c4b7eed82.zip/node_modules/@putout/plugin-remove-unused-expressions/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unused-expressions-virtual-7034dca24f/0/cache/@putout-plugin-remove-unused-expressions-npm-5.0.0-8073a18eac-5c4b7eed82.zip/node_modules/@putout/plugin-remove-unused-expressions/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-unused-expressions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/plugin-remove-unused-expressions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6780,12 +6780,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unused-for-of-variables-virtual-bde012977a/0/cache/@putout-plugin-remove-unused-for-of-variables-npm-3.0.0-719ebf193a-363b6e6210.zip/node_modules/@putout/plugin-remove-unused-for-of-variables/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unused-for-of-variables-virtual-b22ebebbfd/0/cache/@putout-plugin-remove-unused-for-of-variables-npm-3.0.0-719ebf193a-363b6e6210.zip/node_modules/@putout/plugin-remove-unused-for-of-variables/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-unused-for-of-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/plugin-remove-unused-for-of-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6802,12 +6802,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unused-private-fields-virtual-ce55e74724/0/cache/@putout-plugin-remove-unused-private-fields-npm-2.0.0-0ed43dfe85-c7d57e4e6a.zip/node_modules/@putout/plugin-remove-unused-private-fields/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unused-private-fields-virtual-d0c3fc10de/0/cache/@putout-plugin-remove-unused-private-fields-npm-2.0.0-0ed43dfe85-c7d57e4e6a.zip/node_modules/@putout/plugin-remove-unused-private-fields/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-unused-private-fields", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-remove-unused-private-fields", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6824,12 +6824,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unused-variables-virtual-4d4f6ba3eb/0/cache/@putout-plugin-remove-unused-variables-npm-4.0.0-2d610a0189-545fd39b73.zip/node_modules/@putout/plugin-remove-unused-variables/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-unused-variables-virtual-55f9d0bc42/0/cache/@putout-plugin-remove-unused-variables-npm-4.0.0-2d610a0189-545fd39b73.zip/node_modules/@putout/plugin-remove-unused-variables/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-unused-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
+            ["@putout/plugin-remove-unused-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6846,12 +6846,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-arguments-virtual-1595476a89/0/cache/@putout-plugin-remove-useless-arguments-npm-6.0.0-bce58f5f2f-5724d4a7f5.zip/node_modules/@putout/plugin-remove-useless-arguments/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-arguments-virtual-74475d011b/0/cache/@putout-plugin-remove-useless-arguments-npm-6.0.0-bce58f5f2f-5724d4a7f5.zip/node_modules/@putout/plugin-remove-useless-arguments/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-arguments", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
+            ["@putout/plugin-remove-useless-arguments", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6868,12 +6868,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-array-constructor-virtual-83c20da44c/0/cache/@putout-plugin-remove-useless-array-constructor-npm-1.1.0-21f93e7433-9d81d834cc.zip/node_modules/@putout/plugin-remove-useless-array-constructor/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-array-constructor-virtual-5ac91cc48c/0/cache/@putout-plugin-remove-useless-array-constructor-npm-1.1.0-21f93e7433-9d81d834cc.zip/node_modules/@putout/plugin-remove-useless-array-constructor/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-array-constructor", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-remove-useless-array-constructor", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6890,12 +6890,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-array-entries-virtual-e006050a61/0/cache/@putout-plugin-remove-useless-array-entries-npm-1.0.0-8aa3cdb25b-fa3af1e842.zip/node_modules/@putout/plugin-remove-useless-array-entries/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-array-entries-virtual-d9105e20cc/0/cache/@putout-plugin-remove-useless-array-entries-npm-1.0.0-8aa3cdb25b-fa3af1e842.zip/node_modules/@putout/plugin-remove-useless-array-entries/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-array-entries", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-remove-useless-array-entries", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6912,12 +6912,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-array-from-virtual-2af71176f3/0/cache/@putout-plugin-remove-useless-array-from-npm-2.1.0-f2e72b5127-fcd2a2568b.zip/node_modules/@putout/plugin-remove-useless-array-from/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-array-from-virtual-58d6710a53/0/cache/@putout-plugin-remove-useless-array-from-npm-2.1.0-f2e72b5127-fcd2a2568b.zip/node_modules/@putout/plugin-remove-useless-array-from/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-array-from", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0"],\
+            ["@putout/plugin-remove-useless-array-from", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6934,12 +6934,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-assign-virtual-4fd47e4d2d/0/cache/@putout-plugin-remove-useless-assign-npm-1.0.0-0a9c4d2efc-dfed50f3c4.zip/node_modules/@putout/plugin-remove-useless-assign/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-assign-virtual-8221e04e6e/0/cache/@putout-plugin-remove-useless-assign-npm-1.0.0-0a9c4d2efc-dfed50f3c4.zip/node_modules/@putout/plugin-remove-useless-assign/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-assign", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-remove-useless-assign", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6956,12 +6956,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-conditions-virtual-ca0f9c067a/0/cache/@putout-plugin-remove-useless-conditions-npm-1.1.0-ec557dae9e-f642d44eda.zip/node_modules/@putout/plugin-remove-useless-conditions/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-conditions-virtual-5503ca6f94/0/cache/@putout-plugin-remove-useless-conditions-npm-1.1.0-ec557dae9e-f642d44eda.zip/node_modules/@putout/plugin-remove-useless-conditions/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-conditions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-remove-useless-conditions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -6978,12 +6978,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-constructor-virtual-ee18844fd3/0/cache/@putout-plugin-remove-useless-constructor-npm-1.0.0-2474eed060-1d5852b8a2.zip/node_modules/@putout/plugin-remove-useless-constructor/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-constructor-virtual-bd36753451/0/cache/@putout-plugin-remove-useless-constructor-npm-1.0.0-2474eed060-1d5852b8a2.zip/node_modules/@putout/plugin-remove-useless-constructor/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-constructor", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-remove-useless-constructor", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7000,12 +7000,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-continue-virtual-dda670c234/0/cache/@putout-plugin-remove-useless-continue-npm-1.0.1-58341eb6df-6968f289c2.zip/node_modules/@putout/plugin-remove-useless-continue/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-continue-virtual-be7e218b0a/0/cache/@putout-plugin-remove-useless-continue-npm-1.0.1-58341eb6df-6968f289c2.zip/node_modules/@putout/plugin-remove-useless-continue/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-continue", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1"],\
+            ["@putout/plugin-remove-useless-continue", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7022,12 +7022,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-else-virtual-2db53b3865/0/cache/@putout-plugin-remove-useless-else-npm-1.1.0-0febe21dfe-fc533e7606.zip/node_modules/@putout/plugin-remove-useless-else/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-else-virtual-3ef1ddb086/0/cache/@putout-plugin-remove-useless-else-npm-1.1.0-0febe21dfe-fc533e7606.zip/node_modules/@putout/plugin-remove-useless-else/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-else", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-remove-useless-else", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7044,13 +7044,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-escape-virtual-0a9cb23cd5/0/cache/@putout-plugin-remove-useless-escape-npm-3.1.1-1752b7d90c-7f97e8ebdc.zip/node_modules/@putout/plugin-remove-useless-escape/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-escape-virtual-3f695f6794/0/cache/@putout-plugin-remove-useless-escape-npm-3.1.1-1752b7d90c-7f97e8ebdc.zip/node_modules/@putout/plugin-remove-useless-escape/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-escape", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.1"],\
+            ["@putout/plugin-remove-useless-escape", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.1"],\
             ["@types/putout", null],\
             ["emoji-regex", "npm:10.1.0"],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7067,12 +7067,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-for-of-virtual-fccaa4b07a/0/cache/@putout-plugin-remove-useless-for-of-npm-2.0.0-4ba7a0f73d-d380581def.zip/node_modules/@putout/plugin-remove-useless-for-of/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-for-of-virtual-9886df3272/0/cache/@putout-plugin-remove-useless-for-of-npm-2.0.0-4ba7a0f73d-d380581def.zip/node_modules/@putout/plugin-remove-useless-for-of/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-remove-useless-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7089,12 +7089,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-functions-virtual-0d2f97e084/0/cache/@putout-plugin-remove-useless-functions-npm-2.0.0-ff2e08a402-d4d2f0161b.zip/node_modules/@putout/plugin-remove-useless-functions/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-functions-virtual-a9b728c344/0/cache/@putout-plugin-remove-useless-functions-npm-2.0.0-ff2e08a402-d4d2f0161b.zip/node_modules/@putout/plugin-remove-useless-functions/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-functions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-remove-useless-functions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7111,12 +7111,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-map-virtual-03fc6c4a84/0/cache/@putout-plugin-remove-useless-map-npm-1.1.0-1cefffb19f-ad6d512f9f.zip/node_modules/@putout/plugin-remove-useless-map/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-map-virtual-ca137270c7/0/cache/@putout-plugin-remove-useless-map-npm-1.1.0-1cefffb19f-ad6d512f9f.zip/node_modules/@putout/plugin-remove-useless-map/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-map", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-remove-useless-map", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7133,12 +7133,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-operand-virtual-15835a3e3a/0/cache/@putout-plugin-remove-useless-operand-npm-2.0.0-58f9924abd-65fd0b3e75.zip/node_modules/@putout/plugin-remove-useless-operand/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-operand-virtual-d9285e3ad1/0/cache/@putout-plugin-remove-useless-operand-npm-2.0.0-58f9924abd-65fd0b3e75.zip/node_modules/@putout/plugin-remove-useless-operand/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-operand", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-remove-useless-operand", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7155,12 +7155,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.4", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-replace-virtual-fe707db689/0/cache/@putout-plugin-remove-useless-replace-npm-1.0.4-00f28ee839-de76c05934.zip/node_modules/@putout/plugin-remove-useless-replace/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.4", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-replace-virtual-1128dda517/0/cache/@putout-plugin-remove-useless-replace-npm-1.0.4-00f28ee839-de76c05934.zip/node_modules/@putout/plugin-remove-useless-replace/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-replace", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.4"],\
+            ["@putout/plugin-remove-useless-replace", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.4"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7177,12 +7177,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-return-virtual-4b8cdaaf6d/0/cache/@putout-plugin-remove-useless-return-npm-4.2.0-b047e4ba84-d9b5e35e35.zip/node_modules/@putout/plugin-remove-useless-return/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-return-virtual-791e4b9754/0/cache/@putout-plugin-remove-useless-return-npm-4.2.0-b047e4ba84-d9b5e35e35.zip/node_modules/@putout/plugin-remove-useless-return/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-return", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.2.0"],\
+            ["@putout/plugin-remove-useless-return", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7199,12 +7199,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-spread-virtual-192a406138/0/cache/@putout-plugin-remove-useless-spread-npm-6.0.0-69e7439f4c-85af5d2e4a.zip/node_modules/@putout/plugin-remove-useless-spread/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-spread-virtual-f93801e189/0/cache/@putout-plugin-remove-useless-spread-npm-6.0.0-69e7439f4c-85af5d2e4a.zip/node_modules/@putout/plugin-remove-useless-spread/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-spread", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
+            ["@putout/plugin-remove-useless-spread", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7221,12 +7221,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-template-expressions-virtual-ffecff8ba8/0/cache/@putout-plugin-remove-useless-template-expressions-npm-1.2.0-f33e2d230c-c6d6f80540.zip/node_modules/@putout/plugin-remove-useless-template-expressions/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-template-expressions-virtual-a1558c610f/0/cache/@putout-plugin-remove-useless-template-expressions-npm-1.2.0-f33e2d230c-c6d6f80540.zip/node_modules/@putout/plugin-remove-useless-template-expressions/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-template-expressions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0"],\
+            ["@putout/plugin-remove-useless-template-expressions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7243,12 +7243,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-type-conversion-virtual-ce06a1d0fd/0/cache/@putout-plugin-remove-useless-type-conversion-npm-2.0.0-816044bd05-82bf7975f9.zip/node_modules/@putout/plugin-remove-useless-type-conversion/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-type-conversion-virtual-31bf0ea7a2/0/cache/@putout-plugin-remove-useless-type-conversion-npm-2.0.0-816044bd05-82bf7975f9.zip/node_modules/@putout/plugin-remove-useless-type-conversion/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-type-conversion", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-remove-useless-type-conversion", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7265,12 +7265,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-typeof-virtual-e1a0cf6234/0/cache/@putout-plugin-remove-useless-typeof-npm-1.0.0-448b3bcb57-a2c3cc7399.zip/node_modules/@putout/plugin-remove-useless-typeof/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-typeof-virtual-d03f6f0c81/0/cache/@putout-plugin-remove-useless-typeof-npm-1.0.0-448b3bcb57-a2c3cc7399.zip/node_modules/@putout/plugin-remove-useless-typeof/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-typeof", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
+            ["@putout/plugin-remove-useless-typeof", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7287,12 +7287,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-variables-virtual-7d2e764b59/0/cache/@putout-plugin-remove-useless-variables-npm-7.1.0-d5a83a8ac8-3f13d92d2e.zip/node_modules/@putout/plugin-remove-useless-variables/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-remove-useless-variables-virtual-38d8c0b67b/0/cache/@putout-plugin-remove-useless-variables-npm-7.1.0-d5a83a8ac8-3f13d92d2e.zip/node_modules/@putout/plugin-remove-useless-variables/",\
           "packageDependencies": [\
-            ["@putout/plugin-remove-useless-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.1.0"],\
+            ["@putout/plugin-remove-useless-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7309,12 +7309,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-reuse-duplicate-init-virtual-80ecd55c28/0/cache/@putout-plugin-reuse-duplicate-init-npm-4.0.0-0d733d804c-aaa5246238.zip/node_modules/@putout/plugin-reuse-duplicate-init/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-reuse-duplicate-init-virtual-c4b4efebdd/0/cache/@putout-plugin-reuse-duplicate-init-npm-4.0.0-0d733d804c-aaa5246238.zip/node_modules/@putout/plugin-reuse-duplicate-init/",\
           "packageDependencies": [\
-            ["@putout/plugin-reuse-duplicate-init", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
+            ["@putout/plugin-reuse-duplicate-init", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7331,12 +7331,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-simplify-assignment-virtual-5ce4eb991c/0/cache/@putout-plugin-simplify-assignment-npm-2.0.0-85df1e091a-14fcfb7ad0.zip/node_modules/@putout/plugin-simplify-assignment/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-simplify-assignment-virtual-09d101caaa/0/cache/@putout-plugin-simplify-assignment-npm-2.0.0-85df1e091a-14fcfb7ad0.zip/node_modules/@putout/plugin-simplify-assignment/",\
           "packageDependencies": [\
-            ["@putout/plugin-simplify-assignment", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
+            ["@putout/plugin-simplify-assignment", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7353,12 +7353,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-simplify-ternary-virtual-b56a64062e/0/cache/@putout-plugin-simplify-ternary-npm-3.0.0-1c5d881487-295eb2ffb0.zip/node_modules/@putout/plugin-simplify-ternary/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-simplify-ternary-virtual-4a1de069b7/0/cache/@putout-plugin-simplify-ternary-npm-3.0.0-1c5d881487-295eb2ffb0.zip/node_modules/@putout/plugin-simplify-ternary/",\
           "packageDependencies": [\
-            ["@putout/plugin-simplify-ternary", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/plugin-simplify-ternary", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7375,12 +7375,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-split-nested-destructuring-virtual-c1d10e1ef9/0/cache/@putout-plugin-split-nested-destructuring-npm-1.1.0-e86b95a834-68d70eddb1.zip/node_modules/@putout/plugin-split-nested-destructuring/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-split-nested-destructuring-virtual-1dcf24ffc6/0/cache/@putout-plugin-split-nested-destructuring-npm-1.1.0-e86b95a834-68d70eddb1.zip/node_modules/@putout/plugin-split-nested-destructuring/",\
           "packageDependencies": [\
-            ["@putout/plugin-split-nested-destructuring", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-split-nested-destructuring", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7397,12 +7397,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-split-variable-declarations-virtual-a6ea3fe4cb/0/cache/@putout-plugin-split-variable-declarations-npm-2.1.1-09f826b81c-ba0a37087d.zip/node_modules/@putout/plugin-split-variable-declarations/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.1", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-split-variable-declarations-virtual-33bf3f5da8/0/cache/@putout-plugin-split-variable-declarations-npm-2.1.1-09f826b81c-ba0a37087d.zip/node_modules/@putout/plugin-split-variable-declarations/",\
           "packageDependencies": [\
-            ["@putout/plugin-split-variable-declarations", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.1"],\
+            ["@putout/plugin-split-variable-declarations", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.1"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7419,12 +7419,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-strict-mode-virtual-ab85189d4f/0/cache/@putout-plugin-strict-mode-npm-5.0.0-7311ca9da5-e26e389e02.zip/node_modules/@putout/plugin-strict-mode/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-strict-mode-virtual-db26341bbf/0/cache/@putout-plugin-strict-mode-npm-5.0.0-7311ca9da5-e26e389e02.zip/node_modules/@putout/plugin-strict-mode/",\
           "packageDependencies": [\
-            ["@putout/plugin-strict-mode", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/plugin-strict-mode", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7441,12 +7441,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.6.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-tape-virtual-3a3cdd687e/0/cache/@putout-plugin-tape-npm-9.6.0-fd15d56325-1881cdb66a.zip/node_modules/@putout/plugin-tape/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.6.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-tape-virtual-7a15970104/0/cache/@putout-plugin-tape-npm-9.6.0-fd15d56325-1881cdb66a.zip/node_modules/@putout/plugin-tape/",\
           "packageDependencies": [\
-            ["@putout/plugin-tape", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.6.0"],\
+            ["@putout/plugin-tape", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.6.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7463,12 +7463,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-try-catch-virtual-8522b1c2e7/0/cache/@putout-plugin-try-catch-npm-1.1.0-dfc1fbbaed-4e741feec6.zip/node_modules/@putout/plugin-try-catch/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-try-catch-virtual-a04f012ab7/0/cache/@putout-plugin-try-catch-npm-1.1.0-dfc1fbbaed-4e741feec6.zip/node_modules/@putout/plugin-try-catch/",\
           "packageDependencies": [\
-            ["@putout/plugin-try-catch", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
+            ["@putout/plugin-try-catch", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7485,12 +7485,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-typescript-virtual-73acd9b557/0/cache/@putout-plugin-typescript-npm-3.0.0-8db4ec3c63-f81f2ff388.zip/node_modules/@putout/plugin-typescript/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-typescript-virtual-344cbd9554/0/cache/@putout-plugin-typescript-npm-3.0.0-8db4ec3c63-f81f2ff388.zip/node_modules/@putout/plugin-typescript/",\
           "packageDependencies": [\
-            ["@putout/plugin-typescript", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/plugin-typescript", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7507,12 +7507,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.4.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-plugin-webpack-virtual-50090617a9/0/cache/@putout-plugin-webpack-npm-1.4.0-b19ed50318-dce3459c89.zip/node_modules/@putout/plugin-webpack/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.4.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-plugin-webpack-virtual-6dd085d401/0/cache/@putout-plugin-webpack-npm-1.4.0-b19ed50318-dce3459c89.zip/node_modules/@putout/plugin-webpack/",\
           "packageDependencies": [\
-            ["@putout/plugin-webpack", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.4.0"],\
+            ["@putout/plugin-webpack", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.4.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7529,16 +7529,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-processor-css-virtual-d5629d48cb/0/cache/@putout-processor-css-npm-6.0.0-fe56115c15-9a81b87380.zip/node_modules/@putout/processor-css/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-processor-css-virtual-b747ebb0c3/0/cache/@putout-processor-css-npm-6.0.0-fe56115c15-9a81b87380.zip/node_modules/@putout/processor-css/",\
           "packageDependencies": [\
-            ["@putout/processor-css", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
+            ["@putout/processor-css", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
             ["@types/putout", null],\
             ["cosmiconfig", "npm:7.0.1"],\
             ["deepmerge", "npm:4.2.2"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["stylelint", "npm:14.8.1"],\
-            ["stylelint-config-standard", "virtual:d5629d48cb2130b27ddc39f1d1d4820ef2ae0bf334d440cb66f7738a1cb7e153b1d72a351dbe29ee4387f9212e3d4eab0ecf56b8a1819ed0946ce616b2d4df4d#npm:28.0.0"]\
+            ["stylelint-config-standard", "virtual:b747ebb0c3821f266b3cb419b597970781db4f7934d17cba981e18bb859b958290d9af0d8ea3228a0646f6b1d4366b9657e5af95e6626eb8054159b2bcf2282d#npm:28.0.0"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7555,12 +7555,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-processor-ignore-virtual-e729882481/0/cache/@putout-processor-ignore-npm-3.0.0-54518c7126-ea977a926e.zip/node_modules/@putout/processor-ignore/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-processor-ignore-virtual-b925ca665b/0/cache/@putout-processor-ignore-npm-3.0.0-54518c7126-ea977a926e.zip/node_modules/@putout/processor-ignore/",\
           "packageDependencies": [\
-            ["@putout/processor-ignore", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
+            ["@putout/processor-ignore", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7577,12 +7577,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-processor-javascript-virtual-7eb08216be/0/cache/@putout-processor-javascript-npm-4.0.0-080861a8b3-7c1966aa75.zip/node_modules/@putout/processor-javascript/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-processor-javascript-virtual-0b3a7defb1/0/cache/@putout-processor-javascript-npm-4.0.0-080861a8b3-7c1966aa75.zip/node_modules/@putout/processor-javascript/",\
           "packageDependencies": [\
-            ["@putout/processor-javascript", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
+            ["@putout/processor-javascript", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"]\
+            ["putout", "npm:28.0.1"]\
           ],\
           "packagePeers": [\
             "@types/putout",\
@@ -7599,12 +7599,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-processor-json-virtual-1823b93924/0/cache/@putout-processor-json-npm-5.0.0-9eb6a5cca7-6ea783c8f8.zip/node_modules/@putout/processor-json/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-processor-json-virtual-a5168c91c1/0/cache/@putout-processor-json-npm-5.0.0-9eb6a5cca7-6ea783c8f8.zip/node_modules/@putout/processor-json/",\
           "packageDependencies": [\
-            ["@putout/processor-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/processor-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["remove-blank-lines", "npm:1.4.1"]\
           ],\
           "packagePeers": [\
@@ -7622,14 +7622,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-processor-markdown-virtual-0ffb9db3d1/0/cache/@putout-processor-markdown-npm-7.1.0-11aacf8123-6c57b74f86.zip/node_modules/@putout/processor-markdown/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-processor-markdown-virtual-1e692de958/0/cache/@putout-processor-markdown-npm-7.1.0-11aacf8123-6c57b74f86.zip/node_modules/@putout/processor-markdown/",\
           "packageDependencies": [\
-            ["@putout/processor-markdown", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.1.0"],\
-            ["@putout/processor-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/processor-markdown", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.1.0"],\
+            ["@putout/processor-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
             ["once", "npm:1.4.0"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["remark-parse", "npm:10.0.1"],\
             ["remark-preset-lint-consistent", "npm:5.1.1"],\
             ["remark-stringify", "npm:10.0.2"],\
@@ -7652,14 +7652,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@putout-processor-yaml-virtual-405572209f/0/cache/@putout-processor-yaml-npm-4.0.0-ec211afdcb-b89bcb4599.zip/node_modules/@putout/processor-yaml/",\
+        ["virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@putout-processor-yaml-virtual-db65b38434/0/cache/@putout-processor-yaml-npm-4.0.0-ec211afdcb-b89bcb4599.zip/node_modules/@putout/processor-yaml/",\
           "packageDependencies": [\
-            ["@putout/processor-yaml", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
-            ["@putout/processor-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
+            ["@putout/processor-yaml", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
+            ["@putout/processor-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
             ["@types/putout", null],\
             ["just-kebab-case", "npm:4.0.2"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["try-catch", "npm:3.0.1"],\
             ["yaml", "npm:1.10.2"]\
           ],\
@@ -12999,7 +12999,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["align-spaces", "npm:1.0.4"],\
             ["eslint", null],\
             ["eslint-plugin-n", "virtual:79b092f39ac820dfd681137cba151bb71608cff5f4a71f3d7320f209b40610ddb34294ef140749f7e44f782c8f69807e6bc4eb83cdd62c680dd080f1ab73be5f#npm:15.2.4"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["try-catch", "npm:3.0.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"]\
           ],\
@@ -20070,10 +20070,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["putout", [\
-        ["npm:28.0.0", {\
-          "packageLocation": "./.yarn/cache/putout-npm-28.0.0-379a9ad408-a1c22d0c80.zip/node_modules/putout/",\
+        ["npm:28.0.1", {\
+          "packageLocation": "./.yarn/cache/putout-npm-28.0.1-782577af4d-6949659014.zip/node_modules/putout/",\
           "packageDependencies": [\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["@babel/code-frame", "npm:7.16.7"],\
             ["@babel/traverse", "npm:7.17.10"],\
             ["@babel/types", "npm:7.17.0"],\
@@ -20088,125 +20088,125 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@putout/engine-processor", "npm:6.0.0"],\
             ["@putout/engine-runner", "npm:14.0.0"],\
             ["@putout/eslint", "npm:1.3.0"],\
-            ["@putout/formatter-codeframe", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
-            ["@putout/formatter-dump", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
-            ["@putout/formatter-frame", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/formatter-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/formatter-json-lines", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/formatter-memory", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1"],\
-            ["@putout/formatter-progress", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
-            ["@putout/formatter-progress-bar", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.2"],\
-            ["@putout/formatter-stream", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.1"],\
+            ["@putout/formatter-codeframe", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
+            ["@putout/formatter-dump", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
+            ["@putout/formatter-frame", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/formatter-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/formatter-json-lines", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/formatter-memory", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1"],\
+            ["@putout/formatter-progress", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
+            ["@putout/formatter-progress-bar", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.2"],\
+            ["@putout/formatter-stream", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.1"],\
             ["@putout/operate", "npm:8.2.0"],\
-            ["@putout/operator-add-args", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1"],\
-            ["@putout/operator-declare", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.6.0"],\
-            ["@putout/operator-regexp", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-apply-array-at", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-apply-comparison-order", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-apply-destructuring", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.2.1"],\
-            ["@putout/plugin-apply-early-return", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-apply-if-condition", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-apply-is-array", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/plugin-apply-optional-chaining", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.2"],\
-            ["@putout/plugin-browserlist", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1"],\
-            ["@putout/plugin-convert-apply-to-spread", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0"],\
-            ["@putout/plugin-convert-arguments-to-rest", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.3.0"],\
-            ["@putout/plugin-convert-array-copy-to-slice", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-convert-assignment-to-arrow-function", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0"],\
-            ["@putout/plugin-convert-assignment-to-comparison", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-convert-commonjs-to-esm", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.0.0"],\
-            ["@putout/plugin-convert-comparison-to-boolean", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/plugin-convert-concat-to-flat", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-convert-const-to-let", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.2"],\
-            ["@putout/plugin-convert-equal-to-strict-equal", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-convert-esm-to-commonjs", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
-            ["@putout/plugin-convert-for-each-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.0"],\
-            ["@putout/plugin-convert-for-in-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-convert-for-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
-            ["@putout/plugin-convert-index-of-to-includes", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-convert-map-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-convert-mock-require-to-mock-import", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.1.0"],\
-            ["@putout/plugin-convert-object-assign-to-merge-spread", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
-            ["@putout/plugin-convert-quotes-to-backticks", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0"],\
-            ["@putout/plugin-convert-reduce-to-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1"],\
-            ["@putout/plugin-convert-template-to-string", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-convert-to-arrow-function", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/plugin-convert-typeof-to-is-type", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-declare-before-reference", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-declare-imports-first", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0"],\
-            ["@putout/plugin-declare-undefined-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.1"],\
-            ["@putout/plugin-eslint", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.2.0"],\
-            ["@putout/plugin-extract-object-properties", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:8.3.0"],\
-            ["@putout/plugin-extract-sequence-expressions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.1"],\
-            ["@putout/plugin-github", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0"],\
-            ["@putout/plugin-gitignore", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0"],\
-            ["@putout/plugin-logical-expressions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-madrun", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:14.2.0"],\
-            ["@putout/plugin-math", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-merge-destructuring-properties", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.1.0"],\
-            ["@putout/plugin-merge-duplicate-imports", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.0.0"],\
-            ["@putout/plugin-merge-if-statements", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.0"],\
-            ["@putout/plugin-montag", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-new", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.3"],\
-            ["@putout/plugin-nodejs", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
-            ["@putout/plugin-npmignore", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.1"],\
-            ["@putout/plugin-package-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.1.0"],\
-            ["@putout/plugin-promises", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:8.4.0"],\
-            ["@putout/plugin-putout", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:11.1.0"],\
-            ["@putout/plugin-putout-config", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-regexp", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.5.0"],\
-            ["@putout/plugin-remove-boolean-from-assertions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-remove-console", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
-            ["@putout/plugin-remove-constant-conditions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
-            ["@putout/plugin-remove-debugger", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
-            ["@putout/plugin-remove-duplicate-case", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-remove-duplicate-keys", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/plugin-remove-empty", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.0.0"],\
-            ["@putout/plugin-remove-iife", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-remove-nested-blocks", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
-            ["@putout/plugin-remove-unreachable-code", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0"],\
-            ["@putout/plugin-remove-unreferenced-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-remove-unused-expressions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
-            ["@putout/plugin-remove-unused-for-of-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/plugin-remove-unused-private-fields", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-remove-unused-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
-            ["@putout/plugin-remove-useless-arguments", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
-            ["@putout/plugin-remove-useless-array-constructor", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-remove-useless-array-entries", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-remove-useless-array-from", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.0"],\
-            ["@putout/plugin-remove-useless-assign", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-remove-useless-conditions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-remove-useless-constructor", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-remove-useless-continue", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.1"],\
-            ["@putout/plugin-remove-useless-else", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-remove-useless-escape", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.1.1"],\
-            ["@putout/plugin-remove-useless-for-of", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-remove-useless-functions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-remove-useless-map", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-remove-useless-operand", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-remove-useless-replace", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.4"],\
-            ["@putout/plugin-remove-useless-return", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.2.0"],\
-            ["@putout/plugin-remove-useless-spread", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
-            ["@putout/plugin-remove-useless-template-expressions", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.2.0"],\
-            ["@putout/plugin-remove-useless-type-conversion", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-remove-useless-typeof", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.0.0"],\
-            ["@putout/plugin-remove-useless-variables", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.1.0"],\
-            ["@putout/plugin-reuse-duplicate-init", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
-            ["@putout/plugin-simplify-assignment", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.0.0"],\
-            ["@putout/plugin-simplify-ternary", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/plugin-split-nested-destructuring", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-split-variable-declarations", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:2.1.1"],\
-            ["@putout/plugin-strict-mode", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
-            ["@putout/plugin-tape", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:9.6.0"],\
-            ["@putout/plugin-try-catch", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.1.0"],\
-            ["@putout/plugin-typescript", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/plugin-webpack", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:1.4.0"],\
-            ["@putout/processor-css", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:6.0.0"],\
-            ["@putout/processor-ignore", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:3.0.0"],\
-            ["@putout/processor-javascript", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
-            ["@putout/processor-json", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:5.0.0"],\
-            ["@putout/processor-markdown", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:7.1.0"],\
-            ["@putout/processor-yaml", "virtual:379a9ad4086f8ab510a03f5994b891b8929cf93439277b43e4fd4f6bdf10fe690810f0d54372526dc848d8fcc0be34eb4fada3ba7650ce14bf417e9c772c08db#npm:4.0.0"],\
+            ["@putout/operator-add-args", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1"],\
+            ["@putout/operator-declare", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.6.0"],\
+            ["@putout/operator-regexp", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-apply-array-at", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-apply-comparison-order", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-apply-destructuring", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.2.1"],\
+            ["@putout/plugin-apply-early-return", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-apply-if-condition", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-apply-is-array", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/plugin-apply-optional-chaining", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.2"],\
+            ["@putout/plugin-browserlist", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1"],\
+            ["@putout/plugin-convert-apply-to-spread", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0"],\
+            ["@putout/plugin-convert-arguments-to-rest", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.3.0"],\
+            ["@putout/plugin-convert-array-copy-to-slice", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-convert-assignment-to-arrow-function", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0"],\
+            ["@putout/plugin-convert-assignment-to-comparison", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-convert-commonjs-to-esm", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.0.0"],\
+            ["@putout/plugin-convert-comparison-to-boolean", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/plugin-convert-concat-to-flat", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-convert-const-to-let", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.2"],\
+            ["@putout/plugin-convert-equal-to-strict-equal", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-convert-esm-to-commonjs", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
+            ["@putout/plugin-convert-for-each-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.0"],\
+            ["@putout/plugin-convert-for-in-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-convert-for-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
+            ["@putout/plugin-convert-index-of-to-includes", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-convert-map-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-convert-mock-require-to-mock-import", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.1.0"],\
+            ["@putout/plugin-convert-object-assign-to-merge-spread", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
+            ["@putout/plugin-convert-quotes-to-backticks", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0"],\
+            ["@putout/plugin-convert-reduce-to-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1"],\
+            ["@putout/plugin-convert-template-to-string", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-convert-to-arrow-function", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/plugin-convert-typeof-to-is-type", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-declare-before-reference", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-declare-imports-first", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0"],\
+            ["@putout/plugin-declare-undefined-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.1"],\
+            ["@putout/plugin-eslint", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0"],\
+            ["@putout/plugin-extract-object-properties", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:8.3.0"],\
+            ["@putout/plugin-extract-sequence-expressions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.1"],\
+            ["@putout/plugin-github", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0"],\
+            ["@putout/plugin-gitignore", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0"],\
+            ["@putout/plugin-logical-expressions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-madrun", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:14.2.0"],\
+            ["@putout/plugin-math", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-merge-destructuring-properties", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.1.0"],\
+            ["@putout/plugin-merge-duplicate-imports", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.0.0"],\
+            ["@putout/plugin-merge-if-statements", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.0"],\
+            ["@putout/plugin-montag", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-new", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.3"],\
+            ["@putout/plugin-nodejs", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
+            ["@putout/plugin-npmignore", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.1"],\
+            ["@putout/plugin-package-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.1.0"],\
+            ["@putout/plugin-promises", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:8.4.0"],\
+            ["@putout/plugin-putout", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:11.1.0"],\
+            ["@putout/plugin-putout-config", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-regexp", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.5.0"],\
+            ["@putout/plugin-remove-boolean-from-assertions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-remove-console", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
+            ["@putout/plugin-remove-constant-conditions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
+            ["@putout/plugin-remove-debugger", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
+            ["@putout/plugin-remove-duplicate-case", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-remove-duplicate-keys", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/plugin-remove-empty", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.0.0"],\
+            ["@putout/plugin-remove-iife", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-remove-nested-blocks", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
+            ["@putout/plugin-remove-unreachable-code", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0"],\
+            ["@putout/plugin-remove-unreferenced-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-remove-unused-expressions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
+            ["@putout/plugin-remove-unused-for-of-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/plugin-remove-unused-private-fields", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-remove-unused-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
+            ["@putout/plugin-remove-useless-arguments", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
+            ["@putout/plugin-remove-useless-array-constructor", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-remove-useless-array-entries", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-remove-useless-array-from", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.0"],\
+            ["@putout/plugin-remove-useless-assign", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-remove-useless-conditions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-remove-useless-constructor", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-remove-useless-continue", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.1"],\
+            ["@putout/plugin-remove-useless-else", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-remove-useless-escape", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.1.1"],\
+            ["@putout/plugin-remove-useless-for-of", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-remove-useless-functions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-remove-useless-map", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-remove-useless-operand", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-remove-useless-replace", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.4"],\
+            ["@putout/plugin-remove-useless-return", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.2.0"],\
+            ["@putout/plugin-remove-useless-spread", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
+            ["@putout/plugin-remove-useless-template-expressions", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.2.0"],\
+            ["@putout/plugin-remove-useless-type-conversion", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-remove-useless-typeof", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.0.0"],\
+            ["@putout/plugin-remove-useless-variables", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.1.0"],\
+            ["@putout/plugin-reuse-duplicate-init", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
+            ["@putout/plugin-simplify-assignment", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.0.0"],\
+            ["@putout/plugin-simplify-ternary", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/plugin-split-nested-destructuring", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-split-variable-declarations", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:2.1.1"],\
+            ["@putout/plugin-strict-mode", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
+            ["@putout/plugin-tape", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:9.6.0"],\
+            ["@putout/plugin-try-catch", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.1.0"],\
+            ["@putout/plugin-typescript", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/plugin-webpack", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:1.4.0"],\
+            ["@putout/processor-css", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:6.0.0"],\
+            ["@putout/processor-ignore", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:3.0.0"],\
+            ["@putout/processor-javascript", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
+            ["@putout/processor-json", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:5.0.0"],\
+            ["@putout/processor-markdown", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:7.1.0"],\
+            ["@putout/processor-yaml", "virtual:782577af4d5845d7e82de07c0792e2a6fd1fa8596bed6c58930911b62cad79ea272aca189bfa8cedc59693c0cdcde06615c41bee1a3de82f26c4742da5b54e95#npm:4.0.0"],\
             ["@putout/traverse", "npm:5.0.0"],\
             ["ajv", "npm:8.11.0"],\
             ["chalk", "npm:4.1.2"],\
@@ -22530,10 +22530,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:4862a9e90f0c918b609cbf2fa0b113b00ed198cda2c504304cc686fa1e66aaf73986aa314a0714bb4bb8762a6161259cd8b31738b4800f297ba15989553043f2#npm:9.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/stylelint-config-recommended-virtual-86af97e09c/0/cache/stylelint-config-recommended-npm-9.0.0-91fc9e1e6b-6d94582cb6.zip/node_modules/stylelint-config-recommended/",\
+        ["virtual:2d2420edf4f5c6407e9721ecbd2ee02380f902f1e416dcd236208af8e48bb1b85b0a017d1371ad22c069976643d42430ef22bf3166b8eeb22ac3082f74f62d84#npm:9.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/stylelint-config-recommended-virtual-d5b2d3e6cc/0/cache/stylelint-config-recommended-npm-9.0.0-91fc9e1e6b-6d94582cb6.zip/node_modules/stylelint-config-recommended/",\
           "packageDependencies": [\
-            ["stylelint-config-recommended", "virtual:4862a9e90f0c918b609cbf2fa0b113b00ed198cda2c504304cc686fa1e66aaf73986aa314a0714bb4bb8762a6161259cd8b31738b4800f297ba15989553043f2#npm:9.0.0"],\
+            ["stylelint-config-recommended", "virtual:2d2420edf4f5c6407e9721ecbd2ee02380f902f1e416dcd236208af8e48bb1b85b0a017d1371ad22c069976643d42430ef22bf3166b8eeb22ac3082f74f62d84#npm:9.0.0"],\
             ["@types/stylelint", null],\
             ["stylelint", "npm:14.8.1"]\
           ],\
@@ -22552,13 +22552,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:d5629d48cb2130b27ddc39f1d1d4820ef2ae0bf334d440cb66f7738a1cb7e153b1d72a351dbe29ee4387f9212e3d4eab0ecf56b8a1819ed0946ce616b2d4df4d#npm:28.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/stylelint-config-standard-virtual-4862a9e90f/0/cache/stylelint-config-standard-npm-28.0.0-7e0b51399e-1de7fdd773.zip/node_modules/stylelint-config-standard/",\
+        ["virtual:b747ebb0c3821f266b3cb419b597970781db4f7934d17cba981e18bb859b958290d9af0d8ea3228a0646f6b1d4366b9657e5af95e6626eb8054159b2bcf2282d#npm:28.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/stylelint-config-standard-virtual-2d2420edf4/0/cache/stylelint-config-standard-npm-28.0.0-7e0b51399e-1de7fdd773.zip/node_modules/stylelint-config-standard/",\
           "packageDependencies": [\
-            ["stylelint-config-standard", "virtual:d5629d48cb2130b27ddc39f1d1d4820ef2ae0bf334d440cb66f7738a1cb7e153b1d72a351dbe29ee4387f9212e3d4eab0ecf56b8a1819ed0946ce616b2d4df4d#npm:28.0.0"],\
+            ["stylelint-config-standard", "virtual:b747ebb0c3821f266b3cb419b597970781db4f7934d17cba981e18bb859b958290d9af0d8ea3228a0646f6b1d4366b9657e5af95e6626eb8054159b2bcf2282d#npm:28.0.0"],\
             ["@types/stylelint", null],\
             ["stylelint", "npm:14.8.1"],\
-            ["stylelint-config-recommended", "virtual:4862a9e90f0c918b609cbf2fa0b113b00ed198cda2c504304cc686fa1e66aaf73986aa314a0714bb4bb8762a6161259cd8b31738b4800f297ba15989553043f2#npm:9.0.0"]\
+            ["stylelint-config-recommended", "virtual:2d2420edf4f5c6407e9721ecbd2ee02380f902f1e416dcd236208af8e48bb1b85b0a017d1371ad22c069976643d42430ef22bf3166b8eeb22ac3082f74f62d84#npm:9.0.0"]\
           ],\
           "packagePeers": [\
             "@types/stylelint",\
@@ -23730,7 +23730,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["moment-timezone", "npm:0.5.38"],\
             ["node-notifier", "npm:10.0.1"],\
             ["prettier", "npm:2.7.1"],\
-            ["putout", "npm:28.0.0"],\
+            ["putout", "npm:28.0.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:5f667c73984ed00ed0af2d2ee5bb7487501bcb7981faa0f3174f6b4e10779d128272858d90e1bd616db7bd20b70e6922af9582ba35aeace0a368e003ee8b65c2#npm:18.2.0"],\
             ["react-moment", "virtual:5f667c73984ed00ed0af2d2ee5bb7487501bcb7981faa0f3174f6b4e10779d128272858d90e1bd616db7bd20b70e6922af9582ba35aeace0a368e003ee8b65c2#npm:1.1.2"],\
