@@ -4,7 +4,11 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
+<<<<<<< HEAD
   "version": "1444.4.3",
+=======
+  "version": "1444.4.2",
+>>>>>>> 2cc65c776 (feat(web): :sparkles: add title to pages for enhanced sharing)
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
