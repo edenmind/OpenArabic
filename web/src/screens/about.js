@@ -7,6 +7,7 @@ import * as api from '../services/api-service.js'
 const About = () => {
   const [authors, setAuthors] = React.useState([])
   React.useEffect(() => {
+    document.title = 'About'
     api
       .getAuthors()
       .then((res) => setAuthors(res))
