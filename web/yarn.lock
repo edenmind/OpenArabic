@@ -2857,9 +2857,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^5.0.5":
-  version: 5.0.5
-  resolution: "@mui/x-date-pickers@npm:5.0.5"
+"@mui/x-date-pickers@npm:^5.0.6":
+  version: 5.0.6
+  resolution: "@mui/x-date-pickers@npm:5.0.6"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@date-io/core": ^2.15.0
@@ -2897,7 +2897,7 @@ __metadata:
       optional: true
     moment:
       optional: true
-  checksum: dc7d0fb8a4947301b5f3fd2db079232328d3b2841c525be61e5b90255ef1192d5759b8947046ed8a5afc3997cd6dd1dff6550f1d12bb7f95bd51e3916644ef3c
+  checksum: 11bdea2c8f267041faaa08557da39791423ede8f4c055f4c2b389138749c47f4b9b24fa7630638c9b559cb4df89117b18beea11dd294af42873bcd833a25ef7c
   languageName: node
   linkType: hard
 
@@ -16894,7 +16894,7 @@ __metadata:
     "@mui/lab": ^5.0.0-alpha.105
     "@mui/material": ^5.10.11
     "@mui/x-data-grid": ^5.17.9
-    "@mui/x-date-pickers": ^5.0.5
+    "@mui/x-date-pickers": ^5.0.6
     "@reduxjs/toolkit": ^1.8.6
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
