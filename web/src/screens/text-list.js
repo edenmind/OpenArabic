@@ -9,6 +9,8 @@ const TextList = (properties) => {
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
+    document.title = 'OpenArabic'
+
     if (properties.id) {
       // if id is set, fetch the text in category
       api

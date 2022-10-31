@@ -6,7 +6,7 @@ import React from 'react'
 import TextListIdSentences from './text-list-id-sentences.js'
 import { useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
-import { getTimeAgoFromString } from '../services/dates.js'
+import { truncate } from '../services/word-processing.js'
 
 function TextListId() {
   const { id } = useParams()
@@ -19,6 +19,13 @@ function TextListId() {
       .then((res) => {
         setText(res)
         setIsLoading(false)
+
+        // set document title
+        const titleAndAuthor = `${res.title} by ${res.author}`
+
+        document.title = titleAndAuthor
+
+        // todo: https://cards-dev.twitter.com/validator
       })
       .catch((error) => console.log(error))
   }, [id])
