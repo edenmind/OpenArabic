@@ -6,7 +6,7 @@ import React from 'react'
 import TextListIdSentences from './text-list-id-sentences.js'
 import { useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
-import { truncate } from '../services/word-processing.js'
+import { getTimeAgoFromString } from '../services/dates.js'
 
 function TextListId() {
   const { id } = useParams()

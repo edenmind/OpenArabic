@@ -42,6 +42,7 @@
     "history": "^5.3.0",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.38",
+    "moments": "^0.0.2",
     "node-notifier": "^10.0.1",
     "prettier": "^2.7.1",
     "putout": "^28.0.1",
