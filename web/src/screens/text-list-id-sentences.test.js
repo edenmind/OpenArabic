@@ -6,7 +6,7 @@ it('renders without crashing', () => {
   const renderer = new ShallowRenderer()
 
   // eslint-disable-next-line putout/objects-braces-inside-array
-  const sentences = [{ english: 'english', arabic: 'arabic' }]
+  const sentences = [{ english: 'english', arabic: 'arabic', words: [{ english: 'english', arabic: 'arabic' }] }]
 
   renderer.render(<TextListIdSentences sentences={sentences} />)
 })
