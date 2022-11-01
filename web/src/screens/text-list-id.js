@@ -1,4 +1,4 @@
-import { Container, Divider, Grid } from '@mui/material'
+import { Button, Container, Divider, Grid, Stack } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import Footer from '../components/footer.js'
 import Nav from '../components/nav.js'
@@ -7,6 +7,7 @@ import TextListIdSentences from './text-list-id-sentences.js'
 import { useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
 import { timeAgo } from '../services/dates.js'
+import * as links from '../services/link-generator.js'
 
 function TextListId() {
   const { id } = useParams()
@@ -55,6 +56,15 @@ function TextListId() {
           <h4>{`${text.views} views · ${timeAgo(text.publishedAt)}`}</h4>
           <Divider width="300" />
           <TextListIdSentences sentences={text.sentences} />
+
+          <Stack direction="row" spacing={2} sx={{ mt: 2, justifyContent: 'center', paddingTop: '100px' }}>
+            <Button variant="contained" href={links.generateLinkToPostOnTwitter(text.id)}>
+              Post on Twitter
+            </Button>
+            <Button variant="contained" href={links.generateLinkToPostOnFacebook(text.id)}>
+              Post on Facebook
+            </Button>
+          </Stack>
         </center>
         <Footer />
       </Container>

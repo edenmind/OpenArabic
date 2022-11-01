@@ -6,3 +6,8 @@ it('renders without crashing', () => {
   const renderer = new ShallowRenderer()
   renderer.render(<TextListId />)
 })
+
+it('renders when isLoading is false', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<TextListId />)
+})
