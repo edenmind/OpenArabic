@@ -319,7 +319,7 @@ test('get text that should not be found', async (t) => {
   })
 
   //assert
-  t.equal(result.statusCode, 500)
+  t.equal(result.statusCode, 404)
 })
 
 test('delete text that should not be found', async (t) => {
@@ -500,4 +500,61 @@ test('update test without name should fail', async (t) => {
 
   //assert
   t.equal(result.statusCode, 400)
+})
+
+test('create text without header should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts',
+    method: 'POST',
+    payload: {
+      name: 'the_name'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 400)
+})
+
+test('create text with wrong header should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts',
+    method: 'POST',
+    headers: {
+      auth: 'wrong'
+    },
+    payload: {
+      name: 'the_name'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 400)
+})
+
+test('create text with wrong id should fail', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts/abc',
+    method: 'POST',
+    headers: {
+      auth: 'somesecurestring'
+    },
+    payload: {
+      name: 'the_name'
+    }
+  })
+
+  //assert
+  t.equal(result.statusCode, 404)
 })
