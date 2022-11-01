@@ -16,7 +16,7 @@ export default function TextListCard(properties) {
       .map((text, index) => (
         <Grid item md={4} xs={12} key={index}>
           <Card>
-            <CardActionArea component={RouterLink} to={`/texts/${text.id}`}>
+            <CardActionArea component={RouterLink} to={`/texts/${text.slug}`}>
               <CardMedia component="img" height="194" image={text.image} />
               <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

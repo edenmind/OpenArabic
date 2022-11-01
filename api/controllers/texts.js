@@ -2,7 +2,7 @@
 
 const axios = require('axios').default
 const COLLECTIONS = require('../constants/collections.js')
-const { produceVocabularyCollection, timeAgo, readingTime } = require('../services/utils')
+const { produceVocabularyCollection, timeAgo, readingTime, slugifyWithAuthor } = require('../services/utils')
 const { ObjectId } = require('mongodb')
 
 async function listTexts(request, reply) {
@@ -66,9 +66,11 @@ async function addText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId() //generate a new id
   const views = 0 //initially, the text has no views
+  const slug = slugifyWithAuthor(title, author) //generate a slug
   const createdAt = new Date()
   const data = {
     title,
+    slug,
     author,
     image,
     createdAt,
@@ -111,11 +113,25 @@ async function addText(request, reply) {
 async function getText(request, reply) {
   //get the text from the database
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const text = await texts.findOne({ id: new ObjectId(request.params.id) })
+
+  let text = ''
+
+  //get the text by slug
+  text = await texts.findOne({ slug: request.params.id })
+
+  // if the text is null or undefined, try to get the text by id
+  if (!text) {
+    text = await texts.findOne({ id: new ObjectId(request.params.id) })
+  }
+
+  //if the text is null or undefined, send a 404
+  if (!text) {
+    reply.code(404).send('Text not found!')
+  }
 
   //update property "views" in the text
   const views = text.views + 1
-  await texts.updateOne({ id: new ObjectId(request.params.id) }, { $set: { views } })
+  await texts.updateOne({ slug: request.params.id }, { $set: { views } })
 
   //decorate the text with some extra properties
   text.timeAgo = timeAgo(text.publishAt)
@@ -123,7 +139,7 @@ async function getText(request, reply) {
   text.vocabularyCollection = produceVocabularyCollection(text)
 
   //send the text
-  text ? reply.code(200).send(text) : reply.notFound('The text was not found')
+  reply.code(200).send(text)
 }
 
 async function getTashkeel(request, reply) {

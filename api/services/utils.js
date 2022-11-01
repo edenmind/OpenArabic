@@ -94,9 +94,25 @@ const produceVocabularyCollection = (text) => {
   }
 }
 
+//generate a slug from an english title string and author name
+const slugifyWithAuthor = (title, author) => {
+  const titleSlug = title
+    .toLowerCase()
+    .replace(/[^\da-z]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
+  const authorSlug = author
+    .toLowerCase()
+    .replace(/[^\da-z]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
+  return `${titleSlug}-${authorSlug}`
+}
+
 module.exports = {
   produceVocabularyCollection,
   shuffleArray,
   timeAgo,
-  readingTime
+  readingTime,
+  slugifyWithAuthor
 }

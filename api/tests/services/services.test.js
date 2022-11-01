@@ -4,8 +4,18 @@
 
 'use strict'
 
-const { produceVocabularyCollection, timeAgo, readingTime } = require('../../services/utils')
+const { produceVocabularyCollection, timeAgo, readingTime, slugifyWithAuthor } = require('../../services/utils')
 const { test } = require('tap')
+
+test('should return correct slug from title and author', (t) => {
+  const title = 'The Adventures of Tom Sawyer'
+  const author = 'Mark Twain'
+  const slug = 'the-adventures-of-tom-sawyer-mark-twain'
+  const result = slugifyWithAuthor(title, author)
+
+  t.equal(result, slug)
+  t.end()
+})
 
 test('should return time ago from date', (t) => {
   //arrange
