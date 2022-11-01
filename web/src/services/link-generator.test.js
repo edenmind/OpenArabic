@@ -16,4 +16,11 @@ describe('generateLinkToPostOnFacebook', () => {
 
     expect(linkGenerator.generateLinkToPostOnFacebook(id)).toEqual(expectedLink)
   })
+
+  it('returns the correct link for facebook', () => {
+    const id = 'abc'
+    const expectedLink = `https://www.facebook.com/sharer/sharer.php?u=https://web.openarabic.io/texts/${id}`
+
+    expect(linkGenerator.generateLinkToPostOnFacebook(id)).toEqual(expectedLink)
+  })
 })
