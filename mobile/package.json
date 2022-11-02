@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.1",
+  "version": "1444.4.2",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -24,6 +24,7 @@
     "@bugsnag/expo": "^46.0.0",
     "@bugsnag/plugin-expo-eas-sourcemaps": "^46.0.1",
     "@bugsnag/source-maps": "^2.3.1",
+    "@react-native-async-storage/async-storage": "^1.17.10",
     "@react-native-community/netinfo": "9.3.0",
     "@react-navigation/drawer": "^6.5.0",
     "@react-navigation/material-bottom-tabs": "^6.2.4",
