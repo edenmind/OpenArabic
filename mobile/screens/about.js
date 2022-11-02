@@ -2,6 +2,7 @@ import { Button, Divider, List, Paragraph, Text, Title } from 'react-native-pape
 import { Linking, ScrollView, StyleSheet } from 'react-native'
 import COLORS from '../constants/colors.js'
 import React from 'react'
+import * as storage from '../services/storage.js'
 
 function About() {
   const style = StyleSheet.create({
@@ -28,6 +29,19 @@ function About() {
 
   return (
     <ScrollView style={style.english}>
+      <Button style={style.button} mode="contained" onPress={() => storage.storeData('language', 'ar')}>
+        <Text>Set</Text>
+      </Button>
+      <Button
+        style={style.button}
+        mode="contained"
+        onPress={async () => {
+          const language = await storage.getData('language')
+          console.log(language)
+        }}
+      >
+        <Text>Get</Text>
+      </Button>
       <Title style={style.english}>
         <Text>Audience</Text>
       </Title>
