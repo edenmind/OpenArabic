@@ -21,11 +21,17 @@ function About() {
     }
   })
 
+  // contact links
   const email = 'mailto:salam@edenmind.com?subject=Question&body=Enter your question...'
   const twitter = 'https://twitter.com/OpenArabicIo'
   const github = 'https://github.com/edenmind/OpenArabic'
   const facebook = 'https://www.facebook.com/OpenArabic.io'
   const instagram = 'https://www.instagram.com/OpenArabic.io'
+
+  // github links
+  const githubIssues = 'https://github.com/edenmind/OpenArabic/issues'
+  const githubPullRequests = 'https://github.com/edenmind/OpenArabic/pulls'
+  const githubDiscussions = 'https://github.com/edenmind/OpenArabic/discussions'
 
   return (
     <ScrollView style={style.english}>
@@ -80,6 +86,7 @@ function About() {
       <List.Item title="Ibn Kathīr" />
       <List.Item title="Ibn Ḥajar al-ʿAsqalānī" />
       <List.Item title="al-Fuḍayl ibn ʻIyāḍ" />
+      <Paragraph style={style.english} />
       <Title style={style.english}>
         <Text>Open Source</Text>
       </Title>
@@ -90,25 +97,35 @@ function About() {
           OpenArabic project on GitHub.
         </Text>
       </Paragraph>
+      <Button style={style.button} mode="contained" onPress={() => Linking.openURL(githubIssues)}>
+        <Text>Issues</Text>
+      </Button>
+      <Button style={style.button} mode="contained" onPress={() => Linking.openURL(githubDiscussions)}>
+        <Text>Discussions</Text>
+      </Button>
+      <Button style={style.button} mode="contained" onPress={() => Linking.openURL(githubPullRequests)}>
+        <Text>Pull Requests</Text>
+      </Button>
+      <Paragraph style={style.english} />
       <Title style={style.english}>
         <Text>Contact Us</Text>
       </Title>
       <Paragraph style={style.english}>
         <Text>Please use any of the following channels to report bugs or requests new features.</Text>
       </Paragraph>
-      <Button style={style.button} mode="outlined" testID="email" onPress={() => Linking.openURL(email)}>
+      <Button style={style.button} mode="contained" testID="email" onPress={() => Linking.openURL(email)}>
         <Text>Email</Text>
       </Button>
-      <Button style={style.button} mode="outlined" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+      <Button style={style.button} mode="contained" testID="twitter" onPress={() => Linking.openURL(twitter)}>
         <Text>Twitter</Text>
       </Button>
-      <Button style={style.button} mode="outlined" testID="github" onPress={() => Linking.openURL(github)}>
+      <Button style={style.button} mode="contained" testID="github" onPress={() => Linking.openURL(github)}>
         <Text>GitHub</Text>
       </Button>
-      <Button style={style.button} mode="outlined" testID="instagram" onPress={() => Linking.openURL(instagram)}>
+      <Button style={style.button} mode="contained" testID="instagram" onPress={() => Linking.openURL(instagram)}>
         <Text>Instagram</Text>
       </Button>
-      <Button style={style.button} mode="outlined" testID="facebook" onPress={() => Linking.openURL(facebook)}>
+      <Button style={style.button} mode="contained" testID="facebook" onPress={() => Linking.openURL(facebook)}>
         <Text>Facebook</Text>
       </Button>
       <Divider style={style.scroll} />

@@ -1581,6 +1581,47 @@ exports[`<About /> renders correctly 1`] = `
             {
               "color": "rgba(0, 0, 0, 0.87)",
               "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 14,
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
               "fontWeight": "500",
               "writingDirection": "ltr",
             },
@@ -1681,6 +1722,407 @@ exports[`<About /> renders correctly 1`] = `
         The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify, and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic project on GitHub.
       </Text>
     </Text>
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "#6200ee",
+          "borderColor": "transparent",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 0,
+          "elevation": 2,
+          "margin": 10,
+          "minWidth": 64,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0.75,
+            "width": 0,
+          },
+          "shadowOpacity": 0.24,
+          "shadowRadius": 1.5,
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            {
+              "borderRadius": 4,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "letterSpacing": 1,
+                    "marginHorizontal": 16,
+                    "marginVertical": 9,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  {
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  {
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Issues
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "#6200ee",
+          "borderColor": "transparent",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 0,
+          "elevation": 2,
+          "margin": 10,
+          "minWidth": 64,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0.75,
+            "width": 0,
+          },
+          "shadowOpacity": 0.24,
+          "shadowRadius": 1.5,
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            {
+              "borderRadius": 4,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "letterSpacing": 1,
+                    "marginHorizontal": 16,
+                    "marginVertical": 9,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  {
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  {
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Discussions
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "#6200ee",
+          "borderColor": "transparent",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 0,
+          "elevation": 2,
+          "margin": 10,
+          "minWidth": 64,
+          "shadowColor": "#000000",
+          "shadowOffset": {
+            "height": 0.75,
+            "width": 0,
+          },
+          "shadowOpacity": 0.24,
+          "shadowRadius": 1.5,
+        }
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            {
+              "borderRadius": 4,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "letterSpacing": 1,
+                    "marginHorizontal": 16,
+                    "marginVertical": 9,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  {
+                    "textTransform": "uppercase",
+                  },
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  {
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Pull Requests
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "writingDirection": "ltr",
+            },
+            [
+              {
+                "fontSize": 14,
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+                "marginVertical": 2,
+              },
+              {
+                "backgroundColor": "#fdfffd",
+                "direction": "ltr",
+                "flex": 1,
+                "lineHeight": 20,
+                "padding": 10,
+                "writingDirection": "ltr",
+              },
+            ],
+          ],
+        ]
+      }
+    />
     <Text
       style={
         [
@@ -1803,21 +2245,21 @@ exports[`<About /> renders correctly 1`] = `
       collapsable={false}
       style={
         {
-          "backgroundColor": "transparent",
-          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "backgroundColor": "#6200ee",
+          "borderColor": "transparent",
           "borderRadius": 4,
           "borderStyle": "solid",
-          "borderWidth": 0.5,
-          "elevation": 0,
+          "borderWidth": 0,
+          "elevation": 2,
           "margin": 10,
           "minWidth": 64,
           "shadowColor": "#000000",
           "shadowOffset": {
-            "height": 0,
+            "height": 0.75,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.24,
+          "shadowRadius": 1.5,
         }
       }
     >
@@ -1886,7 +2328,7 @@ exports[`<About /> renders correctly 1`] = `
                     "textTransform": "uppercase",
                   },
                   {
-                    "color": "#6200ee",
+                    "color": "#ffffff",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -1924,21 +2366,21 @@ exports[`<About /> renders correctly 1`] = `
       collapsable={false}
       style={
         {
-          "backgroundColor": "transparent",
-          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "backgroundColor": "#6200ee",
+          "borderColor": "transparent",
           "borderRadius": 4,
           "borderStyle": "solid",
-          "borderWidth": 0.5,
-          "elevation": 0,
+          "borderWidth": 0,
+          "elevation": 2,
           "margin": 10,
           "minWidth": 64,
           "shadowColor": "#000000",
           "shadowOffset": {
-            "height": 0,
+            "height": 0.75,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.24,
+          "shadowRadius": 1.5,
         }
       }
     >
@@ -2007,7 +2449,7 @@ exports[`<About /> renders correctly 1`] = `
                     "textTransform": "uppercase",
                   },
                   {
-                    "color": "#6200ee",
+                    "color": "#ffffff",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -2045,21 +2487,21 @@ exports[`<About /> renders correctly 1`] = `
       collapsable={false}
       style={
         {
-          "backgroundColor": "transparent",
-          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "backgroundColor": "#6200ee",
+          "borderColor": "transparent",
           "borderRadius": 4,
           "borderStyle": "solid",
-          "borderWidth": 0.5,
-          "elevation": 0,
+          "borderWidth": 0,
+          "elevation": 2,
           "margin": 10,
           "minWidth": 64,
           "shadowColor": "#000000",
           "shadowOffset": {
-            "height": 0,
+            "height": 0.75,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.24,
+          "shadowRadius": 1.5,
         }
       }
     >
@@ -2128,7 +2570,7 @@ exports[`<About /> renders correctly 1`] = `
                     "textTransform": "uppercase",
                   },
                   {
-                    "color": "#6200ee",
+                    "color": "#ffffff",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -2166,21 +2608,21 @@ exports[`<About /> renders correctly 1`] = `
       collapsable={false}
       style={
         {
-          "backgroundColor": "transparent",
-          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "backgroundColor": "#6200ee",
+          "borderColor": "transparent",
           "borderRadius": 4,
           "borderStyle": "solid",
-          "borderWidth": 0.5,
-          "elevation": 0,
+          "borderWidth": 0,
+          "elevation": 2,
           "margin": 10,
           "minWidth": 64,
           "shadowColor": "#000000",
           "shadowOffset": {
-            "height": 0,
+            "height": 0.75,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.24,
+          "shadowRadius": 1.5,
         }
       }
     >
@@ -2249,7 +2691,7 @@ exports[`<About /> renders correctly 1`] = `
                     "textTransform": "uppercase",
                   },
                   {
-                    "color": "#6200ee",
+                    "color": "#ffffff",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -2287,21 +2729,21 @@ exports[`<About /> renders correctly 1`] = `
       collapsable={false}
       style={
         {
-          "backgroundColor": "transparent",
-          "borderColor": "rgba(0, 0, 0, 0.29)",
+          "backgroundColor": "#6200ee",
+          "borderColor": "transparent",
           "borderRadius": 4,
           "borderStyle": "solid",
-          "borderWidth": 0.5,
-          "elevation": 0,
+          "borderWidth": 0,
+          "elevation": 2,
           "margin": 10,
           "minWidth": 64,
           "shadowColor": "#000000",
           "shadowOffset": {
-            "height": 0,
+            "height": 0.75,
             "width": 0,
           },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
+          "shadowOpacity": 0.24,
+          "shadowRadius": 1.5,
         }
       }
     >
@@ -2370,7 +2812,7 @@ exports[`<About /> renders correctly 1`] = `
                     "textTransform": "uppercase",
                   },
                   {
-                    "color": "#6200ee",
+                    "color": "#ffffff",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
