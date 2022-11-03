@@ -19,9 +19,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "color": "#000000",
-          "fontFamily": "System",
-          "fontWeight": "400",
+          "color": "rgba(28, 27, 31, 1)",
         },
         {
           "textAlign": "left",
@@ -31,9 +29,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
             "textAlign": "left",
           },
           {
-            "color": "rgba(0, 0, 0, 0.87)",
-            "fontFamily": "System",
-            "fontWeight": "500",
+            "color": "rgba(28, 27, 31, 0.87)",
             "writingDirection": "ltr",
           },
           [
@@ -58,9 +54,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "color": "#000000",
-          "fontFamily": "System",
-          "fontWeight": "400",
+          "color": "rgba(28, 27, 31, 1)",
         },
         {
           "textAlign": "left",
@@ -70,9 +64,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
             "textAlign": "left",
           },
           {
-            "color": "rgba(0, 0, 0, 0.87)",
-            "fontFamily": "System",
-            "fontWeight": "400",
+            "color": "rgba(28, 27, 31, 0.87)",
             "writingDirection": "ltr",
           },
           [
@@ -96,9 +88,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "color": "#000000",
-          "fontFamily": "System",
-          "fontWeight": "400",
+          "color": "rgba(28, 27, 31, 1)",
         },
         {
           "textAlign": "left",
@@ -108,9 +98,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
             "textAlign": "left",
           },
           {
-            "color": "rgba(0, 0, 0, 0.87)",
-            "fontFamily": "System",
-            "fontWeight": "400",
+            "color": "rgba(28, 27, 31, 0.87)",
             "writingDirection": "ltr",
           },
           [
@@ -136,9 +124,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "color": "#000000",
-          "fontFamily": "System",
-          "fontWeight": "400",
+          "color": "rgba(28, 27, 31, 1)",
         },
         {
           "textAlign": "left",
@@ -148,9 +134,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
             "textAlign": "left",
           },
           {
-            "color": "rgba(0, 0, 0, 0.54)",
-            "fontFamily": "System",
-            "fontWeight": "400",
+            "color": "rgba(28, 27, 31, 0.54)",
             "writingDirection": "ltr",
           },
           [

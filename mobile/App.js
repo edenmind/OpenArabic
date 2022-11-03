@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/filename-case */
 import Bugsnag from '@bugsnag/expo'
 import ErrorBoundary from 'react-native-error-boundary'
-import PAPERTHEME from './constants/paper-theme.js'
+import { CombinedDarkTheme } from './constants/paper-theme.js'
 import { Provider as PaperProvider } from 'react-native-paper'
 import { Provider } from 'react-redux'
 import React from 'react'
@@ -16,7 +16,7 @@ export default function App() {
   return (
     <ErrorBoundary>
       <Provider store={store}>
-        <PaperProvider theme={PAPERTHEME}>
+        <PaperProvider theme={CombinedDarkTheme}>
           <Root />
         </PaperProvider>
       </Provider>

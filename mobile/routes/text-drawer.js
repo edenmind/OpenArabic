@@ -3,13 +3,13 @@ import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '
 import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import COLORS from '../constants/colors.js'
 import SCREENS from '../constants/screens.js'
 import TextList from '../screens/text-list.js'
 import { getCategories } from '../services/api-service.js'
 import icon from '../assets/logo.png'
 import packageJson from '../package.json'
 import { useFocusEffect } from '@react-navigation/core'
+import COLORS from '../constants/colors.js'
 
 const selector = (state) => state.categories
 
@@ -37,7 +37,6 @@ export default function TextDrawer() {
     },
     version: {
       bottom: 15,
-      color: COLORS.darkOlive,
       left: 0,
       margin: 16,
       position: 'absolute'
@@ -99,14 +98,9 @@ export default function TextDrawer() {
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
         drawerStyle: {
-          width: 175
+          width: 200
         },
-        headerStyle: {
-          backgroundColor: COLORS.shinyOlive
-        },
-        headerTintColor: COLORS.darkOlive,
-        drawerActiveTintColor: COLORS.lightOlive,
-        drawerActiveBackgroundColor: COLORS.darkOlive
+        headerTintColor: 'rgb(230, 226, 217)'
       }}
     >
       {homeScreen}

@@ -1,14 +1,13 @@
 import { Button, Modal, Portal, Text, Title } from 'react-native-paper'
-import COLORS from '../constants/colors.js'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ScrollView } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native'
 
 const ModalScrollView = (props) => {
   const containerStyle = {
-    backgroundColor: COLORS.shinyOlive,
     margin: 20,
-    padding: 20
+    padding: 20,
+    backgroundColor: 'black'
   }
 
   const buttonPadding = {
@@ -22,7 +21,7 @@ const ModalScrollView = (props) => {
       <Modal visible={props.visible} onDismiss={props.hideModal} contentContainerStyle={containerStyle}>
         <Title>{props.title}</Title>
         <ScrollView>{props.content}</ScrollView>
-        <Button onPress={props.hideModal} style={buttonPadding}>
+        <Button onPress={props.hideModal} style={buttonPadding} mode="text">
           <Text>Close</Text>
         </Button>
       </Modal>

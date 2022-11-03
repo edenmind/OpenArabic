@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import COLORS from '../constants/colors.js'
 import PropTypes from 'prop-types'
 import Quiz from '../screens/text-quiz.js'
 import SCREENS from '../constants/screens.js'
@@ -46,8 +45,6 @@ export default function TextTabs({ route }) {
       <Tab.Navigator
         style={style.tabs}
         screenOptions={{
-          tabBarActiveTintColor: COLORS.darkOlive,
-          tabBarInactiveTintColor: COLORS.branch,
           tabBarLabelStyle: {
             fontSize: 13,
             fontWeight: 'bold',

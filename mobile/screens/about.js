@@ -1,6 +1,5 @@
-import { Button, Divider, List, Paragraph, Text, Title } from 'react-native-paper'
+import { Button, List, Paragraph, Title } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet } from 'react-native'
-import COLORS from '../constants/colors.js'
 import React from 'react'
 import * as storage from '../services/storage.js'
 
@@ -8,16 +7,11 @@ function About() {
   const style = StyleSheet.create({
     button: { margin: 10 },
     english: {
-      backgroundColor: COLORS.shinyOlive,
       direction: 'ltr',
       flex: 1,
       lineHeight: 20,
       padding: 10,
       writingDirection: 'ltr'
-    },
-    scroll: {
-      backgroundColor: COLORS.shinyOlive,
-      paddingBottom: 25
     }
   })
 
@@ -35,43 +29,33 @@ function About() {
 
   return (
     <ScrollView style={style.english}>
-      <Button style={style.button} mode="contained" onPress={() => storage.storeData('language', 'ar')}>
-        <Text>Set</Text>
+      <Button style={style.button} mode="contained-tonal" onPress={() => storage.storeData('language', 'ar')}>
+        Set
       </Button>
       <Button
         style={style.button}
-        mode="contained"
+        mode="contained-tonal"
         onPress={async () => {
           const language = await storage.getData('language')
           console.log(language)
         }}
       >
-        <Text>Get</Text>
+        Get
       </Button>
-      <Title style={style.english}>
-        <Text>Audience</Text>
-      </Title>
+      <Title style={style.english}>Audience</Title>
       <Paragraph style={style.english}>
-        <Text>
-          If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
-          OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
-          in that process, inshāʾAllāh.
-        </Text>
+        If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
+        OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
+        in that process, inshāʾAllāh.
       </Paragraph>
       <Paragraph style={style.english}>
-        <Text>
-          OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started,
-          then the Duolingo app available on iPhone and Android might come in handy.
-        </Text>
+        OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started,
+        then the Duolingo app available on iPhone and Android might come in handy.
       </Paragraph>
-      <Title style={style.english}>
-        <Text>Foundation</Text>
-      </Title>
+      <Title style={style.english}>Foundation</Title>
       <Paragraph style={style.english}>
-        <Text>
-          The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first
-          generations of Muslims understanding with texts from Islamic Scholars such as:
-        </Text>
+        The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first
+        generations of Muslims understanding with texts from Islamic Scholars such as:
       </Paragraph>
       <List.Item title="al-Hasan al-Basri" />
       <List.Item title="Imām Abū Ḥanīfa" />
@@ -87,48 +71,41 @@ function About() {
       <List.Item title="Ibn Ḥajar al-ʿAsqalānī" />
       <List.Item title="al-Fuḍayl ibn ʻIyāḍ" />
       <Paragraph style={style.english} />
-      <Title style={style.english}>
-        <Text>Open Source</Text>
-      </Title>
+      <Title style={style.english}>Open Source</Title>
       <Paragraph style={style.english}>
-        <Text>
-          The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS,
-          Fastify, and Kubernetes. If you are interested in helping out with the development, then please check out the
-          OpenArabic project on GitHub.
-        </Text>
+        The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify,
+        and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic
+        project on GitHub.
       </Paragraph>
-      <Button style={style.button} mode="contained" onPress={() => Linking.openURL(githubIssues)}>
-        <Text>Issues</Text>
+      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubIssues)}>
+        Issues
       </Button>
-      <Button style={style.button} mode="contained" onPress={() => Linking.openURL(githubDiscussions)}>
-        <Text>Discussions</Text>
+      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubDiscussions)}>
+        Discussions
       </Button>
-      <Button style={style.button} mode="contained" onPress={() => Linking.openURL(githubPullRequests)}>
-        <Text>Pull Requests</Text>
+      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubPullRequests)}>
+        Pull Requests
       </Button>
       <Paragraph style={style.english} />
-      <Title style={style.english}>
-        <Text>Contact Us</Text>
-      </Title>
+      <Title style={style.english}>Contact Us</Title>
       <Paragraph style={style.english}>
-        <Text>Please use any of the following channels to report bugs or requests new features.</Text>
+        Please use any of the following channels to report bugs or requests new features.
       </Paragraph>
-      <Button style={style.button} mode="contained" testID="email" onPress={() => Linking.openURL(email)}>
-        <Text>Email</Text>
+      <Button style={style.button} mode="contained-tonal" testID="email" onPress={() => Linking.openURL(email)}>
+        Email
       </Button>
-      <Button style={style.button} mode="contained" testID="twitter" onPress={() => Linking.openURL(twitter)}>
-        <Text>Twitter</Text>
+      <Button style={style.button} mode="contained-tonal" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+        Twitter
       </Button>
-      <Button style={style.button} mode="contained" testID="github" onPress={() => Linking.openURL(github)}>
-        <Text>GitHub</Text>
+      <Button style={style.button} mode="contained-tonal" testID="github" onPress={() => Linking.openURL(github)}>
+        GitHub
       </Button>
-      <Button style={style.button} mode="contained" testID="instagram" onPress={() => Linking.openURL(instagram)}>
-        <Text>Instagram</Text>
+      <Button style={style.button} mode="contained-tonal" testID="instagram" onPress={() => Linking.openURL(instagram)}>
+        Instagram
       </Button>
-      <Button style={style.button} mode="contained" testID="facebook" onPress={() => Linking.openURL(facebook)}>
-        <Text>Facebook</Text>
+      <Button style={style.button} mode="contained-tonal" testID="facebook" onPress={() => Linking.openURL(facebook)}>
+        Facebook
       </Button>
-      <Divider style={style.scroll} />
     </ScrollView>
   )
 }

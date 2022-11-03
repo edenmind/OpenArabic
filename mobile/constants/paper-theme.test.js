@@ -1,6 +1,9 @@
-import PAPERTHEME from './paper-theme.js'
+import { CombinedDarkTheme } from './paper-theme.js'
 import { expect, it } from '@jest/globals'
 
-it('white should be correct', () => {
-  expect(PAPERTHEME.colors).toBeTruthy()
+it('should have a CombinedDarkTheme', () => {
+  expect(CombinedDarkTheme).toBeDefined()
+})
+it('should have a CombinedDarkTheme.colors', () => {
+  expect(CombinedDarkTheme.colors).toBeDefined()
 })

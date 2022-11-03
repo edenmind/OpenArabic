@@ -1,8 +1,6 @@
 /* eslint-disable putout/objects-braces-inside-array */
 import { describe, it, jest } from '@jest/globals'
-
 import TextList from './text-list.js'
-import NAVIGATIONTHEME from '../constants/navigation-theme.js'
 import { NavigationContainer } from '@react-navigation/native'
 import { Provider } from 'react-redux'
 import React from 'react'
@@ -78,7 +76,7 @@ describe('<Category />', () => {
     const renderer = new ShallowRenderer()
     const tree = renderer.render(
       <Provider store={store}>
-        <NavigationContainer theme={NAVIGATIONTHEME}>
+        <NavigationContainer>
           <TextList />
         </NavigationContainer>
       </Provider>

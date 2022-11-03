@@ -2,7 +2,6 @@ import * as util from '../services/utility-service.js'
 import { Button, Text } from 'react-native-paper'
 import React, { Fragment } from 'react'
 import { StyleSheet, View } from 'react-native'
-import COLORS from '../constants/colors.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import PropTypes from 'prop-types'
 import WordPairs from './text-bilingual-sentences-word-pairs.js'
@@ -34,9 +33,6 @@ const style = StyleSheet.create({
     paddingLeft: 100,
     paddingRight: 100,
     paddingTop: 15
-  },
-  showWordsText: {
-    color: COLORS.darkGrey
   }
 })
 
