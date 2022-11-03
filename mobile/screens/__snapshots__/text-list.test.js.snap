@@ -24,20 +24,7 @@ exports[`<Category /> renders correctly 1`] = `
     }
   }
 >
-  <ForwardRef(NavigationContainerInner)
-    theme={
-      {
-        "colors": {
-          "background": "#fdfffd",
-          "border": "#a4cfbe",
-          "card": "#fdfffd",
-          "notification": "#3e423a",
-          "primary": "#a4cfbe",
-          "text": "#3e423a",
-        },
-      }
-    }
-  >
+  <ForwardRef(NavigationContainerInner)>
     <TextList />
   </ForwardRef(NavigationContainerInner)>
 </Context.Provider>

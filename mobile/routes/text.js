@@ -1,6 +1,5 @@
 import { ENDPOINT, HOST } from '../constants/urls.js'
 import { Button } from 'react-native-paper'
-import COLORS from '../constants/colors.js'
 import React, { Fragment } from 'react'
 import SCREENS from '../constants/screens.js'
 import { Share } from 'react-native'
@@ -48,17 +47,15 @@ export default function Text() {
         component={defaultExport}
         options={{
           headerShown: true,
-          headerTintColor: COLORS.darkOlive,
           title: text.title,
+
           headerBackTitle: text.category,
           headerTitle: UI.null,
-          headerStyle: {
-            backgroundColor: COLORS.shinyOlive
-          },
+
           headerRight: () => (
             <Fragment>
-              <Button icon="bug" mode="text" color={COLORS.darkOlive} onPress={onErrorReport} />
-              <Button icon="export-variant" mode="text" color={COLORS.darkOlive} onPress={onShare} />
+              <Button icon="bug" mode="text" onPress={onErrorReport} />
+              <Button icon="export-variant" mode="text" onPress={onShare} />
             </Fragment>
           )
         }}

@@ -2,108 +2,158 @@
 
 exports[`<SnackButton /> renders correctly 1`] = `
 <View
-  backgroundColor="#a4cfbe"
   collapsable={false}
   style={
     {
-      "backgroundColor": "#a4cfbe",
-      "borderColor": "#a4cfbe",
-      "borderRadius": 16,
-      "borderStyle": "solid",
-      "borderWidth": 0.5,
-      "direction": "ltr",
-      "elevation": 0,
-      "flexDirection": "column",
-      "height": 50,
-      "margin": 15,
+      "alignSelf": undefined,
+      "bottom": undefined,
+      "left": undefined,
+      "position": undefined,
+      "right": undefined,
+      "shadowColor": "#000",
+      "shadowOffset": {
+        "height": 0,
+        "width": 0,
+      },
+      "shadowOpacity": 0,
+      "shadowRadius": 0,
+      "top": undefined,
     }
   }
 >
   <View
-    accessibilityRole="button"
-    accessibilityState={
-      {
-        "disabled": false,
-        "selected": false,
-      }
-    }
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+    collapsable={false}
     style={
-      [
-        {
-          "overflow": "hidden",
+      {
+        "shadowColor": "#000",
+        "shadowOffset": {
+          "height": 0,
+          "width": 0,
         },
-        [
-          {
-            "borderRadius": 16,
-          },
-          {
-            "flexGrow": 1,
-          },
-        ],
-      ]
+        "shadowOpacity": 0,
+        "shadowRadius": 0,
+      }
     }
   >
     <View
+      collapsable={false}
       style={
-        [
-          {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "flexGrow": 1,
-            "paddingLeft": 4,
-            "position": "relative",
-          },
-          {
-            "paddingRight": 4,
-          },
-        ]
+        {
+          "backgroundColor": "rgba(232, 222, 248, 1)",
+          "borderColor": "rgba(121, 116, 126, 1)",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "borderWidth": 0,
+          "direction": "ltr",
+          "flexDirection": "column",
+          "height": 50,
+          "margin": 15,
+        }
       }
     >
-      <Text
-        numberOfLines={1}
-        selectable={false}
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+            "selected": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           [
             {
-              "color": "#000000",
-              "fontFamily": "System",
-              "fontWeight": "400",
+              "overflow": "hidden",
             },
-            {
-              "textAlign": "left",
-            },
+            false,
             [
               {
-                "lineHeight": 24,
-                "marginVertical": 4,
-                "minHeight": 24,
-                "textAlignVertical": "center",
+                "borderRadius": 8,
               },
               {
-                "color": "rgba(0, 0, 0, 0.87)",
-                "fontFamily": "System",
-                "fontWeight": "400",
-                "marginLeft": 8,
-                "marginRight": 8,
-              },
-              {
-                "fontSize": 16,
+                "flexGrow": 1,
               },
             ],
           ]
         }
       >
-        abc
-      </Text>
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "flexGrow": 1,
+                "paddingLeft": 4,
+                "position": "relative",
+              },
+              {
+                "paddingLeft": 0,
+              },
+              {
+                "paddingRight": 0,
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.1,
+                  "lineHeight": 20,
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "writingDirection": "ltr",
+                },
+                [
+                  {
+                    "marginVertical": 6,
+                    "textAlignVertical": "center",
+                  },
+                  {
+                    "color": "rgba(29, 25, 43, 1)",
+                    "fontFamily": "System",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 0.1,
+                    "lineHeight": 20,
+                  },
+                  {
+                    "marginLeft": 16,
+                    "marginRight": 16,
+                  },
+                  {
+                    "fontSize": 16,
+                  },
+                ],
+              ]
+            }
+          >
+            abc
+          </Text>
+        </View>
+      </View>
     </View>
   </View>
 </View>

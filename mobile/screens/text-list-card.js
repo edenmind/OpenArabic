@@ -1,6 +1,5 @@
-import * as utility from '../services/utility-service.js'
-import { Caption, Card, Paragraph, Text } from 'react-native-paper'
-import COLORS from '../constants/colors.js'
+import { truncate, removeLineBreak, addSpaceAfterDot } from '../services/utility-service.js'
+import { Caption, Card, Paragraph } from 'react-native-paper'
 import PressableOpacity from '../components/pressable-opacity.js'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -15,7 +14,6 @@ const style = StyleSheet.create({
     writingDirection: 'rtl'
   },
   card: {
-    backgroundColor: COLORS.shinyOlive,
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
@@ -29,10 +27,10 @@ const style = StyleSheet.create({
 })
 
 const prepareIngress = (text, length) => {
-  const noLineBreaks = utility.removeLineBreak(text)
-  const spaceAfterDot = utility.addSpaceAfterDot(noLineBreaks)
+  const noLineBreaks = removeLineBreak(text)
+  const spaceAfterDot = addSpaceAfterDot(noLineBreaks)
 
-  return utility.truncate(spaceAfterDot, length)
+  return truncate(spaceAfterDot, length)
 }
 
 export default function CategoryCard(props) {
