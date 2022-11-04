@@ -89,23 +89,23 @@ const updateTextOptions = {
         source: { type: 'string', minLength: 5, maxLength: 50 },
         sentences: {
           type: 'array',
-          minItems: 3,
+          minItems: 1,
           items: {
             type: 'object',
             required: ['arabic', 'english', 'words'],
             properties: {
-              arabic: { type: 'string', minLength: 5, maxLength: 100 },
-              english: { type: 'string', minLength: 5, maxLength: 100 },
+              arabic: { type: 'string', minLength: 1, maxLength: 500 },
+              english: { type: 'string', minLength: 1, maxLength: 500 },
               words: {
                 type: 'array',
-                minItems: 3,
+                minItems: 1,
                 items: {
                   type: 'object',
                   required: ['arabic', 'english'],
                   properties: {
                     quiz: { type: 'boolean' },
-                    arabic: { type: 'string', minLength: 1, maxLength: 30 },
-                    english: { type: 'string', minLength: 1, maxLength: 30 }
+                    arabic: { type: 'string', minLength: 1, maxLength: 50 },
+                    english: { type: 'string', minLength: 1, maxLength: 50 }
                   }
                 }
               }
@@ -149,23 +149,23 @@ const postTextOptions = {
         source: { type: 'string', minLength: 5, maxLength: 50 },
         sentences: {
           type: 'array',
-          minItems: 3,
+          minItems: 1,
           items: {
             type: 'object',
             required: ['arabic', 'english', 'words'],
             properties: {
-              arabic: { type: 'string', minLength: 5, maxLength: 100 },
-              english: { type: 'string', minLength: 5, maxLength: 100 },
+              arabic: { type: 'string', minLength: 1, maxLength: 500 },
+              english: { type: 'string', minLength: 1, maxLength: 500 },
               words: {
                 type: 'array',
-                minItems: 3,
+                minItems: 1,
                 items: {
                   type: 'object',
                   required: ['arabic', 'english'],
                   properties: {
                     quiz: { type: 'boolean' },
-                    arabic: { type: 'string', minLength: 1, maxLength: 30 },
-                    english: { type: 'string', minLength: 1, maxLength: 30 }
+                    arabic: { type: 'string', minLength: 1, maxLength: 50 },
+                    english: { type: 'string', minLength: 1, maxLength: 50 }
                   }
                 }
               }
