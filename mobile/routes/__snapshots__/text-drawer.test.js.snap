@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Category /> renders correctly 1`] = `
+exports[`<TextDrawer /> matches snapshot 1`] = `
 <Context.Provider
   value={
     {
@@ -25,9 +25,7 @@ exports[`<Category /> renders correctly 1`] = `
   }
 >
   <ForwardRef(NavigationContainerInner)>
-    <TextList
-      route="All"
-    />
+    <TextDrawer />
   </ForwardRef(NavigationContainerInner)>
 </Context.Provider>
 `;

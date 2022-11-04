@@ -10,7 +10,8 @@ describe('<TextBilingualHeading />', () => {
     title: 'title',
     author: 'author',
     source: 'source',
-    image: 'image'
+    image: 'image',
+    readingTime: '5 min read'
   }
   it('renders correctly', () => {
     const tree = renderer.create(<TextBilingualHeading heading={propsMock} />).toJSON()

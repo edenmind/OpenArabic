@@ -77,7 +77,7 @@ describe('<Category />', () => {
     const tree = renderer.render(
       <Provider store={store}>
         <NavigationContainer>
-          <TextList />
+          <TextList route={'All'} />
         </NavigationContainer>
       </Provider>
     )

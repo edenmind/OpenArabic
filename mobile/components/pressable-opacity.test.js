@@ -10,4 +10,12 @@ describe('<ModalScrollView />', () => {
     const renderer = new ShallowRenderer()
     renderer.render(<PressableOpacity />)
   })
+
+  it('make suare that fadeIn is called when onPressIn if executed', () => {
+    const renderer = new ShallowRenderer()
+    const component = renderer.render(<PressableOpacity />)
+
+    component.props.onPressIn()
+    component.props.onPressOut()
+  })
 })

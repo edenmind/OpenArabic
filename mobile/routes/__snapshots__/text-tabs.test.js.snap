@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Category /> renders correctly 1`] = `
+exports[`<TextTabs /> when isLoading is true, should match snapshot 1`] = `
 <Context.Provider
   value={
     {
@@ -25,8 +25,14 @@ exports[`<Category /> renders correctly 1`] = `
   }
 >
   <ForwardRef(NavigationContainerInner)>
-    <TextList
-      route="All"
+    <TextTabs
+      route={
+        {
+          "params": {
+            "id": "1",
+          },
+        }
+      }
     />
   </ForwardRef(NavigationContainerInner)>
 </Context.Provider>

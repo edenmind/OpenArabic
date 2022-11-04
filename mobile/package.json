@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.7",
+  "version": "1444.4.8",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -15,7 +15,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "JEST=true jest --bail=1",
+    "test": "JEST=true jest --bail=1 --collectCoverage=true --coverage --coverageReporters=text",
     "test-commit": "JEST=true jest --bail=1 --onlyChanged",
     "test-update": "jest -u",
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"

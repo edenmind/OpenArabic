@@ -20,4 +20,20 @@ describe('<TextDrawer />', () => {
       </Provider>
     )
   })
+
+  it('matches snapshot', () => {
+    // @ts-ignore
+    const renderer = new ShallowRenderer()
+    renderer.render(
+      <Provider store={store}>
+        <NavigationContainer>
+          <TextDrawer />
+        </NavigationContainer>
+      </Provider>
+    )
+
+    const result = renderer.getRenderOutput()
+
+    expect(result).toMatchSnapshot()
+  })
 })
