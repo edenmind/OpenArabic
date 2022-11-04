@@ -152,6 +152,8 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
         ],
       ]
     }
-  />,
+  >
+    5 min read
+  </Text>,
 ]
 `;
