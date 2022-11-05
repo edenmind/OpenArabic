@@ -84,6 +84,10 @@ jobs:
           tags: registry.digitalocean.com/openarabic/web:${{ steps.prep.outputs.BUILD_ID }}
           context: ./web
           push: true
+          build-args: |
+            REACT_APP_API_URL: 'https://backend.openarabic.io'
+            REACT_APP_KEY: {{ secrets.REACT_APP_KEY }}
+            REACT_APP_GOOGLE_API_KEY: {{ secrets.REACT_APP_GOOGLE_API_KEY }}
 
       - name: 🔎  Replace SHA Tag for Containers and Helm Chart
         uses: cschleiden/replace-tokens@v1

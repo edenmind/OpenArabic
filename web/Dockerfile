@@ -2,7 +2,9 @@
 FROM node:lts-alpine AS BUILD
 
 ENV NODE_ENV=production
-ENV REACT_APP_API_URL=https://backend.openarabic.io
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+ENV REACT_APP_KEY=$REACT_APP_KEY
+ENV REACT_APP_GOOGLE_API_KEY=$REACT_APP_GOOGLE_API_KEY
 
 WORKDIR /usr/src/app
 COPY ["package.json", "yarn.lock", "./"]
