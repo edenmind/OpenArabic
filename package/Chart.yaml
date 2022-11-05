@@ -2,4 +2,12 @@ name: open-arabic-helm
 description: A Helm Chart for OpenArabic
 version: 1444.0.21
 apiVersion: v2
+type: application
+home: https://openarabic.io
 icon: https://raw.githubusercontent.com/edenmind/OpenArabic/main/web/public/logo512.png
+maintainers: # (optional)
+  - name: Yunus Andreasson
+    email: yunus@edenmind.com
+    url: https://andreassonphoto.com
+sources:
+  - https://github.com/edenmind/OpenArabic
