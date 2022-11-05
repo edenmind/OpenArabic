@@ -2,17 +2,17 @@
 FROM node:lts-alpine AS BUILD
 
 ARG REACT_APP_API_KEY
-ARG REACT_APP_GOOGLE_API_KEY
 ARG REACT_APP_API_URL
+ARG REACT_APP_GOOGLE_API_KEY
 
 ENV NODE_ENV=production
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
-ENV REACT_APP_KEY=$REACT_APP_KEY
 ENV REACT_APP_GOOGLE_API_KEY=$REACT_APP_GOOGLE_API_KEY
+ENV REACT_APP_KEY=$REACT_APP_KEY
 
 WORKDIR /usr/src/app
 COPY ["package.json", "yarn.lock", "./"]
-RUN yarn install --production && mv node_modules ../
+RUN yarn install && mv node_modules ../
 COPY . .
 RUN ../node_modules/.bin/react-scripts build
 
