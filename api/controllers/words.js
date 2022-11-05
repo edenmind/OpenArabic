@@ -12,14 +12,14 @@ async function addWord(request, reply) {
   const translatedWordArabicContainsEmptyValues = Object.values(word.arabic).includes('')
 
   if (translatedWordEnglishContainsEmptyValues || translatedWordArabicContainsEmptyValues) {
-    reply.code(400).send({ message: 'Arabic or English word is empty!', state: 'error' })
+    return reply.code(400).send({ message: 'Arabic or English word is empty!', state: 'error' })
   }
 
   // Check that the word does not already exist
   const wordAlreadyExists = await words.findOne({ arabic: word.arabic })
 
   if (wordAlreadyExists) {
-    reply.code(409).send({ message: 'Word already exists!', state: 'error' })
+    return reply.code(409).send({ message: 'Word already exists!', state: 'error' })
   }
 
   //ad an id to the word
@@ -31,9 +31,9 @@ async function addWord(request, reply) {
   //Add Word to database
   try {
     await words.insertOne(wordWithId)
-    reply.code(201).send({ message: 'Word added successfully!', state: 'success' })
+    return reply.code(201).send({ message: 'Word added successfully!', state: 'success' })
   } catch (error) {
-    reply.code(500).send({ message: `Something went wrong with error ${error}`, state: 'error' })
+    return reply.code(500).send({ message: `Something went wrong with error ${error}`, state: 'error' })
   }
 }
 
@@ -43,10 +43,10 @@ async function getWord(request, reply) {
   const word = await words.findOne({ id: new ObjectId(id) })
 
   if (word) {
-    reply.code(200).send(word)
-  } else {
-    reply.code(404).send({ message: 'Word not found!', state: 'error' })
+    return reply.code(200).send(word)
   }
+
+  return reply.code(404).send({ message: 'Word not found!', state: 'error' })
 }
 
 async function getWordTranslation(request, reply) {
@@ -55,10 +55,10 @@ async function getWordTranslation(request, reply) {
   const word = await words.findOne({ arabic: id })
 
   if (word) {
-    reply.code(200).send(word.english)
-  } else {
-    reply.code(404).send({ message: 'Word not found!', state: 'error' })
+    return reply.code(200).send(word.english)
   }
+
+  return reply.code(404).send({ message: 'Word not found!', state: 'error' })
 }
 
 async function getWords(request, reply) {
@@ -66,10 +66,10 @@ async function getWords(request, reply) {
   const allWords = await words.find({}).toArray()
 
   if (allWords) {
-    reply.code(200).send(allWords)
-  } else {
-    reply.code(404).send({ message: 'No words found!', state: 'error' })
+    return reply.code(200).send(allWords)
   }
+
+  return reply.code(404).send({ message: 'No words found!', state: 'error' })
 }
 
 async function deleteWord(request, reply) {

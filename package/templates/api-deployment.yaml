@@ -39,6 +39,11 @@ spec:
                 secretKeyRef:
                   name: api-config
                   key: IMAGES_URL
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: API_KEY
           resources:
             limits:
               memory: 512Mi

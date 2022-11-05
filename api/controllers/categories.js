@@ -10,10 +10,10 @@ async function listCategories(request, reply) {
   const categoriesOrderedByLevel = result.sort((a, b) => a.level - b.level)
 
   if (result.length > 0) {
-    reply.code(200).send(categoriesOrderedByLevel)
-  } else {
-    reply.code(404).send('No categories found!')
+    return reply.code(200).send(categoriesOrderedByLevel)
   }
+
+  return reply.code(404).send('No categories found!')
 }
 
 async function addCategory(request, reply) {
@@ -21,7 +21,7 @@ async function addCategory(request, reply) {
   const { auth } = headers
 
   if (auth !== process.env.API_KEY) {
-    reply.code(403).send('Not authorized!')
+    return reply.code(403).send('Not authorized!')
   }
 
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
@@ -52,7 +52,7 @@ async function updateCategory(request, reply) {
   const { id } = params
 
   if (auth !== process.env.API_KEY) {
-    reply.code(403).send('Not authorized!')
+    return reply.code(403).send('Not authorized!')
   }
 
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
@@ -74,7 +74,7 @@ async function deleteCategory(request, reply) {
   const { auth } = request.headers
 
   if (auth !== process.env.API_KEY) {
-    reply.code(403).send('Not authorized!')
+    return reply.code(403).send('Not authorized!')
   }
 
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)

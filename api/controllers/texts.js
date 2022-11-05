@@ -22,10 +22,10 @@ async function listTexts(request, reply) {
 
   //send the texts
   if (textListWithProperties.length > 0) {
-    reply.code(200).send(textListWithProperties)
-  } else {
-    reply.code(404).send('No texts found!')
+    return reply.code(200).send(textListWithProperties)
   }
+
+  return reply.code(404).send('No texts found!')
 }
 
 async function listTextsWithId(request, reply) {
@@ -45,10 +45,10 @@ async function listTextsWithId(request, reply) {
 
   //send the texts
   if (textListWithProperties.length > 0) {
-    reply.code(200).send(textListWithProperties)
-  } else {
-    reply.code(404).send('No texts found!')
+    return reply.code(200).send(textListWithProperties)
   }
+
+  return reply.code(404).send('No texts found!')
 }
 
 async function addText(request, reply) {
@@ -59,7 +59,7 @@ async function addText(request, reply) {
 
   //check if the user is authorized
   if (auth !== process.env.API_KEY) {
-    reply.code(403).send('Not authorized!')
+    return reply.code(403).send('Not authorized!')
   }
 
   //prepare the data to be inserted into the database
@@ -88,7 +88,7 @@ async function addText(request, reply) {
   const dataContainsEmptyValues = Object.values(data).some((value) => value.length === 0)
 
   if (dataContainsEmptyValues) {
-    reply.internalServerError('One or more values are empty!')
+    return reply.internalServerError('One or more values are empty!')
   }
 
   // check that at lest 15 words in sentences words has property quiz set to true
@@ -98,15 +98,17 @@ async function addText(request, reply) {
   const sentencesWordsFlatQuizTrueLength = sentencesWordsFlatQuizTrue.length
 
   if (sentencesWordsFlatQuizTrueLength < 15) {
-    reply.internalServerError('At least 15 words in then sentences words must must have property quiz set to true!')
+    return reply.internalServerError(
+      'At least 15 words in then sentences words must must have property quiz set to true!'
+    )
   }
 
   //try to insert the data
   try {
     await textsCollection.insertOne(data)
-    reply.code(201).send(id)
+    return reply.code(201).send(id)
   } catch (error) {
-    reply.internalServerError(error)
+    return reply.internalServerError(error)
   }
 }
 
@@ -126,7 +128,7 @@ async function getText(request, reply) {
 
   //if the text is null or undefined, send a 404
   if (!text) {
-    reply.code(404).send('Text not found!')
+    return reply.code(404).send('Text not found!')
   }
 
   //update property "views" in the text
@@ -158,7 +160,7 @@ async function updateText(request, reply) {
 
   //check if the user is authorized
   if (auth !== process.env.API_KEY) {
-    reply.code(403).send('Not authorized!')
+    return reply.code(403).send('Not authorized!')
   }
 
   //prepare the data to be inserted into the database
@@ -188,7 +190,7 @@ async function updateText(request, reply) {
   const dataContainsEmptyValues = Object.values(data).some((value) => value.length === 0)
 
   if (dataContainsEmptyValues) {
-    reply.internalServerError('One or more values are empty!')
+    return reply.internalServerError('One or more values are empty!')
   }
 
   //try to update the data
@@ -208,7 +210,7 @@ async function deleteText(request, reply) {
 
   //check if the user is authorized
   if (auth !== process.env.API_KEY) {
-    reply.code(403).send('Not authorized!')
+    return reply.code(403).send('Not authorized!')
   }
 
   //delete the text from the database
