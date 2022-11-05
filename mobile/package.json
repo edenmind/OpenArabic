@@ -15,8 +15,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "JEST=true jest --bail=1 --collectCoverage=true --coverage --coverageReporters=text",
+    "test": "JEST=true jest --bail=1",
     "test-commit": "JEST=true jest --bail=1 --onlyChanged",
+    "test-local": "JEST=true jest --bail=1 --collectCoverage=true --coverage --coverageReporters=text",
     "test-update": "jest -u",
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
