@@ -176,7 +176,7 @@ exports[`<Root /> screen with name "Texts" should match snapshot 1`] = `
   <MaterialBottomTabNavigator
     barStyle={
       {
-        "height": 55,
+        "height": 75,
       }
     }
   >
