@@ -29,19 +29,6 @@ function About() {
 
   return (
     <ScrollView style={style.english}>
-      {/* <Button style={style.button} mode="contained-tonal" onPress={() => storage.storeData('language', 'ar')}>
-        Set
-      </Button>
-      <Button
-        style={style.button}
-        mode="contained-tonal"
-        onPress={async () => {
-          const language = await storage.getData('language')
-          console.log(language)
-        }}
-      >
-        Get
-      </Button> */}
       <Title style={style.english}>Contact Us</Title>
       <Paragraph style={style.english}>
         Please use any of the following channels to report bugs or requests new features.
