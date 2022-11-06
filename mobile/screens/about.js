@@ -29,19 +29,43 @@ function About() {
 
   return (
     <ScrollView style={style.english}>
-      <Button style={style.button} mode="contained-tonal" onPress={() => storage.storeData('language', 'ar')}>
-        Set
+      <Title style={style.english}>Contact Us</Title>
+      <Paragraph style={style.english}>
+        Please use any of the following channels to report bugs or requests new features.
+      </Paragraph>
+      <Button style={style.button} mode="contained-tonal" testID="email" onPress={() => Linking.openURL(email)}>
+        Email
       </Button>
-      <Button
-        style={style.button}
-        mode="contained-tonal"
-        onPress={async () => {
-          const language = await storage.getData('language')
-          console.log(language)
-        }}
-      >
-        Get
+      <Button style={style.button} mode="contained-tonal" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+        Twitter
       </Button>
+      <Button style={style.button} mode="contained-tonal" testID="github" onPress={() => Linking.openURL(github)}>
+        GitHub
+      </Button>
+      <Button style={style.button} mode="contained-tonal" testID="instagram" onPress={() => Linking.openURL(instagram)}>
+        Instagram
+      </Button>
+      <Button style={style.button} mode="contained-tonal" testID="facebook" onPress={() => Linking.openURL(facebook)}>
+        Facebook
+      </Button>
+      <Paragraph style={style.english} />
+
+      <Title style={style.english}>Open Source</Title>
+      <Paragraph style={style.english}>
+        The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify,
+        and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic
+        project on GitHub.
+      </Paragraph>
+      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubIssues)}>
+        Issues
+      </Button>
+      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubDiscussions)}>
+        Discussions
+      </Button>
+      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubPullRequests)}>
+        Pull Requests
+      </Button>
+      <Paragraph style={style.english} />
       <Title style={style.english}>Audience</Title>
       <Paragraph style={style.english}>
         If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
@@ -70,42 +94,6 @@ function About() {
       <List.Item title="Ibn Kathīr" />
       <List.Item title="Ibn Ḥajar al-ʿAsqalānī" />
       <List.Item title="al-Fuḍayl ibn ʻIyāḍ" />
-      <Paragraph style={style.english} />
-      <Title style={style.english}>Open Source</Title>
-      <Paragraph style={style.english}>
-        The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify,
-        and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic
-        project on GitHub.
-      </Paragraph>
-      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubIssues)}>
-        Issues
-      </Button>
-      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubDiscussions)}>
-        Discussions
-      </Button>
-      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubPullRequests)}>
-        Pull Requests
-      </Button>
-      <Paragraph style={style.english} />
-      <Title style={style.english}>Contact Us</Title>
-      <Paragraph style={style.english}>
-        Please use any of the following channels to report bugs or requests new features.
-      </Paragraph>
-      <Button style={style.button} mode="contained-tonal" testID="email" onPress={() => Linking.openURL(email)}>
-        Email
-      </Button>
-      <Button style={style.button} mode="contained-tonal" testID="twitter" onPress={() => Linking.openURL(twitter)}>
-        Twitter
-      </Button>
-      <Button style={style.button} mode="contained-tonal" testID="github" onPress={() => Linking.openURL(github)}>
-        GitHub
-      </Button>
-      <Button style={style.button} mode="contained-tonal" testID="instagram" onPress={() => Linking.openURL(instagram)}>
-        Instagram
-      </Button>
-      <Button style={style.button} mode="contained-tonal" testID="facebook" onPress={() => Linking.openURL(facebook)}>
-        Facebook
-      </Button>
     </ScrollView>
   )
 }
