@@ -12,7 +12,7 @@ const Tab = createMaterialBottomTabNavigator()
 
 const style = StyleSheet.create({
   tabBar: {
-    height: 55
+    height: 75
   }
 })
 
