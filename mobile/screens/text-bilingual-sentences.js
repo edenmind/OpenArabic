@@ -10,7 +10,6 @@ const style = StyleSheet.create({
   arabic: {
     direction: 'rtl',
     flex: 1,
-    fontSize: 25,
     lineHeight: 33,
     paddingBottom: 10,
     paddingLeft: 33,
@@ -46,8 +45,12 @@ export default function TextBilingualSentences(props) {
   const getListOfWordPairs = (index) => setWords(index)
   const sentences = props.sentences.map((sentence, index) => (
     <Fragment key={index}>
-      <Text style={style.arabic}>{sentence.arabic}</Text>
-      <Text style={style.english}>{sentence.english}</Text>
+      <Text style={style.arabic} variant="titleLarge">
+        {sentence.arabic}
+      </Text>
+      <Text style={style.english} variant="bodyMedium">
+        {sentence.english}
+      </Text>
 
       <Button
         style={style.showWordsButton}
@@ -57,7 +60,9 @@ export default function TextBilingualSentences(props) {
           showModal()
         }}
       >
-        <Text style={style.showWordsText}>Vocabulary</Text>
+        <Text variant="labelMedium" style={style.showWordsText}>
+          Vocabulary
+        </Text>
       </Button>
     </Fragment>
   ))

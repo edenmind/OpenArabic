@@ -6,19 +6,20 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
     style={
       [
         {
-          "textAlign": "left",
-        },
-        {
           "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
+          "fontSize": 22,
           "fontWeight": "400",
           "letterSpacing": 0,
+          "lineHeight": 28,
+        },
+        {
+          "textAlign": "left",
         },
         {
           "writingDirection": "ltr",
         },
         {
-          "fontSize": 25,
           "paddingBottom": 5,
           "paddingTop": 15,
           "textAlign": "right",
@@ -32,13 +33,15 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
     style={
       [
         {
-          "textAlign": "left",
-        },
-        {
           "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
+          "fontSize": 14,
           "fontWeight": "400",
-          "letterSpacing": 0,
+          "letterSpacing": 0.25,
+          "lineHeight": 20,
+        },
+        {
+          "textAlign": "left",
         },
         {
           "writingDirection": "ltr",
@@ -53,19 +56,20 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
     style={
       [
         {
-          "textAlign": "left",
-        },
-        {
           "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
+          "fontSize": 22,
           "fontWeight": "400",
           "letterSpacing": 0,
+          "lineHeight": 28,
+        },
+        {
+          "textAlign": "left",
         },
         {
           "writingDirection": "ltr",
         },
         {
-          "fontSize": 25,
           "paddingBottom": 5,
           "paddingTop": 15,
           "textAlign": "right",
@@ -79,13 +83,15 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
     style={
       [
         {
-          "textAlign": "left",
-        },
-        {
           "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
+          "fontSize": 14,
           "fontWeight": "400",
-          "letterSpacing": 0,
+          "letterSpacing": 0.25,
+          "lineHeight": 20,
+        },
+        {
+          "textAlign": "left",
         },
         {
           "writingDirection": "ltr",

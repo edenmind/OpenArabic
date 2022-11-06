@@ -1,4 +1,4 @@
-import { Caption, Text, Title } from 'react-native-paper'
+import { Caption, Text } from 'react-native-paper'
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
@@ -9,7 +9,6 @@ import { getCategories } from '../services/api-service.js'
 import icon from '../assets/logo.png'
 import packageJson from '../package.json'
 import { useFocusEffect } from '@react-navigation/core'
-import COLORS from '../constants/colors.js'
 
 const selector = (state) => state.categories
 
@@ -21,7 +20,7 @@ export default function TextDrawer() {
   const style = StyleSheet.create({
     icon: {
       height: 55,
-      marginLeft: 17,
+      marginLeft: 10,
       width: 55
     },
     semver: {
@@ -33,7 +32,8 @@ export default function TextDrawer() {
     title: {
       fontWeight: 'bold',
       marginBottom: 10,
-      marginLeft: 17
+      marginLeft: 17,
+      marginTop: 10
     },
     version: {
       bottom: 15,
@@ -68,7 +68,9 @@ export default function TextDrawer() {
       <Fragment>
         <DrawerContentScrollView {...props}>
           <Image source={icon} style={style.icon} />
-          <Title style={style.title}>{packageJson.displayName}</Title>
+          <Text style={style.title} variant="headlineSmall">
+            {packageJson.displayName}
+          </Text>
           <DrawerItemList {...props} />
         </DrawerContentScrollView>
 

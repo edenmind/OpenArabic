@@ -251,69 +251,52 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                   [
                     {
                       "color": "rgba(28, 27, 31, 1)",
+                      "fontFamily": "System",
+                      "fontSize": 22,
+                      "fontWeight": "400",
+                      "letterSpacing": 0,
+                      "lineHeight": 28,
                     },
                     {
                       "textAlign": "left",
                     },
-                    [
-                      {
-                        "textAlign": "left",
-                      },
-                      {
-                        "color": "rgba(28, 27, 31, 0.87)",
-                        "writingDirection": "ltr",
-                      },
-                      [
-                        {
-                          "fontSize": 14,
-                          "letterSpacing": 0.25,
-                          "lineHeight": 20,
-                          "marginVertical": 2,
-                        },
-                        undefined,
-                      ],
-                    ],
+                    {
+                      "writingDirection": "ltr",
+                    },
+                    {
+                      "direction": "rtl",
+                      "fontSize": 18,
+                      "lineHeight": 30,
+                      "paddingBottom": 10,
+                      "writingDirection": "rtl",
+                    },
                   ]
                 }
               >
-                someEnglish
+                someArabic
               </Text>
               <Text
                 style={
                   [
                     {
                       "color": "rgba(28, 27, 31, 1)",
+                      "fontFamily": "System",
+                      "fontSize": 14,
+                      "fontWeight": "400",
+                      "letterSpacing": 0.25,
+                      "lineHeight": 20,
                     },
                     {
                       "textAlign": "left",
                     },
-                    [
-                      {
-                        "textAlign": "left",
-                      },
-                      {
-                        "color": "rgba(28, 27, 31, 0.87)",
-                        "writingDirection": "ltr",
-                      },
-                      [
-                        {
-                          "fontSize": 14,
-                          "letterSpacing": 0.25,
-                          "lineHeight": 20,
-                          "marginVertical": 2,
-                        },
-                        {
-                          "direction": "rtl",
-                          "fontSize": 18,
-                          "lineHeight": 30,
-                          "writingDirection": "rtl",
-                        },
-                      ],
-                    ],
+                    {
+                      "writingDirection": "ltr",
+                    },
+                    undefined,
                   ]
                 }
               >
-                someArabic
+                someEnglish
               </Text>
             </View>
             <View
@@ -334,7 +317,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                     "padding": 8,
                   },
                   {
-                    "marginLeft": 10,
+                    "marginRight": 10,
                     "paddingBottom": 20,
                     "paddingTop": 20,
                   },
@@ -352,30 +335,21 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                   [
                     {
                       "color": "rgba(28, 27, 31, 1)",
+                      "fontFamily": "System",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.5,
+                      "lineHeight": 16,
                     },
                     {
                       "textAlign": "left",
                     },
-                    [
-                      {
-                        "textAlign": "left",
-                      },
-                      {
-                        "color": "rgba(28, 27, 31, 0.54)",
-                        "writingDirection": "ltr",
-                      },
-                      [
-                        {
-                          "fontSize": 12,
-                          "letterSpacing": 0.4,
-                          "lineHeight": 20,
-                          "marginVertical": 2,
-                        },
-                        {
-                          "marginLeft": 8,
-                        },
-                      ],
-                    ],
+                    {
+                      "writingDirection": "ltr",
+                    },
+                    {
+                      "marginLeft": 8,
+                    },
                   ]
                 }
               >
