@@ -48,14 +48,7 @@ function CategoriesList(properties) {
 }
 
 CategoriesList.propTypes = {
-  category: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      description: PropTypes.string.isOptional,
-      level: PropTypes.string.isOptional,
-      name: PropTypes.string.isRequired
-    })
-  ).isRequired,
+  category: PropTypes.array.isRequired,
   handleClickOpen: PropTypes.func.isRequired
 }
 
