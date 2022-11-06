@@ -7,7 +7,7 @@ const ModalScrollView = (props) => {
   const containerStyle = {
     margin: 20,
     padding: 20,
-    backgroundColor: 'black'
+    backgroundColor: 'rgb(49, 49, 43)'
   }
 
   const buttonPadding = {
