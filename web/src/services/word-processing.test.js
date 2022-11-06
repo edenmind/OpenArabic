@@ -1,6 +1,20 @@
 import * as wordProcessing from './word-processing.js'
 
 describe('test wordProcessing', () => {
+  it('should return a capitalized title', () => {
+    const title = 'this is a title'
+    const capitalizedTitle = wordProcessing.capitalizeWords(title)
+
+    expect(capitalizedTitle).toEqual('This Is A Title')
+  })
+
+  it('should return a capitalized title with some words lowercased', () => {
+    const title = 'This Is A Title'
+    const capitalizedTitle = wordProcessing.lowercaseWords(title)
+
+    expect(capitalizedTitle).toEqual('This is a Title')
+  })
+
   it('should clean invalid char from text', () => {
     // Arrange
     const textWithInvalidCharacters = 'This text contai*ns an invalid character.'
