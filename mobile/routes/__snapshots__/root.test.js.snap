@@ -10,8 +10,8 @@ exports[`<Root /> screen with name "Texts" should match snapshot 1`] = `
       "colors": {
         "backdrop": "rgba(49, 49, 37, 0.4)",
         "background": "rgb(37, 37, 26)",
-        "border": "rgb(147, 145, 130)",
-        "card": "rgb(49, 49, 43)",
+        "border": "rgb(72, 71, 58)",
+        "card": "rgb(37, 37, 26)",
         "elevation": {
           "level0": "transparent",
           "level1": "rgb(37, 37, 26)",
@@ -168,18 +168,25 @@ exports[`<Root /> screen with name "Texts" should match snapshot 1`] = `
       },
       "isV3": true,
       "mode": "adaptive",
-      "roundness": 7,
+      "roundness": 4,
       "version": 3,
     }
   }
 >
-  <MaterialBottomTabNavigator>
+  <MaterialBottomTabNavigator
+    barStyle={
+      {
+        "height": 55,
+      }
+    }
+  >
     <Screen
       component={[Function]}
       name="Texts"
       options={
         {
           "tabBarIcon": [Function],
+          "tabBarLabel": "",
         }
       }
     />
@@ -189,6 +196,7 @@ exports[`<Root /> screen with name "Texts" should match snapshot 1`] = `
       options={
         {
           "tabBarIcon": [Function],
+          "tabBarLabel": "",
         }
       }
     />
