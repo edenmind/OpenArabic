@@ -40,6 +40,7 @@ function TextAddWords() {
 
   const sentences = text.sentences.map((sentence, indexSentence) => (
     <Fragment key={indexSentence}>
+      <Chip label={`Sentence ${indexSentence + 1}`} />
       <Stack spacing={0} style={{ paddingBottom: '70px', width: '700px' }}>
         <p>
           <h3>{sentence.english}</h3>
@@ -50,6 +51,7 @@ function TextAddWords() {
 
         {sentence.words.map((word, indexArabicWord) => (
           <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
+            <Chip label={`Word ${indexSentence + 1}:${indexArabicWord + 1}`} />
             <p>
               {word.arabic}
               {word.arabic.length > 20 && <Chip sx={{ margin: 2 }} color="warning" label="Long Arabic Word" />}
