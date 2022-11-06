@@ -153,7 +153,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
       ]
     }
   >
-    5 min read
+    5 min read · undefined views · undefined
   </Text>,
 ]
 `;

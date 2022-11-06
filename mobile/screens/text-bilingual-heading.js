@@ -27,13 +27,14 @@ const style = StyleSheet.create({
 })
 
 export default function TextBilingualHeading(props) {
+  const caption = `${props.heading.readingTime} · ${props.heading.views} views · ${props.heading.timeAgo}`
   return (
     <Fragment>
       <Image source={{ uri: props.heading.image }} style={style.image} />
       <Title style={style.title}>{props.heading.title}</Title>
       <Subheading style={style.author}>{props.heading.author}</Subheading>
       <Subheading style={style.source}>{props.heading.source}</Subheading>
-      <Caption style={style.reading}>{props.heading.readingTime}</Caption>
+      <Caption style={style.reading}>{caption}</Caption>
     </Fragment>
   )
 }
@@ -41,6 +42,8 @@ export default function TextBilingualHeading(props) {
 TextBilingualHeading.propTypes = {
   heading: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    views: PropTypes.string.isRequired,
+    timeAgo: PropTypes.string.isRequired,
     readingTime: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
