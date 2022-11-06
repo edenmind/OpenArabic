@@ -25,8 +25,6 @@ RUN --mount=type=secret,id=REACT_APP_API_URL\
     export "REACT_APP_KEY"=$(cat /run/secrets/REACT_APP_KEY) && \
     ../node_modules/.bin/react-scripts build
 
-RUN echo "REACT_APP_API_URL" && echo "REACT_APP_GOOGLE_API_KEY" && echo "REACT_APP_KEY"
-
 # deploy
 FROM nginx:stable-alpine
 
