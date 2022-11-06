@@ -4,8 +4,8 @@ import merge from 'deepmerge'
 
 const paperDarkTheme = {
   ...MD3DarkTheme,
-  roundness: 7,
   version: 3,
+  dark: true,
   colors: {
     primary: 'rgb(204, 204, 82)',
     onPrimary: 'rgb(50, 50, 0)',
@@ -57,9 +57,9 @@ const navigationDarkTheme = {
 
     primary: 'rgb(204, 204, 82)',
     background: 'rgb(37, 37, 26)',
-    card: 'rgb(49, 49, 43)',
+    card: 'rgb(37, 37, 26)',
     text: 'rgb(230, 226, 217)',
-    border: 'rgb(147, 145, 130)'
+    border: 'rgb(72, 71, 58)'
   }
 }
 
