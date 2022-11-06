@@ -85,7 +85,7 @@ jobs:
           context: ./web
           push: true
           secrets: |
-            "REACT_APP_API_URL=${{ secrets.REACT_APP_KEY }}"
+            "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}"
             "REACT_APP_KEY=${{ secrets.REACT_APP_KEY }}"
             "REACT_APP_GOOGLE_API_KEY=${{ secrets.REACT_APP_GOOGLE_API_KEY }}"
 

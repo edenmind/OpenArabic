@@ -19,7 +19,7 @@ COPY . .
 
 RUN --mount=type=secret,id=REACT_APP_API_URL\
     --mount=type=secret,id=REACT_APP_GOOGLE_API_KEY\
-    --mount=type=secret,id=REACT_APP_API_URL \
+    --mount=type=secret,id=REACT_APP_KEY) \
     export REACT_APP_API_URL=$(cat /run/secrets/REACT_APP_API_URL) && \
     export REACT_APP_GOOGLE_API_KEY=$(cat /run/secrets/REACT_APP_GOOGLE_API_KEY) && \
     export REACT_APP_KEY=$(cat /run/secrets/REACT_APP_KEY) && \
