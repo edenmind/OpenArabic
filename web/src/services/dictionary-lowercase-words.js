@@ -1,7 +1,12 @@
-export const getDictionary = () => {
+export const getDictionaryOfLowerCaseWords = () => {
   return [
+    'a',
+    'an',
+    'and',
+    'are',
     'as',
     'at',
+    'be',
     'but',
     'by',
     'even',
@@ -10,6 +15,7 @@ export const getDictionary = () => {
     'if',
     'in',
     'into',
+    'is',
     'like',
     'long',
     'near',
@@ -28,12 +34,15 @@ export const getDictionary = () => {
     'so',
     'than',
     'that',
+    'the',
     'till',
     'to',
     'top',
     'up',
     'upon',
     'when',
+    'who',
+    'with',
     'with',
     'yet'
   ]
