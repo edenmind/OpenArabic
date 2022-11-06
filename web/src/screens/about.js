@@ -76,7 +76,7 @@ const About = () => {
           </Box>
 
           <Box sx={{ m: 2 }}>
-            <Stack spacing={2} direction="row">
+            <Stack spacing={2}>
               <Button variant="outlined" href="https://github.com/edenmind/OpenArabic">
                 GitHub
               </Button>
