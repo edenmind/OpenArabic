@@ -1,10 +1,11 @@
-import { Caption, Subheading, Title } from 'react-native-paper'
+import { Text } from 'react-native-paper'
 import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 const style = StyleSheet.create({
   author: {
+    paddingTop: 15,
     textAlign: 'center'
   },
   image: {
@@ -13,11 +14,7 @@ const style = StyleSheet.create({
   },
   reading: {
     paddingBottom: 10,
-    textAlign: 'center'
-  },
-  source: {
-    fontStyle: 'italic',
-    paddingBottom: 10,
+    paddingTop: 20,
     textAlign: 'center'
   },
   title: {
@@ -31,10 +28,15 @@ export default function TextBilingualHeading(props) {
   return (
     <Fragment>
       <Image source={{ uri: props.heading.image }} style={style.image} />
-      <Title style={style.title}>{props.heading.title}</Title>
-      <Subheading style={style.author}>{props.heading.author}</Subheading>
-      <Subheading style={style.source}>{props.heading.source}</Subheading>
-      <Caption style={style.reading}>{caption}</Caption>
+      <Text variant="titleLarge" style={style.title}>
+        {props.heading.title}
+      </Text>
+      <Text variant="titleMedium" style={style.author}>
+        {props.heading.author} {props.heading.source}
+      </Text>
+      <Text variant="labelMedium" style={style.reading}>
+        {caption}
+      </Text>
     </Fragment>
   )
 }

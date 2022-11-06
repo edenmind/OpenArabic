@@ -1,5 +1,5 @@
 import { truncate, removeLineBreak, addSpaceAfterDot } from '../services/utility-service.js'
-import { Caption, Card, Paragraph } from 'react-native-paper'
+import { Text, Card, Paragraph } from 'react-native-paper'
 import PressableOpacity from '../components/pressable-opacity.js'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -11,6 +11,7 @@ const style = StyleSheet.create({
     direction: 'rtl',
     fontSize: 18,
     lineHeight: 30,
+    paddingBottom: 10,
     writingDirection: 'rtl'
   },
   card: {
@@ -20,7 +21,7 @@ const style = StyleSheet.create({
     marginTop: 10
   },
   cardAction: {
-    marginLeft: 10,
+    marginRight: 10,
     paddingBottom: 20,
     paddingTop: 20
   }
@@ -54,11 +55,13 @@ export default function CategoryCard(props) {
         <Card.Cover source={{ uri: props.text.image }} />
         <Card.Title title={props.text.title} subtitle={subtitle} />
         <Card.Content>
-          <Paragraph>{english}</Paragraph>
-          <Paragraph style={style.arabic}>{arabic}</Paragraph>
+          <Text variant="titleLarge" style={style.arabic}>
+            {arabic}
+          </Text>
+          <Text variant="bodyMedium">{english}</Text>
         </Card.Content>
         <Card.Actions style={style.cardAction}>
-          <Caption>{category}</Caption>
+          <Text variant="labelMedium">{category}</Text>
         </Card.Actions>
       </Card>
     </PressableOpacity>

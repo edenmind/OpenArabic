@@ -1,4 +1,4 @@
-import { Button, Modal, Portal, Text, Title } from 'react-native-paper'
+import { Button, Modal, Portal, Text } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollView } from 'react-native'
@@ -19,10 +19,10 @@ const ModalScrollView = (props) => {
   return (
     <Portal>
       <Modal visible={props.visible} onDismiss={props.hideModal} contentContainerStyle={containerStyle}>
-        <Title>{props.title}</Title>
+        <Text variant="titleMedium">{props.title}</Text>
         <ScrollView>{props.content}</ScrollView>
         <Button onPress={props.hideModal} style={buttonPadding} mode="text">
-          <Text>Close</Text>
+          <Text variant="labelMedium">Close</Text>
         </Button>
       </Modal>
     </Portal>

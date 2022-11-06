@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import { ScrollView, StyleSheet } from 'react-native'
-import { Paragraph } from 'react-native-paper'
+import { Text } from 'react-native-paper'
 import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
@@ -25,7 +25,9 @@ export default function TextArabic() {
 
   return textLoading ? (
     <ScrollView>
-      <Paragraph style={style.arabic}>{text.texts.arabic}</Paragraph>
+      <Text style={style.arabic} variant="bodyLarge">
+        {text.texts.arabic}
+      </Text>
     </ScrollView>
   ) : (
     <Spinner />

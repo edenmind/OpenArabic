@@ -6,7 +6,6 @@ import { Text } from 'react-native-paper'
 function TextBilingualSentencesWordPairs(props) {
   const style = StyleSheet.create({
     arabic: {
-      fontSize: 25,
       paddingBottom: 5,
       paddingTop: 15,
       textAlign: 'right'
@@ -14,8 +13,10 @@ function TextBilingualSentencesWordPairs(props) {
   })
   return props.words.map((word, index) => (
     <Fragment key={index}>
-      <Text style={style.arabic}>{word.arabic}</Text>
-      <Text>{word.english}</Text>
+      <Text variant="titleLarge" style={style.arabic}>
+        {word.arabic}
+      </Text>
+      <Text variant="bodyMedium">{word.english}</Text>
     </Fragment>
   ))
 }
