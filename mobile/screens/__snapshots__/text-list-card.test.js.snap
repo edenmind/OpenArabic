@@ -230,7 +230,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                     ]
                   }
                 >
-                  someAuthor · undefined views · undefined
+                  someAuthor · undefined
                 </Text>
               </View>
               <View />
@@ -317,7 +317,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                     "padding": 8,
                   },
                   {
-                    "marginRight": 10,
+                    "marginRight": 13,
                     "paddingBottom": 20,
                     "paddingTop": 20,
                   },
@@ -336,7 +336,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                     {
                       "color": "rgba(28, 27, 31, 1)",
                       "fontFamily": "System",
-                      "fontSize": 12,
+                      "fontSize": 11,
                       "fontWeight": "500",
                       "letterSpacing": 0.5,
                       "lineHeight": 16,
@@ -353,7 +353,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                   ]
                 }
               >
-                #somecategory
+                #somecategory · undefined · undefined views · undefined
               </Text>
             </View>
           </View>

@@ -13,6 +13,134 @@ exports[`<About /> renders correctly 1`] = `
   }
 >
   <View>
+    <Image
+      source={1}
+      style={
+        {
+          "height": 150,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "rgba(231, 224, 236, 1)",
+            "height": 0.5,
+          },
+          undefined,
+          false,
+          false,
+          {
+            "margin": 10,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontFamily": "System",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          {
+            "textAlign": "left",
+          },
+          {
+            "writingDirection": "ltr",
+          },
+          {
+            "direction": "ltr",
+            "flex": 1,
+            "lineHeight": 20,
+            "padding": 10,
+            "writingDirection": "ltr",
+          },
+        ]
+      }
+    >
+      Audience
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontFamily": "System",
+            "fontSize": 14,
+            "fontWeight": "400",
+            "letterSpacing": 0.25,
+            "lineHeight": 20,
+          },
+          {
+            "textAlign": "left",
+          },
+          {
+            "writingDirection": "ltr",
+          },
+          {
+            "direction": "ltr",
+            "flex": 1,
+            "lineHeight": 20,
+            "padding": 10,
+            "writingDirection": "ltr",
+          },
+        ]
+      }
+    >
+      If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you in that process, inshāʾAllāh.
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontFamily": "System",
+            "fontSize": 14,
+            "fontWeight": "400",
+            "letterSpacing": 0.25,
+            "lineHeight": 20,
+          },
+          {
+            "textAlign": "left",
+          },
+          {
+            "writingDirection": "ltr",
+          },
+          {
+            "direction": "ltr",
+            "flex": 1,
+            "lineHeight": 20,
+            "padding": 10,
+            "writingDirection": "ltr",
+          },
+        ]
+      }
+    >
+      OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in handy.
+    </Text>
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "rgba(231, 224, 236, 1)",
+            "height": 0.5,
+          },
+          undefined,
+          false,
+          false,
+          {
+            "margin": 10,
+          },
+        ]
+      }
+    />
     <Text
       style={
         [
@@ -791,6 +919,22 @@ exports[`<About /> renders correctly 1`] = `
         </View>
       </View>
     </View>
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "rgba(231, 224, 236, 1)",
+            "height": 0.5,
+          },
+          undefined,
+          false,
+          false,
+          {
+            "margin": 10,
+          },
+        ]
+      }
+    />
     <Text
       style={
         [
@@ -1278,93 +1422,22 @@ exports[`<About /> renders correctly 1`] = `
         </View>
       </View>
     </View>
-    <Text
+    <View
       style={
         [
           {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontFamily": "System",
-            "fontSize": 22,
-            "fontWeight": "400",
-            "letterSpacing": 0,
-            "lineHeight": 28,
+            "backgroundColor": "rgba(231, 224, 236, 1)",
+            "height": 0.5,
           },
+          undefined,
+          false,
+          false,
           {
-            "textAlign": "left",
-          },
-          {
-            "writingDirection": "ltr",
-          },
-          {
-            "direction": "ltr",
-            "flex": 1,
-            "lineHeight": 20,
-            "padding": 10,
-            "writingDirection": "ltr",
+            "margin": 10,
           },
         ]
       }
-    >
-      Audience
-    </Text>
-    <Text
-      style={
-        [
-          {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontFamily": "System",
-            "fontSize": 14,
-            "fontWeight": "400",
-            "letterSpacing": 0.25,
-            "lineHeight": 20,
-          },
-          {
-            "textAlign": "left",
-          },
-          {
-            "writingDirection": "ltr",
-          },
-          {
-            "direction": "ltr",
-            "flex": 1,
-            "lineHeight": 20,
-            "padding": 10,
-            "writingDirection": "ltr",
-          },
-        ]
-      }
-    >
-      If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you in that process, inshāʾAllāh.
-    </Text>
-    <Text
-      style={
-        [
-          {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontFamily": "System",
-            "fontSize": 14,
-            "fontWeight": "400",
-            "letterSpacing": 0.25,
-            "lineHeight": 20,
-          },
-          {
-            "textAlign": "left",
-          },
-          {
-            "writingDirection": "ltr",
-          },
-          {
-            "direction": "ltr",
-            "flex": 1,
-            "lineHeight": 20,
-            "padding": 10,
-            "writingDirection": "ltr",
-          },
-        ]
-      }
-    >
-      OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in handy.
-    </Text>
+    />
     <Text
       style={
         [

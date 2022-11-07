@@ -2,7 +2,7 @@ import { DarkTheme as NavigationDarkTheme, DefaultTheme as NavigationDefaultThem
 import { MD3DarkTheme, MD3LightTheme, adaptNavigationTheme } from 'react-native-paper'
 import merge from 'deepmerge'
 
-const paperDarkTheme = {
+export const paperDarkTheme = {
   ...MD3DarkTheme,
   version: 3,
   dark: true,

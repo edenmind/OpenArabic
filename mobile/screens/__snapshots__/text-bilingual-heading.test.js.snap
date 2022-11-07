@@ -65,9 +65,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
       ]
     }
   >
-    author
-     
-    source
+    author ·  source
   </Text>,
   <Text
     style={
