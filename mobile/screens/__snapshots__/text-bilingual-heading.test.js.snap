@@ -94,5 +94,23 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
   >
     5 min read · undefined views · undefined
   </Text>,
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "rgba(231, 224, 236, 1)",
+          "height": 0.5,
+        },
+        undefined,
+        false,
+        false,
+        {
+          "marginLeft": 33,
+          "marginRight": 33,
+          "marginTop": 33,
+        },
+      ]
+    }
+  />,
 ]
 `;

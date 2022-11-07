@@ -1,5 +1,5 @@
 import { truncate, removeLineBreak, addSpaceAfterDot } from '../services/utility-service.js'
-import { Text, Card } from 'react-native-paper'
+import { Text, Card, Divider } from 'react-native-paper'
 import PressableOpacity from '../components/pressable-opacity.js'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -24,6 +24,10 @@ const style = StyleSheet.create({
     marginRight: 13,
     paddingBottom: 20,
     paddingTop: 20
+  },
+  divider: {
+    marginBottom: 0,
+    marginTop: 20
   }
 })
 
@@ -61,6 +65,7 @@ export default function CategoryCard(props) {
             {arabic}
           </Text>
           <Text variant="bodyMedium">{english}</Text>
+          <Divider style={style.divider} />
         </Card.Content>
         <Card.Actions style={style.cardAction}>
           <Text variant="labelSmall" style={style.footer}>

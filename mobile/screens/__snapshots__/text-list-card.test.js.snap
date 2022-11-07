@@ -298,6 +298,23 @@ exports[`<CategoryCard /> renders correctly 1`] = `
               >
                 someEnglish
               </Text>
+              <View
+                style={
+                  [
+                    {
+                      "backgroundColor": "rgba(231, 224, 236, 1)",
+                      "height": 0.5,
+                    },
+                    undefined,
+                    false,
+                    false,
+                    {
+                      "marginBottom": 0,
+                      "marginTop": 20,
+                    },
+                  ]
+                }
+              />
             </View>
             <View
               index={3}

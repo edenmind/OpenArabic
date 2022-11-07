@@ -60,9 +60,7 @@ export default function TextBilingualSentences(props) {
           showModal()
         }}
       >
-        <Text variant="labelMedium" style={style.showWordsText}>
-          Vocabulary
-        </Text>
+        <Text variant="labelMedium">Vocabulary</Text>
       </Button>
     </Fragment>
   ))

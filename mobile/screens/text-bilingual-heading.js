@@ -1,4 +1,4 @@
-import { Text } from 'react-native-paper'
+import { Text, Divider } from 'react-native-paper'
 import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
@@ -7,6 +7,11 @@ const style = StyleSheet.create({
   author: {
     paddingTop: 15,
     textAlign: 'center'
+  },
+  divider: {
+    marginLeft: 33,
+    marginRight: 33,
+    marginTop: 33
   },
   image: {
     height: 250,
@@ -39,6 +44,7 @@ export default function TextBilingualHeading(props) {
       <Text variant="labelMedium" style={style.reading}>
         {caption}
       </Text>
+      <Divider style={style.divider} />
     </Fragment>
   )
 }
