@@ -11,6 +11,9 @@ export const getTexts = (id) => async (dispatch) => {
   })
   const res = await axios.get(url.categoryWithId(id))
 
+  // pause for 1 second to let images load, there is a better way of doing this
+  await new Promise((resolve) => setTimeout(resolve, 500))
+
   dispatch({
     type: 'SET_TEXTS',
     payload: res.data
