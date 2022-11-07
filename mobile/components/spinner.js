@@ -10,6 +10,6 @@ const style = StyleSheet.create({
   }
 })
 
-const Spinner = () => <ActivityIndicator animating size="large" style={style.container} />
+const Spinner = () => <ActivityIndicator animating size={100} style={style.container} />
 
 export default Spinner
