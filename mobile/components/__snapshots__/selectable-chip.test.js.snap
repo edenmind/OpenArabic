@@ -36,14 +36,15 @@ exports[`<SnackButton /> renders correctly 1`] = `
     }
   >
     <View
+      backgroundColor="rgb(204, 204, 82)"
       collapsable={false}
       style={
         {
-          "backgroundColor": "rgba(232, 222, 248, 1)",
+          "backgroundColor": "rgb(73, 73, 0)",
           "borderColor": "rgba(121, 116, 126, 1)",
           "borderRadius": 8,
           "borderStyle": "solid",
-          "borderWidth": 0,
+          "borderWidth": 1,
           "direction": "ltr",
           "flexDirection": "column",
           "height": 50,
@@ -132,7 +133,7 @@ exports[`<SnackButton /> renders correctly 1`] = `
                     "textAlignVertical": "center",
                   },
                   {
-                    "color": "rgba(29, 25, 43, 1)",
+                    "color": "rgba(73, 69, 79, 1)",
                     "fontFamily": "System",
                     "fontSize": 14,
                     "fontWeight": "500",
