@@ -3,17 +3,25 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import SelectableChip from '../components/selectable-chip.js'
 import LANGUAGES from '../constants/languages.js'
+import { ProgressBar, Text } from 'react-native-paper'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
     chipContainer: {
-      paddingTop: 25,
+      paddingTop: 0,
       width: '50%'
     },
     container: {
       flexDirection: 'row'
+    },
+    progressBar: {
+      margin: 17
     }
   })
+
+  //calculate percentage of props.currentBatch to length of props.vocabularyCollection.arabic.length
+  const percentage = props.currentBatch / props.vocabularyCollection.arabic.length
 
   const arabicVocabularies = props.vocabularyCollection.arabic[props.currentBatch].map((arabic, index) => (
     <SelectableChip
@@ -36,10 +44,16 @@ function TextQuizVocabularies(props) {
   ))
 
   return (
-    <View style={styles.container}>
-      <View style={styles.chipContainer}>{arabicVocabularies}</View>
-      <View style={styles.chipContainer}>{englishVocabularies}</View>
-    </View>
+    <>
+      <Text variant="labelLarge" style={styles.progressBar}>
+        Choose the Matching Pairs
+      </Text>
+      <View style={styles.container}>
+        <View style={styles.chipContainer}>{arabicVocabularies}</View>
+        <View style={styles.chipContainer}>{englishVocabularies}</View>
+      </View>
+      <ProgressBar progress={percentage} color={paperDarkTheme.colors.primary} style={styles.progressBar} />
+    </>
   )
 }
 
