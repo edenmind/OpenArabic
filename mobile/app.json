@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#3e423a"
+      "backgroundColor": "#323200"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +22,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#3e423a"
+        "backgroundColor": "#323200"
       },
       "package": "com.edenmind.OpenArabic",
       "versionCode": 111
