@@ -1,5 +1,5 @@
-import { Button, List, Text } from 'react-native-paper'
-import { Linking, ScrollView, StyleSheet } from 'react-native'
+import { Button, Divider, List, Text } from 'react-native-paper'
+import { Linking, ScrollView, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
 function About() {
@@ -11,7 +11,8 @@ function About() {
       lineHeight: 20,
       padding: 10,
       writingDirection: 'ltr'
-    }
+    },
+    divider: { margin: 10 }
   })
 
   // contact links
@@ -28,6 +29,26 @@ function About() {
 
   return (
     <ScrollView style={style.english}>
+      <Image source={require('../assets/1500x500.jpeg')} style={{ width: '100%', height: 150 }} />
+
+      <Divider style={style.divider} />
+
+      <Text variant="titleLarge" style={style.english}>
+        Audience
+      </Text>
+
+      <Text variant="bodyMedium" style={style.english}>
+        If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
+        OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
+        in that process, inshāʾAllāh.
+      </Text>
+      <Text variant="bodyMedium" style={style.english}>
+        OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started,
+        then the Duolingo app available on iPhone and Android might come in handy.
+      </Text>
+
+      <Divider style={style.divider} />
+
       <Text variant="titleLarge" style={style.english}>
         Contact Us
       </Text>
@@ -51,6 +72,8 @@ function About() {
         Facebook
       </Button>
 
+      <Divider style={style.divider} />
+
       <Text variant="titleLarge" style={style.english}>
         Open Source
       </Text>
@@ -70,19 +93,7 @@ function About() {
         Pull Requests
       </Button>
 
-      <Text variant="titleLarge" style={style.english}>
-        Audience
-      </Text>
-
-      <Text variant="bodyMedium" style={style.english}>
-        If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
-        OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
-        in that process, inshāʾAllāh.
-      </Text>
-      <Text variant="bodyMedium" style={style.english}>
-        OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started,
-        then the Duolingo app available on iPhone and Android might come in handy.
-      </Text>
+      <Divider style={style.divider} />
 
       <Text variant="titleLarge" style={style.english}>
         Foundation

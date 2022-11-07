@@ -20,7 +20,7 @@ export default function Text() {
     try {
       await Share.share({
         message: text.title,
-        url: `${HOST.backend}/${ENDPOINT.texts}/${text.id}`
+        url: `${HOST.frontend}/${ENDPOINT.texts}/${text.slug}`
       })
     } catch (error) {
       alert(error.message)

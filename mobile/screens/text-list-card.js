@@ -1,5 +1,5 @@
 import { truncate, removeLineBreak, addSpaceAfterDot } from '../services/utility-service.js'
-import { Text, Card, Paragraph } from 'react-native-paper'
+import { Text, Card } from 'react-native-paper'
 import PressableOpacity from '../components/pressable-opacity.js'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -21,7 +21,7 @@ const style = StyleSheet.create({
     marginTop: 10
   },
   cardAction: {
-    marginRight: 10,
+    marginRight: 13,
     paddingBottom: 20,
     paddingTop: 20
   }
@@ -36,8 +36,10 @@ const prepareIngress = (text, length) => {
 
 export default function CategoryCard(props) {
   //prepare hte texts
-  const category = `#${props.text.category.toLowerCase()}`
-  const subtitle = `${props.text.author} · ${props.text.views} views · ${props.text.timeAgo}`
+  const subtitle = `${props.text.author} · ${props.text.source}`
+  const footer = `#${props.text.category.toLowerCase()} · ${props.text.readingTime} · ${props.text.views} views · ${
+    props.text.timeAgo
+  }`
   const english = props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)
 
@@ -61,7 +63,9 @@ export default function CategoryCard(props) {
           <Text variant="bodyMedium">{english}</Text>
         </Card.Content>
         <Card.Actions style={style.cardAction}>
-          <Text variant="labelMedium">{category}</Text>
+          <Text variant="labelSmall" style={style.footer}>
+            {footer}
+          </Text>
         </Card.Actions>
       </Card>
     </PressableOpacity>

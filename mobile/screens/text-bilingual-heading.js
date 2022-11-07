@@ -24,7 +24,9 @@ const style = StyleSheet.create({
 })
 
 export default function TextBilingualHeading(props) {
+  const author = `${props.heading.author} ·  ${props.heading.source}`
   const caption = `${props.heading.readingTime} · ${props.heading.views} views · ${props.heading.timeAgo}`
+
   return (
     <Fragment>
       <Image source={{ uri: props.heading.image }} style={style.image} />
@@ -32,7 +34,7 @@ export default function TextBilingualHeading(props) {
         {props.heading.title}
       </Text>
       <Text variant="titleMedium" style={style.author}>
-        {props.heading.author} {props.heading.source}
+        {author}
       </Text>
       <Text variant="labelMedium" style={style.reading}>
         {caption}
