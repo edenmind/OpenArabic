@@ -64,7 +64,7 @@ exports[`<SnackButton /> renders correctly 1`] = `
           style={
             {
               "alignItems": "center",
-              "backgroundColor": "rgba(28, 27, 31, 1)",
+              "backgroundColor": "rgb(202, 200, 165)",
               "borderRadius": 4,
               "flexDirection": "row",
               "justifyContent": "space-between",
@@ -75,6 +75,11 @@ exports[`<SnackButton /> renders correctly 1`] = `
                   "scale": 0.9,
                 },
               ],
+            }
+          }
+          styles={
+            {
+              "backgroundColor": "rgb(202, 200, 165)",
             }
           }
         >
@@ -100,7 +105,7 @@ exports[`<SnackButton /> renders correctly 1`] = `
                     "marginVertical": 14,
                   },
                   {
-                    "color": "rgba(255, 251, 254, 1)",
+                    "color": "rgb(28, 28, 23)",
                     "marginRight": 16,
                   },
                 ],
