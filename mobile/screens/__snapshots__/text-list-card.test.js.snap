@@ -112,6 +112,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
             >
               <Image
                 accessibilityIgnoresInvertColors={true}
+                defaultSource={1}
                 siblings={
                   [
                     "withTheme(Card.Cover)",
