@@ -48,8 +48,6 @@ export default function CategoryCard(props) {
   const english = props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)
 
-  const image = <Image source={icon} style={style.icon} />
-
   return (
     <PressableOpacity
       testID="pressableOpacity"

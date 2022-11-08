@@ -22,7 +22,6 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         {
           "paddingBottom": 5,
           "paddingTop": 15,
-          "textAlign": "right",
         },
       ]
     }
@@ -52,6 +51,23 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
   >
     alienation
   </Text>,
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "rgba(231, 224, 236, 1)",
+          "height": 0.5,
+        },
+        undefined,
+        false,
+        false,
+        {
+          "marginBottom": 0,
+          "marginTop": 20,
+        },
+      ]
+    }
+  />,
   <Text
     style={
       [
@@ -72,7 +88,6 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         {
           "paddingBottom": 5,
           "paddingTop": 15,
-          "textAlign": "right",
         },
       ]
     }
@@ -102,5 +117,22 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
   >
     his Lord
   </Text>,
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "rgba(231, 224, 236, 1)",
+          "height": 0.5,
+        },
+        undefined,
+        false,
+        false,
+        {
+          "marginBottom": 0,
+          "marginTop": 20,
+        },
+      ]
+    }
+  />,
 ]
 `;
