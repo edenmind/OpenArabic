@@ -10,7 +10,6 @@ exports[`<SnackButton /> renders correctly 1`] = `
   }
 >
   <RCTSafeAreaView
-    emulateUnlessSupported={true}
     pointerEvents="box-none"
     style={
       [

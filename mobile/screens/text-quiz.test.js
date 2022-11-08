@@ -1,5 +1,5 @@
 /* eslint-disable putout/objects-braces-inside-array */
-import { expect, describe, it, jest } from '@jest/globals'
+import { expect, it, jest } from '@jest/globals'
 import React from 'react'
 import { Provider } from 'react-redux'
 import renderer from 'react-test-renderer'
