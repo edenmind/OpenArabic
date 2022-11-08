@@ -8,7 +8,7 @@ const ModalScrollView = (props) => {
     margin: 20,
     padding: 20,
     backgroundColor: 'rgb(49, 49, 43)',
-    height: '85%',
+    height: '90%',
     borderRadius: 10
   }
 
