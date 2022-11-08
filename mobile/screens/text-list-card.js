@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
 import { StyleSheet, Image } from 'react-native'
-import icon from '../assets/1500x500.jpeg'
 
 const style = StyleSheet.create({
   arabic: {
