@@ -4,7 +4,8 @@ import PressableOpacity from '../components/pressable-opacity.js'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
+import icon from '../assets/1500x500.jpeg'
 
 const style = StyleSheet.create({
   arabic: {
@@ -47,6 +48,8 @@ export default function CategoryCard(props) {
   const english = props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)
 
+  const image = <Image source={icon} style={style.icon} />
+
   return (
     <PressableOpacity
       testID="pressableOpacity"
@@ -58,7 +61,7 @@ export default function CategoryCard(props) {
       }}
     >
       <Card style={style.card} testID="textCard" mode="elevated">
-        <Card.Cover source={{ uri: props.text.image }} />
+        <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
         <Card.Title title={props.text.title} subtitle={subtitle} />
         <Card.Content>
           <Text variant="titleLarge" style={style.arabic}>
