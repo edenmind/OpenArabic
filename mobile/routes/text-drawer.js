@@ -1,4 +1,4 @@
-import { Caption, Text } from 'react-native-paper'
+import { Caption, Divider, Text } from 'react-native-paper'
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import { Image, StyleSheet } from 'react-native'
 import React, { Fragment } from 'react'
@@ -18,6 +18,9 @@ export default function TextDrawer() {
   const dispatch = useDispatch()
 
   const style = StyleSheet.create({
+    divider: {
+      margin: 15
+    },
     icon: {
       height: 55,
       marginLeft: 10,
@@ -26,19 +29,19 @@ export default function TextDrawer() {
     semver: {
       bottom: 10,
       left: 0,
-      margin: 16,
+      margin: 15,
       position: 'absolute'
     },
     title: {
       fontWeight: 'bold',
       marginBottom: 10,
-      marginLeft: 17,
+      marginLeft: 15,
       marginTop: 10
     },
     version: {
       bottom: 15,
       left: 0,
-      margin: 16,
+      margin: 15,
       position: 'absolute'
     }
   })
@@ -72,6 +75,7 @@ export default function TextDrawer() {
             {packageJson.displayName}
           </Text>
           <DrawerItemList {...props} />
+          <Divider style={style.divider} />
         </DrawerContentScrollView>
 
         <Text style={style.version}>Version</Text>
