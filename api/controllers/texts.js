@@ -133,6 +133,9 @@ async function getText(request, reply) {
 
   //update property "views" in the text
   const views = text.views + 1
+
+  // update views with one by searching by id and if not found by slug
+  await texts.updateOne({ id: new ObjectId(request.params.id) }, { $set: { views } })
   await texts.updateOne({ slug: request.params.id }, { $set: { views } })
 
   //decorate the text with some extra properties

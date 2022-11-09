@@ -41,6 +41,7 @@ const getTextOptions = {
           id: { type: 'string' },
           title: { type: 'string' },
           status: { type: 'string' },
+          slug: { type: 'string' },
           image: { type: 'string' },
           views: { type: 'string' },
           timeAgo: { type: 'string' },
