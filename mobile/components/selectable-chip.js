@@ -12,24 +12,32 @@ const styles = StyleSheet.create({
   },
   chipNotSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.onPrimary,
+    borderColor: paperDarkTheme.colors.inversePrimary,
+    borderWidth: 2,
     direction: 'rtl',
     height: 50,
     margin: 15
   },
   chipNotSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.onPrimary,
+    borderColor: paperDarkTheme.colors.inversePrimary,
+    borderWidth: 2,
     direction: 'ltr',
     height: 50,
     margin: 15
   },
   chipSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
+    borderColor: paperDarkTheme.colors.onPrimaryContainer,
+    borderWidth: 2,
     direction: 'rtl',
     height: 50,
     margin: 15
   },
   chipSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
+    borderColor: paperDarkTheme.colors.onPrimaryContainer,
+    borderWidth: 2,
     direction: 'ltr',
     height: 50,
     margin: 15
