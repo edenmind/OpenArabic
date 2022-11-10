@@ -1,11 +1,13 @@
 import * as api from '../services/api-service.js'
 import React, { Fragment, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FlatList } from 'react-native'
+import { FlatList, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 import Spinner from '../components/spinner.js'
 import TextListCard from './text-list-card.js'
 import { useFocusEffect } from '@react-navigation/native'
+import { getHijriDate } from '../services/utility-service.js'
+import { Text } from 'react-native-paper'
 
 const selector = (state) => state.texts
 const textsLoadSelector = (state) => state.textsLoading
@@ -25,12 +27,23 @@ export default function TextList({ route, navigation }) {
     }, [category, dispatch, shouldReload])
   )
 
+  const style = StyleSheet.create({
+    arabic: {
+      padding: 10,
+      textAlign: 'center'
+    }
+  })
+
   const renderItem = ({ item }) => (
     <TextListCard text={item} navigation={navigation} setShouldReload={setShouldReload} />
   )
 
   return textsLoading ? (
     <Fragment>
+      <Text style={style.arabic} variant="labelLarge">
+        {getHijriDate()}
+      </Text>
+
       <FlatList testID="flatList" data={texts} renderItem={renderItem} keyExtractor={(item) => item.id} />
     </Fragment>
   ) : (
