@@ -21,7 +21,7 @@ function TextQuizVocabularies(props) {
   })
 
   //calculate percentage of props.currentBatch to length of props.vocabularyCollection.arabic.length
-  const percentage = props.currentBatch / props.vocabularyCollection.arabic.length
+  const percentage = props.currentBatch / (props.vocabularyCollection.arabic.length - 1)
 
   const arabicVocabularies = props.vocabularyCollection.arabic[props.currentBatch].map((arabic, index) => (
     <SelectableChip
