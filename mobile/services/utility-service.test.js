@@ -1,6 +1,5 @@
 import * as util from './utility-service.js'
 import { expect, describe, it } from '@jest/globals'
-
 describe('space', () => {
   it('should add space after dot', () => {
     // Arrange
