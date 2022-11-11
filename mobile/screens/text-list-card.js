@@ -59,7 +59,12 @@ export default function CategoryCard(props) {
       }}
     >
       <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
-      <Card.Title title={props.text.title} subtitle={subtitle} />
+      <Card.Title
+        title={props.text.title}
+        subtitle={subtitle}
+        titleVariant="headlineSmall"
+        subtitleVariant="bodyLarge"
+      />
       <Card.Content>
         <Text variant="titleLarge" style={style.arabic}>
           {arabic}
