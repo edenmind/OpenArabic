@@ -9,6 +9,7 @@ import { getCategories } from '../services/api-service.js'
 import icon from '../assets/logo.png'
 import packageJson from '../package.json'
 import { useFocusEffect } from '@react-navigation/core'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const selector = (state) => state.categories
 
@@ -106,7 +107,10 @@ export default function TextDrawer() {
         drawerStyle: {
           width: 200
         },
-        headerTintColor: 'rgb(230, 226, 217)'
+        headerTintColor: 'rgb(230, 226, 217)',
+        headerStyle: {
+          backgroundColor: paperDarkTheme.colors.level0
+        }
       }}
     >
       {homeScreen}
