@@ -30,7 +30,7 @@ export default function TextBilingual() {
   const onShare = async () => {
     try {
       await Share.share({
-        message: text.title,
+        title: `${text.title} - ${text.author}`,
         url: `${HOST.frontend}/${ENDPOINT.texts}/${text.slug}`
       })
     } catch (error) {

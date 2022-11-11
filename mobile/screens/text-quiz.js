@@ -102,12 +102,12 @@ const TextQuiz = () => {
 
       if (correctAnswers.length === numberOfWordInQuiz) {
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
-        setCelebrationSnackBarVisibility(true)
         setTimeout(() => {
           resetState()
 
           if (currentBatch === text.vocabularyCollection.numberOfBatches - 1) {
-            setCurrentBatch(0)
+            setCelebrationSnackBarVisibility(true)
+
             return
           }
 
@@ -123,7 +123,7 @@ const TextQuiz = () => {
       arabicSelectedCollection[arabicCurrentSelectedIndex] = false
       setArabicSelected([...arabicSelectedCollection])
       setIsSecondWord(false)
-      // eslint-disable-next-line putout/add-newline-before-return
+
       return
     }
 
