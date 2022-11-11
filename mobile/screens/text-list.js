@@ -30,6 +30,8 @@ export default function TextList({ route, navigation }) {
   const style = StyleSheet.create({
     arabic: {
       padding: 10,
+      paddingLeft: 33,
+      paddingRight: 33,
       textAlign: 'center'
     }
   })
@@ -40,11 +42,22 @@ export default function TextList({ route, navigation }) {
 
   return textsLoading ? (
     <Fragment>
-      <Text style={style.arabic} variant="labelLarge">
-        {getHijriDate()}
-      </Text>
-
-      <FlatList testID="flatList" data={texts} renderItem={renderItem} keyExtractor={(item) => item.id} />
+      <FlatList
+        testID="flatList"
+        data={texts}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        ListHeaderComponent={
+          <Text style={style.arabic} variant="labelLarge">
+            {getHijriDate()}
+          </Text>
+        }
+        ListFooterComponent={
+          <Text style={style.arabic} variant="labelLarge">
+            سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك
+          </Text>
+        }
+      />
     </Fragment>
   ) : (
     <Spinner />
