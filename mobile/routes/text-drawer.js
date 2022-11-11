@@ -25,6 +25,7 @@ export default function TextDrawer() {
     icon: {
       height: 55,
       marginLeft: 10,
+      marginTop: 20,
       width: 55
     },
     semver: {
@@ -70,11 +71,11 @@ export default function TextDrawer() {
   function CustomDrawerContent(props) {
     return (
       <Fragment>
+        <Image source={icon} style={style.icon} />
+        <Text style={style.title} variant="headlineSmall">
+          {packageJson.displayName}
+        </Text>
         <DrawerContentScrollView {...props}>
-          <Image source={icon} style={style.icon} />
-          <Text style={style.title} variant="headlineSmall">
-            {packageJson.displayName}
-          </Text>
           <DrawerItemList {...props} />
           <Divider style={style.divider} />
         </DrawerContentScrollView>
