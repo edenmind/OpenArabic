@@ -51,7 +51,7 @@ function TextAddWords() {
 
         {sentence.words.map((word, indexArabicWord) => (
           <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
-            <Chip label={`Word ${indexSentence + 1}:${indexArabicWord + 1}`} />
+            <Chip label={`Word ${indexSentence}:${indexArabicWord}`} />
             <p>
               {word.arabic}
               {word.arabic.length > 20 && <Chip sx={{ margin: 2 }} color="warning" label="Long Arabic Word" />}
