@@ -28,7 +28,14 @@ export default function TextList({ route, navigation }) {
   )
 
   const style = StyleSheet.create({
-    arabic: {
+    footer: {
+      padding: 20,
+      paddingBottom: 55,
+      paddingLeft: 33,
+      paddingRight: 33,
+      textAlign: 'center'
+    },
+    header: {
       padding: 10,
       paddingLeft: 33,
       paddingRight: 33,
@@ -48,12 +55,12 @@ export default function TextList({ route, navigation }) {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ListHeaderComponent={
-          <Text style={style.arabic} variant="labelLarge">
+          <Text style={style.header} variant="labelLarge">
             {getHijriDate()}
           </Text>
         }
         ListFooterComponent={
-          <Text style={style.arabic} variant="labelLarge">
+          <Text style={style.footer} variant="labelLarge">
             سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك
           </Text>
         }
