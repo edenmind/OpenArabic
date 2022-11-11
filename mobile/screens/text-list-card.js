@@ -1,6 +1,5 @@
 import { truncate, removeLineBreak, addSpaceAfterDot } from '../services/utility-service.js'
 import { Text, Card, Divider } from 'react-native-paper'
-import PressableOpacity from '../components/pressable-opacity.js'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
@@ -48,8 +47,10 @@ export default function CategoryCard(props) {
   const arabic = props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)
 
   return (
-    <PressableOpacity
-      testID="pressableOpacity"
+    <Card
+      style={style.card}
+      testID="textCard"
+      mode="elevated"
       onPress={() => {
         props.setShouldReload(false)
         props.navigation.navigate(SCREENS.textScreen, {
@@ -57,23 +58,21 @@ export default function CategoryCard(props) {
         })
       }}
     >
-      <Card style={style.card} testID="textCard" mode="elevated">
-        <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
-        <Card.Title title={props.text.title} subtitle={subtitle} />
-        <Card.Content>
-          <Text variant="titleLarge" style={style.arabic}>
-            {arabic}
-          </Text>
-          <Text variant="bodyMedium">{english}</Text>
-          <Divider style={style.divider} />
-        </Card.Content>
-        <Card.Actions style={style.cardAction}>
-          <Text variant="labelSmall" style={style.footer}>
-            {footer}
-          </Text>
-        </Card.Actions>
-      </Card>
-    </PressableOpacity>
+      <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
+      <Card.Title title={props.text.title} subtitle={subtitle} />
+      <Card.Content>
+        <Text variant="titleLarge" style={style.arabic}>
+          {arabic}
+        </Text>
+        <Text variant="bodyMedium">{english}</Text>
+        <Divider style={style.divider} />
+      </Card.Content>
+      <Card.Actions style={style.cardAction}>
+        <Text variant="labelSmall" style={style.footer}>
+          {footer}
+        </Text>
+      </Card.Actions>
+    </Card>
   )
 }
 
@@ -82,6 +81,7 @@ CategoryCard.propTypes = {
   navigation: PropTypes.object,
   text: PropTypes.shape({
     id: PropTypes.string,
+    slug: PropTypes.string,
     title: PropTypes.string,
     views: PropTypes.number,
     timeAgo: PropTypes.string,
