@@ -21,10 +21,10 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
         {
           "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
-          "fontSize": 22,
+          "fontSize": 28,
           "fontWeight": "400",
           "letterSpacing": 0,
-          "lineHeight": 28,
+          "lineHeight": 36,
         },
         {
           "textAlign": "left",
@@ -65,7 +65,33 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
       ]
     }
   >
-    author ·  source
+    author
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "rgba(28, 27, 31, 1)",
+          "fontFamily": "System",
+          "fontSize": 16,
+          "fontWeight": "500",
+          "letterSpacing": 0.15,
+          "lineHeight": 24,
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "writingDirection": "ltr",
+        },
+        {
+          "paddingTop": 15,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    source
   </Text>,
   <Text
     style={
@@ -85,6 +111,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "writingDirection": "ltr",
         },
         {
+          "opacity": 0.7,
           "paddingBottom": 10,
           "paddingTop": 20,
           "textAlign": "center",

@@ -3,14 +3,13 @@ import { Text, Card, Divider } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({
   arabic: {
     direction: 'rtl',
-    fontSize: 18,
-    lineHeight: 30,
-    paddingBottom: 10,
+    opacity: 0.8,
+    paddingBottom: 15,
     writingDirection: 'rtl'
   },
   card: {
@@ -21,12 +20,17 @@ const style = StyleSheet.create({
   },
   cardAction: {
     marginRight: 13,
+    opacity: 0.7,
     paddingBottom: 20,
     paddingTop: 20
   },
   divider: {
     marginBottom: 0,
     marginTop: 20
+  },
+  english: {
+    direction: 'ltr',
+    opacity: 0.8
   }
 })
 
@@ -39,10 +43,8 @@ const prepareIngress = (text, length) => {
 
 export default function CategoryCard(props) {
   //prepare hte texts
-  const subtitle = `${props.text.author} · ${props.text.source}`
-  const footer = `#${props.text.category.toLowerCase()} · ${props.text.readingTime} · ${props.text.views} views · ${
-    props.text.timeAgo
-  }`
+  const subtitle = `${props.text.author} · ${props.text.category}`
+  const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}`
   const english = props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)
 
@@ -62,20 +64,20 @@ export default function CategoryCard(props) {
       <Card.Title
         title={props.text.title}
         subtitle={subtitle}
-        titleVariant="headlineSmall"
-        subtitleVariant="bodyLarge"
+        titleVariant="titleMedium"
+        subtitleVariant="labelMedium"
       />
       <Card.Content>
         <Text variant="titleLarge" style={style.arabic}>
           {arabic}
         </Text>
-        <Text variant="bodyMedium">{english}</Text>
+        <Text variant="bodyMedium" style={style.english}>
+          {english}
+        </Text>
         <Divider style={style.divider} />
       </Card.Content>
       <Card.Actions style={style.cardAction}>
-        <Text variant="labelSmall" style={style.footer}>
-          {footer}
-        </Text>
+        <Text variant="labelSmall">{footer}</Text>
       </Card.Actions>
     </Card>
   )

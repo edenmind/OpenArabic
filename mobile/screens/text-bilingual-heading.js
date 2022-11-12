@@ -18,6 +18,7 @@ const style = StyleSheet.create({
     width: '100%'
   },
   reading: {
+    opacity: 0.7,
     paddingBottom: 10,
     paddingTop: 20,
     textAlign: 'center'
@@ -29,17 +30,22 @@ const style = StyleSheet.create({
 })
 
 export default function TextBilingualHeading(props) {
-  const author = `${props.heading.author} ·  ${props.heading.source}`
+  const author = `${props.heading.author}`
+  const source = `${props.heading.source}`
+
   const caption = `${props.heading.readingTime} · ${props.heading.views} views · ${props.heading.timeAgo}`
 
   return (
     <Fragment>
       <Image source={{ uri: props.heading.image }} style={style.image} />
-      <Text variant="titleLarge" style={style.title}>
+      <Text variant="headlineMedium" style={style.title}>
         {props.heading.title}
       </Text>
       <Text variant="titleMedium" style={style.author}>
         {author}
+      </Text>
+      <Text variant="titleMedium" style={style.author}>
+        {source}
       </Text>
       <Text variant="labelMedium" style={style.reading}>
         {caption}

@@ -237,11 +237,11 @@ exports[`<About /> renders correctly 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(232, 222, 248, 1)",
-              "borderColor": "transparent",
+              "backgroundColor": "transparent",
+              "borderColor": "rgba(121, 116, 126, 1)",
               "borderRadius": 20,
               "borderStyle": "solid",
-              "borderWidth": 0,
+              "borderWidth": 1,
               "margin": 10,
               "minWidth": 64,
             }
@@ -324,7 +324,7 @@ exports[`<About /> renders correctly 1`] = `
                       undefined,
                       false,
                       {
-                        "color": "rgba(29, 25, 43, 1)",
+                        "color": "rgba(103, 80, 164, 1)",
                         "fontFamily": "System",
                         "fontSize": 14,
                         "fontWeight": "500",
@@ -381,11 +381,11 @@ exports[`<About /> renders correctly 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(232, 222, 248, 1)",
-              "borderColor": "transparent",
+              "backgroundColor": "transparent",
+              "borderColor": "rgba(121, 116, 126, 1)",
               "borderRadius": 20,
               "borderStyle": "solid",
-              "borderWidth": 0,
+              "borderWidth": 1,
               "margin": 10,
               "minWidth": 64,
             }
@@ -468,7 +468,7 @@ exports[`<About /> renders correctly 1`] = `
                       undefined,
                       false,
                       {
-                        "color": "rgba(29, 25, 43, 1)",
+                        "color": "rgba(103, 80, 164, 1)",
                         "fontFamily": "System",
                         "fontSize": 14,
                         "fontWeight": "500",
@@ -525,11 +525,11 @@ exports[`<About /> renders correctly 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(232, 222, 248, 1)",
-              "borderColor": "transparent",
+              "backgroundColor": "transparent",
+              "borderColor": "rgba(121, 116, 126, 1)",
               "borderRadius": 20,
               "borderStyle": "solid",
-              "borderWidth": 0,
+              "borderWidth": 1,
               "margin": 10,
               "minWidth": 64,
             }
@@ -612,7 +612,7 @@ exports[`<About /> renders correctly 1`] = `
                       undefined,
                       false,
                       {
-                        "color": "rgba(29, 25, 43, 1)",
+                        "color": "rgba(103, 80, 164, 1)",
                         "fontFamily": "System",
                         "fontSize": 14,
                         "fontWeight": "500",
@@ -669,11 +669,11 @@ exports[`<About /> renders correctly 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(232, 222, 248, 1)",
-              "borderColor": "transparent",
+              "backgroundColor": "transparent",
+              "borderColor": "rgba(121, 116, 126, 1)",
               "borderRadius": 20,
               "borderStyle": "solid",
-              "borderWidth": 0,
+              "borderWidth": 1,
               "margin": 10,
               "minWidth": 64,
             }
@@ -756,7 +756,7 @@ exports[`<About /> renders correctly 1`] = `
                       undefined,
                       false,
                       {
-                        "color": "rgba(29, 25, 43, 1)",
+                        "color": "rgba(103, 80, 164, 1)",
                         "fontFamily": "System",
                         "fontSize": 14,
                         "fontWeight": "500",
@@ -813,11 +813,11 @@ exports[`<About /> renders correctly 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(232, 222, 248, 1)",
-              "borderColor": "transparent",
+              "backgroundColor": "transparent",
+              "borderColor": "rgba(121, 116, 126, 1)",
               "borderRadius": 20,
               "borderStyle": "solid",
-              "borderWidth": 0,
+              "borderWidth": 1,
               "margin": 10,
               "minWidth": 64,
             }
@@ -900,7 +900,7 @@ exports[`<About /> renders correctly 1`] = `
                       undefined,
                       false,
                       {
-                        "color": "rgba(29, 25, 43, 1)",
+                        "color": "rgba(103, 80, 164, 1)",
                         "fontFamily": "System",
                         "fontSize": 14,
                         "fontWeight": "500",
@@ -1031,11 +1031,11 @@ exports[`<About /> renders correctly 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(232, 222, 248, 1)",
-              "borderColor": "transparent",
+              "backgroundColor": "transparent",
+              "borderColor": "rgba(121, 116, 126, 1)",
               "borderRadius": 20,
               "borderStyle": "solid",
-              "borderWidth": 0,
+              "borderWidth": 1,
               "margin": 10,
               "minWidth": 64,
             }
@@ -1117,7 +1117,7 @@ exports[`<About /> renders correctly 1`] = `
                       undefined,
                       false,
                       {
-                        "color": "rgba(29, 25, 43, 1)",
+                        "color": "rgba(103, 80, 164, 1)",
                         "fontFamily": "System",
                         "fontSize": 14,
                         "fontWeight": "500",
@@ -1174,11 +1174,11 @@ exports[`<About /> renders correctly 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(232, 222, 248, 1)",
-              "borderColor": "transparent",
+              "backgroundColor": "transparent",
+              "borderColor": "rgba(121, 116, 126, 1)",
               "borderRadius": 20,
               "borderStyle": "solid",
-              "borderWidth": 0,
+              "borderWidth": 1,
               "margin": 10,
               "minWidth": 64,
             }
@@ -1260,7 +1260,7 @@ exports[`<About /> renders correctly 1`] = `
                       undefined,
                       false,
                       {
-                        "color": "rgba(29, 25, 43, 1)",
+                        "color": "rgba(103, 80, 164, 1)",
                         "fontFamily": "System",
                         "fontSize": 14,
                         "fontWeight": "500",
@@ -1317,11 +1317,11 @@ exports[`<About /> renders correctly 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(232, 222, 248, 1)",
-              "borderColor": "transparent",
+              "backgroundColor": "transparent",
+              "borderColor": "rgba(121, 116, 126, 1)",
               "borderRadius": 20,
               "borderStyle": "solid",
-              "borderWidth": 0,
+              "borderWidth": 1,
               "margin": 10,
               "minWidth": 64,
             }
@@ -1403,7 +1403,7 @@ exports[`<About /> renders correctly 1`] = `
                       undefined,
                       false,
                       {
-                        "color": "rgba(29, 25, 43, 1)",
+                        "color": "rgba(103, 80, 164, 1)",
                         "fontFamily": "System",
                         "fontSize": 14,
                         "fontWeight": "500",

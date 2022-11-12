@@ -29,16 +29,19 @@ export default function TextList({ route, navigation }) {
 
   const style = StyleSheet.create({
     footer: {
+      opacity: 0.7,
       padding: 20,
       paddingBottom: 55,
-      paddingLeft: 33,
-      paddingRight: 33,
+      paddingLeft: 55,
+      paddingRight: 55,
       textAlign: 'center'
     },
     header: {
-      padding: 10,
+      opacity: 0.7,
+      paddingBottom: 10,
       paddingLeft: 33,
       paddingRight: 33,
+      paddingTop: 15,
       textAlign: 'center'
     }
   })
@@ -48,24 +51,22 @@ export default function TextList({ route, navigation }) {
   )
 
   return textsLoading ? (
-    <Fragment>
-      <FlatList
-        testID="flatList"
-        data={texts}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        ListHeaderComponent={
-          <Text style={style.header} variant="labelLarge">
-            {getHijriDate()}
-          </Text>
-        }
-        ListFooterComponent={
-          <Text style={style.footer} variant="labelLarge">
-            سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك
-          </Text>
-        }
-      />
-    </Fragment>
+    <FlatList
+      testID="flatList"
+      data={texts}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+      ListHeaderComponent={
+        <Text style={style.header} variant="labelLarge">
+          {getHijriDate()}
+        </Text>
+      }
+      ListFooterComponent={
+        <Text style={style.footer} variant="labelLarge">
+          سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك
+        </Text>
+      }
+    />
   ) : (
     <Spinner />
   )

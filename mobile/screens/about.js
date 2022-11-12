@@ -56,19 +56,19 @@ function About() {
       <Text variant="bodyMedium" style={style.english}>
         Please use any of the following channels to report bugs or requests new features.
       </Text>
-      <Button style={style.button} mode="contained-tonal" testID="email" onPress={() => Linking.openURL(email)}>
+      <Button style={style.button} mode="outlined" testID="email" onPress={() => Linking.openURL(email)}>
         Email
       </Button>
-      <Button style={style.button} mode="contained-tonal" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+      <Button style={style.button} mode="outlined" testID="twitter" onPress={() => Linking.openURL(twitter)}>
         Twitter
       </Button>
-      <Button style={style.button} mode="contained-tonal" testID="github" onPress={() => Linking.openURL(github)}>
+      <Button style={style.button} mode="outlined" testID="github" onPress={() => Linking.openURL(github)}>
         GitHub
       </Button>
-      <Button style={style.button} mode="contained-tonal" testID="instagram" onPress={() => Linking.openURL(instagram)}>
+      <Button style={style.button} mode="outlined" testID="instagram" onPress={() => Linking.openURL(instagram)}>
         Instagram
       </Button>
-      <Button style={style.button} mode="contained-tonal" testID="facebook" onPress={() => Linking.openURL(facebook)}>
+      <Button style={style.button} mode="outlined" testID="facebook" onPress={() => Linking.openURL(facebook)}>
         Facebook
       </Button>
 
@@ -83,13 +83,13 @@ function About() {
         and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic
         project on GitHub.
       </Text>
-      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubIssues)}>
+      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(githubIssues)}>
         Issues
       </Button>
-      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubDiscussions)}>
+      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(githubDiscussions)}>
         Discussions
       </Button>
-      <Button style={style.button} mode="contained-tonal" onPress={() => Linking.openURL(githubPullRequests)}>
+      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(githubPullRequests)}>
         Pull Requests
       </Button>
 
