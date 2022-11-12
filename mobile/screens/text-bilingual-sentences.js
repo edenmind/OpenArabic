@@ -34,6 +34,9 @@ const style = StyleSheet.create({
     paddingBottom: 25,
     paddingHorizontal: 125,
     paddingTop: 5
+  },
+  vocabulary: {
+    opacity: 0.3
   }
 })
 
@@ -62,7 +65,9 @@ export default function TextBilingualSentences(props) {
           showModal()
         }}
       >
-        <Text variant="labelSmall">Vocabulary</Text>
+        <Text variant="labelSmall" style={style.vocabulary}>
+          VOCABULARY
+        </Text>
       </Button>
     </Fragment>
   ))
