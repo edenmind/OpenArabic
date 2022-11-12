@@ -33,7 +33,7 @@ const style = StyleSheet.create({
   },
   showWordsButton: {
     paddingBottom: 25,
-    paddingHorizontal: 125,
+    paddingHorizontal: 75,
     paddingTop: 5
   },
   vocabulary: {
