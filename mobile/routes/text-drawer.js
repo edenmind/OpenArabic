@@ -17,6 +17,7 @@ export default function TextDrawer() {
   const Drawer = createDrawerNavigator()
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
+  const hijriYear = `${packageJson.version} ١٤٤٤ هـ`
 
   const style = StyleSheet.create({
     divider: {
@@ -78,9 +79,8 @@ export default function TextDrawer() {
           <DrawerItemList {...props} />
           <Divider style={style.divider} />
         </DrawerContentScrollView>
-
         <Text style={style.version}>Version</Text>
-        <Caption style={style.semver}>{packageJson.version}</Caption>
+        <Caption style={style.semver}>{hijriYear}</Caption>
       </Fragment>
     )
   }

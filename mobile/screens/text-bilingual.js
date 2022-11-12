@@ -15,22 +15,28 @@ const textLoadSelector = (state) => state.textLoading
 export default function TextBilingual() {
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
+  const share = 'Share'
+  const report = 'Report an Error'
 
   const style = StyleSheet.create({
-    button: {
+    buttonReport: {
+      marginBottom: 150,
       marginLeft: 25,
       marginRight: 25,
       marginTop: 15
     },
-    divider: {
-      marginBottom: 150
+    buttonShare: {
+      marginLeft: 25,
+      marginRight: 25,
+      marginTop: 5
     }
   })
 
   const onShare = async () => {
     try {
       await Share.share({
-        message: `${text.title} - ${text.author}`,
+        message: `🔗 ${text.title} - ${text.author}`,
+        title: `🔗 ${text.title} - ${text.author}`,
         url: `${HOST.frontend}/${ENDPOINT.texts}/${text.slug}`
       })
     } catch (error) {
@@ -54,13 +60,12 @@ export default function TextBilingual() {
     <ScrollView>
       <Heading heading={text} />
       <Sentences sentences={text.sentences} />
-      <Button style={style.button} mode="outlined" onPress={onShare}>
-        <Text>Share</Text>
+      <Button style={style.buttonShare} mode="outlined" onPress={onShare}>
+        {share}
       </Button>
-      <Button style={style.button} mode="outlined" onPress={onErrorReport}>
-        <Text>Report an Error</Text>
+      <Button style={style.buttonReport} mode="outlined" onPress={onErrorReport}>
+        {report}
       </Button>
-      <Divider style={style.divider} />
     </ScrollView>
   ) : (
     <Spinner />

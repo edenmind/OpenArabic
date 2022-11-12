@@ -154,7 +154,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                     "color": "rgba(28, 27, 31, 1)",
                     "fontFamily": "System",
                     "fontSize": 16,
-                    "fontWeight": "400",
+                    "fontWeight": "500",
                     "letterSpacing": 0.15,
                     "lineHeight": 24,
                   },
@@ -186,10 +186,10 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                   {
                     "color": "rgba(28, 27, 31, 1)",
                     "fontFamily": "System",
-                    "fontSize": 14,
-                    "fontWeight": "400",
-                    "letterSpacing": 0.25,
-                    "lineHeight": 20,
+                    "fontSize": 12,
+                    "fontWeight": "500",
+                    "letterSpacing": 0.5,
+                    "lineHeight": 16,
                   },
                   {
                     "textAlign": "left",
@@ -208,7 +208,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                 ]
               }
             >
-              someAuthor · undefined
+              someAuthor · someCategory
             </Text>
           </View>
           <View />
@@ -243,9 +243,8 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                 },
                 {
                   "direction": "rtl",
-                  "fontSize": 18,
-                  "lineHeight": 30,
-                  "paddingBottom": 10,
+                  "opacity": 0.8,
+                  "paddingBottom": 15,
                   "writingDirection": "rtl",
                 },
               ]
@@ -270,7 +269,10 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                 {
                   "writingDirection": "ltr",
                 },
-                undefined,
+                {
+                  "direction": "ltr",
+                  "opacity": 0.8,
+                },
               ]
             }
           >
@@ -313,6 +315,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
               },
               {
                 "marginRight": 13,
+                "opacity": 0.7,
                 "paddingBottom": 20,
                 "paddingTop": 20,
               },
@@ -348,7 +351,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
               ]
             }
           >
-            #somecategory · undefined · undefined views · undefined
+            undefined views · undefined · undefined
           </Text>
         </View>
       </View>
