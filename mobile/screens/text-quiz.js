@@ -50,15 +50,16 @@ const TextQuiz = () => {
       return
     } // do nothing
 
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+
     if (englishCurrentSelectedWordId == arabicWordId) {
       // correct answer
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
       addWordIdToCorrectAnswers(arabicWordId)
       setIsSecondWord(false)
       handleSetArabic(index, arabicWordId)
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
       if (correctAnswers.length === numberOfWordInQuiz) {
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
         setCelebrationSnackBarVisibility(true)
         setTimeout(() => {
           resetState()
@@ -77,6 +78,7 @@ const TextQuiz = () => {
 
     if (isSecondWord) {
       // wrong answer
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
       englishSelectedCollection[englishCurrentSelectedIndex] = false
       setEnglishSelected([...englishSelectedCollection])
       setIsSecondWord(false)
@@ -93,15 +95,16 @@ const TextQuiz = () => {
       return
     } // do nothing
 
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+
     if (arabicCurrentSelectedWordId == englishWordId) {
       // correct answer
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
       addWordIdToCorrectAnswers(englishWordId)
       setIsSecondWord(false)
       handleSetEnglish(index, englishWordId)
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
       if (correctAnswers.length === numberOfWordInQuiz) {
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
         setTimeout(() => {
           resetState()
 

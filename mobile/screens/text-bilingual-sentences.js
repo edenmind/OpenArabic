@@ -5,6 +5,7 @@ import { StyleSheet, View } from 'react-native'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import PropTypes from 'prop-types'
 import WordPairs from './text-bilingual-sentences-word-pairs.js'
+import * as Haptics from 'expo-haptics'
 
 const style = StyleSheet.create({
   arabic: {
@@ -45,7 +46,10 @@ const filterFunction = (element) => element.english !== '' && element.arabic !==
 export default function TextBilingualSentences(props) {
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
-  const hideModal = () => setVisible(false)
+  const hideModal = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    setVisible(false)
+  }
   const showModal = () => setVisible(true)
   const getListOfWordPairs = (index) => setWords(index)
   const sentences = props.sentences.map((sentence, index) => (
@@ -61,6 +65,7 @@ export default function TextBilingualSentences(props) {
         style={style.showWordsButton}
         mode="text"
         onPress={() => {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()
         }}

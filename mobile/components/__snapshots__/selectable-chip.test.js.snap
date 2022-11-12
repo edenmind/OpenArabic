@@ -41,13 +41,13 @@ exports[`<SnackButton /> renders correctly 1`] = `
       style={
         {
           "backgroundColor": "rgb(73, 73, 0)",
-          "borderColor": "rgb(233, 232, 107)",
+          "borderColor": "rgb(204, 204, 82)",
           "borderRadius": 8,
           "borderStyle": "solid",
           "borderWidth": 2,
           "direction": "ltr",
           "flexDirection": "column",
-          "height": 50,
+          "height": 55,
           "margin": 15,
         }
       }

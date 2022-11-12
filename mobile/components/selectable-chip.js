@@ -1,5 +1,4 @@
 import * as React from 'react'
-import COLORS from '../constants/colors.js'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import { Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
@@ -11,35 +10,35 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   chipNotSelectedArabic: {
-    backgroundColor: paperDarkTheme.colors.onPrimary,
-    borderColor: paperDarkTheme.colors.inversePrimary,
+    backgroundColor: paperDarkTheme.colors.onSecondary,
+    borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'rtl',
-    height: 50,
+    height: 55,
     margin: 15
   },
   chipNotSelectedEnglish: {
-    backgroundColor: paperDarkTheme.colors.onPrimary,
-    borderColor: paperDarkTheme.colors.inversePrimary,
+    backgroundColor: paperDarkTheme.colors.onSecondary,
+    borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'ltr',
-    height: 50,
+    height: 55,
     margin: 15
   },
   chipSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
-    borderColor: paperDarkTheme.colors.onPrimaryContainer,
+    borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'rtl',
-    height: 50,
+    height: 55,
     margin: 15
   },
   chipSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
-    borderColor: paperDarkTheme.colors.onPrimaryContainer,
+    borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'ltr',
-    height: 50,
+    height: 55,
     margin: 15
   },
   english: {
@@ -60,6 +59,7 @@ const getStyle = (props) => {
 const SelectableChip = (props) => (
   <Chip
     mode="outlined"
+    showSelectedOverlay={true}
     onPress={props.func}
     backgroundColor={paperDarkTheme.colors.primary}
     textStyle={props.language === LANGUAGES.arabic ? styles.arabic : styles.english}
