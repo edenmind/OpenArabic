@@ -5,7 +5,7 @@ import { ScrollView, StyleSheet, Share } from 'react-native'
 import Sentences from './text-bilingual-sentences.js'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
-import { Button, Divider, Text } from 'react-native-paper'
+import { Button } from 'react-native-paper'
 import { ENDPOINT, HOST } from '../constants/urls.js'
 import * as MailComposer from 'expo-mail-composer'
 

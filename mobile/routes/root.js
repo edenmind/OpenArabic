@@ -24,7 +24,6 @@ const Root = () => (
         component={Text}
         options={{
           tabBarLabel: '',
-
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="script-text" color={color} size={26} />
         }}
       />

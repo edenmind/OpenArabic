@@ -24,6 +24,7 @@ const style = StyleSheet.create({
     textAlign: 'center'
   },
   title: {
+    fontFamily: 'philosopher',
     paddingTop: 45,
     textAlign: 'center'
   }

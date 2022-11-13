@@ -8,7 +8,8 @@ const SCREENS = {
   english: 'Eng',
   quiz: 'Quiz',
   related: 'More',
-  textScreen: 'TextScreen'
+  textScreen: 'TextScreen',
+  textSettings: 'TextSettings'
 }
 
 export default SCREENS
