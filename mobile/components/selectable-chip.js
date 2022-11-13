@@ -16,32 +16,32 @@ const styles = StyleSheet.create({
     borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'rtl',
-    height: 55,
-    margin: 15
+    height: 63,
+    margin: 10
   },
   chipNotSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.onSecondary,
     borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'ltr',
-    height: 55,
-    margin: 15
+    height: 63,
+    margin: 10
   },
   chipSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
     borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'rtl',
-    height: 55,
-    margin: 15
+    height: 63,
+    margin: 10
   },
   chipSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
     borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'ltr',
-    height: 55,
-    margin: 15
+    height: 63,
+    margin: 10
   },
   english: {
     fontSize: 16
