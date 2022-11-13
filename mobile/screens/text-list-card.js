@@ -52,7 +52,7 @@ const prepareIngress = (text, length) => {
 }
 
 export default function CategoryCard(props) {
-  //prepare hte texts
+  //prepare the texts
   const subtitle = `${props.text.author} · ${props.text.category}`
   const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}`
   const english = props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)

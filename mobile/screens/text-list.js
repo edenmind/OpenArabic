@@ -29,16 +29,21 @@ export default function TextList({ route, navigation }) {
 
   const style = StyleSheet.create({
     footer: {
+      alignContent: 'center',
       fontFamily: 'uthmanic',
+      lineHeight: 55,
       opacity: 0.7,
       padding: 20,
-      paddingBottom: 55,
-      paddingLeft: 55,
-      paddingRight: 55,
-      textAlign: 'center'
+      paddingBottom: 15,
+      paddingLeft: 75,
+      paddingRight: 75,
+      readingDirection: 'rtl',
+      textAlign: 'center',
+      writingDirection: 'rtl'
     },
     header: {
-      opacity: 0.7,
+      fontFamily: 'uthmanic',
+      opacity: 0.9,
       paddingBottom: 10,
       paddingLeft: 33,
       paddingRight: 33,

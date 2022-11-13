@@ -6,44 +6,13 @@ import ModalScrollView from '../components/modal-scroll-view.js'
 import PropTypes from 'prop-types'
 import WordPairs from './text-bilingual-sentences-word-pairs.js'
 import * as Haptics from 'expo-haptics'
-
-const style = StyleSheet.create({
-  arabic: {
-    direction: 'rtl',
-    fontFamily: 'uthmanic',
-    fontSize: 33,
-    fontWeight: 'normal',
-    paddingBottom: 13,
-    paddingLeft: 33,
-    paddingRight: 25,
-    paddingTop: 33,
-    writingDirection: 'rtl'
-  },
-  bottomPadding: {
-    paddingBottom: 40
-  },
-  english: {
-    direction: 'ltr',
-    fontFamily: 'philosopher',
-    opacity: 0.9,
-    paddingBottom: 13,
-    paddingLeft: 33,
-    paddingRight: 33,
-    writingDirection: 'ltr'
-  },
-  showWordsButton: {
-    paddingBottom: 25,
-    paddingHorizontal: 75,
-    paddingTop: 5
-  },
-  vocabulary: {
-    opacity: 0.3
-  }
-})
-
+import { getData } from '../services/storage.js'
 const filterFunction = (element) => element.english !== '' && element.arabic !== ''
 
 export default function TextBilingualSentences(props) {
+  const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16)
+  const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20)
+
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
   const hideModal = () => {
@@ -52,12 +21,78 @@ export default function TextBilingualSentences(props) {
   }
   const showModal = () => setVisible(true)
   const getListOfWordPairs = (index) => setWords(index)
+
+  // get a value using getData
+  const getEnglishFontSize = async () => {
+    try {
+      const value = await getData('englishFontSize')
+
+      if (value !== null) {
+        setEnglishSizeValue(value)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // get a value using getData
+  const getArabicFontSize = async () => {
+    try {
+      const value = await getData('arabicFontSize')
+
+      if (value !== null) {
+        setArabicSizeValue(value)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // load the value when the component mounts
+  React.useEffect(() => {
+    getEnglishFontSize()
+    getArabicFontSize()
+  }, [])
+
+  const style = StyleSheet.create({
+    arabic: {
+      direction: 'rtl',
+      fontFamily: 'uthmanic',
+      fontSize: arabicFontSizeValue,
+      fontWeight: 'normal',
+      paddingBottom: 13,
+      paddingLeft: 33,
+      paddingRight: 25,
+      paddingTop: 33,
+      writingDirection: 'rtl'
+    },
+    bottomPadding: {
+      paddingBottom: 40
+    },
+    english: {
+      direction: 'ltr',
+      fontFamily: 'philosopher',
+      fontSize: englishFontSizeValue,
+      opacity: 0.9,
+      paddingBottom: 13,
+      paddingLeft: 33,
+      paddingRight: 33,
+      writingDirection: 'ltr'
+    },
+    showWordsButton: {
+      paddingBottom: 25,
+      paddingHorizontal: 75,
+      paddingTop: 5
+    },
+    vocabulary: {
+      opacity: 0.3
+    }
+  })
+
   const sentences = props.sentences.map((sentence, index) => (
     <Fragment key={index}>
       <Text style={style.arabic}>{sentence.arabic}</Text>
-      <Text style={style.english} variant="bodyLarge">
-        {sentence.english}
-      </Text>
+      <Text style={style.english}>{sentence.english}</Text>
 
       <Button
         style={style.showWordsButton}
