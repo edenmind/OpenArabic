@@ -9,6 +9,7 @@ const style = StyleSheet.create({
   arabic: {
     direction: 'rtl',
     fontFamily: 'uthmanic',
+    fontSize: 23,
     opacity: 0.8,
     paddingBottom: 15,
     writingDirection: 'rtl'
@@ -79,10 +80,8 @@ export default function CategoryCard(props) {
         subtitleStyle={style.cardSubtitle}
       />
       <Card.Content>
-        <Text variant="titleLarge" style={style.arabic}>
-          {arabic}
-        </Text>
-        <Text variant="bodyMedium" style={style.english}>
+        <Text style={style.arabic}>{arabic}</Text>
+        <Text variant="bodyLarge" style={style.english}>
           {english}
         </Text>
         <Divider style={style.divider} />
