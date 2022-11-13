@@ -10,10 +10,9 @@ import * as Haptics from 'expo-haptics'
 const style = StyleSheet.create({
   arabic: {
     direction: 'rtl',
-    flex: 1,
     fontFamily: 'uthmanic',
-    fontSize: 30,
-    lineHeight: 55,
+    fontSize: 33,
+    fontWeight: 'normal',
     paddingBottom: 13,
     paddingLeft: 33,
     paddingRight: 25,
@@ -25,10 +24,8 @@ const style = StyleSheet.create({
   },
   english: {
     direction: 'ltr',
-    flex: 1,
     fontFamily: 'philosopher',
-    lineHeight: 25,
-    opacity: 0.7,
+    opacity: 0.9,
     paddingBottom: 13,
     paddingLeft: 33,
     paddingRight: 33,
@@ -58,7 +55,7 @@ export default function TextBilingualSentences(props) {
   const sentences = props.sentences.map((sentence, index) => (
     <Fragment key={index}>
       <Text style={style.arabic}>{sentence.arabic}</Text>
-      <Text style={style.english} variant="bodyMedium">
+      <Text style={style.english} variant="bodyLarge">
         {sentence.english}
       </Text>
 
