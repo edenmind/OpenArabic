@@ -6,6 +6,7 @@ import { Divider, Text } from 'react-native-paper'
 function TextBilingualSentencesWordPairs(props) {
   const style = StyleSheet.create({
     arabic: {
+      fontFamily: 'uthmanic',
       paddingBottom: 5,
       paddingTop: 15
     },

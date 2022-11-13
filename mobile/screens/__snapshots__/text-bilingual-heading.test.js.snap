@@ -33,6 +33,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "writingDirection": "ltr",
         },
         {
+          "fontFamily": "philosopher",
           "paddingTop": 45,
           "textAlign": "center",
         },

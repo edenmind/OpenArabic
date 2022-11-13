@@ -20,6 +20,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
           "writingDirection": "ltr",
         },
         {
+          "fontFamily": "uthmanic",
           "paddingBottom": 5,
           "paddingTop": 15,
         },
@@ -86,6 +87,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
           "writingDirection": "ltr",
         },
         {
+          "fontFamily": "uthmanic",
           "paddingBottom": 5,
           "paddingTop": 15,
         },

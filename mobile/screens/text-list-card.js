@@ -8,6 +8,7 @@ import { StyleSheet } from 'react-native'
 const style = StyleSheet.create({
   arabic: {
     direction: 'rtl',
+    fontFamily: 'uthmanic',
     opacity: 0.8,
     paddingBottom: 15,
     writingDirection: 'rtl'
@@ -24,12 +25,20 @@ const style = StyleSheet.create({
     paddingBottom: 20,
     paddingTop: 20
   },
+  cardSubtitle: {
+    paddingBottom: 25
+  },
+  cardTitle: {
+    fontFamily: 'philosopher',
+    lineHeight: 55
+  },
   divider: {
     marginBottom: 0,
     marginTop: 20
   },
   english: {
     direction: 'ltr',
+    fontFamily: 'philosopher',
     opacity: 0.8
   }
 })
@@ -64,8 +73,10 @@ export default function CategoryCard(props) {
       <Card.Title
         title={props.text.title}
         subtitle={subtitle}
-        titleVariant="titleMedium"
+        titleVariant="titleLarge"
+        titleStyle={style.cardTitle}
         subtitleVariant="labelMedium"
+        subtitleStyle={style.cardSubtitle}
       />
       <Card.Content>
         <Text variant="titleLarge" style={style.arabic}>

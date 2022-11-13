@@ -8177,7 +8177,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-font@npm:~11.0.1":
+"expo-font@npm:^11.0.1, expo-font@npm:~11.0.1":
   version: 11.0.1
   resolution: "expo-font@npm:11.0.1"
   dependencies:
@@ -12633,6 +12633,7 @@ __metadata:
     expo-crypto: ~12.0.0
     expo-device: ~5.0.0
     expo-file-system: ~15.1.1
+    expo-font: ^11.0.1
     expo-haptics: ~12.0.1
     expo-mail-composer: ~12.0.0
     expo-updates: ~0.15.4

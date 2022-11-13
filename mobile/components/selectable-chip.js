@@ -7,7 +7,9 @@ import LANGUAGES from '../constants/languages.js'
 
 const styles = StyleSheet.create({
   arabic: {
-    fontSize: 25
+    fontFamily: 'uthmanic',
+    fontSize: 33,
+    lineHeight: 50
   },
   chipNotSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.onSecondary,

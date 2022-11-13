@@ -11,11 +11,12 @@ const style = StyleSheet.create({
   arabic: {
     direction: 'rtl',
     flex: 1,
-    fontWeight: 'medium',
-    lineHeight: 33,
-    paddingBottom: 10,
+    fontFamily: 'uthmanic',
+    fontSize: 30,
+    lineHeight: 55,
+    paddingBottom: 13,
     paddingLeft: 33,
-    paddingRight: 33,
+    paddingRight: 25,
     paddingTop: 33,
     writingDirection: 'rtl'
   },
@@ -25,8 +26,10 @@ const style = StyleSheet.create({
   english: {
     direction: 'ltr',
     flex: 1,
+    fontFamily: 'philosopher',
     lineHeight: 25,
     opacity: 0.7,
+    paddingBottom: 13,
     paddingLeft: 33,
     paddingRight: 33,
     writingDirection: 'ltr'
@@ -54,9 +57,7 @@ export default function TextBilingualSentences(props) {
   const getListOfWordPairs = (index) => setWords(index)
   const sentences = props.sentences.map((sentence, index) => (
     <Fragment key={index}>
-      <Text style={style.arabic} variant="headlineMedium">
-        {sentence.arabic}
-      </Text>
+      <Text style={style.arabic}>{sentence.arabic}</Text>
       <Text style={style.english} variant="bodyMedium">
         {sentence.english}
       </Text>

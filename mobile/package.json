@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.52",
+  "version": "1444.4.53",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -42,6 +42,7 @@
     "expo-crypto": "~12.0.0",
     "expo-device": "~5.0.0",
     "expo-file-system": "~15.1.1",
+    "expo-font": "^11.0.1",
     "expo-haptics": "~12.0.1",
     "expo-mail-composer": "~12.0.0",
     "expo-updates": "~0.15.4",

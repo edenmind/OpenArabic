@@ -7,12 +7,18 @@ import { Provider } from 'react-redux'
 import React from 'react'
 import Root from './routes/root.js'
 import { store } from './redux/store.js'
+import { useFonts } from 'expo-font'
 
 Bugsnag.start({
   apiKey: '77c30e82c802aed265d4d31617059924'
 })
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    uthmanic: require('./assets/fonts/me_quran.ttf'),
+    philosopher: require('./assets/fonts/philosopher.ttf')
+  })
+
   return (
     <ErrorBoundary>
       <Provider store={store}>

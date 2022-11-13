@@ -153,10 +153,10 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                   {
                     "color": "rgba(28, 27, 31, 1)",
                     "fontFamily": "System",
-                    "fontSize": 16,
-                    "fontWeight": "500",
-                    "letterSpacing": 0.15,
-                    "lineHeight": 24,
+                    "fontSize": 22,
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 28,
                   },
                   {
                     "textAlign": "left",
@@ -172,7 +172,10 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                     {
                       "marginBottom": 0,
                     },
-                    undefined,
+                    {
+                      "fontFamily": "philosopher",
+                      "lineHeight": 55,
+                    },
                   ],
                 ]
               }
@@ -203,7 +206,9 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                       "minHeight": 20,
                       "paddingRight": 16,
                     },
-                    undefined,
+                    {
+                      "paddingBottom": 25,
+                    },
                   ],
                 ]
               }
@@ -243,6 +248,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                 },
                 {
                   "direction": "rtl",
+                  "fontFamily": "uthmanic",
                   "opacity": 0.8,
                   "paddingBottom": 15,
                   "writingDirection": "rtl",
@@ -271,6 +277,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
                 },
                 {
                   "direction": "ltr",
+                  "fontFamily": "philosopher",
                   "opacity": 0.8,
                 },
               ]
