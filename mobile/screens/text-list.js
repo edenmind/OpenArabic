@@ -29,26 +29,15 @@ export default function TextList({ route, navigation }) {
 
   const style = StyleSheet.create({
     footer: {
-      alignContent: 'center',
       fontFamily: 'uthmanic',
-      lineHeight: 55,
       opacity: 0.7,
-      padding: 20,
-      paddingBottom: 15,
+      padding: 5,
+      paddingBottom: 10,
       paddingLeft: 75,
       paddingRight: 75,
       readingDirection: 'rtl',
       textAlign: 'center',
       writingDirection: 'rtl'
-    },
-    header: {
-      fontFamily: 'uthmanic',
-      opacity: 0.9,
-      paddingBottom: 10,
-      paddingLeft: 33,
-      paddingRight: 33,
-      paddingTop: 15,
-      textAlign: 'center'
     }
   })
 
@@ -62,15 +51,12 @@ export default function TextList({ route, navigation }) {
       data={texts}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
-      ListHeaderComponent={
-        <Text style={style.header} variant="labelLarge">
-          {getHijriDate()}
-        </Text>
-      }
       ListFooterComponent={
-        <Text style={style.footer} variant="labelLarge">
-          سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك
-        </Text>
+        <>
+          <Text style={style.footer}>{getHijriDate()}</Text>
+          <Text style={style.footer}>سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك</Text>
+          <Text style={style.footer}></Text>
+        </>
       }
     />
   ) : (
