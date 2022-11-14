@@ -1,4 +1,11 @@
-import { categoriesReducer, textLoadingReducer, textReducer, textsLoadingReducer, textsReducer } from './reducers.js'
+import {
+  categoriesReducer,
+  textLoadingReducer,
+  textReducer,
+  textsLoadingReducer,
+  textsReducer,
+  uiReducer
+} from './reducers.js'
 import { configureStore } from '@reduxjs/toolkit'
 
 const store = configureStore({
@@ -7,7 +14,8 @@ const store = configureStore({
     text: textReducer,
     texts: textsReducer,
     textLoading: textLoadingReducer,
-    textsLoading: textsLoadingReducer
+    textsLoading: textsLoadingReducer,
+    ui: uiReducer
   }
 })
 
