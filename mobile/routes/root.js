@@ -35,11 +35,8 @@ function Root() {
         dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: size })
       }
 
-      console.log('englishFontSize', englishFontSize)
-      console.log('arabicFontSize', arabicFontSize)
-
-      setArabicFontSize(33)
-      setEnglishFontSize(21)
+      setArabicFontSize(arabicFontSize)
+      setEnglishFontSize(englishFontSize)
     },
     [dispatch]
   )

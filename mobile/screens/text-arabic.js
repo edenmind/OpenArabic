@@ -12,10 +12,8 @@ export default function TextArabic() {
   const style = StyleSheet.create({
     arabic: {
       direction: 'rtl',
-      flex: 1,
       fontFamily: 'uthmanic',
       fontSize: 25,
-      lineHeight: 45,
       padding: 25,
       writingDirection: 'rtl'
     }
@@ -26,9 +24,7 @@ export default function TextArabic() {
 
   return textLoading ? (
     <ScrollView>
-      <Text style={style.arabic} variant="bodyLarge">
-        {text.texts.arabic}
-      </Text>
+      <Text style={style.arabic}>{text.texts.arabic}</Text>
     </ScrollView>
   ) : (
     <Spinner />
