@@ -8,7 +8,7 @@ const ModalScrollView = (props) => {
   const containerStyle = {
     margin: 20,
     padding: 20,
-    backgroundColor: paperDarkTheme.colors.onPrimary,
+    backgroundColor: paperDarkTheme.colors.background,
     maxHeight: '90%',
     borderRadius: 10
   }
@@ -31,7 +31,7 @@ const ModalScrollView = (props) => {
         </Text>
         <ScrollView>{props.content}</ScrollView>
         <Button onPress={props.hideModal} style={buttonPadding} mode="text">
-          <Text variant="labelSmall">CLOSE</Text>
+          <Text variant="labelMedium">CLOSE</Text>
         </Button>
       </Modal>
     </Portal>

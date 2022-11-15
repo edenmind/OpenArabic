@@ -111,12 +111,12 @@ export default function TextDrawer() {
         headerTintColor: 'rgb(230, 226, 217)',
         headerStyle: {
           backgroundColor: paperDarkTheme.colors.level0
+        },
+        headerTitleStyle: {
+          fontFamily: 'philosopher',
+          fontWeight: 'bold',
+          fontSize: 25
         }
-        // headerTitleStyle: {
-        //   fontFamily: 'philosopher',
-        //   fontWeight: 'bold',
-        //   fontSize: 25
-        // }
       }}
     >
       {homeScreen}
