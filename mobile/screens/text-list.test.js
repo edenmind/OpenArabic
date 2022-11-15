@@ -2,9 +2,9 @@
 import { describe, it, jest } from '@jest/globals'
 import TextList from './text-list.js'
 import { NavigationContainer } from '@react-navigation/native'
-import { Provider } from 'react-redux'
 import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
+import { Provider } from 'react-redux'
 import { store } from '../redux/store.js'
 
 jest.useFakeTimers()

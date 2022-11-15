@@ -1,14 +1,14 @@
 import { describe, expect, it, jest } from '@jest/globals'
-
 import CategoryCard from './text-list-card.js'
 import React from 'react'
-import { render } from '@testing-library/react-native'
-import renderer from 'react-test-renderer'
+import ShallowRenderer from 'react-test-renderer/shallow' // ES6
+import { Provider } from 'react-redux'
+import { store } from '../redux/store.js'
+import { NavigationContainer } from '@react-navigation/native'
 
 jest.useFakeTimers()
 
 describe('<CategoryCard />', () => {
-  const testIdName = 'textCard'
   const textMock = {
     title: 'someTitle',
     id: 'someId',
@@ -21,13 +21,15 @@ describe('<CategoryCard />', () => {
   }
 
   test('renders correctly', () => {
-    const tree = renderer.create(<CategoryCard text={textMock} setShouldReload={() => {}} />).toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-  it('should find the button via contactButton', () => {
-    const { getByTestId } = render(<CategoryCard text={textMock} setShouldReload={() => {}} />)
-    const foundButton = getByTestId(testIdName)
+    const renderer = new ShallowRenderer()
+    const tree = renderer.render(
+      <Provider store={store}>
+        <NavigationContainer>
+          <CategoryCard text={textMock} setShouldReload={() => {}} />
+        </NavigationContainer>
+      </Provider>
+    )
 
-    expect(foundButton).toBeTruthy()
+    expect(tree).toMatchSnapshot()
   })
 })

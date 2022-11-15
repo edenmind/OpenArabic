@@ -73,11 +73,13 @@ const initialStateUI = {
   englishFontSize: 16
 }
 
-const uiReducer = createReducer(initialStateUI, (builder) => {
+const arabicFontSizeReducer = createReducer(initialStateUI, (builder) => {
   builder.addCase(actions.SET_ARABIC_FONT_SIZE, (state, action) => {
     return { ...state, arabicFontSize: action.payload }
   })
+})
 
+const englishFontSizeReducer = createReducer(initialStateUI, (builder) => {
   builder.addCase(actions.SET_ENGLISH_FONT_SIZE, (state, action) => {
     return { ...state, englishFontSize: action.payload }
   })
@@ -117,4 +119,12 @@ const textsLoadingReducer = createReducer(initialStateLoading, (builder) => {
   })
 })
 
-export { categoriesReducer, textReducer, textsReducer, textLoadingReducer, textsLoadingReducer, uiReducer }
+export {
+  categoriesReducer,
+  textReducer,
+  textsReducer,
+  textLoadingReducer,
+  textsLoadingReducer,
+  arabicFontSizeReducer,
+  englishFontSizeReducer
+}

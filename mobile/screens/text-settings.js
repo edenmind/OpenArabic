@@ -2,15 +2,19 @@ import { Text, SegmentedButtons, Surface } from 'react-native-paper'
 import { ScrollView, StyleSheet } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
+import { useDispatch } from 'react-redux'
 
 function TextSettingsScreen() {
   const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16)
   const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20)
+  const dispatch = useDispatch()
 
   // store a value using storeData
   const storeEnglishFontSize = async (value) => {
     try {
-      console.log(value)
+      // store the value in the store with dispatch
+      dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: value })
+
       await storeData('englishFontSize', value)
     } catch (error) {
       console.log(error)
@@ -20,6 +24,9 @@ function TextSettingsScreen() {
   // store a value using storeData
   const storeArabicFontSize = async (value) => {
     try {
+      // store the value in the store with dispatch
+      dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: value })
+
       await storeData('arabicFontSize', value)
     } catch (error) {
       console.log(error)
@@ -63,7 +70,7 @@ function TextSettingsScreen() {
       direction: 'rtl',
       fontFamily: 'uthmanic',
       fontSize: arabicFontSizeValue,
-      lineHeight: 40,
+      lineHeight: 70,
       writingDirection: 'rtl'
     },
     element: {

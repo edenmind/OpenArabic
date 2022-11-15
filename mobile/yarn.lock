@@ -8274,9 +8274,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-updates@npm:~0.15.4":
-  version: 0.15.4
-  resolution: "expo-updates@npm:0.15.4"
+"expo-updates@npm:~0.15.5":
+  version: 0.15.5
+  resolution: "expo-updates@npm:0.15.5"
   dependencies:
     "@expo/code-signing-certificates": 0.0.2
     "@expo/config": ~7.0.2
@@ -8294,7 +8294,7 @@ __metadata:
     expo: "*"
   bin:
     expo-updates: bin/cli.js
-  checksum: eee386232d7739883bd116ee3491c30d784b8591d3ef87d840ff61b8f360092911137dc45caf9f14db5b556fb79624784e184e327c121f0daec55f24d41911a1
+  checksum: 1d78185957a5c26cc44fe063ff774450a767efde5a89c634fbca17cccce7785a3aeaaf20aa1334ff04677f40818dd3f0ef3a5cb5c58e05dc735ac7e930288384
   languageName: node
   linkType: hard
 
@@ -12636,7 +12636,7 @@ __metadata:
     expo-font: ^11.0.1
     expo-haptics: ~12.0.1
     expo-mail-composer: ~12.0.0
-    expo-updates: ~0.15.4
+    expo-updates: ~0.15.5
     jest: ^29.1.2
     jest-expo: ^47.0.0
     node-notifier: ^10.0.1
@@ -12650,7 +12650,7 @@ __metadata:
     react-native-gesture-handler: ~2.8.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 6.0.1
-    react-native-paper: ^5.0.0-rc.9
+    react-native-paper: ^5.0.0-rc.10
     react-native-reanimated: ~2.12.0
     react-native-safe-area-context: 4.4.1
     react-native-screens: ~3.18.0
@@ -14246,9 +14246,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:^5.0.0-rc.9":
-  version: 5.0.0-rc.9
-  resolution: "react-native-paper@npm:5.0.0-rc.9"
+"react-native-paper@npm:^5.0.0-rc.10":
+  version: 5.0.0-rc.10
+  resolution: "react-native-paper@npm:5.0.0-rc.10"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.8
     color: ^3.1.2
@@ -14257,7 +14257,7 @@ __metadata:
     react: "*"
     react-native: "*"
     react-native-vector-icons: "*"
-  checksum: 7eb590d573a8c77f01e3ec42b3cc5057a34ec946901d05d1cded315dafd15ef93cc6a1f9665df2517ceb6374617d7399886a0d7572853000eacdc8913c605adb
+  checksum: 9971feb4b3288f34d4ac0120e766fda91036009751e349a2d22b4123b5f1559b8e45c6494cbbf8888de1601057552f78f5fa24009635aa5672bbda40a657022b
   languageName: node
   linkType: hard
 

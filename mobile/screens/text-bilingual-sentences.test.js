@@ -1,7 +1,10 @@
 import { describe, it, jest } from '@jest/globals'
-import ShallowRenderer from 'react-test-renderer/shallow' // ES6
+import { Provider } from 'react-redux'
+import { store } from '../redux/store.js'
 import React from 'react'
 import TextBilingualSentences from './text-bilingual-sentences.js'
+import { NavigationContainer } from '@react-navigation/native'
+import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 
 jest.useFakeTimers()
 describe('<Sentence />', () => {
@@ -17,7 +20,14 @@ describe('<Sentence />', () => {
     ]
     // @ts-ignore
     const renderer = new ShallowRenderer()
+    const tree = renderer.render(
+      <Provider store={store}>
+        <NavigationContainer>
+          <TextBilingualSentences sentences={propsMock} />
+        </NavigationContainer>
+      </Provider>
+    )
 
-    renderer.render(<TextBilingualSentences sentences={propsMock} />)
+    expect(tree).toMatchSnapshot()
   })
 })

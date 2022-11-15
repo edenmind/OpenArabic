@@ -126,7 +126,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "backgroundColor": "rgba(231, 224, 236, 1)",
+          "backgroundColor": "rgba(202, 196, 208, 1)",
           "height": 0.5,
         },
         undefined,
