@@ -1,5 +1,5 @@
 import * as api from '../services/api-service.js'
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FlatList, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'

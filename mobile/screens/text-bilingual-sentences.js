@@ -6,12 +6,17 @@ import ModalScrollView from '../components/modal-scroll-view.js'
 import PropTypes from 'prop-types'
 import WordPairs from './text-bilingual-sentences-word-pairs.js'
 import * as Haptics from 'expo-haptics'
-import { getData } from '../services/storage.js'
 const filterFunction = (element) => element.english !== '' && element.arabic !== ''
 
+import { useSelector } from 'react-redux'
+
+const arabicSelector = (state) => state.arabicFontSize
+const englishSelector = (state) => state.englishFontSize
+
 export default function TextBilingualSentences(props) {
-  const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16)
-  const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20)
+  //load arabic font size from redux on every render of this component with useFocusEffect
+  const { arabicFontSize } = useSelector(arabicSelector)
+  const { englishFontSize } = useSelector(englishSelector)
 
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
@@ -22,43 +27,11 @@ export default function TextBilingualSentences(props) {
   const showModal = () => setVisible(true)
   const getListOfWordPairs = (index) => setWords(index)
 
-  // get a value using getData
-  const getEnglishFontSize = async () => {
-    try {
-      const value = await getData('englishFontSize')
-
-      if (value !== null) {
-        setEnglishSizeValue(value)
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  // get a value using getData
-  const getArabicFontSize = async () => {
-    try {
-      const value = await getData('arabicFontSize')
-
-      if (value !== null) {
-        setArabicSizeValue(value)
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  // load the value when the component mounts
-  React.useEffect(() => {
-    getEnglishFontSize()
-    getArabicFontSize()
-  }, [])
-
   const style = StyleSheet.create({
     arabic: {
       direction: 'rtl',
       fontFamily: 'uthmanic',
-      fontSize: arabicFontSizeValue,
+      fontSize: arabicFontSize,
       fontWeight: 'normal',
       paddingBottom: 13,
       paddingLeft: 33,
@@ -72,7 +45,7 @@ export default function TextBilingualSentences(props) {
     english: {
       direction: 'ltr',
       fontFamily: 'philosopher',
-      fontSize: englishFontSizeValue,
+      fontSize: englishFontSize,
       opacity: 0.9,
       paddingBottom: 13,
       paddingLeft: 33,

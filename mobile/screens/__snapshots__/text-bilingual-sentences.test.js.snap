@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CategoryCard /> renders correctly 1`] = `
+exports[`<Sentence /> renders without crashing 1`] = `
 <Context.Provider
   value={
     {
@@ -25,19 +25,24 @@ exports[`<CategoryCard /> renders correctly 1`] = `
   }
 >
   <ForwardRef(NavigationContainerInner)>
-    <CategoryCard
-      setShouldReload={[Function]}
-      text={
-        {
-          "author": "someAuthor",
-          "category": "someCategory",
-          "id": "someId",
-          "texts": {
-            "arabic": "someArabic",
-            "english": "someEnglish",
+    <TextBilingualSentences
+      sentences={
+        [
+          {
+            "arabic": [
+              {
+                "a": "a",
+              },
+            ],
+            "english": [
+              {
+                "e": "e",
+              },
+            ],
+            "sentenceID": "1",
+            "sentenceId": 1,
           },
-          "title": "someTitle",
-        }
+        ]
       }
     />
   </ForwardRef(NavigationContainerInner)>

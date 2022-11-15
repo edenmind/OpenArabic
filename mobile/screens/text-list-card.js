@@ -1,48 +1,14 @@
+/* eslint-disable putout/long-properties-destructuring */
 import { truncate, removeLineBreak, addSpaceAfterDot } from '../services/utility-service.js'
 import { Text, Card, Divider } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
 import { StyleSheet } from 'react-native'
+import { useSelector } from 'react-redux'
 
-const style = StyleSheet.create({
-  arabic: {
-    direction: 'rtl',
-    fontFamily: 'uthmanic',
-    fontSize: 23,
-    opacity: 0.8,
-    paddingBottom: 15,
-    writingDirection: 'rtl'
-  },
-  card: {
-    marginBottom: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 10
-  },
-  cardAction: {
-    marginRight: 13,
-    opacity: 0.7,
-    paddingBottom: 20,
-    paddingTop: 20
-  },
-  cardSubtitle: {
-    paddingBottom: 25
-  },
-  cardTitle: {
-    fontFamily: 'philosopher',
-    lineHeight: 55
-  },
-  divider: {
-    marginBottom: 0,
-    marginTop: 20
-  },
-  english: {
-    direction: 'ltr',
-    fontFamily: 'philosopher',
-    opacity: 0.8
-  }
-})
+const arabicSelector = (state) => state.arabicFontSize
+const englishSelector = (state) => state.englishFontSize
 
 const prepareIngress = (text, length) => {
   const noLineBreaks = removeLineBreak(text)
@@ -52,6 +18,52 @@ const prepareIngress = (text, length) => {
 }
 
 export default function CategoryCard(props) {
+  // get arabic front size from redux
+
+  //load arabic font size from redux on every render of this component with useFocusEffect
+  const { arabicFontSize } = useSelector(arabicSelector)
+  const { englishFontSize } = useSelector(englishSelector)
+
+  const style = StyleSheet.create({
+    arabic: {
+      direction: 'rtl',
+      fontFamily: 'uthmanic',
+      fontSize: arabicFontSize,
+      opacity: 0.8,
+      paddingBottom: 15,
+      writingDirection: 'rtl'
+    },
+    card: {
+      marginBottom: 10,
+      marginLeft: 10,
+      marginRight: 10,
+      marginTop: 10
+    },
+    cardAction: {
+      marginRight: 13,
+      opacity: 0.7,
+      paddingBottom: 20,
+      paddingTop: 20
+    },
+    cardSubtitle: {
+      paddingBottom: 25
+    },
+    cardTitle: {
+      fontFamily: 'philosopher',
+      lineHeight: 55
+    },
+    divider: {
+      marginBottom: 0,
+      marginTop: 20
+    },
+    english: {
+      direction: 'ltr',
+      fontFamily: 'philosopher',
+      fontSize: englishFontSize,
+      opacity: 0.8
+    }
+  })
+
   //prepare the texts
   const subtitle = `${props.text.author} · ${props.text.category}`
   const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}`

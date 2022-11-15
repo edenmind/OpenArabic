@@ -1,205 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Root /> screen with name "Texts" should match snapshot 1`] = `
-<ForwardRef(NavigationContainerInner)
-  theme={
+<Context.Provider
+  value={
     {
-      "animation": {
-        "scale": 1,
+      "getServerState": undefined,
+      "store": {
+        "@@observable": [Function],
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
       },
-      "colors": {
-        "backdrop": "rgba(49, 49, 37, 0.4)",
-        "background": "rgb(37, 37, 26)",
-        "border": "rgb(72, 71, 58)",
-        "card": "rgb(37, 37, 26)",
-        "elevation": {
-          "level0": "transparent",
-          "level1": "rgb(37, 37, 26)",
-          "level2": "rgb(42, 42, 28)",
-          "level3": "rgb(47, 47, 30)",
-          "level4": "rgb(49, 49, 30)",
-          "level5": "rgb(53, 53, 31)",
-        },
-        "error": "rgb(255, 180, 171)",
-        "errorContainer": "rgb(147, 0, 10)",
-        "inverseOnSurface": "rgb(49, 49, 43)",
-        "inversePrimary": "rgb(98, 98, 0)",
-        "inverseSurface": "rgb(230, 226, 217)",
-        "notification": "rgb(255, 69, 58)",
-        "onBackground": "rgb(230, 226, 217)",
-        "onError": "rgb(105, 0, 5)",
-        "onErrorContainer": "rgb(255, 180, 171)",
-        "onPrimary": "rgb(50, 50, 0)",
-        "onPrimaryContainer": "rgb(233, 232, 107)",
-        "onSecondary": "rgb(50, 50, 24)",
-        "onSecondaryContainer": "rgb(231, 228, 191)",
-        "onSurface": "rgb(230, 226, 217)",
-        "onSurfaceDisabled": "rgba(230, 226, 217, 0.38)",
-        "onSurfaceVariant": "rgb(202, 199, 182)",
-        "onTertiary": "rgb(11, 55, 42)",
-        "onTertiaryContainer": "rgb(191, 236, 216)",
-        "outline": "rgb(147, 145, 130)",
-        "outlineVariant": "rgb(72, 71, 58)",
-        "primary": "rgb(204, 204, 82)",
-        "primaryContainer": "rgb(73, 73, 0)",
-        "scrim": "rgb(0, 0, 0)",
-        "secondary": "rgb(202, 200, 165)",
-        "secondaryContainer": "rgb(73, 72, 45)",
-        "shadow": "rgb(0, 0, 0)",
-        "surface": "rgb(28, 28, 23)",
-        "surfaceDisabled": "rgba(230, 226, 217, 0.12)",
-        "surfaceVariant": "rgb(72, 71, 58)",
-        "tertiary": "rgb(164, 208, 189)",
-        "tertiaryContainer": "rgb(37, 78, 64)",
-        "text": "rgb(230, 226, 217)",
+      "subscription": {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
       },
-      "dark": true,
-      "fonts": {
-        "bodyLarge": {
-          "fontFamily": "System",
-          "fontSize": 16,
-          "fontWeight": "400",
-          "letterSpacing": 0.15,
-          "lineHeight": 24,
-        },
-        "bodyMedium": {
-          "fontFamily": "System",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "letterSpacing": 0.25,
-          "lineHeight": 20,
-        },
-        "bodySmall": {
-          "fontFamily": "System",
-          "fontSize": 12,
-          "fontWeight": "400",
-          "letterSpacing": 0.4,
-          "lineHeight": 16,
-        },
-        "default": {
-          "fontFamily": "System",
-          "fontWeight": "400",
-          "letterSpacing": 0,
-        },
-        "displayLarge": {
-          "fontFamily": "System",
-          "fontSize": 57,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 64,
-        },
-        "displayMedium": {
-          "fontFamily": "System",
-          "fontSize": 45,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 52,
-        },
-        "displaySmall": {
-          "fontFamily": "System",
-          "fontSize": 36,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 44,
-        },
-        "headlineLarge": {
-          "fontFamily": "System",
-          "fontSize": 32,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 40,
-        },
-        "headlineMedium": {
-          "fontFamily": "System",
-          "fontSize": 28,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 36,
-        },
-        "headlineSmall": {
-          "fontFamily": "System",
-          "fontSize": 24,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 32,
-        },
-        "labelLarge": {
-          "fontFamily": "System",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 0.1,
-          "lineHeight": 20,
-        },
-        "labelMedium": {
-          "fontFamily": "System",
-          "fontSize": 12,
-          "fontWeight": "500",
-          "letterSpacing": 0.5,
-          "lineHeight": 16,
-        },
-        "labelSmall": {
-          "fontFamily": "System",
-          "fontSize": 11,
-          "fontWeight": "500",
-          "letterSpacing": 0.5,
-          "lineHeight": 16,
-        },
-        "titleLarge": {
-          "fontFamily": "System",
-          "fontSize": 22,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 28,
-        },
-        "titleMedium": {
-          "fontFamily": "System",
-          "fontSize": 16,
-          "fontWeight": "500",
-          "letterSpacing": 0.15,
-          "lineHeight": 24,
-        },
-        "titleSmall": {
-          "fontFamily": "System",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 0.1,
-          "lineHeight": 20,
-        },
-      },
-      "isV3": true,
-      "mode": "adaptive",
-      "roundness": 4,
-      "version": 3,
     }
   }
 >
-  <MaterialBottomTabNavigator
-    barStyle={
-      {
-        "height": 75,
-      }
-    }
-  >
-    <Screen
-      component={[Function]}
-      name="Texts"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "tabBarLabel": "",
-        }
-      }
-    />
-    <Screen
-      component={[Function]}
-      name="Settings"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "tabBarLabel": "",
-        }
-      }
-    />
-  </MaterialBottomTabNavigator>
-</ForwardRef(NavigationContainerInner)>
+  <ForwardRef(NavigationContainerInner)>
+    <Root />
+  </ForwardRef(NavigationContainerInner)>
+</Context.Provider>
 `;
