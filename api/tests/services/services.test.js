@@ -62,43 +62,43 @@ test('produce vocabulary', (t) => {
         arabic: 'a1',
         words: [
           {
-            arabic: 'a',
-            english: '1',
+            arabic: 'a1',
+            english: '12',
             quiz: true
           },
           {
-            arabic: 'a',
-            english: '1',
+            arabic: 'a2',
+            english: '13',
             quiz: true
           },
           {
-            arabic: 'a',
-            english: '1',
+            arabic: 'a3',
+            english: '14',
             quiz: true
           },
           {
-            arabic: 'a',
-            english: '1',
+            arabic: 'a4',
+            english: '15',
             quiz: true
           },
           {
-            arabic: 'a',
-            english: '1',
+            arabic: 'a5',
+            english: '16',
             quiz: true
           },
           {
-            arabic: 'a',
-            english: '1',
+            arabic: 'a6',
+            english: '17',
             quiz: true
           },
           {
-            arabic: 'a',
-            english: '1',
+            arabic: 'a7',
+            english: '18',
             quiz: true
           },
           {
-            arabic: 'a',
-            english: '1',
+            arabic: 'a8',
+            english: '19',
             quiz: true
           }
         ]
