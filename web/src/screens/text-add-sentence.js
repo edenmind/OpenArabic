@@ -1,14 +1,14 @@
+import { Chip, TextField } from '@mui/material'
+import { Fragment } from 'react'
+import { styled } from '@mui/material/styles'
+import { useDispatch, useSelector } from 'react-redux'
+import * as apiService from '../services/api-service.js'
 import * as React from 'react'
 import * as wordProcessing from '../services/word-processing.js'
-import * as apiService from '../services/api-service.js'
-import { Chip, TextField } from '@mui/material'
-import { useDispatch, useSelector } from 'react-redux'
 import LoadingButton from '@mui/lab/LoadingButton'
-import { Fragment } from 'react'
 import MatchingIndicator from '../components/matching-indicator.js'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
-import { styled } from '@mui/material/styles'
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -16,6 +16,24 @@ const Item = styled(Paper)(({ theme }) => ({
 }))
 
 const selector = (state) => state.text
+
+//A function that checks if there are any empty lines in the text
+const checkForEmptyLines = (text) => {
+  //Get the arabic and english text from the text object
+  const arabicText = text.texts.arabic
+  const englishText = text.texts.english
+
+  //Check if there are any empty lines in the arabic text
+  const emptyLineArabic = arabicText.match(/^\s*$/gm)
+
+  //Check if there are any empty lines in the english text
+  const emptyLineEnglish = englishText.match(/^\s*$/gm)
+
+  //Check if there are any empty lines in either text, and return true if there are
+  if (emptyLineArabic || emptyLineEnglish) {
+    return true
+  }
+}
 
 const TextAddSentences = () => {
   const dispatch = useDispatch()
@@ -36,9 +54,11 @@ const TextAddSentences = () => {
   }
 
   function handleChangeEnglish(event) {
+    // Split text into sentences
     const englishSentence = wordProcessing.splitTextToSentences(event.target.value)
     setEnglishSentenceCount(englishSentence.length)
 
+    // Split sentences into words
     const englishWords = []
 
     for (const sentence of englishSentence) {
@@ -46,6 +66,7 @@ const TextAddSentences = () => {
       englishWords.push(theEnglishWordsSentence)
     }
 
+    // Update the state
     dispatch({ type: 'SET_ENGLISH_TEXT', english: event.target.value })
     dispatch({ type: 'SET_ENGLISH_SENTENCE', englishSentence })
     dispatch({ type: 'SET_ENGLISH_WORDS', englishWords })
@@ -86,6 +107,7 @@ const TextAddSentences = () => {
         />
         <Chip label={englishSentencesCountMessage} />
         <Chip label={arabicSentencesCountMessage} />
+        {checkForEmptyLines(text) && <Chip label="Empty line detected" color="error" />}
         <LoadingButton
           size="small"
           onClick={handleClick}

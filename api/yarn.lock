@@ -2936,14 +2936,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17":
-  version: 17.0.44
-  resolution: "@types/react@npm:17.0.44"
+"@types/react@npm:^17.0.52":
+  version: 17.0.52
+  resolution: "@types/react@npm:17.0.52"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: ebee02778ca08f954c316dc907802264e0121c87b8fa2e7e0156ab0ef2a1b0a09d968c016a3600ec4c9a17dc09b4274f292d9b15a1a5369bb7e4072def82808f
+  checksum: a51b98dd87838d161278fdf9dd78e6a4ff8c018f406d6647f77963e144fb52a8beee40c89fd0e7e840eaeaa8bd9fe2f34519410540b1a52d43a6f8b4d2fbce33
   languageName: node
   linkType: hard
 
@@ -3304,10 +3304,10 @@ __metadata:
     fastify-healthcheck: ^4.2.0
     fastify-plugin: ^4.3.0
     moment: ^2.29.4
-    mongodb: ^4.11.0
+    mongodb: ^4.12.0
     prettier: ^2.7.1
     putout: ^28.0.1
-    tap: ^16.3.1
+    tap: ^16.3.2
     uuid: ^9.0.0
   languageName: unknown
   linkType: soft
@@ -4074,7 +4074,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2":
+"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
   dependencies:
@@ -4238,13 +4238,6 @@ __metadata:
   version: 2.0.1
   resolution: "denque@npm:2.0.1"
   checksum: ec398d1e3c6c8d4f5213dcf9ad74d7faa3b461e29a0019c9742b49a97ac5e16aa7134db45fa9d841e318e7722dd1ba670a474fde9a5b0d870b3a5fc6fe914c30
-  languageName: node
-  linkType: hard
-
-"denque@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "denque@npm:2.1.0"
-  checksum: 1d4ae1d05e59ac3a3481e7b478293f4b4c813819342273f3d5b826c7ffa9753c520919ba264f377e09108d24ec6cf0ec0ac729a5686cbb8f32d797126c5dae74
   languageName: node
   linkType: hard
 
@@ -5520,6 +5513,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"glob@npm:^7.2.3":
+  version: 7.2.3
+  resolution: "glob@npm:7.2.3"
+  dependencies:
+    fs.realpath: ^1.0.0
+    inflight: ^1.0.4
+    inherits: 2
+    minimatch: ^3.1.1
+    once: ^1.3.0
+    path-is-absolute: ^1.0.0
+  checksum: 29452e97b38fa704dabb1d1045350fb2467cf0277e155aa9ff7077e90ad81d1ea9d53d3ee63bd37c05b09a065e90f16aec4a65f5b8de401d1dac40bc5605d133
+  languageName: node
+  linkType: hard
+
 "glob@npm:^8.0.0":
   version: 8.0.3
   resolution: "glob@npm:8.0.3"
@@ -6252,7 +6259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-lib-coverage@npm:^3.0.0, istanbul-lib-coverage@npm:^3.0.0-alpha.1":
+"istanbul-lib-coverage@npm:^3.0.0, istanbul-lib-coverage@npm:^3.0.0-alpha.1, istanbul-lib-coverage@npm:^3.2.0":
   version: 3.2.0
   resolution: "istanbul-lib-coverage@npm:3.2.0"
   checksum: a2a545033b9d56da04a8571ed05c8120bf10e9bce01cf8633a3a2b0d1d83dff4ac4fe78d6d5673c27fc29b7f21a41d75f83a36be09f82a61c367b56aa73c1ff9
@@ -6295,6 +6302,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"istanbul-lib-processinfo@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "istanbul-lib-processinfo@npm:2.0.3"
+  dependencies:
+    archy: ^1.0.0
+    cross-spawn: ^7.0.3
+    istanbul-lib-coverage: ^3.2.0
+    p-map: ^3.0.0
+    rimraf: ^3.0.0
+    uuid: ^8.3.2
+  checksum: 501729e809a4e98bbb9f62f89cae924be81655a7ff8118661f8834a10bb89ed5d3a5099ea0b6555e1a8ee15a0099cb64f7170b89aae155ab2afacfe8dd94421a
+  languageName: node
+  linkType: hard
+
 "istanbul-lib-report@npm:^3.0.0":
   version: 3.0.0
   resolution: "istanbul-lib-report@npm:3.0.0"
@@ -6327,12 +6348,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jackspeak@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "jackspeak@npm:1.4.1"
+"jackspeak@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "jackspeak@npm:1.4.2"
   dependencies:
     cliui: ^7.0.4
-  checksum: 5ab7d6210a6edb2631ad8bca54cbf72fbb120be15b70e15cd299ee4ad143ebad11a66b34754810f3d3c16d927c2a67ba8a4f5ae906a54a2227bb0ae990275ee9
+  checksum: 2178bb1e3d85c9520d44d46d346f9a12dce37b089d7d1a34f423f676a99207758501db7c20f716e57debac713c30c6c8625687042037a52b9a44e52a307b468f
   languageName: node
   linkType: hard
 
@@ -7151,7 +7172,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^3.0.4, minimatch@npm:^3.1.2":
+"minimatch@npm:^3.0.4, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
   dependencies:
@@ -7256,6 +7277,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minipass@npm:^3.3.4":
+  version: 3.3.5
+  resolution: "minipass@npm:3.3.5"
+  dependencies:
+    yallist: ^4.0.0
+  checksum: f89f02bcaa0e0e4bb4c44ec796008e69fbca62db0aba6ead1bc57d25bdaefdf42102130f4f9ecb7d9c6b6cd35ff7b0c7b97d001d3435da8e629fb68af3aea57e
+  languageName: node
+  linkType: hard
+
 "minizlib@npm:^2.1.1, minizlib@npm:^2.1.2":
   version: 2.1.2
   resolution: "minizlib@npm:2.1.2"
@@ -7327,13 +7357,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^4.11.0":
-  version: 4.11.0
-  resolution: "mongodb@npm:4.11.0"
+"mongodb@npm:^4.12.0":
+  version: 4.12.0
+  resolution: "mongodb@npm:4.12.0"
   dependencies:
     "@aws-sdk/credential-providers": ^3.186.0
     bson: ^4.7.0
-    denque: ^2.1.0
     mongodb-connection-string-url: ^2.5.4
     saslprep: ^1.0.3
     socks: ^2.7.1
@@ -7342,7 +7371,7 @@ __metadata:
       optional: true
     saslprep:
       optional: true
-  checksum: 3080c2f58dc712ca6d0a34b0f4101c3ca66fbf86360b2a5ea2b64a9f757b4a0d7b77851688657fc3240ac748ddcd69c21ec2f7c785f10cb7d41e00e863f415ec
+  checksum: 002a92eecfeb160d07aa83f8f9e4fa33a06816635606a85312713150eba41cb17abf92b785ca1ecc7c8de40519ef119d372896f2a1cd4902f92447d26a80b000
   languageName: node
   linkType: hard
 
@@ -9615,7 +9644,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tap-parser@npm:^11.0.0, tap-parser@npm:^11.0.1":
+"tap-parser@npm:^11.0.0":
   version: 11.0.1
   resolution: "tap-parser@npm:11.0.1"
   dependencies:
@@ -9628,6 +9657,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tap-parser@npm:^11.0.2":
+  version: 11.0.2
+  resolution: "tap-parser@npm:11.0.2"
+  dependencies:
+    events-to-array: ^1.0.1
+    minipass: ^3.1.6
+    tap-yaml: ^1.0.0
+  bin:
+    tap-parser: bin/cmd.js
+  checksum: 59182012acaa10ada18de1288a563ad9fff4abfc4a1a21d27aeb0b08e4b6fc6f9e113afb311484f01a4ec381ec34d596e402cf58fba4d0dc2202b8bf09e43695
+  languageName: node
+  linkType: hard
+
 "tap-yaml@npm:^1.0.0":
   version: 1.0.0
   resolution: "tap-yaml@npm:1.0.0"
@@ -9637,23 +9679,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tap@npm:^16.3.1":
-  version: 16.3.1
-  resolution: "tap@npm:16.3.1"
+"tap-yaml@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "tap-yaml@npm:1.0.2"
+  dependencies:
+    yaml: ^1.10.2
+  checksum: 842024ca2aee6a3016182b1c06d69807b859e2da09639ad17b16bd31370d3cc54e6b083a67629c0680c7180628115b768ac9803cfea13fc13455ff57737a8964
+  languageName: node
+  linkType: hard
+
+"tap@npm:^16.3.2":
+  version: 16.3.2
+  resolution: "tap@npm:16.3.2"
   dependencies:
     "@isaacs/import-jsx": ^4.0.1
-    "@types/react": ^17
+    "@types/react": ^17.0.52
     chokidar: ^3.3.0
     findit: ^2.0.0
     foreground-child: ^2.0.0
     fs-exists-cached: ^1.0.0
-    glob: ^7.1.6
+    glob: ^7.2.3
     ink: ^3.2.0
     isexe: ^2.0.0
-    istanbul-lib-processinfo: ^2.0.2
-    jackspeak: ^1.4.1
+    istanbul-lib-processinfo: ^2.0.3
+    jackspeak: ^1.4.2
     libtap: ^1.4.0
-    minipass: ^3.1.1
+    minipass: ^3.3.4
     mkdirp: ^1.0.4
     nyc: ^15.1.0
     opener: ^1.5.1
@@ -9662,10 +9713,10 @@ __metadata:
     signal-exit: ^3.0.6
     source-map-support: ^0.5.16
     tap-mocha-reporter: ^5.0.3
-    tap-parser: ^11.0.1
-    tap-yaml: ^1.0.0
+    tap-parser: ^11.0.2
+    tap-yaml: ^1.0.2
     tcompare: ^5.0.7
-    treport: ^3.0.3
+    treport: ^3.0.4
     which: ^2.0.2
   peerDependencies:
     coveralls: ^3.1.1
@@ -9683,7 +9734,7 @@ __metadata:
       optional: true
   bin:
     tap: bin/run.js
-  checksum: 56e1ed3655536fd5a3575bd8380d7636f4a61746b1f0bac2cfbd04123ef94e8050df0c202d3b4fcedd5803a262e929b3672ddfb8892b9a5534901c9771d422f1
+  checksum: d2c02ba8b101e57f53ea83eb358ff70b1b83087338cf41568f85844b0d1dbaec5a7fbc3e6a6bc9727ed0af88e5d9cd3dd9ffb54b8e7892f8eafaf2be90794821
   languageName: node
   linkType: hard
 
@@ -9806,9 +9857,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"treport@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "treport@npm:3.0.3"
+"treport@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "treport@npm:3.0.4"
   dependencies:
     "@isaacs/import-jsx": ^4.0.1
     cardinal: ^2.1.1
@@ -9816,10 +9867,11 @@ __metadata:
     ink: ^3.2.0
     ms: ^2.1.2
     tap-parser: ^11.0.0
+    tap-yaml: ^1.0.0
     unicode-length: ^2.0.2
   peerDependencies:
     react: ^17.0.2
-  checksum: af3f5025df4800e716d802867daaf23f3b3a5849a944516db426bc6facd54659b3240afa6c5788ee646d3218df50d310592540fcaf0bd265f2f66cbcf0260da0
+  checksum: 89a3e5ba768d2c415200a2d0d87bb11d7e0f25d85e646d52bc733256e875160ca0328261a110caf18d96a41ad102aebbecbe3880718a7d042dc96c12951e59fb
   languageName: node
   linkType: hard
 
