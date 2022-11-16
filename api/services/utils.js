@@ -83,9 +83,14 @@ const produceVocabularyCollection = (text) => {
         wordId
       }
 
-      // do not add the word if it already exists in the batch
-      const arabicWordAlreadyExistsInBatch = arabicVocabulary[currentBatchNumber].includes(arabicWord)
-      const englishWordAlreadyExistsInBatch = englishVocabulary[currentBatchNumber].includes(englishWord)
+      // do not add the word if it already exists in the batch based on word.arabic
+      const arabicWordAlreadyExistsInBatch = arabicVocabulary[currentBatchNumber].some(
+        (word) => word.word === arabicWord.word
+      )
+
+      const englishWordAlreadyExistsInBatch = englishVocabulary[currentBatchNumber].some(
+        (word) => word.word === englishWord.word
+      )
 
       if (arabicWordAlreadyExistsInBatch || englishWordAlreadyExistsInBatch) {
         continue
