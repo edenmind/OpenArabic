@@ -5,10 +5,14 @@
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "version": "1444.4.29",
 =======
   "version": "1444.4.28",
 >>>>>>> 03b6ddd63 (feat(web): :sparkles: make sure that empty lines cant be added #1522)
+=======
+  "version": "1444.4.29",
+>>>>>>> b03474df4 (feat(web): :sparkles: make sure that empty lines cant be added #1522)
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
