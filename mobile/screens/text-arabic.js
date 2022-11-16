@@ -4,16 +4,18 @@ import { Text } from 'react-native-paper'
 import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
-
+const arabicSelector = (state) => state.arabicFontSize
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
 
 export default function TextArabic() {
+  const { arabicFontSize } = useSelector(arabicSelector)
+
   const style = StyleSheet.create({
     arabic: {
       direction: 'rtl',
       fontFamily: 'uthmanic',
-      fontSize: 25,
+      fontSize: arabicFontSize,
       padding: 25,
       writingDirection: 'rtl'
     }

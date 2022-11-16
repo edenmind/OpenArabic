@@ -6,6 +6,7 @@ exports[`<About /> renders correctly 1`] = `
     {
       "direction": "ltr",
       "flex": 1,
+      "fontFamily": "philosopher",
       "lineHeight": 20,
       "padding": 10,
       "writingDirection": "ltr",
@@ -58,6 +59,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",
@@ -73,10 +75,10 @@ exports[`<About /> renders correctly 1`] = `
           {
             "color": "rgba(28, 27, 31, 1)",
             "fontFamily": "System",
-            "fontSize": 14,
+            "fontSize": 16,
             "fontWeight": "400",
-            "letterSpacing": 0.25,
-            "lineHeight": 20,
+            "letterSpacing": 0.15,
+            "lineHeight": 24,
           },
           {
             "textAlign": "left",
@@ -87,6 +89,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",
@@ -102,10 +105,10 @@ exports[`<About /> renders correctly 1`] = `
           {
             "color": "rgba(28, 27, 31, 1)",
             "fontFamily": "System",
-            "fontSize": 14,
+            "fontSize": 16,
             "fontWeight": "400",
-            "letterSpacing": 0.25,
-            "lineHeight": 20,
+            "letterSpacing": 0.15,
+            "lineHeight": 24,
           },
           {
             "textAlign": "left",
@@ -116,6 +119,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",
@@ -161,6 +165,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",
@@ -176,10 +181,10 @@ exports[`<About /> renders correctly 1`] = `
           {
             "color": "rgba(28, 27, 31, 1)",
             "fontFamily": "System",
-            "fontSize": 14,
+            "fontSize": 16,
             "fontWeight": "400",
-            "letterSpacing": 0.25,
-            "lineHeight": 20,
+            "letterSpacing": 0.15,
+            "lineHeight": 24,
           },
           {
             "textAlign": "left",
@@ -190,6 +195,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",
@@ -955,6 +961,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",
@@ -970,10 +977,10 @@ exports[`<About /> renders correctly 1`] = `
           {
             "color": "rgba(28, 27, 31, 1)",
             "fontFamily": "System",
-            "fontSize": 14,
+            "fontSize": 16,
             "fontWeight": "400",
-            "letterSpacing": 0.25,
-            "lineHeight": 20,
+            "letterSpacing": 0.15,
+            "lineHeight": 24,
           },
           {
             "textAlign": "left",
@@ -984,6 +991,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",
@@ -1458,6 +1466,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",
@@ -1473,10 +1482,10 @@ exports[`<About /> renders correctly 1`] = `
           {
             "color": "rgba(28, 27, 31, 1)",
             "fontFamily": "System",
-            "fontSize": 14,
+            "fontSize": 16,
             "fontWeight": "400",
-            "letterSpacing": 0.25,
-            "lineHeight": 20,
+            "letterSpacing": 0.15,
+            "lineHeight": 24,
           },
           {
             "textAlign": "left",
@@ -1487,6 +1496,7 @@ exports[`<About /> renders correctly 1`] = `
           {
             "direction": "ltr",
             "flex": 1,
+            "fontFamily": "philosopher",
             "lineHeight": 20,
             "padding": 10,
             "writingDirection": "ltr",

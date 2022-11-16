@@ -16,7 +16,12 @@ export default function Settings() {
           component={defaultExport}
           options={{
             headerLargeTitle: false,
-            title: SCREENS.about
+            title: SCREENS.about,
+            headerTitleStyle: {
+              fontFamily: 'philosopher',
+              fontWeight: 'bold',
+              fontSize: 25
+            }
           }}
         />
       </Stack.Navigator>

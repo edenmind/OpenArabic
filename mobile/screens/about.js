@@ -10,7 +10,8 @@ function About() {
       flex: 1,
       lineHeight: 20,
       padding: 10,
-      writingDirection: 'ltr'
+      writingDirection: 'ltr',
+      fontFamily: 'philosopher'
     },
     divider: { margin: 10 }
   })
@@ -37,12 +38,12 @@ function About() {
         Audience
       </Text>
 
-      <Text variant="bodyMedium" style={style.english}>
+      <Text variant="bodyLarge" style={style.english}>
         If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
         OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
         in that process, inshāʾAllāh.
       </Text>
-      <Text variant="bodyMedium" style={style.english}>
+      <Text variant="bodyLarge" style={style.english}>
         OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started,
         then the Duolingo app available on iPhone and Android might come in handy.
       </Text>
@@ -53,7 +54,7 @@ function About() {
         Contact Us
       </Text>
 
-      <Text variant="bodyMedium" style={style.english}>
+      <Text variant="bodyLarge" style={style.english}>
         Please use any of the following channels to report bugs or requests new features.
       </Text>
       <Button style={style.button} mode="outlined" testID="email" onPress={() => Linking.openURL(email)}>
@@ -78,7 +79,7 @@ function About() {
         Open Source
       </Text>
 
-      <Text variant="bodyMedium" style={style.english}>
+      <Text variant="bodyLarge" style={style.english}>
         The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify,
         and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic
         project on GitHub.
@@ -99,7 +100,7 @@ function About() {
         Foundation
       </Text>
 
-      <Text variant="bodyMedium" style={style.english}>
+      <Text variant="bodyLarge" style={style.english}>
         The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first
         generations of Muslims understanding with texts from Islamic Scholars such as:
       </Text>
