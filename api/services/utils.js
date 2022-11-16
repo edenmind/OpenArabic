@@ -33,6 +33,11 @@ const produceVocabularyCollection = (text) => {
 
   let numberOfWords = 0
 
+  // This code counts the number of words in a text
+  // It loops through all the sentences in the text
+  // Then it loops through all the words in each sentence
+  // If the word is a quiz word, it increments numberOfWords
+
   for (const sentence of text.sentences) {
     for (const word of sentence.words) {
       if (word.quiz) {
@@ -41,16 +46,27 @@ const produceVocabularyCollection = (text) => {
     }
   }
 
+  // This code gets the maximum number of batches that can be created
+  // from the number of words in the dataset. It does so by dividing
+  // the number of words by the maximum number of words in each batch.
+  // The Math.floor() function is used to round the result down to the
+  // nearest integer.
+
   const maxNumberOfBatches = Math.floor(numberOfWords / maxWordsInBatch)
 
   for (const sentence of text.sentences) {
+    // Loop through all the sentences in the text
     for (const word of sentence.words) {
+      // Loop through all the words in each sentence
       if (!word.quiz) {
         // don't add words not suitable for the quiz
         continue
       }
 
-      if (currentBatchNumber === maxNumberOfBatches) {
+      // If the current batch is full, create a new batch
+      const maxNumberOfBatchesReached = currentBatchNumber === maxNumberOfBatches
+
+      if (maxNumberOfBatchesReached) {
         break
       }
 
@@ -65,6 +81,14 @@ const produceVocabularyCollection = (text) => {
       const englishWord = {
         word: word.english,
         wordId
+      }
+
+      // do not add the word if it already exists in the batch
+      const arabicWordAlreadyExistsInBatch = arabicVocabulary[currentBatchNumber].includes(arabicWord)
+      const englishWordAlreadyExistsInBatch = englishVocabulary[currentBatchNumber].includes(englishWord)
+
+      if (arabicWordAlreadyExistsInBatch || englishWordAlreadyExistsInBatch) {
+        continue
       }
 
       arabicVocabulary[currentBatchNumber].push(arabicWord)
