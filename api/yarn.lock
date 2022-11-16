@@ -1219,13 +1219,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/cors@npm:^8.1.1":
-  version: 8.1.1
-  resolution: "@fastify/cors@npm:8.1.1"
+"@fastify/cors@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "@fastify/cors@npm:8.2.0"
   dependencies:
     fastify-plugin: ^4.0.0
-    mnemonist: 0.39.4
-  checksum: 342964552086f2d113179256791c3a7903e56a9e031d3cc601ea86940552f02edb92c552334f9097ebde3a4bc1fda13bdbff6037f859022e5f2b7a220ea267d6
+    mnemonist: 0.39.5
+  checksum: b2e30602d3aad7b2170a153b60e2b0dba8ad7df67ac3b7918374d202097f60b8a252baeafbf37f4323190fa87170960a3162aa6120540f825ae7750414c3feea
   languageName: node
   linkType: hard
 
@@ -3283,7 +3283,7 @@ __metadata:
   resolution: "api@workspace:."
   dependencies:
     "@fastify/autoload": ^5.4.1
-    "@fastify/cors": ^8.1.1
+    "@fastify/cors": ^8.2.0
     "@fastify/env": ^4.1.0
     "@fastify/helmet": ^10.0.2
     "@fastify/mongodb": ^6.1.0
@@ -3293,21 +3293,21 @@ __metadata:
     "@fastify/swagger": ^8.1.0
     axios: ^1.1.3
     dotenv: ^16.0.3
-    eslint: ^8.26.0
+    eslint: ^8.27.0
     eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-putout: ^16.3.0
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^44.0.2
-    fastify: ^4.9.2
-    fastify-cli: ^5.5.1
+    fastify: ^4.10.0
+    fastify-cli: ^5.6.0
     fastify-healthcheck: ^4.2.0
     fastify-plugin: ^4.3.0
     moment: ^2.29.4
     mongodb: ^4.11.0
     prettier: ^2.7.1
     putout: ^28.0.1
-    tap: ^16.3.0
+    tap: ^16.3.1
     uuid: ^9.0.0
   languageName: unknown
   linkType: soft
@@ -4748,9 +4748,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.26.0":
-  version: 8.26.0
-  resolution: "eslint@npm:8.26.0"
+"eslint@npm:^8.27.0":
+  version: 8.27.0
+  resolution: "eslint@npm:8.27.0"
   dependencies:
     "@eslint/eslintrc": ^1.3.3
     "@humanwhocodes/config-array": ^0.11.6
@@ -4793,7 +4793,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: a2aced939ea060f77d10dcfced5cfeb940f63f383fd7ab1decadea64170ab552582e1c5909db1db641d4283178c9bc569f19b0f8900e00314a5f783e4b3f759d
+  checksum: 153b022d309e1b647a73b1bb0fa98912add699b06e279084155f23c6f2b5fc5abd05411fc1ba81608a24bbfaf044ca079544c16fffa6fc987b8f676c9960a2c4
   languageName: node
   linkType: hard
 
@@ -5048,9 +5048,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-cli@npm:^5.5.1":
-  version: 5.5.1
-  resolution: "fastify-cli@npm:5.5.1"
+"fastify-cli@npm:^5.6.0":
+  version: 5.6.0
+  resolution: "fastify-cli@npm:5.6.0"
   dependencies:
     chalk: ^4.1.2
     chokidar: ^3.5.2
@@ -5069,7 +5069,7 @@ __metadata:
     yargs-parser: ^21.1.1
   bin:
     fastify: cli.js
-  checksum: 0dec81f085d22bd461cb9c2aacbfbafcf3903aeebfc1bfd5a8efa31c2927e9f5a873e24b839ca41b5abd0382474ba7f1d524830b202a365ee44365ac96839bda
+  checksum: aff5778e6c7567e93c4c54c0c654fb81ba9d121b314cf97c0d0dc73e72912151dab781ed03fb88fe182f6e5f1d3ba2eceec15c3636047ce83e1285d248a58882
   languageName: node
   linkType: hard
 
@@ -5125,9 +5125,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^4.9.2":
-  version: 4.9.2
-  resolution: "fastify@npm:4.9.2"
+"fastify@npm:^4.10.0":
+  version: 4.10.0
+  resolution: "fastify@npm:4.10.0"
   dependencies:
     "@fastify/ajv-compiler": ^3.3.1
     "@fastify/error": ^3.0.0
@@ -5142,8 +5142,8 @@ __metadata:
     rfdc: ^1.3.0
     secure-json-parse: ^2.5.0
     semver: ^7.3.7
-    tiny-lru: ^9.0.2
-  checksum: 78d931a569b8ef30ceade1c3f6c820ad36eebb4caf1551e4c3f181fd4750309c4912e3db85fbeeb1cabf087454d7cc1568f2614e17aef44f69461268968c87a3
+    tiny-lru: ^10.0.0
+  checksum: 68c905a930d1e6d31d70a1e048c39c2d5d3749e00b9653fa7f20156da791d68f7edfa2856e8b3ea898b6e38b0a70b09782555e3f503a77cda49e8fd983a1a0ba
   languageName: node
   linkType: hard
 
@@ -7275,12 +7275,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mnemonist@npm:0.39.4":
-  version: 0.39.4
-  resolution: "mnemonist@npm:0.39.4"
+"mnemonist@npm:0.39.5":
+  version: 0.39.5
+  resolution: "mnemonist@npm:0.39.5"
   dependencies:
     obliterator: ^2.0.1
-  checksum: aec354c69dcda2fcd01faef279fce7df48c7b364d5ab7b72bf0059db2fb68bfd276255993fa5d29a3c3809ecdcf763555cffd130e135bf9619a0b59a53319e11
+  checksum: 6669d687a434226924b2c84ee6eb7ce7d0f83dfc5caad8bcc164c73c0c11fb6d43cbe32636e710f068046f4b40a56c3032532554e93e02640aafc6ca3dd222e6
   languageName: node
   linkType: hard
 
@@ -9637,9 +9637,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tap@npm:^16.3.0":
-  version: 16.3.0
-  resolution: "tap@npm:16.3.0"
+"tap@npm:^16.3.1":
+  version: 16.3.1
+  resolution: "tap@npm:16.3.1"
   dependencies:
     "@isaacs/import-jsx": ^4.0.1
     "@types/react": ^17
@@ -9683,7 +9683,7 @@ __metadata:
       optional: true
   bin:
     tap: bin/run.js
-  checksum: d5243af29dcd0742f164ba42729724ffcff26f0ff60ada9e8df65535004e7851fb197b0cedf01d2ec215cb0cc20b8eeddaf29c9cea40c5e7758744cbde550c44
+  checksum: 56e1ed3655536fd5a3575bd8380d7636f4a61746b1f0bac2cfbd04123ef94e8050df0c202d3b4fcedd5803a262e929b3672ddfb8892b9a5534901c9771d422f1
   languageName: node
   linkType: hard
 
@@ -9743,6 +9743,13 @@ __metadata:
   dependencies:
     real-require: ^0.2.0
   checksum: b7f0ee166ed17ac54700a0b6fc291967c97785b458ff54efe5431a7281bb52d1163e6ec550a614f2a47f0f02de5b35a342bd5acd215af23030938c64859152b2
+  languageName: node
+  linkType: hard
+
+"tiny-lru@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "tiny-lru@npm:10.0.1"
+  checksum: 58b5f17a357625335aa3b90ee8c9b3e9abede5c1f46066c73deb129574a205efb112807d6d473909e73f1d874ea99bf14eb5c88223d540eb32ebb5e1ff146689
   languageName: node
   linkType: hard
 
