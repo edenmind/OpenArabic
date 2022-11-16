@@ -17,7 +17,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
-    "@mui/icons-material": "^5.10.9",
+    "@mui/icons-material": "^5.10.14",
     "@mui/lab": "^5.0.0-alpha.106",
     "@mui/material": "^5.10.13",
     "@mui/x-data-grid": "^5.17.10",
