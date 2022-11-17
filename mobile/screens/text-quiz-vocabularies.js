@@ -15,12 +15,12 @@ function TextQuizVocabularies(props) {
     container: {
       flexDirection: 'row'
     },
-    // progressBar: {
-    //   marginBottom: 10,
-    //   marginLeft: 90,
-    //   marginRight: 90,
-    //   marginTop: 10
-    // },
+    progressBar: {
+      marginBottom: 10,
+      marginLeft: 7,
+      marginRight: 7,
+      marginTop: 10
+    },
     title: {
       marginBottom: 10,
       marginTop: 20,
@@ -56,12 +56,12 @@ function TextQuizVocabularies(props) {
       <Text variant="labelLarge" style={styles.title}>
         Choose the Matching Pairs
       </Text>
-      {/*
-      <ProgressBar progress={percentage} color={paperDarkTheme.colors.primary} style={styles.progressBar} /> */}
+
       <View style={styles.container}>
         <View style={styles.chipContainer}>{arabicVocabularies}</View>
         <View style={styles.chipContainer}>{englishVocabularies}</View>
       </View>
+      <ProgressBar progress={percentage} color={paperDarkTheme.colors.primary} style={styles.progressBar} />
     </>
   )
 }

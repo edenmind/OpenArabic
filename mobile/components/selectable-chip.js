@@ -8,40 +8,40 @@ import LANGUAGES from '../constants/languages.js'
 const styles = StyleSheet.create({
   arabic: {
     fontFamily: 'uthmanic',
-    fontSize: 33,
-    lineHeight: 50
+    fontSize: 30,
+    lineHeight: 45
   },
   chipNotSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.onSecondary,
     borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'rtl',
-    height: 63,
-    margin: 10
+    height: 60,
+    margin: 7
   },
   chipNotSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.onSecondary,
     borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'ltr',
-    height: 63,
-    margin: 10
+    height: 60,
+    margin: 7
   },
   chipSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
     borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'rtl',
-    height: 63,
-    margin: 10
+    height: 60,
+    margin: 7
   },
   chipSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
     borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'ltr',
-    height: 63,
-    margin: 10
+    height: 60,
+    margin: 7
   },
   english: {
     fontSize: 16

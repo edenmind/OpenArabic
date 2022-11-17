@@ -6,7 +6,7 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const SnackButton = (props) => {
   return (
-    <View style={styles.container}>
+    <View>
       <Snackbar
         styles={styles.snack}
         theme={paperDarkTheme}
@@ -22,10 +22,6 @@ const SnackButton = (props) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between'
-  },
   snack: {
     backgroundColor: paperDarkTheme.colors.secondary
   }

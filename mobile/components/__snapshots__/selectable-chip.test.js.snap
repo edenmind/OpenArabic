@@ -47,8 +47,8 @@ exports[`<SnackButton /> renders correctly 1`] = `
           "borderWidth": 2,
           "direction": "ltr",
           "flexDirection": "column",
-          "height": 63,
-          "margin": 10,
+          "height": 60,
+          "margin": 7,
         }
       }
     >
