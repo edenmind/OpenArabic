@@ -60,7 +60,7 @@ export default function CategoryCard(props) {
       direction: 'ltr',
       fontFamily: 'philosopher',
       fontSize: englishFontSize,
-      opacity: 0.8
+      opacity: 0.9
     }
   })
 

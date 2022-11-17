@@ -49,8 +49,7 @@ export default function TextBilingualSentences(props) {
       opacity: 0.9,
       paddingBottom: 13,
       paddingLeft: 33,
-      paddingRight: 33,
-      writingDirection: 'ltr'
+      paddingRight: 33
     },
     showWordsButton: {
       paddingBottom: 25,
@@ -65,7 +64,9 @@ export default function TextBilingualSentences(props) {
   const sentences = props.sentences.map((sentence, index) => (
     <Fragment key={index}>
       <Text style={style.arabic}>{sentence.arabic}</Text>
-      <Text style={style.english}>{sentence.english}</Text>
+      <Text style={style.english} variant="bodyLarge">
+        {sentence.english}
+      </Text>
 
       <Button
         style={style.showWordsButton}
