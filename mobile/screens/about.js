@@ -7,10 +7,8 @@ function About() {
     button: { margin: 10 },
     english: {
       direction: 'ltr',
-      flex: 1,
-      lineHeight: 20,
+
       padding: 10,
-      writingDirection: 'ltr',
       fontFamily: 'philosopher'
     },
     divider: { margin: 10 }

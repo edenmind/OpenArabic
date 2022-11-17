@@ -121,15 +121,15 @@ function TextSettingsScreen() {
         }}
         buttons={[
           {
-            value: '14',
+            value: '15',
             label: 'X-Small'
           },
           {
-            value: '15',
+            value: '16',
             label: 'Small'
           },
           {
-            value: '16',
+            value: '17',
             label: 'Medium'
           },
           {

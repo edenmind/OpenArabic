@@ -5,11 +5,8 @@ exports[`<About /> renders correctly 1`] = `
   style={
     {
       "direction": "ltr",
-      "flex": 1,
       "fontFamily": "philosopher",
-      "lineHeight": 20,
       "padding": 10,
-      "writingDirection": "ltr",
     }
   }
 >
@@ -58,11 +55,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
@@ -88,11 +82,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
@@ -118,11 +109,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
@@ -164,11 +152,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
@@ -194,11 +179,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
@@ -960,11 +942,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
@@ -990,11 +969,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
@@ -1465,11 +1441,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
@@ -1495,11 +1468,8 @@ exports[`<About /> renders correctly 1`] = `
           },
           {
             "direction": "ltr",
-            "flex": 1,
             "fontFamily": "philosopher",
-            "lineHeight": 20,
             "padding": 10,
-            "writingDirection": "ltr",
           },
         ]
       }
