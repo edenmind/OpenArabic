@@ -1,14 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SnackButton /> renders correctly 1`] = `
-<View
-  style={
-    {
-      "flex": 1,
-      "justifyContent": "space-between",
-    }
-  }
->
+<View>
   <RCTSafeAreaView
     pointerEvents="box-none"
     style={
