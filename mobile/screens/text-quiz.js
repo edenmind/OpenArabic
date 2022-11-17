@@ -10,26 +10,31 @@ const textLoadSelector = (state) => state.textLoading
 
 const TextQuiz = () => {
   const numberOfWordInQuiz = 4
-  const celebrationText = 'MashaAllah - All Words Correct 🎉🎉🎉 '
+  const celebrationText = 'MashaAllah - All Words Correct!'
 
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
 
-  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
-  const [currentBatch, setCurrentBatch] = React.useState(0)
-  const [arabicCurrentSelectedWordId, setArabicSelectedWordId] = React.useState('')
-  const [englishCurrentSelectedWordId, setEngSelectedWordId] = React.useState('')
-  const [isSecondWord, setIsSecondWord] = React.useState(false)
   const [arabicCurrentSelectedIndex, setArabicSelectedIndex] = React.useState()
-  const [englishCurrentSelectedIndex, setEnglishSelectedIndex] = React.useState()
-  const [correctAnswers, setCorrectAnswers] = React.useState([])
+  const [arabicCurrentSelectedWordId, setArabicSelectedWordId] = React.useState('')
   const [arabicSelectedCollection, setArabicSelected] = React.useState([])
+  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
+  const [correctAnswers, setCorrectAnswers] = React.useState([])
+  const [currentBatch, setCurrentBatch] = React.useState(0)
+  const [englishCurrentSelectedIndex, setEnglishSelectedIndex] = React.useState()
+  const [englishCurrentSelectedWordId, setEngSelectedWordId] = React.useState('')
   const [englishSelectedCollection, setEnglishSelected] = React.useState([])
+  const [isSecondWord, setIsSecondWord] = React.useState(false)
+
   const addWordIdToCorrectAnswers = (wordId) => {
     setCorrectAnswers([...correctAnswers, wordId])
   }
 
   const onDismissSnackBar = () => setCelebrationSnackBarVisibility(false)
+
+  // This function sets the Arabic word that the user has selected in the
+  // list of words. It also sets the index of the selected word so that
+  // the user can see which word they have selected.
 
   const handleSetArabic = (index, arabicWordId) => {
     arabicSelectedCollection[index] = true
@@ -37,6 +42,10 @@ const TextQuiz = () => {
     setArabicSelectedWordId(arabicWordId)
     setArabicSelectedIndex(index)
   }
+
+  // This function sets the English word that the user has selected in the
+  // list of words. It also sets the index of the selected word so that
+  // the user can see which word they have selected.
 
   const handleSetEnglish = (index, englishWordId) => {
     englishSelectedCollection[index] = true
@@ -48,9 +57,7 @@ const TextQuiz = () => {
   const pressArabicWordHandler = (index, arabicWordId) => {
     if (correctAnswers.includes(arabicWordId)) {
       return
-    } // do nothing
-
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    } // if the word has already been answered correctly, do nothing
 
     if (englishCurrentSelectedWordId == arabicWordId) {
       // correct answer
@@ -61,16 +68,17 @@ const TextQuiz = () => {
 
       if (correctAnswers.length === numberOfWordInQuiz) {
         setCelebrationSnackBarVisibility(true)
+        //increase the current batch by 1
+        setCurrentBatch(currentBatch + 1)
+
+        //stop quiz if we are at the last batch
+        if (currentBatch == text.vocabularyCollection.arabic.length - 2) {
+          return
+        }
+
         setTimeout(() => {
           resetState()
-
-          if (currentBatch === text.vocabularyCollection.numberOfBatches - 1) {
-            setCurrentBatch(0)
-            return
-          }
-
-          setCurrentBatch(currentBatch + 1)
-        }, 1500)
+        }, 500)
       } // show celebration
 
       return
@@ -93,9 +101,7 @@ const TextQuiz = () => {
   const pressEnglishWordHandler = (index, englishWordId) => {
     if (correctAnswers.includes(englishWordId)) {
       return
-    } // do nothing
-
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    } // if the word has already been answered correctly, do nothing
 
     if (arabicCurrentSelectedWordId == englishWordId) {
       // correct answer
@@ -105,17 +111,19 @@ const TextQuiz = () => {
       handleSetEnglish(index, englishWordId)
 
       if (correctAnswers.length === numberOfWordInQuiz) {
+        setCelebrationSnackBarVisibility(true)
+
+        setCurrentBatch(currentBatch + 1)
+
+        //stop quiz if we are at the last batch
+        if (currentBatch == text.vocabularyCollection.arabic.length - 2) {
+          return
+        }
+
+        //increase the current batch by 1
         setTimeout(() => {
           resetState()
-
-          if (currentBatch === text.vocabularyCollection.numberOfBatches - 1) {
-            setCelebrationSnackBarVisibility(true)
-
-            return
-          }
-
-          setCurrentBatch(currentBatch + 1)
-        }, 1500)
+        }, 500)
       } // show celebration
 
       return
