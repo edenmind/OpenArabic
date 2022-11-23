@@ -11,10 +11,10 @@ async function listTexts(request, reply) {
   const textList = await texts.find({}).toArray()
 
   //sort texts by publishAt
-  const textListSortedByPublishAt = textList.sort((a, b) => a.publishAt - b.publishAt)
+  const textListSWithNewestFirst = textList.reverse()
 
   //add properties for timeAgo and readingTime for each text
-  const textListWithProperties = textListSortedByPublishAt.map((text) => ({
+  const textListWithProperties = textListSWithNewestFirst.map((text) => ({
     ...text,
     timeAgo: timeAgo(text.publishAt),
     readingTime: readingTime(text.texts.arabic)
@@ -34,10 +34,10 @@ async function listTextsWithId(request, reply) {
   const textList = await texts.find({ category: request.params.id }).toArray()
 
   //sort texts by publishAt
-  const textListSortedByPublishAt = textList.sort((a, b) => a.publishAt - b.publishAt)
+  const textListSWithNewestFirst = textList.reverse()
 
   //add properties for timeAgo and readingTime for each text
-  const textListWithProperties = textListSortedByPublishAt.map((text) => ({
+  const textListWithProperties = textListSWithNewestFirst.map((text) => ({
     ...text,
     timeAgo: timeAgo(text.publishAt),
     readingTime: readingTime(text.texts.arabic)
