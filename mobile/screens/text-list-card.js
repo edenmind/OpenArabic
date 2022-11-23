@@ -29,6 +29,7 @@ export default function CategoryCard(props) {
       direction: 'rtl',
       fontFamily: 'uthmanic',
       fontSize: arabicFontSize,
+      lineHeight: 60,
       opacity: 0.8,
       paddingBottom: 15,
       writingDirection: 'rtl'

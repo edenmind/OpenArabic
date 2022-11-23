@@ -33,6 +33,7 @@ export default function TextBilingualSentences(props) {
       fontFamily: 'uthmanic',
       fontSize: arabicFontSize,
       fontWeight: 'normal',
+      lineHeight: 65,
       paddingBottom: 13,
       paddingLeft: 33,
       paddingRight: 25,

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 const style = StyleSheet.create({
   author: {
+    maxWidth: 300,
     paddingTop: 15,
     textAlign: 'center'
   },

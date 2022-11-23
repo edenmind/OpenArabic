@@ -16,6 +16,7 @@ export default function TextArabic() {
       direction: 'rtl',
       fontFamily: 'uthmanic',
       fontSize: arabicFontSize,
+      lineHeight: 60,
       padding: 25,
       writingDirection: 'rtl'
     }
