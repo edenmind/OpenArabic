@@ -1,3 +1,5 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable security/detect-non-literal-fs-filename */
 import * as api from '../services/api-service.js'
 import { Box, Button, Chip, Stack, Switch, TextField, Tooltip, FormControlLabel } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
@@ -92,6 +94,17 @@ function TextAddWords() {
                   }}
                 >
                   Remove
+                </Button>
+              </Tooltip>
+              <Tooltip title="Open in Google Translate">
+                <Button
+                  color="secondary"
+                  //open in a new tab when clicked
+                  onClick={() =>
+                    window.open(`https://translate.google.com/?sl=ar&tl=en&text=${word.arabic}&op=translate`)
+                  }
+                >
+                  Open
                 </Button>
               </Tooltip>
               <FormControlLabel
