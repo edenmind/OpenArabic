@@ -38,7 +38,7 @@ const TextAddWordsGenerate = (props) => {
         //remove all invalid characters from the word
         const illegalCharactersRemoved = wordProcessing.cleanWordFromInvalidCharacters(cleanWord)
         //remove all words that are not arabic
-        const nonArabicCharactersRemoved = wordProcessing.removeNonArabicCharacters(illegalCharactersRemoved)
+        const nonArabicCharactersRemoved = illegalCharactersRemoved //wordProcessing.removeNonArabicCharacters(illegalCharactersRemoved)
 
         //if the word is empty or null, then we wont add it
         if (nonArabicCharactersRemoved === '' || nonArabicCharactersRemoved === null) {

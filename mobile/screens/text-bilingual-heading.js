@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 
 const style = StyleSheet.create({
   author: {
+    marginLeft: 35,
+    marginRight: 35,
     paddingTop: 15,
     textAlign: 'center'
   },
@@ -25,6 +27,8 @@ const style = StyleSheet.create({
   },
   title: {
     fontFamily: 'philosopher',
+    marginLeft: 35,
+    marginRight: 35,
     paddingTop: 45,
     textAlign: 'center'
   }

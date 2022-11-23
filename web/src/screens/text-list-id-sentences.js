@@ -22,7 +22,7 @@ function TextListIdSentences(properties) {
 
   return properties.sentences.map((sentence, index) => (
     <Fragment key={index}>
-      <Box sx={{ fontSize: 'h4.fontSize', m: 2 }}>{sentence.arabic}</Box>
+      <Box sx={{ fontSize: 'h4.fontSize', m: 2, paddingTop: '25px' }}>{sentence.arabic}</Box>
       <Box sx={{ m: 2 }}>{sentence.english}</Box>
       <Button variant="text" onClick={handleClickOpen}>
         Vocabulary

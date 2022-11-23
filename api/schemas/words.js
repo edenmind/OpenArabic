@@ -14,8 +14,8 @@ const postWordOptions = {
           type: 'object',
           required: ['arabic', 'english', 'sentence'],
           properties: {
-            arabic: { type: 'string', minLength: 3 },
-            english: { type: 'string', minLength: 3 },
+            arabic: { type: 'string', minLength: 2 },
+            english: { type: 'string', minLength: 2 },
             sentence: { type: 'string', minLength: 5 }
           }
         }
