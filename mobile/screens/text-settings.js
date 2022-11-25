@@ -97,13 +97,12 @@ function TextSettingsScreen() {
 
   return (
     <ScrollView style={style.scrollView}>
-      <Text variant="titleSmall">Example Text</Text>
       <Surface style={style.surface} elevation={2}>
         <Text variant="bodyMedium" style={style.english}>
           In the Name of Allah, the Most Gracious, the Most Merciful.
         </Text>
         <Text variant="bodyMedium" style={style.arabic}>
-          بسم الله الرحمن الرحيم
+          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
         </Text>
       </Surface>
 

@@ -30,6 +30,7 @@ export default function TextList({ route, navigation }) {
   const style = StyleSheet.create({
     footer: {
       fontFamily: 'uthmanic',
+      fontSize: 17,
       opacity: 0.7,
       padding: 5,
       paddingBottom: 10,

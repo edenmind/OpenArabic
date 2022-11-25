@@ -21,6 +21,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         },
         {
           "fontFamily": "uthmanic",
+          "fontSize": 33,
           "paddingBottom": 5,
           "paddingTop": 15,
         },
@@ -88,6 +89,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         },
         {
           "fontFamily": "uthmanic",
+          "fontSize": 33,
           "paddingBottom": 5,
           "paddingTop": 15,
         },

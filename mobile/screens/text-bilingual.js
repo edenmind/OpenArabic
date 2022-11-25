@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { Button } from 'react-native-paper'
 import { ENDPOINT, HOST } from '../constants/urls.js'
 import * as MailComposer from 'expo-mail-composer'
+import * as Haptics from 'expo-haptics'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -16,11 +17,11 @@ export default function TextBilingual() {
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
   const share = 'Share'
-  const report = 'Report an Error'
+  const report = 'Report Error'
 
   const style = StyleSheet.create({
     buttonReport: {
-      marginBottom: 150,
+      marginBottom: 75,
       marginLeft: 25,
       marginRight: 25,
       marginTop: 15
@@ -33,6 +34,7 @@ export default function TextBilingual() {
   })
 
   const onShare = async () => {
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Light)
     try {
       await Share.share({
         message: `🔗 ${text.title} - ${text.author}`,
@@ -45,6 +47,7 @@ export default function TextBilingual() {
   }
 
   const onErrorReport = async () => {
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Light)
     try {
       MailComposer.composeAsync({
         recipients: ['salam@edenmin.com'],
