@@ -42,8 +42,8 @@ function TextAddWords() {
 
   const sentences = text.sentences.map((sentence, indexSentence) => (
     <Fragment key={indexSentence}>
-      <Chip label={`Sentence ${indexSentence + 1}`} />
-      <Stack spacing={0} style={{ paddingBottom: '70px', width: '700px' }}>
+      <Chip label={`Sentence ${indexSentence}`} />
+      <Stack spacing={0} style={{ paddingBottom: '50px', width: '700px' }}>
         <p>
           <h3>{sentence.english}</h3>
         </p>
@@ -53,7 +53,6 @@ function TextAddWords() {
 
         {sentence.words.map((word, indexArabicWord) => (
           <Box sx={{ fontSize: 'h4.fontSize' }} key={indexArabicWord}>
-            <Chip label={`Word ${indexSentence}:${indexArabicWord}`} />
             <p>
               {word.arabic}
               {word.arabic.length > 20 && <Chip sx={{ margin: 2 }} color="warning" label="Long Arabic Word" />}
@@ -66,6 +65,7 @@ function TextAddWords() {
                 fullWidth
                 variant="outlined"
               />
+              <Chip label={`${indexSentence}:${indexArabicWord}`} />
               <Tooltip title="Fetch word from Google Translation API">
                 <Button
                   onClick={async () => {
