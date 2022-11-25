@@ -1,15 +1,36 @@
 import React, { Fragment } from 'react'
-import { Button, Tooltip } from '@mui/material'
+import { Tooltip } from '@mui/material'
 import * as api from '../services/api-service.js'
 import * as wp from '../services/word-processing.js'
 import { useSelector, useDispatch } from 'react-redux'
+import SnackBar from '../components/snack-bar.js'
+import LoadingButton from '@mui/lab/LoadingButton'
 
 const selector = (state) => state.text
 
 const TextAddWordsGetTranslations = () => {
   const dispatch = useDispatch()
+  const [statusMessage, setStatusMessage] = React.useState('')
+  const [open, setOpen] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
+
+  function handleClick() {
+    setLoading(true)
+  }
+
+  const handleClose = (reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpen(false)
+  }
 
   const checkIfWordExistsInDatabase = async () => {
+    //count the number of words found in the database
+    let wordsFound = 0
+    setLoading(true)
+
     for (const [indexSentence, sentence] of text.sentences.entries()) {
       for (const [indexArabicWord, word] of sentence.words.entries()) {
         const englishWords = await api.getTranslation(word.arabic)
@@ -18,6 +39,9 @@ const TextAddWordsGetTranslations = () => {
         if (englishWords.length === 0) {
           continue
         }
+
+        // increment the number of words found in the database
+        wordsFound++
 
         // check if sentence.english words contains englishWords
         const sentenceContainsCapitalized = sentence.english.includes(wp.capitalizeFirstLetter(englishWords))
@@ -29,16 +53,34 @@ const TextAddWordsGetTranslations = () => {
         }
       }
     }
+
+    // if no words were found in the database, then show a message
+    if (wordsFound === 0) {
+      setStatusMessage('No words were found in the database')
+      setOpen(true)
+    } else {
+      setStatusMessage(`${wordsFound} words were found in the database`)
+      setOpen(true)
+    }
+
+    setLoading(false)
   }
 
   const { text } = useSelector(selector)
   return (
     <Fragment>
       <Tooltip title="Check if words have been translated before.">
-        <Button variant="contained" sx={{ margin: 2 }} onClick={async () => await checkIfWordExistsInDatabase()}>
+        <LoadingButton
+          loading={loading}
+          loadingIndicator="Loading…"
+          variant="contained"
+          sx={{ margin: 2 }}
+          onClick={async () => await checkIfWordExistsInDatabase()}
+        >
           Get Translations
-        </Button>
+        </LoadingButton>
       </Tooltip>
+      <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity="success" message={statusMessage} />
     </Fragment>
   )
 }
