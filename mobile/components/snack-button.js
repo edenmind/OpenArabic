@@ -13,7 +13,7 @@ const SnackButton = (props) => {
         style={styles.snack}
         visible={props.visible}
         onDismiss={props.onDismissSnackBar}
-        duration={1000}
+        duration={200}
       >
         {props.text}
       </Snackbar>
