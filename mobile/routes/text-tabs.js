@@ -3,19 +3,11 @@ import PropTypes from 'prop-types'
 import Quiz from '../screens/text-quiz.js'
 import SCREENS from '../constants/screens.js'
 import Spinner from '../components/spinner.js'
-import { StyleSheet, Platform } from 'react-native'
 import TextArabic from '../screens/text-arabic.js'
 import TextBilingual from '../screens/text-bilingual.js'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { getText } from '../services/api-service.js'
 import { useDispatch } from 'react-redux'
-
-const style = StyleSheet.create({
-  tabs: {
-    marginBottom: Platform.OS === 'ios' ? -75 : 0 //This is a hack to fix a bug in react-navigation
-    //maxHeight: 550 // TODO: This is a hack to fix the tab bar height on Android
-  }
-})
 
 export default function TextTabs({ route }) {
   const Tab = createMaterialTopTabNavigator()
@@ -43,7 +35,6 @@ export default function TextTabs({ route }) {
   ) : (
     <Fragment>
       <Tab.Navigator
-        style={style.tabs}
         screenOptions={{
           tabBarLabelStyle: {
             fontSize: 13,

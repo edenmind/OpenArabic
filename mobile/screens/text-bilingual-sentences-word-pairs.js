@@ -7,6 +7,7 @@ function TextBilingualSentencesWordPairs(props) {
   const style = StyleSheet.create({
     arabic: {
       fontFamily: 'uthmanic',
+      fontSize: 33,
       paddingBottom: 5,
       paddingTop: 15
     },

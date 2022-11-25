@@ -4,7 +4,6 @@ import React from 'react'
 import SelectableChip from '../components/selectable-chip.js'
 import LANGUAGES from '../constants/languages.js'
 import { Text } from 'react-native-paper'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
