@@ -42,7 +42,7 @@ function TextAddWords() {
 
   const sentences = text.sentences.map((sentence, indexSentence) => (
     <Fragment key={indexSentence}>
-      <Chip label={`Sentence ${indexSentence + 1}`} />
+      <Chip label={`Sentence ${indexSentence}`} />
       <Stack spacing={0} style={{ paddingBottom: '70px', width: '700px' }}>
         <p>
           <h3>{sentence.english}</h3>
