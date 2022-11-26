@@ -4,9 +4,8 @@ exports[`<About /> renders correctly 1`] = `
 <RCTScrollView
   style={
     {
-      "direction": "ltr",
-      "fontFamily": "philosopher",
       "padding": 10,
+      "paddingBottom": 150,
     }
   }
 >
@@ -36,6 +35,34 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     />
+    <Text
+      style={
+        [
+          {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontFamily": "System",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          {
+            "textAlign": "left",
+          },
+          {
+            "writingDirection": "ltr",
+          },
+          {
+            "direction": "rtl",
+            "fontFamily": "philosopher",
+            "padding": 10,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      ﷽
+    </Text>
     <Text
       style={
         [
