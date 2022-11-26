@@ -7,9 +7,18 @@ function About() {
     button: { margin: 10 },
     english: {
       direction: 'ltr',
-
       padding: 10,
       fontFamily: 'philosopher'
+    },
+    arabic: {
+      textAlign: 'center',
+      padding: 10,
+      direction: 'rtl',
+      fontFamily: 'philosopher'
+    },
+    scrollView: {
+      padding: 10,
+      paddingBottom: 150
     },
     divider: { margin: 10 }
   })
@@ -27,11 +36,14 @@ function About() {
   const githubDiscussions = 'https://github.com/edenmind/OpenArabic/discussions'
 
   return (
-    <ScrollView style={style.english}>
+    <ScrollView style={style.scrollView}>
       <Image source={require('../assets/1500x500.jpeg')} style={{ width: '100%', height: 150 }} />
 
       <Divider style={style.divider} />
 
+      <Text variant="titleLarge" style={style.arabic}>
+        ﷽
+      </Text>
       <Text variant="titleLarge" style={style.english}>
         Audience
       </Text>
