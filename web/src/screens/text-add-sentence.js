@@ -117,6 +117,7 @@ const TextAddSentences = () => {
         >
           Fetch vocals
         </LoadingButton>
+        <Text></Text>
       </Stack>
       <Stack direction="row" spacing={2}>
         <Item>
