@@ -57,6 +57,7 @@ const TextAddHeading = () => {
 
       <MenuSelect Heading="Author" Values={authors} value={text.author} onChangeFunc={setAuthor} />
       <MenuSelect Heading="Category" Values={categories} value={text.category} onChangeFunc={setCategory} />
+      <img src={text.image} alt={text.title} width={700} />
       <StandardImageList images={images} />
     </Stack>
   )
