@@ -64,8 +64,8 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         false,
         false,
         {
-          "marginBottom": 0,
-          "marginTop": 20,
+          "marginBottom": 15,
+          "marginTop": 15,
         },
       ]
     }
@@ -132,8 +132,8 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         false,
         false,
         {
-          "marginBottom": 0,
-          "marginTop": 20,
+          "marginBottom": 15,
+          "marginTop": 15,
         },
       ]
     }
