@@ -18,7 +18,7 @@ export default function TextArabic() {
       fontSize: arabicFontSize,
       lineHeight: 70,
       padding: 25,
-      paddingBottom: 125,
+      paddingBottom: 50,
       writingDirection: 'rtl'
     }
   })

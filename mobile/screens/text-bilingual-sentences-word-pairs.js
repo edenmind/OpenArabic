@@ -12,8 +12,8 @@ function TextBilingualSentencesWordPairs(props) {
       paddingTop: 15
     },
     divider: {
-      marginBottom: 0,
-      marginTop: 20
+      marginBottom: 15,
+      marginTop: 15
     }
   })
   return props.words.map((word, index) => (

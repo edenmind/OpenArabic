@@ -123,7 +123,7 @@ const TextQuiz = () => {
         //increase the current batch by 1
         setTimeout(() => {
           resetState()
-        }, 400)
+        }, 550)
       } // show celebration
 
       return

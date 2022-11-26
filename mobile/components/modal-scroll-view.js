@@ -20,7 +20,9 @@ const ModalScrollView = (props) => {
   }
 
   const titleStyle = {
-    alignSelf: 'center'
+    alignSelf: 'center',
+    paddingBottom: 20,
+    fontFamily: 'philosopher'
   }
 
   return (
