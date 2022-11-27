@@ -1,4 +1,5 @@
-import { Button, Container, Divider, Grid, Stack } from '@mui/material'
+import { Button, Container, Divider, Grid, Stack, Link, Tooltip, IconButton } from '@mui/material'
+import EditIcon from '@mui/icons-material/Edit'
 import CircularProgress from '@mui/material/CircularProgress'
 import Footer from '../components/footer.js'
 import Nav from '../components/nav.js'
@@ -8,11 +9,13 @@ import { useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
 import { timeAgo } from '../services/dates.js'
 import * as links from '../services/link-generator.js'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function TextListId() {
   const { id } = useParams()
   const [text, setText] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
+  const { isAuthenticated } = useAuth0()
 
   React.useEffect(() => {
     api
@@ -64,6 +67,12 @@ function TextListId() {
             <Button variant="contained" href={links.generateLinkToPostOnFacebook(text.id)}>
               Post on Facebook
             </Button>
+
+            {isAuthenticated && (
+              <Button variant="contained" href={`/texts/update/${text.id}`}>
+                Edit
+              </Button>
+            )}
           </Stack>
         </center>
         <Footer />
