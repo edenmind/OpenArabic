@@ -1,46 +1,17 @@
 'use strict'
 
 function getImages(request, reply) {
-  const headerImages = [
-    {
-      img: `${process.env.API_IMAGES_URL}1.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}2.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}3.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}4.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}5.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}6.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}7.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}8.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}9.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}10.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}11.png`
-    },
-    {
-      img: `${process.env.API_IMAGES_URL}12.png`
-    }
-  ]
+  const numberOfImages = 25
+  const images = []
 
-  reply.send(headerImages)
+  for (let index = 1; index < numberOfImages; index++) {
+    images.push({
+      id: index,
+      url: `${process.env.API_IMAGES_URL}${index}.jpg`
+    })
+  }
+
+  reply.send(images)
 }
 
 module.exports = {
