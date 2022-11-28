@@ -106,19 +106,19 @@ function About() {
         The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah, and the first
         generations of Muslims' understanding with texts from Islamic Scholars such as:
       </Text>
-      <List.Item title="al-Hasan al-Basri" />
-      <List.Item title="Imām Abū Ḥanīfa" />
-      <List.Item title="Imām Mālik bin Anas" />
-      <List.Item title="Imām al-Shāfiʿī" />
-      <List.Item title="Imām Aḥmad ibn Ḥanbal" />
-      <List.Item title="Ibn Rājab al-Hanbali" />
-      <List.Item title="Ibn Taymiyyah" />
-      <List.Item title="Ibn Qayyim al-Jawziyya" />
-      <List.Item title="Shams ad-Dīn adh-Dhahabī" />
-      <List.Item title="Imām Nawawī" />
-      <List.Item title="Ibn Kathīr" />
-      <List.Item title="Ibn Ḥajar al-ʿAsqalānī" />
-      <List.Item title="al-Fuḍayl ibn ʻIyāḍ" />
+      <List.Item title="al-Hasan al-Basri, d. 110 AH" />
+      <List.Item title="Imām Abū Ḥanīfa, d. 150 AH" />
+      <List.Item title="Imām Mālik bin Anas, d. 179 AH" />
+      <List.Item title="Imām al-Shāfiʿī, d. 204 AH" />
+      <List.Item title="Imām Aḥmad ibn Ḥanbal, d. 241 AH" />
+      <List.Item title="Imām Nawawī, d. 676 AH" />
+      <List.Item title="Ibn Taymiyyah, d. 728 AH" />
+      <List.Item title="Shams ad-Dīn adh-Dhahabī, d. 748 AH" />
+      <List.Item title="Ibn Qayyim al-Jawziyya, d. 751 AH" />
+      <List.Item title="Ibn Kathīr, d. 774 AH" />
+      <List.Item title="Ibn Rājab al-Hanbali, d. 795 AH" />
+      <List.Item title="al-Fuḍayl ibn ʻIyāḍ, d. 803 AH" />
+      <List.Item title="Ibn Ḥajar al-ʿAsqalānī, d. 852 AH" />
       <Text variant="titleLarge" style={style.english}></Text>
     </ScrollView>
   )
