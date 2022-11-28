@@ -41,7 +41,7 @@ function TextQuizVocabularies(props) {
     <SelectableChip
       language={LANGUAGES.english}
       key={index}
-      text={english.word}
+      text={english.word.charAt(0).toUpperCase() + english.word.slice(1)}
       func={() => props.pressEnglishWordHandler(index, english.wordId)}
       selected={props.englishSelectedCollection[index] ?? false}
     />

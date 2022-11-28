@@ -51,7 +51,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
       ]
     }
   >
-    alienation
+    Alienation
   </Text>,
   <View
     style={
@@ -119,7 +119,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
       ]
     }
   >
-    his Lord
+    His Lord
   </Text>,
   <View
     style={
