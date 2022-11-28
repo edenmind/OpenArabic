@@ -1612,7 +1612,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            al-Hasan al-Basri
+            al-Hasan al-Basri, d. 110 AH
           </Text>
         </View>
       </View>
@@ -1699,7 +1699,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Imām Abū Ḥanīfa
+            Imām Abū Ḥanīfa, d. 150 AH
           </Text>
         </View>
       </View>
@@ -1786,7 +1786,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Imām Mālik bin Anas
+            Imām Mālik bin Anas, d. 179 AH
           </Text>
         </View>
       </View>
@@ -1873,7 +1873,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Imām al-Shāfiʿī
+            Imām al-Shāfiʿī, d. 204 AH
           </Text>
         </View>
       </View>
@@ -1960,7 +1960,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Imām Aḥmad ibn Ḥanbal
+            Imām Aḥmad ibn Ḥanbal, d. 241 AH
           </Text>
         </View>
       </View>
@@ -2047,7 +2047,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Ibn Rājab al-Hanbali
+            Imām Nawawī, d. 676 AH
           </Text>
         </View>
       </View>
@@ -2134,7 +2134,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Ibn Taymiyyah
+            Ibn Taymiyyah, d. 728 AH
           </Text>
         </View>
       </View>
@@ -2221,7 +2221,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Ibn Qayyim al-Jawziyya
+            Shams ad-Dīn adh-Dhahabī, d. 748 AH
           </Text>
         </View>
       </View>
@@ -2308,7 +2308,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Shams ad-Dīn adh-Dhahabī
+            Ibn Qayyim al-Jawziyya, d. 751 AH
           </Text>
         </View>
       </View>
@@ -2395,7 +2395,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Imām Nawawī
+            Ibn Kathīr, d. 774 AH
           </Text>
         </View>
       </View>
@@ -2482,7 +2482,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Ibn Kathīr
+            Ibn Rājab al-Hanbali, d. 795 AH
           </Text>
         </View>
       </View>
@@ -2569,7 +2569,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            Ibn Ḥajar al-ʿAsqalānī
+            al-Fuḍayl ibn ʻIyāḍ, d. 803 AH
           </Text>
         </View>
       </View>
@@ -2656,7 +2656,7 @@ exports[`<About /> renders correctly 1`] = `
               ]
             }
           >
-            al-Fuḍayl ibn ʻIyāḍ
+            Ibn Ḥajar al-ʿAsqalānī, d. 852 AH
           </Text>
         </View>
       </View>
