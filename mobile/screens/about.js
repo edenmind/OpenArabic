@@ -38,34 +38,32 @@ function About() {
   return (
     <ScrollView style={style.scrollView}>
       <Image source={require('../assets/1500x500.jpeg')} style={{ width: '100%', height: 150 }} />
-
       <Divider style={style.divider} />
-
       <Text variant="titleLarge" style={style.arabic}>
         ﷽
       </Text>
       <Text variant="titleLarge" style={style.english}>
         Audience
       </Text>
-
       <Text variant="bodyLarge" style={style.english}>
-        If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
+        If you know some Arabic and strive to switch from reading Islamic texts in English to reading in Arabic; then
         OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
         in that process, inshāʾAllāh.
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started,
-        then the Duolingo app available on iPhone and Android might come in handy.
+        OpenArabic does not teach the Arabic alphabet nor Arabic grammar.
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in
+        handy.
       </Text>
 
       <Divider style={style.divider} />
-
       <Text variant="titleLarge" style={style.english}>
         Contact Us
       </Text>
-
       <Text variant="bodyLarge" style={style.english}>
-        Please use any of the following channels to report bugs or requests new features.
+        Please use any of the following channels to report bugs or request new features.
       </Text>
       <Button style={style.button} mode="outlined" testID="email" onPress={() => Linking.openURL(email)}>
         Email
@@ -82,16 +80,13 @@ function About() {
       <Button style={style.button} mode="outlined" testID="facebook" onPress={() => Linking.openURL(facebook)}>
         Facebook
       </Button>
-
       <Divider style={style.divider} />
-
       <Text variant="titleLarge" style={style.english}>
         Open Source
       </Text>
-
       <Text variant="bodyLarge" style={style.english}>
         The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify,
-        and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic
+        and Kubernetes. If you are interested in helping with the development, then please check out the OpenArabic
         project on GitHub.
       </Text>
       <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(githubIssues)}>
@@ -103,16 +98,13 @@ function About() {
       <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(githubPullRequests)}>
         Pull Requests
       </Button>
-
       <Divider style={style.divider} />
-
       <Text variant="titleLarge" style={style.english}>
-        Foundation
+        Islamic Foundation
       </Text>
-
       <Text variant="bodyLarge" style={style.english}>
-        The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first
-        generations of Muslims understanding with texts from Islamic Scholars such as:
+        The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah, and the first
+        generations of Muslims' understanding with texts from Islamic Scholars such as:
       </Text>
       <List.Item title="al-Hasan al-Basri" />
       <List.Item title="Imām Abū Ḥanīfa" />
@@ -127,6 +119,7 @@ function About() {
       <List.Item title="Ibn Kathīr" />
       <List.Item title="Ibn Ḥajar al-ʿAsqalānī" />
       <List.Item title="al-Fuḍayl ibn ʻIyāḍ" />
+      <Text variant="titleLarge" style={style.english}></Text>
     </ScrollView>
   )
 }

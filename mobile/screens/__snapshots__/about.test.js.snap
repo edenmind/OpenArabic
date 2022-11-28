@@ -115,7 +115,7 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you in that process, inshāʾAllāh.
+      If you know some Arabic and strive to switch from reading Islamic texts in English to reading in Arabic; then OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you in that process, inshāʾAllāh.
     </Text>
     <Text
       style={
@@ -142,7 +142,34 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      OpenArabic does not teach the Arabic alphabet nor Arabic grammar. If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in handy.
+      OpenArabic does not teach the Arabic alphabet nor Arabic grammar.
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontFamily": "System",
+            "fontSize": 16,
+            "fontWeight": "400",
+            "letterSpacing": 0.15,
+            "lineHeight": 24,
+          },
+          {
+            "textAlign": "left",
+          },
+          {
+            "writingDirection": "ltr",
+          },
+          {
+            "direction": "ltr",
+            "fontFamily": "philosopher",
+            "padding": 10,
+          },
+        ]
+      }
+    >
+      If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in handy.
     </Text>
     <View
       style={
@@ -212,7 +239,7 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      Please use any of the following channels to report bugs or requests new features.
+      Please use any of the following channels to report bugs or request new features.
     </Text>
     <View
       collapsable={false}
@@ -1002,7 +1029,7 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify, and Kubernetes. If you are interested in helping out with the development, then please check out the OpenArabic project on GitHub.
+      The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify, and Kubernetes. If you are interested in helping with the development, then please check out the OpenArabic project on GitHub.
     </Text>
     <View
       collapsable={false}
@@ -1474,7 +1501,7 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      Foundation
+      Islamic Foundation
     </Text>
     <Text
       style={
@@ -1501,7 +1528,7 @@ exports[`<About /> renders correctly 1`] = `
         ]
       }
     >
-      The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first generations of Muslims understanding with texts from Islamic Scholars such as:
+      The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah, and the first generations of Muslims' understanding with texts from Islamic Scholars such as:
     </Text>
     <View
       accessibilityState={
@@ -2634,6 +2661,31 @@ exports[`<About /> renders correctly 1`] = `
         </View>
       </View>
     </View>
+    <Text
+      style={
+        [
+          {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontFamily": "System",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          {
+            "textAlign": "left",
+          },
+          {
+            "writingDirection": "ltr",
+          },
+          {
+            "direction": "ltr",
+            "fontFamily": "philosopher",
+            "padding": 10,
+          },
+        ]
+      }
+    />
   </View>
 </RCTScrollView>
 `;
