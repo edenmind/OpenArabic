@@ -105,6 +105,7 @@ export default function TextDrawer() {
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
+        unmountOnBlur: true,
         drawerStyle: {
           width: 200
         },
