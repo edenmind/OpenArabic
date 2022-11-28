@@ -21,7 +21,8 @@ function TextBilingualSentencesWordPairs(props) {
       <Text variant="titleLarge" style={style.arabic}>
         {word.arabic}
       </Text>
-      <Text variant="bodyMedium">{word.english}</Text>
+
+      <Text variant="bodyMedium">{word.english.charAt(0).toUpperCase() + word.english.slice(1)}</Text>
       <Divider style={style.divider} />
     </Fragment>
   ))

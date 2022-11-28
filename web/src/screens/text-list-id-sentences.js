@@ -46,7 +46,7 @@ function TextListIdSentences(properties) {
           {sentencesToShow.map((word, index) => (
             <Fragment key={index}>
               <Box sx={{ fontSize: 'h3.fontSize', m: 2, minWidth: '300px' }}>{word.arabic}</Box>
-              <Box sx={{ m: 2 }}>{word.english}</Box>
+              <Box sx={{ m: 2 }}>{word.english.charAt(0).toUpperCase() + word.english.slice(1)}</Box>
               <Divider />
             </Fragment>
           ))}
