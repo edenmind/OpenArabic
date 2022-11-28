@@ -38,7 +38,7 @@ export default function TextListCard(properties) {
                   <Typography>{text.texts.english != undefined && truncate(text.texts.english, 125)}</Typography>
                 </div>
                 <Typography sx={{ fontSize: 14, paddingTop: '5px' }} color="text.secondary" gutterBottom>
-                  {`${text.views} views · ${timeAgo(text.publishedAt)}`}
+                  {`${text.views} views · ${text.publishedAt}`}
                 </Typography>
               </CardContent>
             </CardActionArea>
