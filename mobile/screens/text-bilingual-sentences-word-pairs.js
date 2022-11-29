@@ -8,12 +8,16 @@ function TextBilingualSentencesWordPairs(props) {
     arabic: {
       fontFamily: 'uthmanic',
       fontSize: 33,
+      opacity: 0.9,
       paddingBottom: 5,
       paddingTop: 15
     },
     divider: {
       marginBottom: 15,
       marginTop: 15
+    },
+    english: {
+      opacity: 0.9
     }
   })
   return props.words.map((word, index) => (
@@ -22,7 +26,9 @@ function TextBilingualSentencesWordPairs(props) {
         {word.arabic}
       </Text>
 
-      <Text variant="bodyMedium">{word.english.charAt(0).toUpperCase() + word.english.slice(1)}</Text>
+      <Text variant="bodyMedium" style={style.english}>
+        {word.english.charAt(0).toUpperCase() + word.english.slice(1)}
+      </Text>
       <Divider style={style.divider} />
     </Fragment>
   ))
