@@ -66,6 +66,9 @@ export default function TextBilingualSentences(props) {
     <Fragment key={index}>
       <Text style={style.arabic}>{sentence.arabic}</Text>
       <Text style={style.english} variant="bodyLarge">
+        {util.transliterateArabicToEnglish(sentence.arabic)}
+      </Text>
+      <Text style={style.english} variant="bodyLarge">
         {sentence.english}
       </Text>
 
