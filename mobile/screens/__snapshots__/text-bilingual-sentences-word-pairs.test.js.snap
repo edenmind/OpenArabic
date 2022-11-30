@@ -23,13 +23,38 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
           "fontFamily": "uthmanic",
           "fontSize": 33,
           "opacity": 0.9,
-          "paddingBottom": 5,
           "paddingTop": 15,
         },
       ]
     }
   >
     وحشة
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "rgba(28, 27, 31, 1)",
+          "fontFamily": "System",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "letterSpacing": 0.25,
+          "lineHeight": 20,
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "writingDirection": "ltr",
+        },
+        {
+          "opacity": 0.8,
+          "paddingBottom": 15,
+        },
+      ]
+    }
+  >
+    wḥšt
   </Text>,
   <Text
     style={
@@ -94,13 +119,38 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
           "fontFamily": "uthmanic",
           "fontSize": 33,
           "opacity": 0.9,
-          "paddingBottom": 5,
           "paddingTop": 15,
         },
       ]
     }
   >
     ربه
+  </Text>,
+  <Text
+    style={
+      [
+        {
+          "color": "rgba(28, 27, 31, 1)",
+          "fontFamily": "System",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "letterSpacing": 0.25,
+          "lineHeight": 20,
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "writingDirection": "ltr",
+        },
+        {
+          "opacity": 0.8,
+          "paddingBottom": 15,
+        },
+      ]
+    }
+  >
+    rbh
   </Text>,
   <Text
     style={
