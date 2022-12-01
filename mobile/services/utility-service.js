@@ -28,6 +28,18 @@ export const getHijriDate = () => {
 export const transliterateArabicToEnglish = (string) => {
   let transliteratedArabicToEnglish = ''
 
+  //replace all ئٍ with ´i
+  string = string.replace(/ئ/g, '´i')
+
+  // replace all إِ with i
+  string = string.replace(/إِ/g, '´i')
+
+  //replace all hamza on wav with a
+  string = string.replace(/ؤْ/g, '´')
+
+  // replace أ with a
+  string = string.replace(/أ/g, '´a')
+
   // replace all fatha with the letter a
   string = string.replace(/َ/g, 'a')
 
@@ -48,8 +60,9 @@ export const transliterateArabicToEnglish = (string) => {
 
   const letterMap = {
     ٱ: 'a',
+    إ: '`i',
     ء: '',
-    ا: 'ā',
+    ا: 'a',
     ب: 'b',
     ت: 't',
     ث: 'ṯ',
@@ -66,7 +79,7 @@ export const transliterateArabicToEnglish = (string) => {
     ض: 'ḍ',
     ط: 'ṭ',
     ظ: 'ẓ',
-    ع: 'ʿ',
+    ع: 'ʻ',
     غ: 'ġ',
     ف: 'f',
     ق: 'q',
@@ -99,6 +112,15 @@ export const transliterateArabicToEnglish = (string) => {
   //replace aā with a
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aā', 'ā')
 
+  //replace aa with ā
+  //transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aa', 'ā')
+
+  // replace all ii with ī
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('ii', 'ī')
+
+  // replace all uu with ū
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('uu', 'ū')
+
   //replace iī with ī
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('iī', 'ī')
 
@@ -106,10 +128,25 @@ export const transliterateArabicToEnglish = (string) => {
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('uū', 'ū')
 
   //replace iy with ī
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('iy', 'ī')
+  //transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('iy', 'ī')
 
   //replace aٰ with ā
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aٰ', 'ā')
+
+  //replace bni with ibn
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('bni', 'ibn')
+
+  // replace uw with ū
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('uw', 'ū')
+
+  // replace all ´aa with ´a
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('´aa', '´a')
+
+  // replace all aa with ā
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aa', 'ā')
+
+  //replace iy with ī
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('iy', 'ī')
 
   return transliteratedArabicToEnglish
 }
