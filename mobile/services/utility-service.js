@@ -29,16 +29,16 @@ export const transliterateArabicToEnglish = (string) => {
   let transliteratedArabicToEnglish = ''
 
   //replace all ئٍ with ´i
-  string = string.replace(/ئ/g, '´i')
+  string = string.replace(/ئ/g, '`i')
 
   // replace all إِ with i
-  string = string.replace(/إِ/g, '´i')
+  string = string.replace(/إِ/g, '`i')
 
   //replace all hamza on wav with a
-  string = string.replace(/ؤْ/g, '´')
+  string = string.replace(/ؤْ/g, '`')
 
   // replace أ with a
-  string = string.replace(/أ/g, '´a')
+  string = string.replace(/أ/g, '`a')
 
   // replace all fatha with the letter a
   string = string.replace(/َ/g, 'a')
@@ -98,9 +98,6 @@ export const transliterateArabicToEnglish = (string) => {
     ـُو: 'ū',
     ـًا: 'ay',
     ـَو: 'aw',
-    ـً: 'an',
-    ـٍ: 'in',
-    ـٌ: 'un',
     ' ': ' '
   }
 
@@ -127,9 +124,6 @@ export const transliterateArabicToEnglish = (string) => {
   //replace uū with ū
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('uū', 'ū')
 
-  //replace iy with ī
-  //transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('iy', 'ī')
-
   //replace aٰ with ā
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aٰ', 'ā')
 
@@ -140,13 +134,16 @@ export const transliterateArabicToEnglish = (string) => {
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('uw', 'ū')
 
   // replace all ´aa with ´a
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('´aa', '´a')
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('´aa', '`a')
 
   // replace all aa with ā
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aa', 'ā')
 
   //replace iy with ī
   transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('iy', 'ī')
+
+  //remove all arabic letters
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replace(/[\u0600-\u06FF]/g, '')
 
   return transliteratedArabicToEnglish
 }
