@@ -70,8 +70,15 @@ const initialStateLoading = {
 
 const initialStateUI = {
   arabicFontSize: 27,
-  englishFontSize: 16
+  englishFontSize: 16,
+  isTransliterationOn: 'on'
 }
+
+const transliterationReducer = createReducer(initialStateUI, (builder) => {
+  builder.addCase(actions.SET_TRANSLITERATION, (state, action) => {
+    return { ...state, isTransliterationOn: action.payload }
+  })
+})
 
 const arabicFontSizeReducer = createReducer(initialStateUI, (builder) => {
   builder.addCase(actions.SET_ARABIC_FONT_SIZE, (state, action) => {
@@ -126,5 +133,6 @@ export {
   textLoadingReducer,
   textsLoadingReducer,
   arabicFontSizeReducer,
-  englishFontSizeReducer
+  englishFontSizeReducer,
+  transliterationReducer
 }

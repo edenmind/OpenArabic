@@ -1,4 +1,4 @@
-import { Text, SegmentedButtons, Surface } from 'react-native-paper'
+import { Text, SegmentedButtons, Surface, Switch } from 'react-native-paper'
 import { ScrollView, StyleSheet } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
@@ -7,12 +7,27 @@ import { useDispatch } from 'react-redux'
 function TextSettingsScreen() {
   const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16)
   const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20)
+  const [isTransliterationOn, setIsTransliterationOn] = React.useState(false)
   const dispatch = useDispatch()
+
+  // store a value using storeData
+  const storeTransliteration = async (value) => {
+    try {
+      // we need to convert the value to a string before storing it
+      const boolValuesForTransliteration = value === true ? 'on' : 'off'
+      dispatch({ type: 'SET_TRANSLITERATION', payload: boolValuesForTransliteration })
+
+      await storeData('isTransliterationOn', boolValuesForTransliteration)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   // store a value using storeData
   const storeEnglishFontSize = async (value) => {
     try {
       // store the value in the store with dispatch
+
       dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: value })
 
       await storeData('englishFontSize', value)
@@ -25,6 +40,7 @@ function TextSettingsScreen() {
   const storeArabicFontSize = async (value) => {
     try {
       // store the value in the store with dispatch
+
       dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: value })
 
       await storeData('arabicFontSize', value)
@@ -59,10 +75,27 @@ function TextSettingsScreen() {
     }
   }
 
+  // get a value using getData
+  const getTransliteration = async () => {
+    try {
+      const value = await getData('isTransliterationOn')
+
+      if (value == 'on') {
+        //we need to check for the string 'on' because the value is stored as a string
+        setIsTransliterationOn(true)
+      } else {
+        setIsTransliterationOn(false)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   // load the value when the component mounts
   React.useEffect(() => {
     getEnglishFontSize()
     getArabicFontSize()
+    getTransliteration()
   }, [])
 
   const style = StyleSheet.create({
@@ -98,13 +131,54 @@ function TextSettingsScreen() {
   return (
     <ScrollView style={style.scrollView}>
       <Surface style={style.surface} elevation={2}>
-        <Text variant="bodyMedium" style={style.english}>
-          In the Name of Allah, the Most Gracious, the Most Merciful.
-        </Text>
         <Text variant="bodyMedium" style={style.arabic}>
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
         </Text>
+        {isTransliterationOn ? (
+          <Text variant="bodyMedium" style={style.english}>
+            bismi allāhi alraḥmāni alraḥīmi
+          </Text>
+        ) : (
+          <Text variant="bodyMedium" style={style.english}>
+            ·
+          </Text>
+        )}
+        <Text variant="bodyMedium" style={style.english}></Text>
+        <Text variant="bodyMedium" style={style.english}>
+          In the Name of Allah, the Most Gracious, the Most Merciful.
+        </Text>
       </Surface>
+
+      <Text variant="titleSmall" style={style.element}>
+        Arabic Font Size
+      </Text>
+
+      <SegmentedButtons
+        value={arabicFontSizeValue}
+        style={style.segmentedButtons}
+        onValueChange={(value) => {
+          storeArabicFontSize(value)
+          setArabicSizeValue(value)
+        }}
+        buttons={[
+          {
+            value: '17',
+            label: 'X-Small'
+          },
+          {
+            value: '23',
+            label: 'Small'
+          },
+          {
+            value: '27',
+            label: 'Medium'
+          },
+          {
+            value: '33',
+            label: 'Large'
+          }
+        ]}
+      />
 
       <Text variant="titleSmall" style={style.element}>
         English Font Size
@@ -137,35 +211,16 @@ function TextSettingsScreen() {
           }
         ]}
       />
-      <Text variant="titleSmall" style={style.element}>
-        Arabic Font Size
-      </Text>
 
-      <SegmentedButtons
-        value={arabicFontSizeValue}
-        style={style.segmentedButtons}
+      <Text variant="titleSmall" style={style.element}>
+        Transliteration
+      </Text>
+      <Switch
+        value={isTransliterationOn}
         onValueChange={(value) => {
-          storeArabicFontSize(value)
-          setArabicSizeValue(value)
+          storeTransliteration(value)
+          setIsTransliterationOn(value)
         }}
-        buttons={[
-          {
-            value: '17',
-            label: 'X-Small'
-          },
-          {
-            value: '23',
-            label: 'Small'
-          },
-          {
-            value: '27',
-            label: 'Medium'
-          },
-          {
-            value: '33',
-            label: 'Large'
-          }
-        ]}
       />
     </ScrollView>
   )

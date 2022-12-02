@@ -3013,13 +3013,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/cli-match@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "@putout/cli-match@npm:1.0.1"
+"@putout/cli-match@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/cli-match@npm:2.0.0"
   dependencies:
     try-catch: ^3.0.0
     try-to-catch: ^3.0.0
-  checksum: e7961f10661efda8fb1d0b004c9c964137b8aa2d62c40e17ec1c27737784840ca6ccff2d8bb2718ec37ca51b6c1ccf03fb609566917fc86c6b4fc9fa0e32221f
+  checksum: 06dd4b6f170984ab81d2cd096c3c0b68d004e01c8d28fdc92cb8cbc0accf0e5af423f73a6d335323f404a680ddd8400ed180fcb120a992c0bdfc8b55e8b5d8d1
   languageName: node
   linkType: hard
 
@@ -12843,7 +12843,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.0
     prop-types: ^15.8.1
-    putout: ^28.0.1
+    putout: ^28.1.0
     react: 18.1.0
     react-dom: 18.1.0
     react-native: 0.70.5
@@ -14097,16 +14097,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.0.1":
-  version: 28.0.1
-  resolution: "putout@npm:28.0.1"
+"putout@npm:^28.1.0":
+  version: 28.1.0
+  resolution: "putout@npm:28.1.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
     "@babel/types": ^7.12.6
     "@putout/cli-cache": ^2.0.1
     "@putout/cli-keypress": ^1.0.0
-    "@putout/cli-match": ^1.0.0
+    "@putout/cli-match": ^2.0.0
     "@putout/cli-ruler": ^2.0.0
     "@putout/cli-validate-args": ^1.0.0
     "@putout/compare": ^9.0.0
@@ -14256,7 +14256,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 69496590147dfbc7e71009654d5ba18f4f56fc90186012245cdac570a2b0ce0eae9120689d3f4422dcb5994fa499123829d20c359892355e6eed0247607bbab9
+  checksum: 19b3b6b85e9231a78de79827f70a96fd883b4ee1549660b57eaee03b49be34c053e1318d99ebc9ba72fa62a9874d142d315c092b4138aa116044bacb5fcfcd7f
   languageName: node
   linkType: hard
 
