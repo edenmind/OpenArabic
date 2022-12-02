@@ -5,7 +5,8 @@ import {
   textsLoadingReducer,
   textsReducer,
   arabicFontSizeReducer,
-  englishFontSizeReducer
+  englishFontSizeReducer,
+  transliterationReducer
 } from './reducers.js'
 import { configureStore } from '@reduxjs/toolkit'
 
@@ -17,7 +18,8 @@ const store = configureStore({
     textLoading: textLoadingReducer,
     textsLoading: textsLoadingReducer,
     arabicFontSize: arabicFontSizeReducer,
-    englishFontSize: englishFontSizeReducer
+    englishFontSize: englishFontSizeReducer,
+    isTransliterationOn: transliterationReducer
   }
 })
 

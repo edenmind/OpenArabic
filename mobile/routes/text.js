@@ -5,14 +5,42 @@ import TextDrawer from './text-drawer.js'
 import UI from '../constants/ui.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import defaultExport from './text-tabs.js'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import TextSettings from './text-settings.js'
-
 const Stack = createNativeStackNavigator()
 const selector = (state) => state.text
+import { getData } from '../services/storage.js'
 
-export default function Text() {
+function Text() {
+  const dispatch = useDispatch()
+  React.useEffect(() => async () => {
+    // read from store
+    const englishFontSize = await getData('englishFontSize')
+    const arabicFontSize = await getData('arabicFontSize')
+    const isTransliterationOn = await getData('isTransliterationOn')
+
+    //set the arabic font size using dispatch
+    const setArabicFontSize = (size) => {
+      dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: size })
+    }
+
+    //set the english font size using dispatch
+    const setEnglishFontSize = (size) => {
+      dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: size })
+    }
+
+    //set the transliteration using dispatch
+    const setIsTransliterationOn = (value) => {
+      dispatch({ type: 'SET_TRANSLITERATION', payload: value })
+    }
+
+    setArabicFontSize(arabicFontSize)
+    setEnglishFontSize(englishFontSize)
+    setIsTransliterationOn(isTransliterationOn)
+  })
+
   const { text } = useSelector(selector)
+
   return (
     <Fragment>
       <Stack.Navigator initialRouteName={SCREENS.home}>
@@ -48,3 +76,5 @@ export default function Text() {
     </Fragment>
   )
 }
+
+export default Text

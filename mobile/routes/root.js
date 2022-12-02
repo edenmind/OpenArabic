@@ -7,8 +7,7 @@ import Text from './text.js'
 import { CombinedDarkTheme } from '../constants/paper-theme.js'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import { StyleSheet } from 'react-native'
-import { getData } from '../services/storage.js'
-import { useDispatch } from 'react-redux'
+
 const Tab = createMaterialBottomTabNavigator()
 
 const style = StyleSheet.create({
@@ -18,29 +17,6 @@ const style = StyleSheet.create({
 })
 
 function Root() {
-  const dispatch = useDispatch()
-
-  React.useEffect(
-    () => async () => {
-      // read from store
-      const englishFontSize = getData('englishFontSize')
-      const arabicFontSize = getData('arabicFontSize')
-      //set the arabic font size using dispatch
-      const setArabicFontSize = (size) => {
-        dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: size })
-      }
-
-      //set the english font size using dispatch
-      const setEnglishFontSize = (size) => {
-        dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: size })
-      }
-
-      setArabicFontSize(arabicFontSize)
-      setEnglishFontSize(englishFontSize)
-    },
-    [dispatch]
-  )
-
   return (
     <NavigationContainer theme={CombinedDarkTheme}>
       <Tab.Navigator barStyle={style.tabBar}>
