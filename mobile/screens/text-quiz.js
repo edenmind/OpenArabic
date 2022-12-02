@@ -153,10 +153,16 @@ const TextQuiz = () => {
     setEnglishSelected([])
   }
 
+  const goToFirstBatch = () => {
+    setCurrentBatch(0)
+    resetState()
+  }
+
   return textLoading ? (
     <Fragment>
       <TextQuizVocabularies
         currentBatch={currentBatch}
+        goToFirstBatch={goToFirstBatch}
         arabicSelectedCollection={arabicSelectedCollection}
         englishSelectedCollection={englishSelectedCollection}
         pressArabicWordHandler={pressArabicWordHandler}

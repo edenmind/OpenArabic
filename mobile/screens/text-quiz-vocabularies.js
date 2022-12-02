@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import SelectableChip from '../components/selectable-chip.js'
 import LANGUAGES from '../constants/languages.js'
-import { Text } from 'react-native-paper'
+import { Button, Text } from 'react-native-paper'
 
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
@@ -11,6 +11,7 @@ function TextQuizVocabularies(props) {
       paddingTop: 0,
       width: '50%'
     },
+    button: { margin: 30 },
     container: {
       flexDirection: 'row'
     },
@@ -54,9 +55,14 @@ function TextQuizVocabularies(props) {
           Choose the Matching Pairs · {progress}
         </Text>
       ) : (
-        <Text variant="titleLarge" style={styles.title}>
-          ✨ All Done ✨
-        </Text>
+        <>
+          <Text variant="titleLarge" style={styles.title}>
+            ✨ All Done ✨
+          </Text>
+          <Button style={styles.button} mode="outlined" onPress={() => props.goToFirstBatch()}>
+            Run Again
+          </Button>
+        </>
       )}
 
       <View style={styles.container}>
@@ -75,6 +81,7 @@ TextQuizVocabularies.propTypes = {
   currentBatch: PropTypes.number.isRequired,
   pressEnglishWordHandler: PropTypes.func.isRequired,
   pressArabicWordHandler: PropTypes.func.isRequired,
+  goToFirstBatch: PropTypes.func.isRequired,
   arabicSelectedCollection: PropTypes.array.isRequired,
   englishSelectedCollection: PropTypes.array.isRequired
 }
