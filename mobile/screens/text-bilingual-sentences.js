@@ -12,11 +12,18 @@ import { useSelector } from 'react-redux'
 
 const arabicSelector = (state) => state.arabicFontSize
 const englishSelector = (state) => state.englishFontSize
+const isTransliterationOnSelector = (state) => state.isTransliterationOn
 
 export default function TextBilingualSentences(props) {
   //load arabic font size from redux on every render of this component with useFocusEffect
   const { arabicFontSize } = useSelector(arabicSelector)
   const { englishFontSize } = useSelector(englishSelector)
+  const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
+
+  //if isTransliterationOn is a string with value on then set showTransliteration to true
+  const showTransliteration = isTransliterationOn === 'on'
+
+  console.log(isTransliterationOn)
 
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
@@ -65,9 +72,11 @@ export default function TextBilingualSentences(props) {
   const sentences = props.sentences.map((sentence, index) => (
     <Fragment key={index}>
       <Text style={style.arabic}>{sentence.arabic}</Text>
-      <Text style={style.english} variant="bodyLarge">
-        {util.transliterateArabicToEnglish(sentence.arabic)}
-      </Text>
+      {showTransliteration && (
+        <Text style={style.english} variant="bodyLarge">
+          {util.transliterateArabicToEnglish(sentence.arabic)}
+        </Text>
+      )}
       <Text style={style.english} variant="bodyLarge">
         {sentence.english}
       </Text>
