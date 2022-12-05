@@ -1,14 +1,28 @@
-import { Text, SegmentedButtons, Surface, Switch } from 'react-native-paper'
+import { Text, SegmentedButtons, Surface, Switch, Button } from 'react-native-paper'
 import { ScrollView, StyleSheet } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
 import { useDispatch } from 'react-redux'
 
 function TextSettingsScreen() {
+  const [arabicFontName, setArabicFontName] = React.useState('uthmanic')
   const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16)
   const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20)
   const [isTransliterationOn, setIsTransliterationOn] = React.useState(false)
   const dispatch = useDispatch()
+
+  // store arabic font name
+  const storeArabicFontName = async (value) => {
+    try {
+      // store the value in the store with dispatch
+
+      dispatch({ type: 'SET_ARABIC_FONT_NAME', payload: value })
+
+      await storeData('arabicFontName', value)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   // store a value using storeData
   const storeTransliteration = async (value) => {
@@ -91,6 +105,20 @@ function TextSettingsScreen() {
     }
   }
 
+  // get the arabic font name
+
+  const getArabicFontName = async () => {
+    try {
+      const value = await getData('arabicFontName')
+
+      if (value !== null) {
+        setArabicFontName(value)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   // load the value when the component mounts
   React.useEffect(() => {
     getEnglishFontSize()
@@ -101,7 +129,7 @@ function TextSettingsScreen() {
   const style = StyleSheet.create({
     arabic: {
       direction: 'rtl',
-      fontFamily: 'uthmanic',
+      fontFamily: arabicFontName,
       fontSize: arabicFontSizeValue,
       lineHeight: 70,
       writingDirection: 'rtl'
@@ -208,6 +236,38 @@ function TextSettingsScreen() {
           {
             value: '18',
             label: 'Large'
+          }
+        ]}
+      />
+
+      <Text variant="titleSmall" style={style.element}>
+        Arabic Font
+      </Text>
+
+      <SegmentedButtons
+        style={style.segmentedButtons}
+        value={arabicFontName}
+        density="small"
+        onValueChange={(value) => {
+          storeArabicFontName(value)
+          setArabicFontName(value)
+        }}
+        buttons={[
+          {
+            value: 'uthmanic',
+            label: 'Amiri'
+          },
+          {
+            value: 'amiriQuran',
+            label: 'Colored'
+          },
+          {
+            value: 'tajawal',
+            label: 'Tajawal'
+          },
+          {
+            value: 'noto',
+            label: 'Noto'
           }
         ]}
       />

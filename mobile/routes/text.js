@@ -18,6 +18,7 @@ function Text() {
     const englishFontSize = await getData('englishFontSize')
     const arabicFontSize = await getData('arabicFontSize')
     const isTransliterationOn = await getData('isTransliterationOn')
+    const arabicFontName = await getData('arabicFontName')
 
     //set the arabic font size using dispatch
     const setArabicFontSize = (size) => {
@@ -34,9 +35,15 @@ function Text() {
       dispatch({ type: 'SET_TRANSLITERATION', payload: value })
     }
 
+    //set the arabic fontname using dispatch
+    const setArabicFontName = (name) => {
+      dispatch({ type: 'SET_ARABIC_FONT_NAME', payload: name })
+    }
+
     setArabicFontSize(arabicFontSize)
     setEnglishFontSize(englishFontSize)
     setIsTransliterationOn(isTransliterationOn)
+    setArabicFontName(arabicFontName)
   })
 
   const { text } = useSelector(selector)
