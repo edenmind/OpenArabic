@@ -11,7 +11,7 @@ spec:
   strategy:
     rollingUpdate:
       maxUnavailable: 1
-    type: RollingUpdate
+    type: Recreate
   selector:
     matchLabels:
       app: static
@@ -22,6 +22,10 @@ spec:
     spec:
       containers:
         - name: static
+          securityContext:
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
           image: registry.digitalocean.com/openarabic/static:#{BUILD_ID}#
           resources:
             limits:

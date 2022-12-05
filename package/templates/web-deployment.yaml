@@ -11,7 +11,7 @@ spec:
   strategy:
     rollingUpdate:
       maxUnavailable: 1
-    type: RollingUpdate
+    type: Recreate
   selector:
     matchLabels:
       app: web
@@ -22,6 +22,10 @@ spec:
     spec:
       containers:
         - name: web
+          securityContext:
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
           image: registry.digitalocean.com/openarabic/web:#{BUILD_ID}#
           ports:
             - containerPort: 3040
