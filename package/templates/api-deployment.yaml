@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -11,7 +12,7 @@ spec:
   strategy:
     rollingUpdate:
       maxUnavailable: 1
-    type: RollingUpdate
+    type: Recreate
   selector:
     matchLabels:
       app: api
@@ -23,6 +24,14 @@ spec:
       containers:
         - name: api
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            seccompProfile:
+              type: RuntimeDefault
           env:
             - name: API_MONGO_DB_URL
               valueFrom:

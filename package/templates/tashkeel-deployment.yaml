@@ -9,6 +9,13 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: tashkeel
+  minReadySeconds: 5
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: Recreate
   template:
     metadata:
       labels:
