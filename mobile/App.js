@@ -16,7 +16,7 @@ Bugsnag.start({
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    uthmanic: require('./assets/fonts/amiri.otf'),
+    uthmanic: require('./assets/fonts/amiri.ttf'),
     philosopher: require('./assets/fonts/philosopher.ttf')
   })
 
