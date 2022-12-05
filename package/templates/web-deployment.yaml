@@ -42,4 +42,10 @@ spec:
               port: 3040
             periodSeconds: 10
             initialDelaySeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3040
+            periodSeconds: 10
+            initialDelaySeconds: 30
       restartPolicy: Always
