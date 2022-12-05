@@ -26,10 +26,6 @@ spec:
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
           securityContext:
             allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
-            runAsUser: 1000
-            runAsGroup: 1000
             seccompProfile:
               type: RuntimeDefault
           env:
@@ -61,6 +57,12 @@ spec:
               memory: 100Mi
               cpu: 25m
           livenessProbe:
+            httpGet:
+              path: /health
+              port: 3030
+            periodSeconds: 10
+            initialDelaySeconds: 30
+          readinessProbe:
             httpGet:
               path: /health
               port: 3030
