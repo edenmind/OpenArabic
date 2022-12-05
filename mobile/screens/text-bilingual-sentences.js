@@ -13,12 +13,14 @@ import { useSelector } from 'react-redux'
 const arabicSelector = (state) => state.arabicFontSize
 const englishSelector = (state) => state.englishFontSize
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
+const arabicFontNameSelector = (state) => state.arabicFontName
 
 export default function TextBilingualSentences(props) {
   //load arabic font size from redux on every render of this component with useFocusEffect
   const { arabicFontSize } = useSelector(arabicSelector)
   const { englishFontSize } = useSelector(englishSelector)
   const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
+  const { arabicFontName } = useSelector(arabicFontNameSelector)
 
   //if isTransliterationOn is a string with value on then set showTransliteration to true
   const showTransliteration = isTransliterationOn === 'on'
@@ -37,7 +39,7 @@ export default function TextBilingualSentences(props) {
   const style = StyleSheet.create({
     arabic: {
       direction: 'rtl',
-      fontFamily: 'uthmanic',
+      fontFamily: arabicFontName,
       fontSize: arabicFontSize,
       fontWeight: 'normal',
       lineHeight: 65,

@@ -17,6 +17,9 @@ Bugsnag.start({
 export default function App() {
   const [fontsLoaded] = useFonts({
     uthmanic: require('./assets/fonts/amiri.ttf'),
+    amiriQuran: require('./assets/fonts/amiri-quran.ttf'),
+    tajawal: require('./assets/fonts/tajawal.ttf'),
+    noto: require('./assets/fonts/noto.ttf'),
     philosopher: require('./assets/fonts/philosopher.ttf')
   })
 

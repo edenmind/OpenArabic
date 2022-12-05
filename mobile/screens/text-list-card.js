@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 
 const arabicSelector = (state) => state.arabicFontSize
 const englishSelector = (state) => state.englishFontSize
+const arabicFontNameSelector = (state) => state.arabicFontName
 
 const prepareIngress = (text, length) => {
   const noLineBreaks = removeLineBreak(text)
@@ -23,11 +24,12 @@ export default function CategoryCard(props) {
   //load arabic font size from redux on every render of this component with useFocusEffect
   const { arabicFontSize } = useSelector(arabicSelector)
   const { englishFontSize } = useSelector(englishSelector)
+  const { arabicFontName } = useSelector(arabicFontNameSelector)
 
   const style = StyleSheet.create({
     arabic: {
       direction: 'rtl',
-      fontFamily: 'uthmanic',
+      fontFamily: arabicFontName,
       fontSize: arabicFontSize,
       lineHeight: 60,
       opacity: 0.8,

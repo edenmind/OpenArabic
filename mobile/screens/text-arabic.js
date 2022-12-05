@@ -7,14 +7,16 @@ import { useSelector } from 'react-redux'
 const arabicSelector = (state) => state.arabicFontSize
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
+const arabicFontNameSelector = (state) => state.arabicFontName
 
 export default function TextArabic() {
   const { arabicFontSize } = useSelector(arabicSelector)
+  const { arabicFontName } = useSelector(arabicFontNameSelector)
 
   const style = StyleSheet.create({
     arabic: {
       direction: 'rtl',
-      fontFamily: 'uthmanic',
+      fontFamily: arabicFontName,
       fontSize: arabicFontSize,
       lineHeight: 70,
       padding: 25,
