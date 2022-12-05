@@ -12,7 +12,7 @@ spec:
   strategy:
     rollingUpdate:
       maxUnavailable: 1
-    type: Recreate
+    type: RollingUpdate
   selector:
     matchLabels:
       app: api

@@ -59,7 +59,54 @@ describe('remove linebreaks', () => {
   })
 })
 
-describe('remove enpty elements from array', () => {
+//test the transliterateArabicToEnglish function
+describe('transliterateArabicToEnglish', () => {
+  it('should transliterate arabic to english', () => {
+    // Arrange
+    const arabicText = 'سُبْحَانَهُ وَتَعَالَىٰ'
+
+    // Act
+    const transliteratedText = util.transliterateArabicToEnglish(arabicText)
+
+    // Assert
+    expect(transliteratedText).toBe('subḥānahu wataʻālā')
+  })
+
+  it('should transliterate arabic to english', () => {
+    // Arrange
+    const arabicText = 'ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ'
+
+    // Act
+    const transliteratedText = util.transliterateArabicToEnglish(arabicText)
+
+    // Assert
+    expect(transliteratedText).toBe('alsalāmu ʻalaykum waraḥmatu allāhi wabarakātuhu')
+  })
+
+  it('should transliterate arabic to english', () => {
+    // Arrange
+    const arabicText = 'بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ'
+
+    // Act
+    const transliteratedText = util.transliterateArabicToEnglish(arabicText)
+
+    // Assert
+    expect(transliteratedText).toBe('bismi allāhi alraḥmāni alraḥīmi')
+  })
+
+  it('should transliterate arabic to english', () => {
+    // Arrange
+    const arabicText = 'بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ'
+
+    // Act
+    const transliteratedText = util.transliterateArabicToEnglish(arabicText)
+
+    // Assert
+    expect(transliteratedText).toBe('bismi allāhi alraḥmāni alraḥīmi')
+  })
+})
+
+describe('remove empty elements from array', () => {
   it('should not contain empty elements in array', () => {
     // Arrange
     // eslint-disable-next-line putout/objects-braces-inside-array

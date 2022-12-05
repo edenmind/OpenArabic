@@ -4,59 +4,8 @@
 
 'use strict'
 
-const {
-  produceVocabularyCollection,
-  timeAgo,
-  readingTime,
-  slugifyWithAuthor,
-  transliterateArabicToEnglish
-} = require('../../services/utils')
+const { produceVocabularyCollection, timeAgo, readingTime, slugifyWithAuthor } = require('../../services/utils')
 const { test } = require('tap')
-
-test('the arabic text should be transliterated to the expected latin letters', (t) => {
-  const arabicText = 'ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ'
-  const expectedTransliteratedText = 'alsalāmu ʿalaykum waraḥmatu allāhi wabarakātuhu'
-  const actualTransliteratedText = transliterateArabicToEnglish(arabicText)
-
-  t.equal(actualTransliteratedText, expectedTransliteratedText)
-  t.end()
-})
-
-test('the arabic text should be transliterated to the expected latin letters', (t) => {
-  const arabicText = 'بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ'
-  const expectedTransliteratedText = 'bismi allāhi alraḥmāni alraḥīmi'
-  const actualTransliteratedText = transliterateArabicToEnglish(arabicText)
-
-  t.equal(actualTransliteratedText, expectedTransliteratedText)
-  t.end()
-})
-
-test('the arabic text should be transliterated to the expected latin letters', (t) => {
-  const arabicText = 'سُبْحَانَهُ وَتَعَالَىٰ'
-  const expectedTransliteratedText = 'subḥānahu wataʿālāٰ'
-  const actualTransliteratedText = transliterateArabicToEnglish(arabicText)
-
-  t.equal(actualTransliteratedText, expectedTransliteratedText)
-  t.end()
-})
-
-test('the arabic text should be transliterated to the expected latin letters', (t) => {
-  const arabicText = 'تَبَارَكَ وَتَعَالَىٰ'
-  const expectedTransliteratedText = 'tabāraka wataʿālāٰ'
-  const actualTransliteratedText = transliterateArabicToEnglish(arabicText)
-
-  t.equal(actualTransliteratedText, expectedTransliteratedText)
-  t.end()
-})
-
-test('the arabic text should be transliterated to the expected latin letters', (t) => {
-  const arabicText = 'صَلَّى ٱللَّٰهُ عَلَيْهِ وَسَلَّمَ'
-  const expectedTransliteratedText = 'ṣalā allāhu ʿalayhi wasalama'
-  const actualTransliteratedText = transliterateArabicToEnglish(arabicText)
-
-  t.equal(actualTransliteratedText, expectedTransliteratedText)
-  t.end()
-})
 
 test('should return correct slug from title and author', (t) => {
   const title = 'The Adventures of Tom Sawyer'
