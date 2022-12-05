@@ -15,7 +15,7 @@ spec:
   strategy:
     rollingUpdate:
       maxUnavailable: 1
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:

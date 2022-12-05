@@ -25,6 +25,8 @@ export const getHijriDate = () => {
 }
 
 //replace every letter in a string based on a map defined in the function
+//the service is kept in the mobile codebase to lower the load on the backend
+//the transliterations are not saved since they will regenerate if the code changes
 export const transliterateArabicToEnglish = (string) => {
   let transliteratedArabicToEnglish = ''
 
