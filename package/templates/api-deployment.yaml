@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,9 +28,6 @@ spec:
             allowPrivilegeEscalation: false
             seccompProfile:
               type: RuntimeDefault
-          volumeMounts:
-            - name: static-storage
-              mountPath: /data
           env:
             - name: API_MONGO_DB_URL
               valueFrom:
@@ -73,7 +71,3 @@ spec:
           ports:
             - containerPort: 3030
       restartPolicy: Always
-      volumes:
-        - name: static-storage
-          persistentVolumeClaim:
-            claimName: static-storage
