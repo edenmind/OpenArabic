@@ -27,6 +27,9 @@ spec:
             seccompProfile:
               type: RuntimeDefault
           image: registry.digitalocean.com/openarabic/static:#{BUILD_ID}#
+          volumeMounts:
+            - name: static-storage
+              mountPath: /data
           resources:
             limits:
               memory: 512Mi
@@ -49,3 +52,7 @@ spec:
           ports:
             - containerPort: 3010
       restartPolicy: Always
+      volumes:
+        - name: static-storage
+          persistentVolumeClaim:
+            claimName: static-storage
