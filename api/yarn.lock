@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -3473,7 +3473,7 @@ __metadata:
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^45.0.1
     fastify: ^4.10.2
-    fastify-cli: ^5.6.1
+    fastify-cli: ^5.7.0
     fastify-healthcheck: ^4.2.0
     fastify-plugin: ^4.4.0
     moment: ^2.29.4
@@ -5313,9 +5313,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-cli@npm:^5.6.1":
-  version: 5.6.1
-  resolution: "fastify-cli@npm:5.6.1"
+"fastify-cli@npm:^5.7.0":
+  version: 5.7.0
+  resolution: "fastify-cli@npm:5.7.0"
   dependencies:
     "@fastify/deepmerge": ^1.2.0
     chalk: ^4.1.2
@@ -5324,6 +5324,7 @@ __metadata:
     commist: ^3.0.0
     dotenv: ^16.0.0
     fastify: ^4.0.0
+    fastify-plugin: ^4.0.0
     generify: ^4.0.0
     help-me: ^4.0.1
     is-docker: ^2.0.0
@@ -5335,7 +5336,7 @@ __metadata:
     yargs-parser: ^21.1.1
   bin:
     fastify: cli.js
-  checksum: 37de9ca55e8fd5d20465c7dab9080a768c9529db06282c3339af1f89836a16e737ef0397454c264a99c2ef90c24af36f3dd8be11cb3052f1497712ec8bf59003
+  checksum: d0eaaa00920b7b97225b80750b03b3d6fcea561a4090c2202a09aec5403b3348afdccc49c13b73225b04c85db7b60ddd74aa16b8fca329573827b15567b15d50
   languageName: node
   linkType: hard
 
@@ -10735,11 +10736,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
