@@ -22,7 +22,7 @@
   "dependencies": {
     "@fastify/autoload": "^5.6.0",
     "@fastify/cors": "^8.2.0",
-    "@fastify/env": "^4.1.0",
+    "@fastify/env": "^4.2.0",
     "@fastify/helmet": "^10.1.0",
     "@fastify/mongodb": "^6.2.0",
     "@fastify/rate-limit": "^7.6.0",
