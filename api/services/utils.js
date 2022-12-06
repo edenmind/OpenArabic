@@ -142,10 +142,36 @@ const slugifyWithAuthor = (title, author) => {
   return `${titleSlug}-${authorSlug}`
 }
 
+//return a mp3 filename separated by dashes with text, sentence,, language and word
+const mp3Filename = (text, sentence, language, word) => {
+  const textSlug = text
+    .toLowerCase()
+    .replace(/[^\da-z]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
+  const sentenceSlug = sentence
+    .toLowerCase()
+    .replace(/[^\da-z]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
+  const languageSlug = language
+    .toLowerCase()
+    .replace(/[^\da-z]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
+  const wordSlug = word
+    .toLowerCase()
+    .replace(/[^\da-z]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+
+  return `${textSlug}-${sentenceSlug}-${languageSlug}-${wordSlug}.mp3`
+}
+
 module.exports = {
   produceVocabularyCollection,
   shuffleArray,
   timeAgo,
   readingTime,
-  slugifyWithAuthor
+  slugifyWithAuthor,
+  mp3Filename
 }

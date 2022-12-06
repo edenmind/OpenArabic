@@ -4,8 +4,30 @@
 
 'use strict'
 
-const { produceVocabularyCollection, timeAgo, readingTime, slugifyWithAuthor } = require('../../services/utils')
+const {
+  produceVocabularyCollection,
+  timeAgo,
+  readingTime,
+  slugifyWithAuthor,
+  mp3Filename
+} = require('../../services/utils')
 const { test } = require('tap')
+
+//test that mp3Filename returns the expected string
+test('mp3Filename returns the expected string', (t) => {
+  //arrange
+  const text = 'text'
+  const sentence = 'sentence'
+  const language = 'language'
+  const word = 'word'
+
+  const expected = 'text-sentence-language-word.mp3'
+  //act
+  const actual = mp3Filename(text, sentence, language, word)
+  //assert
+  t.equal(actual, expected)
+  t.end()
+})
 
 test('should return correct slug from title and author', (t) => {
   const title = 'The Adventures of Tom Sawyer'
