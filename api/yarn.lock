@@ -1263,13 +1263,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/env@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@fastify/env@npm:4.1.0"
+"@fastify/env@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@fastify/env@npm:4.2.0"
   dependencies:
     env-schema: ^5.0.0
     fastify-plugin: ^4.0.0
-  checksum: c5bcfdb4d0a76ce1797aeb1676f12151da72ad5bf0268c6815e0f224ae819693aababd7ecc424ce205fdb8720590a80a867e442f30ae04872ca7ea911f73d1bc
+  checksum: c681a0dfbdc1574154101b68d59e3aacc7f88b39cd52b520ee43449a8cadb31b494ea248c796b112703516d0e1c9df74c1e964dc00301263acbf38f230fa3552
   languageName: node
   linkType: hard
 
@@ -1329,9 +1329,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/sensible@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "@fastify/sensible@npm:5.1.1"
+"@fastify/sensible@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "@fastify/sensible@npm:5.2.0"
   dependencies:
     fast-deep-equal: ^3.1.1
     fastify-plugin: ^4.0.0
@@ -1340,13 +1340,13 @@ __metadata:
     ms: ^2.1.3
     type-is: ^1.6.18
     vary: ^1.1.2
-  checksum: 25719212b91d9b96a99e14f22bd1ac534e29d1cae0752fbdb41152cce5b06c34848bf033914c83727b61bb312a425262dbe6f891f1d02a3263fd20de1f3637fd
+  checksum: ceb82fd21d7844f0c487fca57ab766dd9efe8202661fd282eb539e783ebdfbc87d1a356578eb988958be2b3e83fbfa1193b905dd5b8ec61bc628416823348835
   languageName: node
   linkType: hard
 
-"@fastify/static@npm:^6.5.1":
-  version: 6.5.1
-  resolution: "@fastify/static@npm:6.5.1"
+"@fastify/static@npm:^6.6.0":
+  version: 6.6.0
+  resolution: "@fastify/static@npm:6.6.0"
   dependencies:
     "@fastify/accept-negotiator": ^1.0.0
     content-disposition: ^0.5.3
@@ -1355,7 +1355,7 @@ __metadata:
     p-limit: ^3.1.0
     readable-stream: ^4.0.0
     send: ^0.18.0
-  checksum: 55f6e3e12246848cd13fa44306fc2558bc6559c5d8f4478cb0c638acc5c83634ab788bda0f1c763c779c9fd43ddbfe8644237bbe7eb3342228264918577bfe2c
+  checksum: 4abefd47f404ead444742905c0596f55ee0dc264f694aeb34debcd10212e2cee8b2694159febe354454667999f397d73b06a52df6fe6150525f8c2a6af3078a8
   languageName: node
   linkType: hard
 
@@ -3456,15 +3456,15 @@ __metadata:
   dependencies:
     "@fastify/autoload": ^5.6.0
     "@fastify/cors": ^8.2.0
-    "@fastify/env": ^4.1.0
+    "@fastify/env": ^4.2.0
     "@fastify/helmet": ^10.1.0
     "@fastify/mongodb": ^6.2.0
     "@fastify/rate-limit": ^7.6.0
-    "@fastify/sensible": ^5.1.1
-    "@fastify/static": ^6.5.1
+    "@fastify/sensible": ^5.2.0
+    "@fastify/static": ^6.6.0
     "@fastify/swagger": ^8.2.0
     "@google-cloud/text-to-speech": ^4.0.4
-    axios: ^1.2.0
+    axios: ^1.2.1
     dotenv: ^16.0.3
     eslint: ^8.29.0
     eslint-plugin-import: ^2.26.0
@@ -3473,12 +3473,12 @@ __metadata:
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^45.0.1
     fastify: ^4.10.2
-    fastify-cli: ^5.6.1
+    fastify-cli: ^5.7.0
     fastify-healthcheck: ^4.2.0
     fastify-plugin: ^4.4.0
     moment: ^2.29.4
     mongodb: ^4.12.1
-    prettier: ^2.8.0
+    prettier: ^2.8.1
     putout: ^28.1.0
     tap: ^16.3.2
     uuid: ^9.0.0
@@ -3654,14 +3654,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "axios@npm:1.2.0"
+"axios@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "axios@npm:1.2.1"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: f08ce214e957dfde45b837f8d3c7861424608fb7df32faa638835e338782a9f4c0b05074e92e0e8dcca3a1e6250112fbbe1b15a6b21104da633d84745bbb79cc
+  checksum: c4dc4e119064c9aed09a3de309bedb797a139a6fb372223aafe3e0c10a7d4a14e4d3e9c9d309467fadb9d2b490b891ee3df96ef5b55716bb971910466ff9f0c5
   languageName: node
   linkType: hard
 
@@ -5313,9 +5313,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-cli@npm:^5.6.1":
-  version: 5.6.1
-  resolution: "fastify-cli@npm:5.6.1"
+"fastify-cli@npm:^5.7.0":
+  version: 5.7.0
+  resolution: "fastify-cli@npm:5.7.0"
   dependencies:
     "@fastify/deepmerge": ^1.2.0
     chalk: ^4.1.2
@@ -5324,6 +5324,7 @@ __metadata:
     commist: ^3.0.0
     dotenv: ^16.0.0
     fastify: ^4.0.0
+    fastify-plugin: ^4.0.0
     generify: ^4.0.0
     help-me: ^4.0.1
     is-docker: ^2.0.0
@@ -5335,7 +5336,7 @@ __metadata:
     yargs-parser: ^21.1.1
   bin:
     fastify: cli.js
-  checksum: 37de9ca55e8fd5d20465c7dab9080a768c9529db06282c3339af1f89836a16e737ef0397454c264a99c2ef90c24af36f3dd8be11cb3052f1497712ec8bf59003
+  checksum: d0eaaa00920b7b97225b80750b03b3d6fcea561a4090c2202a09aec5403b3348afdccc49c13b73225b04c85db7b60ddd74aa16b8fca329573827b15567b15d50
   languageName: node
   linkType: hard
 
@@ -8729,12 +8730,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.0":
-  version: 2.8.0
-  resolution: "prettier@npm:2.8.0"
+"prettier@npm:^2.8.1":
+  version: 2.8.1
+  resolution: "prettier@npm:2.8.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 72004ce0cc9bb097daf3e3833f62495768724392c1d5b178dd47372337616e9e50ecbb0804f236596223f7b5eb1bbe69cefc8957dca21112c5777e77ef73a564
+  checksum: 4f21a0f1269f76fb36f54e9a8a1ea4c11e27478958bf860661fb4b6d7ac69aac1581f8724fa98ea3585e56d42a2ea317a17ff6e3324f40cb11ff9e20b73785cc
   languageName: node
   linkType: hard
 
