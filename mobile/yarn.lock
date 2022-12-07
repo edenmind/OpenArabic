@@ -12858,7 +12858,7 @@ __metadata:
     react-native-gesture-handler: ~2.8.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 6.0.1
-    react-native-paper: ^5.0.1
+    react-native-paper: 5.0.0-rc.10
     react-native-reanimated: ~2.12.0
     react-native-safe-area-context: 4.4.1
     react-native-screens: ~3.18.0
@@ -14485,6 +14485,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-iphone-x-helper@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "react-native-iphone-x-helper@npm:1.3.1"
+  peerDependencies:
+    react-native: ">=0.42.0"
+  checksum: 024376646009a966e33e12fc2358751830818b0fb73b1c601a64eb5e490d2dc43eec23668991b985a8c412a84d087f20eb45bb9b593567c08b66e741b7bddda5
+  languageName: node
+  linkType: hard
+
 "react-native-pager-view@npm:6.0.1":
   version: 6.0.1
   resolution: "react-native-pager-view@npm:6.0.1"
@@ -14495,18 +14504,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "react-native-paper@npm:5.0.1"
+"react-native-paper@npm:5.0.0-rc.10":
+  version: 5.0.0-rc.10
+  resolution: "react-native-paper@npm:5.0.0-rc.10"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.8
     color: ^3.1.2
+    react-native-iphone-x-helper: ^1.3.1
   peerDependencies:
     react: "*"
     react-native: "*"
-    react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
-  checksum: cdf8fd99cc75eebbfa795312033b5d57a360aa7b938e95d0e476ee7f44e31f2119c459fb53a71dc39df5d039997cb962c5c97f110281de39d58d173f91ac4a73
+  checksum: 9971feb4b3288f34d4ac0120e766fda91036009751e349a2d22b4123b5f1559b8e45c6494cbbf8888de1601057552f78f5fa24009635aa5672bbda40a657022b
   languageName: node
   linkType: hard
 
