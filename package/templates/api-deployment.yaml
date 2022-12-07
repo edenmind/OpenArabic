@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,6 +25,10 @@ spec:
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
           securityContext:
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            drop:
+              - ALL
+            runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
           env:

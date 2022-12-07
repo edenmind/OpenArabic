@@ -3,7 +3,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.27",
+  "version": "1444.4.29",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -22,18 +22,18 @@
   "dependencies": {
     "@fastify/autoload": "^5.6.0",
     "@fastify/cors": "^8.2.0",
-    "@fastify/env": "^4.1.0",
+    "@fastify/env": "^4.2.0",
     "@fastify/helmet": "^10.1.0",
     "@fastify/mongodb": "^6.2.0",
     "@fastify/rate-limit": "^7.6.0",
-    "@fastify/sensible": "^5.1.1",
-    "@fastify/static": "^6.5.1",
+    "@fastify/sensible": "^5.2.0",
+    "@fastify/static": "^6.6.0",
     "@fastify/swagger": "^8.2.0",
     "@google-cloud/text-to-speech": "^4.0.4",
-    "axios": "^1.2.0",
+    "axios": "^1.2.1",
     "dotenv": "^16.0.3",
     "fastify": "^4.10.2",
-    "fastify-cli": "^5.6.1",
+    "fastify-cli": "^5.7.0",
     "fastify-healthcheck": "^4.2.0",
     "fastify-plugin": "^4.4.0",
     "moment": "^2.29.4",
@@ -47,7 +47,7 @@
     "eslint-plugin-putout": "^16.3.0",
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-unicorn": "^45.0.1",
-    "prettier": "^2.8.0",
+    "prettier": "^2.8.1",
     "putout": "^28.1.0",
     "tap": "^16.3.2"
   }
