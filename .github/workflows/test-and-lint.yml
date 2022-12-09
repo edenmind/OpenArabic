@@ -102,7 +102,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: "50 75"
+          thresholds: "50 60"
 
       - uses: jwalton/gh-find-current-pr@v1
         id: finder
@@ -119,13 +119,13 @@ jobs:
         with:
           filename: ./api/coverage/cobertura-coverage.xml
           badge: true
-          fail_below_min: true
+          fail_below_min: false
           format: markdown
           hide_branch_rate: false
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: "50 75"
+          thresholds: "50 60"
 
       - name: Add Coverage PR Comment for API
         uses: marocchino/sticky-pull-request-comment@v2
