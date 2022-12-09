@@ -3,7 +3,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.30",
+  "version": "1444.4.31",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -20,6 +20,7 @@
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.226.0",
     "@fastify/autoload": "^5.6.0",
     "@fastify/cors": "^8.2.0",
     "@fastify/env": "^4.2.0",
@@ -28,7 +29,7 @@
     "@fastify/rate-limit": "^7.6.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.6.0",
-    "@fastify/swagger": "^8.2.0",
+    "@fastify/swagger": "^8.2.1",
     "@google-cloud/text-to-speech": "^4.0.4",
     "axios": "^1.2.1",
     "dotenv": "^16.0.3",
