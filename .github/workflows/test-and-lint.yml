@@ -102,7 +102,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: "60 75"
+          thresholds: "50 75"
 
       - uses: jwalton/gh-find-current-pr@v1
         id: finder
@@ -125,7 +125,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: "60 75"
+          thresholds: "50 75"
 
       - name: Add Coverage PR Comment for API
         uses: marocchino/sticky-pull-request-comment@v2
