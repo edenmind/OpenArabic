@@ -148,6 +148,7 @@ const postTextOptions = {
         author: { type: 'string', minLength: 5, maxLength: 30 },
         category: { type: 'string', minLength: 5, maxLength: 20 },
         source: { type: 'string', minLength: 5, maxLength: 50 },
+        test: { type: 'boolean' },
         sentences: {
           type: 'array',
           minItems: 1,
