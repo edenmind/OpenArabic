@@ -73,7 +73,7 @@ async function addText(request, reply) {
 
   //prepare the data to be inserted into the database
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const id = uuidv4().slice(0, 8) //generate a new id
+  const id = new ObjectId() //generate a new id
   const views = 0 //initially, the text has no views
   const slug = slugifyWithAuthor(title, author) //generate a slug
   const createdAt = new Date()
@@ -130,13 +130,14 @@ async function addText(request, reply) {
   })
 
   data.sentences = sentencesWithGuidAndWordsWithGuid
+  data.textGuid = uuidv4().slice(0, 8)
 
   // This code loops over a collection of sentences and calls a
   // function to synthesize each sentence.
   // it also take the guid of the sentence and pass it as a parameter to the function
   for (const { arabic, id } of sentencesWithGuidAndWordsWithGuid) {
     // Build the MP3 filename
-    const fileName = mp3Filename(data.id, id, 'ar', 'sentence')
+    const fileName = mp3Filename(data.textGuid, id, 'ar', 'sentence')
 
     //add the filename as a property to the sentence
     const sentence = sentencesWithGuidAndWordsWithGuid.find((sentence) => sentence.id === id)
@@ -153,7 +154,7 @@ async function addText(request, reply) {
     // For each sentence, iterate over the words
     for (const { arabic, id: wordGuid } of words) {
       // For each word, create a filename
-      const fileName = mp3Filename(data.id, sentenceGuid, 'ar', wordGuid)
+      const fileName = mp3Filename(data.textGuid, sentenceGuid, 'ar', wordGuid)
 
       //add the filename as a property to the word
       const word = words.find((word) => word.id === wordGuid)
