@@ -3,13 +3,9 @@
 
 'use strict'
 
-// Imports the Google Cloud client library
 const textToSpeech = require('@google-cloud/text-to-speech')
+const { copyFileToS3 } = require('./utils.js')
 
-// Import other required libraries
-const fs = require('node:fs')
-const util = require('node:util')
-// Creates a client
 const client = new textToSpeech.TextToSpeechClient()
 
 async function synthesize(text, languageCode, fileName) {
@@ -28,11 +24,8 @@ async function synthesize(text, languageCode, fileName) {
     throw new Error('Received empty audioContent')
   }
 
-  // Write the binary audio content to a local file
-  const directory = '/data'
-  const filePath = `${directory}/${fileName}`
-  const writeFile = util.promisify(fs.writeFile)
-  await writeFile(filePath, response.audioContent, 'binary')
+  // Write the binary audio content to S3 compatible storage
+  copyFileToS3(response.audioContent, fileName)
 }
 
 module.exports = {

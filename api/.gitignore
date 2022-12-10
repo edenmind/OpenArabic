@@ -59,3 +59,5 @@ profile*
 
 # env
 .env
+
+google-cloud.json

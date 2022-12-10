@@ -3,7 +3,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.30",
+  "version": "1444.4.37",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -13,13 +13,14 @@
     "tests": "tests"
   },
   "scripts": {
-    "test": "API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70 --coverage-report=cobertura",
-    "test-local": "./tests/mongo-helper.sh -s && API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 70 --lines 70 --coverage-report=cobertura && ./tests/mongo-helper.sh -t",
+    "test": "API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 60 --lines 60 --coverage-report=cobertura",
+    "test-local": "./tests/mongo-helper.sh -s && API_KEY='somesecurekey' tap \"tests/**/*.test.js\" --branches 20 --functions 50 --statements 60 --lines 60 --coverage-report=cobertura && ./tests/mongo-helper.sh -t",
     "start": "fastify start -l info app.js",
     "dev": "fastify start -w -l info -P app.js",
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.226.0",
     "@fastify/autoload": "^5.6.0",
     "@fastify/cors": "^8.2.0",
     "@fastify/env": "^4.2.0",
@@ -28,7 +29,7 @@
     "@fastify/rate-limit": "^7.6.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.6.0",
-    "@fastify/swagger": "^8.2.0",
+    "@fastify/swagger": "^8.2.1",
     "@google-cloud/text-to-speech": "^4.0.4",
     "axios": "^1.2.1",
     "dotenv": "^16.0.3",

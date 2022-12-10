@@ -2,8 +2,17 @@
 
 const axios = require('axios').default
 const COLLECTIONS = require('../constants/collections.js')
-const { produceVocabularyCollection, timeAgo, readingTime, slugifyWithAuthor } = require('../services/utils')
+const {
+  produceVocabularyCollection,
+  timeAgo,
+  readingTime,
+  slugifyWithAuthor,
+  mp3Filename
+} = require('../services/utils')
 const { ObjectId } = require('mongodb')
+const { synthesize } = require('../services/tts')
+//require uuid4 to generate unique ids
+const { v4: uuidv4 } = require('uuid')
 
 async function listTexts(request, reply) {
   //get the texts from the database
@@ -64,7 +73,7 @@ async function addText(request, reply) {
 
   //prepare the data to be inserted into the database
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const id = new ObjectId() //generate a new id
+  const id = uuidv4().slice(0, 8) //generate a new id
   const views = 0 //initially, the text has no views
   const slug = slugifyWithAuthor(title, author) //generate a slug
   const createdAt = new Date()
@@ -101,6 +110,47 @@ async function addText(request, reply) {
     return reply.internalServerError(
       'At least 15 words in then sentences words must must have property quiz set to true!'
     )
+  }
+
+  // loop through all sentences, generate a guid for each sentence and add it to the sentence.
+  // don't create a new sentence, just add the guid to the existing sentence
+  const sentencesWithGuid = sentences.map((sentence) => {
+    const id = uuidv4().slice(0, 8)
+    return { ...sentence, id }
+  })
+
+  // loop through all sentences, loop through all words in each sentence, generate a guid for each word and add it to the word.
+  // don't create a new word, just add the guid to the existing word
+  const sentencesWithGuidAndWordsWithGuid = sentencesWithGuid.map((sentence) => {
+    const wordsWithGuid = sentence.words.map((word) => {
+      const id = uuidv4().slice(0, 8)
+      return { ...word, id }
+    })
+    return { ...sentence, words: wordsWithGuid }
+  })
+
+  data.sentences = sentencesWithGuidAndWordsWithGuid
+
+  // This code loops over a collection of sentences and calls a
+  // function to synthesize each sentence.
+  // it also take the guid of the sentence and pass it as a parameter to the function
+  for (const { arabic, id } of sentencesWithGuidAndWordsWithGuid) {
+    // Build the MP3 filename
+    const fileName = mp3Filename(data.id, id, 'ar', 'sentence')
+    // Synthesize the sentence
+    await synthesize(arabic, 'ar-XA', fileName)
+  }
+
+  // This function loops through the sentences and words in the text
+  // and calls the `synthetize` function on each word.
+  for (const { words, id: sentenceGuid } of sentencesWithGuidAndWordsWithGuid) {
+    // For each sentence, iterate over the words
+    for (const { arabic, id: wordGuid } of words) {
+      // For each word, create a filename
+      const fileName = mp3Filename(data.id, sentenceGuid, 'ar', wordGuid)
+      // Synthetize the word and save it to the file
+      await synthesize(arabic, 'ar-XA', fileName)
+    }
   }
 
   //try to insert the data
