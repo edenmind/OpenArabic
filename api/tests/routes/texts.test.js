@@ -81,27 +81,6 @@ test('try to create new text with not enough data', async (t) => {
   t.equal(result.statusCode, 400)
 })
 
-test('list texts', async (t) => {
-  //arrange
-  const app = await build(t)
-  await app.inject({
-    url: '/texts',
-    method: 'POST',
-    payload: {
-      name: 'the_name'
-    }
-  })
-
-  // act
-  const result = await app.inject({
-    url: '/texts',
-    method: 'GET'
-  })
-
-  //assert
-  t.equal(result.statusCode, 200)
-})
-
 test('get text that does not exist', async (t) => {
   //arrange
   const app = await build(t)
