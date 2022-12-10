@@ -1,6 +1,6 @@
 name: open-arabic-helm
 description: A Helm Chart for OpenArabic
-version: 1444.0.84
+version: 1444.0.85
 apiVersion: v2
 type: application
 home: https://openarabic.io
