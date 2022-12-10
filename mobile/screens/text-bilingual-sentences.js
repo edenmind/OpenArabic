@@ -9,6 +9,7 @@ import * as Haptics from 'expo-haptics'
 const filterFunction = (element) => element.english !== '' && element.arabic !== ''
 
 import { useSelector } from 'react-redux'
+import PlaySound from '../services/audio-service.js'
 
 const arabicSelector = (state) => state.arabicFontSize
 const englishSelector = (state) => state.englishFontSize
@@ -62,7 +63,7 @@ export default function TextBilingualSentences(props) {
       paddingRight: 33
     },
     showWordsButton: {
-      paddingBottom: 25,
+      paddingBottom: 5,
       paddingHorizontal: 75,
       paddingTop: 5
     },
@@ -93,9 +94,10 @@ export default function TextBilingualSentences(props) {
         }}
       >
         <Text variant="labelSmall" style={style.vocabulary}>
-          VOCABULARY
+          SHOW WORDS
         </Text>
       </Button>
+      <PlaySound audioFileName={sentence.filename} />
     </Fragment>
   ))
 

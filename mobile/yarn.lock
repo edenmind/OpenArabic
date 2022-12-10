@@ -8297,6 +8297,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-av@npm:~13.0.2":
+  version: 13.0.2
+  resolution: "expo-av@npm:13.0.2"
+  peerDependencies:
+    expo: "*"
+  checksum: ed929b4dce9ea2d70997fe33a2c5502850d58fed23c30548f99b7256d174d129eb61b193351e4948965f607c264fd229a4eb6cc3527a1a3d3f644593115f12fe
+  languageName: node
+  linkType: hard
+
 "expo-constants@npm:~14.0.0, expo-constants@npm:~14.0.2":
   version: 14.0.2
   resolution: "expo-constants@npm:14.0.2"
@@ -12836,6 +12845,7 @@ __metadata:
     eslint-plugin-unicorn: ^45.0.1
     expo: ^47.0.0
     expo-application: ~5.0.1
+    expo-av: ~13.0.2
     expo-constants: ~14.0.2
     expo-crypto: ~12.0.0
     expo-device: ~5.0.0

@@ -23,6 +23,9 @@ spec:
       containers:
         - name: api
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
+          volumeMounts:
+            - name: google-cloud
+              mountPath: /usr/src/app/google-cloud.json
           securityContext:
             allowPrivilegeEscalation: false
             seccompProfile:
@@ -70,3 +73,7 @@ spec:
           ports:
             - containerPort: 3030
       restartPolicy: Always
+      volumes:
+        - name: google-cloud
+          secret:
+            secretName: google-cloud
