@@ -25,7 +25,7 @@ spec:
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
           volumeMounts:
             - name: google-cloud
-              mountPath: /usr/src/app/google-cloud.json
+              mountPath: /usr/src/app/
           securityContext:
             allowPrivilegeEscalation: false
             seccompProfile:
@@ -51,6 +51,21 @@ spec:
                 secretKeyRef:
                   name: api-config
                   key: API_KEY
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: AWS_SECRET_ACCESS_KEY
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: GOOGLE_APPLICATION_CREDENTIALS
           resources:
             limits:
               memory: 512Mi
