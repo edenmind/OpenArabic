@@ -25,7 +25,7 @@ spec:
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
           volumeMounts:
             - name: google-cloud
-              mountPath: /usr/src/app/
+              mountPath: /usr/src/app/conf/
           securityContext:
             allowPrivilegeEscalation: false
             seccompProfile:
