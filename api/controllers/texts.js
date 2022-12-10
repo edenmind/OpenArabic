@@ -137,6 +137,12 @@ async function addText(request, reply) {
   for (const { arabic, id } of sentencesWithGuidAndWordsWithGuid) {
     // Build the MP3 filename
     const fileName = mp3Filename(data.id, id, 'ar', 'sentence')
+
+    //add the filename as a property to the sentence
+    const sentence = sentencesWithGuidAndWordsWithGuid.find((sentence) => sentence.id === id)
+
+    sentence.filename = fileName
+
     // Synthesize the sentence
     await synthesize(arabic, 'ar-XA', fileName)
   }
@@ -148,6 +154,12 @@ async function addText(request, reply) {
     for (const { arabic, id: wordGuid } of words) {
       // For each word, create a filename
       const fileName = mp3Filename(data.id, sentenceGuid, 'ar', wordGuid)
+
+      //add the filename as a property to the word
+      const word = words.find((word) => word.id === wordGuid)
+
+      word.filename = fileName
+
       // Synthetize the word and save it to the file
       await synthesize(arabic, 'ar-XA', fileName)
     }
