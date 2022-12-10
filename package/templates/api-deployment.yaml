@@ -25,11 +25,6 @@ spec:
           image: registry.digitalocean.com/openarabic/api:#{BUILD_ID}#
           securityContext:
             allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            capabilities:
-              drop:
-                - ALL
-            runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
           env:
