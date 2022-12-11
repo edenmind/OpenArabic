@@ -33,14 +33,6 @@ describe('<About />', () => {
     expect(foundButton).toBeTruthy()
   })
   it('should find the button via contactButton', () => {
-    const testIdName = 'facebook'
-    const { getByTestId } = render(<About />)
-    const foundButton = getByTestId(testIdName)
-
-    expect(foundButton).toBeTruthy()
-  })
-
-  it('should find the button via contactButton', () => {
     const testIdName = 'github'
     const { getByTestId } = render(<About />)
     const foundButton = getByTestId(testIdName)

@@ -27,8 +27,10 @@ function About() {
   const email = 'mailto:salam@edenmind.com?subject=Question&body=Enter your question...'
   const twitter = 'https://twitter.com/OpenArabicIo'
   const github = 'https://github.com/edenmind/OpenArabic'
-  const facebook = 'https://www.facebook.com/OpenArabic.io'
   const instagram = 'https://www.instagram.com/OpenArabic.io'
+  const twitterYunus = 'https://twitter.com/YunusAndreasson'
+  const githubYunus = 'https://github.com/YunusAndreasson'
+  const webYunus = 'https://andreassonphoto.com'
 
   // github links
   const githubIssues = 'https://github.com/edenmind/OpenArabic/issues'
@@ -42,6 +44,27 @@ function About() {
       <Text variant="titleLarge" style={style.arabic}>
         ﷽
       </Text>
+
+      <Text variant="titleLarge" style={style.english}>
+        Contact Us
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        Please use any of the following channels to report bugs or request new features.
+      </Text>
+      <Button style={style.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+        Twitter
+      </Button>
+      <Button style={style.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
+        Email
+      </Button>
+      <Button style={style.button} mode="elevated" testID="github" onPress={() => Linking.openURL(github)}>
+        GitHub
+      </Button>
+      <Button style={style.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
+        Instagram
+      </Button>
+
+      <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Audience
       </Text>
@@ -53,33 +76,6 @@ function About() {
       <Text variant="bodyLarge" style={style.english}>
         OpenArabic does not teach the Arabic alphabet nor Arabic grammar.
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
-        If you need a resource to get you started, then the Duolingo app available on iPhone and Android might come in
-        handy.
-      </Text>
-
-      <Divider style={style.divider} />
-      <Text variant="titleLarge" style={style.english}>
-        Contact Us
-      </Text>
-      <Text variant="bodyLarge" style={style.english}>
-        Please use any of the following channels to report bugs or request new features.
-      </Text>
-      <Button style={style.button} mode="outlined" testID="email" onPress={() => Linking.openURL(email)}>
-        Email
-      </Button>
-      <Button style={style.button} mode="outlined" testID="twitter" onPress={() => Linking.openURL(twitter)}>
-        Twitter
-      </Button>
-      <Button style={style.button} mode="outlined" testID="github" onPress={() => Linking.openURL(github)}>
-        GitHub
-      </Button>
-      <Button style={style.button} mode="outlined" testID="instagram" onPress={() => Linking.openURL(instagram)}>
-        Instagram
-      </Button>
-      <Button style={style.button} mode="outlined" testID="facebook" onPress={() => Linking.openURL(facebook)}>
-        Facebook
-      </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Open Source
@@ -89,13 +85,13 @@ function About() {
         and Kubernetes. If you are interested in helping with the development, then please check out the OpenArabic
         project on GitHub.
       </Text>
-      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(githubIssues)}>
+      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
         Issues
       </Button>
-      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(githubDiscussions)}>
+      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubDiscussions)}>
         Discussions
       </Button>
-      <Button style={style.button} mode="outlined" onPress={() => Linking.openURL(githubPullRequests)}>
+      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubPullRequests)}>
         Pull Requests
       </Button>
       <Divider style={style.divider} />
@@ -119,6 +115,24 @@ function About() {
       <List.Item title="Ibn Rājab al-Hanbali, d. 795 AH" />
       <List.Item title="al-Fuḍayl ibn ʻIyāḍ, d. 803 AH" />
       <List.Item title="Ibn Ḥajar al-ʿAsqalānī, d. 852 AH" />
+
+      <Divider style={style.divider} />
+      <Text variant="titleLarge" style={style.english}>
+        Founder
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        OpenArabic was founded by Yūnus Andréasson in 1442 AH or 2020 AD. Yūnus is a convert to Islam since ~20 years
+        ago residing in Sweden working as a Software Developer.
+      </Text>
+      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
+        Twitter.com/YunusAndreasson
+      </Button>
+      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubYunus)}>
+        GitHub.com/YunusAndreasson
+      </Button>
+      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(webYunus)}>
+        AndreassonPhoto.com
+      </Button>
       <Text variant="titleLarge" style={style.english}></Text>
     </ScrollView>
   )

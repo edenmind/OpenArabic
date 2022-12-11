@@ -43,7 +43,7 @@ export default function TextBilingualSentences(props) {
       fontFamily: arabicFontName,
       fontSize: arabicFontSize,
       fontWeight: 'normal',
-      lineHeight: 65,
+      lineHeight: 85,
       paddingBottom: 13,
       paddingLeft: 33,
       paddingRight: 25,
@@ -53,6 +53,12 @@ export default function TextBilingualSentences(props) {
     bottomPadding: {
       paddingBottom: 40
     },
+    buttonReport: {
+      marginBottom: 5,
+      marginLeft: 33,
+      marginRight: 33,
+      marginTop: 15
+    },
     english: {
       direction: 'ltr',
       fontFamily: 'philosopher',
@@ -61,14 +67,6 @@ export default function TextBilingualSentences(props) {
       paddingBottom: 13,
       paddingLeft: 33,
       paddingRight: 33
-    },
-    showWordsButton: {
-      paddingBottom: 5,
-      paddingHorizontal: 75,
-      paddingTop: 5
-    },
-    vocabulary: {
-      opacity: 0.3
     }
   })
 
@@ -85,19 +83,17 @@ export default function TextBilingualSentences(props) {
       </Text>
 
       <Button
-        style={style.showWordsButton}
-        mode="text"
+        style={style.buttonReport}
+        mode="elevated"
         onPress={() => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()
         }}
       >
-        <Text variant="labelSmall" style={style.vocabulary}>
-          SHOW WORDS
-        </Text>
+        SHOW WORDS
       </Button>
-      <PlaySound audioFileName={sentence.filename} />
+      <PlaySound audioFileName={sentence.filename} buttonText="PLAY SENTENCE" />
     </Fragment>
   ))
 

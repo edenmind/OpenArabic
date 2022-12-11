@@ -5,7 +5,7 @@ import { ScrollView, StyleSheet, Share } from 'react-native'
 import Sentences from './text-bilingual-sentences.js'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
-import { Button } from 'react-native-paper'
+import { Button, Text } from 'react-native-paper'
 import { ENDPOINT, HOST } from '../constants/urls.js'
 import * as MailComposer from 'expo-mail-composer'
 import * as Haptics from 'expo-haptics'
@@ -16,8 +16,8 @@ const textLoadSelector = (state) => state.textLoading
 export default function TextBilingual() {
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
-  const share = 'Share'
-  const report = 'Report Error'
+  const share = 'SHARE'
+  const report = 'REPORT ERROR'
 
   const style = StyleSheet.create({
     buttonReport: {
@@ -63,7 +63,7 @@ export default function TextBilingual() {
     <ScrollView>
       <Heading heading={text} />
       <Sentences sentences={text.sentences} />
-      <Button style={style.buttonShare} mode="outlined" onPress={onShare}>
+      <Button style={style.buttonShare} mode="contained" onPress={onShare}>
         {share}
       </Button>
       <Button style={style.buttonReport} mode="outlined" onPress={onErrorReport}>
