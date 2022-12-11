@@ -9,14 +9,14 @@ const styles = StyleSheet.create({
   arabic: {
     fontFamily: 'uthmanic',
     fontSize: 30,
-    lineHeight: 45
+    lineHeight: 60
   },
   chipNotSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.onSecondary,
     borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'rtl',
-    height: 60,
+    height: 70,
     margin: 7
   },
   chipNotSelectedEnglish: {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'ltr',
-    height: 60,
+    height: 70,
     margin: 7
   },
   chipSelectedArabic: {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'rtl',
-    height: 60,
+    height: 70,
     margin: 7
   },
   chipSelectedEnglish: {
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'ltr',
-    height: 60,
+    height: 70,
     margin: 7
   },
   english: {

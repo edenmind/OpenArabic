@@ -18,7 +18,7 @@ export default function TextArabic() {
       direction: 'rtl',
       fontFamily: arabicFontName,
       fontSize: arabicFontSize,
-      lineHeight: 70,
+      lineHeight: 85,
       padding: 25,
       paddingBottom: 50,
       writingDirection: 'rtl'

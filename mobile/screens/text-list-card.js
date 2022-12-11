@@ -31,7 +31,7 @@ export default function CategoryCard(props) {
       direction: 'rtl',
       fontFamily: arabicFontName,
       fontSize: arabicFontSize,
-      lineHeight: 60,
+      lineHeight: 75,
       opacity: 0.8,
       paddingBottom: 15,
       writingDirection: 'rtl'

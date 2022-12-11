@@ -21,6 +21,10 @@ function TextQuizVocabularies(props) {
     },
     button: {
       margin: 30
+    },
+    bodyText: {
+      marginLeft: 30,
+      marginRight: 30
     }
   })
 
@@ -61,8 +65,11 @@ function TextQuizVocabularies(props) {
           <Text variant="titleLarge" style={styles.title}>
             ✨ All Done ✨
           </Text>
-          <Button onPress={() => props.gotoFirstBatch()} mode="contained" style={styles.button}>
-            Run Again
+          <Text variant="bodyMedium" style={styles.bodyText}>
+            Continue to practice until you feel comfortable reading the text in Arabic, in sha'Allah.
+          </Text>
+          <Button onPress={() => props.gotoFirstBatch()} mode="elevated" style={styles.button}>
+            PRACTICE AGAIN
           </Button>
         </>
       )}

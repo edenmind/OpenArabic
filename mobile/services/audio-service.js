@@ -2,23 +2,25 @@ import * as React from 'react'
 import { Button, Text } from 'react-native-paper'
 import { Audio } from 'expo-av'
 import { StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
+import * as Haptics from 'expo-haptics'
 
 // This is more of a component than a server and might be better placed in the components folder
 export default function PlaySound(props) {
   const [sound, setSound] = React.useState()
 
   const style = StyleSheet.create({
-    vocabulary: {
-      opacity: 0.3
-    },
     showWordsButton: {
-      paddingBottom: 25,
-      paddingHorizontal: 75,
-      paddingTop: 7
+      marginBottom: 15,
+      marginLeft: 33,
+      marginRight: 33,
+      marginTop: 15
     }
   })
 
   async function playSound() {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+
     await Audio.setAudioModeAsync({
       staysActiveInBackground: true,
       shouldDuckAndroid: false,
@@ -33,9 +35,9 @@ export default function PlaySound(props) {
       { uri: url },
       {
         shouldPlay: true,
-        rate: 1.0,
+        rate: 1,
         shouldCorrectPitch: false,
-        volume: 1.0,
+        volume: 1,
         isMuted: false,
         isLooping: false
       }
@@ -54,10 +56,13 @@ export default function PlaySound(props) {
   }, [sound])
 
   return (
-    <Button onPress={playSound} style={style.showWordsButton} mode="text">
-      <Text variant="labelSmall" style={style.vocabulary}>
-        PLAY SENTENCE
-      </Text>
+    <Button onPress={playSound} style={style.showWordsButton} mode="elevated">
+      {props.buttonText}
     </Button>
   )
+}
+
+PlaySound.propTypes = {
+  audioFileName: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired
 }

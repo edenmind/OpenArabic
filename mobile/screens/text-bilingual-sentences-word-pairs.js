@@ -1,42 +1,52 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { Divider, Text } from 'react-native-paper'
 import * as util from '../services/utility-service.js'
+import PlaySound from '../services/audio-service.js'
 
 function TextBilingualSentencesWordPairs(props) {
   const style = StyleSheet.create({
     arabic: {
       fontFamily: 'uthmanic',
-      fontSize: 33,
-      opacity: 0.9,
-      paddingTop: 15
+      fontSize: 45,
+      opacity: 0.9
     },
     divider: {
       marginBottom: 15,
-      marginTop: 15
+      marginTop: 15,
+      opacity: 0.3
     },
     english: {
       opacity: 0.9
     },
+    flexOne: {
+      flex: 1
+    },
     latin: {
       opacity: 0.8,
       paddingBottom: 15
+    },
+    row: {
+      flexDirection: 'row',
+      justifyContent: 'space-around'
     }
   })
   return props.words.map((word, index) => (
     <Fragment key={index}>
-      <Text variant="titleLarge" style={style.arabic}>
-        {word.arabic}
-      </Text>
+      <View style={style.row}>
+        <View style={style.flexOne}>
+          <Text style={style.arabic}>{word.arabic}</Text>
+          <Text variant="bodyMedium" style={style.english}>
+            {word.english.charAt(0).toUpperCase() + word.english.slice(1)} ·{' '}
+            {util.transliterateArabicToEnglish(word.arabic)}
+          </Text>
+        </View>
 
-      <Text style={style.latin} variant="bodyMedium">
-        {util.transliterateArabicToEnglish(word.arabic)}
-      </Text>
-
-      <Text variant="bodyMedium" style={style.english}>
-        {word.english.charAt(0).toUpperCase() + word.english.slice(1)}
-      </Text>
+        <View style={style.flexOne}>
+          <PlaySound audioFileName={word.filename} buttonText={'PLAY'} />
+        </View>
+      </View>
       <Divider style={style.divider} />
     </Fragment>
   ))

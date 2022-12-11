@@ -2,85 +2,230 @@
 
 exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders correctly 1`] = `
 [
-  <Text
+  <View
     style={
-      [
-        {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontFamily": "System",
-          "fontSize": 22,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 28,
-        },
-        {
-          "textAlign": "left",
-        },
-        {
-          "writingDirection": "ltr",
-        },
-        {
-          "fontFamily": "uthmanic",
-          "fontSize": 33,
-          "opacity": 0.9,
-          "paddingTop": 15,
-        },
-      ]
+      {
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      }
     }
   >
-    وحشة
-  </Text>,
-  <Text
-    style={
-      [
+    <View
+      style={
         {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontFamily": "System",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "letterSpacing": 0.25,
-          "lineHeight": 20,
-        },
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+            },
+            {
+              "writingDirection": "ltr",
+            },
+            {
+              "fontFamily": "uthmanic",
+              "fontSize": 45,
+              "opacity": 0.9,
+            },
+          ]
+        }
+      >
+        وحشة
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontFamily": "System",
+              "fontSize": 14,
+              "fontWeight": "400",
+              "letterSpacing": 0.25,
+              "lineHeight": 20,
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "writingDirection": "ltr",
+            },
+            {
+              "opacity": 0.9,
+            },
+          ]
+        }
+      >
+        Alienation
+         ·
+         
+        wḥšt
+      </Text>
+    </View>
+    <View
+      style={
         {
-          "textAlign": "left",
-        },
-        {
-          "writingDirection": "ltr",
-        },
-        {
-          "opacity": 0.8,
-          "paddingBottom": 15,
-        },
-      ]
-    }
-  >
-    wḥšt
-  </Text>,
-  <Text
-    style={
-      [
-        {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontFamily": "System",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "letterSpacing": 0.25,
-          "lineHeight": 20,
-        },
-        {
-          "textAlign": "left",
-        },
-        {
-          "writingDirection": "ltr",
-        },
-        {
-          "opacity": 0.9,
-        },
-      ]
-    }
-  >
-    Alienation
-  </Text>,
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "alignSelf": undefined,
+            "bottom": undefined,
+            "left": undefined,
+            "position": undefined,
+            "right": undefined,
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.15,
+            "shadowRadius": 3,
+            "top": undefined,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            {
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 1,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 1,
+            }
+          }
+        >
+          <View
+            collapsable={false}
+            style={
+              {
+                "backgroundColor": "rgb(247, 243, 249)",
+                "borderColor": "transparent",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 0,
+                "marginBottom": 15,
+                "marginLeft": 33,
+                "marginRight": 33,
+                "marginTop": 15,
+                "minWidth": 64,
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "disabled": false,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                [
+                  {
+                    "overflow": "hidden",
+                  },
+                  false,
+                  {
+                    "borderRadius": 20,
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "rgba(28, 27, 31, 1)",
+                        "fontFamily": "System",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 0.1,
+                        "lineHeight": 20,
+                      },
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "writingDirection": "ltr",
+                      },
+                      [
+                        {
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        false,
+                        {
+                          "marginHorizontal": 24,
+                          "marginVertical": 10,
+                        },
+                        undefined,
+                        false,
+                        {
+                          "color": "rgba(103, 80, 164, 1)",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "fontWeight": "500",
+                          "letterSpacing": 0.1,
+                          "lineHeight": 20,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  PLAY
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
   <View
     style={
       [
@@ -94,89 +239,235 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         {
           "marginBottom": 15,
           "marginTop": 15,
+          "opacity": 0.3,
         },
       ]
     }
   />,
-  <Text
+  <View
     style={
-      [
-        {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontFamily": "System",
-          "fontSize": 22,
-          "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 28,
-        },
-        {
-          "textAlign": "left",
-        },
-        {
-          "writingDirection": "ltr",
-        },
-        {
-          "fontFamily": "uthmanic",
-          "fontSize": 33,
-          "opacity": 0.9,
-          "paddingTop": 15,
-        },
-      ]
+      {
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      }
     }
   >
-    ربه
-  </Text>,
-  <Text
-    style={
-      [
+    <View
+      style={
         {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontFamily": "System",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "letterSpacing": 0.25,
-          "lineHeight": 20,
-        },
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "letterSpacing": 0,
+            },
+            {
+              "writingDirection": "ltr",
+            },
+            {
+              "fontFamily": "uthmanic",
+              "fontSize": 45,
+              "opacity": 0.9,
+            },
+          ]
+        }
+      >
+        ربه
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontFamily": "System",
+              "fontSize": 14,
+              "fontWeight": "400",
+              "letterSpacing": 0.25,
+              "lineHeight": 20,
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "writingDirection": "ltr",
+            },
+            {
+              "opacity": 0.9,
+            },
+          ]
+        }
+      >
+        His Lord
+         ·
+         
+        rbh
+      </Text>
+    </View>
+    <View
+      style={
         {
-          "textAlign": "left",
-        },
-        {
-          "writingDirection": "ltr",
-        },
-        {
-          "opacity": 0.8,
-          "paddingBottom": 15,
-        },
-      ]
-    }
-  >
-    rbh
-  </Text>,
-  <Text
-    style={
-      [
-        {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontFamily": "System",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "letterSpacing": 0.25,
-          "lineHeight": 20,
-        },
-        {
-          "textAlign": "left",
-        },
-        {
-          "writingDirection": "ltr",
-        },
-        {
-          "opacity": 0.9,
-        },
-      ]
-    }
-  >
-    His Lord
-  </Text>,
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "alignSelf": undefined,
+            "bottom": undefined,
+            "left": undefined,
+            "position": undefined,
+            "right": undefined,
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.15,
+            "shadowRadius": 3,
+            "top": undefined,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            {
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 1,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 1,
+            }
+          }
+        >
+          <View
+            collapsable={false}
+            style={
+              {
+                "backgroundColor": "rgb(247, 243, 249)",
+                "borderColor": "transparent",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 0,
+                "marginBottom": 15,
+                "marginLeft": 33,
+                "marginRight": 33,
+                "marginTop": 15,
+                "minWidth": 64,
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "disabled": false,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                [
+                  {
+                    "overflow": "hidden",
+                  },
+                  false,
+                  {
+                    "borderRadius": 20,
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "rgba(28, 27, 31, 1)",
+                        "fontFamily": "System",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 0.1,
+                        "lineHeight": 20,
+                      },
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "writingDirection": "ltr",
+                      },
+                      [
+                        {
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        false,
+                        {
+                          "marginHorizontal": 24,
+                          "marginVertical": 10,
+                        },
+                        undefined,
+                        false,
+                        {
+                          "color": "rgba(103, 80, 164, 1)",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "fontWeight": "500",
+                          "letterSpacing": 0.1,
+                          "lineHeight": 20,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  PLAY
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
   <View
     style={
       [
@@ -190,6 +481,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         {
           "marginBottom": 15,
           "marginTop": 15,
+          "opacity": 0.3,
         },
       ]
     }
