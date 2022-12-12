@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
 import { Divider, Text } from 'react-native-paper'
 import * as util from '../services/utility-service.js'
-import PlaySound from '../services/audio-service.js'
+import PlaySound from '../components/play-sound.js'
 
 function TextBilingualSentencesWordPairs(props) {
   const style = StyleSheet.create({

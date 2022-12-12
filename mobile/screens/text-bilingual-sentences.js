@@ -5,12 +5,10 @@ import { StyleSheet, View } from 'react-native'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import PropTypes from 'prop-types'
 import WordPairs from './text-bilingual-sentences-word-pairs.js'
-import * as Haptics from 'expo-haptics'
-const filterFunction = (element) => element.english !== '' && element.arabic !== ''
-
 import { useSelector } from 'react-redux'
-import PlaySound from '../services/audio-service.js'
+import PlaySound from '../components/play-sound.js'
 
+const filterFunction = (element) => element.english !== '' && element.arabic !== ''
 const arabicSelector = (state) => state.arabicFontSize
 const englishSelector = (state) => state.englishFontSize
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
@@ -25,13 +23,9 @@ export default function TextBilingualSentences(props) {
 
   //if isTransliterationOn is a string with value on then set showTransliteration to true
   const showTransliteration = isTransliterationOn === 'on'
-
-  console.log(isTransliterationOn)
-
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
   const hideModal = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
     setVisible(false)
   }
   const showModal = () => setVisible(true)
@@ -86,7 +80,6 @@ export default function TextBilingualSentences(props) {
         style={style.buttonReport}
         mode="elevated"
         onPress={() => {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()
         }}
