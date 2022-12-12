@@ -1,4 +1,4 @@
-import { Text, SegmentedButtons, Surface, Switch, Button } from 'react-native-paper'
+import { Text, SegmentedButtons, Surface, Switch } from 'react-native-paper'
 import { ScrollView, StyleSheet } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
@@ -13,109 +13,75 @@ function TextSettingsScreen() {
 
   // store arabic font name
   const storeArabicFontName = async (value) => {
-    try {
-      // store the value in the store with dispatch
+    dispatch({ type: 'SET_ARABIC_FONT_NAME', payload: value })
 
-      dispatch({ type: 'SET_ARABIC_FONT_NAME', payload: value })
-
-      await storeData('arabicFontName', value)
-    } catch (error) {
-      console.log(error)
-    }
+    await storeData('arabicFontName', value)
   }
 
   // store a value using storeData
   const storeTransliteration = async (value) => {
-    try {
-      // we need to convert the value to a string before storing it
-      const boolValuesForTransliteration = value === true ? 'on' : 'off'
-      dispatch({ type: 'SET_TRANSLITERATION', payload: boolValuesForTransliteration })
+    // we need to convert the value to a string before storing it
+    const boolValuesForTransliteration = value === true ? 'on' : 'off'
+    dispatch({ type: 'SET_TRANSLITERATION', payload: boolValuesForTransliteration })
 
-      await storeData('isTransliterationOn', boolValuesForTransliteration)
-    } catch (error) {
-      console.log(error)
-    }
+    await storeData('isTransliterationOn', boolValuesForTransliteration)
   }
 
   // store a value using storeData
   const storeEnglishFontSize = async (value) => {
-    try {
-      // store the value in the store with dispatch
+    // store the value in the store with dispatch
 
-      dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: value })
+    dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: value })
 
-      await storeData('englishFontSize', value)
-    } catch (error) {
-      console.log(error)
-    }
+    await storeData('englishFontSize', value)
   }
 
   // store a value using storeData
   const storeArabicFontSize = async (value) => {
-    try {
-      // store the value in the store with dispatch
+    // store the value in the store with dispatch
 
-      dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: value })
+    dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: value })
 
-      await storeData('arabicFontSize', value)
-    } catch (error) {
-      console.log(error)
-    }
+    await storeData('arabicFontSize', value)
   }
 
   // get a value using getData
   const getEnglishFontSize = async () => {
-    try {
-      const value = await getData('englishFontSize')
+    const value = await getData('englishFontSize')
 
-      if (value !== null) {
-        setEnglishSizeValue(value)
-      }
-    } catch (error) {
-      console.log(error)
+    if (value !== null) {
+      setEnglishSizeValue(value)
     }
   }
 
   // get a value using getData
   const getArabicFontSize = async () => {
-    try {
-      const value = await getData('arabicFontSize')
+    const value = await getData('arabicFontSize')
 
-      if (value !== null) {
-        setArabicSizeValue(value)
-      }
-    } catch (error) {
-      console.log(error)
+    if (value !== null) {
+      setArabicSizeValue(value)
     }
   }
 
   // get a value using getData
   const getTransliteration = async () => {
-    try {
-      const value = await getData('isTransliterationOn')
+    const value = await getData('isTransliterationOn')
 
-      if (value == 'on') {
-        //we need to check for the string 'on' because the value is stored as a string
-        setIsTransliterationOn(true)
-      } else {
-        setIsTransliterationOn(false)
-      }
-    } catch (error) {
-      console.log(error)
+    if (value == 'on') {
+      //we need to check for the string 'on' because the value is stored as a string
+      setIsTransliterationOn(true)
+    } else {
+      setIsTransliterationOn(false)
     }
   }
 
   // get the arabic font name
 
   const getArabicFontName = async () => {
-    try {
-      const value = await getData('arabicFontName')
+    const value = await getData('arabicFontName')
 
-      if (value !== null) {
-        setArabicFontName(value)
-      }
-    } catch (error) {
-      console.log(error)
+    if (value !== null) {
+      setArabicFontName(value)
     }
   }
 
@@ -124,6 +90,7 @@ function TextSettingsScreen() {
     getEnglishFontSize()
     getArabicFontSize()
     getTransliteration()
+    getArabicFontName()
   }, [])
 
   const style = StyleSheet.create({
@@ -148,7 +115,7 @@ function TextSettingsScreen() {
       writingDirection: 'ltr'
     },
     segmentedButtons: {
-      width: 100
+      width: '25%'
     },
     surface: {
       marginTop: 15,
@@ -168,7 +135,7 @@ function TextSettingsScreen() {
           </Text>
         ) : (
           <Text variant="bodyMedium" style={style.english}>
-            ·
+            {''}
           </Text>
         )}
         <Text variant="bodyMedium" style={style.english}></Text>
