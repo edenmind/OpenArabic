@@ -9,12 +9,12 @@ function TextBilingualSentencesWordPairs(props) {
   const style = StyleSheet.create({
     arabic: {
       fontFamily: 'uthmanic',
-      fontSize: 45,
+      fontSize: 35,
       opacity: 0.9
     },
     divider: {
-      marginBottom: 15,
-      marginTop: 15,
+      marginBottom: 10,
+      marginTop: 10,
       opacity: 0.3
     },
     english: {
@@ -29,7 +29,9 @@ function TextBilingualSentencesWordPairs(props) {
     },
     row: {
       flexDirection: 'row',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      paddingLeft: 30,
+      paddingRight: 20
     }
   })
   return props.words.map((word, index) => (

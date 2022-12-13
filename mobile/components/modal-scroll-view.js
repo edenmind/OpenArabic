@@ -6,8 +6,8 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const ModalScrollView = (props) => {
   const containerStyle = {
-    margin: 15,
-    padding: 20,
+    margin: 10,
+    padding: 10,
     backgroundColor: paperDarkTheme.colors.background,
     maxHeight: '95%',
     borderRadius: 25
@@ -21,8 +21,13 @@ const ModalScrollView = (props) => {
 
   const titleStyle = {
     alignSelf: 'center',
-    paddingBottom: 20,
+    padding: 5,
     fontFamily: 'philosopher'
+  }
+
+  const dividerStyle = {
+    marginTop: 15,
+    marginBottom: 15
   }
 
   const close = 'CLOSE'
@@ -33,7 +38,7 @@ const ModalScrollView = (props) => {
         <Text variant="titleLarge" style={titleStyle}>
           {props.title}
         </Text>
-        <Divider />
+        <Divider style={dividerStyle} />
         <ScrollView>{props.content}</ScrollView>
         <Divider />
         <Button onPress={props.hideModal} style={buttonPadding} mode="elevated">

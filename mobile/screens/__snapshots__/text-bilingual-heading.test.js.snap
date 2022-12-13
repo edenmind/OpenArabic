@@ -34,9 +34,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
         },
         {
           "fontFamily": "philosopher",
-          "marginLeft": 35,
-          "marginRight": 35,
-          "paddingTop": 45,
+          "paddingTop": 25,
           "textAlign": "center",
         },
       ]
@@ -139,9 +137,9 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
         false,
         false,
         {
-          "marginLeft": 33,
-          "marginRight": 33,
-          "marginTop": 33,
+          "marginLeft": 15,
+          "marginRight": 15,
+          "marginTop": 25,
         },
       ]
     }

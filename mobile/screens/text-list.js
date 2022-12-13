@@ -1,13 +1,14 @@
 import * as api from '../services/api-service.js'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList } from 'react-native'
 import PropTypes from 'prop-types'
 import Spinner from '../components/spinner.js'
 import TextListCard from './text-list-card.js'
 import { useFocusEffect } from '@react-navigation/native'
 import { getHijriDate } from '../services/utility-service.js'
 import { Text } from 'react-native-paper'
+import { useSharedStyles } from '../styles/common.js'
 
 const selector = (state) => state.texts
 const textsLoadSelector = (state) => state.textsLoading
@@ -18,6 +19,7 @@ export default function TextList({ route, navigation }) {
   const { texts } = useSelector(selector)
   const { textsLoading } = useSelector(textsLoadSelector)
   const dispatch = useDispatch()
+  const sharedStyle = useSharedStyles()
 
   useFocusEffect(
     React.useCallback(() => {
@@ -26,21 +28,6 @@ export default function TextList({ route, navigation }) {
       }
     }, [category, dispatch, shouldReload])
   )
-
-  const style = StyleSheet.create({
-    footer: {
-      fontFamily: 'uthmanic',
-      fontSize: 17,
-      opacity: 0.7,
-      padding: 5,
-      paddingBottom: 10,
-      paddingLeft: 75,
-      paddingRight: 75,
-      readingDirection: 'rtl',
-      textAlign: 'center',
-      writingDirection: 'rtl'
-    }
-  })
 
   const renderItem = ({ item }) => (
     <TextListCard text={item} navigation={navigation} setShouldReload={setShouldReload} />
@@ -54,9 +41,9 @@ export default function TextList({ route, navigation }) {
       keyExtractor={(item) => item.id}
       ListFooterComponent={
         <>
-          <Text style={style.footer}>{getHijriDate()}</Text>
-          <Text style={style.footer}>سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك</Text>
-          <Text style={style.footer}></Text>
+          <Text style={sharedStyle.arabicFooter}>{getHijriDate()}</Text>
+          <Text style={sharedStyle.arabicFooter}>سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك</Text>
+          <Text style={sharedStyle.arabicFooter}></Text>
         </>
       }
     />

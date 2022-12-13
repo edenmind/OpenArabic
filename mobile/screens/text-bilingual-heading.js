@@ -11,9 +11,9 @@ const style = StyleSheet.create({
     textAlign: 'center'
   },
   divider: {
-    marginLeft: 33,
-    marginRight: 33,
-    marginTop: 33
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 25
   },
   image: {
     height: 250,
@@ -27,9 +27,7 @@ const style = StyleSheet.create({
   },
   title: {
     fontFamily: 'philosopher',
-    marginLeft: 35,
-    marginRight: 35,
-    paddingTop: 45,
+    paddingTop: 25,
     textAlign: 'center'
   }
 })
