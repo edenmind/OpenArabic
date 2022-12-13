@@ -95,8 +95,8 @@ const updateTextOptions = {
             type: 'object',
             required: ['arabic', 'english', 'words'],
             properties: {
-              arabic: { type: 'string', minLength: 1, maxLength: 500 },
-              english: { type: 'string', minLength: 1, maxLength: 500 },
+              arabic: { type: 'string', minLength: 1, maxLength: 5000 },
+              english: { type: 'string', minLength: 1, maxLength: 5000 },
               words: {
                 type: 'array',
                 minItems: 1,
@@ -156,8 +156,8 @@ const postTextOptions = {
             type: 'object',
             required: ['arabic', 'english', 'words'],
             properties: {
-              arabic: { type: 'string', minLength: 1, maxLength: 500 },
-              english: { type: 'string', minLength: 1, maxLength: 500 },
+              arabic: { type: 'string', minLength: 1, maxLength: 5000 },
+              english: { type: 'string', minLength: 1, maxLength: 5000 },
               words: {
                 type: 'array',
                 minItems: 1,
