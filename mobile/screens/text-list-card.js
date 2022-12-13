@@ -5,11 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
 import { StyleSheet } from 'react-native'
-import { useSelector } from 'react-redux'
-
-const arabicSelector = (state) => state.arabicFontSize
-const englishSelector = (state) => state.englishFontSize
-const arabicFontNameSelector = (state) => state.arabicFontName
+import { useSharedStyles } from '../styles/common.js'
 
 const prepareIngress = (text, length) => {
   const noLineBreaks = removeLineBreak(text)
@@ -19,51 +15,24 @@ const prepareIngress = (text, length) => {
 }
 
 export default function CategoryCard(props) {
-  // get arabic front size from redux
-
-  //load arabic font size from redux on every render of this component with useFocusEffect
-  const { arabicFontSize } = useSelector(arabicSelector)
-  const { englishFontSize } = useSelector(englishSelector)
-  const { arabicFontName } = useSelector(arabicFontNameSelector)
+  const sharedStyle = useSharedStyles()
 
   const style = StyleSheet.create({
-    arabic: {
-      direction: 'rtl',
-      fontFamily: arabicFontName,
-      fontSize: arabicFontSize,
-      lineHeight: 75,
-      opacity: 0.8,
-      paddingBottom: 15,
-      writingDirection: 'rtl'
-    },
     card: {
-      marginBottom: 10,
-      marginLeft: 10,
-      marginRight: 10,
-      marginTop: 10
+      margin: 10
     },
     cardAction: {
-      marginRight: 13,
+      marginRight: 10,
       opacity: 0.7,
-      paddingBottom: 20,
-      paddingTop: 20
+      paddingBottom: 15,
+      paddingTop: 5
     },
     cardSubtitle: {
       paddingBottom: 25
     },
     cardTitle: {
       fontFamily: 'philosopher',
-      lineHeight: 55
-    },
-    divider: {
-      marginBottom: 0,
-      marginTop: 20
-    },
-    english: {
-      direction: 'ltr',
-      fontFamily: 'philosopher',
-      fontSize: englishFontSize,
-      opacity: 0.9
+      lineHeight: 75
     }
   })
 
@@ -95,11 +64,11 @@ export default function CategoryCard(props) {
         subtitleStyle={style.cardSubtitle}
       />
       <Card.Content>
-        <Text style={style.arabic}>{arabic}</Text>
-        <Text variant="bodyLarge" style={style.english}>
+        <Text style={sharedStyle.arabicBody}>{arabic}</Text>
+        <Text variant="bodyLarge" style={sharedStyle.englishBody}>
           {english}
         </Text>
-        <Divider style={style.divider} />
+        <Divider style={sharedStyle.divider} />
       </Card.Content>
       <Card.Actions style={style.cardAction}>
         <Text variant="labelSmall">{footer}</Text>

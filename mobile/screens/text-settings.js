@@ -1,14 +1,16 @@
 import { Text, SegmentedButtons, Surface, Switch } from 'react-native-paper'
-import { ScrollView, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
 import { useDispatch } from 'react-redux'
+import { useSharedStyles } from '../styles/common.js'
 
 function TextSettingsScreen() {
   const [arabicFontName, setArabicFontName] = React.useState('uthmanic')
   const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16)
   const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20)
   const [isTransliterationOn, setIsTransliterationOn] = React.useState(false)
+  const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
 
   // store arabic font name
@@ -94,57 +96,31 @@ function TextSettingsScreen() {
   }, [])
 
   const style = StyleSheet.create({
-    arabic: {
-      direction: 'rtl',
-      fontFamily: arabicFontName,
-      fontSize: arabicFontSizeValue,
-      lineHeight: 70,
-      writingDirection: 'rtl'
-    },
     element: {
       paddingBottom: 10,
-      paddingTop: 25
-    },
-    english: {
-      fontFamily: 'philosopher',
-      fontSize: englishFontSizeValue
-    },
-    scrollView: {
-      direction: 'ltr',
-      padding: 15,
-      writingDirection: 'ltr'
+      paddingTop: 10
     },
     segmentedButtons: {
       width: '25%'
     },
     surface: {
-      marginTop: 15,
       padding: 15
     }
   })
 
   return (
-    <ScrollView style={style.scrollView}>
+    <View style={style.surface}>
       <Surface style={style.surface} elevation={2}>
-        <Text variant="bodyMedium" style={style.arabic}>
-          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-        </Text>
+        <Text style={sharedStyle.arabicBody}>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</Text>
         {isTransliterationOn ? (
-          <Text variant="bodyMedium" style={style.english}>
-            bismi allāhi alraḥmāni alraḥīmi
-          </Text>
+          <Text style={sharedStyle.englishBody}>bismi allāhi alraḥmāni alraḥīmi</Text>
         ) : (
-          <Text variant="bodyMedium" style={style.english}>
-            {''}
-          </Text>
+          <Text style={sharedStyle.englishBody}>{''}</Text>
         )}
-        <Text variant="bodyMedium" style={style.english}></Text>
-        <Text variant="bodyMedium" style={style.english}>
-          In the Name of Allah, the Most Gracious, the Most Merciful.
-        </Text>
+        <Text style={sharedStyle.englishBody}>In the Name of Allah, the Most Gracious, the Most Merciful.</Text>
       </Surface>
 
-      <Text variant="titleSmall" style={style.element}>
+      <Text variant="labelMedium" style={style.element}>
         Arabic Font Size
       </Text>
 
@@ -175,7 +151,7 @@ function TextSettingsScreen() {
         ]}
       />
 
-      <Text variant="titleSmall" style={style.element}>
+      <Text variant="labelMedium" style={style.element}>
         English Font Size
       </Text>
 
@@ -207,7 +183,7 @@ function TextSettingsScreen() {
         ]}
       />
 
-      <Text variant="titleSmall" style={style.element}>
+      <Text variant="labelMedium" style={style.element}>
         Arabic Font
       </Text>
 
@@ -239,7 +215,7 @@ function TextSettingsScreen() {
         ]}
       />
 
-      <Text variant="titleSmall" style={style.element}>
+      <Text variant="labelMedium" style={style.element}>
         Transliteration
       </Text>
       <Switch
@@ -249,7 +225,7 @@ function TextSettingsScreen() {
           setIsTransliterationOn(value)
         }}
       />
-    </ScrollView>
+    </View>
   )
 }
 

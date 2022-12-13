@@ -8,11 +8,12 @@ import { Text, Button } from 'react-native-paper'
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
     chipContainer: {
-      paddingTop: 0,
       width: '50%'
     },
     container: {
-      flexDirection: 'row'
+      flexDirection: 'row',
+      marginLeft: 15,
+      marginRight: 15
     },
     title: {
       marginBottom: 10,
@@ -23,8 +24,8 @@ function TextQuizVocabularies(props) {
       margin: 30
     },
     bodyText: {
-      marginLeft: 30,
-      marginRight: 30
+      marginLeft: 10,
+      marginRight: 10
     }
   })
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Text } from 'react-native-paper'
+import { Button } from 'react-native-paper'
 import { Audio } from 'expo-av'
 import { StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
@@ -11,10 +11,7 @@ export default function PlaySound(props) {
 
   const style = StyleSheet.create({
     showWordsButton: {
-      marginBottom: 15,
-      marginLeft: 33,
-      marginRight: 33,
-      marginTop: 15
+      marginTop: 10
     }
   })
 

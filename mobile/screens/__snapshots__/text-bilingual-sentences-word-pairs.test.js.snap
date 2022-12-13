@@ -7,6 +7,8 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
       {
         "flexDirection": "row",
         "justifyContent": "space-around",
+        "paddingLeft": 30,
+        "paddingRight": 20,
       }
     }
   >
@@ -34,7 +36,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
             },
             {
               "fontFamily": "uthmanic",
-              "fontSize": 45,
+              "fontSize": 35,
               "opacity": 0.9,
             },
           ]
@@ -121,10 +123,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
                 "borderRadius": 20,
                 "borderStyle": "solid",
                 "borderWidth": 0,
-                "marginBottom": 15,
-                "marginLeft": 33,
-                "marginRight": 33,
-                "marginTop": 15,
+                "marginTop": 10,
                 "minWidth": 64,
               }
             }
@@ -237,8 +236,8 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         false,
         false,
         {
-          "marginBottom": 15,
-          "marginTop": 15,
+          "marginBottom": 10,
+          "marginTop": 10,
           "opacity": 0.3,
         },
       ]
@@ -249,6 +248,8 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
       {
         "flexDirection": "row",
         "justifyContent": "space-around",
+        "paddingLeft": 30,
+        "paddingRight": 20,
       }
     }
   >
@@ -276,7 +277,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
             },
             {
               "fontFamily": "uthmanic",
-              "fontSize": 45,
+              "fontSize": 35,
               "opacity": 0.9,
             },
           ]
@@ -363,10 +364,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
                 "borderRadius": 20,
                 "borderStyle": "solid",
                 "borderWidth": 0,
-                "marginBottom": 15,
-                "marginLeft": 33,
-                "marginRight": 33,
-                "marginTop": 15,
+                "marginTop": 10,
                 "minWidth": 64,
               }
             }
@@ -479,8 +477,8 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
         false,
         false,
         {
-          "marginBottom": 15,
-          "marginTop": 15,
+          "marginBottom": 10,
+          "marginTop": 10,
           "opacity": 0.3,
         },
       ]
