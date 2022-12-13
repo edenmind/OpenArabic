@@ -35,7 +35,7 @@
     "dotenv": "^16.0.3",
     "fastify": "^4.10.2",
     "fastify-cli": "^5.7.0",
-    "fastify-healthcheck": "^4.2.0",
+    "fastify-healthcheck": "^4.3.0",
     "fastify-plugin": "^4.4.0",
     "moment": "^2.29.4",
     "mongodb": "^4.12.1",

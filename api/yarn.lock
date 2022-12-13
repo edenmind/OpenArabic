@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -2417,13 +2417,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/under-pressure@npm:^8.1.0":
-  version: 8.1.0
-  resolution: "@fastify/under-pressure@npm:8.1.0"
+"@fastify/under-pressure@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "@fastify/under-pressure@npm:8.2.0"
   dependencies:
     "@fastify/error": ^3.0.0
     fastify-plugin: ^4.0.0
-  checksum: 388ea1ddd00a5a329def2115a1f66b570ea64cacacc3345ed3d2ee264009b843f49bab2690d86355023381987f0fd204a96e42c921dbf900bd70fbd50fadf757
+  checksum: abf9f5bb6bb5c131f54729c12ef861f30c0e44acd9f3da65ab3d268d37d16351691cbbab4120dab3bca58277b243e8a762ffa3fdb1c9b19fb34ed33042a24c92
   languageName: node
   linkType: hard
 
@@ -4520,7 +4520,7 @@ __metadata:
     eslint-plugin-unicorn: ^45.0.1
     fastify: ^4.10.2
     fastify-cli: ^5.7.0
-    fastify-healthcheck: ^4.2.0
+    fastify-healthcheck: ^4.3.0
     fastify-plugin: ^4.4.0
     moment: ^2.29.4
     mongodb: ^4.12.1
@@ -6386,12 +6386,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-healthcheck@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "fastify-healthcheck@npm:4.2.0"
+"fastify-healthcheck@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "fastify-healthcheck@npm:4.3.0"
   dependencies:
-    "@fastify/under-pressure": ^8.1.0
-  checksum: 7912d486daac157464eab0bbf447781aaba578c0a1d60550dc4358206c1d7fd4a7654f46bb761cfb2b6a4f092b40f2eb0b669ca51d321c725ad241bf469b0743
+    "@fastify/under-pressure": ^8.2.0
+  checksum: fb35cfbfdfa5ef9759e35aad367388ad5f6279069ee007c76198dba8e3f23249cdee4d98d9ab7f221f73fbb700901c2e6df00b62eb8ded9c9d91a41c50a6b46f
   languageName: node
   linkType: hard
 
@@ -11782,11 +11782,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
