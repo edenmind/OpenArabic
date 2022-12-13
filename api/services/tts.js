@@ -12,8 +12,9 @@ async function synthesize(text, languageCode, fileName) {
   // Construct the request
   const request = {
     input: { text },
-    voice: { languageCode, ssmlGender: 'MALE', name: 'ar-XA-Wavenet-C' },
-    audioConfig: { audioEncoding: 'MP3' }
+    voice: { languageCode, ssmlGender: 'MALE', name: 'ar-XA-Wavenet-B' },
+    audioConfig: { audioEncoding: 'OGG_OPUS' },
+    speakingRate: 0.75
   }
 
   // Performs the text-to-speech request

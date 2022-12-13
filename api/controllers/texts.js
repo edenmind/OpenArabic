@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/consistent-destructuring */
+
 'use strict'
 
 const axios = require('axios').default
@@ -7,7 +9,8 @@ const {
   timeAgo,
   readingTime,
   slugifyWithAuthor,
-  mp3Filename
+  mp3Filename,
+  removeHost
 } = require('../services/utils')
 const { ObjectId } = require('mongodb')
 const { synthesize } = require('../services/tts')
@@ -112,15 +115,16 @@ async function addText(request, reply) {
     )
   }
 
+  //remove url from text.image with removeHost
+  data.image = removeHost(data.image)
+
   // loop through all sentences, generate a guid for each sentence and add it to the sentence.
-  // don't create a new sentence, just add the guid to the existing sentence
   const sentencesWithGuid = sentences.map((sentence) => {
     const id = uuidv4().slice(0, 8)
     return { ...sentence, id }
   })
 
   // loop through all sentences, loop through all words in each sentence, generate a guid for each word and add it to the word.
-  // don't create a new word, just add the guid to the existing word
   const sentencesWithGuidAndWordsWithGuid = sentencesWithGuid.map((sentence) => {
     const wordsWithGuid = sentence.words.map((word) => {
       const id = uuidv4().slice(0, 8)
@@ -208,6 +212,18 @@ async function getText(request, reply) {
   text.timeAgo = timeAgo(text.publishAt)
   text.readingTime = readingTime(text.texts.arabic)
   text.vocabularyCollection = produceVocabularyCollection(text)
+
+  //loop through the sentences and words and add the url to the audio file
+  text.sentences = text.sentences.map((sentence) => {
+    sentence.words = sentence.words.map((word) => {
+      word.filename += process.env.AUDIO_URL
+
+      return word
+    })
+    sentence.filename += process.env.AUDIO_URL
+
+    return sentence
+  })
 
   //send the text
   reply.code(200).send(text)

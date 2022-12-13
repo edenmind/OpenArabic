@@ -7,6 +7,12 @@ const moment = require('moment')
 const { v4: uuidv4 } = require('uuid')
 const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3')
 
+//function to remove host from url
+const removeHost = (url) => {
+  //only keep the part in url after the last /
+  return url.slice(Math.max(0, url.lastIndexOf('/') + 1))
+}
+
 //function to copy files from a local directory to a Amazon S3 bucket
 const copyFileToS3 = async (fileContent, fileName) => {
   const s3Client = new S3Client({
@@ -23,7 +29,8 @@ const copyFileToS3 = async (fileContent, fileName) => {
     Bucket: 'openarabic',
     Body: fileContent,
     Key: 'audio/' + fileName,
-    ACL: 'public-read'
+    ACL: 'public-read',
+    ContentType: 'audio/mpeg'
   }
 
   try {
@@ -193,7 +200,7 @@ const mp3Filename = (text, sentence, language, word) => {
     .replace(/[^\da-z]+/g, '-')
     .replace(/(^-|-$)+/g, '')
 
-  return `${textSlug}-${sentenceSlug}-${languageSlug}-${wordSlug}.mp3`
+  return `${textSlug}-${sentenceSlug}-${languageSlug}-${wordSlug}.ogg`
 }
 
 module.exports = {
@@ -203,5 +210,6 @@ module.exports = {
   readingTime,
   slugifyWithAuthor,
   mp3Filename,
-  copyFileToS3
+  copyFileToS3,
+  removeHost
 }

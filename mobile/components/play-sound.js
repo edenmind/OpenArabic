@@ -25,11 +25,8 @@ export default function PlaySound(props) {
       playsInSilentModeIOS: true
     })
 
-    // TODO: let the backend construct the entire URL
-    const url = 'https://openarabic.ams3.digitaloceanspaces.com/audio/' + props.audioFileName
-
     const { sound } = await Audio.Sound.createAsync(
-      { uri: url },
+      { uri: props.audioFileName },
       {
         shouldPlay: true,
         rate: 1,
@@ -39,6 +36,7 @@ export default function PlaySound(props) {
         isLooping: false
       }
     )
+
     setSound(sound)
 
     await sound.playAsync()
