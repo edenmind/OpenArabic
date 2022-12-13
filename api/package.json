@@ -47,7 +47,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-putout": "^16.3.0",
     "eslint-plugin-security": "^1.5.0",
-    "eslint-plugin-unicorn": "^45.0.1",
+    "eslint-plugin-unicorn": "^45.0.2",
     "prettier": "^2.8.1",
     "putout": "^28.1.0",
     "tap": "^16.3.2"
