@@ -21,7 +21,7 @@ test('mp3Filename returns the expected string', (t) => {
   const language = 'language'
   const word = 'word'
 
-  const expected = 'text-sentence-language-word.mp3'
+  const expected = 'text-sentence-language-word.ogg'
   //act
   const actual = mp3Filename(text, sentence, language, word)
   //assert
