@@ -26,7 +26,7 @@ async function synthesize(text, languageCode, fileName) {
   }
 
   // Write the binary audio content to S3 compatible storage
-  copyFileToS3(response.audioContent, fileName)
+  await copyFileToS3(response.audioContent, fileName)
 }
 
 module.exports = {

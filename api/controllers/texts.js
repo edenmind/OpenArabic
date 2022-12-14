@@ -29,8 +29,15 @@ async function listTexts(request, reply) {
   const textListWithProperties = textListSWithNewestFirst.map((text) => ({
     ...text,
     timeAgo: timeAgo(text.publishAt),
-    readingTime: readingTime(text.texts.arabic)
+    readingTime: readingTime(text.texts.arabic),
+    image: process.env.IMAGES_URL + text.image
   }))
+
+  //print the image property of every entry in the array
+  // eslint-disable-next-line putout/putout
+  for (const text of textListWithProperties) {
+    console.log('The image: ' + text.image)
+  }
 
   //send the texts
   if (textListWithProperties.length > 0) {
@@ -52,7 +59,8 @@ async function listTextsWithId(request, reply) {
   const textListWithProperties = textListSWithNewestFirst.map((text) => ({
     ...text,
     timeAgo: timeAgo(text.publishAt),
-    readingTime: readingTime(text.texts.arabic)
+    readingTime: readingTime(text.texts.arabic),
+    image: process.env.IMAGES_URL + text.image
   }))
 
   //send the texts
@@ -213,16 +221,24 @@ async function getText(request, reply) {
   text.readingTime = readingTime(text.texts.arabic)
   text.vocabularyCollection = produceVocabularyCollection(text)
 
+  //set the correct url for the image
+  text.image = process.env.IMAGES_URL + text.image
+
   //loop through the sentences and words and add the url to the audio file
   text.sentences = text.sentences.map((sentence) => {
     sentence.words = sentence.words.map((word) => {
-      word.filename += process.env.AUDIO_URL
+      word.filename = process.env.AUDIO_URL + sentence.filename
 
       return word
     })
-    sentence.filename += process.env.AUDIO_URL
+    sentence.filename = process.env.AUDIO_URL + sentence.filename
 
     return sentence
+  })
+
+  //loop through all sentences and console log the sentence
+  text.sentences.forEach((sentence) => {
+    console.log(sentence.filename)
   })
 
   //send the text
