@@ -39,7 +39,7 @@ const copyFileToS3 = async (fileContent, fileName) => {
 
     console.log(data)
   } catch (error) {
-    console.log('Error', error)
+    throw new Error('Error', error)
   }
 }
 
