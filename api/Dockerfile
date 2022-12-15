@@ -13,7 +13,7 @@ COPY ["package.json", "yarn.lock", "./"]
 RUN yarn install --production && mv node_modules ../ && yarn global add fastify-cli && yarn cache clean
 
 # Copy only the source code
-COPY src/ ./src
+COPY . .
 
 # Change ownership to the node user
 RUN chown -R node /usr/src/app
