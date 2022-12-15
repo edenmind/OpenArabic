@@ -14,7 +14,7 @@ async function synthesize(text, languageCode, fileName) {
     input: { text },
     voice: { languageCode, ssmlGender: 'MALE', name: 'ar-XA-Wavenet-B' },
     audioConfig: { audioEncoding: 'OGG_OPUS' },
-    speakingRate: 0.75
+    speakingRate: 0.7
   }
 
   // Performs the text-to-speech request

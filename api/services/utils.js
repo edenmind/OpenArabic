@@ -200,7 +200,7 @@ const mp3Filename = (text, sentence, language, word) => {
     .replace(/[^\da-z]+/g, '-')
     .replace(/(^-|-$)+/g, '')
 
-  return `${textSlug}-${sentenceSlug}-${languageSlug}-${wordSlug}.ogg`
+  return `${textSlug}-${sentenceSlug}-${languageSlug}-${wordSlug}.mp3`
 }
 
 module.exports = {
