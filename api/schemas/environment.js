@@ -2,15 +2,18 @@
 
 const schema = {
   type: 'object',
-  required: ['API_MONGO_DB_URL'],
+  required: ['MONGO_DB_URL'],
   properties: {
-    API_MONGO_DB_URL: {
+    MONGO_DB_URL: {
       type: 'string'
     },
-    API_TASHKEEL_URL: {
+    TASHKEEL_URL: {
       type: 'string'
     },
-    API_IMAGES_URL: {
+    IMAGES_URL: {
+      type: 'string'
+    },
+    AUDIO_URL: {
       type: 'string'
     }
   }

@@ -227,7 +227,7 @@ async function getText(request, reply) {
   //loop through the sentences and words and add the url to the audio file
   text.sentences = text.sentences.map((sentence) => {
     sentence.words = sentence.words.map((word) => {
-      word.filename = process.env.AUDIO_URL + sentence.filename
+      word.filename = process.env.AUDIO_URL + word.filename
 
       return word
     })
@@ -247,7 +247,7 @@ async function getText(request, reply) {
 
 async function getTashkeel(request, reply) {
   const { encodedText } = request.body
-  const url = `${process.env.API_TASHKEEL_URL}/tashkeel?unvoweled=${encodedText}`
+  const url = `${process.env.TASHKEEL_URL}/tashkeel?unvoweled=${encodedText}`
   const response = await axios.get(url)
 
   reply.send(response.data)
