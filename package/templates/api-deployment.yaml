@@ -31,21 +31,26 @@ spec:
             seccompProfile:
               type: RuntimeDefault
           env:
-            - name: API_MONGO_DB_URL
+            - name: MONGO_DB_URL
               valueFrom:
                 secretKeyRef:
                   name: api-config
                   key: MONGO_DB_URL
-            - name: API_TASHKEEL_URL
+            - name: TASHKEEL_URL
               valueFrom:
                 secretKeyRef:
                   name: api-config
                   key: TASHKEEL_URL
-            - name: API_IMAGES_URL
+            - name: IMAGES_URL
               valueFrom:
                 secretKeyRef:
                   name: api-config
                   key: IMAGES_URL
+            - name: AUDIO_URL
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: AUDIO_URL
             - name: API_KEY
               valueFrom:
                 secretKeyRef:

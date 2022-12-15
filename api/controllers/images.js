@@ -6,7 +6,7 @@ function getImages(request, reply) {
 
   for (let index = 1; index < numberOfImages; index++) {
     images.push({
-      img: `${process.env.API_IMAGES_URL}${index}.jpg`
+      img: `${process.env.IMAGES_URL}${index}.jpg`
     })
   }
 
