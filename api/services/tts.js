@@ -13,7 +13,7 @@ async function synthesize(text, languageCode, fileName) {
   const request = {
     input: { text },
     voice: { languageCode, ssmlGender: 'MALE', name: 'ar-XA-Wavenet-B' },
-    audioConfig: { audioEncoding: 'OGG_OPUS' },
+    audioConfig: { audioEncoding: 'MP3' },
     speakingRate: 0.7
   }
 
