@@ -34,10 +34,8 @@ const copyFileToS3 = async (fileContent, fileName) => {
   }
 
   try {
-    const data = await s3Client.send(new PutObjectCommand(parameters))
+    await s3Client.send(new PutObjectCommand(parameters))
     console.log('Successfully uploaded object: ' + parameters.Bucket + '/' + parameters.Key)
-
-    console.log(data)
   } catch (error) {
     throw new Error('Error', error)
   }
