@@ -183,6 +183,7 @@ async function addText(request, reply) {
     await textsCollection.insertOne(data)
     return reply.code(201).send(id)
   } catch (error) {
+    console.log(error)
     return reply.internalServerError(error)
   }
 }
@@ -227,18 +228,13 @@ async function getText(request, reply) {
   //loop through the sentences and words and add the url to the audio file
   text.sentences = text.sentences.map((sentence) => {
     sentence.words = sentence.words.map((word) => {
-      word.filename = process.env.AUDIO_URL + sentence.filename
+      word.filename = process.env.AUDIO_URL + word.filename
 
       return word
     })
     sentence.filename = process.env.AUDIO_URL + sentence.filename
 
     return sentence
-  })
-
-  //loop through all sentences and console log the sentence
-  text.sentences.forEach((sentence) => {
-    console.log(sentence.filename)
   })
 
   //send the text

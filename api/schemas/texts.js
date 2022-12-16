@@ -14,7 +14,27 @@ const getTextsOptions = {
   schema: {
     response: {
       200: {
-        type: 'array'
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            id: { type: 'string' },
+            title: { type: 'string' },
+            status: { type: 'string' },
+            slug: { type: 'string' },
+            image: { type: 'string' },
+            views: { type: 'string' },
+            timeAgo: { type: 'string' },
+            readingTime: { type: 'string' },
+            createdAt: { type: 'string' },
+            updatedAt: { type: 'string' },
+            publishAt: { type: 'string' },
+            author: { type: 'string' },
+            category: { type: 'string' },
+            source: { type: 'string' },
+            texts: { arabic: { type: 'object' }, english: { type: 'object' } }
+          }
+        }
       }
     }
   },
@@ -25,7 +45,27 @@ const getTextsWithIdOptions = {
   schema: {
     response: {
       200: {
-        type: 'array'
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            id: { type: 'string' },
+            title: { type: 'string' },
+            status: { type: 'string' },
+            slug: { type: 'string' },
+            image: { type: 'string' },
+            views: { type: 'string' },
+            timeAgo: { type: 'string' },
+            readingTime: { type: 'string' },
+            createdAt: { type: 'string' },
+            updatedAt: { type: 'string' },
+            publishAt: { type: 'string' },
+            author: { type: 'string' },
+            category: { type: 'string' },
+            source: { type: 'string' },
+            texts: { arabic: { type: 'object' }, english: { type: 'object' } }
+          }
+        }
       }
     }
   },
