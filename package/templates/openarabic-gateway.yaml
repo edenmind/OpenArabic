@@ -13,4 +13,3 @@ spec:
         protocol: HTTP
       hosts:
         - '*'
-      timeout: 60s
