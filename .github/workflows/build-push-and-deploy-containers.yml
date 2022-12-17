@@ -53,28 +53,12 @@ jobs:
         env:
           GIT_SHA: ${{ steps.prep.outputs.GIT_SHA }}
 
-      - name: 📦  Build and Push Static to Container Registry
-        uses: docker/build-push-action@v3
-        with:
-          file: ./static/Dockerfile
-          tags: registry.digitalocean.com/openarabic/static:${{ steps.prep.outputs.BUILD_ID }}
-          context: ./static
-          push: true
-
       - name: 📦  Build and Push API to Container Registry
         uses: docker/build-push-action@v3
         with:
           file: ./api/Dockerfile
           tags: registry.digitalocean.com/openarabic/api:${{ steps.prep.outputs.BUILD_ID }}
           context: ./api
-          push: true
-
-      - name: 📦  Build and Push Services to Container Registry
-        uses: docker/build-push-action@v3
-        with:
-          file: ./services/Dockerfile
-          tags: registry.digitalocean.com/openarabic/tashkeel:${{ steps.prep.outputs.BUILD_ID }}
-          context: ./services/
           push: true
 
       - name: 📦  Build and Push Web to Container Registry
