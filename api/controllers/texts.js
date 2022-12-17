@@ -144,6 +144,18 @@ async function addText(request, reply) {
   data.sentences = sentencesWithGuidAndWordsWithGuid
   data.textGuid = uuidv4().slice(0, 8)
 
+  //try to insert the data
+  try {
+    const result = await textsCollection.insertOne(data)
+    console.log('Inserted text with _id: ', result.insertedId)
+    // we send a reply before generating the mp3 files to avoid waiting for the mp3 files to be generated before sending the reply
+    reply.code(201).send(result.insertedId)
+  } catch (error) {
+    console.log(error)
+    //if there is an error, send the error message and return from the function to avoid generating the mp3 files
+    return reply.internalServerError(error)
+  }
+
   // This code loops over a collection of sentences and calls a
   // function to synthesize each sentence.
   // it also take the guid of the sentence and pass it as a parameter to the function
@@ -151,13 +163,23 @@ async function addText(request, reply) {
     // Build the MP3 filename
     const fileName = mp3Filename(data.textGuid, id, 'ar', 'sentence')
 
+    // check that filename is not empty
+    if (fileName.length === 0) {
+      return reply.internalServerError('Filename is empty!')
+    }
+
     //add the filename as a property to the sentence
     const sentence = sentencesWithGuidAndWordsWithGuid.find((sentence) => sentence.id === id)
 
     sentence.filename = fileName
 
     // Synthesize the sentence
-    await synthesize(arabic, 'ar-XA', fileName)
+    try {
+      await synthesize(arabic, 'ar-XA', fileName)
+    } catch (error) {
+      console.log(error)
+      return reply.internalServerError(error)
+    }
   }
 
   // This function loops through the sentences and words in the text
@@ -168,23 +190,24 @@ async function addText(request, reply) {
       // For each word, create a filename
       const fileName = mp3Filename(data.textGuid, sentenceGuid, 'ar', wordGuid)
 
+      //fail if the filename is empty
+      if (fileName.length === 0) {
+        return reply.internalServerError('Filename is empty!')
+      }
+
       //add the filename as a property to the word
       const word = words.find((word) => word.id === wordGuid)
 
       word.filename = fileName
 
       // Synthetize the word and save it to the file
-      await synthesize(arabic, 'ar-XA', fileName)
+      try {
+        await synthesize(arabic, 'ar-XA', fileName)
+      } catch (error) {
+        console.log(error)
+        return reply.internalServerError(error)
+      }
     }
-  }
-
-  //try to insert the data
-  try {
-    await textsCollection.insertOne(data)
-    return reply.code(201).send(id)
-  } catch (error) {
-    console.log(error)
-    return reply.internalServerError(error)
   }
 }
 
