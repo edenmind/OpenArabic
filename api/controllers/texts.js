@@ -145,16 +145,11 @@ async function addText(request, reply) {
   data.textGuid = uuidv4().slice(0, 8)
 
   //try to insert the data
-  try {
-    const result = await textsCollection.insertOne(data)
-    console.log('Inserted text with _id: ', result.insertedId)
-    // we send a reply before generating the mp3 files to avoid waiting for the mp3 files to be generated before sending the reply
-    reply.code(201).send(result.insertedId)
-  } catch (error) {
-    console.log(error)
-    //if there is an error, send the error message and return from the function to avoid generating the mp3 files
-    return reply.internalServerError(error)
-  }
+
+  const result = await textsCollection.insertOne(data)
+  console.log('Inserted text with _id: ', result.insertedId)
+  // we send a reply before generating the mp3 files to avoid waiting for the mp3 files to be generated before sending the reply
+  reply.code(201).send(result.insertedId)
 
   // This code loops over a collection of sentences and calls a
   // function to synthesize each sentence.
