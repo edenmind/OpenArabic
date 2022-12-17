@@ -31,7 +31,7 @@ spec:
     metrics:
       - name: request-success-rate
         thresholdRange:
-          min: 99
+          min: 95
         interval: 10s
       - name: request-duration
         thresholdRange:
