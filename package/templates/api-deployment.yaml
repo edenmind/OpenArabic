@@ -76,7 +76,7 @@ spec:
               memory: 512Mi
               cpu: 1000m
             requests:
-              memory: 100Mi
+              memory: 175Mi
               cpu: 125m
           livenessProbe:
             httpGet:
