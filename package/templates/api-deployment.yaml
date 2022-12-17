@@ -77,7 +77,7 @@ spec:
               cpu: 1000m
             requests:
               memory: 100Mi
-              cpu: 25m
+              cpu: 125m
           livenessProbe:
             httpGet:
               path: /health
