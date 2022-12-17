@@ -19,10 +19,6 @@ spec:
     trafficPolicy:
       tls:
         mode: DISABLE
-    retries:
-      attempts: 3
-      perTryTimeout: 1s
-      retryOn: 'gateway-error,connect-failure,refused-stream'
   analysis:
     interval: 30s
     threshold: 5
