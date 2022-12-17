@@ -1,6 +1,7 @@
-/* eslint-disable unicorn/consistent-destructuring */
-
 'use strict'
+
+const tryToCatch = require('try-to-catch')
+/* eslint-disable unicorn/consistent-destructuring */
 
 const axios = require('axios').default
 const COLLECTIONS = require('../constants/collections.js')
@@ -32,12 +33,6 @@ async function listTexts(request, reply) {
     readingTime: readingTime(text.texts.arabic),
     image: process.env.IMAGES_URL + text.image
   }))
-
-  //print the image property of every entry in the array
-  // eslint-disable-next-line putout/putout
-  for (const text of textListWithProperties) {
-    console.log('The image: ' + text.image)
-  }
 
   //send the texts
   if (textListWithProperties.length > 0) {
@@ -162,10 +157,9 @@ async function addText(request, reply) {
     sentence.filename = fileName
 
     // Synthesize the sentence
-    try {
-      await synthesize(arabic, 'ar-XA', fileName)
-    } catch (error) {
-      console.log(error)
+    const [error] = await tryToCatch(synthesize, arabic, 'ar-XA', fileName)
+
+    if (error) {
       return reply.internalServerError(error)
     }
   }
@@ -189,10 +183,9 @@ async function addText(request, reply) {
       word.filename = fileName
 
       // Synthetize the word and save it to the file
-      try {
-        await synthesize(arabic, 'ar-XA', fileName)
-      } catch (error) {
-        console.log(error)
+      const [error] = await tryToCatch(synthesize, arabic, 'ar-XA', fileName)
+
+      if (error) {
         return reply.internalServerError(error)
       }
     }
@@ -201,11 +194,9 @@ async function addText(request, reply) {
   //try to insert the data
   try {
     const result = await textsCollection.insertOne(data)
-    console.log('Inserted text with _id: ', result.insertedId)
     // we send a reply before generating the mp3 files to avoid waiting for the mp3 files to be generated before sending the reply
     return reply.code(201).send(result.insertedId)
   } catch (error) {
-    console.log(error)
     //if there is an error, send the error message and return from the function to avoid generating the mp3 files
     return reply.internalServerError(error)
   }
@@ -246,16 +237,16 @@ async function getText(request, reply) {
   text.vocabularyCollection = produceVocabularyCollection(text)
 
   //set the correct url for the image
-  text.image = process.env.IMAGES_URL + text.image
+  text.image += process.env.IMAGES_URL
 
   //loop through the sentences and words and add the url to the audio file
   text.sentences = text.sentences.map((sentence) => {
     sentence.words = sentence.words.map((word) => {
-      word.filename = process.env.AUDIO_URL + word.filename
+      word.filename += process.env.AUDIO_URL
 
       return word
     })
-    sentence.filename = process.env.AUDIO_URL + sentence.filename
+    sentence.filename += process.env.AUDIO_URL
 
     return sentence
   })
