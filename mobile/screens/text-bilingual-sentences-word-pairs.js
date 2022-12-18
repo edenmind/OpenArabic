@@ -8,7 +8,7 @@ import PlaySound from '../components/play-sound.js'
 function TextBilingualSentencesWordPairs(props) {
   const style = StyleSheet.create({
     arabic: {
-      fontFamily: 'uthmanic',
+      fontFamily: 'amiri',
       fontSize: 35,
       opacity: 0.9
     },

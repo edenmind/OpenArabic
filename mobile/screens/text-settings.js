@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 
 function TextSettingsScreen() {
-  const [arabicFontName, setArabicFontName] = React.useState('uthmanic')
+  const [arabicFontName, setArabicFontName] = React.useState('amiri')
   const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16)
   const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20)
   const [isTransliterationOn, setIsTransliterationOn] = React.useState(false)
@@ -197,7 +197,7 @@ function TextSettingsScreen() {
         }}
         buttons={[
           {
-            value: 'uthmanic',
+            value: 'amiri',
             label: 'Amiri'
           },
           {

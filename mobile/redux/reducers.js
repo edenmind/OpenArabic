@@ -13,9 +13,9 @@ const initialStateText = {
     title: '',
     publishAt: '2021-01-01T00:00:00.000Z',
     wordByWord: [['']],
-    image: 'abc',
+    image: 'No Data',
     texts: { arabic: '', english: '' },
-    category: 'abc',
+    category: 'No Data',
     author: '',
     arabicSentence: [''],
     source: '',
@@ -62,40 +62,33 @@ const initialStateText = {
 const initialStateTexts = {
   texts: []
 }
-
-const initialStateLoading = {
-  textLoading: true,
-  textsLoading: true
-}
-
 const initialStateUI = {
   arabicFontSize: 27,
   englishFontSize: 16,
   isTransliterationOn: 'on',
-  arabicFontName: 'amiri'
+  arabicFontName: 'amiri',
+  textLoading: true,
+  textsLoading: true
 }
 
-const arabicFontNameReducer = createReducer(initialStateUI, (builder) => {
+const UIStateReducer = createReducer(initialStateUI, (builder) => {
   builder.addCase(actions.SET_ARABIC_FONT_NAME, (state, action) => {
     return { ...state, arabicFontName: action.payload }
   })
-})
-
-const transliterationReducer = createReducer(initialStateUI, (builder) => {
   builder.addCase(actions.SET_TRANSLITERATION, (state, action) => {
     return { ...state, isTransliterationOn: action.payload }
   })
-})
-
-const arabicFontSizeReducer = createReducer(initialStateUI, (builder) => {
   builder.addCase(actions.SET_ARABIC_FONT_SIZE, (state, action) => {
     return { ...state, arabicFontSize: action.payload }
   })
-})
-
-const englishFontSizeReducer = createReducer(initialStateUI, (builder) => {
   builder.addCase(actions.SET_ENGLISH_FONT_SIZE, (state, action) => {
     return { ...state, englishFontSize: action.payload }
+  })
+  builder.addCase(actions.SET_TEXT_LOADED, (state, action) => {
+    return { ...state, textLoading: action.payload }
+  })
+  builder.addCase(actions.SET_TEXTS_LOADED, (state, action) => {
+    return { ...state, textsLoading: action.payload }
   })
 })
 
@@ -121,26 +114,4 @@ const textsReducer = createReducer(initialStateTexts, (builder) => {
   })
 })
 
-const textLoadingReducer = createReducer(initialStateLoading, (builder) => {
-  builder.addCase(actions.SET_TEXT_LOADED, (state, action) => {
-    return { ...state, textLoading: action.payload }
-  })
-})
-
-const textsLoadingReducer = createReducer(initialStateLoading, (builder) => {
-  builder.addCase(actions.SET_TEXTS_LOADED, (state, action) => {
-    return { ...state, textsLoading: action.payload }
-  })
-})
-
-export {
-  categoriesReducer,
-  textReducer,
-  textsReducer,
-  textLoadingReducer,
-  textsLoadingReducer,
-  arabicFontSizeReducer,
-  englishFontSizeReducer,
-  transliterationReducer,
-  arabicFontNameReducer
-}
+export { categoriesReducer, textReducer, textsReducer, UIStateReducer }
