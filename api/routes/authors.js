@@ -10,10 +10,10 @@ const {
 
 // eslint-disable-next-line putout/putout
 async function authors(fastify) {
-  fastify.get('/authors', getAuthorsOptions)
-  fastify.post('/authors', postAuthorOptions)
-  fastify.get('/authors/:id', getAuthorOptions)
-  fastify.put('/authors/:id', updateAuthorOptions)
   fastify.delete('/authors/:id', deleteAuthorOptions)
+  fastify.get('/authors', getAuthorsOptions)
+  fastify.get('/authors/:id', getAuthorOptions)
+  fastify.post('/authors', postAuthorOptions)
+  fastify.put('/authors/:id', updateAuthorOptions)
 }
 module.exports = authors

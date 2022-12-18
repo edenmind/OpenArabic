@@ -16,9 +16,6 @@ export const getTexts = (id) => async (dispatch) => {
     payload: res.data
   })
 
-  // pause for 1 second to let images load, there is a better way of doing this
-  await new Promise((resolve) => setTimeout(resolve, 300))
-
   dispatch({
     type: 'SET_TEXTS_LOADED',
     payload: true

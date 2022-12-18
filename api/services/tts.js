@@ -5,6 +5,7 @@
 
 const textToSpeech = require('@google-cloud/text-to-speech')
 const { copyFileToS3 } = require('./utils.js')
+const tryToCatch = require('try-to-catch')
 
 const client = new textToSpeech.TextToSpeechClient()
 
@@ -18,7 +19,7 @@ async function synthesize(text, languageCode, fileName) {
   }
 
   // Performs the text-to-speech request
-  const [response] = await client.synthesizeSpeech(request)
+  const [response] = await tryToCatch(client.synthesizeSpeech, request)
 
   //verify that the response is not empty
   if (!response.audioContent) {

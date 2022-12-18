@@ -1,14 +1,14 @@
 import { Text, SegmentedButtons, Surface, Switch } from 'react-native-paper'
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
 import { useDispatch } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 
-function TextSettingsScreen() {
-  const [arabicFontName, setArabicFontName] = React.useState('amiri')
-  const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16)
-  const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20)
+function TextSettings() {
+  const [arabicFontName, setArabicFontName] = React.useState('amiri') // default font
+  const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16) // default font size
+  const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20) // default font size
   const [isTransliterationOn, setIsTransliterationOn] = React.useState(false)
   const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
@@ -229,4 +229,4 @@ function TextSettingsScreen() {
   )
 }
 
-export default TextSettingsScreen
+export default TextSettings
