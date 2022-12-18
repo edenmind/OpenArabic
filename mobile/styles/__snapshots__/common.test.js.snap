@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CategoryCard /> renders correctly 1`] = `
+exports[`useSharedStyles should match snapshot 1`] = `
 <Context.Provider
   value={
     {
@@ -25,21 +25,7 @@ exports[`<CategoryCard /> renders correctly 1`] = `
   }
 >
   <ForwardRef(NavigationContainerInner)>
-    <TextListCard
-      setShouldReload={[Function]}
-      text={
-        {
-          "author": "someAuthor",
-          "category": "someCategory",
-          "id": "someId",
-          "texts": {
-            "arabic": "someArabic",
-            "english": "someEnglish",
-          },
-          "title": "someTitle",
-        }
-      }
-    />
+    <TestComponent />
   </ForwardRef(NavigationContainerInner)>
 </Context.Provider>
 `;

@@ -1,10 +1,9 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable putout/putout */
 
 'use strict'
 
 const tryToCatch = require('try-to-catch')
-/* eslint-disable unicorn/consistent-destructuring */
-
 const axios = require('axios').default
 const COLLECTIONS = require('../constants/collections.js')
 const {
@@ -17,24 +16,31 @@ const {
 } = require('../services/utils')
 const { ObjectId } = require('mongodb')
 const { synthesize } = require('../services/tts')
-//require uuid4 to generate unique ids
 const { v4: uuidv4 } = require('uuid')
 
 async function listTexts(request, reply) {
+  //get the texts collection
+  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
+
   //get the texts from the database
-  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const textList = await texts.find({}).toArray()
+  const textList = await textsCollection.find({}).toArray()
 
   //sort texts by publishAt
-  const textListSWithNewestFirst = textList.reverse()
+  const textListWithNewestFirst = textList.reverse()
 
   //add properties for timeAgo and readingTime for each text
-  const textListWithProperties = textListSWithNewestFirst.map((text) => ({
-    ...text,
-    timeAgo: timeAgo(text.publishAt),
-    readingTime: readingTime(text.texts.arabic),
-    image: process.env.IMAGES_URL + text.image
-  }))
+  const textListWithProperties = textListWithNewestFirst.map((text) => {
+    if (!Array.isArray(textListWithNewestFirst) || !text.publishAt || !text.texts.arabic || !text.image) {
+      return reply.internalServerError('One or more values are empty!')
+    }
+
+    return {
+      ...text,
+      timeAgo: timeAgo(text.publishAt),
+      readingTime: readingTime(text.texts.arabic),
+      image: process.env.IMAGES_URL + text.image
+    }
+  })
 
   //send the texts
   if (textListWithProperties.length > 0) {
@@ -45,20 +51,28 @@ async function listTexts(request, reply) {
 }
 
 async function listTextsWithId(request, reply) {
+  //get the texts collection
+  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
+
   //get the texts from the database
-  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const textList = await texts.find({ category: request.params.id }).toArray()
+  const textList = await textsCollection.find({ category: request.params.id }).toArray()
 
   //sort texts by publishAt
-  const textListSWithNewestFirst = textList.reverse()
+  const textListWithNewestFirst = textList.reverse()
 
   //add properties for timeAgo and readingTime for each text
-  const textListWithProperties = textListSWithNewestFirst.map((text) => ({
-    ...text,
-    timeAgo: timeAgo(text.publishAt),
-    readingTime: readingTime(text.texts.arabic),
-    image: process.env.IMAGES_URL + text.image
-  }))
+  const textListWithProperties = textListWithNewestFirst.map((text) => {
+    if (!Array.isArray(textListWithNewestFirst) || !text.publishAt || !text.texts.arabic || !text.image) {
+      return reply.internalServerError('One or more values are empty!')
+    }
+
+    return {
+      ...text,
+      timeAgo: timeAgo(text.publishAt),
+      readingTime: readingTime(text.texts.arabic),
+      image: process.env.IMAGES_URL + text.image
+    }
+  })
 
   //send the texts
   if (textListWithProperties.length > 0) {
@@ -141,7 +155,7 @@ async function addText(request, reply) {
   data.sentences = sentencesWithGuidAndWordsWithGuid
   data.textGuid = uuidv4().slice(0, 8)
 
-  // This code loops over a collection of sentences and calls a
+  // loop over a collection of sentences and call a
   // function to synthesize each sentence.
   // it also take the guid of the sentence and pass it as a parameter to the function
   for (const { arabic, id } of sentencesWithGuidAndWordsWithGuid) {
@@ -237,8 +251,6 @@ async function getText(request, reply) {
   text.timeAgo = timeAgo(text.publishAt)
   text.readingTime = readingTime(text.texts.arabic)
   text.vocabularyCollection = produceVocabularyCollection(text)
-
-  //set the correct url for the image
   text.image = process.env.IMAGES_URL + text.image
 
   //loop through the sentences and words and add the url to the audio file

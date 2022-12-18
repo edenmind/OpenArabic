@@ -137,3 +137,21 @@ describe('remove empty elements from array', () => {
     expect(filteredArray.length).toBe(2)
   })
 })
+
+describe('shoud return correct hijridate', () => {
+  it('should return correct hijridate', () => {
+    // Arrange
+
+    const expectedDate = new Date().toLocaleDateString('ar-SA-u-ca-islamic-civil', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+
+    // Act
+    const hijriDate = util.getHijriDate()
+
+    // Assert
+    expect(hijriDate).toBe(expectedDate)
+  })
+})

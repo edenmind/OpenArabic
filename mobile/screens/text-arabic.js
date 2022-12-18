@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler'
-import { ScrollView, StyleSheet } from 'react-native'
+import { ScrollView } from 'react-native'
 import { Text } from 'react-native-paper'
 import React from 'react'
 import Spinner from '../components/spinner.js'

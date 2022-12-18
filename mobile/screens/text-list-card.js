@@ -14,7 +14,7 @@ const prepareIngress = (text, length) => {
   return truncate(spaceAfterDot, length)
 }
 
-export default function CategoryCard(props) {
+export default function TextListCard(props) {
   const sharedStyle = useSharedStyles()
 
   const style = StyleSheet.create({
@@ -77,7 +77,7 @@ export default function CategoryCard(props) {
   )
 }
 
-CategoryCard.propTypes = {
+TextListCard.propTypes = {
   setShouldReload: PropTypes.func.isRequired,
   navigation: PropTypes.object,
   text: PropTypes.shape({
