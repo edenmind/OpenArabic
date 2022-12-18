@@ -2,15 +2,7 @@
 
 const schema = {
   type: 'object',
-  required: [
-    'MONGO_DB_URL',
-    'IMAGES_URL',
-    'AUDIO_URL',
-    'GOOGLE_APPLICATION_CREDENTIALS',
-    'API_KEY',
-    'AWS_ACCESS_KEY_ID',
-    'AWS_SECRET_ACCESS_KEY'
-  ],
+  required: ['MONGO_DB_URL'],
   properties: {
     MONGO_DB_URL: {
       type: 'string'
