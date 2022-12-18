@@ -7,7 +7,7 @@ import LANGUAGES from '../constants/languages.js'
 
 const styles = StyleSheet.create({
   arabic: {
-    fontFamily: 'uthmanic',
+    fontFamily: 'amiri',
     fontSize: 30,
     lineHeight: 60
   },

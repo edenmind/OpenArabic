@@ -84,7 +84,7 @@ CategoryCard.propTypes = {
     id: PropTypes.string,
     slug: PropTypes.string,
     title: PropTypes.string,
-    views: PropTypes.number,
+    views: PropTypes.string,
     timeAgo: PropTypes.string,
     readingTime: PropTypes.string,
     image: PropTypes.string,

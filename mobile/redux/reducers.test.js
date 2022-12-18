@@ -1,5 +1,5 @@
 /* eslint-disable putout/objects-braces-inside-array */
-import { categoriesReducer, textReducer, textsReducer, textLoadingReducer } from './reducers.js'
+import { categoriesReducer, textReducer, textsReducer, UIStateReducer } from './reducers.js'
 import { expect, it, jest } from '@jest/globals'
 // jest should mock new Date
 jest.useFakeTimers().setSystemTime(new Date('2021-01-01T00:00:00.000Z'))
@@ -37,9 +37,9 @@ it('textReducer', () => {
       title: '',
       publishAt: '2021-01-01T00:00:00.000Z',
       wordByWord: [['']],
-      image: 'abc',
+      image: 'No Data',
       texts: { arabic: '', english: '' },
-      category: 'abc',
+      category: 'No Data',
       author: '',
       arabicSentence: [''],
       source: '',
@@ -85,15 +85,12 @@ it('textReducer', () => {
   })
 })
 
-it('textLoadingReducer', () => {
-  expect(textLoadingReducer(undefined, { type: 'SET_TEXT_LOADED', payload: false })).toEqual({
-    textLoading: false,
-    textsLoading: true
-  })
-})
-
-it('textLoadingReducer', () => {
-  expect(textLoadingReducer(undefined, { type: 'SET_TEXTS_LOADED', payload: true })).toEqual({
+it('UIStateReducer', () => {
+  expect(UIStateReducer(undefined, { type: 'SET_TEXT_LOADING', payload: true })).toEqual({
+    arabicFontName: 'amiri',
+    arabicFontSize: 27,
+    englishFontSize: 16,
+    isTransliterationOn: 'on',
     textLoading: true,
     textsLoading: true
   })

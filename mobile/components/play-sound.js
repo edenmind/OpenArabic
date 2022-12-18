@@ -3,7 +3,6 @@ import { Button } from 'react-native-paper'
 import { Audio } from 'expo-av'
 import { StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
-import * as Haptics from 'expo-haptics'
 
 // This is more of a component than a server and might be better placed in the components folder
 export default function PlaySound(props) {
@@ -16,8 +15,6 @@ export default function PlaySound(props) {
   })
 
   async function playSound() {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-
     await Audio.setAudioModeAsync({
       staysActiveInBackground: true,
       shouldDuckAndroid: false,

@@ -35,7 +35,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
               "writingDirection": "ltr",
             },
             {
-              "fontFamily": "uthmanic",
+              "fontFamily": "amiri",
               "fontSize": 35,
               "opacity": 0.9,
             },
@@ -276,7 +276,7 @@ exports[`<TextBilingualSentencesWordPairs /> renders without crashing renders co
               "writingDirection": "ltr",
             },
             {
-              "fontFamily": "uthmanic",
+              "fontFamily": "amiri",
               "fontSize": 35,
               "opacity": 0.9,
             },
