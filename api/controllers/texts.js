@@ -1,3 +1,5 @@
+/* eslint-disable putout/putout */
+
 'use strict'
 
 const tryToCatch = require('try-to-catch')
@@ -237,16 +239,16 @@ async function getText(request, reply) {
   text.vocabularyCollection = produceVocabularyCollection(text)
 
   //set the correct url for the image
-  text.image += process.env.IMAGES_URL
+  text.image = process.env.IMAGES_URL + text.image
 
   //loop through the sentences and words and add the url to the audio file
   text.sentences = text.sentences.map((sentence) => {
     sentence.words = sentence.words.map((word) => {
-      word.filename += process.env.AUDIO_URL
+      word.filename = process.env.AUDIO_URL + word.filename
 
       return word
     })
-    sentence.filename += process.env.AUDIO_URL
+    sentence.filename = process.env.AUDIO_URL + sentence.filename
 
     return sentence
   })
