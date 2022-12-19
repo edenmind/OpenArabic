@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.61",
+  "version": "1444.4.62",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -20,8 +20,8 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/lab": "^5.0.0-alpha.112",
     "@mui/material": "^5.11.0",
-    "@mui/x-data-grid": "^5.17.14",
-    "@mui/x-date-pickers": "^5.0.10",
+    "@mui/x-data-grid": "^5.17.16",
+    "@mui/x-date-pickers": "^5.0.11",
     "@reduxjs/toolkit": "^1.9.1",
     "@types/react-redux": "^7.1.24",
     "axios": "^0.27.2",
@@ -46,7 +46,7 @@
     "react-dom": "^18.2.0",
     "react-moment": "^1.1.2",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.4.5",
+    "react-router-dom": "^6.5.0",
     "react-scripts": "^5.0.1",
     "redux": "^4.2.0",
     "url": "^0.11.0",

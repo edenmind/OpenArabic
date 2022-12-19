@@ -2604,9 +2604,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^5.17.14":
-  version: 5.17.14
-  resolution: "@mui/x-data-grid@npm:5.17.14"
+"@mui/x-data-grid@npm:^5.17.16":
+  version: 5.17.16
+  resolution: "@mui/x-data-grid@npm:5.17.16"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@mui/utils": ^5.10.3
@@ -2618,13 +2618,13 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: 5bdc841debf6f288a49f960cb31cc98ff433fd321f4ac9c617f25b048c918c9fa7a5b90ceeda073377712273db7ff39c0518f3a64cd9cfe53abb6f7a1146d7a1
+  checksum: 5c07965ecd013f8196f8e1058269bd900c38b8b43c2c8e68e9e085c448f00c48c48e891bc79927ab71416329ad0ccb40caa22272663c73c7ad345fb14d93b159
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^5.0.10":
-  version: 5.0.10
-  resolution: "@mui/x-date-pickers@npm:5.0.10"
+"@mui/x-date-pickers@npm:^5.0.11":
+  version: 5.0.11
+  resolution: "@mui/x-date-pickers@npm:5.0.11"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@date-io/core": ^2.15.0
@@ -2662,7 +2662,7 @@ __metadata:
       optional: true
     moment:
       optional: true
-  checksum: 1632c67468bebb2969d8f804b8aa8d8dc0cb5749faf7f717110dde9e839bbafde0e40bd1780f357bcc4614a69ad6ed956c313436634121e12aa26d0c9db0cb29
+  checksum: 425c3f0ccbf0e6d3711b5ddf19bb8f0abcb1dd961af32064ce139e7a0211e52b68888456fb082295082560e0f05605f3e371914ec2da0d4f6b045aac783efa0c
   languageName: node
   linkType: hard
 
@@ -4097,10 +4097,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@remix-run/router@npm:1.0.5"
-  checksum: 5d66750b7defc10c80d9748fa003fcfe2af9ef82de3c06be88c926ede36a15b9e971ed2222981db843494e2f77c3de14470efe6dc877530cea774dc31162ec6f
+"@remix-run/router@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@remix-run/router@npm:1.1.0"
+  checksum: 18e28668c3cbb848ed5a82ce598d55304edecd737ee3c573f0d4f391f3ceca5818702c5078b613f5d98ce25aef5273a2aa6c26395b7790800e03d8ab7cf808ea
   languageName: node
   linkType: hard
 
@@ -13965,27 +13965,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.4.5":
-  version: 6.4.5
-  resolution: "react-router-dom@npm:6.4.5"
+"react-router-dom@npm:^6.5.0":
+  version: 6.5.0
+  resolution: "react-router-dom@npm:6.5.0"
   dependencies:
-    "@remix-run/router": 1.0.5
-    react-router: 6.4.5
+    "@remix-run/router": 1.1.0
+    react-router: 6.5.0
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 09d7841dd52efd2c60947171f95d9d1860cabd7540ac74dede86a6c36a2dd26a645e4928cbc8aa4e1c9d1f906f2ef144ba6da5ac69243590df855a6df8cfe1aa
+  checksum: b428d3cfd5d7c95caac6130f6814a619c82b26c2c1de49a7bcf6062f5d3fe873eb405cca0732440b961f34d87633951a65f682bece7f55096775e6a456dc7671
   languageName: node
   linkType: hard
 
-"react-router@npm:6.4.5":
-  version: 6.4.5
-  resolution: "react-router@npm:6.4.5"
+"react-router@npm:6.5.0":
+  version: 6.5.0
+  resolution: "react-router@npm:6.5.0"
   dependencies:
-    "@remix-run/router": 1.0.5
+    "@remix-run/router": 1.1.0
   peerDependencies:
     react: ">=16.8"
-  checksum: 0d471df39f0487224240f9910c2f2939519f3e9909a7b19f72767aeea2caf1c9fa4e8ea9a51b17c20051ec252db0fcc34a7a0b3068b338dd9d8eb656ffd489c1
+  checksum: f1f43361e3c7cfc04c92812362f36fb42609cc93ee6625afc18aff76a92534d1066261c0714d75b8f98b673933247eb743129c90babe684d6ad844574024ad07
   languageName: node
   linkType: hard
 
@@ -16698,8 +16698,8 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/lab": ^5.0.0-alpha.112
     "@mui/material": ^5.11.0
-    "@mui/x-data-grid": ^5.17.14
-    "@mui/x-date-pickers": ^5.0.10
+    "@mui/x-data-grid": ^5.17.16
+    "@mui/x-date-pickers": ^5.0.11
     "@reduxjs/toolkit": ^1.9.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16727,7 +16727,7 @@ __metadata:
     react-dom: ^18.2.0
     react-moment: ^1.1.2
     react-redux: ^8.0.5
-    react-router-dom: ^6.4.5
+    react-router-dom: ^6.5.0
     react-scripts: ^5.0.1
     react-test-renderer: ^18.2.0
     redux: ^4.2.0
