@@ -2,7 +2,6 @@
 
 'use strict'
 
-const tryToCatch = require('try-to-catch')
 const moment = require('moment')
 const { v4: uuidv4 } = require('uuid')
 const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3')
@@ -33,9 +32,10 @@ const copyFileToS3 = async (fileContent, fileName) => {
     ContentType: 'audio/mpeg'
   }
 
-  const [error] = await tryToCatch(s3Client.send, new PutObjectCommand(parameters))
-
-  if (error) {
+  try {
+    await s3Client.send(new PutObjectCommand(parameters))
+    console.log('Successfully uploaded object: ' + parameters.Bucket + '/' + parameters.Key)
+  } catch (error) {
     throw new Error('Error', error)
   }
 }

@@ -131,6 +131,7 @@ const TextQuiz = () => {
 
     if (isSecondWord) {
       // wrong answer
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
       arabicSelectedCollection[arabicCurrentSelectedIndex] = false
       setArabicSelected([...arabicSelectedCollection])
       setIsSecondWord(false)

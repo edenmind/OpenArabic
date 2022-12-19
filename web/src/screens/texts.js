@@ -68,31 +68,6 @@ export default function Texts() {
       editable: false
     },
     {
-      field: 'sentences',
-      headerName: 'Sentences',
-      sortable: true,
-      width: 150,
-      valueGetter: (parameters) => `${parameters.row.sentences.length}`
-    },
-    {
-      field: 'charters',
-      headerName: 'Characters',
-      sortable: true,
-      width: 150,
-      valueGetter: (parameters) => `${parameters.row.texts.arabic.length}`
-    },
-    {
-      field: 'words',
-      headerName: 'Words',
-      sortable: true,
-      width: 150,
-      //the number of words in the sentences
-      valueGetter: (parameters) => {
-        const words = parameters.row.sentences.map((sentence) => sentence.words.length)
-        return `${words.reduce((a, b) => a + b, 0)}`
-      }
-    },
-    {
       field: 'actions',
       type: 'actions',
       headerName: 'Actions',
