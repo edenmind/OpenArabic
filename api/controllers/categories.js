@@ -2,6 +2,7 @@
 
 const { ObjectId } = require('mongodb')
 const COLLECTIONS = require('../constants/collections.js')
+const { validateAPIKey } = require('../services/utils')
 
 async function listCategories(request, reply) {
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
@@ -20,7 +21,8 @@ async function addCategory(request, reply) {
   const { body, headers } = request
   const { auth } = headers
 
-  if (auth !== process.env.API_KEY) {
+  //check if the user is authorized
+  if (!validateAPIKey(auth)) {
     return reply.code(403).send('Not authorized!')
   }
 
@@ -51,7 +53,8 @@ async function updateCategory(request, reply) {
   const { data } = body
   const { id } = params
 
-  if (auth !== process.env.API_KEY) {
+  //check if the user is authorized
+  if (!validateAPIKey(auth)) {
     return reply.code(403).send('Not authorized!')
   }
 
@@ -73,7 +76,8 @@ async function updateCategory(request, reply) {
 async function deleteCategory(request, reply) {
   const { auth } = request.headers
 
-  if (auth !== process.env.API_KEY) {
+  //check if the user is authorized
+  if (!validateAPIKey(auth)) {
     return reply.code(403).send('Not authorized!')
   }
 
