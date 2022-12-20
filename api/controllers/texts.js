@@ -1,3 +1,4 @@
+/* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable operator-linebreak */
 /* eslint-disable putout/putout */
 
@@ -12,7 +13,12 @@ const {
   readingTime,
   slugifyWithAuthor,
   mp3Filename,
-  removeHost
+  removeHost,
+  validateThatNoObjectsAreEmpty,
+  validateAPIKey,
+  validateThatCorrectNumberOfWordsHasQuizSet,
+  addGuidToArray,
+  addGuidToInnerArray
 } = require('../services/utils')
 const { ObjectId } = require('mongodb')
 const { synthesize } = require('../services/tts')
@@ -82,6 +88,37 @@ async function listTextsWithId(request, reply) {
   return reply.code(404).send('No texts found!')
 }
 
+function generateGuidForSentencesAndWords(sentences) {
+  // loop through all sentences, generate a guid for each sentence and add it to the sentence.
+  const sentencesWithGuid = addGuidToArray(sentences)
+
+  // loop through all sentences, loop through all words in each sentence, generate a guid for each word and add it to the word.
+  const sentencesWithGuidAndWordsWithGuid = addGuidToInnerArray(sentencesWithGuid)
+
+  //add the sentences with guid and words with guid to the data
+  return sentencesWithGuidAndWordsWithGuid
+}
+
+async function batchGenerateAudio(data) {
+  //generate a hash table for every sentence
+  const sentenceHashTable = new Map(data.sentences.map((sentence) => [sentence.id, sentence]))
+
+  // synthesize all sentences concurrently
+  const sentencePromises = generateAudio(data.sentences, data.textGuid, sentenceHashTable)
+
+  //add the sentences with guid and words with guid to the data
+  const wordPromises = data.sentences.map(({ words, id: sentenceGuid }) => {
+    //generate a hash table for every word in the sentence
+    const wordHashTable = new Map(words.map((word) => [word.id, word]))
+
+    // return a promise that resolves when audio is generated
+    return generateAudio(words, data.textGuid, wordHashTable, sentenceGuid)
+  })
+
+  // wait for all sentences to be synthesized
+  await Promise.all([sentencePromises, wordPromises])
+}
+
 async function addText(request, reply) {
   //get the data from the request
   const { headers, body } = request
@@ -89,7 +126,7 @@ async function addText(request, reply) {
   const { auth } = headers
 
   //check if the user is authorized
-  if (auth !== process.env.API_KEY) {
+  if (!validateAPIKey(auth)) {
     return reply.code(403).send('Not authorized!')
   }
 
@@ -115,20 +152,16 @@ async function addText(request, reply) {
     status
   }
 
-  //check that no values are empty
-  const dataContainsEmptyValues = Object.values(data).some((value) => value.length === 0)
+  // Validate that no objects are empty
+  // data: the data being validated
+  // Returns: true if no objects are empty, false otherwise
 
-  if (dataContainsEmptyValues) {
+  if (!validateThatNoObjectsAreEmpty(data)) {
     return reply.internalServerError('One or more values are empty!')
   }
 
-  // check that at lest 15 words in sentences words has property quiz set to true
-  const sentencesWords = sentences.map((sentence) => sentence.words)
-  const sentencesWordsFlat = sentencesWords.flat()
-  const sentencesWordsFlatQuizTrue = sentencesWordsFlat.filter((word) => word.quiz)
-  const sentencesWordsFlatQuizTrueLength = sentencesWordsFlatQuizTrue.length
-
-  if (sentencesWordsFlatQuizTrueLength < 15) {
+  // Validate that at least 15 words has quiz property set to true
+  if (!validateThatCorrectNumberOfWordsHasQuizSet(sentences, 15)) {
     return reply.internalServerError(
       'At least 15 words in then sentences words must must have property quiz set to true!'
     )
@@ -137,85 +170,44 @@ async function addText(request, reply) {
   //remove url from text.image with removeHost
   data.image = removeHost(data.image)
 
-  // loop through all sentences, generate a guid for each sentence and add it to the sentence.
-  const sentencesWithGuid = sentences.map((sentence) => {
-    const id = uuidv4().slice(0, 8)
-    return { ...sentence, id }
-  })
-
-  // loop through all sentences, loop through all words in each sentence, generate a guid for each word and add it to the word.
-  const sentencesWithGuidAndWordsWithGuid = sentencesWithGuid.map((sentence) => {
-    const wordsWithGuid = sentence.words.map((word) => {
-      const id = uuidv4().slice(0, 8)
-      return { ...word, id }
-    })
-    return { ...sentence, words: wordsWithGuid }
-  })
-
-  data.sentences = sentencesWithGuidAndWordsWithGuid
+  //generate a guid for the text
   data.textGuid = uuidv4().slice(0, 8)
 
-  // loop over a collection of sentences and call a
-  // function to synthesize each sentence.
-  // it also take the guid of the sentence and pass it as a parameter to the function
-  for (const { arabic, id } of sentencesWithGuidAndWordsWithGuid) {
+  //generate a guid for every sentence and word
+  data.sentences = generateGuidForSentencesAndWords(sentences)
+
+  //generate the mp3 files in the background
+  batchGenerateAudio(data)
+
+  //try to insert the data into the database
+  try {
+    const result = await textsCollection.insertOne(data)
+    // we send a reply before generating the mp3 files to avoid waiting for the mp3 files to be generated before sending the reply
+    return reply.code(201).send({ message: `Created text with id: ${result.insertedId}.` })
+  } catch (error) {
+    //if there is an error, send the error message and return from the function to avoid generating the mp3 files
+    return reply.internalServerError(error)
+  }
+}
+
+function generateAudio(sentencesWithGuidAndWordsWithGuid, textGuid, hashTable, sentenceGuid = 'sentence') {
+  return sentencesWithGuidAndWordsWithGuid.map(async ({ arabic, id }) => {
     // Build the MP3 filename
-    const fileName = mp3Filename(data.textGuid, id, 'ar', 'sentence')
+    const fileName = mp3Filename(textGuid, sentenceGuid, 'ar', id)
 
-    // check that filename is not empty
-    if (fileName.length === 0) {
-      return reply.internalServerError('Filename is empty!')
-    }
+    // Get the sentence data from the hash table
+    const sentence = hashTable.get(id)
 
-    //add the filename as a property to the sentence
-    const sentence = sentencesWithGuidAndWordsWithGuid.find((sentence) => sentence.id === id)
-
+    // Add the filename as a property to the sentence
     sentence.filename = fileName
 
     // Synthesize the sentence
     const [error] = await tryToCatch(synthesize, arabic, 'ar-XA', fileName)
 
     if (error) {
-      return reply.internalServerError(error)
+      throw new Error(error)
     }
-  }
-
-  // This function loops through the sentences and words in the text
-  // and calls the `synthetize` function on each word.
-  for (const { words, id: sentenceGuid } of sentencesWithGuidAndWordsWithGuid) {
-    // For each sentence, iterate over the words
-    for (const { arabic, id: wordGuid } of words) {
-      // For each word, create a filename
-      const fileName = mp3Filename(data.textGuid, sentenceGuid, 'ar', wordGuid)
-
-      //fail if the filename is empty
-      if (fileName.length === 0) {
-        return reply.internalServerError('Filename is empty!')
-      }
-
-      //add the filename as a property to the word
-      const word = words.find((word) => word.id === wordGuid)
-
-      word.filename = fileName
-
-      // Synthetize the word and save it to the file
-      const [error] = await tryToCatch(synthesize, arabic, 'ar-XA', fileName)
-
-      if (error) {
-        return reply.internalServerError(error)
-      }
-    }
-  }
-
-  //try to insert the data
-  try {
-    const result = await textsCollection.insertOne(data)
-    // we send a reply before generating the mp3 files to avoid waiting for the mp3 files to be generated before sending the reply
-    return reply.code(201).send(result.insertedId)
-  } catch (error) {
-    //if there is an error, send the error message and return from the function to avoid generating the mp3 files
-    return reply.internalServerError(error)
-  }
+  })
 }
 
 async function getText(request, reply) {
