@@ -1,14 +1,6 @@
 'use strict'
 
-const {
-  listTexts,
-  listTextsWithId,
-  addText,
-  getTashkeel,
-  getText,
-  updateText,
-  deleteText
-} = require('../controllers/texts')
+const { listTexts, addText, getTashkeel, getText, updateText, deleteText } = require('../controllers/texts')
 
 const getTextsOptions = {
   schema: {
@@ -69,7 +61,7 @@ const getTextsWithIdOptions = {
       }
     }
   },
-  handler: listTextsWithId
+  handler: listTexts
 }
 
 const getTextOptions = {
