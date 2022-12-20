@@ -4,7 +4,6 @@
 
 'use strict'
 
-const tryToCatch = require('try-to-catch')
 const axios = require('axios').default
 const COLLECTIONS = require('../constants/collections.js')
 const {
@@ -12,16 +11,13 @@ const {
   timeAgo,
   readingTime,
   slugifyWithAuthor,
-  mp3Filename,
   removeHost,
   validateThatNoObjectsAreEmpty,
   validateAPIKey,
-  validateThatCorrectNumberOfWordsHasQuizSet,
-  addGuidToArray,
-  addGuidToInnerArray
+  validateThatCorrectNumberOfWordsHasQuizSet
 } = require('../services/utils')
+const { generateGuidForSentencesAndWords, batchGenerateAudio } = require('../services/texts')
 const { ObjectId } = require('mongodb')
-const { synthesize } = require('../services/tts')
 const { v4: uuidv4 } = require('uuid')
 
 async function listTexts(request, reply) {
@@ -86,37 +82,6 @@ async function listTextsWithId(request, reply) {
   }
 
   return reply.code(404).send('No texts found!')
-}
-
-function generateGuidForSentencesAndWords(sentences) {
-  // loop through all sentences, generate a guid for each sentence and add it to the sentence.
-  const sentencesWithGuid = addGuidToArray(sentences)
-
-  // loop through all sentences, loop through all words in each sentence, generate a guid for each word and add it to the word.
-  const sentencesWithGuidAndWordsWithGuid = addGuidToInnerArray(sentencesWithGuid)
-
-  //add the sentences with guid and words with guid to the data
-  return sentencesWithGuidAndWordsWithGuid
-}
-
-async function batchGenerateAudio(data) {
-  //generate a hash table for every sentence
-  const sentenceHashTable = new Map(data.sentences.map((sentence) => [sentence.id, sentence]))
-
-  // synthesize all sentences concurrently
-  const sentencePromises = generateAudio(data.sentences, data.textGuid, sentenceHashTable)
-
-  //add the sentences with guid and words with guid to the data
-  const wordPromises = data.sentences.map(({ words, id: sentenceGuid }) => {
-    //generate a hash table for every word in the sentence
-    const wordHashTable = new Map(words.map((word) => [word.id, word]))
-
-    // return a promise that resolves when audio is generated
-    return generateAudio(words, data.textGuid, wordHashTable, sentenceGuid)
-  })
-
-  // wait for all sentences to be synthesized
-  await Promise.all([sentencePromises, wordPromises])
 }
 
 async function addText(request, reply) {
@@ -188,26 +153,6 @@ async function addText(request, reply) {
     //if there is an error, send the error message and return from the function to avoid generating the mp3 files
     return reply.internalServerError(error)
   }
-}
-
-function generateAudio(sentencesWithGuidAndWordsWithGuid, textGuid, hashTable, sentenceGuid = 'sentence') {
-  return sentencesWithGuidAndWordsWithGuid.map(async ({ arabic, id }) => {
-    // Build the MP3 filename
-    const fileName = mp3Filename(textGuid, sentenceGuid, 'ar', id)
-
-    // Get the sentence data from the hash table
-    const sentence = hashTable.get(id)
-
-    // Add the filename as a property to the sentence
-    sentence.filename = fileName
-
-    // Synthesize the sentence
-    const [error] = await tryToCatch(synthesize, arabic, 'ar-XA', fileName)
-
-    if (error) {
-      throw new Error(error)
-    }
-  })
 }
 
 async function getText(request, reply) {

@@ -1,18 +1,19 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable putout/long-properties-destructuring */
+/* eslint-disable putout/objects-braces-inside-array */
+
 'use strict'
 
-//test for the google tts service using the tap test framework
-
+const { timeAgo } = require('../../services/utils')
 const { test } = require('tap')
-const tts = require('../../services/tts')
 
-//make sure the synthesize function is defined
-test('synthesize function is defined', (t) => {
-  t.ok(tts.synthesize)
-  t.end()
-})
-
-//make sure that the synthesize function accepts two string arguments
-test('synthesize function accepts two string arguments', (t) => {
-  t.equal(tts.synthesize.length, 3)
+test('should return time ago from date', (t) => {
+  //arrange
+  const date = new Date()
+  const expected = 'a few seconds ago'
+  //act
+  const actual = timeAgo(date)
+  //assert
+  t.equal(actual, expected)
   t.end()
 })
