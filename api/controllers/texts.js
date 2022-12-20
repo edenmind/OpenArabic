@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-ternary */
 /* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable operator-linebreak */
 /* eslint-disable putout/putout */
@@ -22,40 +23,10 @@ async function listTexts(request, reply) {
   //get the texts collection
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
 
-  //get the texts from the database
-  const textList = await textsCollection.find({}).toArray()
-
-  //sort texts by publishAt
-  const textListWithNewestFirst = textList.reverse()
-
-  //add properties for timeAgo and readingTime for each text
-  const textListWithProperties = textListWithNewestFirst.map((text) => {
-    if (!Array.isArray(textListWithNewestFirst) || !text.publishAt || !text.texts.arabic || !text.image) {
-      return reply.internalServerError('One or more values are empty!')
-    }
-
-    return {
-      ...text,
-      timeAgo: timeAgo(text.publishAt),
-      readingTime: readingTime(text.texts.arabic),
-      image: process.env.IMAGES_URL + text.image
-    }
-  })
-
-  //send the texts
-  if (textListWithProperties.length > 0) {
-    return reply.code(200).send(textListWithProperties)
-  }
-
-  return reply.code(404).send('No texts found!')
-}
-
-async function listTextsWithId(request, reply) {
-  //get the texts collection
-  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-
-  //get the texts from the database
-  const textList = await textsCollection.find({ category: request.params.id }).toArray()
+  // use ternary operator to check if request.params.id is defined
+  const textList = await textsCollection
+    .find((element) => (request.params.id ? { category: request.params.id } : {})(element))
+    .toArray()
 
   //sort texts by publishAt
   const textListWithNewestFirst = textList.reverse()
@@ -283,7 +254,6 @@ async function deleteText(request, reply) {
 
 module.exports = {
   listTexts,
-  listTextsWithId,
   addText,
   getText,
   getTashkeel,
