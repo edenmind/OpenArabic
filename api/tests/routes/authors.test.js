@@ -13,6 +13,9 @@ test('create new author', async (t) => {
     method: 'POST',
     payload: {
       name: 'the_name'
+    },
+    headers: {
+      auth: 'somesecurekey'
     }
   })
 
@@ -63,7 +66,10 @@ test('delete author that does not exist', async (t) => {
   // act
   const result = await app.inject({
     url: '/authors/' + id,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      auth: 'somesecurekey'
+    }
   })
 
   //assert
@@ -80,6 +86,9 @@ test('update author that does not exist', async (t) => {
     method: 'PUT',
     payload: {
       name: 'the_name'
+    },
+    headers: {
+      auth: 'somesecurekey'
     }
   })
 
@@ -96,6 +105,9 @@ test('update author', async (t) => {
     method: 'POST',
     payload: {
       name: 'the_name'
+    },
+    headers: {
+      auth: 'somesecurekey'
     }
   })
 
@@ -108,6 +120,9 @@ test('update author', async (t) => {
     method: 'PUT',
     payload: {
       name: 'the_other_name'
+    },
+    headers: {
+      auth: 'somesecurekey'
     }
   })
 

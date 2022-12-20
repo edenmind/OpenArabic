@@ -6,17 +6,15 @@
 
 const axios = require('axios').default
 const COLLECTIONS = require('../constants/collections.js')
+const { timeAgo, removeHost, validateThatNoObjectsAreEmpty, validateAPIKey } = require('../services/utils')
 const {
-  produceVocabularyCollection,
-  timeAgo,
+  generateGuidForSentencesAndWords,
+  batchGenerateAudio,
   readingTime,
   slugifyWithAuthor,
-  removeHost,
-  validateThatNoObjectsAreEmpty,
-  validateAPIKey,
-  validateThatCorrectNumberOfWordsHasQuizSet
-} = require('../services/utils')
-const { generateGuidForSentencesAndWords, batchGenerateAudio } = require('../services/texts')
+  validateThatCorrectNumberOfWordsHasQuizSet,
+  produceVocabularyCollection
+} = require('../services/texts')
 const { ObjectId } = require('mongodb')
 const { v4: uuidv4 } = require('uuid')
 
@@ -221,7 +219,7 @@ async function updateText(request, reply) {
   const { id } = params
 
   //check if the user is authorized
-  if (auth !== process.env.API_KEY) {
+  if (!validateAPIKey(auth)) {
     return reply.code(403).send('Not authorized!')
   }
 
@@ -271,7 +269,7 @@ async function deleteText(request, reply) {
   const { auth } = request.headers
 
   //check if the user is authorized
-  if (auth !== process.env.API_KEY) {
+  if (!validateAPIKey(auth)) {
     return reply.code(403).send('Not authorized!')
   }
 
