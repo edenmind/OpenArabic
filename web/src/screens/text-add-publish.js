@@ -50,8 +50,8 @@ function TextAddPublish() {
           setPostMessage(res.message)
           setPostState('success')
           setTimeout(() => {
-            resetText()
-            navigate('/texts')
+            // resetText()
+            // navigate('/texts')
           }, 1500)
 
           return

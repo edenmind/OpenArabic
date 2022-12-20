@@ -6,10 +6,51 @@ const moment = require('moment')
 const { v4: uuidv4 } = require('uuid')
 const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3')
 
+//return true if all objects are not empty
+const validateThatNoObjectsAreEmpty = (data) => {
+  //console log the values that are empty
+  Object.entries(data).forEach(([key, value]) => {
+    if (value === '') {
+      console.log(key + ' is empty')
+    }
+  })
+  return Object.values(data).every((value) => value !== '')
+}
+
+const validateAPIKey = (auth) => {
+  return auth === process.env.API_KEY
+}
+
 //function to remove host from url
 const removeHost = (url) => {
   //only keep the part in url after the last /
   return url.slice(Math.max(0, url.lastIndexOf('/') + 1))
+}
+
+//function to add guid to array of objects
+const addGuidToArray = (sentences) => {
+  return sentences.map((sentence) => {
+    const id = uuidv4().slice(0, 8)
+    return { ...sentence, id }
+  })
+}
+
+const addGuidToInnerArray = (sentencesWithGuid) => {
+  return sentencesWithGuid.map((sentence) => {
+    const wordsWithGuid = sentence.words.map((word) => {
+      const id = uuidv4().slice(0, 8)
+      return { ...word, id }
+    })
+    return { ...sentence, words: wordsWithGuid }
+  })
+}
+const validateThatCorrectNumberOfWordsHasQuizSet = (sentences, threshold) => {
+  const sentencesWords = sentences.map((sentence) => sentence.words)
+  const sentencesWordsFlat = sentencesWords.flat()
+  const sentencesWordsFlatQuizTrue = sentencesWordsFlat.filter((word) => word.quiz)
+
+  //return true if number of words with quiz set is higher than threshold
+  return sentencesWordsFlatQuizTrue.length > threshold
 }
 
 //function to copy files from a local directory to a Amazon S3 bucket
@@ -208,5 +249,10 @@ module.exports = {
   slugifyWithAuthor,
   mp3Filename,
   copyFileToS3,
-  removeHost
+  removeHost,
+  validateThatNoObjectsAreEmpty,
+  validateAPIKey,
+  validateThatCorrectNumberOfWordsHasQuizSet,
+  addGuidToArray,
+  addGuidToInnerArray
 }

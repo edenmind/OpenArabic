@@ -1,7 +1,7 @@
 'use strict'
 
 function getImages(request, reply) {
-  const numberOfImages = 303
+  const numberOfImages = 342
   const images = []
 
   for (let index = 1; index < numberOfImages; index++) {
