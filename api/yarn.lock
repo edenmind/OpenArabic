@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -2447,12 +2447,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/text-to-speech@npm:^4.0.4":
-  version: 4.0.4
-  resolution: "@google-cloud/text-to-speech@npm:4.0.4"
+"@google-cloud/text-to-speech@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@google-cloud/text-to-speech@npm:4.1.0"
   dependencies:
     google-gax: ^3.5.2
-  checksum: 942e687c88e78c77bd80a9992512dc7c772615dd11f49850e43d0d7aa3f5cf9b9ec66db20a9f32198c198ae423dfd6fd09f0c08812664ff712b9a26b010ec7d2
+  checksum: 0d5258b558862ec8c5101c345139e92d7a881acd51d62ef38300475271b94620774d29bac5945402ec6d6add4a96947c8cb1d5920efc46796e93b0aff8855026
   languageName: node
   linkType: hard
 
@@ -4522,7 +4522,7 @@ __metadata:
     "@fastify/sensible": ^5.2.0
     "@fastify/static": ^6.6.0
     "@fastify/swagger": ^8.2.1
-    "@google-cloud/text-to-speech": ^4.0.4
+    "@google-cloud/text-to-speech": ^4.1.0
     axios: ^1.2.1
     dotenv: ^16.0.3
     eslint: ^8.30.0
@@ -11805,11 +11805,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 

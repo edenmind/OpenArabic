@@ -30,7 +30,7 @@
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.6.0",
     "@fastify/swagger": "^8.2.1",
-    "@google-cloud/text-to-speech": "^4.0.4",
+    "@google-cloud/text-to-speech": "^4.1.0",
     "axios": "^1.2.1",
     "dotenv": "^16.0.3",
     "fastify": "^4.10.2",
