@@ -1,7 +1,5 @@
 import { textReducer } from './reducers.js'
 import * as actions from './actions.js'
-import { itIT } from '@mui/material/locale'
-
 test('reducers SET_ENGLISH_WORDS', () => {
   const state = textReducer(
     {
@@ -14,6 +12,7 @@ test('reducers SET_ENGLISH_WORDS', () => {
         title: '',
         texts: { arabic: '', english: '' },
         category: '',
+        generateAudio: false,
         author: '',
         arabicSentence: [''],
         source: '',
@@ -38,6 +37,7 @@ test('reducers SET_ENGLISH_WORDS', () => {
       wordByWord: [['']],
       title: '',
       texts: { arabic: '', english: '' },
+      generateAudio: false,
       category: '',
       author: '',
       arabicSentence: [''],
@@ -66,6 +66,7 @@ test('reducers SET_ENGLISH_SENTENCE', () => {
         wordByWord: [['']],
         title: '',
         texts: { arabic: '', english: '' },
+        generateAudio: false,
         category: '',
         author: '',
         arabicSentence: [''],
@@ -91,6 +92,7 @@ test('reducers SET_ENGLISH_SENTENCE', () => {
       wordByWord: [['']],
       title: '',
       texts: { arabic: '', english: '' },
+      generateAudio: false,
       category: '',
       author: '',
       arabicSentence: [''],
@@ -117,6 +119,7 @@ test('reducers  SET_STATUS', () => {
         status: 'Draft',
         publishAt: new Date().toUTCString(),
         wordByWord: [['']],
+        generateAudio: false,
         title: '',
         texts: { arabic: '', english: '' },
         category: '',
@@ -141,6 +144,7 @@ test('reducers  SET_STATUS', () => {
       english: [''],
       status: 'Published',
       publishAt: new Date().toUTCString(),
+      generateAudio: false,
       wordByWord: [['']],
       title: '',
       texts: { arabic: '', english: '' },
@@ -159,4 +163,3 @@ test('reducers  SET_STATUS', () => {
     }
   })
 })
-

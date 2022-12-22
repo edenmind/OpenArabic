@@ -306,7 +306,7 @@ export const getTextToRedux = (id) => async (dispatch) => {
 }
 
 export const updateText = async (text, id) => {
-  const { title, author, image, category, sentences, source, texts, status, publishAt } = text
+  const { title, author, image, category, sentences, source, texts, status, publishAt, generateAudio } = text
   const { arabic, english } = texts
 
   const response = await axios({
@@ -319,6 +319,7 @@ export const updateText = async (text, id) => {
       title,
       category,
       publishAt,
+      generateAudio,
       image,
       status,
       texts: {

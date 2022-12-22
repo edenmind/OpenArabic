@@ -59,8 +59,8 @@ const batchGenerateAudio = async (data) => {
 }
 
 //generate audio for sentences and words
-const generateAudio = async (sentencesWithGuidAndWordsWithGuid, textGuid, hashTable, sentenceGuid = 'sentence') => {
-  return sentencesWithGuidAndWordsWithGuid.map(async ({ arabic, id }) => {
+const generateAudio = async (words, textGuid, hashTable, sentenceGuid = 'sentence') => {
+  return words.map(async ({ arabic, id }) => {
     // Build the MP3 filename
     const fileName = mp3Filename(textGuid, sentenceGuid, 'ar', id)
 

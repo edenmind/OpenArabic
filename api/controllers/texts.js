@@ -22,11 +22,14 @@ const { v4: uuidv4 } = require('uuid')
 async function listTexts(request, reply) {
   //get the texts collection
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
+  let textList = []
 
-  // use ternary operator to check if request.params.id is defined
-  const textList = await textsCollection
-    .find((element) => (request.params.id ? { category: request.params.id } : {})(element))
-    .toArray()
+  // if request.params.id is undefined, then get all texts
+  if (request.params.id === undefined) {
+    textList = await textsCollection.find({}).toArray()
+  } else {
+    textList = await textsCollection.find({ category: request.params.id }).toArray()
+  }
 
   //sort texts by publishAt
   const textListWithNewestFirst = textList.reverse()
@@ -94,24 +97,25 @@ async function addText(request, reply) {
     return reply.internalServerError('One or more values are empty!')
   }
 
-  // Validate that at least 15 words has quiz property set to true
-  if (!validateThatCorrectNumberOfWordsHasQuizSet(sentences, 15)) {
-    return reply.internalServerError(
-      'At least 15 words in then sentences words must must have property quiz set to true!'
-    )
-  }
-
   //remove url from text.image with removeHost
   data.image = removeHost(data.image)
 
   //generate a guid for the text
   data.textGuid = uuidv4().slice(0, 8)
 
-  //generate a guid for every sentence and word
-  data.sentences = generateGuidForSentencesAndWords(sentences)
+  if (data.status !== 'Draft') {
+    // Validate that at least 15 words has quiz property set to true
+    if (!validateThatCorrectNumberOfWordsHasQuizSet(sentences, 15)) {
+      return reply.internalServerError(
+        'At least 15 words in then sentences words must must have property quiz set to true!'
+      )
+    }
 
-  //generate the mp3 files in the background
-  batchGenerateAudio(data)
+    //generate a guid for every sentence and word
+    data.sentences = generateGuidForSentencesAndWords(sentences)
+    //generate the mp3 files in the background
+    batchGenerateAudio(data)
+  }
 
   //try to insert the data into the database
   try {
@@ -197,7 +201,7 @@ async function updateText(request, reply) {
   //prepare the data to be inserted into the database
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const updatedAt = new Date()
-  const { title, author, category, sentences, source, texts, publishAt, status, image } = body
+  const { title, author, category, sentences, source, texts, publishAt, status, image, generateAudio } = body
   const { arabic, english } = texts
   const data = {
     $set: {
@@ -207,6 +211,7 @@ async function updateText(request, reply) {
       image,
       publishAt,
       updatedAt,
+      generateAudio,
       texts: {
         arabic,
         english
@@ -217,11 +222,29 @@ async function updateText(request, reply) {
     }
   }
 
-  //check that no values are empty
-  const dataContainsEmptyValues = Object.values(data).some((value) => value.length === 0)
+  // Validate that no objects are empty
+  // data: the data being validated
+  // Returns: true if no objects are empty, false otherwise
 
-  if (dataContainsEmptyValues) {
+  if (!validateThatNoObjectsAreEmpty(data)) {
     return reply.internalServerError('One or more values are empty!')
+  }
+
+  // Validate that at least 15 words has quiz property set to true
+  if (!validateThatCorrectNumberOfWordsHasQuizSet(sentences, 15)) {
+    return reply.internalServerError(
+      'At least 15 words in then sentences words must must have property quiz set to true!'
+    )
+  }
+
+  if (data.$set.generateAudio === 'Yes') {
+    //generate a guid for every sentence and word
+    data.$set.sentences = generateGuidForSentencesAndWords(data.$set.sentences)
+    const audioData = data.$set
+
+    audioData.textGuid = uuidv4().slice(0, 8)
+    //generate the mp3 files in the background
+    batchGenerateAudio(audioData)
   }
 
   //try to update the data

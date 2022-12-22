@@ -23,7 +23,7 @@ function TextAddPublish() {
   const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
   const resetText = () => dispatch({ type: 'RESET_TEXT' })
   const setPublishAt = (event) => dispatch({ type: 'SET_PUBLISH_AT', publishAt: event.target.value })
-
+  const setGenerateAudio = (event) => dispatch({ type: 'SET_GENERATE_AUDIO', generateAudio: event.target.value })
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -31,6 +31,11 @@ function TextAddPublish() {
     { id: 1, name: 'Draft' },
     { id: 2, name: 'Validated' },
     { id: 3, name: 'Published' }
+  ])
+
+  const [trueFalse] = React.useState([
+    { id: 1, name: 'Yes' },
+    { id: 2, name: 'No' }
   ])
 
   const handleCloseSnackbar = (reason) => {
@@ -101,7 +106,7 @@ function TextAddPublish() {
       </Stack>
       <Stack spacing={0} style={{ paddingBottom: '50px', width: '700px' }}>
         <h4>Status</h4>
-        <MenuSelect Heading="Status" Values={statuses} value={text.status} onChangeFunc={setStatus} />
+        <MenuSelect Values={statuses} value={text.status} onChangeFunc={setStatus} />
 
         <h4>Publication Date</h4>
         <LocalizationProvider dateAdapter={AdapterMoment}>
@@ -113,6 +118,8 @@ function TextAddPublish() {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
+        <h4>Generate Audio</h4>
+        <MenuSelect Values={trueFalse} value={text.generateAudio} onChangeFunc={setGenerateAudio} />
       </Stack>
       {id ? (
         <Button variant="contained" onClick={updateText}>
