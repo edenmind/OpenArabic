@@ -46,7 +46,7 @@
     "react-dom": "^18.2.0",
     "react-moment": "^1.1.2",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.5.0",
+    "react-router-dom": "^6.6.0",
     "react-scripts": "^5.0.1",
     "redux": "^4.2.0",
     "url": "^0.11.0",
