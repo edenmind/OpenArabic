@@ -13,6 +13,7 @@ const initialState = {
     publishAt: new Date().toUTCString(),
     wordByWord: [['']],
     title: '',
+    generateAudio: 'No',
     texts: { arabic: '', english: '' },
     category: '',
     author: '',
@@ -97,6 +98,9 @@ const textReducer = createReducer(initialState, (builder) => {
     .addCase(actions.UPDATE_SENTENCE_QUIZ, (state, action) => {
       const { indexSentence, indexArabicWord, quiz } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].quiz = quiz
+    })
+    .addCase(actions.SET_GENERATE_AUDIO, (state, action) => {
+      state.text.generateAudio = action.generateAudio
     })
 })
 

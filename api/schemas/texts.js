@@ -117,6 +117,7 @@ const updateTextOptions = {
         createdAt: { type: 'string', minLength: 5, maxLength: 40 },
         updatedAt: { type: 'string', minLength: 5, maxLength: 40 },
         publishAt: { type: 'string', minLength: 5, maxLength: 40 },
+        generateAudio: { type: 'string' },
         author: { type: 'string', minLength: 5, maxLength: 30 },
         category: { type: 'string', minLength: 5, maxLength: 20 },
         source: { type: 'string', minLength: 5, maxLength: 50 },
@@ -183,23 +184,21 @@ const postTextOptions = {
         test: { type: 'boolean' },
         sentences: {
           type: 'array',
-          minItems: 1,
           items: {
             type: 'object',
             required: ['arabic', 'english', 'words'],
             properties: {
-              arabic: { type: 'string', minLength: 1, maxLength: 5000 },
-              english: { type: 'string', minLength: 1, maxLength: 5000 },
+              arabic: { type: 'string', maxLength: 5000 },
+              english: { type: 'string', maxLength: 5000 },
               words: {
                 type: 'array',
-                minItems: 1,
                 items: {
                   type: 'object',
                   required: ['arabic', 'english'],
                   properties: {
                     quiz: { type: 'boolean' },
-                    arabic: { type: 'string', minLength: 1, maxLength: 50 },
-                    english: { type: 'string', minLength: 1, maxLength: 50 }
+                    arabic: { type: 'string', maxLength: 50 },
+                    english: { type: 'string', maxLength: 50 }
                   }
                 }
               }
