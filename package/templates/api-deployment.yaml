@@ -83,13 +83,11 @@ spec:
               path: /health
               port: 3030
             periodSeconds: 10
-            initialDelaySeconds: 30
           readinessProbe:
             httpGet:
               path: /readiness
               port: 3030
             periodSeconds: 10
-            initialDelaySeconds: 15
           ports:
             - containerPort: 3030
       restartPolicy: Always
