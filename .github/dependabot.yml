@@ -16,16 +16,6 @@ updates:
       interval: weekly
     open-pull-requests-limit: 10
   - package-ecosystem: npm
-    directory: "/static"
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10
-  - package-ecosystem: npm
-    directory: "/static"
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10
-  - package-ecosystem: npm
     directory: "/api"
     schedule:
       interval: weekly
