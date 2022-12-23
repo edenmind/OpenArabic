@@ -1,11 +1,123 @@
+/* eslint-disable putout/array-element-newline */
+
+'use strict'
+
 /* eslint-disable operator-linebreak */
 /* eslint-disable putout/long-properties-destructuring */
 /* eslint-disable putout/objects-braces-inside-array */
 
-'use strict'
-
-const { produceVocabularyCollection, readingTime, slugifyWithAuthor, mp3Filename } = require('../../services/texts')
+const {
+  validateThatCorrectNumberOfWordsHasQuizSet,
+  produceVocabularyCollection,
+  shuffleArray,
+  readingTime,
+  slugifyWithAuthor,
+  mp3Filename,
+  addGuidToArray
+} = require('../../services/texts')
 const { test } = require('tap')
+
+// test that addGuidToArray returns an array with the same length as the input array
+test('addGuidToArray returns an array with the same length as the input array', (t) => {
+  //arrange
+  const array = [1, 2, 3, 4, 5]
+  const expected = array.length
+  //act
+  const actual = addGuidToArray(array).length
+  //assert
+  t.equal(actual, expected)
+  t.end()
+})
+//test that shuffelArray returns an array with the same length as the input array
+test('shuffleArray returns an array with the same length as the input array', (t) => {
+  //arrange
+  const array = [1, 2, 3, 4, 5]
+  const expected = array.length
+  //act
+  const actual = shuffleArray(array).length
+  //assert
+  t.equal(actual, expected)
+  t.end()
+})
+//test validateThatCorrectNumberOfWordsHasQuizSet returns true if the number of words with quizSet is equal to the number of words
+test('validateThatCorrectNumberOfWordsHasQuizSet returns true if the number of words with quizSet is equal to the number of words', (t) => {
+  //arrange
+  const sentences = [
+    {
+      words: [
+        {
+          quiz: true
+        },
+        {
+          quiz: true
+        },
+        {
+          quiz: true
+        }
+      ]
+    },
+    {
+      words: [
+        {
+          quiz: true
+        },
+        {
+          quiz: true
+        },
+        {
+          quiz: true
+        }
+      ]
+    }
+  ]
+  const threshold = 5
+  const expected = true
+  //act
+  const actual = validateThatCorrectNumberOfWordsHasQuizSet(sentences, threshold)
+  //assert
+  t.equal(actual, expected)
+  t.end()
+})
+
+//test validateThatCorrectNumberOfWordsHasQuizSet returns false if the number of words with quizSet is less than the number of words
+test('validateThatCorrectNumberOfWordsHasQuizSet returns false if the number of words with quizSet is less than the number of words', (t) => {
+  //arrange
+  const sentences = [
+    {
+      words: [
+        {
+          quiz: true
+        },
+        {
+          quiz: true
+        },
+        {
+          quiz: true
+        }
+      ]
+    },
+    {
+      words: [
+        {
+          quiz: true
+        },
+        {
+          quiz: true
+        },
+        {
+          quiz: true
+        }
+      ]
+    }
+  ]
+  const threshold = 6
+  const expected = false
+  //act
+  const actual = validateThatCorrectNumberOfWordsHasQuizSet(sentences, threshold)
+  //assert
+  t.equal(actual, expected)
+  t.end()
+})
 
 //test that mp3Filename returns the expected string
 test('mp3Filename returns the expected string', (t) => {

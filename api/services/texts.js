@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/consistent-function-scoping */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable putout/putout */
 
 'use strict'
@@ -191,15 +193,14 @@ const produceVocabularyCollection = (text) => {
 
 //generate a slug from an english title string and author name
 const slugifyWithAuthor = (title, author) => {
-  const titleSlug = title
-    .toLowerCase()
-    .replace(/[^\da-z]+/g, '-')
-    .replace(/(^-|-$)+/g, '')
+  const replaceCharacters = (string) =>
+    string
+      .toLowerCase()
+      .replace(/[^\da-z]+/g, '-')
+      .replace(/(^-|-$)+/g, '')
 
-  const authorSlug = author
-    .toLowerCase()
-    .replace(/[^\da-z]+/g, '-')
-    .replace(/(^-|-$)+/g, '')
+  const titleSlug = replaceCharacters(title)
+  const authorSlug = replaceCharacters(author)
 
   return `${titleSlug}-${authorSlug}`
 }
@@ -215,25 +216,16 @@ const validateThatCorrectNumberOfWordsHasQuizSet = (sentences, threshold) => {
 
 //return a mp3 filename separated by dashes with text, sentence,, language and word
 const mp3Filename = (text, sentence, language, word) => {
-  const textSlug = text
-    .toLowerCase()
-    .replace(/[^\da-z]+/g, '-')
-    .replace(/(^-|-$)+/g, '')
+  const createSlug = (string) =>
+    string
+      .toLowerCase()
+      .replace(/[^\da-z]+/g, '-')
+      .replace(/(^-|-$)+/g, '')
 
-  const sentenceSlug = sentence
-    .toLowerCase()
-    .replace(/[^\da-z]+/g, '-')
-    .replace(/(^-|-$)+/g, '')
-
-  const languageSlug = language
-    .toLowerCase()
-    .replace(/[^\da-z]+/g, '-')
-    .replace(/(^-|-$)+/g, '')
-
-  const wordSlug = word
-    .toLowerCase()
-    .replace(/[^\da-z]+/g, '-')
-    .replace(/(^-|-$)+/g, '')
+  const textSlug = createSlug(text)
+  const sentenceSlug = createSlug(sentence)
+  const languageSlug = createSlug(language)
+  const wordSlug = createSlug(word)
 
   return `${textSlug}-${sentenceSlug}-${languageSlug}-${wordSlug}.mp3`
 }
