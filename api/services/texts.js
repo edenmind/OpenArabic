@@ -9,18 +9,15 @@ const { synthesize } = require('../services/tts')
 const { v4: uuidv4 } = require('uuid')
 const { shuffleArray } = require('../services/utils')
 
+// generate a guid for each sentence and word
 const generateGuidForSentencesAndWords = (sentences) => {
-  // loop through all sentences, generate a guid for each sentence and add it to the sentence.
   const sentencesWithGuid = addGuidToArray(sentences)
-
-  // loop through all sentences, loop through all words in each sentence, generate a guid for each word and add it to the word.
   const sentencesWithGuidAndWordsWithGuid = addGuidToInnerArray(sentencesWithGuid)
 
-  //add the sentences with guid and words with guid to the data
   return sentencesWithGuidAndWordsWithGuid
 }
 
-//function to add guid to array of objects
+// add guid to array of objects
 const addGuidToArray = (sentences) => {
   return sentences.map((sentence) => {
     const id = uuidv4().slice(0, 8)
@@ -28,7 +25,7 @@ const addGuidToArray = (sentences) => {
   })
 }
 
-//function to add guid to array of objects
+//function to add guid to array of inner objects
 const addGuidToInnerArray = (sentencesWithGuid) => {
   return sentencesWithGuid.map((sentence) => {
     const wordsWithGuid = sentence.words.map((word) => {
@@ -91,6 +88,7 @@ const readingTime = (text) => {
   return readTime === 1 ? `${readTime} min read` : `${readTime} mins read`
 }
 
+// produce a vocabulary collection for the quiz
 const produceVocabularyCollection = (text) => {
   const arabicVocabulary = [[]]
   const englishVocabulary = [[]]
@@ -99,28 +97,14 @@ const produceVocabularyCollection = (text) => {
   let currentBatchNumber = 0
   let wordsInCurrentBatch = 0
 
-  let numberOfWords = 0
+  // Get the number of words in the dataset that are suitable
+  const numberOfWords = countNumberOfWords(text)
 
-  // This code counts the number of words in a text
-  // It loops through all the sentences in the text
-  // Then it loops through all the words in each sentence
-  // If the word is a quiz word, it increments numberOfWords
-
-  for (const sentence of text.sentences) {
-    numberOfWords += sentence.words.filter((word) => word.quiz).length
-  }
-
-  // This code gets the maximum number of batches that can be created
-  // from the number of words in the dataset. It does so by dividing
-  // the number of words by the maximum number of words in each batch.
-  // The Math.floor() function is used to round the result down to the
-  // nearest integer.
-
+  // Get the maximum number of batches that can be created
   const maxNumberOfBatches = Math.floor(numberOfWords / maxWordsInBatch)
 
-  for (const sentence of text.sentences) {
-    // Loop through all the sentences in the text
-    for (const word of sentence.words) {
+  for (const { words } of text.sentences) {
+    for (const word of words) {
       // Loop through all the words in each sentence
       if (!word.quiz) {
         // don't add words not suitable for the quiz
@@ -128,24 +112,12 @@ const produceVocabularyCollection = (text) => {
       }
 
       // If the current batch is full, create a new batch
-      const maxNumberOfBatchesReached = currentBatchNumber === maxNumberOfBatches
-
-      if (maxNumberOfBatchesReached) {
+      if (currentBatchNumber === maxNumberOfBatches) {
         break
       }
 
       // Prepare the word to add
-      const wordId = uuidv4()
-
-      const arabicWord = {
-        word: word.arabic,
-        wordId
-      }
-
-      const englishWord = {
-        word: word.english,
-        wordId
-      }
+      const { arabicWord, englishWord } = getWordsPairedWithId(word)
 
       // do not add the word if it already exists in the batch based on word.arabic
       const arabicWordAlreadyExistsInBatch = arabicVocabulary[currentBatchNumber].some(
@@ -201,6 +173,7 @@ const slugifyWithAuthor = (title, author) => {
   return `${titleSlug}-${authorSlug}`
 }
 
+// validate that the correct number of words has quiz set to true
 const validateThatCorrectNumberOfWordsHasQuizSet = (sentences, threshold) => {
   const sentencesWords = sentences.map((sentence) => sentence.words)
   const sentencesWordsFlat = sentencesWords.flat()
@@ -238,4 +211,30 @@ module.exports = {
   readingTime,
   slugifyWithAuthor,
   mp3Filename
+}
+
+// Private
+function countNumberOfWords(text) {
+  let numberOfWords = 0
+
+  for (const sentence of text.sentences) {
+    numberOfWords += sentence.words.filter((word) => word.quiz).length
+  }
+
+  return numberOfWords
+}
+
+function getWordsPairedWithId(word) {
+  const wordId = uuidv4()
+
+  const arabicWord = {
+    word: word.arabic,
+    wordId
+  }
+
+  const englishWord = {
+    word: word.english,
+    wordId
+  }
+  return { arabicWord, englishWord }
 }
