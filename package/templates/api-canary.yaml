@@ -24,7 +24,7 @@ spec:
       perTryTimeout: 1s
       retryOn: 'gateway-error,connect-failure,refused-stream'
   analysis:
-    interval: 10s
+    interval: 40s
     threshold: 5
     maxWeight: 50
     stepWeight: 10
@@ -32,11 +32,11 @@ spec:
       - name: request-success-rate
         thresholdRange:
           min: 95
-        interval: 10s
+        interval: 40s
       - name: request-duration
         thresholdRange:
           max: 500
-        interval: 10s
+        interval: 40s
     webhooks:
       - name: load-test-canary
         url: http://loadtester.loadtester/

@@ -107,11 +107,7 @@ const produceVocabularyCollection = (text) => {
   // If the word is a quiz word, it increments numberOfWords
 
   for (const sentence of text.sentences) {
-    for (const word of sentence.words) {
-      if (word.quiz) {
-        ++numberOfWords
-      }
-    }
+    numberOfWords += sentence.words.filter((word) => word.quiz).length
   }
 
   // This code gets the maximum number of batches that can be created
