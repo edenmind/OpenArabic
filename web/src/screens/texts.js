@@ -32,9 +32,33 @@ export default function Texts() {
       editable: false
     },
     {
+      field: 'author',
+      headerName: 'Author',
+      width: 225,
+      editable: false
+    },
+    {
+      field: 'source',
+      headerName: 'Source',
+      width: 250,
+      editable: false
+    },
+    {
       field: 'views',
       headerName: 'Views',
-      width: 125,
+      width: 95,
+      editable: false
+    },
+    {
+      field: 'numberOfWords',
+      headerName: 'Words',
+      width: 95,
+      editable: false
+    },
+    {
+      field: 'numberOfSentences',
+      headerName: 'Sentences',
+      width: 95,
       editable: false
     },
     {
@@ -53,18 +77,6 @@ export default function Texts() {
       field: 'updatedAt',
       headerName: 'Updated',
       width: 225,
-      editable: false
-    },
-    {
-      field: 'author',
-      headerName: 'Author',
-      width: 225,
-      editable: false
-    },
-    {
-      field: 'source',
-      headerName: 'Source',
-      width: 250,
       editable: false
     },
     {

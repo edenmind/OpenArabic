@@ -118,8 +118,12 @@ function TextAddPublish() {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
-        <h4>Generate Audio</h4>
-        <MenuSelect Values={trueFalse} value={text.generateAudio} onChangeFunc={setGenerateAudio} />
+        {id && (
+          <>
+            <h4>Generate Audio</h4>
+            <MenuSelect Values={trueFalse} value={text.generateAudio} onChangeFunc={setGenerateAudio} />
+          </>
+        )}
       </Stack>
       {id ? (
         <Button variant="contained" onClick={updateText}>

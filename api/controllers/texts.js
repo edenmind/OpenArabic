@@ -44,7 +44,11 @@ async function listTexts(request, reply) {
       ...text,
       timeAgo: timeAgo(text.publishAt),
       readingTime: readingTime(text.texts.arabic),
-      image: process.env.IMAGES_URL + text.image
+      image: process.env.IMAGES_URL + text.image,
+      // add property for the number of sentences in the text
+      numberOfSentences: text.sentences.length,
+      //return the total number of words in the text
+      numberOfWords: text.sentences.map((sentence) => sentence.words.length).reduce((total, current) => total + current)
     }
   })
 

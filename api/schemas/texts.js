@@ -18,6 +18,8 @@ const getTextsOptions = {
             views: { type: 'string' },
             timeAgo: { type: 'string' },
             readingTime: { type: 'string' },
+            numberOfSentences: { type: 'string' },
+            numberOfWords: { type: 'string' },
             createdAt: { type: 'string' },
             updatedAt: { type: 'string' },
             publishAt: { type: 'string' },
