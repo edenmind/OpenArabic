@@ -4,13 +4,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import MenuSelect from '../components/menu-select.js'
 import StandardImageList from '../components/standard-image-list.js'
 import * as api from '../services/api-service.js'
+import { capitalizeTitle } from '../services/word-processing.js'
 
 const selector = (state) => state.text
 
 const TextAddHeading = () => {
   const dispatch = useDispatch()
 
-  const setTitle = (event) => dispatch({ type: 'SET_TITLE', title: event.target.value })
+  const setTitle = (event) => {
+    const capitalizedTitle = capitalizeTitle(event.target.value)
+    dispatch({ type: 'SET_TITLE', title: capitalizedTitle })
+  }
   const setCategory = (event) => dispatch({ type: 'SET_CATEGORY', category: event.target.value })
   const setAuthor = (event) => dispatch({ type: 'SET_AUTHOR', author: event.target.value })
   const setSource = (event) => dispatch({ type: 'SET_SOURCE', source: event.target.value })

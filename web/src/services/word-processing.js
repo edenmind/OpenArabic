@@ -34,6 +34,16 @@ export const lowercaseWords = (sentence) => {
   return lowercaseWords.join(' ')
 }
 
+// use capitalizeWords and lowercaseWords to capitalize first letter of all words in a title
+export const capitalizeTitle = (title) => {
+  const sentences = splitTextToSentences(title)
+  const capitalizedSentences = sentences.map((sentence) => capitalizeWords(sentence))
+  const capitalizedTitle = capitalizedSentences.join(' ')
+
+  const lowercaseTitle = lowercaseWords(capitalizedTitle)
+  return capitalizeFirstLetter(lowercaseTitle)
+}
+
 export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
