@@ -1,18 +1,11 @@
 /* eslint-disable putout/long-properties-destructuring */
-import { truncate, removeLineBreak, addSpaceAfterDot } from '../services/utility-service.js'
+import { prepareIngress } from '../services/utility-service.js'
 import { Text, Card, Divider } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
 import { StyleSheet } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
-
-const prepareIngress = (text, length) => {
-  const noLineBreaks = removeLineBreak(text)
-  const spaceAfterDot = addSpaceAfterDot(noLineBreaks)
-
-  return truncate(spaceAfterDot, length)
-}
 
 export default function TextListCard(props) {
   const sharedStyle = useSharedStyles()
@@ -39,8 +32,8 @@ export default function TextListCard(props) {
   //prepare the texts
   const subtitle = `${props.text.author} · ${props.text.category}`
   const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}`
-  const english = props.text.texts.english != undefined && prepareIngress(props.text.texts.english, 125)
-  const arabic = props.text.texts.arabic != undefined && prepareIngress(props.text.texts.arabic, 100)
+  const english = props.text.texts.english && prepareIngress(props.text.texts.english, 125)
+  const arabic = props.text.texts.arabic && prepareIngress(props.text.texts.arabic, 100)
 
   return (
     <Card

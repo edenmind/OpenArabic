@@ -24,7 +24,7 @@ export default function TextList({ route, navigation }) {
   useFocusEffect(
     React.useCallback(() => {
       if (shouldReload) {
-        category === 'All' ? dispatch(api.getTexts('')) : dispatch(api.getTexts(category))
+        dispatch(api.getTexts(category === 'All' ? '' : category))
       }
     }, [category, dispatch, shouldReload])
   )

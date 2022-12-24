@@ -51,7 +51,7 @@ function TextSettings() {
   const getEnglishFontSize = async () => {
     const value = await getData('englishFontSize')
 
-    if (value !== null) {
+    if (value) {
       setEnglishSizeValue(value)
     }
   }
@@ -60,7 +60,7 @@ function TextSettings() {
   const getArabicFontSize = async () => {
     const value = await getData('arabicFontSize')
 
-    if (value !== null) {
+    if (value) {
       setArabicSizeValue(value)
     }
   }
@@ -69,12 +69,7 @@ function TextSettings() {
   const getTransliteration = async () => {
     const value = await getData('isTransliterationOn')
 
-    if (value == 'on') {
-      //we need to check for the string 'on' because the value is stored as a string
-      setIsTransliterationOn(true)
-    } else {
-      setIsTransliterationOn(false)
-    }
+    setIsTransliterationOn(value === 'on')
   }
 
   // get the arabic font name
@@ -82,7 +77,7 @@ function TextSettings() {
   const getArabicFontName = async () => {
     const value = await getData('arabicFontName')
 
-    if (value !== null) {
+    if (value) {
       setArabicFontName(value)
     }
   }

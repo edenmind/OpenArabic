@@ -36,18 +36,20 @@ export default function TextBilingual() {
     })
   }
 
-  return textLoading ? (
-    <ScrollView>
-      <Heading heading={text} />
-      <Sentences sentences={text.sentences} />
-      <Button style={sharedStyle.button} mode="contained" onPress={onShare}>
-        {share}
-      </Button>
-      <Button style={sharedStyle.button} mode="outlined" onPress={onErrorReport}>
-        {report}
-      </Button>
-    </ScrollView>
-  ) : (
-    <Spinner />
-  )
+  return textLoading ? getContent() : <Spinner />
+
+  function getContent() {
+    return (
+      <ScrollView>
+        <Heading heading={text} />
+        <Sentences sentences={text.sentences} />
+        <Button style={sharedStyle.button} mode="contained" onPress={onShare}>
+          {share}
+        </Button>
+        <Button style={sharedStyle.button} mode="outlined" onPress={onErrorReport}>
+          {report}
+        </Button>
+      </ScrollView>
+    )
+  }
 }

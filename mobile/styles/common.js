@@ -60,6 +60,7 @@ export const useSharedStyles = () => {
         direction: 'ltr',
         fontFamily: 'philosopher',
         fontSize: englishFontSize,
+        lineHeight: englishFontSize * 1.5,
         opacity,
         paddingBottom,
         writingDirection: 'ltr'
