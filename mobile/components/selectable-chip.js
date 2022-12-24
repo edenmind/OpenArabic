@@ -67,7 +67,7 @@ const SelectableChip = (props) => (
     textStyle={props.language === LANGUAGES.arabic ? styles.arabic : styles.english}
     style={getStyle(props)}
   >
-    {props.text || 'No text'}
+    {props.text}
   </Chip>
 )
 

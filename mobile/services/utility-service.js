@@ -6,6 +6,13 @@ export const truncate = (stringToTruncate, truncateLength) => {
     : cleanString
 }
 
+export const prepareIngress = (text, length) => {
+  const noLineBreaks = removeLineBreak(text)
+  const spaceAfterDot = addSpaceAfterDot(noLineBreaks)
+
+  return truncate(spaceAfterDot, length)
+}
+
 export const removeLineBreak = (stringWithLineBreaks) => stringWithLineBreaks.replace(/(\r\n|\n|\r)/gm, '')
 
 export const addSpaceAfterDot = (text) => {

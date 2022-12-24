@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 
-const filterFunction = (element) => element.english !== '' && element.arabic !== ''
+const filterFunction = (element) => element.english && element.arabic
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
 
 export default function TextBilingualSentences(props) {
@@ -21,9 +21,7 @@ export default function TextBilingualSentences(props) {
   const showTransliteration = isTransliterationOn === 'on'
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
-  const hideModal = () => {
-    setVisible(false)
-  }
+  const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
   const getListOfWordPairs = (index) => setWords(index)
 

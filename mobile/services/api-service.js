@@ -5,21 +5,26 @@ import axiosRetry from 'axios-retry'
 axiosRetry(axios, { retries: 3 })
 
 export const getTexts = (id) => async (dispatch) => {
-  dispatch({
-    type: 'SET_TEXTS_LOADED',
-    payload: false
-  })
-  const res = await axios.get(url.categoryWithId(id))
+  try {
+    dispatch({
+      type: 'SET_TEXTS_LOADED',
+      payload: false
+    })
 
-  dispatch({
-    type: 'SET_TEXTS',
-    payload: res.data
-  })
+    const res = await axios.get(url.categoryWithId(id))
 
-  dispatch({
-    type: 'SET_TEXTS_LOADED',
-    payload: true
-  })
+    dispatch({
+      type: 'SET_TEXTS',
+      payload: res.data
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch({
+      type: 'SET_TEXTS_LOADED',
+      payload: true
+    })
+  }
 }
 
 export const getCategories = () => async (dispatch) => {
@@ -32,21 +37,26 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const getText = (id) => async (dispatch) => {
-  dispatch({
-    type: 'RESET_TEXT'
-  })
-  dispatch({
-    type: 'SET_TEXT_LOADED',
-    payload: false
-  })
+  try {
+    dispatch({
+      type: 'RESET_TEXT'
+    })
+    dispatch({
+      type: 'SET_TEXT_LOADED',
+      payload: false
+    })
 
-  const res = await axios.get(url.textWithId(id))
-  dispatch({
-    type: 'SET_TEXT',
-    payload: res.data
-  })
-  dispatch({
-    type: 'SET_TEXT_LOADED',
-    payload: true
-  })
+    const res = await axios.get(url.textWithId(id))
+    dispatch({
+      type: 'SET_TEXT',
+      payload: res.data
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch({
+      type: 'SET_TEXT_LOADED',
+      payload: true
+    })
+  }
 }

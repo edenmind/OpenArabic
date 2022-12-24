@@ -12,8 +12,7 @@ function TextQuizVocabularies(props) {
     },
     container: {
       flexDirection: 'row',
-      marginLeft: 15,
-      marginRight: 15
+      marginHorizontal: 15
     },
     title: {
       marginBottom: 10,
@@ -24,16 +23,15 @@ function TextQuizVocabularies(props) {
       margin: 30
     },
     bodyText: {
-      marginLeft: 10,
-      marginRight: 10
+      marginHorizontal: 30
     }
   })
 
   //calculate percentage of props.currentBatch to length of props.vocabularyCollection.arabic.length
   const currentBatch = props.currentBatch + 1
-  const totalNumberOfBatches = props.vocabularyCollection.arabic.length - 1
-  const progress = currentBatch + ' of ' + totalNumberOfBatches
-  const isFinalBatch = currentBatch < totalNumberOfBatches + 1
+  const totalNumberOfBatches = props.vocabularyCollection.arabic.length
+  const progress = `${currentBatch} of ${totalNumberOfBatches}`
+  const isFinalBatch = currentBatch == totalNumberOfBatches
 
   const arabicVocabularies = props.vocabularyCollection.arabic[props.currentBatch].map((arabic, index) => (
     <SelectableChip
@@ -57,23 +55,7 @@ function TextQuizVocabularies(props) {
 
   return (
     <>
-      {isFinalBatch ? (
-        <Text variant="labelLarge" style={styles.title}>
-          Choose the Matching Pairs · {progress}
-        </Text>
-      ) : (
-        <>
-          <Text variant="titleLarge" style={styles.title}>
-            ✨ All Done ✨
-          </Text>
-          <Text variant="bodyMedium" style={styles.bodyText}>
-            Continue to practice until you feel comfortable reading the text in Arabic, in sha'Allah.
-          </Text>
-          <Button onPress={() => props.gotoFirstBatch()} mode="elevated" style={styles.button}>
-            PRACTICE AGAIN
-          </Button>
-        </>
-      )}
+      {isFinalBatch ? getAllDone() : getContinue()}
 
       <View style={styles.container}>
         <View style={styles.chipContainer}>{arabicVocabularies}</View>
@@ -81,6 +63,30 @@ function TextQuizVocabularies(props) {
       </View>
     </>
   )
+
+  function getAllDone() {
+    return (
+      <>
+        <Text variant="titleLarge" style={styles.title}>
+          ✨ All Done ✨
+        </Text>
+        <Text variant="bodyMedium" style={styles.bodyText}>
+          Continue to practice until you feel comfortable reading the text in Arabic, in sha'Allah.
+        </Text>
+        <Button onPress={() => props.gotoFirstBatch()} mode="elevated" style={styles.button}>
+          PRACTICE AGAIN
+        </Button>
+      </>
+    )
+  }
+
+  function getContinue() {
+    return (
+      <Text variant="labelLarge" style={styles.title}>
+        Choose the Matching Pairs · {progress}
+      </Text>
+    )
+  }
 }
 
 TextQuizVocabularies.propTypes = {
