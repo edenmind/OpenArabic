@@ -75,6 +75,10 @@ const textReducer = createReducer(initialState, (builder) => {
       const { indexSentence, indexArabicWord, englishWords } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].english = englishWords
     })
+    .addCase(actions.UPDATE_ENGLISH_SENTENCE, (state, action) => {
+      const { indexSentence, englishSentence } = action.value
+      state.text.sentences[indexSentence].english = englishSentence
+    })
     .addCase(actions.REMOVE_WORD_FROM_SENTENCE, (state, action) => {
       const { indexSentence, indexArabicWord, englishWords } = action.value
       //remove the word from the sentence
