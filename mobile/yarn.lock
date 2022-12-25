@@ -4311,14 +4311,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:~1.17.3":
-  version: 1.17.10
-  resolution: "@react-native-async-storage/async-storage@npm:1.17.10"
+"@react-native-async-storage/async-storage@npm:~1.17.11":
+  version: 1.17.11
+  resolution: "@react-native-async-storage/async-storage@npm:1.17.11"
   dependencies:
     merge-options: ^3.0.4
   peerDependencies:
-    react-native: ^0.0.0-0 || 0.60 - 0.70 || 1000.0.0
-  checksum: 66a49bc82c498e70f2154ab6e25318e370fa1de8bd94fa3225246dfc269a377f9e1af3737dd845e19160c35a6d644383054aaef7e9734c0a84af7b8fe40694cd
+    react-native: ^0.0.0-0 || 0.60 - 0.71 || 1000.0.0
+  checksum: 691f2b74498160d0b532f673402d8affeecb28b005b1c6d6fa2e7c87f89ab3068177e8e2d2686738306e7592a39c6d7148aa4c426b7e8e149c43a336ad446648
   languageName: node
   linkType: hard
 
@@ -12827,7 +12827,7 @@ __metadata:
     "@bugsnag/expo": ^47.0.0
     "@bugsnag/plugin-expo-eas-sourcemaps": ^47.0.0
     "@bugsnag/source-maps": ^2.3.1
-    "@react-native-async-storage/async-storage": ~1.17.3
+    "@react-native-async-storage/async-storage": ~1.17.11
     "@react-native-community/netinfo": 9.3.5
     "@react-navigation/drawer": ^6.5.6
     "@react-navigation/material-bottom-tabs": ^6.2.10
@@ -12881,8 +12881,8 @@ __metadata:
     react-native-reanimated: ~2.12.0
     react-native-safe-area-context: 4.4.1
     react-native-screens: ~3.18.0
-    react-native-share: ^7.9.0
-    react-native-tab-view: ^3.1.1
+    react-native-share: ^8.0.1
+    react-native-tab-view: ^3.3.4
     react-native-vector-icons: ^9.2.0
     react-redux: ^8.0.5
     react-test-renderer: ^18.2.0
@@ -14580,21 +14580,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-share@npm:^7.9.0":
-  version: 7.9.0
-  resolution: "react-native-share@npm:7.9.0"
-  checksum: 8eb2f5b4be8df11224f8f00b2761c2c3b4231590d945f57e8ed91899a455d7b5083bb62aa8a017ed8c15fbdfb95e85f9ee4060ac00c01897ef5c351e756c46af
+"react-native-share@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "react-native-share@npm:8.0.1"
+  checksum: b5582afb9c1b78e505162dff1ba2c05bf0ed6f955e3ba1b1144700d6018b23eb05d0b3a97b5db495062f226d3cebe95d71d4293d0dad8913d7c5a8b9ca4f61a5
   languageName: node
   linkType: hard
 
-"react-native-tab-view@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "react-native-tab-view@npm:3.1.1"
+"react-native-tab-view@npm:^3.3.4":
+  version: 3.3.4
+  resolution: "react-native-tab-view@npm:3.3.4"
+  dependencies:
+    use-latest-callback: ^0.1.5
   peerDependencies:
     react: "*"
     react-native: "*"
     react-native-pager-view: "*"
-  checksum: 8866e746f989b02243bcf1e5259698c3db50446d2b3a2c717873376734526be7fbeac520014adbe28cc0da116a7b5cd37508a6f56b90f992724be5f6222e0b71
+  checksum: 9bb6b84afd155067c1021bdd14569eb0f3b3b274a2aec87360a672fbb3a2d67d083678c78ef11f1848d7ac9760baf026416f2b63671f25ad4bdef1ef5ae560f9
   languageName: node
   linkType: hard
 

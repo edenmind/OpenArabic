@@ -26,6 +26,7 @@ const TextQuiz = () => {
   const [englishCurrentSelectedWordId, setEngSelectedWordId] = React.useState('')
   const [englishSelectedCollection, setEnglishSelected] = React.useState([])
   const [isSecondWord, setIsSecondWord] = React.useState(false)
+  const [lastSelected, setLastSelected] = React.useState('')
 
   const addWordIdToCorrectAnswers = (wordId) => {
     setCorrectAnswers([...correctAnswers, wordId])
@@ -58,6 +59,11 @@ const TextQuiz = () => {
   const pressArabicWordHandler = (index, arabicWordId) => {
     if (correctAnswers.includes(arabicWordId)) return // if the word has already been answered correctly, do nothing
 
+    if (lastSelected == 'arabic') {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
+      return // if the last selected word was arabic, do nothing
+    }
+
     if (englishCurrentSelectedWordId == arabicWordId) {
       // correct answer
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
@@ -65,20 +71,28 @@ const TextQuiz = () => {
       setIsSecondWord(false)
       handleSetArabic(index, arabicWordId)
       handleCorrectAnswer()
+      setLastSelected('')
     } else if (isSecondWord) {
       // wrong answer
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
       englishSelectedCollection[englishCurrentSelectedIndex] = false
       setEnglishSelected([...englishSelectedCollection])
       setIsSecondWord(false)
+      setLastSelected('')
     } else {
       setIsSecondWord(true) // first word
       handleSetArabic(index, arabicWordId)
+      setLastSelected('arabic')
     }
   }
 
   const pressEnglishWordHandler = (index, englishWordId) => {
     if (correctAnswers.includes(englishWordId)) return // if the word has already been answered correctly, do nothing
+
+    if (lastSelected == 'english') {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
+      return // if the last selected word was english, do nothing
+    }
 
     if (arabicCurrentSelectedWordId == englishWordId) {
       // correct answer
@@ -87,15 +101,18 @@ const TextQuiz = () => {
       setIsSecondWord(false)
       handleSetEnglish(index, englishWordId)
       handleCorrectAnswer()
+      setLastSelected('')
     } else if (isSecondWord) {
       // wrong answer
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
       arabicSelectedCollection[arabicCurrentSelectedIndex] = false
       setArabicSelected([...arabicSelectedCollection])
       setIsSecondWord(false)
+      setLastSelected('')
     } else {
       setIsSecondWord(true) // first word
       handleSetEnglish(index, englishWordId)
+      setLastSelected('english')
     }
   }
 
