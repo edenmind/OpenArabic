@@ -7,7 +7,7 @@ import SnackBar from '../components/snack-bar.js'
 import React, { Fragment } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
 import TextAddWordsGetFromDatabase from './text-add-words-get-translations.js'
-import { fontSize } from '@mui/system'
+import SearchIcon from '@mui/icons-material/Search'
 
 const selectorText = (state) => state.text
 
@@ -119,7 +119,7 @@ function TextAddWords() {
                   window.open(`https://translate.google.com/?sl=ar&tl=en&text=${word.arabic}&op=translate`)
                 }
               >
-                gTranslate
+                <SearchIcon />
               </Button>
             </Tooltip>
             <Tooltip title="Open on Quran.com">
@@ -128,7 +128,7 @@ function TextAddWords() {
                 //open in a new tab when clicked
                 onClick={() => window.open(`https://quran.com/search?q=${word.arabic}`)}
               >
-                Quran.com
+                <SearchIcon />
               </Button>
             </Tooltip>
             <Tooltip title="Open on Sunnah.com">
@@ -137,7 +137,7 @@ function TextAddWords() {
                 //open in a new tab when clicked
                 onClick={() => window.open(`https://sunnah.com/search?q=${word.arabic}`)}
               >
-                Sunnah.com
+                <SearchIcon />
               </Button>
             </Tooltip>
             <FormControlLabel
