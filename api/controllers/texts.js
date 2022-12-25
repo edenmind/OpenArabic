@@ -243,12 +243,12 @@ async function updateText(request, reply) {
     )
   }
 
+  // remove the host from the image url
+  data.$set.image = removeHost(data.$set.image)
+
   if (data.$set.generateAudio === 'Yes') {
     //generate a guid for every sentence and word
     data.$set.sentences = generateGuidForSentencesAndWords(data.$set.sentences)
-
-    //console log all of the data and the content oj the object
-    console.dir('data.: ' + data.$set.textGuid)
 
     //generate the mp3 files in the background
     batchGenerateAudio(data.$set)
