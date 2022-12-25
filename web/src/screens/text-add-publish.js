@@ -72,7 +72,6 @@ function TextAddPublish() {
 
   const updateText = () => {
     //adjust before posting
-    text.image = removeHost(text.image)
 
     api
       .updateText(text, id)

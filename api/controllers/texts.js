@@ -206,11 +206,12 @@ async function updateText(request, reply) {
   //prepare the data to be inserted into the database
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const updatedAt = new Date()
-  const { title, author, category, sentences, source, texts, publishAt, status, image, generateAudio } = body
+  const { title, author, category, sentences, source, texts, publishAt, status, image, generateAudio, textGuid } = body
   const { arabic, english } = texts
   const data = {
     $set: {
       title,
+      textGuid,
       category,
       status,
       image,
@@ -245,6 +246,9 @@ async function updateText(request, reply) {
   if (data.$set.generateAudio === 'Yes') {
     //generate a guid for every sentence and word
     data.$set.sentences = generateGuidForSentencesAndWords(data.$set.sentences)
+
+    //console log all of the data and the content oj the object
+    console.dir('data.: ' + data.$set.textGuid)
 
     //generate the mp3 files in the background
     batchGenerateAudio(data.$set)
