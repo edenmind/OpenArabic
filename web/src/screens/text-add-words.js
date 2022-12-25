@@ -119,7 +119,25 @@ function TextAddWords() {
                   window.open(`https://translate.google.com/?sl=ar&tl=en&text=${word.arabic}&op=translate`)
                 }
               >
-                Open
+                gTranslate
+              </Button>
+            </Tooltip>
+            <Tooltip title="Open on Quran.com">
+              <Button
+                color="secondary"
+                //open in a new tab when clicked
+                onClick={() => window.open(`https://quran.com/search?q=${word.arabic}`)}
+              >
+                Quran.com
+              </Button>
+            </Tooltip>
+            <Tooltip title="Open on Sunnah.com">
+              <Button
+                color="secondary"
+                //open in a new tab when clicked
+                onClick={() => window.open(`https://sunnah.com/search?q=${word.arabic}`)}
+              >
+                Sunnah.com
               </Button>
             </Tooltip>
             <FormControlLabel

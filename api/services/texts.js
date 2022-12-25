@@ -178,8 +178,9 @@ const slugifyWithAuthor = (title, author) => {
 
   const titleSlug = replaceCharacters(title)
   const authorSlug = replaceCharacters(author)
+  const id = uuidv4().slice(0, 4)
 
-  return `${titleSlug}-${authorSlug}`
+  return `${titleSlug}-${authorSlug}-${id}`
 }
 
 // validate that the correct number of words has quiz set to true

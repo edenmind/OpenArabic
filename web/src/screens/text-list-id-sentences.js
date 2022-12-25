@@ -2,7 +2,6 @@ import { Box } from '@mui/system'
 import Button from '@mui/material/Button'
 import { Fragment } from 'react'
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
@@ -24,7 +23,7 @@ function TextListIdSentences(properties) {
 
   const sentences = properties.sentences.map((sentence, index) => (
     <Fragment key={index}>
-      <Box sx={{ fontSize: 'h4.fontSize', m: 2, paddingTop: '25px' }}>{sentence.arabic}</Box>
+      <Box sx={{ fontSize: 'h4.fontSize', m: 2, paddingTop: '25px', direction: 'rtl' }}>{sentence.arabic}</Box>
       <Box sx={{ m: 2 }}>{sentence.english}</Box>
       <Button
         variant="text"
@@ -45,7 +44,7 @@ function TextListIdSentences(properties) {
         <DialogContentText id="alert-dialog-description">
           {sentencesToShow.map((word, index) => (
             <Fragment key={index}>
-              <Box sx={{ fontSize: 'h3.fontSize', m: 2, minWidth: '300px' }}>{word.arabic}</Box>
+              <Box sx={{ fontSize: 'h3.fontSize', m: 2, minWidth: '300px', direction: 'rtl' }}>{word.arabic}</Box>
               <Box sx={{ m: 2 }}>{word.english.charAt(0).toUpperCase() + word.english.slice(1)}</Box>
               <Divider />
             </Fragment>

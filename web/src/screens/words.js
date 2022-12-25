@@ -1,4 +1,4 @@
-import { Button, Container, IconButton, Tooltip } from '@mui/material'
+import { Container, IconButton, Tooltip } from '@mui/material'
 import ConfirmationDialog from '../components/confirmation-dialog.js'
 import { DataGrid } from '@mui/x-data-grid'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
@@ -113,8 +113,16 @@ export default function Words() {
       <Nav />
       <Container maxWidth="false">
         <h2>Words</h2>
-        <div style={{ height: 800, width: '100%', paddingBottom: '35px' }}>
-          {words !== undefined && <DataGrid rows={words} columns={columns} pageSize={15} rowsPerPageOptions={[5]} />}
+        <div style={{ height: 800, width: '100%', paddingBottom: '35px', fontSize: '21px' }}>
+          {words !== undefined && (
+            <DataGrid
+              rows={words}
+              columns={columns}
+              pageSize={15}
+              rowsPerPageOptions={[5]}
+              style={{ fontSize: '25px' }}
+            />
+          )}
         </div>
         <Footer />
       </Container>

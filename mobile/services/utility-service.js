@@ -37,6 +37,9 @@ export const getHijriDate = () => {
 export const transliterateArabicToEnglish = (string) => {
   let transliteratedArabicToEnglish = ''
 
+  // remove all ,.(){}[]!?:; from string
+  string = string.replace(/[!"(),-;?[\]{}]/g, '')
+
   //replace all ئٍ with ´i
   string = string.replace(/ئ/g, '`i')
 

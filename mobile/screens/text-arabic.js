@@ -5,16 +5,15 @@ import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
-
-const selector = (state) => ({
-  texts: state.texts,
-  textsLoading: state.textsLoading
-})
+const textSelector = (state) => state.text
+const textLoadSelector = (state) => state.textLoading
 
 export default function TextArabic() {
   const sharedStyle = useSharedStyles()
 
-  const { text, textLoading } = useSelector(selector)
+  const { text } = useSelector(textSelector)
+  const { textLoading } = useSelector(textLoadSelector)
+
   return textLoading ? (
     <ScrollView style={sharedStyle.container}>
       <Text style={sharedStyle.arabicBody}>{text.texts.arabic}</Text>
