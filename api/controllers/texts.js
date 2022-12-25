@@ -1,3 +1,4 @@
+/* eslint-disable putout/nonblock-statement-body-newline */
 /* eslint-disable unicorn/prefer-ternary */
 /* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable operator-linebreak */
@@ -244,11 +245,9 @@ async function updateText(request, reply) {
   if (data.$set.generateAudio === 'Yes') {
     //generate a guid for every sentence and word
     data.$set.sentences = generateGuidForSentencesAndWords(data.$set.sentences)
-    const audioData = data.$set
 
-    audioData.textGuid = uuidv4().slice(0, 8)
     //generate the mp3 files in the background
-    batchGenerateAudio(audioData)
+    batchGenerateAudio(data.$set)
   }
 
   //try to update the data
