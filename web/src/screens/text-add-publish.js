@@ -9,6 +9,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import TextField from '@mui/material/TextField'
+import { removeHost } from '../services/word-processing.js'
 
 const selector = (state) => state.text
 
@@ -55,8 +56,8 @@ function TextAddPublish() {
           setPostMessage(res.message)
           setPostState('success')
           setTimeout(() => {
-            // resetText()
-            // navigate('/texts')
+            resetText()
+            navigate('/texts')
           }, 1500)
 
           return
@@ -70,6 +71,9 @@ function TextAddPublish() {
   }
 
   const updateText = () => {
+    //adjust before posting
+    text.image = removeHost(text.image)
+
     api
       .updateText(text, id)
       .then((res) => {

@@ -161,6 +161,15 @@ const produceVocabularyCollection = (text) => {
 
 //generate a slug from an english title string and author name
 const slugifyWithAuthor = (title, author) => {
+  //replace î with i
+  title = title.replace(/ī/g, 'i')
+
+  // replace â with a
+  title = title.replace(/ā/g, 'a')
+
+  // replace û with u
+  title = title.replace(/ū/g, 'u')
+
   const replaceCharacters = (string) =>
     string
       .toLowerCase()

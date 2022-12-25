@@ -8,6 +8,12 @@ export const cleanWordFromInvalidCharacters = (wordToClean) => {
   return wordToClean.replace(/[\d!"#$%&()*+,./:;<>?@[\]|،؟“]/g, '')
 }
 
+//function to remove host from url
+export const removeHost = (url) => {
+  //only keep the part in url after the last /
+  return url.slice(Math.max(0, url.lastIndexOf('/') + 1))
+}
+
 // capitalize first letter of all words in sentence
 export const capitalizeWords = (sentence) => {
   const words = splitSentencesToWords(sentence)
