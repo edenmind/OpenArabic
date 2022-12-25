@@ -9,8 +9,6 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import TextField from '@mui/material/TextField'
-import { removeHost } from '../services/word-processing.js'
-
 const selector = (state) => state.text
 
 function TextAddPublish() {
@@ -130,7 +128,7 @@ function TextAddPublish() {
       </Stack>
       {id ? (
         <Button variant="contained" onClick={updateText}>
-          Update Status
+          Update Text
         </Button>
       ) : (
         <Button variant="contained" onClick={addText}>

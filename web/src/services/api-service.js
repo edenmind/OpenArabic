@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { removeHost } from '../services/word-processing.js'
 
 export const getTranslation = async (arabicWord) => {
   const res = await axios.post(
@@ -321,7 +322,7 @@ export const updateText = async (text, id) => {
       publishAt,
       generateAudio,
       textGuid,
-      image,
+      image: removeHost(image),
       status,
       texts: {
         arabic,
