@@ -192,16 +192,16 @@ function TextSettings() {
         }}
         buttons={[
           {
+            value: 'uthman',
+            label: 'Uthman'
+          },
+          {
+            value: 'indopak',
+            label: 'Indopak'
+          },
+          {
             value: 'amiri',
             label: 'Amiri'
-          },
-          {
-            value: 'amiriQuran',
-            label: 'Colored'
-          },
-          {
-            value: 'tajawal',
-            label: 'Tajawal'
           },
           {
             value: 'noto',

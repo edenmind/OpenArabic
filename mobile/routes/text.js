@@ -65,7 +65,7 @@ function Text() {
           options={({ navigation }) => ({
             headerShown: true,
             title: text.title,
-            headerBackTitle: text.category,
+
             headerTitle: UI.null,
             headerRight: () => (
               <Fragment>

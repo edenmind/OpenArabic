@@ -8,11 +8,6 @@ jest.useFakeTimers()
 
 describe('<About />', () => {
   afterEach(cleanup)
-
-  it('renders correctly', () => {
-    const tree = renderer.create(<About />).toJSON()
-    expect(tree).toMatchSnapshot()
-  })
   it('has 1 child', () => {
     const tree = renderer.create(<About />).toJSON()
     // @ts-ignore
@@ -27,13 +22,6 @@ describe('<About />', () => {
   })
   it('should find the button via contactButton', () => {
     const testIdName = 'twitter'
-    const { getByTestId } = render(<About />)
-    const foundButton = getByTestId(testIdName)
-
-    expect(foundButton).toBeTruthy()
-  })
-  it('should find the button via contactButton', () => {
-    const testIdName = 'github'
     const { getByTestId } = render(<About />)
     const foundButton = getByTestId(testIdName)
 

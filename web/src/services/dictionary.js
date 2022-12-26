@@ -1,5 +1,6 @@
 export const getDictionary = () => {
   return [
+    'اللهُ',
     'اللَّهُ',
     'جَابِرِ',
     'الغزالي',

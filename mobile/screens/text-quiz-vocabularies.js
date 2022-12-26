@@ -83,7 +83,7 @@ function TextQuizVocabularies(props) {
   function getContinue() {
     return (
       <Text variant="labelLarge" style={styles.title}>
-        Choose the Matching Pairs · {progress}
+        Choose the Matching Pairs · Set {progress}
       </Text>
     )
   }

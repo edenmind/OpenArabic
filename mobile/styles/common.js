@@ -65,6 +65,12 @@ export const useSharedStyles = () => {
         opacity,
         paddingBottom,
         writingDirection: 'ltr'
+      },
+      scrollView: {
+        direction: 'rtl',
+        marginLeft: horizontalMargin,
+        padding: 20,
+        writingDirection: 'ltr'
       }
     })
   }, [arabicFontSize, englishFontSize, arabicFontName])

@@ -1,6 +1,6 @@
 /* eslint-disable putout/long-properties-destructuring */
 import { prepareIngress } from '../services/utility-service.js'
-import { Text, Card, Divider } from 'react-native-paper'
+import { Text, Card, Divider, Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
@@ -20,18 +20,15 @@ export default function TextListCard(props) {
       paddingBottom: 15,
       paddingTop: 5
     },
-    cardSubtitle: {
-      paddingBottom: 25
-    },
+
     cardTitle: {
-      fontFamily: 'philosopher',
-      lineHeight: 75
+      fontFamily: 'philosopher'
     }
   })
 
   //prepare the texts
-  const subtitle = `${props.text.author} · ${props.text.category}`
-  const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}`
+  const subtitle = `${props.text.author} in #${props.text.category}`
+  const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}  `
   const english = props.text.texts.english && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic && prepareIngress(props.text.texts.arabic, 100)
 
@@ -54,7 +51,6 @@ export default function TextListCard(props) {
         titleVariant="titleLarge"
         titleStyle={style.cardTitle}
         subtitleVariant="labelMedium"
-        subtitleStyle={style.cardSubtitle}
       />
       <Card.Content>
         <Text style={sharedStyle.arabicBody}>{arabic}</Text>

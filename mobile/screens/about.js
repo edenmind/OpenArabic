@@ -26,7 +26,6 @@ function About() {
   // contact links
   const email = 'mailto:salam@edenmind.com?subject=Question&body=Enter your question...'
   const twitter = 'https://twitter.com/OpenArabicIo'
-  const github = 'https://github.com/edenmind/OpenArabic'
   const instagram = 'https://www.instagram.com/OpenArabic.io'
   const twitterYunus = 'https://twitter.com/YunusAndreasson'
   const githubYunus = 'https://github.com/YunusAndreasson'
@@ -34,8 +33,6 @@ function About() {
 
   // github links
   const githubIssues = 'https://github.com/edenmind/OpenArabic/issues'
-  const githubPullRequests = 'https://github.com/edenmind/OpenArabic/pulls'
-  const githubDiscussions = 'https://github.com/edenmind/OpenArabic/discussions'
 
   return (
     <ScrollView style={style.scrollView}>
@@ -48,18 +45,13 @@ function About() {
       <Text variant="titleLarge" style={style.english}>
         Contact Us
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
-        Please use any of the following channels to report bugs or request new features.
-      </Text>
-      <Button style={style.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
-        Twitter
-      </Button>
       <Button style={style.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
         Email
       </Button>
-      <Button style={style.button} mode="elevated" testID="github" onPress={() => Linking.openURL(github)}>
-        GitHub
+      <Button style={style.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+        Twitter
       </Button>
+
       <Button style={style.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
         Instagram
       </Button>
@@ -86,13 +78,7 @@ function About() {
         project on GitHub.
       </Text>
       <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
-        Issues
-      </Button>
-      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubDiscussions)}>
-        Discussions
-      </Button>
-      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubPullRequests)}>
-        Pull Requests
+        Issues on GitHub
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>

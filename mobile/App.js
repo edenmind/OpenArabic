@@ -17,9 +17,10 @@ Bugsnag.start({
 export default function App() {
   const [fontsLoaded] = useFonts({
     amiri: require('./assets/fonts/amiri.ttf'),
-    amiriQuran: require('./assets/fonts/amiri-quran.ttf'),
+    indopak: require('./assets/fonts/indopak.ttf'),
     tajawal: require('./assets/fonts/tajawal.ttf'),
     noto: require('./assets/fonts/noto.ttf'),
+    uthman: require('./assets/fonts/uthman.otf'),
     philosopher: require('./assets/fonts/philosopher.ttf')
   })
 

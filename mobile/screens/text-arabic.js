@@ -15,7 +15,7 @@ export default function TextArabic() {
   const { textLoading } = useSelector(textLoadSelector)
 
   return textLoading ? (
-    <ScrollView style={sharedStyle.container}>
+    <ScrollView style={sharedStyle.scrollView}>
       <Text style={sharedStyle.arabicBody}>{text.texts.arabic}</Text>
     </ScrollView>
   ) : (
