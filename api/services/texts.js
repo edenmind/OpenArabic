@@ -7,7 +7,7 @@
 const tryToCatch = require('try-to-catch')
 const { synthesize } = require('../services/tts')
 const { v4: uuidv4 } = require('uuid')
-const { shuffleArray } = require('../services/utils')
+const { shuffleArray, removeHost } = require('../services/utils')
 
 // generate a guid for each sentence and word
 const generateGuidForSentencesAndWords = (sentences) => {
@@ -66,8 +66,11 @@ const generateAudio = async (words, textGuid, hashTable, sentenceGuid = 'sentenc
     // Get the sentence data from the hash table
     const sentence = hashTable.get(id)
 
+    //remove host from the url
+    const fileNameWithoutHost = removeHost(fileName)
+
     // Add the filename as a property to the sentence
-    sentence.filename = fileName
+    sentence.filename = fileNameWithoutHost
 
     // Synthesize the sentence
     const [error] = await tryToCatch(synthesize, arabic, 'ar-XA', fileName)

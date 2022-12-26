@@ -4,6 +4,7 @@ import * as api from '../services/api-service.js'
 import * as wp from '../services/word-processing.js'
 import { useSelector, useDispatch } from 'react-redux'
 import SnackBar from '../components/snack-bar.js'
+import LoadingButton from '@mui/lab/LoadingButton'
 
 const selector = (state) => state.text
 
@@ -11,6 +12,7 @@ const TextAddWordsGetTranslations = () => {
   const dispatch = useDispatch()
   const [statusMessage, setStatusMessage] = React.useState('')
   const [open, setOpen] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
 
   const handleClose = (reason) => {
     if (reason === 'clickaway') {
@@ -23,6 +25,8 @@ const TextAddWordsGetTranslations = () => {
   const checkIfWordExistsInDatabase = async () => {
     //count the number of words found in the database
     let wordsFound = 0
+
+    setLoading(true)
 
     for (const [indexSentence, sentence] of text.sentences.entries()) {
       for (const [indexArabicWord, word] of sentence.words.entries()) {
@@ -47,6 +51,8 @@ const TextAddWordsGetTranslations = () => {
       }
     }
 
+    setLoading(false)
+
     // if no words were found in the database, then show a message
     if (wordsFound === 0) {
       setStatusMessage('No words were found in the database')
@@ -60,11 +66,16 @@ const TextAddWordsGetTranslations = () => {
   const { text } = useSelector(selector)
   return (
     <Fragment>
-      <Tooltip title="Check if words have been translated before.">
-        <Button variant="contained" sx={{ margin: 2 }} onClick={async () => await checkIfWordExistsInDatabase()}>
-          Get Translations
-        </Button>
-      </Tooltip>
+      <LoadingButton
+        size="medium"
+        onClick={async () => await checkIfWordExistsInDatabase()}
+        loading={loading}
+        variant="contained"
+        sx={{ margin: 2 }}
+      >
+        Get Translations
+      </LoadingButton>
+
       <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity="success" message={statusMessage} />
     </Fragment>
   )
