@@ -22,7 +22,8 @@ export default function TextListCard(props) {
     },
 
     cardTitle: {
-      fontFamily: 'philosopher'
+      fontFamily: 'philosopher',
+      paddingBottom: 5
     }
   })
 
@@ -48,7 +49,7 @@ export default function TextListCard(props) {
       <Card.Title
         title={props.text.title}
         subtitle={subtitle}
-        titleVariant="titleLarge"
+        titleVariant="headlineSmall"
         titleStyle={style.cardTitle}
         subtitleVariant="labelMedium"
       />

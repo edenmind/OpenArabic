@@ -41,7 +41,6 @@ function About() {
       <Text variant="titleLarge" style={style.arabic}>
         ﷽
       </Text>
-
       <Text variant="titleLarge" style={style.english}>
         Contact Us
       </Text>
@@ -51,11 +50,9 @@ function About() {
       <Button style={style.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
         Twitter
       </Button>
-
       <Button style={style.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
         Instagram
       </Button>
-
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Audience
@@ -101,7 +98,13 @@ function About() {
       <List.Item title="Ibn Rājab al-Hanbali, d. 795 AH" />
       <List.Item title="al-Fuḍayl ibn ʻIyāḍ, d. 803 AH" />
       <List.Item title="Ibn Ḥajar al-ʿAsqalānī, d. 852 AH" />
-
+      <Divider style={style.divider} />
+      <Text variant="titleLarge" style={style.english}>
+        Sources
+      </Text>
+      <List.Item title="Quran.com - Quranic ayahs." />
+      <List.Item title="Sunnah.com - Ḥadīth." />
+      <List.Item title="Islamqa.com - Fiqh and aqīdah" />
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Founder

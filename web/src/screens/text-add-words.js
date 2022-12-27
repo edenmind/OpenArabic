@@ -169,6 +169,7 @@ function TextAddWords() {
     <Fragment>
       <TextAddWordsGenerate />
       <TextAddWordsGetFromDatabase />
+      ﷺ
       <br />
       <br />
       {sentences}
