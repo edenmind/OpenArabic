@@ -128,19 +128,19 @@ function TextSettings() {
         }}
         buttons={[
           {
-            value: '15',
+            value: '14',
             label: 'X-Small'
           },
           {
-            value: '18',
+            value: '16',
             label: 'Small'
           },
           {
-            value: '21',
+            value: '19',
             label: 'Medium'
           },
           {
-            value: '25',
+            value: '23',
             label: 'Large'
           }
         ]}

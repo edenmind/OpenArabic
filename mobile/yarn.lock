@@ -4141,12 +4141,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-simplify-ternary@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@putout/plugin-simplify-ternary@npm:3.0.0"
+"@putout/plugin-simplify-ternary@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@putout/plugin-simplify-ternary@npm:4.0.0"
   peerDependencies:
-    putout: ">=26"
-  checksum: 295eb2ffb00fed1b745adf9d0d6c18fc29d0ce4f74f53f17522c94eb87a71ccdafc1c30aacfba6ebb8302019b63eac5f90d7d5a89905ee41f3e95bea76605827
+    putout: ">=28"
+  checksum: cfc4353c0e1715e563ecf84e695b705dae3dded15604b752c58c3896188c15a49d186f1fca6b43674f60f31b169ec666be2f09bbebf2ce200e8ea3e3e45b7e81
   languageName: node
   linkType: hard
 
@@ -12869,7 +12869,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.1
     prop-types: ^15.8.1
-    putout: ^28.1.0
+    putout: ^28.2.0
     react: 18.1.0
     react-dom: 18.1.0
     react-native: 0.70.5
@@ -14123,9 +14123,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.1.0":
-  version: 28.1.0
-  resolution: "putout@npm:28.1.0"
+"putout@npm:^28.2.0":
+  version: 28.2.0
+  resolution: "putout@npm:28.2.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14246,7 +14246,7 @@ __metadata:
     "@putout/plugin-remove-useless-variables": ^7.0.0
     "@putout/plugin-reuse-duplicate-init": ^4.0.0
     "@putout/plugin-simplify-assignment": ^2.0.0
-    "@putout/plugin-simplify-ternary": ^3.0.0
+    "@putout/plugin-simplify-ternary": ^4.0.0
     "@putout/plugin-split-nested-destructuring": ^1.0.0
     "@putout/plugin-split-variable-declarations": ^2.0.0
     "@putout/plugin-strict-mode": ^5.0.0
@@ -14282,7 +14282,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 19b3b6b85e9231a78de79827f70a96fd883b4ee1549660b57eaee03b49be34c053e1318d99ebc9ba72fa62a9874d142d315c092b4138aa116044bacb5fcfcd7f
+  checksum: 4dbb3a00ba01e7b26268241a88139e73f9f198679e7e02f22121c09aee41039e7a7248b92f1b18a6ecba11ffef299192d1d93f0daf55ac451038cd6050e7f73f
   languageName: node
   linkType: hard
 

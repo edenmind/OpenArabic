@@ -30,7 +30,7 @@ function TextQuizVocabularies(props) {
   //calculate percentage of props.currentBatch to length of props.vocabularyCollection.arabic.length
   const currentBatch = props.currentBatch + 1
   const totalNumberOfBatches = props.vocabularyCollection.arabic.length
-  const progress = `${currentBatch} of ${totalNumberOfBatches}`
+  const progress = `${currentBatch} of ${totalNumberOfBatches - 1}`
   const isFinalBatch = currentBatch == totalNumberOfBatches
 
   const arabicVocabularies = props.vocabularyCollection.arabic[props.currentBatch].map((arabic, index) => (

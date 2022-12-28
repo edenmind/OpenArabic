@@ -89,8 +89,16 @@ const TextAddSentences = () => {
       arabicWords.push(cleanFromNullAndEmpty)
     }
 
+    //loop through the sentences and remove non arabic characters
+    const arabicSentences = []
+
+    for (const sentence of arabicSentence) {
+      const cleanSentence = wordProcessing.cleanWordFromInvalidCharacters(sentence)
+      arabicSentences.push(cleanSentence)
+    }
+
     dispatch({ type: 'SET_ARABIC_TEXT', arabic: event.target.value })
-    dispatch({ type: 'SET_ARABIC_SENTENCE', arabicSentence })
+    dispatch({ type: 'SET_ARABIC_SENTENCE', arabicSentence: arabicSentences })
     dispatch({ type: 'SET_ARABIC_WORDS', arabicWords })
   }
 

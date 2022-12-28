@@ -88,7 +88,7 @@
     "jest": "^29.1.2",
     "jest-expo": "^47.0.0",
     "prettier": "^2.8.1",
-    "putout": "^28.1.0",
+    "putout": "^28.2.0",
     "react-test-renderer": "^18.2.0",
     "redux-mock-store": "^1.5.4"
   },
