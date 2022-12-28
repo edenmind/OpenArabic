@@ -3,6 +3,7 @@ import { Tooltip, Button } from '@mui/material'
 import * as wordProcessing from '../services/word-processing.js'
 import { useSelector, useDispatch } from 'react-redux'
 import SnackBar from '../components/snack-bar.js'
+import * as api from '../services/api-service.js'
 
 const selector = (state) => state.text
 
@@ -20,7 +21,7 @@ const TextAddWordsGenerate = (props) => {
     setOpen(false)
   }
 
-  const generateSentences = () => {
+  const generateSentences = async () => {
     const sentences = []
 
     for (const [index, arabicSentence] of text.arabicSentence.entries()) {
@@ -54,8 +55,12 @@ const TextAddWordsGenerate = (props) => {
         words.push(wordPair)
       }
 
+      //translate arabicSentence with google translate
+      const googleTranslation = await api.getTranslation(arabicSentence)
+
       const sentence = {
         english: text.englishSentence[index],
+        googleTranslation,
         arabic: arabicSentence,
         words
       }

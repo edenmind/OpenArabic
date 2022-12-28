@@ -50,6 +50,7 @@ function TextAddWords() {
       <Stack spacing={0} style={{ paddingBottom: '10px', width: '700px' }}>
         <p>
           <h1 style={{ direction: 'rtl' }}>{sentence.arabic}</h1>
+          <h3>{sentence.googleTranslation}</h3>
           <TextField
             InputProps={{ style: { fontSize: 18 } }}
             value={sentence.english}
