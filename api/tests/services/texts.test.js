@@ -1,6 +1,6 @@
-/* eslint-disable putout/array-element-newline */
-
 'use strict'
+
+/* eslint-disable putout/array-element-newline */
 
 /* eslint-disable operator-linebreak */
 /* eslint-disable putout/long-properties-destructuring */
@@ -11,7 +11,6 @@ const {
   produceVocabularyCollection,
   shuffleArray,
   readingTime,
-  slugifyWithAuthor,
   mp3Filename,
   addGuidToArray
 } = require('../../services/texts')
@@ -132,16 +131,6 @@ test('mp3Filename returns the expected string', (t) => {
   const actual = mp3Filename(text, sentence, language, word)
   //assert
   t.equal(actual, expected)
-  t.end()
-})
-
-test('should return correct slug from title and author', (t) => {
-  const title = 'The Adventures of Tom Sawyer'
-  const author = 'Mark Twain'
-  const slug = 'the-adventures-of-tom-sawyer-mark-twain'
-  const result = slugifyWithAuthor(title, author)
-
-  t.equal(result, slug)
   t.end()
 })
 
