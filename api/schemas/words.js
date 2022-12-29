@@ -12,11 +12,10 @@ const postWordOptions = {
       properties: {
         word: {
           type: 'object',
-          required: ['arabic', 'english', 'sentence'],
+          required: ['arabic', 'english'],
           properties: {
             arabic: { type: 'string', minLength: 2 },
-            english: { type: 'string', minLength: 2 },
-            sentence: { type: 'string', minLength: 5 }
+            english: { type: 'string', minLength: 2 }
           }
         }
       }
@@ -37,9 +36,7 @@ const getWordOptions = {
         type: 'object',
         properties: {
           arabic: { type: 'string' },
-          english: { type: 'string' },
-          sentence: { type: 'string' },
-          id: { type: 'string' }
+          english: { type: 'array' }
         }
       }
     }

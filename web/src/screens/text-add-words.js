@@ -17,16 +17,16 @@ function TextAddWords() {
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [postState, setPostState] = React.useState('')
   const [postMessage, setPostMessage] = React.useState('')
-  const handleSave = async (arabic, english, sentence) => {
-    const result = await api.postWord(arabic, english, sentence)
+  const handleSave = async (arabic, english) => {
+    const result = await api.postWord(arabic, english)
 
     setOpenSnackbar(true)
     setPostMessage(result.message)
     setPostState(result.state)
   }
 
-  const handleChangeArabic = (indexSentence, indexArabicWord, englishWords) => {
-    dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
+  const handleChangeArabic = (indexSentence, indexArabicWord, englishWord) => {
+    dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWord } })
   }
 
   const handleChangeEnglishSentence = (indexSentence, englishSentence) => {
@@ -95,8 +95,7 @@ function TextAddWords() {
             <Tooltip title="Save word to internal dictionary">
               <Button
                 onClick={async () => {
-                  const englishWord = await api.getTranslation(word.arabic)
-                  handleSave(word.arabic, englishWord, sentence.arabic)
+                  handleSave(word.arabic, word.english)
                 }}
               >
                 Save

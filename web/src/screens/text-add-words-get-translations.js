@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import React, { Fragment } from 'react'
 
 import * as api from '../services/api-service.js'
@@ -22,6 +23,7 @@ const TextAddWordsGetTranslations = () => {
     setOpen(false)
   }
 
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   const checkIfWordExistsInDatabase = async () => {
     //count the number of words found in the database
     let wordsFound = 0
@@ -30,23 +32,46 @@ const TextAddWordsGetTranslations = () => {
 
     for (const [indexSentence, sentence] of text.sentences.entries()) {
       for (const [indexArabicWord, word] of sentence.words.entries()) {
-        const englishWords = await api.getTranslation(word.arabic)
+        // check if the word is found un the database
+        const englishWords = await api.getWord(word.arabic)
 
-        // stop if there is no translation for this word
-        if (englishWords.length === 0) {
+        // if the word is not in the database, then translate it
+        if (englishWords.english === undefined) {
+          const englishWord = await api.getTranslation(word.arabic)
+
+          //check both lowercase and first letter uppercase
+          const sentenceContainsLowercase = sentence.english.includes(englishWord.toLowerCase())
+          const sentenceContainsCapitalized = sentence.english.includes(
+            englishWord.charAt(0).toUpperCase() + englishWord.slice(1)
+          )
+
+          if (sentenceContainsLowercase || sentenceContainsCapitalized) {
+            console.log('Found: ' + englishWord)
+            dispatch({
+              type: 'UPDATE_SENTENCE',
+              value: { indexSentence, indexArabicWord, englishWord }
+            })
+            await api.postWord(word.arabic, englishWord)
+            wordsFound++
+          }
           continue
         }
 
-        // increment the number of words found in the database
-        wordsFound++
+        // if the word is in the database, then check if the sentence contains the word
+        for (const englishWord of englishWords.english) {
+          console.log('checking: ' + englishWord)
 
-        // check if sentence.english words contains englishWords
-        const sentenceContainsCapitalized = sentence.english.includes(wp.capitalizeFirstLetter(englishWords))
-        const sentenceContainsLowercase = sentence.english.includes(wp.makeAllLetterLowercase(englishWords))
+          //check both lowercase and first letter uppercase
+          const sentenceContainsLowercase = sentence.english.includes(englishWord.toLowerCase())
+          const sentenceContainsCapitalized = sentence.english.includes(
+            englishWord.charAt(0).toUpperCase() + englishWord.slice(1)
+          )
 
-        // if the database does not contain the translation, add it
-        if (sentenceContainsCapitalized || sentenceContainsLowercase) {
-          dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWords } })
+          if (sentenceContainsLowercase || sentenceContainsCapitalized) {
+            console.log('Found: ' + englishWord, sentenceContainsCapitalized)
+            wordsFound++
+            dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWord } })
+          }
         }
       }
     }

@@ -72,8 +72,8 @@ const textReducer = createReducer(initialState, (builder) => {
       state.text.arabicSentence = action.arabicSentence
     })
     .addCase(actions.UPDATE_SENTENCE, (state, action) => {
-      const { indexSentence, indexArabicWord, englishWords } = action.value
-      state.text.sentences[indexSentence].words[indexArabicWord].english = englishWords
+      const { indexSentence, indexArabicWord, englishWord } = action.value
+      state.text.sentences[indexSentence].words[indexArabicWord].english = englishWord
     })
     .addCase(actions.UPDATE_ENGLISH_SENTENCE, (state, action) => {
       const { indexSentence, englishSentence } = action.value
