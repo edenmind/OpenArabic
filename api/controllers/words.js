@@ -5,32 +5,51 @@ const { ObjectId } = require('mongodb')
 
 async function addWord(request, reply) {
   const { word } = request.body
+  const { arabic, english } = word
   const words = this.mongo.db.collection(COLLECTIONS.WORDS)
 
   //check that translatedWord is not empty
-  const translatedWordEnglishContainsEmptyValues = Object.values(word.english).includes('')
-  const translatedWordArabicContainsEmptyValues = Object.values(word.arabic).includes('')
+  const translatedWordEnglishContainsEmptyValues = Object.values(english).includes('')
+  const translatedWordArabicContainsEmptyValues = Object.values(arabic).includes('')
 
   if (translatedWordEnglishContainsEmptyValues || translatedWordArabicContainsEmptyValues) {
     return reply.code(400).send({ message: 'Arabic or English word is empty!', state: 'error' })
   }
 
-  // Check that the word does not already exist
-  const wordAlreadyExists = await words.findOne({ arabic: word.arabic })
+  // if the arabic word already exists then push the english translation to the array else create a new word
 
-  if (wordAlreadyExists) {
-    return reply.code(409).send({ message: 'Word already exists!', state: 'error' })
-  }
+  const wordExists = await words.findOne({ arabic })
 
-  //ad an id to the word
-  const wordWithId = {
-    ...word,
-    id: new ObjectId()
+  // eslint-disable-next-line padded-blocks, putout/nonblock-statement-body-newline
+  if (wordExists) {
+    // add the english word to the array
+
+    //check if the english word already exists
+    const englishWordExists = wordExists.english.includes(english)
+
+    if (englishWordExists) {
+      return reply.code(400).send({ message: 'Word already exists!', state: 'error' })
+    }
+
+    const updatedWord = {
+      ...wordExists,
+      english: [...wordExists.english, english]
+    }
+
+    try {
+      await words.updateOne({ arabic }, { $set: updatedWord })
+      return reply.code(201).send({ message: 'Word added successfully!', state: 'success' })
+    } catch (error) {
+      return reply.code(500).send({ message: `Something went wrong with error ${error}`, state: 'error' })
+    }
   }
 
   //Add Word to database
   try {
-    await words.insertOne(wordWithId)
+    //before adding the word to the database, change the english property to an array
+    word.english = [english]
+    await words.insertOne(word)
+
     return reply.code(201).send({ message: 'Word added successfully!', state: 'success' })
   } catch (error) {
     return reply.code(500).send({ message: `Something went wrong with error ${error}`, state: 'error' })
@@ -39,14 +58,16 @@ async function addWord(request, reply) {
 
 async function getWord(request, reply) {
   const { id } = request.params
+
+  // eslint-disable-next-line putout/putout
+  console.log('first:', id)
+
   const words = this.mongo.db.collection(COLLECTIONS.WORDS)
-  const word = await words.findOne({ id: new ObjectId(id) })
+  const word = await words.findOne({ arabic: id })
 
   if (word) {
     return reply.code(200).send(word)
   }
-
-  return reply.code(404).send({ message: 'Word not found!', state: 'error' })
 }
 
 async function getWordTranslation(request, reply) {

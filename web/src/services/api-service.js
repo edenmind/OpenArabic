@@ -15,11 +15,10 @@ export const getTranslation = async (arabicWord) => {
   return translatedText
 }
 
-export const postWord = async (arabic, english, sentence) => {
+export const postWord = async (arabic, english) => {
   const word = {
     arabic,
-    english,
-    sentence
+    english
   }
 
   const url = `${process.env.REACT_APP_API_URL}/words`
@@ -43,11 +42,12 @@ export const postWord = async (arabic, english, sentence) => {
 
 export const getWord = async (arabicWord) => {
   const url = `${process.env.REACT_APP_API_URL}/words/${arabicWord}`
+  console.log('getting:', arabicWord)
   const result = await axios({
     method: 'get',
     url
   }).catch((error) => {
-    return { message: error.response.data.message, state: 'error' }
+    console.log('error:', error)
   })
 
   if (result.status === 200) {
