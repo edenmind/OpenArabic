@@ -5768,14 +5768,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "axios@npm:1.2.1"
+"axios@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "axios@npm:1.2.2"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: c4dc4e119064c9aed09a3de309bedb797a139a6fb372223aafe3e0c10a7d4a14e4d3e9c9d309467fadb9d2b490b891ee3df96ef5b55716bb971910466ff9f0c5
+  checksum: 6e357491b38426c5720f7328ecbafca3c643b03952c052d787570672ce7a9365717c2d64db4ce97cfbee3f830fa405101e360e14d0857ef7f96a9f4d814c4e03
   languageName: node
   linkType: hard
 
@@ -12837,7 +12837,7 @@ __metadata:
     "@reduxjs/toolkit": ^1.9.1
     "@testing-library/react-native": ^11.2.0
     "@types/jest": ^29.1.1
-    axios: ^1.2.1
+    axios: ^1.2.2
     axios-mock-adapter: ^1.21.2
     axios-retry: ^3.3.1
     deepmerge: ^4.2.2
@@ -12869,7 +12869,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.1
     prop-types: ^15.8.1
-    putout: ^28.2.0
+    putout: ^28.3.0
     react: 18.1.0
     react-dom: 18.1.0
     react-native: 0.70.5
@@ -12948,10 +12948,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nano-memoize@npm:^1.1.11, nano-memoize@npm:^1.1.8, nano-memoize@npm:^1.2.1":
+"nano-memoize@npm:^1.1.8, nano-memoize@npm:^1.2.1":
   version: 1.3.0
   resolution: "nano-memoize@npm:1.3.0"
   checksum: 2ece19b674da68db3f7ab449981182737babec0cb1c5804620535f0fa2aa12d965fe22b95a24723640bf738658ca5b284c9f323d3005fec0536e67dce589ab89
+  languageName: node
+  linkType: hard
+
+"nano-memoize@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "nano-memoize@npm:2.0.0"
+  checksum: 2251c7cd81237c1551a27cd6299063973283683576d5aa33831a0cc88323f1b8da6b7bdd1e59a10b227dea97676fe01b4e699440e1c786f8d57490b899c77e27
   languageName: node
   linkType: hard
 
@@ -14123,9 +14130,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.2.0":
-  version: 28.2.0
-  resolution: "putout@npm:28.2.0"
+"putout@npm:^28.3.0":
+  version: 28.3.0
+  resolution: "putout@npm:28.3.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14273,7 +14280,7 @@ __metadata:
     ignore: ^5.0.4
     is-relative: ^1.0.0
     isomorphic-git: ^1.4.0
-    nano-memoize: ^1.1.11
+    nano-memoize: ^2.0.0
     once: ^1.4.0
     picomatch: ^2.2.2
     try-catch: ^3.0.0
@@ -14282,7 +14289,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 4dbb3a00ba01e7b26268241a88139e73f9f198679e7e02f22121c09aee41039e7a7248b92f1b18a6ecba11ffef299192d1d93f0daf55ac451038cd6050e7f73f
+  checksum: 61ea56f4f3bec0a4b92bce7d2171e05d1c9ff84276ce88046c232148c518dca8829a8cd14973d9c14447bdb3ac04ab0f96d557ef84f934655c7246150b0bf8b7
   languageName: node
   linkType: hard
 

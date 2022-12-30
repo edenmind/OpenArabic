@@ -76,13 +76,14 @@ const TextAddSentences = () => {
     const arabicSentence = wordProcessing.splitTextToSentences(event.target.value)
     const cleanWords = wordProcessing.cleanWordFromInvalidCharacters(event.target.value)
     const arabicSentencesProcessed = wordProcessing.splitTextToSentences(cleanWords)
+    const cleanArabicText = wordProcessing.cleanWordFromInvalidCharactersForSentenceAndText(event.target.value)
 
     setArabicSentenceCount(arabicSentencesProcessed.length)
 
     const arabicWords = []
 
     for (const sentence of arabicSentencesProcessed) {
-      const cleanSentence = wordProcessing.cleanWordFromInvalidCharacters(sentence)
+      const cleanSentence = wordProcessing.cleanWordFromInvalidCharactersForSentenceAndText(sentence)
       const theArabicWordsSentence = wordProcessing.splitSentencesToWords(cleanSentence)
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
 
@@ -97,7 +98,7 @@ const TextAddSentences = () => {
       arabicSentences.push(cleanSentence)
     }
 
-    dispatch({ type: 'SET_ARABIC_TEXT', arabic: event.target.value })
+    dispatch({ type: 'SET_ARABIC_TEXT', arabic: cleanArabicText })
     dispatch({ type: 'SET_ARABIC_SENTENCE', arabicSentence: arabicSentences })
     dispatch({ type: 'SET_ARABIC_WORDS', arabicWords })
   }

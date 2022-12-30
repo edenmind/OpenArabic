@@ -2,7 +2,7 @@ const SCREENS = {
   about: 'About',
   settings: 'Settings',
   text: 'Texts',
-  home: 'Home',
+  home: 'Feed',
   bilingual: 'Bilingual',
   arabic: 'Arabic',
   english: 'Eng',

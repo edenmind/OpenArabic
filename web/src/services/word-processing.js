@@ -9,6 +9,10 @@ export const cleanWordFromInvalidCharacters = (wordToClean) => {
   return wordToClean.replace(/[\d!"#$%&()*+,./:;<>?@[\]|،؛؟“]/g, '')
 }
 
+export const cleanWordFromInvalidCharactersForSentenceAndText = (wordToClean) => {
+  return wordToClean.replace(/[\d!"#$%&()*+,/;<>?@[\]|،؛؟“]/g, '')
+}
+
 //function to remove host from url
 export const removeHost = (url) => {
   //only keep the part in url after the last /
