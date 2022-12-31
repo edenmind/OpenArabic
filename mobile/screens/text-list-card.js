@@ -23,7 +23,7 @@ export default function TextListCard(props) {
 
     cardTitle: {
       fontFamily: 'philosopher',
-      paddingBottom: 5
+      paddingVertical: 5
     }
   })
 

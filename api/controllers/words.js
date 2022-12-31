@@ -82,18 +82,24 @@ async function getWordTranslation(request, reply) {
 async function getWords(request, reply) {
   const words = this.mongo.db.collection(COLLECTIONS.WORDS)
   const allWords = await words.find({}).toArray()
-
   const allWordsWithAlternative = allWords.map((word) => {
-    const randomIndex1 = Math.floor(Math.random() * allWords.length)
-    const randomIndex2 = Math.floor(Math.random() * allWords.length)
-    const alternative1 = allWords[randomIndex1].english
-    const alternative2 = allWords[randomIndex2].english
+    let alternative1 = ''
+    let alternative2 = ''
+    let alternative1IsSame = true
+    let alternative2IsSame = true
+
+    while (alternative1IsSame || alternative2IsSame) {
+      const randomIndex1 = Math.floor(Math.random() * allWords.length)
+      const randomIndex2 = Math.floor(Math.random() * allWords.length)
+
+      alternative1 = allWords[randomIndex1].english
+      alternative2 = allWords[randomIndex2].english
+      alternative1IsSame = alternative1 === word.english || alternative1 === alternative2
+      alternative2IsSame = alternative2 === word.english || alternative2 === alternative1
+    }
 
     return { ...word, alternative1, alternative2 }
   })
-
-  // eslint-disable-next-line putout/putout
-  console.log('Returning:', allWordsWithAlternative)
 
   if (allWordsWithAlternative) {
     return reply.code(200).send(allWordsWithAlternative)
