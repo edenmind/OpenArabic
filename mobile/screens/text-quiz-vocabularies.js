@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import SelectableChip from '../components/selectable-chip.js'
 import LANGUAGES from '../constants/languages.js'
-import { Text, Button } from 'react-native-paper'
+import { Text, Button, Surface } from 'react-native-paper'
+import { useSharedStyles } from '../styles/common.js'
 
 function TextQuizVocabularies(props) {
   const styles = StyleSheet.create({
@@ -15,17 +16,19 @@ function TextQuizVocabularies(props) {
       marginHorizontal: 15
     },
     title: {
-      marginBottom: 10,
-      marginTop: 20,
       textAlign: 'center'
-    },
-    button: {
-      margin: 30
     },
     bodyText: {
       marginHorizontal: 30
+    },
+    intro: {
+      marginVertical: 5,
+      marginHorizontal: 20,
+      padding: 10
     }
   })
+
+  const sharedStyle = useSharedStyles()
 
   //calculate percentage of props.currentBatch to length of props.vocabularyCollection.arabic.length
   const currentBatch = props.currentBatch + 1
@@ -73,7 +76,7 @@ function TextQuizVocabularies(props) {
         <Text variant="bodyMedium" style={styles.bodyText}>
           Continue to practice until you feel comfortable reading the text in Arabic, in sha'Allah.
         </Text>
-        <Button onPress={() => props.gotoFirstBatch()} mode="elevated" style={styles.button}>
+        <Button onPress={() => props.gotoFirstBatch()} mode="elevated" style={sharedStyle.button}>
           PRACTICE AGAIN
         </Button>
       </>
@@ -82,9 +85,11 @@ function TextQuizVocabularies(props) {
 
   function getContinue() {
     return (
-      <Text variant="labelLarge" style={styles.title}>
-        Choose the Matching Pairs · Set {progress}
-      </Text>
+      <Surface elevation={2} style={styles.intro}>
+        <Text variant="labelLarge" style={styles.title}>
+          Choose the Matching Pairs · Set {progress}
+        </Text>
+      </Surface>
     )
   }
 }

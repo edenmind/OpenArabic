@@ -8,9 +8,10 @@ import * as Haptics from 'expo-haptics'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import { getWords } from '../services/api-service.js'
 import { useDispatch, useSelector } from 'react-redux'
+import * as util from '../services/utility-service.js'
 const wordsSelector = (state) => state.words
 
-const App = () => {
+const Words = () => {
   const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
   const { words } = useSelector(wordsSelector)
@@ -53,6 +54,9 @@ const App = () => {
       <View style={styles.container}>
         <Surface style={styles.surface} elevation={2}>
           <Text style={styles.arabicText}>{words[currentWord].arabic}</Text>
+          <Text style={styles.transliterationText} variant="bodyLarge">
+            {util.transliterateArabicToEnglish(words[currentWord].arabic)}
+          </Text>
         </Surface>
         {buttons.map((button, index) => (
           <View key={index}>{button}</View>
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
   surface: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 30,
+    marginBottom: 10,
     minHeight: 300
   },
   text: {
@@ -85,7 +89,10 @@ const styles = StyleSheet.create({
   },
   topView: {
     flex: 1
+  },
+  transliterationText: {
+    color: paperDarkTheme.colors.secondary
   }
 })
 
-export default App
+export default Words

@@ -24,7 +24,7 @@ function About() {
     divider: { margin: 10 }
   })
 
-   const sharedStyle = useSharedStyles()
+  const sharedStyle = useSharedStyles()
 
   // contact links
   const email = 'mailto:salam@edenmind.com?subject=Question&body=Enter your question...'
@@ -33,6 +33,11 @@ function About() {
   const twitterYunus = 'https://twitter.com/YunusAndreasson'
   const githubYunus = 'https://github.com/YunusAndreasson'
   const webYunus = 'https://andreassonphoto.com'
+
+  const ijaad = 'https://www.ijaadainstitute.com/'
+  const sixtysteps = 'https://www.arabicin60steps.com/'
+  const amau = 'https://www.amauacademy.com/pages/arabic-with-amau-program'
+  const andalus = 'https://www.andalusinstitute.com/'
 
   // github links
   const githubIssues = 'https://github.com/edenmind/OpenArabic/issues'
@@ -44,38 +49,50 @@ function About() {
       <Text variant="titleLarge" style={style.arabic}>
         ﷽
       </Text>
-      <Text variant="titleLarge" style={style.english}>
-        Contact Us
-      </Text>
-      <Button style={sharedStyle.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
-        Email
-      </Button>
-      <Button style={sharedStyle.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
-        Twitter
-      </Button>
-      <Button style={sharedStyle.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
-        Instagram
-      </Button>
-      <Divider style={style.divider} />
+
       <Text variant="titleLarge" style={style.english}>
         Audience
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        If you know some Arabic and strive to switch from reading Islamic texts in English to reading in Arabic; then
-        OpenArabic is a reading platform — featuring short bilingual texts and vocabulary quizzes — that will help you
-        in that process, inshāʾAllāh.
+        OpenArabic provides resource for learning vocabulary from the Qurʼān, the Prophetic Sunnah, and Islamic
+        jurisprudence, but does not teach Arabic grammar or the Arabic alphabet.
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
-        OpenArabic does not teach the Arabic alphabet nor Arabic grammar.
-      </Text>
+
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
-        Open Source
+        Arabic Courses
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        The platform that OpenArabic runs upon is built using Open Source tools such as React Native, ReactJS, Fastify,
-        and Kubernetes. If you are interested in helping with the development, then please check out the OpenArabic
-        project on GitHub.
+        If you are looking for more comprehensive Arabic language learning resources, there are a variety of online and
+        in-person courses available.
+      </Text>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(andalus)}>
+        Andalus Institute
+      </Button>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(amau)}>
+        Arabic With AMAU
+      </Button>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(ijaad)}>
+        Ijaada Institute
+      </Button>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(sixtysteps)}>
+        The Arabic in 60 Steps Program
+      </Button>
+
+      <Divider style={style.divider} />
+      <Text variant="titleLarge" style={style.english}>
+        Open Source Platform
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        Through OpenArabic, we are building a platform that is optimized for learning and teaching Arabic since
+        traditional social media platforms are not well-suited for this purpose.
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        OpenArabic is built using open source tools such as React Native, ReactJS, Fastify, and Kubernetes.
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        We are actively looking for developers to join us and help us build this platform. If you are interested in
+        helping to develop OpenArabic, please check out the OpenArabic project on GitHub.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
         Issues on GitHub
@@ -107,7 +124,10 @@ function About() {
       </Text>
       <List.Item title="Quran.com - Quranic ayahs." />
       <List.Item title="Sunnah.com - Ḥadīth." />
-      <List.Item title="Islamqa.com - Fiqh and aqīdah" />
+      <List.Item
+        title="Islamqa.com - Islamic
+        jurisprudence"
+      />
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Founder
@@ -124,6 +144,19 @@ function About() {
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(webYunus)}>
         AndreassonPhoto.com
+      </Button>
+      <Divider style={style.divider} />
+      <Text variant="titleLarge" style={style.english}>
+        Contact Us
+      </Text>
+      <Button style={sharedStyle.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
+        Email
+      </Button>
+      <Button style={sharedStyle.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+        Twitter
+      </Button>
+      <Button style={sharedStyle.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
+        Instagram
       </Button>
       <Text variant="titleLarge" style={style.english}></Text>
     </ScrollView>

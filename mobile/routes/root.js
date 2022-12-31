@@ -34,7 +34,7 @@ function Root() {
           component={Words}
           options={{
             tabBarLabel: '',
-            tabBarIcon: ({ color }) => <MaterialCommunityIcons name="ballot" color={color} size={26} />
+            tabBarIcon: ({ color }) => <MaterialCommunityIcons name="comment-check" color={color} size={26} />
           }}
         />
         <Tab.Screen

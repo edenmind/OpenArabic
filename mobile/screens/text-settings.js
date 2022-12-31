@@ -93,7 +93,7 @@ function TextSettings() {
   const style = StyleSheet.create({
     element: {
       paddingBottom: 10,
-      paddingTop: 10
+      paddingTop: 25
     },
     segmentedButtons: {
       width: '25%'

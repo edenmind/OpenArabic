@@ -5,7 +5,6 @@ import Spinner from '../components/spinner.js'
 import TextQuizVocabularies from './text-quiz-vocabularies.js'
 import { useSelector } from 'react-redux'
 import * as Haptics from 'expo-haptics'
-
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
 
