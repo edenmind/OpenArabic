@@ -7,7 +7,6 @@ import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import { getWords } from '../services/api-service.js'
-import { useFocusEffect } from '@react-navigation/core'
 import { useDispatch, useSelector } from 'react-redux'
 const wordsSelector = (state) => state.words
 
@@ -15,38 +14,49 @@ const App = () => {
   const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
   const { words } = useSelector(wordsSelector)
-  const [currentWord, setCurrentWord] = React.useState(0)
+  const [currentWord, setCurrentWord] = React.useState(1)
 
-  useFocusEffect(
-    React.useCallback(() => {
-      dispatch(getWords())
-    }, [dispatch])
+  React.useEffect(() => {
+    dispatch(getWords())
+  }, [dispatch])
+
+  const button1 = (
+    <Button
+      mode="elevated"
+      style={sharedStyle.button}
+      onPress={() => {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+        setCurrentWord(currentWord + 1)
+      }}
+    >
+      <Text style={styles.text}>{words[currentWord].english}</Text>
+    </Button>
   )
+
+  const button2 = (
+    <Button mode="elevated" style={sharedStyle.button} onPress={() => {}}>
+      <Text style={styles.text}>{words[currentWord].alternative1}</Text>
+    </Button>
+  )
+  const button3 = (
+    <Button mode="elevated" style={sharedStyle.button} onPress={() => {}}>
+      <Text style={styles.text}>{words[currentWord].alternative2}</Text>
+    </Button>
+  )
+
+  //randomize the order of the buttons
+  const buttons = [button1, button2, button3].sort(() => Math.random() - 0.5)
 
   return (
     //only show it if there are words
     words.length > 0 && (
       <View style={styles.container}>
-        <Surface style={styles.surface} elevation={5}>
+        <Surface style={styles.surface} elevation={2}>
           <Text style={styles.arabicText}>{words[currentWord].arabic}</Text>
         </Surface>
-
-        <Button
-          mode="elevated"
-          style={sharedStyle.button}
-          onPress={() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-            setCurrentWord(currentWord + 1)
-          }}
-        >
-          <Text style={styles.text}>{words[currentWord + 0].english}</Text>
-        </Button>
-        <Button mode="elevated" style={sharedStyle.button} onPress={() => {}}>
-          <Text style={styles.text}>{words[currentWord + 1].english}</Text>
-        </Button>
-        <Button mode="elevated" style={sharedStyle.button} onPress={() => {}}>
-          <Text style={styles.text}>{words[currentWord + 2].english}</Text>
-        </Button>
+        {buttons.map((button, index) => (
+          <View key={index}>{button}</View>
+        ))}
       </View>
     )
   )

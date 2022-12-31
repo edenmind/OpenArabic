@@ -1,6 +1,6 @@
 export const HOST = {
   // backend: 'http://localhost:3030',
-  backend: 'https://backend.openarabic.io',
+  backend: 'http://localhost:3030',
   frontend: 'https://web.openarabic.io'
 }
 

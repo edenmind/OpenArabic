@@ -64,7 +64,24 @@ const initialStateTexts = {
 }
 
 const initialStateWords = {
-  words: []
+  words: [
+    {
+      arabic: 'لهذا',
+      english: 'For this',
+
+      alternative1: 'that',
+      alternative2: 'or',
+      id: '63a8be0cbd89129d748c7f4f'
+    },
+    {
+      arabic: 'لهذا',
+      english: 'For this',
+
+      alternative1: 'that',
+      alternative2: 'or',
+      id: '63a8be0cbd89129d748c7f4f'
+    }
+  ]
 }
 
 const initialStateUI = {

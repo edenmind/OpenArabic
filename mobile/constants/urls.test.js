@@ -3,7 +3,7 @@ import { expect, it } from '@jest/globals'
 
 describe('urls', () => {
   it('backend should be correct', () => {
-    expect(HOST.backend).toBe('https://backend.openarabic.io')
+    expect(HOST.backend).toBe('http://localhost:3030')
   })
 
   it('texts should be correct', () => {

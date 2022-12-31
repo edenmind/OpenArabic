@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
 import Heading from './text-bilingual-heading.js'
 import React from 'react'
-import { ScrollView, Share } from 'react-native'
+import { ScrollView, Share, View } from 'react-native'
 import Sentences from './text-bilingual-sentences.js'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
@@ -43,12 +43,14 @@ export default function TextBilingual() {
       <ScrollView>
         <Heading heading={text} />
         <Sentences sentences={text.sentences} />
-        <Button style={sharedStyle.button} mode="contained" onPress={onShare}>
-          {share}
-        </Button>
-        <Button style={sharedStyle.button} mode="outlined" onPress={onErrorReport}>
-          {report}
-        </Button>
+        <View style={sharedStyle.container}>
+          <Button style={sharedStyle.button} mode="outlined" onPress={onShare}>
+            {share}
+          </Button>
+          <Button style={sharedStyle.button} mode="outlined" onPress={onErrorReport}>
+            {report}
+          </Button>
+        </View>
       </ScrollView>
     )
   }
