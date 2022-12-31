@@ -7,6 +7,10 @@ export const categories = () => {
   return `${HOST.backend}/${ENDPOINT.categories}`
 }
 
+export const words = () => {
+  return `${HOST.backend}/${ENDPOINT.words}`
+}
+
 export const categoryWithId = (category = '') => {
   return category === ''
     ? `${HOST.backend}/${ENDPOINT.texts}` // if category is empty get texts in all categories

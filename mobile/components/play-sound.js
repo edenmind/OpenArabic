@@ -1,18 +1,13 @@
 import * as React from 'react'
 import { Button } from 'react-native-paper'
 import { Audio } from 'expo-av'
-import { StyleSheet } from 'react-native'
+import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
 
 // This is more of a component than a server and might be better placed in the components folder
 export default function PlaySound(props) {
   const [sound, setSound] = React.useState()
-
-  const style = StyleSheet.create({
-    showWordsButton: {
-      marginTop: 10
-    }
-  })
+  const sharedStyle = useSharedStyles()
 
   async function playSound() {
     await Audio.setAudioModeAsync({
@@ -48,7 +43,7 @@ export default function PlaySound(props) {
   }, [sound])
 
   return (
-    <Button onPress={playSound} style={style.showWordsButton} mode="elevated">
+    <Button onPress={playSound} style={sharedStyle.button} mode="elevated">
       {props.buttonText}
     </Button>
   )

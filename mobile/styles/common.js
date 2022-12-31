@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const arabicSelector = (state) => state.arabicFontSize
 const englishSelector = (state) => state.englishFontSize
@@ -63,9 +64,8 @@ export const useSharedStyles = () => {
         writingDirection: 'rtl'
       },
       button: {
+        backgroundColor: paperDarkTheme.colors.onPrimary,
         marginBottom: 10,
-        marginLeft: horizontalMargin,
-        marginRight: horizontalMargin,
         marginTop: 10
       },
       container: {

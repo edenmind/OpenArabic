@@ -6,5 +6,6 @@ export const HOST = {
 
 export const ENDPOINT = {
   texts: 'texts',
-  categories: 'categories'
+  categories: 'categories',
+  words: 'words'
 }

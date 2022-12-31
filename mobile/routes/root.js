@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import SCREENS from '../constants/screens.js'
 import Settings from './settings.js'
 import Text from './text.js'
+import Words from './words.js'
 import { CombinedDarkTheme } from '../constants/paper-theme.js'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import { StyleSheet } from 'react-native'
@@ -26,6 +27,14 @@ function Root() {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => <MaterialCommunityIcons name="script-text" color={color} size={26} />
+          }}
+        />
+        <Tab.Screen
+          name={SCREENS.words}
+          component={Words}
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: ({ color }) => <MaterialCommunityIcons name="ballot" color={color} size={26} />
           }}
         />
         <Tab.Screen

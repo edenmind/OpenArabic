@@ -1,6 +1,7 @@
 import { Button, Divider, List, Text } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet, Image } from 'react-native'
 import React from 'react'
+import { useSharedStyles } from '../styles/common.js'
 
 function About() {
   const style = StyleSheet.create({
@@ -23,6 +24,8 @@ function About() {
     divider: { margin: 10 }
   })
 
+   const sharedStyle = useSharedStyles()
+
   // contact links
   const email = 'mailto:salam@edenmind.com?subject=Question&body=Enter your question...'
   const twitter = 'https://twitter.com/OpenArabicIo'
@@ -44,13 +47,13 @@ function About() {
       <Text variant="titleLarge" style={style.english}>
         Contact Us
       </Text>
-      <Button style={style.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
+      <Button style={sharedStyle.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
         Email
       </Button>
-      <Button style={style.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+      <Button style={sharedStyle.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
         Twitter
       </Button>
-      <Button style={style.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
+      <Button style={sharedStyle.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
         Instagram
       </Button>
       <Divider style={style.divider} />
@@ -74,7 +77,7 @@ function About() {
         and Kubernetes. If you are interested in helping with the development, then please check out the OpenArabic
         project on GitHub.
       </Text>
-      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
         Issues on GitHub
       </Button>
       <Divider style={style.divider} />
@@ -113,13 +116,13 @@ function About() {
         OpenArabic was founded by Yūnus Andréasson in 1442 AH or 2020 AD. Yūnus is a convert to Islam since ~20 years
         ago residing in Sweden working as a Software Developer.
       </Text>
-      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
         Twitter.com/YunusAndreasson
       </Button>
-      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(githubYunus)}>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubYunus)}>
         GitHub.com/YunusAndreasson
       </Button>
-      <Button style={style.button} mode="elevated" onPress={() => Linking.openURL(webYunus)}>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(webYunus)}>
         AndreassonPhoto.com
       </Button>
       <Text variant="titleLarge" style={style.english}></Text>

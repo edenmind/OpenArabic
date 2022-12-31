@@ -1,4 +1,4 @@
-import { categoriesReducer, textReducer, textsReducer, UIStateReducer } from './reducers.js'
+import { categoriesReducer, textReducer, textsReducer, UIStateReducer, wordsReducer } from './reducers.js'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 const rootReducer = combineReducers({
@@ -10,7 +10,8 @@ const rootReducer = combineReducers({
   arabicFontSize: UIStateReducer,
   englishFontSize: UIStateReducer,
   isTransliterationOn: UIStateReducer,
-  arabicFontName: UIStateReducer
+  arabicFontName: UIStateReducer,
+  words: wordsReducer
 })
 
 const store = configureStore({
