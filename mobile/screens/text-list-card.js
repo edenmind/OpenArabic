@@ -1,6 +1,6 @@
 /* eslint-disable putout/long-properties-destructuring */
 import { prepareIngress } from '../services/utility-service.js'
-import { Text, Card, Divider, Chip } from 'react-native-paper'
+import { Text, Card, Divider, Surface } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
@@ -45,24 +45,26 @@ export default function TextListCard(props) {
         })
       }}
     >
-      <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
-      <Card.Title
-        title={props.text.title}
-        subtitle={subtitle}
-        titleVariant="headlineSmall"
-        titleStyle={style.cardTitle}
-        subtitleVariant="labelMedium"
-      />
-      <Card.Content>
-        <Text style={sharedStyle.arabicBody}>{arabic}</Text>
-        <Text variant="bodyLarge" style={sharedStyle.englishBody}>
-          {english}
-        </Text>
-        <Divider style={sharedStyle.divider} />
-      </Card.Content>
-      <Card.Actions style={style.cardAction}>
-        <Text variant="labelSmall">{footer}</Text>
-      </Card.Actions>
+      <Surface elevation={3}>
+        <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
+        <Card.Title
+          title={props.text.title}
+          subtitle={subtitle}
+          titleVariant="headlineSmall"
+          titleStyle={style.cardTitle}
+          subtitleVariant="labelMedium"
+        />
+        <Card.Content>
+          <Text style={sharedStyle.arabicBody}>{arabic}</Text>
+          <Text variant="bodyLarge" style={sharedStyle.englishBody}>
+            {english}
+          </Text>
+          <Divider style={sharedStyle.divider} />
+        </Card.Content>
+        <Card.Actions style={style.cardAction}>
+          <Text variant="labelSmall">{footer}</Text>
+        </Card.Actions>
+      </Surface>
     </Card>
   )
 }

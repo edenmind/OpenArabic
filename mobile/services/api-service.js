@@ -36,6 +36,15 @@ export const getCategories = () => async (dispatch) => {
   })
 }
 
+export const getWords = () => async (dispatch) => {
+  const res = await axios.get(url.words())
+
+  dispatch({
+    type: 'SET_WORDS',
+    payload: res.data
+  })
+}
+
 export const getText = (id) => async (dispatch) => {
   try {
     dispatch({

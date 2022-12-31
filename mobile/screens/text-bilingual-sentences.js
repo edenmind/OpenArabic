@@ -39,6 +39,7 @@ export default function TextBilingualSentences(props) {
 
       <Button
         mode="elevated"
+        style={sharedStyle.button}
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()

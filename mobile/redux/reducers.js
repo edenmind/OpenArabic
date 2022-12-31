@@ -62,6 +62,11 @@ const initialStateText = {
 const initialStateTexts = {
   texts: []
 }
+
+const initialStateWords = {
+  words: []
+}
+
 const initialStateUI = {
   arabicFontSize: 27,
   englishFontSize: 16,
@@ -98,6 +103,12 @@ const categoriesReducer = createReducer(initialStateCategories, (builder) => {
   })
 })
 
+const wordsReducer = createReducer(initialStateWords, (builder) => {
+  builder.addCase(actions.SET_WORDS, (state, action) => {
+    return { ...state, words: action.payload }
+  })
+})
+
 const textReducer = createReducer(initialStateText, (builder) => {
   builder
     .addCase(actions.SET_TEXT, (state, action) => {
@@ -114,4 +125,4 @@ const textsReducer = createReducer(initialStateTexts, (builder) => {
   })
 })
 
-export { categoriesReducer, textReducer, textsReducer, UIStateReducer }
+export { categoriesReducer, textReducer, textsReducer, UIStateReducer, wordsReducer }

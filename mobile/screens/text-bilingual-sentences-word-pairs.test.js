@@ -21,10 +21,7 @@ describe('<TextBilingualSentencesWordPairs /> renders without crashing', () => {
       sentenceId: 23
     }
   ]
-  test('renders correctly', () => {
-    const tree = renderer.create(<TextBilingualSentencesWordPairs words={words} />).toJSON()
-    expect(tree).toMatchSnapshot()
-  })
+
   it('renders without crashing', () => {
     // @ts-ignore
     const renderer = new ShallowRenderer()
