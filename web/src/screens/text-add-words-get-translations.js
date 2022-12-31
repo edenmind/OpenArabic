@@ -54,6 +54,8 @@ const TextAddWordsGetTranslations = () => {
             await api.postWord(word.arabic, englishWord)
             wordsFound++
           }
+          // eslint-disable-next-line prettier/prettier
+          
           continue
         }
 
