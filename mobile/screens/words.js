@@ -9,6 +9,7 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 import { getWords } from '../services/api-service.js'
 import { useDispatch, useSelector } from 'react-redux'
 import * as util from '../services/utility-service.js'
+import Spinner from '../components/spinner.js'
 const wordsSelector = (state) => state.words
 
 const Words = () => {
@@ -48,22 +49,22 @@ const Words = () => {
   //randomize the order of the buttons
   const buttons = [button1, button2, button3].sort(() => Math.random() - 0.5)
 
-  return (
+  const getContent = (
     //only show it if there are words
-    words.length > 0 && (
-      <View style={styles.container}>
-        <Surface style={styles.surface} elevation={2}>
-          <Text style={styles.arabicText}>{words[currentWord].arabic}</Text>
-          <Text style={styles.transliterationText} variant="bodyLarge">
-            {util.transliterateArabicToEnglish(words[currentWord].arabic)}
-          </Text>
-        </Surface>
-        {buttons.map((button, index) => (
-          <View key={index}>{button}</View>
-        ))}
-      </View>
-    )
+    <View style={styles.container}>
+      <Surface style={styles.surface} elevation={2}>
+        <Text style={styles.arabicText}>{words[currentWord].arabic}</Text>
+        <Text style={styles.transliterationText} variant="bodyLarge">
+          {util.transliterateArabicToEnglish(words[currentWord].arabic)}
+        </Text>
+      </Surface>
+      {buttons.map((button, index) => (
+        <View key={index}>{button}</View>
+      ))}
+    </View>
   )
+
+  return words.length > 3 ? getContent : <Spinner />
 }
 
 const styles = StyleSheet.create({

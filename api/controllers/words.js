@@ -2,7 +2,7 @@
 
 const COLLECTIONS = require('../constants/collections.js')
 const { ObjectId } = require('mongodb')
-const { capitalizeFirstLetter, shuffleArray } = require('../services/utils')
+const { capitalizeFirstLetter, shuffleArray } = require('../services/texts')
 
 async function addWord(request, reply) {
   const { word } = request.body
@@ -99,9 +99,9 @@ async function getWords(request, reply) {
       alternative2 = allWords[randomIndex2].english
 
       // lowercase the words
-      alternative1 = alternative1.toLowerCase()
-      alternative2 = alternative2.toLowerCase()
-      word.english = word.english.toLowerCase()
+      alternative1 = alternative1[0].toLowerCase()
+      alternative2 = alternative2[0].toLowerCase()
+      word.english = word.english[0].toLowerCase()
 
       // make sure the alternatives are not the same
       alternative1IsSame = alternative1 === word.english || alternative1 === alternative2
