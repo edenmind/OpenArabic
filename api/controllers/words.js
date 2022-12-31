@@ -59,9 +59,6 @@ async function addWord(request, reply) {
 async function getWord(request, reply) {
   const { id } = request.params
 
-  // eslint-disable-next-line putout/putout
-  console.log('first:', id)
-
   const words = this.mongo.db.collection(COLLECTIONS.WORDS)
   const word = await words.findOne({ arabic: id })
 
@@ -86,8 +83,20 @@ async function getWords(request, reply) {
   const words = this.mongo.db.collection(COLLECTIONS.WORDS)
   const allWords = await words.find({}).toArray()
 
-  if (allWords) {
-    return reply.code(200).send(allWords)
+  const allWordsWithAlternative = allWords.map((word) => {
+    const randomIndex1 = Math.floor(Math.random() * allWords.length)
+    const randomIndex2 = Math.floor(Math.random() * allWords.length)
+    const alternative1 = allWords[randomIndex1].english
+    const alternative2 = allWords[randomIndex2].english
+
+    return { ...word, alternative1, alternative2 }
+  })
+
+  // eslint-disable-next-line putout/putout
+  console.log('Returning:', allWordsWithAlternative)
+
+  if (allWordsWithAlternative) {
+    return reply.code(200).send(allWordsWithAlternative)
   }
 
   return reply.code(404).send({ message: 'No words found!', state: 'error' })

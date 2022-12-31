@@ -45,7 +45,7 @@ export default function TextListCard(props) {
         })
       }}
     >
-      <Surface elevation={3}>
+      <Surface elevation={2}>
         <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
         <Card.Title
           title={props.text.title}

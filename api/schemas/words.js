@@ -36,7 +36,9 @@ const getWordOptions = {
         type: 'object',
         properties: {
           arabic: { type: 'string' },
-          english: { type: 'array' }
+          english: { type: 'array' },
+          alternative1: { type: 'string' },
+          alternative2: { type: 'string' }
         }
       }
     }
@@ -73,6 +75,8 @@ const getWordsOptions = {
             arabic: { type: 'string' },
             english: { type: 'string' },
             sentence: { type: 'string' },
+            alternative1: { type: 'string' },
+            alternative2: { type: 'string' },
             id: { type: 'string' }
           }
         }

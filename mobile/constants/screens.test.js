@@ -6,7 +6,7 @@ it('white should be correct', () => {
 })
 
 it('text should be correct', () => {
-  expect(SCREENS.text).toBe('Texts')
+  expect(SCREENS.text).toBe('Text')
 })
 
 it('shinyOlive should be correct', () => {
