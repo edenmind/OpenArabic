@@ -213,20 +213,6 @@ const mp3Filename = (text, sentence, language, word) => {
   return `${textSlug}-${sentenceSlug}-${languageSlug}-${wordSlug}.mp3`
 }
 
-module.exports = {
-  generateAudio,
-  batchGenerateAudio,
-  generateGuidForSentencesAndWords,
-  addGuidToArray,
-  addGuidToInnerArray,
-  validateThatCorrectNumberOfWordsHasQuizSet,
-  produceVocabularyCollection,
-  shuffleArray,
-  readingTime,
-  slugifyWithAuthor,
-  mp3Filename
-}
-
 // Private
 function countNumberOfWords(text) {
   let numberOfWords = 0
@@ -251,4 +237,24 @@ function getWordsPairedWithId(word) {
     wordId
   }
   return { arabicWord, englishWord }
+}
+
+//uppercase first letter of a string
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+module.exports = {
+  generateAudio,
+  batchGenerateAudio,
+  generateGuidForSentencesAndWords,
+  addGuidToArray,
+  addGuidToInnerArray,
+  validateThatCorrectNumberOfWordsHasQuizSet,
+  produceVocabularyCollection,
+  shuffleArray,
+  readingTime,
+  slugifyWithAuthor,
+  mp3Filename,
+  capitalizeFirstLetter
 }

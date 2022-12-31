@@ -2,6 +2,7 @@
 
 const COLLECTIONS = require('../constants/collections.js')
 const { ObjectId } = require('mongodb')
+const {capitalizeFirstLetter} = require('../services/utils')
 
 async function addWord(request, reply) {
   const { word } = request.body
@@ -89,14 +90,28 @@ async function getWords(request, reply) {
     let alternative2IsSame = true
 
     while (alternative1IsSame || alternative2IsSame) {
+      // get random index
       const randomIndex1 = Math.floor(Math.random() * allWords.length)
       const randomIndex2 = Math.floor(Math.random() * allWords.length)
 
+      // get random word
       alternative1 = allWords[randomIndex1].english
       alternative2 = allWords[randomIndex2].english
+
+      // lowercase the words
+      alternative1 = alternative1.toLowerCase()
+      alternative2 = alternative2.toLowerCase()
+      word.english = word.english.toLowerCase()
+
+      // make sure the alternatives are not the same
       alternative1IsSame = alternative1 === word.english || alternative1 === alternative2
       alternative2IsSame = alternative2 === word.english || alternative2 === alternative1
     }
+
+    //uppercase the first letter using capitalizeFirstLetter function
+    alternative1 = capitalizeFirstLetter(alternative1)
+    alternative2 = capitalizeFirstLetter(alternative2)
+    word.english = capitalizeFirstLetter(word.english)
 
     return { ...word, alternative1, alternative2 }
   })

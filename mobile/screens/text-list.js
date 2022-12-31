@@ -36,7 +36,7 @@ export default function TextList({ route, navigation }) {
   )
 
   const description = () => (
-    <View style={sharedStyle.container}>
+    <View style={sharedStyle.headerContainer}>
       <Text style={sharedStyle.englishBody}>{categoryDescription.length > 0 && categoryDescription}</Text>
     </View>
   )
