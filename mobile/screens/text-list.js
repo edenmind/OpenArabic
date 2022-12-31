@@ -7,7 +7,7 @@ import Spinner from '../components/spinner.js'
 import TextListCard from './text-list-card.js'
 import { useFocusEffect } from '@react-navigation/native'
 import { getHijriDate } from '../services/utility-service.js'
-import { Text, Surface } from 'react-native-paper'
+import { Text } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 
 const selector = (state) => state.texts

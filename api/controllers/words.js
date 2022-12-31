@@ -2,7 +2,7 @@
 
 const COLLECTIONS = require('../constants/collections.js')
 const { ObjectId } = require('mongodb')
-const {capitalizeFirstLetter} = require('../services/utils')
+const { capitalizeFirstLetter, shuffleArray } = require('../services/utils')
 
 async function addWord(request, reply) {
   const { word } = request.body
@@ -116,8 +116,10 @@ async function getWords(request, reply) {
     return { ...word, alternative1, alternative2 }
   })
 
-  if (allWordsWithAlternative) {
-    return reply.code(200).send(allWordsWithAlternative)
+  const shuffledWords = shuffleArray(allWordsWithAlternative)
+
+  if (shuffledWords) {
+    return reply.code(200).send(shuffledWords)
   }
 
   return reply.code(404).send({ message: 'No words found!', state: 'error' })
