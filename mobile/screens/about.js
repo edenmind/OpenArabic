@@ -40,7 +40,7 @@ function About() {
   const andalus = 'https://www.andalusinstitute.com/'
 
   // github links
-  const githubIssues = 'https://github.com/edenmind/OpenArabic/issues'
+  const githubIssues = 'https://github.com/edenmind/OpenArabic/'
 
   return (
     <ScrollView style={style.scrollView}>
@@ -49,22 +49,27 @@ function About() {
       <Text variant="titleLarge" style={style.arabic}>
         ﷽
       </Text>
-
       <Text variant="titleLarge" style={style.english}>
         Audience
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        OpenArabic provides resource for learning vocabulary from the Qurʼān, the Prophetic Sunnah, and Islamic
-        jurisprudence, but does not teach Arabic grammar or the Arabic alphabet.
+        OpenArabic provides resources to help learners improve their Islamic vocabulary as well as their general
+        vocabulary.
       </Text>
-
+      <Text variant="bodyLarge" style={style.english}>
+        By studying these terms, you will - in sha'Allah - gain a better understanding of the prayer, the Quran, and the
+        sayings of the Prophet ﷺ.
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        However, OpenArabic does not provide instruction in Arabic grammar or the Arabic alphabet.
+      </Text>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Arabic Courses
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        If you are looking for more comprehensive Arabic language learning resources, there are a variety of online and
-        in-person courses available.
+        If you are looking for more comprehensive resources to learn the Arabic language, there are a variety of online
+        and in-person courses available that can teach the alphabet as well as advanced grammar.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(andalus)}>
         Andalus Institute
@@ -78,7 +83,6 @@ function About() {
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(sixtysteps)}>
         The Arabic in 60 Steps Program
       </Button>
-
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Open Source Platform
@@ -91,19 +95,19 @@ function About() {
         OpenArabic is built using open source tools such as React Native, ReactJS, Fastify, and Kubernetes.
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        We are actively looking for developers to join us and help us build this platform. If you are interested in
-        helping to develop OpenArabic, please check out the OpenArabic project on GitHub.
+        We are actively seeking developers to join us and help us build this platform. If you are interested in
+        assisting with the development of OpenArabic, please take a look at the OpenArabic project on GitHub.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
-        Issues on GitHub
+        OpenArabic on GitHub
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Islamic Foundation
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah, and the first
-        generations of Muslims' understanding with texts from Islamic Scholars such as:
+        The theological basis of OpenArabic is built upon the Qurʼān, the Prophetic ﷺ Sunnah, and the interpretations of
+        the first generations of Muslims, as well as texts from Islamic Scholars such as:
       </Text>
       <List.Item title="al-Hasan al-Basri, d. 110 AH" />
       <List.Item title="Imām Abū Ḥanīfa, d. 150 AH" />
@@ -133,8 +137,15 @@ function About() {
         Founder
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        OpenArabic was founded by Yūnus Andréasson in 1442 AH or 2020 AD. Yūnus is a convert to Islam since ~20 years
-        ago residing in Sweden working as a Software Developer.
+        Yūnus Andréasson, a convert to Islam for two decades, founded OpenArabic in 2020 AD (1442 AH).
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        As a software developer based in Sweden, he created OpenArabic to provide a comprehensive online learning
+        platform for Arabic language and culture.
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        Yūnus hopes this platform will make it easier for people from all backgrounds to learn and understand the
+        Islamic religion, In sha'Allah.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
         Twitter.com/YunusAndreasson
@@ -148,6 +159,10 @@ function About() {
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Contact Us
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        We would love to receive your suggestions and feedback to help us improve the app. If you have any ideas,
+        improvements, or bug reports, please don't hesitate to get in touch with us.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
         Email

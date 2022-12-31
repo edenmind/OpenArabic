@@ -16,6 +16,10 @@ function TextQuizVocabularies(props) {
       marginHorizontal: 15
     },
     title: {
+      textAlign: 'center',
+      padding: 30
+    },
+    label: {
       textAlign: 'center'
     },
     bodyText: {
@@ -69,24 +73,24 @@ function TextQuizVocabularies(props) {
 
   function getAllDone() {
     return (
-      <>
+      <View style={sharedStyle.container}>
         <Text variant="titleLarge" style={styles.title}>
           ✨ All Done ✨
         </Text>
-        <Text variant="bodyMedium" style={styles.bodyText}>
-          Continue to practice until you feel comfortable reading the text in Arabic, in sha'Allah.
+        <Text variant="bodyMedium" style={sharedStyle.englishBody}>
+          Practice until you feel comfortable reading the text in Arabic, in sha'Allah.
         </Text>
         <Button onPress={() => props.gotoFirstBatch()} mode="elevated" style={sharedStyle.button}>
           PRACTICE AGAIN
         </Button>
-      </>
+      </View>
     )
   }
 
   function getContinue() {
     return (
       <Surface elevation={2} style={styles.intro}>
-        <Text variant="labelLarge" style={styles.title}>
+        <Text variant="labelLarge" style={styles.label}>
           Choose the Matching Pairs · Set {progress}
         </Text>
       </Surface>
