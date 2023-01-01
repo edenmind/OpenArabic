@@ -11,14 +11,35 @@ export const cleanWordFromInvalidCharacters = (wordToClean) => {
 }
 export const removeLastVowel = (word) => {
   const lastChar = word[word.length - 1]
+  const secondLastChar = word[word.length - 2]
+  const firstChar = word[0]
+  const secondChar = word[1]
+
+  const kesra = 'ِ'
+  const fetha = 'َ'
+  const damma = 'ُ'
+
+  const fethatin = 'ً'
+  const kesratin = 'ٍ'
+  const dammatin = 'ٌ'
+
+  const ya = 'ي'
+  const ta = 'ت'
+  const na = 'ن'
+  const ha = 'ه'
+
+  // the word has a pronoun
+  if ((lastChar == kesra || fetha || damma) && secondLastChar == ha) {
+    return word
+  }
 
   if (
-    lastChar === 'َ' ||
-    lastChar === 'ِ' ||
-    lastChar === 'ُ' ||
-    lastChar === 'ً' ||
-    lastChar === 'ٍ' ||
-    lastChar === 'ٌ'
+    lastChar === fetha ||
+    lastChar === kesra ||
+    lastChar === damma ||
+    lastChar === fethatin ||
+    lastChar === kesratin ||
+    lastChar === dammatin
   ) {
     return word.slice(0, -1)
   }
