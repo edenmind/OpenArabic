@@ -88,11 +88,6 @@ export const useSharedStyles = () => {
         paddingBottom,
         writingDirection: 'ltr'
       },
-      headerContainer: {
-        marginLeft: 15,
-        marginRight: 15,
-        paddingTop: 10
-      },
       scrollView: {
         direction: 'rtl',
         marginLeft: horizontalMargin,

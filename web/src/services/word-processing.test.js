@@ -1,6 +1,18 @@
 import * as wordProcessing from './word-processing.js'
 
 describe('test wordProcessing', () => {
+  it('should remove the vowels from the last character', () => {
+    // Arrange
+    const word = 'عَبْدِ'
+
+    // Act
+
+    const wordWithoutLastChar = wordProcessing.removeLastVowel(word)
+
+    // Assert
+    expect(wordWithoutLastChar).toEqual('عَبْد')
+  })
+
   it('should return a capitalized title', () => {
     const title = 'this is a title'
     const capitalizedTitle = wordProcessing.capitalizeWords(title)

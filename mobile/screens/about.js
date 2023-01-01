@@ -32,7 +32,6 @@ function About() {
   const instagram = 'https://www.instagram.com/OpenArabic.io'
   const twitterYunus = 'https://twitter.com/YunusAndreasson'
   const githubYunus = 'https://github.com/YunusAndreasson'
-  const webYunus = 'https://andreassonphoto.com'
 
   const ijaad = 'https://www.ijaadainstitute.com/'
   const sixtysteps = 'https://www.arabicin60steps.com/'
@@ -41,6 +40,8 @@ function About() {
 
   // github links
   const githubIssues = 'https://github.com/edenmind/OpenArabic/'
+  const gitHubFirstIssue =
+    'https://github.com/edenmind/OpenArabic/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22'
 
   return (
     <ScrollView style={style.scrollView}>
@@ -101,6 +102,9 @@ function About() {
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
         OpenArabic on GitHub
       </Button>
+      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(gitHubFirstIssue)}>
+        Good First Issues
+      </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Islamic Foundation
@@ -152,9 +156,6 @@ function About() {
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubYunus)}>
         GitHub.com/YunusAndreasson
-      </Button>
-      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(webYunus)}>
-        AndreassonPhoto.com
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>

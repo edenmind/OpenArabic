@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable nonblock-statement-body-position */
 import { getDictionary } from './dictionary.js'
 import { getDictionaryOfLowerCaseWords } from './dictionary-lowercase-words.js'
@@ -7,6 +8,22 @@ export const removeEmptyAndNull = (words) => words.filter((word) => word !== '')
 export const splitSentencesToWords = (sentence) => sentence.split(' ')
 export const cleanWordFromInvalidCharacters = (wordToClean) => {
   return wordToClean.replace(/[\d!"#$%&()*+,./:;<>?@[\]|،؛؟“]/g, '')
+}
+export const removeLastVowel = (word) => {
+  const lastChar = word[word.length - 1]
+
+  if (
+    lastChar === 'َ' ||
+    lastChar === 'ِ' ||
+    lastChar === 'ُ' ||
+    lastChar === 'ً' ||
+    lastChar === 'ٍ' ||
+    lastChar === 'ٌ'
+  ) {
+    return word.slice(0, -1)
+  }
+
+  return word
 }
 
 export const cleanWordFromInvalidCharactersForSentenceAndText = (wordToClean) => {

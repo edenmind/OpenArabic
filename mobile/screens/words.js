@@ -27,7 +27,6 @@ const Words = () => {
       mode="elevated"
       style={sharedStyle.button}
       onPress={() => {
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         setCurrentWord(currentWord + 1)
       }}
     >
@@ -37,11 +36,13 @@ const Words = () => {
 
   const button2 = (
     <Button mode="elevated" style={sharedStyle.button} onPress={() => {}}>
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
       <Text style={styles.text}>{words[currentWord].alternative1}</Text>
     </Button>
   )
   const button3 = (
     <Button mode="elevated" style={sharedStyle.button} onPress={() => {}}>
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
       <Text style={styles.text}>{words[currentWord].alternative2}</Text>
     </Button>
   )

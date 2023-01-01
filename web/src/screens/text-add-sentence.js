@@ -86,8 +86,9 @@ const TextAddSentences = () => {
       const cleanSentence = wordProcessing.cleanWordFromInvalidCharactersForSentenceAndText(sentence)
       const theArabicWordsSentence = wordProcessing.splitSentencesToWords(cleanSentence)
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(theArabicWordsSentence)
+      const lastVowelRemoved = wordProcessing.removeLastVowel(cleanFromNullAndEmpty)
 
-      arabicWords.push(cleanFromNullAndEmpty)
+      arabicWords.push(lastVowelRemoved)
     }
 
     //loop through the sentences and remove non arabic characters
