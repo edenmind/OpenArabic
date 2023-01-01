@@ -44,10 +44,10 @@ export default function TextBilingual() {
         <Heading heading={text} />
         <Sentences sentences={text.sentences} />
         <View style={sharedStyle.container}>
-          <Button style={sharedStyle.button} mode="outlined" onPress={onShare}>
+          <Button mode="text" onPress={onShare}>
             {share}
           </Button>
-          <Button style={sharedStyle.button} mode="outlined" onPress={onErrorReport}>
+          <Button mode="text" onPress={onErrorReport}>
             {report}
           </Button>
         </View>
