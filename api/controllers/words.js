@@ -84,8 +84,8 @@ async function getWords(request, reply) {
   const words = this.mongo.db.collection(COLLECTIONS.WORDS)
   const allWords = await words.find({}).toArray()
   const allWordsWithAlternative = allWords.map((word) => {
-    let alternative1 = ''
-    let alternative2 = ''
+    let alternative1 = ['']
+    let alternative2 = ['']
     let alternative1IsSame = true
     let alternative2IsSame = true
 
@@ -97,6 +97,21 @@ async function getWords(request, reply) {
       // get random word
       alternative1 = allWords[randomIndex1].english
       alternative2 = allWords[randomIndex2].english
+
+      //if alternative1 not is an array, make it an array
+      if (!Array.isArray(alternative1)) {
+        alternative1 = [alternative1]
+      }
+
+      //if alternative2 not is an array, make it an array
+      if (!Array.isArray(alternative2)) {
+        alternative2 = [alternative2]
+      }
+
+      //if word.english not is an array, make it an array
+      if (!Array.isArray(word.english)) {
+        word.english = [word.english]
+      }
 
       // lowercase the words
       alternative1 = alternative1[0].toLowerCase()

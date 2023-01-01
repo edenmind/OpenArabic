@@ -34,7 +34,13 @@ function TextBilingualSentencesWordPairs(props) {
       paddingRight: 20
     }
   })
-  return props.words.map((word, index) => (
+
+  // Remove duplicate words
+  const distinctValues = props.words.filter(
+    (item, index, self) => index === self.findIndex((t) => t.arabic === item.arabic)
+  )
+
+  return distinctValues.map((word, index) => (
     <Fragment key={index}>
       <View style={style.row}>
         <View style={style.flexOne}>
