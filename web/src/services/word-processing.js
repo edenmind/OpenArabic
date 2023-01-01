@@ -19,14 +19,44 @@ export const removeLastVowel = (word) => {
   const fetha = 'َ'
   const damma = 'ُ'
 
+  const ba = 'ب'
+  const lam = 'ل'
+
   const fethatin = 'ً'
   const kesratin = 'ٍ'
   const dammatin = 'ٌ'
+
+  const sukoon = 'ْ'
 
   const ya = 'ي'
   const ta = 'ت'
   const na = 'ن'
   const ha = 'ه'
+
+  //remove sukon
+  if (lastChar === sukoon) {
+    return word.slice(0, -1)
+  }
+
+  // check if the word contains three fethatin
+  if (word.includes(fetha)) {
+    const fethaCount = word.split(fetha).length
+
+    if (fethaCount == 4) {
+      console.log('first fetha index: ' + word)
+      return word
+    }
+  }
+
+  // preposition
+  if ((firstChar == ba || secondChar == lam) && lastChar == kesra) {
+    return word
+  }
+
+  // verb
+  if ((lastChar == kesra || fetha || damma) && secondLastChar == ta) {
+    return word
+  }
 
   // the word has a pronoun
   if ((lastChar == kesra || fetha || damma) && secondLastChar == ha) {

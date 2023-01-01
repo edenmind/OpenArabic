@@ -13,6 +13,18 @@ describe('test wordProcessing', () => {
     expect(wordWithoutLastChar).toEqual('عَبْد')
   })
 
+  it('should remove the vowels from the last character', () => {
+    // Arrange
+    const word = 'أَمِيرِ'
+
+    // Act
+
+    const wordWithoutLastChar = wordProcessing.removeLastVowel(word)
+
+    // Assert
+    expect(wordWithoutLastChar).toEqual('أَمِير')
+  })
+
   it('should return a capitalized title', () => {
     const title = 'this is a title'
     const capitalizedTitle = wordProcessing.capitalizeWords(title)

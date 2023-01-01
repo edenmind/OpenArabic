@@ -27,7 +27,11 @@ const Words = () => {
       mode="elevated"
       style={sharedStyle.button}
       onPress={() => {
-        setCurrentWord(currentWord + 1)
+        if (currentWord === words.length - 1) {
+          setCurrentWord(0)
+        } else {
+          setCurrentWord(currentWord + 1)
+        }
       }}
     >
       <Text style={styles.text}>{words[currentWord].english}</Text>

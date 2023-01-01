@@ -86,6 +86,15 @@ function About() {
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
+        Translating Arabic
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        Translation from Arabic to English is difficult due to its complex grammar and syntax, wide range of dialects
+        and spoken variations, and cultural implications that can be lost in translation. The accuracy of translations
+        can vary depending on context.
+      </Text>
+      <Divider style={style.divider} />
+      <Text variant="titleLarge" style={style.english}>
         Open Source Platform
       </Text>
       <Text variant="bodyLarge" style={style.english}>

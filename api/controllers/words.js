@@ -18,7 +18,6 @@ async function addWord(request, reply) {
   }
 
   // if the arabic word already exists then push the english translation to the array else create a new word
-
   const wordExists = await words.findOne({ arabic })
 
   // eslint-disable-next-line padded-blocks, putout/nonblock-statement-body-newline
