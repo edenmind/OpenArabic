@@ -58,6 +58,11 @@ const TextAddSentences = () => {
     const englishSentence = wordProcessing.splitTextToSentences(event.target.value)
     setEnglishSentenceCount(englishSentence.length)
 
+    //loop through all the sentences and remove any " using regex and then update the englishSentence
+    for (let i = 0; i < englishSentence.length; i++) {
+      englishSentence[i] = englishSentence[i].replace(/"/g, '')
+    }
+
     // Split sentences into words
     const englishWords = []
 
