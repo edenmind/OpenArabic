@@ -89,9 +89,10 @@ function About() {
         Translating Arabic
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        Translation from Arabic to English is difficult due to its complex grammar and syntax, wide range of dialects
-        and spoken variations, and cultural implications that can be lost in translation. The accuracy of translations
-        can vary depending on context.
+        Translating from Arabic to English can be a challenging task due to its intricate grammar and syntax, which can
+        make it difficult to accurately convey the nuances of the original text. The accuracy of translations can depend
+        heavily on the context, so we strive to provide each word with the proper context where it is used in Islamic
+        texts, to ensure that readers have a clear understanding of its usage.
       </Text>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>

@@ -1,4 +1,4 @@
-import { Chip, TextField } from '@mui/material'
+import { Chip, TextField, Box } from '@mui/material'
 import { Fragment } from 'react'
 import { styled } from '@mui/material/styles'
 import { useDispatch, useSelector } from 'react-redux'
@@ -127,6 +127,7 @@ const TextAddSentences = () => {
         >
           Fetch vocals
         </LoadingButton>
+        <Box>{'ﷺ'}</Box>
       </Stack>
       <Stack direction="row" spacing={2}>
         <Item>

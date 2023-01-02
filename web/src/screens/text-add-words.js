@@ -74,8 +74,8 @@ function TextAddWords() {
                 fullWidth
               />
             </Stack>
-            {word.arabic.length > 17 && <Chip sx={{ margin: 2 }} color="warning" label="Long Arabic Word" />}
-            {word.english.length > 17 && <Chip sx={{ margin: 2 }} color="warning" label="Long English Word" />}
+            {word.arabic.length > 17 && <Chip sx={{ margin: 2 }} color="warning" label="Arabic" />}
+            {word.english.length > 17 && <Chip sx={{ margin: 2 }} color="warning" label="English" />}
             <Chip
               label={`${indexSentence}:${indexArabicWord}`}
               color="primary"
@@ -169,7 +169,7 @@ function TextAddWords() {
     <Fragment>
       <TextAddWordsGenerate />
       <TextAddWordsGetFromDatabase />
-      ﷺ
+
       <br />
       <br />
       {sentences}

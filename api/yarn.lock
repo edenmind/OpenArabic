@@ -2244,9 +2244,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@eslint/eslintrc@npm:1.4.0"
+"@eslint/eslintrc@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@eslint/eslintrc@npm:1.4.1"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
@@ -2257,7 +2257,7 @@ __metadata:
     js-yaml: ^4.1.0
     minimatch: ^3.1.2
     strip-json-comments: ^3.1.1
-  checksum: 73e39c833deafde8d8706e6fa9b52b6d99927c094ead8e405ea4174e8197ec24aac9ba88ae38cc8ad32eaccf07b9c7fc5dc70761d1fba6da41a928691447305f
+  checksum: cd3e5a8683db604739938b1c1c8b77927dc04fce3e28e0c88e7f2cd4900b89466baf83dfbad76b2b9e4d2746abdd00dd3f9da544d3e311633d8693f327d04cd7
   languageName: node
   linkType: hard
 
@@ -2290,12 +2290,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/autoload@npm:^5.6.0":
-  version: 5.6.0
-  resolution: "@fastify/autoload@npm:5.6.0"
+"@fastify/autoload@npm:^5.7.0":
+  version: 5.7.0
+  resolution: "@fastify/autoload@npm:5.7.0"
   dependencies:
     pkg-up: ^3.1.0
-  checksum: 257712a26f4bf7fa06306aefe9dde4deb466d045829b581e5dfbe92914a45febfa85a520733709228b305033f672291ea6861aeb049d1c3d388ac2cde6198dfd
+  checksum: 119528d329f0915167d3d6c1dfadfb513a256f1dacf6450c960d15609ed2c06a6d2b5246c6b99e96a4ad526d89f114be6c4e96572638c491606ebd16a89cb8a5
   languageName: node
   linkType: hard
 
@@ -4515,7 +4515,7 @@ __metadata:
   resolution: "api@workspace:."
   dependencies:
     "@aws-sdk/client-s3": ^3.241.0
-    "@fastify/autoload": ^5.6.0
+    "@fastify/autoload": ^5.7.0
     "@fastify/cors": ^8.2.0
     "@fastify/env": ^4.2.0
     "@fastify/helmet": ^10.1.0
@@ -4527,13 +4527,13 @@ __metadata:
     "@google-cloud/text-to-speech": ^4.1.0
     axios: ^1.2.2
     dotenv: ^16.0.3
-    eslint: ^8.30.0
+    eslint: ^8.31.0
     eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-putout: ^16.3.0
     eslint-plugin-security: ^1.5.0
     eslint-plugin-unicorn: ^45.0.2
-    fastify: ^4.10.2
+    fastify: ^4.11.0
     fastify-cli: ^5.7.0
     fastify-healthcheck: ^4.3.0
     fastify-plugin: ^4.4.0
@@ -6057,11 +6057,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.30.0":
-  version: 8.30.0
-  resolution: "eslint@npm:8.30.0"
+"eslint@npm:^8.31.0":
+  version: 8.31.0
+  resolution: "eslint@npm:8.31.0"
   dependencies:
-    "@eslint/eslintrc": ^1.4.0
+    "@eslint/eslintrc": ^1.4.1
     "@humanwhocodes/config-array": ^0.11.8
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -6102,7 +6102,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: b7525bb465b342665c3b8bab7e114d514ef1bc4e79f211c919863f9c71767e7412ec82383a22614a92d159783f91101018817000f7c61ce69a5e7015280cafaf
+  checksum: 5e5688bb864edc6b12d165849994812eefa67fb3fc44bb26f53659b63edcd8bcc68389d27cc6cc9e5b79ee22f24b6f311fa3ed047bddcafdec7d84c1b5561e4f
   languageName: node
   linkType: hard
 
@@ -6454,9 +6454,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^4.10.2":
-  version: 4.10.2
-  resolution: "fastify@npm:4.10.2"
+"fastify@npm:^4.11.0":
+  version: 4.11.0
+  resolution: "fastify@npm:4.11.0"
   dependencies:
     "@fastify/ajv-compiler": ^3.3.1
     "@fastify/error": ^3.0.0
@@ -6473,7 +6473,7 @@ __metadata:
     secure-json-parse: ^2.5.0
     semver: ^7.3.7
     tiny-lru: ^10.0.0
-  checksum: 1050bb361051b5fa5593dc1ea9a1fdff35980444d29e74fb13d94face47b38be6cb047e61d87b6a1f6337e3e0afb4873dbff342a3ae02f0ea7bf60fec51e8f1f
+  checksum: 814803b1015ae47cce4d7877a16788abee3ba6bba23e7e1b08a6cc62b43828aa6c38624de835c5b422da902fa93b316d1222d191b8373bebd8acbd68c8843584
   languageName: node
   linkType: hard
 

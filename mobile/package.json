@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.144",
+  "version": "1444.4.145",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -93,5 +93,5 @@
     "redux-mock-store": "^1.5.4"
   },
   "private": true,
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.3.1"
 }

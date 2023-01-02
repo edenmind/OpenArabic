@@ -48,6 +48,12 @@ async function addWord(request, reply) {
   try {
     //before adding the word to the database, change the english property to an array
     word.english = [english]
+
+    //add an id to the word
+    const id = new ObjectId()
+
+    word.id = id
+
     await words.insertOne(word)
 
     return reply.code(201).send({ message: 'Word added successfully!', state: 'success' })
