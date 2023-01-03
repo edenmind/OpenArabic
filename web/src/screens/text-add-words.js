@@ -1,3 +1,4 @@
+/* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable security/detect-non-literal-fs-filename */
 import * as api from '../services/api-service.js'
@@ -17,8 +18,8 @@ function TextAddWords() {
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [postState, setPostState] = React.useState('')
   const [postMessage, setPostMessage] = React.useState('')
-  const handleSave = async (arabic, english) => {
-    const result = await api.postWord(arabic, english)
+  const handleSave = async (arabic, english, arabicSentence, englishSentence) => {
+    const result = await api.postWord(arabic, english, arabicSentence, englishSentence)
 
     setOpenSnackbar(true)
     setPostMessage(result.message)
@@ -95,7 +96,7 @@ function TextAddWords() {
             <Tooltip title="Save word to internal dictionary">
               <Button
                 onClick={async () => {
-                  handleSave(word.arabic, word.english)
+                  handleSave(word.arabic, word.english, sentence.arabic, sentence.english)
                 }}
               >
                 Save

@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-color-literals */
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Button, Surface, Text } from 'react-native-paper'
+import { Button, Divider, Surface, Text } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { paperDarkTheme } from '../constants/paper-theme.js'
@@ -10,6 +10,7 @@ import { getWords } from '../services/api-service.js'
 import { useDispatch, useSelector } from 'react-redux'
 import * as util from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
+import ModalScrollView from '../components/modal-scroll-view.js'
 
 const wordsSelector = (state) => state.words
 
@@ -23,6 +24,10 @@ const Words = () => {
   const [button1position, setButton1position] = useState(1)
   const [button2position, setButton2position] = useState(2)
   const [button3position, setButton3position] = useState(3)
+
+  const hideModal = () => setVisible(false)
+  const showModal = () => setVisible(true)
+  const [visible, setVisible] = React.useState(false)
 
   useEffect(() => {
     dispatch(getWords())
@@ -106,11 +111,34 @@ const Words = () => {
         <Text style={styles.transliterationText} variant="bodyLarge">
           {words.length > 1 && util.transliterateArabicToEnglish(words.length > 1 && words[currentWord].arabic)}
         </Text>
+        <Divider style={sharedStyle.divider} />
       </Surface>
 
       {buttons.map((button, index) => (
         <View key={index}>{button}</View>
       ))}
+      <Button
+        mode="text"
+        style={{ opacity: 0.5, marginTop: 55 }}
+        onPress={() => {
+          showModal()
+        }}
+      >
+        Context
+      </Button>
+      <ModalScrollView
+        visible={visible}
+        content={
+          <View style={styles.container}>
+            <Text style={sharedStyle.arabicBody}>{words[currentWord].arabicSentence}</Text>
+            <Text style={sharedStyle.englishBody} variant="bodyLarge">
+              {words[currentWord].englishSentence}
+            </Text>
+          </View>
+        }
+        title="Context"
+        hideModal={hideModal}
+      />
     </View>
   )
 

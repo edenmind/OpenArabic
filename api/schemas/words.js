@@ -15,7 +15,9 @@ const postWordOptions = {
           required: ['arabic', 'english'],
           properties: {
             arabic: { type: 'string', minLength: 2 },
-            english: { type: 'string', minLength: 2 }
+            english: { type: 'string', minLength: 2 },
+            arabicSentence: { type: 'string', minLength: 2 },
+            englishSentence: { type: 'string', minLength: 2 }
           }
         }
       }
@@ -38,7 +40,9 @@ const getWordOptions = {
           arabic: { type: 'string' },
           english: { type: 'array' },
           alternative1: { type: 'string' },
-          alternative2: { type: 'string' }
+          alternative2: { type: 'string' },
+          arabicSentence: { type: 'string' },
+          englishSentence: { type: 'string' }
         }
       }
     }
@@ -77,6 +81,8 @@ const getWordsOptions = {
             sentence: { type: 'string' },
             alternative1: { type: 'string' },
             alternative2: { type: 'string' },
+            arabicSentence: { type: 'string' },
+            englishSentence: { type: 'string' },
             id: { type: 'string' }
           }
         }

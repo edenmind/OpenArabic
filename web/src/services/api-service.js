@@ -15,10 +15,12 @@ export const getTranslation = async (arabicWord) => {
   return translatedText
 }
 
-export const postWord = async (arabic, english) => {
+export const postWord = async (arabic, english, arabicSentence, englishSentence) => {
   const word = {
     arabic,
-    english
+    english,
+    arabicSentence,
+    englishSentence
   }
 
   const url = `${process.env.REACT_APP_API_URL}/words`
