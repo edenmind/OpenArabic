@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import * as util from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
+import WordsContextHighLighted from './words-context-highlighted.js'
 
 const wordsSelector = (state) => state.words
 
@@ -129,12 +130,15 @@ const Words = () => {
       <ModalScrollView
         visible={visible}
         content={
-          <View style={styles.container}>
-            <Text style={sharedStyle.arabicBody}>{words[currentWord].arabicSentence}</Text>
-            <Text style={sharedStyle.englishBody} variant="bodyLarge">
-              {words[currentWord].englishSentence}
-            </Text>
-          </View>
+          words.length > 1 && (
+            <WordsContextHighLighted
+              arabicSentence={words[currentWord].arabicSentence}
+              englishSentence={words[currentWord].englishSentence}
+              currentWord={currentWord}
+              arabicWord={words[currentWord].arabic}
+              englishWord={words[currentWord].english}
+            ></WordsContextHighLighted>
+          )
         }
         title="Context"
         hideModal={hideModal}
