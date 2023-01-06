@@ -1,9 +1,10 @@
 /* eslint-disable react-redux/useSelector-prefer-selectors */
 import { View, StyleSheet } from 'react-native'
-import { Text, Button, Chip, Surface, Divider } from 'react-native-paper'
+import { Text, Button, Surface, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
 import { useSharedStyles } from '../styles/common.js'
+import * as Haptics from 'expo-haptics'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -75,7 +76,8 @@ const OrderingWordsInASentence = () => {
   //if currentSentence is equal to the length of the wordsInSentences array, set currentSentence to 0
   const handlePress = (id, word) => {
     if (id === currentWord) {
-      console.log('correct')
+      // correct answer
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
       //push the arabic word to the currentArabicSentenceFromCorrectAnswers array and set the state
       const currentArabicSentenceFromCorrectAnswersCopy = [...currentArabicSentenceFromCorrectAnswers]
@@ -105,7 +107,8 @@ const OrderingWordsInASentence = () => {
         setCurrentWord(currentWord + 1)
       }
     } else {
-      console.log('incorrect')
+      // wrong answer
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
     }
   }
 
@@ -143,14 +146,14 @@ const OrderingWordsInASentence = () => {
               {englishWordsInSentence}
             </Text>
             <Text style={sharedStyle.arabicBody} variant="bodyLarge">
-              {currentArabicSentenceFromCorrectAnswers.length > 0 ? currentArabicSentenceFromCorrectAnswers : '...'}
+              {currentArabicSentenceFromCorrectAnswers + '...'}
             </Text>
           </View>
         </Surface>
         <Divider style={sharedStyle.divider} />
         <Surface style={sharedStyle.surface} elevation={2}>
           <View style={sharedStyle.headerContainer}>
-            <Text variant="labelMedium">Choose the correct arabic word </Text>
+            <Text variant="labelMedium">Choose the correct Arabic word:</Text>
             <Divider style={sharedStyle.divider} />
             {arabicWordsInSentenceComponents}
           </View>
