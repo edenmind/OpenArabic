@@ -8,6 +8,7 @@ import TextBilingual from '../screens/text-bilingual.js'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { getText } from '../services/api-service.js'
 import { useDispatch } from 'react-redux'
+import OrderingWordsInASentence from '../screens/text-word-exercise.js'
 
 export default function TextTabs({ route }) {
   const Tab = createMaterialTopTabNavigator()
@@ -17,8 +18,8 @@ export default function TextTabs({ route }) {
   const [isLoading, setIsLoading] = useState(true)
   const tabArray = [
     { name: SCREENS.bilingual, component: TextBilingual },
-    { name: SCREENS.arabic, component: TextArabic },
-    { name: SCREENS.quiz, component: Quiz }
+    { name: SCREENS.quiz, component: OrderingWordsInASentence },
+    { name: SCREENS.arabic, component: TextArabic }
   ]
 
   useEffect(() => {

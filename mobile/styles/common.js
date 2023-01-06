@@ -69,7 +69,6 @@ export const useSharedStyles = () => {
         marginTop: 10
       },
       container: {
-        direction: 'rtl',
         marginBottom: verticalMargin,
         marginLeft: horizontalMargin,
         marginRight: horizontalMargin,

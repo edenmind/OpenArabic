@@ -8,39 +8,39 @@ import LANGUAGES from '../constants/languages.js'
 const styles = StyleSheet.create({
   arabic: {
     fontFamily: 'amiri',
-    fontSize: 30,
-    lineHeight: 60
+    fontSize: 27,
+    lineHeight: 'auto'
   },
   chipNotSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.onSecondary,
     borderColor: paperDarkTheme.colors.outlineVariant,
-    borderWidth: 2,
+    borderWidth: 3,
     direction: 'rtl',
-    height: 70,
-    margin: 7
+    margin: 3,
+    padding: 0
   },
   chipNotSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.onSecondary,
     borderColor: paperDarkTheme.colors.outlineVariant,
     borderWidth: 2,
     direction: 'ltr',
-    height: 70,
-    margin: 7
+
+    margin: 3
   },
   chipSelectedArabic: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
     borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'rtl',
-    height: 70,
-    margin: 7
+
+    margin: 3
   },
   chipSelectedEnglish: {
     backgroundColor: paperDarkTheme.colors.primaryContainer,
     borderColor: paperDarkTheme.colors.primary,
     borderWidth: 2,
     direction: 'ltr',
-    height: 70,
+
     margin: 7
   },
   english: {

@@ -7,12 +7,14 @@ import { Text, Button, Surface } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 
 function TextQuizVocabularies(props) {
+  const sharedStyle = useSharedStyles()
   const styles = StyleSheet.create({
     chipContainer: {
-      width: '50%'
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      flexShrink: 1
     },
     container: {
-      flexDirection: 'row',
       marginHorizontal: 15
     },
     title: {
@@ -31,8 +33,6 @@ function TextQuizVocabularies(props) {
       padding: 10
     }
   })
-
-  const sharedStyle = useSharedStyles()
 
   //calculate percentage of props.currentBatch to length of props.vocabularyCollection.arabic.length
   const currentBatch = props.currentBatch + 1
@@ -65,8 +65,10 @@ function TextQuizVocabularies(props) {
       {isFinalBatch ? getAllDone() : getContinue()}
 
       <View style={styles.container}>
+        <Text style={sharedStyle.englishBody}>
+          It is narrated on the authority of Amirul Mu'minin, Abu Hafs 'Umar bin al-Khattab who said:
+        </Text>
         <View style={styles.chipContainer}>{arabicVocabularies}</View>
-        <View style={styles.chipContainer}>{englishVocabularies}</View>
       </View>
     </>
   )
@@ -88,13 +90,7 @@ function TextQuizVocabularies(props) {
   }
 
   function getContinue() {
-    return (
-      <Surface elevation={2} style={styles.intro}>
-        <Text variant="labelLarge" style={styles.label}>
-          Choose the Matching Pairs · Set {progress}
-        </Text>
-      </Surface>
-    )
+    return <View></View>
   }
 }
 

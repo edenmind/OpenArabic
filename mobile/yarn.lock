@@ -3332,6 +3332,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/plugin-apply-flat-map@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-apply-flat-map@npm:1.0.0"
+  peerDependencies:
+    putout: ">=25"
+  checksum: 49b67b46a60b42d439b7725613da0f43a2f758654554a80936ee2295afc897d1f4a79f874280d982e28f6d810219ece037af7cf005d76481c78d9a6711c7335c
+  languageName: node
+  linkType: hard
+
 "@putout/plugin-apply-if-condition@npm:^1.0.0":
   version: 1.0.0
   resolution: "@putout/plugin-apply-if-condition@npm:1.0.0"
@@ -12869,7 +12878,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.1
     prop-types: ^15.8.1
-    putout: ^28.3.0
+    putout: ^28.4.0
     react: 18.1.0
     react-dom: 18.1.0
     react-native: 0.70.5
@@ -14130,9 +14139,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.3.0":
-  version: 28.3.0
-  resolution: "putout@npm:28.3.0"
+"putout@npm:^28.4.0":
+  version: 28.4.0
+  resolution: "putout@npm:28.4.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14165,6 +14174,7 @@ __metadata:
     "@putout/plugin-apply-comparison-order": ^1.0.0
     "@putout/plugin-apply-destructuring": ^5.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
+    "@putout/plugin-apply-flat-map": ^1.0.0
     "@putout/plugin-apply-if-condition": ^1.0.0
     "@putout/plugin-apply-is-array": ^3.0.0
     "@putout/plugin-apply-optional-chaining": ^2.0.0
@@ -14289,7 +14299,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 61ea56f4f3bec0a4b92bce7d2171e05d1c9ff84276ce88046c232148c518dca8829a8cd14973d9c14447bdb3ac04ab0f96d557ef84f934655c7246150b0bf8b7
+  checksum: 78c04e824d12fb9aaa1aafe99012a4b1fec8499e6ef9bf2f54046badd9af14f8d78f7de5361c4382f932855a290890e7a485c63f18e17c109bc93d3ee41d0319
   languageName: node
   linkType: hard
 
