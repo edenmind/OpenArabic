@@ -2613,9 +2613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^5.17.17":
-  version: 5.17.17
-  resolution: "@mui/x-data-grid@npm:5.17.17"
+"@mui/x-data-grid@npm:^5.17.18":
+  version: 5.17.18
+  resolution: "@mui/x-data-grid@npm:5.17.18"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@mui/utils": ^5.10.3
@@ -2627,13 +2627,13 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: 9d51f9e779be9aa712dc81b75f166beafa1c10a4637fd1fb84e62c1086803c2969b235e35553f5e66d5a14914ba0695548daaa64acff4bfde79e4b51566e5d62
+  checksum: 29d884e36fd0bd5ad514b307a58e08ce1f943452e14a34b05408122afba7faf3a12ff3935ac14bce66cb900627b6f8c4cf8952135ac84229d88fc00493b84828
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^5.0.12":
-  version: 5.0.12
-  resolution: "@mui/x-date-pickers@npm:5.0.12"
+"@mui/x-date-pickers@npm:^5.0.13":
+  version: 5.0.13
+  resolution: "@mui/x-date-pickers@npm:5.0.13"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@date-io/core": ^2.15.0
@@ -2671,7 +2671,7 @@ __metadata:
       optional: true
     moment:
       optional: true
-  checksum: b02bf2dbde4c474ac45f4028ee2f7e02582dbc421563e16f24ff02029c8f6995ab8f3a346d14926e251b776fd824deb917ac0b7bff3bf3c3efd6268cb2de88e4
+  checksum: 4c609650c5d0309bced3cc07e50bfb48032f4736d7b247d6fc7bd6b7a604c90e082631b1b8cab503d31d09a59f6e14e5a72e2ff6a8c7f71dfc6eeebae1e821a2
   languageName: node
   linkType: hard
 
@@ -3107,6 +3107,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/plugin-apply-flat-map@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-apply-flat-map@npm:1.0.0"
+  peerDependencies:
+    putout: ">=25"
+  checksum: 49b67b46a60b42d439b7725613da0f43a2f758654554a80936ee2295afc897d1f4a79f874280d982e28f6d810219ece037af7cf005d76481c78d9a6711c7335c
+  languageName: node
+  linkType: hard
+
 "@putout/plugin-apply-if-condition@npm:^1.0.0":
   version: 1.0.0
   resolution: "@putout/plugin-apply-if-condition@npm:1.0.0"
@@ -3462,12 +3471,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-merge-duplicate-imports@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@putout/plugin-merge-duplicate-imports@npm:7.0.0"
+"@putout/plugin-merge-duplicate-imports@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@putout/plugin-merge-duplicate-imports@npm:8.0.0"
   peerDependencies:
-    putout: ">=27"
-  checksum: f07778b55d7e50d6ec9c3a18558c4a4072e3d8af76628d7145d3889d5d822ea3d875832c8a6dc06b96a63916bbcd3b73351fa8c883b47902485b0423a17b3c26
+    putout: ">=28"
+  checksum: 8757434d23bdf479bea6d3e57c573641fc2d6f2344e25668cf8dd0eec829930b9a422a7ab9d21990c232b99d9fb2f56ec4dedca950271036b914d46c6c110953
   languageName: node
   linkType: hard
 
@@ -7901,12 +7910,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-array-func@npm:^3.1.7":
-  version: 3.1.7
-  resolution: "eslint-plugin-array-func@npm:3.1.7"
+"eslint-plugin-array-func@npm:^3.1.8":
+  version: 3.1.8
+  resolution: "eslint-plugin-array-func@npm:3.1.8"
   peerDependencies:
     eslint: ">=3.0.0"
-  checksum: 6dd09bef26dd90ff62a53c983231cfaf826b89455b4c81ea9e63c4afc6e96ce88666e0fe8054a040c9fd0a791d62fce38263f7c3f047deb17f70a7fed908bf2d
+  checksum: 6278bd84384d9c77928970fd6083305e01840604f39fe294a83e3403409b505d64a242eb69a6ff0c269cd8d95e8135f2a42a7673fecb177a6fa3e9143b795359
   languageName: node
   linkType: hard
 
@@ -13589,9 +13598,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.3.0":
-  version: 28.3.0
-  resolution: "putout@npm:28.3.0"
+"putout@npm:^28.5.0":
+  version: 28.5.0
+  resolution: "putout@npm:28.5.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13624,6 +13633,7 @@ __metadata:
     "@putout/plugin-apply-comparison-order": ^1.0.0
     "@putout/plugin-apply-destructuring": ^5.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
+    "@putout/plugin-apply-flat-map": ^1.0.0
     "@putout/plugin-apply-if-condition": ^1.0.0
     "@putout/plugin-apply-is-array": ^3.0.0
     "@putout/plugin-apply-optional-chaining": ^2.0.0
@@ -13663,7 +13673,7 @@ __metadata:
     "@putout/plugin-madrun": ^14.0.0
     "@putout/plugin-math": ^1.0.0
     "@putout/plugin-merge-destructuring-properties": ^6.0.0
-    "@putout/plugin-merge-duplicate-imports": ^7.0.0
+    "@putout/plugin-merge-duplicate-imports": ^8.0.0
     "@putout/plugin-merge-if-statements": ^3.0.0
     "@putout/plugin-montag": ^1.0.0
     "@putout/plugin-new": ^1.0.0
@@ -13748,7 +13758,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 61ea56f4f3bec0a4b92bce7d2171e05d1c9ff84276ce88046c232148c518dca8829a8cd14973d9c14447bdb3ac04ab0f96d557ef84f934655c7246150b0bf8b7
+  checksum: b121a3d0763baae7e331e1a2ec89ea208db383b7e416e33b3e62f5364fd24f0281c837ff155a268de063e3e00bda5137d15e32cea259a6c64d1e1790ef4d8fc8
   languageName: node
   linkType: hard
 
@@ -16714,8 +16724,8 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/lab": ^5.0.0-alpha.114
     "@mui/material": ^5.11.3
-    "@mui/x-data-grid": ^5.17.17
-    "@mui/x-date-pickers": ^5.0.12
+    "@mui/x-data-grid": ^5.17.18
+    "@mui/x-date-pickers": ^5.0.13
     "@reduxjs/toolkit": ^1.9.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -16723,7 +16733,7 @@ __metadata:
     "@types/react-redux": ^7.1.25
     axios: ^0.27.2
     axios-mock-adapter: ^1.21.2
-    eslint-plugin-array-func: ^3.1.7
+    eslint-plugin-array-func: ^3.1.8
     eslint-plugin-import: ^2.26.0
     eslint-plugin-mui-unused-classes: ^1.0.3
     eslint-plugin-prettier: ^4.2.1
@@ -16738,7 +16748,7 @@ __metadata:
     moment-timezone: ^0.5.40
     node-notifier: ^10.0.1
     prettier: ^2.8.1
-    putout: ^28.3.0
+    putout: ^28.5.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.2

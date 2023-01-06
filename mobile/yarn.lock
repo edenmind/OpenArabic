@@ -3696,12 +3696,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-merge-duplicate-imports@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@putout/plugin-merge-duplicate-imports@npm:7.0.0"
+"@putout/plugin-merge-duplicate-imports@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@putout/plugin-merge-duplicate-imports@npm:8.0.0"
   peerDependencies:
-    putout: ">=27"
-  checksum: f07778b55d7e50d6ec9c3a18558c4a4072e3d8af76628d7145d3889d5d822ea3d875832c8a6dc06b96a63916bbcd3b73351fa8c883b47902485b0423a17b3c26
+    putout: ">=28"
+  checksum: 8757434d23bdf479bea6d3e57c573641fc2d6f2344e25668cf8dd0eec829930b9a422a7ab9d21990c232b99d9fb2f56ec4dedca950271036b914d46c6c110953
   languageName: node
   linkType: hard
 
@@ -12878,7 +12878,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.1
     prop-types: ^15.8.1
-    putout: ^28.4.0
+    putout: ^28.5.0
     react: 18.1.0
     react-dom: 18.1.0
     react-native: 0.70.5
@@ -14139,9 +14139,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.4.0":
-  version: 28.4.0
-  resolution: "putout@npm:28.4.0"
+"putout@npm:^28.5.0":
+  version: 28.5.0
+  resolution: "putout@npm:28.5.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14214,7 +14214,7 @@ __metadata:
     "@putout/plugin-madrun": ^14.0.0
     "@putout/plugin-math": ^1.0.0
     "@putout/plugin-merge-destructuring-properties": ^6.0.0
-    "@putout/plugin-merge-duplicate-imports": ^7.0.0
+    "@putout/plugin-merge-duplicate-imports": ^8.0.0
     "@putout/plugin-merge-if-statements": ^3.0.0
     "@putout/plugin-montag": ^1.0.0
     "@putout/plugin-new": ^1.0.0
@@ -14299,7 +14299,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 78c04e824d12fb9aaa1aafe99012a4b1fec8499e6ef9bf2f54046badd9af14f8d78f7de5361c4382f932855a290890e7a485c63f18e17c109bc93d3ee41d0319
+  checksum: b121a3d0763baae7e331e1a2ec89ea208db383b7e416e33b3e62f5364fd24f0281c837ff155a268de063e3e00bda5137d15e32cea259a6c64d1e1790ef4d8fc8
   languageName: node
   linkType: hard
 

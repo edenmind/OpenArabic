@@ -104,9 +104,13 @@ const categoriesReducer = createReducer(initialStateCategories, (builder) => {
 })
 
 const wordsReducer = createReducer(initialStateWords, (builder) => {
-  builder.addCase(actions.SET_WORDS, (state, action) => {
-    return { ...state, words: action.payload }
-  })
+  builder
+    .addCase(actions.SET_WORDS, (state, action) => {
+      return { ...state, words: action.payload }
+    })
+    .addCase(actions.RESET_WORDS, () => {
+      return { ...initialStateWords }
+    })
 })
 
 const textReducer = createReducer(initialStateText, (builder) => {

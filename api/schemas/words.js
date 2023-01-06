@@ -17,7 +17,9 @@ const postWordOptions = {
             arabic: { type: 'string', minLength: 2 },
             english: { type: 'string', minLength: 2 },
             arabicSentence: { type: 'string', minLength: 2 },
-            englishSentence: { type: 'string', minLength: 2 }
+            englishSentence: { type: 'string', minLength: 2 },
+            categoryLevel: { type: 'number', minimum: 1, maximum: 50 },
+            quiz: { type: 'boolean' }
           }
         }
       }
@@ -42,7 +44,9 @@ const getWordOptions = {
           alternative1: { type: 'string' },
           alternative2: { type: 'string' },
           arabicSentence: { type: 'string' },
-          englishSentence: { type: 'string' }
+          englishSentence: { type: 'string' },
+          categoryLevel: { type: 'string' },
+          quiz: { type: 'boolean' }
         }
       }
     }
@@ -83,7 +87,9 @@ const getWordsOptions = {
             alternative2: { type: 'string' },
             arabicSentence: { type: 'string' },
             englishSentence: { type: 'string' },
-            id: { type: 'string' }
+            categoryLevel: { type: 'string' },
+            id: { type: 'string' },
+            quiz: { type: 'boolean' }
           }
         }
       }
@@ -114,7 +120,8 @@ const updateWordOptions = {
         properties: {
           arabic: { type: 'string', minLength: 3 },
           english: { type: 'string', minLength: 3 },
-          sentence: { type: 'string', minLength: 5 }
+          sentence: { type: 'string', minLength: 5 },
+          categoryLevel: { type: 'number', minimum: 1, maximum: 50 }
         }
       }
     }

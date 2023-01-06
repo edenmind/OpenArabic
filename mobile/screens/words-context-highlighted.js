@@ -4,9 +4,9 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
-import React from 'react'
+import React, { Fragment } from 'react'
 import { View } from 'react-native'
-import { Text, Chip } from 'react-native-paper'
+import { Text } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
 import { paperDarkTheme } from '../constants/paper-theme.js'
@@ -31,12 +31,12 @@ const WordsContextHighLighted = (props) => {
     const highlightedSentence = splitSentenceArray.map((wordInSentence, index) => {
       if (wordInSentence === word) {
         return (
-          <>
-            <Text style={highlightedWord} key={index} variant="bodyLarge>">
+          <Fragment key={index}>
+            <Text style={highlightedWord} variant="bodyLarge>">
               {' ' + wordInSentence + ' '}
             </Text>
             <Text> </Text>
-          </>
+          </Fragment>
         )
       }
 
@@ -72,35 +72,3 @@ WordsContextHighLighted.propTypes = {
 }
 
 export default WordsContextHighLighted
-// function for highlighting a word in a text in a react native component
-
-// import React, { useState } from 'react';
-// import { Text, View, StyleSheet } from 'react-native';
-
-// const HighlightWord = ({ text, word }) => {
-//   const [highlightedText, setHighlightedText] = useState(text);
-
-//   const highlightWord = (text, word) => {
-//     const regex = new RegExp(`(${word})`, 'gi');
-//     const newText = text.replace(regex, `<span style="color: red;">$1</span>`);
-//     setHighlightedText(() => newText);
-//   };
-
-//   React.useEffect(() => {
-//     highlightWord(text, word);
-//   }, [text, word]);
-
-//   return (
-//     <View style={styles.container}>
-//       <Text dangerouslySetInnerHTML={{ __html: highlightedText }} />
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });

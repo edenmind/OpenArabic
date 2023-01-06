@@ -18,8 +18,8 @@ function TextAddWords() {
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [postState, setPostState] = React.useState('')
   const [postMessage, setPostMessage] = React.useState('')
-  const handleSave = async (arabic, english, arabicSentence, englishSentence) => {
-    const result = await api.postWord(arabic, english, arabicSentence, englishSentence)
+  const handleSave = async (arabic, english, arabicSentence, englishSentence, categoryLevel, quiz) => {
+    const result = await api.postWord(arabic, english, arabicSentence, englishSentence, categoryLevel, quiz)
 
     setOpenSnackbar(true)
     setPostMessage(result.message)
@@ -96,7 +96,13 @@ function TextAddWords() {
             <Tooltip title="Save word to internal dictionary">
               <Button
                 onClick={async () => {
-                  handleSave(word.arabic, word.english, sentence.arabic, sentence.english)
+                  //get all categories by using the api getCategories
+                  const categories = await api.getCategories()
+
+                  //get the category level property of the category with the name text.category
+                  const categoryLevel = categories.find((category) => category.name === text.category).level
+
+                  handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel, word.quiz)
                 }}
               >
                 Save

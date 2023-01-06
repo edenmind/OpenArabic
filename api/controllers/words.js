@@ -87,8 +87,26 @@ async function getWordTranslation(request, reply) {
 
 async function getWords(request, reply) {
   const words = this.mongo.db.collection(COLLECTIONS.WORDS)
-  const allWords = await words.find({}).toArray()
-  const allWordsWithAlternative = allWords.map((word) => {
+
+  const { query } = request
+  const { numberOfWordsToPractice, difficultyLevel } = query
+
+  // eslint-disable-next-line putout/putout
+  console.log(numberOfWordsToPractice, difficultyLevel)
+
+  //set difficultyLevel to number
+  const difficultyLevelNumber = Number(difficultyLevel)
+
+  //get all words where categoryLevel is equal to the difficultyLevel
+  const wordsFilteredByDifficultyLevel = await words
+    .find({ categoryLevel: difficultyLevelNumber, quiz: true })
+    .toArray()
+  // eslint-disable-next-line putout/putout
+  console.log('first', wordsFilteredByDifficultyLevel)
+
+  //get random words from the wordsFilteredByDifficultyLevel but not more than numberOfWordsToPractice
+  const randomWords = wordsFilteredByDifficultyLevel.slice(0, numberOfWordsToPractice)
+  const allWordsWithAlternative = randomWords.map((word) => {
     let alternative1 = ['']
     let alternative2 = ['']
     let alternative1IsSame = true
@@ -96,12 +114,12 @@ async function getWords(request, reply) {
 
     while (alternative1IsSame || alternative2IsSame) {
       // get random index
-      const randomIndex1 = Math.floor(Math.random() * allWords.length)
-      const randomIndex2 = Math.floor(Math.random() * allWords.length)
+      const randomIndex1 = Math.floor(Math.random() * randomWords.length)
+      const randomIndex2 = Math.floor(Math.random() * randomWords.length)
 
       // get random word
-      alternative1 = allWords[randomIndex1].english
-      alternative2 = allWords[randomIndex2].english
+      alternative1 = randomWords[randomIndex1].english
+      alternative2 = randomWords[randomIndex2].english
 
       //if alternative1 not is an array, make it an array
       if (!Array.isArray(alternative1)) {

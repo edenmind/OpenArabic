@@ -1,31 +1,15 @@
 /* eslint-disable putout/long-properties-destructuring */
 import { prepareIngress } from '../services/utility-service.js'
-import { Text, Card, Divider, Surface } from 'react-native-paper'
+import { Text, Card, Divider, Surface, TouchableRipple } from 'react-native-paper'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React from 'react'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 import SCREENS from '../constants/screens.js'
-import { StyleSheet, TouchableOpacity, Animated } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextListCard(props) {
   const sharedStyle = useSharedStyles()
-  const [scaleValue] = useState(new Animated.Value(1))
-
-  const scaleCard = () => {
-    Animated.timing(scaleValue, {
-      useNativeDriver: true,
-      toValue: 0.95,
-      duration: 300
-    }).start()
-  }
-
-  const restoreCard = () => {
-    Animated.timing(scaleValue, {
-      useNativeDriver: true,
-      toValue: 1,
-      duration: 300
-    }).start()
-  }
 
   const style = StyleSheet.create({
     card: {
@@ -44,10 +28,6 @@ export default function TextListCard(props) {
     }
   })
 
-  const animatedStyle = {
-    transform: [{ scale: scaleValue }]
-  }
-
   //prepare the texts
   const subtitle = `${props.text.author} in #${props.text.category}`
   const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}  `
@@ -57,10 +37,8 @@ export default function TextListCard(props) {
   return (
     <Card style={style.card} testID="textCard" mode="elevated">
       <Surface elevation={2}>
-        <TouchableOpacity
-          activeOpacity={1}
-          onPressIn={scaleCard}
-          onPressOut={restoreCard}
+        <TouchableRipple
+          rippleColor={paperDarkTheme.colors.surfaceVariant}
           onPress={() => {
             props.setShouldReload(false)
             props.navigation.navigate(SCREENS.textScreen, {
@@ -68,7 +46,7 @@ export default function TextListCard(props) {
             })
           }}
         >
-          <Animated.View style={animatedStyle}>
+          <>
             <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
             <Card.Title
               title={props.text.title}
@@ -87,8 +65,8 @@ export default function TextListCard(props) {
             <Card.Actions style={style.cardAction}>
               <Text variant="labelSmall">{footer}</Text>
             </Card.Actions>
-          </Animated.View>
-        </TouchableOpacity>
+          </>
+        </TouchableRipple>
       </Surface>
     </Card>
   )

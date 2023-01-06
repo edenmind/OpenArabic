@@ -36,8 +36,12 @@ export const getCategories = () => async (dispatch) => {
   })
 }
 
-export const getWords = () => async (dispatch) => {
-  const res = await axios.get(url.words())
+export const getWords = (numberOfWordsToPractice, difficultyLevel) => async (dispatch) => {
+  const urlWordsWithParameters =
+    url.words() + `?numberOfWordsToPractice=${numberOfWordsToPractice}&difficultyLevel=${difficultyLevel}`
+
+  console.log(urlWordsWithParameters)
+  const res = await axios.get(urlWordsWithParameters)
 
   dispatch({
     type: 'SET_WORDS',
