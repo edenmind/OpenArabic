@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
+import { paperDarkTheme } from '../constants/paper-theme.js'
+import WordsContextHighLighted from './words-context-highlighted.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -15,6 +17,8 @@ const OrderingWordsInASentence = () => {
   const [currentWord, setCurrentWord] = useState(0)
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState([])
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
+  const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
+  const [currentEnglishWord, setCurrentEnglishWord] = useState('')
   const sharedStyle = useSharedStyles()
 
   const styles = StyleSheet.create({
@@ -28,7 +32,17 @@ const OrderingWordsInASentence = () => {
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
     textLoading && setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
-  }, [currentSentence, sentencesInText, textLoading])
+    setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
+  }, [currentSentence, sentencesInText, textLoading, currentWord])
+
+  const vibrateBetweenTwoColors = () => {
+    setColor(paperDarkTheme.colors.errorContainer)
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
+
+    setTimeout(() => {
+      setColor(paperDarkTheme.colors.elevation.level3)
+    }, 100)
+  }
 
   // loop through all sentences in the text
   const sentencesInText = text.sentences.map((sentence, sentenceIndex) => {
@@ -79,6 +93,9 @@ const OrderingWordsInASentence = () => {
       // correct answer
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
+      // set the state for currentEnglishWord
+      setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
+
       //push the arabic word to the currentArabicSentenceFromCorrectAnswers array and set the state
       const currentArabicSentenceFromCorrectAnswersCopy = [...currentArabicSentenceFromCorrectAnswers]
 
@@ -108,6 +125,7 @@ const OrderingWordsInASentence = () => {
       }
     } else {
       // wrong answer
+      vibrateBetweenTwoColors()
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
     }
   }
@@ -138,22 +156,24 @@ const OrderingWordsInASentence = () => {
   return (
     textLoading && (
       <View style={sharedStyle.headerContainer}>
-        <Surface style={sharedStyle.surface} elevation={2}>
+        <Surface style={{ ...sharedStyle.surface, height: 250 }} elevation={2}>
           <View style={sharedStyle.headerContainer}>
             {sentenceNumber}
             <Divider style={sharedStyle.divider} />
-            <Text style={sharedStyle.englishBody} variant="bodyLarge">
-              {englishWordsInSentence}
-            </Text>
-            <Text style={sharedStyle.arabicBody} variant="bodyLarge">
-              {currentArabicSentenceFromCorrectAnswers + '...'}
-            </Text>
+
+            <WordsContextHighLighted
+              arabicSentence={currentArabicSentenceFromCorrectAnswers + '...'}
+              englishSentence={englishWordsInSentence}
+              currentWord={currentWord}
+              arabicWord={''}
+              englishWord={currentEnglishWord}
+            ></WordsContextHighLighted>
           </View>
         </Surface>
         <Divider style={sharedStyle.divider} />
-        <Surface style={sharedStyle.surface} elevation={2}>
+        <Surface style={{ ...sharedStyle.surface, backgroundColor: color, height: 200 }} elevation={2}>
           <View style={sharedStyle.headerContainer}>
-            <Text variant="labelMedium">Choose the correct Arabic word:</Text>
+            <Text variant="labelMedium">Choose Arabic Word For: {currentEnglishWord}</Text>
             <Divider style={sharedStyle.divider} />
             {arabicWordsInSentenceComponents}
           </View>

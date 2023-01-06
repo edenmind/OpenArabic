@@ -6,7 +6,7 @@
 /* eslint-disable react-native/no-color-literals */
 import React from 'react'
 import { View } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text, Chip } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
 import { paperDarkTheme } from '../constants/paper-theme.js'
@@ -16,7 +16,8 @@ const WordsContextHighLighted = (props) => {
 
   //style for highlighted word
   const highlightedWord = {
-    color: paperDarkTheme.colors.primary
+    color: paperDarkTheme.colors.onPrimary,
+    backgroundColor: paperDarkTheme.colors.primary
   }
 
   //split the sentence into an array of words
@@ -30,9 +31,12 @@ const WordsContextHighLighted = (props) => {
     const highlightedSentence = splitSentenceArray.map((wordInSentence, index) => {
       if (wordInSentence === word) {
         return (
-          <Text style={highlightedWord} key={index}>
-            {wordInSentence}
-          </Text>
+          <>
+            <Text style={highlightedWord} key={index} variant="bodyLarge>">
+              {' ' + wordInSentence + ' '}
+            </Text>
+            <Text> </Text>
+          </>
         )
       }
 
@@ -40,8 +44,7 @@ const WordsContextHighLighted = (props) => {
       // deepcode ignore ReactMissingArrayKeys: <please specify a reason of ignoring this>
       return (
         <Text style={style} key={index}>
-          {' '}
-          {wordInSentence}{' '}
+          {wordInSentence + ' '}
         </Text>
       )
     })
@@ -50,12 +53,12 @@ const WordsContextHighLighted = (props) => {
   }
 
   return (
-    <View style={sharedStyle.container}>
-      <Text style={sharedStyle.arabicBody}>
-        {highlightWord(props.arabicSentence, props.arabicWord, sharedStyle.arabicBody)}
-      </Text>
+    <View style={sharedStyle.headerContainer}>
       <Text style={sharedStyle.englishBody} variant="bodyLarge">
         {highlightWord(props.englishSentence, props.englishWord, sharedStyle.englishBody)}
+      </Text>
+      <Text style={sharedStyle.arabicBody}>
+        {highlightWord(props.arabicSentence, props.arabicWord, sharedStyle.arabicBody)}
       </Text>
     </View>
   )
