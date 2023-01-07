@@ -26,10 +26,43 @@ const WordsContextHighLighted = (props) => {
   }
 
   // highlight a word in splitSentence
-  const highlightWord = (sentence, word, style) => {
+  const highlightWords = (sentence, words, style) => {
+    let wordsToHighlight = []
+
+    if (typeof words === 'string' && words.includes(' ')) {
+      wordsToHighlight = words.split(' ')
+    } else if (typeof words === 'string') {
+      wordsToHighlight.push(words)
+    } else {
+      wordsToHighlight = words
+    }
+
     const splitSentenceArray = splitSentence(sentence)
     const highlightedSentence = splitSentenceArray.map((wordInSentence, index) => {
-      if (wordInSentence === word) {
+      let foundWord = false
+
+      for (const word of wordsToHighlight) {
+        if (wordInSentence === word) {
+          foundWord = true
+        }
+      }
+
+      if (foundWord) {
+        if (
+          splitSentenceArray[index - 1] &&
+          splitSentenceArray[index + 1] &&
+          wordsToHighlight.includes(splitSentenceArray[index - 1]) &&
+          wordsToHighlight.includes(splitSentenceArray[index + 1])
+        ) {
+          return (
+            <Fragment key={index}>
+              <Text style={highlightedWord} variant="bodyLarge>">
+                {wordInSentence}
+              </Text>
+            </Fragment>
+          )
+        }
+
         return (
           <Fragment key={index}>
             <Text style={highlightedWord} variant="bodyLarge>">
@@ -53,12 +86,12 @@ const WordsContextHighLighted = (props) => {
   }
 
   return (
-    <View style={sharedStyle.headerContainer}>
+    <View>
       <Text style={sharedStyle.englishBody} variant="bodyLarge">
-        {highlightWord(props.englishSentence, props.englishWord, sharedStyle.englishBody)}
+        {highlightWords(props.englishSentence, props.englishWord, sharedStyle.englishBody)}
       </Text>
       <Text style={sharedStyle.arabicBody}>
-        {highlightWord(props.arabicSentence, props.arabicWord, sharedStyle.arabicBody)}
+        {highlightWords(props.arabicSentence, props.arabicWord, sharedStyle.arabicBody)}
       </Text>
     </View>
   )

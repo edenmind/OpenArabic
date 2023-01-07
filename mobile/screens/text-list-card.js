@@ -1,6 +1,6 @@
 /* eslint-disable putout/long-properties-destructuring */
 import { prepareIngress } from '../services/utility-service.js'
-import { Text, Card, Divider, Surface, TouchableRipple } from 'react-native-paper'
+import { Text, Card, Divider, Surface, TouchableRipple, Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { paperDarkTheme } from '../constants/paper-theme.js'

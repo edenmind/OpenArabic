@@ -4,6 +4,7 @@ import React from 'react'
 import { storeData, getData } from '../services/storage.js'
 import { useDispatch } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
+import { ScrollView } from 'react-native-gesture-handler'
 
 function TextSettings() {
   const [arabicFontName, setArabicFontName] = React.useState('amiri') // default font
@@ -99,12 +100,13 @@ function TextSettings() {
       width: '25%'
     },
     surface: {
+      height: 185,
       padding: 15
     }
   })
 
   return (
-    <View style={style.surface}>
+    <ScrollView style={style.surface}>
       <Surface style={style.surface} elevation={2}>
         <Text style={sharedStyle.arabicBody}>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</Text>
         {isTransliterationOn ? (
@@ -220,7 +222,7 @@ function TextSettings() {
           setIsTransliterationOn(value)
         }}
       />
-    </View>
+    </ScrollView>
   )
 }
 

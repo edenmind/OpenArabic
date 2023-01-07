@@ -184,7 +184,7 @@ const Words = () => {
   const getSetup = (
     <View style={sharedStyle.headerContainer}>
       <Text variant="bodyLarge" style={sharedStyle.englishBody}>
-        Select number of words to practice:
+        Number of Words:
       </Text>
       <SegmentedButtons
         value={numberOfWordsToPractice}
@@ -215,7 +215,7 @@ const Words = () => {
       <Divider style={sharedStyle.divider} />
 
       <Text variant="bodyLarge" style={sharedStyle.englishBody}>
-        Select difficulty level:
+        Difficulty Level:
       </Text>
       <SegmentedButtons
         value={difficultyLevel}

@@ -31,9 +31,12 @@ const OrderingWordsInASentence = () => {
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
-    textLoading && setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
+    console.log('loading')
+    textLoading &&
+      currentArabicWordsInSentence.length === 0 &&
+      setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
     setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
-  }, [currentSentence, sentencesInText, textLoading, currentWord])
+  }, [currentSentence, sentencesInText, textLoading, currentWord, currentArabicWordsInSentence.length])
 
   const vibrateBetweenTwoColors = () => {
     setColor(paperDarkTheme.colors.errorContainer)
@@ -121,6 +124,7 @@ const OrderingWordsInASentence = () => {
 
         setCurrentWord(0)
       } else {
+        //increase currentWord by 1 and set the state
         setCurrentWord(currentWord + 1)
       }
     } else {
