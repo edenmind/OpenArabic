@@ -248,7 +248,7 @@ const Words = () => {
             : difficultyLevel === 20
             ? 'Words found in The Quran and Hadith, excluding the most common words.'
             : difficultyLevel === 30
-            ? 'Advanced Terminology used in Fiqh and Aqeedah for more advanced students.'
+            ? 'Terminology used in Fiqh and Aqeedah for more advanced students.'
             : ''
         }
       </Text>

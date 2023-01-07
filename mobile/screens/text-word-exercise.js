@@ -138,20 +138,16 @@ const OrderingWordsInASentence = () => {
   const arabicWordsInSentenceComponents = (
     <View style={styles.rowWrapper}>
       {currentArabicWordsInSentence.map((word) => (
-        <Button key={word.id} onPress={() => handlePress(word.id, word.arabic)}>
-          <Text style={sharedStyle.arabicBody} variant="bodyLarge">
-            {word.arabic}
-          </Text>
+        <Button
+          key={word.id}
+          onPress={() => handlePress(word.id, word.arabic)}
+          mode="contained-tonal"
+          style={{ margin: 3 }}
+        >
+          <Text style={{ fontSize: 23, lineHeight: 25 }}>{word.arabic}</Text>
         </Button>
       ))}
     </View>
-  )
-
-  //create string that shows which the current sentence is and how many sentences there are and wrap in in a Chip
-  const sentenceNumber = (
-    <Text variant="labelMedium">
-      Sentence: {currentSentence + 1} of {sentencesInText.length}
-    </Text>
   )
 
   // create a string of all the english words in the englishWords array in the sentencesInText array for the currentSentence
@@ -160,11 +156,8 @@ const OrderingWordsInASentence = () => {
   return (
     textLoading && (
       <View style={sharedStyle.headerContainer}>
-        <Surface style={{ ...sharedStyle.surface, height: 250 }} elevation={2}>
+        <Surface style={{ ...sharedStyle.surface, minHeight: 250 }} elevation={2}>
           <View style={sharedStyle.headerContainer}>
-            {sentenceNumber}
-            <Divider style={sharedStyle.divider} />
-
             <WordsContextHighLighted
               arabicSentence={currentArabicSentenceFromCorrectAnswers + '...'}
               englishSentence={englishWordsInSentence}
@@ -175,9 +168,9 @@ const OrderingWordsInASentence = () => {
           </View>
         </Surface>
         <Divider style={sharedStyle.divider} />
-        <Surface style={{ ...sharedStyle.surface, backgroundColor: color, height: 200 }} elevation={2}>
+        <Surface style={{ ...sharedStyle.surface, backgroundColor: color, minHeight: 200 }} elevation={2}>
           <View style={sharedStyle.headerContainer}>
-            <Text variant="labelMedium">Choose Arabic Word For: {currentEnglishWord}</Text>
+            <Text variant="labelLarge">Select the Arabic Word:</Text>
             <Divider style={sharedStyle.divider} />
             {arabicWordsInSentenceComponents}
           </View>

@@ -1,10 +1,12 @@
 import { StyleSheet, View } from 'react-native'
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import { Snackbar } from 'react-native-paper'
+import { Snackbar, Text } from 'react-native-paper'
 import { paperDarkTheme } from '../constants/paper-theme.js'
+import { useSharedStyles } from '../styles/common.js'
 
 const SnackButton = (props) => {
+  const sharedStyle = useSharedStyles()
   return (
     <View>
       <Snackbar
@@ -15,7 +17,9 @@ const SnackButton = (props) => {
         onDismiss={props.onDismissSnackBar}
         duration={props.duration || 350}
       >
-        {props.text}
+        <Text style={{ ...sharedStyle.englishBody, color: paperDarkTheme.colors.onPrimary }} variant="headlineLarge">
+          {props.text}
+        </Text>
       </Snackbar>
     </View>
   )
