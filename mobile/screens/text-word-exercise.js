@@ -7,6 +7,7 @@ import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import WordsContextHighLighted from './words-context-highlighted.js'
+import SnackButton from '../components/snack-button.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -21,6 +22,7 @@ const OrderingWordsInASentence = () => {
   const [currentEnglishWord, setCurrentEnglishWord] = useState('')
   const sharedStyle = useSharedStyles()
   const [alreadyHighlighted, setAlreadyHighlighted] = useState([])
+  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
 
   const styles = StyleSheet.create({
     rowWrapper: {
@@ -38,6 +40,8 @@ const OrderingWordsInASentence = () => {
       setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
     setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
   }, [currentSentence, sentencesInText, textLoading, currentWord, currentArabicWordsInSentence.length])
+
+  const onDismissSnackBar = () => setCelebrationSnackBarVisibility(false)
 
   const vibrateBetweenTwoColors = () => {
     setColor(paperDarkTheme.colors.errorContainer)
@@ -120,6 +124,8 @@ const OrderingWordsInASentence = () => {
         if (currentSentence === sentencesInText.length - 1) {
           setAlreadyHighlighted([])
           setCurrentSentence(0)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+          setCelebrationSnackBarVisibility(true)
         } else {
           setAlreadyHighlighted([])
           setCurrentSentence(currentSentence + 1)
@@ -185,6 +191,12 @@ const OrderingWordsInASentence = () => {
             ></WordsContextHighLighted>
           </View>
         </Surface>
+        <SnackButton
+          visible={celebrationSnackBarVisibility}
+          onDismissSnackBar={onDismissSnackBar}
+          duration={3500}
+          text="Congratulations! You have completed the quiz! You can do it again if you want."
+        />
         <Divider style={sharedStyle.divider} />
         <Surface style={{ ...sharedStyle.surface, backgroundColor: color, minHeight: 200 }} elevation={2}>
           <View style={sharedStyle.headerContainer}>

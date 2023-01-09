@@ -19,7 +19,7 @@ const Words = () => {
   const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
   const { words } = useSelector(wordsSelector)
-  const [currentWord, setCurrentWord] = useState(1)
+  const [currentWord, setCurrentWord] = useState(0)
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [difficultyLevel, setDifficultyLevel] = useState(10)
@@ -259,7 +259,6 @@ const Words = () => {
         style={sharedStyle.button}
         mode="elevated"
         onPress={() => {
-          console.log('start practice')
           dispatch(getWords(difficultyLevel, numberOfWordsToPractice))
         }}
       >
