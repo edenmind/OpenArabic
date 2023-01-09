@@ -17,7 +17,9 @@ const WordsContextHighLighted = (props) => {
   //style for highlighted word
   const highlightedWord = {
     color: paperDarkTheme.colors.onPrimary,
-    backgroundColor: paperDarkTheme.colors.primary
+    backgroundColor: paperDarkTheme.colors.primary,
+    whiteSpace: 'nowrap',
+    padding: 2,
   }
 
   //split the sentence into an array of words
@@ -44,17 +46,13 @@ const WordsContextHighLighted = (props) => {
 
       for (const word of wordsToHighlight) {
         if (wordInSentence === word) {
-          console.log('word is found:', props.alreadyHighlightedIndex)
-
           //if word is found in props.alreadyHighlighted, then continue to next word
           if (props.alreadyHighlightedIndex.includes(index)) {
-            console.log('word is already highlighted locally:', index, props.alreadyHighlightedIndex)
             continue
           }
 
           //check if word is found in alreadyHighlighted
           if (alreadyHighlighted.includes(word)) {
-            console.log('word is already highlighted')
             continue
           }
 
@@ -73,7 +71,7 @@ const WordsContextHighLighted = (props) => {
           return (
             <Fragment key={index}>
               <Text style={highlightedWord} variant="bodyLarge>">
-                {wordInSentence}
+                {wordInSentence + ' '}
               </Text>
             </Fragment>
           )
@@ -82,7 +80,7 @@ const WordsContextHighLighted = (props) => {
         return (
           <Fragment key={index}>
             <Text style={highlightedWord} variant="bodyLarge>">
-              {' ' + wordInSentence + ' '}
+              {wordInSentence + ' '}
             </Text>
           </Fragment>
         )
@@ -102,7 +100,7 @@ const WordsContextHighLighted = (props) => {
 
   return (
     <View>
-      <Text style={sharedStyle.englishBody} variant="bodyLarge">
+      <Text style={sharedStyle.englishBody} variant="bodyLarge" style={{ padding: 10 }}>
         {highlightWords(props.englishSentence, props.englishWord, sharedStyle.englishBody)}
       </Text>
       <Text style={sharedStyle.arabicBody}>

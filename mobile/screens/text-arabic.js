@@ -13,7 +13,7 @@ const textLoadSelector = (state) => state.textLoading
 
 export default function TextArabic() {
   const sharedStyle = useSharedStyles()
-  const [englishTranslation, setEnglishTranslation] = React.useState('Press Arabic Word for Translation.')
+  const [englishTranslation, setEnglishTranslation] = React.useState('Touch Arabic Word for Translation.')
 
   const { text } = useSelector(textSelector)
   const { textLoading } = useSelector(textLoadSelector)

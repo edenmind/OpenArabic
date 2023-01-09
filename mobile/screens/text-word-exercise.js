@@ -1,6 +1,6 @@
 /* eslint-disable react-redux/useSelector-prefer-selectors */
 import { View, StyleSheet } from 'react-native'
-import { Text, Button, Surface, Divider } from 'react-native-paper'
+import { Text, Button, Surface, Divider, Chip } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
 import { useSharedStyles } from '../styles/common.js'
@@ -96,10 +96,13 @@ const OrderingWordsInASentence = () => {
   //if it doesn't, do nothing
   //if currentWord is equal to the length of the englishWordsInSentence array, increase currentSentence by 1 and set currentWord to 0
   //if currentSentence is equal to the length of the wordsInSentences array, set currentSentence to 0
-  const handlePress = (id, word) => {
+  const handlePress = (id, word, matchingEnglishWord) => {
     if (id === currentWord) {
-      // correct answer
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+      // add matchingEnglish word to setAlreadyHighlighted
+      const alreadyHighlightedCopy = [...alreadyHighlighted]
+
+      alreadyHighlightedCopy.push(matchingEnglishWord.id)
+      setAlreadyHighlighted(alreadyHighlightedCopy)
 
       // set the state for currentEnglishWord
       setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
@@ -154,15 +157,7 @@ const OrderingWordsInASentence = () => {
             const matchingEnglishWord = sentencesInText[currentSentence].englishWords.find(
               (englishWord) => englishWord.id === word.id
             )
-
-            // add matchingEnglish word to setAlreadyHighlighted
-            const alreadyHighlightedCopy = [...alreadyHighlighted]
-
-            alreadyHighlightedCopy.push(matchingEnglishWord.id)
-            setAlreadyHighlighted(alreadyHighlightedCopy)
-
-            console.log(matchingEnglishWord.english, matchingEnglishWord.id)
-            handlePress(word.id, word.arabic)
+            handlePress(word.id, word.arabic, matchingEnglishWord)
           }}
           mode="contained-tonal"
           style={{ margin: 3 }}
@@ -179,8 +174,12 @@ const OrderingWordsInASentence = () => {
   return (
     textLoading && (
       <View style={sharedStyle.headerContainer}>
-        <Surface style={{ ...sharedStyle.surface, minHeight: 250 }} elevation={2}>
+        <Surface style={{ ...sharedStyle.surface, minHeight: 200 }} elevation={2}>
           <View style={sharedStyle.headerContainer}>
+            <Text variant="labelLarge">
+              Sentence: {currentSentence + 1} of {sentencesInText.length}
+            </Text>
+            <Divider style={sharedStyle.divider} />
             <WordsContextHighLighted
               arabicSentence={currentArabicSentenceFromCorrectAnswers + '...'}
               englishSentence={englishWordsInSentence}
@@ -200,7 +199,7 @@ const OrderingWordsInASentence = () => {
         <Divider style={sharedStyle.divider} />
         <Surface style={{ ...sharedStyle.surface, backgroundColor: color, minHeight: 200 }} elevation={2}>
           <View style={sharedStyle.headerContainer}>
-            <Text variant="labelLarge">Select the Arabic Word:</Text>
+            <Text variant="labelLarge">Translate to Arabic: {currentEnglishWord}</Text>
             <Divider style={sharedStyle.divider} />
             {arabicWordsInSentenceComponents}
           </View>
