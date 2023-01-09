@@ -153,7 +153,7 @@ const Words = () => {
       {buttons.map((button, index) => (
         <View key={index}>{button}</View>
       ))}
-      <Button
+      {/* <Button
         mode="text"
         style={{ opacity: 0.5, marginTop: 55 }}
         onPress={() => {
@@ -161,7 +161,7 @@ const Words = () => {
         }}
       >
         Context
-      </Button>
+      </Button> */}
       <ModalScrollView
         visible={visible}
         content={

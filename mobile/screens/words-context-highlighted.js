@@ -19,7 +19,7 @@ const WordsContextHighLighted = (props) => {
     color: paperDarkTheme.colors.onPrimary,
     backgroundColor: paperDarkTheme.colors.primary,
     whiteSpace: 'nowrap',
-    padding: 2,
+    padding: 2
   }
 
   //split the sentence into an array of words
