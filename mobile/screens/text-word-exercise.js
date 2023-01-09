@@ -20,6 +20,7 @@ const OrderingWordsInASentence = () => {
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
   const [currentEnglishWord, setCurrentEnglishWord] = useState('')
   const sharedStyle = useSharedStyles()
+  const [alreadyHighlighted, setAlreadyHighlighted] = useState([])
 
   const styles = StyleSheet.create({
     rowWrapper: {
@@ -117,8 +118,10 @@ const OrderingWordsInASentence = () => {
         setCurrentArabicSentenceFromCorrectAnswers([])
 
         if (currentSentence === sentencesInText.length - 1) {
+          setAlreadyHighlighted([])
           setCurrentSentence(0)
         } else {
+          setAlreadyHighlighted([])
           setCurrentSentence(currentSentence + 1)
         }
 
@@ -140,7 +143,21 @@ const OrderingWordsInASentence = () => {
       {currentArabicWordsInSentence.map((word) => (
         <Button
           key={word.id}
-          onPress={() => handlePress(word.id, word.arabic)}
+          onPress={() => {
+            //find the matching english word and and log it to the console
+            const matchingEnglishWord = sentencesInText[currentSentence].englishWords.find(
+              (englishWord) => englishWord.id === word.id
+            )
+
+            // add matchingEnglish word to setAlreadyHighlighted
+            const alreadyHighlightedCopy = [...alreadyHighlighted]
+
+            alreadyHighlightedCopy.push(matchingEnglishWord.id)
+            setAlreadyHighlighted(alreadyHighlightedCopy)
+
+            console.log(matchingEnglishWord.english, matchingEnglishWord.id)
+            handlePress(word.id, word.arabic)
+          }}
           mode="contained-tonal"
           style={{ margin: 3 }}
         >
@@ -163,6 +180,7 @@ const OrderingWordsInASentence = () => {
               englishSentence={englishWordsInSentence}
               currentWord={currentWord}
               arabicWord={''}
+              alreadyHighlightedIndex={alreadyHighlighted}
               englishWord={currentEnglishWord}
             ></WordsContextHighLighted>
           </View>

@@ -28,6 +28,7 @@ const WordsContextHighLighted = (props) => {
   // highlight a word in splitSentence
   const highlightWords = (sentence, words, style) => {
     let wordsToHighlight = []
+    const alreadyHighlighted = []
 
     if (typeof words === 'string' && words.includes(' ')) {
       wordsToHighlight = words.split(' ')
@@ -43,7 +44,22 @@ const WordsContextHighLighted = (props) => {
 
       for (const word of wordsToHighlight) {
         if (wordInSentence === word) {
+          console.log('word is found:', props.alreadyHighlightedIndex)
+
+          //if word is found in props.alreadyHighlighted, then continue to next word
+          if (props.alreadyHighlightedIndex.includes(index)) {
+            console.log('word is already highlighted locally:', index, props.alreadyHighlightedIndex)
+            continue
+          }
+
+          //check if word is found in alreadyHighlighted
+          if (alreadyHighlighted.includes(word)) {
+            console.log('word is already highlighted')
+            continue
+          }
+
           foundWord = true
+          alreadyHighlighted.push(word)
         }
       }
 
@@ -68,7 +84,6 @@ const WordsContextHighLighted = (props) => {
             <Text style={highlightedWord} variant="bodyLarge>">
               {' ' + wordInSentence + ' '}
             </Text>
-            <Text> </Text>
           </Fragment>
         )
       }
@@ -101,7 +116,8 @@ WordsContextHighLighted.propTypes = {
   englishWord: PropTypes.string.isRequired,
   englishSentence: PropTypes.string.isRequired,
   arabicWord: PropTypes.string.isRequired,
-  arabicSentence: PropTypes.string.isRequired
+  arabicSentence: PropTypes.string.isRequired,
+  alreadyHighlightedIndex: PropTypes.array.isRequired
 }
 
 export default WordsContextHighLighted
