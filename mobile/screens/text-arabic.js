@@ -25,6 +25,7 @@ export default function TextArabic() {
       direction: 'rtl',
       flexDirection: 'row',
       flexWrap: 'wrap',
+      paddingBottom: 50,
       readingDirection: 'rtl'
     }
   })

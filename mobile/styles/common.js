@@ -94,7 +94,6 @@ export const useSharedStyles = () => {
       },
       scrollView: {
         direction: 'rtl',
-        marginBottom: 35,
         marginLeft: horizontalMargin,
         padding: 10,
         writingDirection: 'ltr'
