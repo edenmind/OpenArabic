@@ -7,7 +7,7 @@ const SCREENS = {
   bilingual: 'Bilingual',
   arabic: 'Arabic',
   english: 'Eng',
-  quiz: 'Quiz',
+  quiz: 'Practice',
   related: 'More',
   textScreen: 'TextScreen',
   textSettings: 'TextSettings'

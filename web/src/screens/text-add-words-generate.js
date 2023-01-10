@@ -46,11 +46,11 @@ const TextAddWordsGenerate = (props) => {
           continue
         }
 
-        const lastVowelRemoved = wordProcessing.removeLastVowel(nonArabicCharactersRemoved)
+        //const lastVowelRemoved = wordProcessing.removeLastVowel(nonArabicCharactersRemoved)
 
         //prepare the words with its translation
         const wordPair = {
-          arabic: lastVowelRemoved,
+          arabic: nonArabicCharactersRemoved,
           english: ''
         }
         //add the word to the words array

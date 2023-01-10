@@ -18,8 +18,8 @@ export default function TextTabs({ route }) {
   const [isLoading, setIsLoading] = useState(true)
   const tabArray = [
     { name: SCREENS.bilingual, component: TextBilingual },
-    { name: SCREENS.quiz, component: OrderingWordsInASentence },
-    { name: SCREENS.arabic, component: TextArabic }
+    { name: SCREENS.arabic, component: TextArabic },
+    { name: SCREENS.quiz, component: OrderingWordsInASentence }
   ]
 
   useEffect(() => {
