@@ -5,7 +5,6 @@ import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
-import * as Haptics from 'expo-haptics'
 import * as util from '../services/utility-service.js'
 
 const textSelector = (state) => state.text
@@ -40,7 +39,6 @@ export default function TextArabic() {
           mode="text"
           style={styles.button}
           onPress={() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
             setEnglishTranslation(word.english + ' (' + util.transliterateArabicToEnglish(word.arabic) + ')')
           }}
         >

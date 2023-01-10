@@ -1,6 +1,6 @@
 /* eslint-disable react-redux/useSelector-prefer-selectors */
-import { View, StyleSheet } from 'react-native'
-import { Text, Button, Surface, Divider, Chip } from 'react-native-paper'
+import { View, StyleSheet, ScrollView } from 'react-native'
+import { Text, Button, Surface, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
 import { useSharedStyles } from '../styles/common.js'
@@ -16,7 +16,7 @@ const OrderingWordsInASentence = () => {
   const { textLoading } = useSelector(textLoadSelector)
   const [currentSentence, setCurrentSentence] = useState(0)
   const [currentWord, setCurrentWord] = useState(0)
-  const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState([])
+  const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
   const [currentEnglishWord, setCurrentEnglishWord] = useState('')
@@ -28,7 +28,8 @@ const OrderingWordsInASentence = () => {
     rowWrapper: {
       flexDirection: 'row',
       flexWrap: 'wrap',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      paddingBottom: 15
     }
   })
 
@@ -108,10 +109,10 @@ const OrderingWordsInASentence = () => {
       setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
 
       //push the arabic word to the currentArabicSentenceFromCorrectAnswers array and set the state
-      const currentArabicSentenceFromCorrectAnswersCopy = [...currentArabicSentenceFromCorrectAnswers]
+      let currentArabicSentenceFromCorrectAnswersCopy = [...currentArabicSentenceFromCorrectAnswers]
 
-      currentArabicSentenceFromCorrectAnswersCopy.push(word + ' ')
-      setCurrentArabicSentenceFromCorrectAnswers(currentArabicSentenceFromCorrectAnswersCopy)
+      currentArabicSentenceFromCorrectAnswersCopy = currentArabicSentenceFromCorrectAnswersCopy + ' ' + word
+      setCurrentArabicSentenceFromCorrectAnswers(currentArabicSentenceFromCorrectAnswers + ' ' + word)
 
       //remove the arabic word from the currentArabicWordsInSentence array and set the state
       const currentArabicWordsInSentenceCopy = [...currentArabicWordsInSentence]
@@ -125,11 +126,12 @@ const OrderingWordsInASentence = () => {
         setCurrentArabicSentenceFromCorrectAnswers([])
 
         if (currentSentence === sentencesInText.length - 1) {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
           setAlreadyHighlighted([])
           setCurrentSentence(0)
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
           setCelebrationSnackBarVisibility(true)
         } else {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
           setAlreadyHighlighted([])
           setCurrentSentence(currentSentence + 1)
         }
@@ -162,7 +164,7 @@ const OrderingWordsInASentence = () => {
           mode="contained-tonal"
           style={{ margin: 3 }}
         >
-          <Text style={{ fontSize: 23, lineHeight: 25 }}>{word.arabic}</Text>
+          <Text style={{ fontSize: 27, lineHeight: 33 }}>{word.arabic}</Text>
         </Button>
       ))}
     </View>
@@ -173,7 +175,7 @@ const OrderingWordsInASentence = () => {
 
   return (
     textLoading && (
-      <View style={sharedStyle.headerContainer}>
+      <ScrollView style={sharedStyle.headerContainer}>
         <Surface style={{ ...sharedStyle.surface, minHeight: 200 }} elevation={2}>
           <View style={sharedStyle.headerContainer}>
             <Text variant="labelLarge">
@@ -204,7 +206,7 @@ const OrderingWordsInASentence = () => {
             {arabicWordsInSentenceComponents}
           </View>
         </Surface>
-      </View>
+      </ScrollView>
     )
   )
 }

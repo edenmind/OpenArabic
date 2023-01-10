@@ -48,19 +48,17 @@ function TextAddWords() {
 
   const sentences = text.sentences.map((sentence, indexSentence) => (
     <Fragment key={indexSentence}>
-      <Stack spacing={0} style={{ paddingBottom: '10px', width: '700px' }}>
-        <p>
-          <h1 style={{ direction: 'rtl' }}>{sentence.arabic}</h1>
-          <h3>{sentence.googleTranslation}</h3>
-          <TextField
-            InputProps={{ style: { fontSize: 18 } }}
-            value={sentence.english}
-            onChange={(event) => handleChangeEnglishSentence(indexSentence, event.target.value)}
-            fullWidth
-            multiline
-            variant="outlined"
-          />
-        </p>
+      <Stack spacing={0} style={{ paddingBottom: '10px', width: '900px' }}>
+        <h1 style={{ direction: 'rtl', fontSize: 45 }}>{sentence.arabic}</h1>
+        <h3>{sentence.googleTranslation}</h3>
+        <TextField
+          InputProps={{ style: { fontSize: 18 } }}
+          value={sentence.english}
+          onChange={(event) => handleChangeEnglishSentence(indexSentence, event.target.value)}
+          fullWidth
+          multiline
+          variant="outlined"
+        />
 
         {sentence.words.map((word, indexArabicWord) => (
           <Box sx={{ fontSize: 'h4.fontSize', fontWeight: 'bold' }} key={indexArabicWord}>
@@ -75,49 +73,44 @@ function TextAddWords() {
                 fullWidth
               />
             </Stack>
-            {word.arabic.length > 17 && <Chip sx={{ margin: 2 }} color="warning" label="Arabic" />}
-            {word.english.length > 17 && <Chip sx={{ margin: 2 }} color="warning" label="English" />}
+
             <Chip
               label={`${indexSentence}:${indexArabicWord}`}
               color="primary"
               variant="outlined"
               style={{ marginLeft: '130px' }}
             />
-            <Tooltip title="Fetch word from Google Translation API">
-              <Button
-                onClick={async () => {
-                  const arabicWord = await api.getTranslation(word.arabic)
-                  handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
-                }}
-              >
-                Fetch
-              </Button>
-            </Tooltip>
-            <Tooltip title="Save word to internal dictionary">
-              <Button
-                onClick={async () => {
-                  //get all categories by using the api getCategories
-                  const categories = await api.getCategories()
 
-                  //get the category level property of the category with the name text.category
-                  const categoryLevel = categories.find((category) => category.name === text.category).level
+            <Button
+              onClick={async () => {
+                const arabicWord = await api.getTranslation(word.arabic)
+                handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
+              }}
+            >
+              Fetch
+            </Button>
+            <Button
+              onClick={async () => {
+                //get all categories by using the api getCategories
+                const categories = await api.getCategories()
 
-                  handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel, word.quiz)
-                }}
-              >
-                Save
-              </Button>
-            </Tooltip>
-            <Tooltip title="Remove the word">
-              <Button
-                color="secondary"
-                onClick={async () => {
-                  dispatch({ type: 'REMOVE_WORD_FROM_SENTENCE', value: { indexSentence, indexArabicWord } })
-                }}
-              >
-                Remove
-              </Button>
-            </Tooltip>
+                //get the category level property of the category with the name text.category
+                const categoryLevel = categories.find((category) => category.name === text.category).level
+
+                handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel, word.quiz)
+              }}
+            >
+              Save
+            </Button>
+            <Button
+              color="secondary"
+              onClick={async () => {
+                dispatch({ type: 'REMOVE_WORD_FROM_SENTENCE', value: { indexSentence, indexArabicWord } })
+              }}
+            >
+              Remove
+            </Button>
+
             <Tooltip title="Open in Google Translate">
               <Button
                 color="secondary"

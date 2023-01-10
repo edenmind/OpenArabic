@@ -1,4 +1,4 @@
-import { Chip, TextField, Box } from '@mui/material'
+import { Chip, TextField, Box, Button } from '@mui/material'
 import { Fragment } from 'react'
 import { styled } from '@mui/material/styles'
 import { useDispatch, useSelector } from 'react-redux'
@@ -40,6 +40,7 @@ const TextAddSentences = () => {
   const { text } = useSelector(selector)
   const [englishSentenceCount, setEnglishSentenceCount] = React.useState(0)
   const [arabicSentenceCount, setArabicSentenceCount] = React.useState(0)
+  const [numberOfArabicLetters, setNumberOfArabicLetters] = React.useState(0)
   const [loading, setLoading] = React.useState(false)
 
   const handleClick = () => {
@@ -122,7 +123,17 @@ const TextAddSentences = () => {
         />
         <Chip label={englishSentencesCountMessage} />
         <Chip label={arabicSentencesCountMessage} />
+        <Chip label={`Number of Arabic Letters: ${numberOfArabicLetters}`} />
         {checkForEmptyLines(text) && <Chip label="Empty line detected" color="error" />}
+        <Button
+          onClick={async () => {
+            //count the number of letters in text.texts.arabic excluding the spaces and line breaks
+            const numberOfLetters = text.texts.arabic.replace(/ /g, '').replace(/\n/g, '').length
+            setNumberOfArabicLetters(numberOfLetters)
+          }}
+        >
+          Check Number of Letters
+        </Button>
         <LoadingButton
           size="small"
           onClick={handleClick}
@@ -132,6 +143,7 @@ const TextAddSentences = () => {
         >
           Fetch vocals
         </LoadingButton>
+
         <Box>{'ﷺ'}</Box>
       </Stack>
       <Stack direction="row" spacing={2}>

@@ -101,11 +101,11 @@ async function getWords(request, reply) {
   const wordsFilteredByDifficultyLevel = await words
     .find({ categoryLevel: difficultyLevelNumber, quiz: true })
     .toArray()
-  // eslint-disable-next-line putout/putout
-  console.log('first', wordsFilteredByDifficultyLevel)
 
-  //get random words from the wordsFilteredByDifficultyLevel but not more than numberOfWordsToPractice
-  const randomWords = wordsFilteredByDifficultyLevel.slice(0, numberOfWordsToPractice)
+  //get words from the wordsFilteredByDifficultyLevel in randomized order but not more than numberOfWordsToPractice but do not use shuffleArray function because it is not random enough
+  //const randomWords = wordsFilteredByDifficultyLevel.slice(0, numberOfWordsToPractice)
+  const randomWords = wordsFilteredByDifficultyLevel.sort(() => Math.random() - 0.5).slice(0, numberOfWordsToPractice)
+
   const allWordsWithAlternative = randomWords.map((word) => {
     let alternative1 = ['']
     let alternative2 = ['']

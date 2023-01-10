@@ -2396,9 +2396,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/base@npm:5.0.0-alpha.112":
-  version: 5.0.0-alpha.112
-  resolution: "@mui/base@npm:5.0.0-alpha.112"
+"@mui/base@npm:5.0.0-alpha.113":
+  version: 5.0.0-alpha.113
+  resolution: "@mui/base@npm:5.0.0-alpha.113"
   dependencies:
     "@babel/runtime": ^7.20.7
     "@emotion/is-prop-valid": ^1.2.0
@@ -2415,14 +2415,14 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: fd19240ac16859d62f057fd80261fc4e0dbc960a648b601bd7beaeb44b88c059f654b0989f33cea655ad61106832bffa0cd8446730c1be7671b6cde383dbce80
+  checksum: 787905a89b9ff88915b0e206617b2ecc10d06a9ee24d852ff19dc442708f2812e35cec94c2d2d5c832c2685e5625a4171ce63935837316bd9214809d3c4734b3
   languageName: node
   linkType: hard
 
-"@mui/core-downloads-tracker@npm:^5.11.3":
-  version: 5.11.3
-  resolution: "@mui/core-downloads-tracker@npm:5.11.3"
-  checksum: 0bc6ad3e2bc9170cf2fc1de749c12c1255ccf6fe17b9df047fa6a69d3a1965413a891b01dfef2939f0af7273693479b08ebd85ef3cc2e7c5e5750eced6ae15d7
+"@mui/core-downloads-tracker@npm:^5.11.4":
+  version: 5.11.4
+  resolution: "@mui/core-downloads-tracker@npm:5.11.4"
+  checksum: 4ee982654d1d519c5d136c803dfc47d35e38427985f723de233c7ef5b273c0a04a37a4728f4cbab9e39eacf1c79e1feef8f621c77f4bb259d841638692693bd0
   languageName: node
   linkType: hard
 
@@ -2442,13 +2442,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/lab@npm:^5.0.0-alpha.114":
-  version: 5.0.0-alpha.114
-  resolution: "@mui/lab@npm:5.0.0-alpha.114"
+"@mui/lab@npm:^5.0.0-alpha.115":
+  version: 5.0.0-alpha.115
+  resolution: "@mui/lab@npm:5.0.0-alpha.115"
   dependencies:
     "@babel/runtime": ^7.20.7
-    "@mui/base": 5.0.0-alpha.112
-    "@mui/system": ^5.11.2
+    "@mui/base": 5.0.0-alpha.113
+    "@mui/system": ^5.11.4
     "@mui/types": ^7.2.3
     "@mui/utils": ^5.11.2
     clsx: ^1.2.1
@@ -2468,18 +2468,18 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 0b6441e7f7a69e2a6910f044ef2a222462a219f61e3a05c023484508e7f14a5fe6baeddf08b37bceab357c7cb0eed90324ac42ecd8e59a6eb6e1c801ea01504a
+  checksum: 042641a756f0085fe143a24d99ad11028eb3c5cf5511dc2ef3f0ee9faf585db3a23a094bfb71d5868fa195a6638f868abbdfc3e74ca479eaca2fab16ca60f9af
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.11.3":
-  version: 5.11.3
-  resolution: "@mui/material@npm:5.11.3"
+"@mui/material@npm:^5.11.4":
+  version: 5.11.4
+  resolution: "@mui/material@npm:5.11.4"
   dependencies:
     "@babel/runtime": ^7.20.7
-    "@mui/base": 5.0.0-alpha.112
-    "@mui/core-downloads-tracker": ^5.11.3
-    "@mui/system": ^5.11.2
+    "@mui/base": 5.0.0-alpha.113
+    "@mui/core-downloads-tracker": ^5.11.4
+    "@mui/system": ^5.11.4
     "@mui/types": ^7.2.3
     "@mui/utils": ^5.11.2
     "@types/react-transition-group": ^4.4.5
@@ -2501,7 +2501,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: aa96078c51367315b9452a4a4fc7fe16aba3338bf5a8455f9c35d9f290d7d50c47e0af85124f0dbbbfd86c99b02d82039f0b923e98d93f7a04d409ba0ac41beb
+  checksum: 6c9522a542182c21ab82cf87211751f7e13e6fc1a1c0105d4f0b5dbd36ab34719444d1d5df9155670a1c902b55060e6724fb66831273108cb5c77705a8e84ce2
   languageName: node
   linkType: hard
 
@@ -2543,9 +2543,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/system@npm:^5.11.2":
-  version: 5.11.2
-  resolution: "@mui/system@npm:5.11.2"
+"@mui/system@npm:^5.11.4":
+  version: 5.11.4
+  resolution: "@mui/system@npm:5.11.4"
   dependencies:
     "@babel/runtime": ^7.20.7
     "@mui/private-theming": ^5.11.2
@@ -2567,7 +2567,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: d6b136464ec48cbc270f0cb91eb83f10f6b6801c143cc320ef5c6ec71655f9b3ceda98ab38fde537d1c0a7669defcb9af6f4940c78101603f8b6800854d0133d
+  checksum: f86f35f6ea432204cbeb94edd0a0d0fe12f3ad6d82f85262293e9240fe43c64512aad14a11c5f7291e5e2c3ea2b8864dee76f70071f6af8942f494987d7a498e
   languageName: node
   linkType: hard
 
@@ -8030,12 +8030,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mui-unused-classes@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "eslint-plugin-mui-unused-classes@npm:1.0.3"
+"eslint-plugin-mui-unused-classes@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "eslint-plugin-mui-unused-classes@npm:2.0.0"
   peerDependencies:
-    eslint: ^7.14.0
-  checksum: 99346e711b5915916f11e3ea68528234e06b132c67b829f554529298b5c498be4351623175394982e788cbcfcbe6e22d41fe921fc129acc257dfb74afac85409
+    eslint: "*"
+  checksum: d4cf49bf917e34c5c728a207840c7b16f8dc846787248ff88e1a2c47e5cc4f43b3dae5204c34bcc4b65225efaf74f0c286869d0887c94e4bbb7e59c536a388f4
   languageName: node
   linkType: hard
 
@@ -13459,12 +13459,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.1":
-  version: 2.8.1
-  resolution: "prettier@npm:2.8.1"
+"prettier@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "prettier@npm:2.8.2"
   bin:
     prettier: bin-prettier.js
-  checksum: 4f21a0f1269f76fb36f54e9a8a1ea4c11e27478958bf860661fb4b6d7ac69aac1581f8724fa98ea3585e56d42a2ea317a17ff6e3324f40cb11ff9e20b73785cc
+  checksum: 740c56c2128d587d656ea1dde9bc9c3503dfc94db4f3ac387259215eeb2e216680bdad9d18a0c9feecc6b42cfa188d6fa777df4c36c1d00cedd4199074fbfbd2
   languageName: node
   linkType: hard
 
@@ -13991,27 +13991,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.6.1":
-  version: 6.6.1
-  resolution: "react-router-dom@npm:6.6.1"
+"react-router-dom@npm:^6.6.2":
+  version: 6.6.2
+  resolution: "react-router-dom@npm:6.6.2"
   dependencies:
     "@remix-run/router": 1.2.1
-    react-router: 6.6.1
+    react-router: 6.6.2
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 68a4419c203add0df0203ac2a58e5832949105e0c0561a0850f74cac8e3108507fd8d9c62baeb10ea5ce4cb8eaddea9475bcb3787bdabb3ede23b55564b835ae
+  checksum: e0ee89a2b3768d2eb406ecefedfa24b55428145359b4138f6d38b8a99b60a4f275418910f4cdb12c069ed0237711acced3787b0c7febfa6568d7ea9cd624ff3b
   languageName: node
   linkType: hard
 
-"react-router@npm:6.6.1":
-  version: 6.6.1
-  resolution: "react-router@npm:6.6.1"
+"react-router@npm:6.6.2":
+  version: 6.6.2
+  resolution: "react-router@npm:6.6.2"
   dependencies:
     "@remix-run/router": 1.2.1
   peerDependencies:
     react: ">=16.8"
-  checksum: 58f0ad29123e2854d547915a1ae1cc2687504e396d71db50fe8f36ad733d7940a2914d45868a8478b6138536e119fa5e3303212b7c7b1d81d80cd5b0bbefdfa2
+  checksum: 5960d774bb3a8f697a57ee2e82a3eb0a300b7186a62b27e02773c94f1682e59435bd876d6162a08cc8daf27cac72aaab66d348fcc4d8f59240a63a911cf0050b
   languageName: node
   linkType: hard
 
@@ -16722,8 +16722,8 @@ __metadata:
     "@emotion/styled": ^11.10.5
     "@fontsource/roboto": ^4.5.8
     "@mui/icons-material": ^5.11.0
-    "@mui/lab": ^5.0.0-alpha.114
-    "@mui/material": ^5.11.3
+    "@mui/lab": ^5.0.0-alpha.115
+    "@mui/material": ^5.11.4
     "@mui/x-data-grid": ^5.17.18
     "@mui/x-date-pickers": ^5.0.13
     "@reduxjs/toolkit": ^1.9.1
@@ -16735,7 +16735,7 @@ __metadata:
     axios-mock-adapter: ^1.21.2
     eslint-plugin-array-func: ^3.1.8
     eslint-plugin-import: ^2.26.0
-    eslint-plugin-mui-unused-classes: ^1.0.3
+    eslint-plugin-mui-unused-classes: ^2.0.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-putout: ^16.3.0
     eslint-plugin-react-hooks: ^4.6.0
@@ -16747,13 +16747,13 @@ __metadata:
     moment: ^2.29.4
     moment-timezone: ^0.5.40
     node-notifier: ^10.0.1
-    prettier: ^2.8.1
+    prettier: ^2.8.2
     putout: ^28.5.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.2
     react-redux: ^8.0.5
-    react-router-dom: ^6.6.1
+    react-router-dom: ^6.6.2
     react-scripts: ^5.0.1
     react-test-renderer: ^18.2.0
     redux: ^4.2.0

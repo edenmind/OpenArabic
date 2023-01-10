@@ -14,10 +14,10 @@ const postWordOptions = {
           type: 'object',
           required: ['arabic', 'english'],
           properties: {
-            arabic: { type: 'string', minLength: 2 },
-            english: { type: 'string', minLength: 2 },
-            arabicSentence: { type: 'string', minLength: 2 },
-            englishSentence: { type: 'string', minLength: 2 },
+            arabic: { type: 'string', minLength: 1 },
+            english: { type: 'string', minLength: 1 },
+            arabicSentence: { type: 'string', minLength: 1 },
+            englishSentence: { type: 'string', minLength: 1 },
             categoryLevel: { type: 'number', minimum: 1, maximum: 50 },
             quiz: { type: 'boolean' }
           }
@@ -118,8 +118,8 @@ const updateWordOptions = {
         type: 'object',
         required: ['arabic', 'english'],
         properties: {
-          arabic: { type: 'string', minLength: 3 },
-          english: { type: 'string', minLength: 3 },
+          arabic: { type: 'string', minLength: 1 },
+          english: { type: 'string', minLength: 1 },
           sentence: { type: 'string', minLength: 5 },
           categoryLevel: { type: 'number', minimum: 1, maximum: 50 }
         }

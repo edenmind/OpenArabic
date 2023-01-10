@@ -100,12 +100,10 @@ const WordsContextHighLighted = (props) => {
 
   return (
     <View>
-      <Text style={sharedStyle.englishBody} variant="bodyLarge" style={{ padding: 10 }}>
+      <Text style={sharedStyle.englishBody} variant="bodyLarge">
         {highlightWords(props.englishSentence, props.englishWord, sharedStyle.englishBody)}
       </Text>
-      <Text style={sharedStyle.arabicBody}>
-        {highlightWords(props.arabicSentence, props.arabicWord, sharedStyle.arabicBody)}
-      </Text>
+      <Text style={sharedStyle.arabicBody}>{props.arabicSentence}</Text>
     </View>
   )
 }
@@ -113,7 +111,6 @@ const WordsContextHighLighted = (props) => {
 WordsContextHighLighted.propTypes = {
   englishWord: PropTypes.string.isRequired,
   englishSentence: PropTypes.string.isRequired,
-  arabicWord: PropTypes.string.isRequired,
   arabicSentence: PropTypes.string.isRequired,
   alreadyHighlightedIndex: PropTypes.array.isRequired
 }

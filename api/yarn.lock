@@ -4548,9 +4548,9 @@ __metadata:
     fastify-plugin: ^4.4.0
     moment: ^2.29.4
     mongodb: ^4.13.0
-    prettier: ^2.8.1
+    prettier: ^2.8.2
     putout: ^28.5.0
-    tap: ^16.3.2
+    tap: ^16.3.3
     try-to-catch: ^3.0.1
     uuid: ^9.0.0
   languageName: unknown
@@ -9817,12 +9817,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.1":
-  version: 2.8.1
-  resolution: "prettier@npm:2.8.1"
+"prettier@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "prettier@npm:2.8.2"
   bin:
     prettier: bin-prettier.js
-  checksum: 4f21a0f1269f76fb36f54e9a8a1ea4c11e27478958bf860661fb4b6d7ac69aac1581f8724fa98ea3585e56d42a2ea317a17ff6e3324f40cb11ff9e20b73785cc
+  checksum: 740c56c2128d587d656ea1dde9bc9c3503dfc94db4f3ac387259215eeb2e216680bdad9d18a0c9feecc6b42cfa188d6fa777df4c36c1d00cedd4199074fbfbd2
   languageName: node
   linkType: hard
 
@@ -11465,9 +11465,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tap@npm:^16.3.2":
-  version: 16.3.2
-  resolution: "tap@npm:16.3.2"
+"tap@npm:^16.3.3":
+  version: 16.3.3
+  resolution: "tap@npm:16.3.3"
   dependencies:
     "@isaacs/import-jsx": ^4.0.1
     "@types/react": ^17.0.52
@@ -11511,7 +11511,7 @@ __metadata:
       optional: true
   bin:
     tap: bin/run.js
-  checksum: d2c02ba8b101e57f53ea83eb358ff70b1b83087338cf41568f85844b0d1dbaec5a7fbc3e6a6bc9727ed0af88e5d9cd3dd9ffb54b8e7892f8eafaf2be90794821
+  checksum: faf8eb9cb0ee777430c2850b5fc56bc18a81a3c7e39604725d2c96e82b7182ae923c726ae5ee15cb39940f9737882f1dfddfa424e0ba5e963b831083a98d76f4
   languageName: node
   linkType: hard
 
