@@ -1,9 +1,22 @@
 /* eslint-disable quote-props */
-export const truncate = (stringToTruncate, truncateLength) => {
+const truncate = (stringToTruncate, truncateLength) => {
   const cleanString = stringToTruncate.replace(' \n', '')
-  return cleanString.length > truncateLength
-    ? `${cleanString.slice(0, Math.max(0, truncateLength - 1))}...`
-    : cleanString
+
+  if (cleanString.length > truncateLength) {
+    const lastWord = cleanString.slice(0, Math.max(0, Math.max(0, truncateLength - 1)))
+    // find the last space in the truncated string
+    const lastSpaceIndex = lastWord.lastIndexOf(' ')
+
+    // if there is no space, just return the truncated string
+    if (lastSpaceIndex === -1) {
+      return `${cleanString.slice(0, Math.max(0, truncateLength - 1))}...`
+      // otherwise return the truncated string up to the last space
+    }
+
+    return `${cleanString.slice(0, Math.max(0, lastSpaceIndex))}...`
+  }
+
+  return cleanString
 }
 
 export const prepareIngress = (text, length) => {

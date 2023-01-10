@@ -1,3 +1,4 @@
+/* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable react-redux/useSelector-prefer-selectors */
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Text, Button, Surface, Divider } from 'react-native-paper'
@@ -26,19 +27,17 @@ const OrderingWordsInASentence = () => {
 
   const styles = StyleSheet.create({
     rowWrapper: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      paddingBottom: 15
+      paddingBottom: 25
     }
   })
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
     console.log('loading')
-    textLoading &&
-      currentArabicWordsInSentence.length === 0 &&
-      setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
+
+    //produce a random list of three words from sentencesInText[currentSentence].arabicWords which contains one arabic word that matches the current english word
+    textLoading && getThreeRandomWords()
+    //setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
     setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
   }, [currentSentence, sentencesInText, textLoading, currentWord, currentArabicWordsInSentence.length])
 
@@ -120,6 +119,7 @@ const OrderingWordsInASentence = () => {
       const index = currentArabicWordsInSentenceCopy.findIndex((word) => word.id === id)
 
       currentArabicWordsInSentenceCopy.splice(index, 1)
+
       setCurrentArabicWordsInSentence(currentArabicWordsInSentenceCopy)
 
       if (currentWord === sentencesInText[currentSentence].englishWords.length - 1) {
@@ -138,9 +138,11 @@ const OrderingWordsInASentence = () => {
 
         setCurrentWord(0)
       } else {
-        //increase currentWord by 1 and set the state
+        //increase currentWord by 1 and then set the state
         setCurrentWord(currentWord + 1)
       }
+
+      getThreeRandomWords()
     } else {
       // wrong answer
       vibrateBetweenTwoColors()
@@ -151,9 +153,9 @@ const OrderingWordsInASentence = () => {
   // create a component for each word in the arabicWords array in the sentencesInText array for the currentSentence and wrap them with a button
   const arabicWordsInSentenceComponents = (
     <View style={styles.rowWrapper}>
-      {currentArabicWordsInSentence.map((word) => (
+      {currentArabicWordsInSentence.map((word, index) => (
         <Button
-          key={word.id}
+          key={index}
           onPress={() => {
             //find the matching english word and and log it to the console
             const matchingEnglishWord = sentencesInText[currentSentence].englishWords.find(
@@ -161,10 +163,10 @@ const OrderingWordsInASentence = () => {
             )
             handlePress(word.id, word.arabic, matchingEnglishWord)
           }}
-          mode="contained-tonal"
-          style={{ margin: 3 }}
+          mode="elevated"
+          style={{ ...sharedStyle.button }}
         >
-          <Text style={{ fontSize: 27, lineHeight: 33 }}>{word.arabic}</Text>
+          <Text style={{ ...sharedStyle.arabicBody, color: paperDarkTheme.colors.primary }}>{word.arabic}</Text>
         </Button>
       ))}
     </View>
@@ -173,10 +175,52 @@ const OrderingWordsInASentence = () => {
   // create a string of all the english words in the englishWords array in the sentencesInText array for the currentSentence
   const englishWordsInSentence = sentencesInText[currentSentence].englishWords.map((word) => word.english).join(' ')
 
+  const getThreeRandomWords = () => {
+    const randomWords = []
+
+    //pick a random sentence
+    const randomSentence = Math.floor(Math.random() * sentencesInText.length)
+
+    //get the random words from that sentence
+    const randomWordsFromSentence = sentencesInText[randomSentence].arabicWords
+      .slice(0, 2)
+      .sort(() => Math.random() - 0.5)
+
+    //make sure that the words are unique
+    for (const element of randomWordsFromSentence) {
+      if (randomWords.includes(element)) {
+        //if the word is not unique, get a new random word
+        const newRandomWord = sentencesInText[randomSentence].arabicWords.slice(0, 1).sort(() => Math.random() - 0.5)[0]
+
+        //only add the new word if it is unique
+        if (!randomWords.includes(newRandomWord)) {
+          randomWords.push(newRandomWord)
+        }
+      } else {
+        randomWords.push(element)
+      }
+    }
+
+    //find the matching arabic word based on the currentWord and add it to the randomWords array
+    const matchingArabicWord = sentencesInText[currentSentence].arabicWords.find(
+      (arabicWord) => arabicWord.id === sentencesInText[currentSentence].englishWords[currentWord].id
+    )
+
+    //only add the matching arabic word if it is unique
+    if (!randomWords.includes(matchingArabicWord)) {
+      randomWords.push(matchingArabicWord)
+    }
+
+    //randomize the order of the words in the randomWords array
+    const randomWordsRandomized = randomWords.sort(() => Math.random() - 0.5)
+    //set the state for currentArabicWordsInSentence
+    setCurrentArabicWordsInSentence(randomWordsRandomized)
+  }
+
   return (
     textLoading && (
       <ScrollView style={sharedStyle.headerContainer}>
-        <Surface style={{ ...sharedStyle.surface, minHeight: 200 }} elevation={2}>
+        <Surface style={{ ...sharedStyle.surface, minHeight: 200, backgroundColor: color }} elevation={2}>
           <View style={sharedStyle.headerContainer}>
             <Text variant="labelLarge">
               Sentence: {currentSentence + 1} of {sentencesInText.length}
@@ -199,13 +243,8 @@ const OrderingWordsInASentence = () => {
           text="Congratulations! You have completed the quiz! You can do it again if you want."
         />
         <Divider style={sharedStyle.divider} />
-        <Surface style={{ ...sharedStyle.surface, backgroundColor: color, minHeight: 200 }} elevation={2}>
-          <View style={sharedStyle.headerContainer}>
-            <Text variant="labelLarge">Translate to Arabic: {currentEnglishWord}</Text>
-            <Divider style={sharedStyle.divider} />
-            {arabicWordsInSentenceComponents}
-          </View>
-        </Surface>
+
+        {arabicWordsInSentenceComponents}
       </ScrollView>
     )
   )
