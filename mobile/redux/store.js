@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
   englishFontSize: UIStateReducer,
   isTransliterationOn: UIStateReducer,
   arabicFontName: UIStateReducer,
+  practicingWords: UIStateReducer,
   words: wordsReducer
 })
 

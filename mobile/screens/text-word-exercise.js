@@ -166,7 +166,9 @@ const OrderingWordsInASentence = () => {
           mode="elevated"
           style={{ ...sharedStyle.button }}
         >
-          <Text style={{ ...sharedStyle.arabicBody, color: paperDarkTheme.colors.primary }}>{word.arabic}</Text>
+          <Text style={{ fontSize: 35, lineHeight: 35, fontWeight: 'medium', color: paperDarkTheme.colors.primary }}>
+            {word.arabic}
+          </Text>
         </Button>
       ))}
     </View>

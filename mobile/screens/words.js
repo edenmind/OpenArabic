@@ -14,6 +14,7 @@ import WordsContextHighLighted from './words-context-highlighted.js'
 import SnackButton from '../components/snack-button.js'
 
 const wordsSelector = (state) => state.words
+const practicingWordsSelector = (state) => state.practicingWords
 
 const Words = () => {
   const sharedStyle = useSharedStyles()
@@ -32,6 +33,7 @@ const Words = () => {
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
   const [visible, setVisible] = React.useState(false)
+  const { practicingWords } = useSelector(practicingWordsSelector)
 
   const style = StyleSheet.create({
     element: {
@@ -72,6 +74,15 @@ const Words = () => {
     setCurrentWordIndex(currentWordIndex + 1)
   }
 
+  const resetStateForNewWords = () => {
+    setCurrentWord(0)
+    setCurrentWordIndex(0)
+    setCelebrationSnackBarVisibility(false)
+    dispatch({
+      type: 'RESET_WORDS'
+    })
+  }
+
   const button1 = (
     <Button
       mode="elevated"
@@ -83,12 +94,7 @@ const Words = () => {
 
           //set a timeout for 1 second before resetting the words
           setTimeout(() => {
-            setCurrentWord(0)
-            setCurrentWordIndex(0)
-            setCelebrationSnackBarVisibility(false)
-            dispatch({
-              type: 'RESET_WORDS'
-            })
+            resetStateForNewWords()
           }, 2500)
         } else {
           correctAnswer()
@@ -259,7 +265,12 @@ const Words = () => {
         style={sharedStyle.button}
         mode="elevated"
         onPress={() => {
+          resetStateForNewWords()
           dispatch(getWords(difficultyLevel, numberOfWordsToPractice))
+          dispatch({
+            type: 'SET_PRACTICING_WORDS',
+            payload: true
+          })
         }}
       >
         START PRACTICE
@@ -267,7 +278,7 @@ const Words = () => {
     </View>
   )
 
-  return words.length > 3 ? getContent : getSetup
+  return practicingWords ? getContent : getSetup
 }
 
 const styles = StyleSheet.create({

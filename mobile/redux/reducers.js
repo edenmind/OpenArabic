@@ -73,7 +73,8 @@ const initialStateUI = {
   isTransliterationOn: 'on',
   arabicFontName: 'amiri',
   textLoading: true,
-  textsLoading: true
+  textsLoading: true,
+  practicingWords: false
 }
 
 const UIStateReducer = createReducer(initialStateUI, (builder) => {
@@ -94,6 +95,9 @@ const UIStateReducer = createReducer(initialStateUI, (builder) => {
   })
   builder.addCase(actions.SET_TEXTS_LOADED, (state, action) => {
     return { ...state, textsLoading: action.payload }
+  })
+  builder.addCase(actions.SET_PRACTICING_WORDS, (state, action) => {
+    return { ...state, practicingWords: action.payload }
   })
 })
 
