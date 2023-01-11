@@ -57,7 +57,11 @@ const WordsContextHighLighted = (props) => {
           }
 
           foundWord = true
-          alreadyHighlighted.push(word)
+
+          // do not push to alreadyHighlighted if word is found two times in words
+          if (wordsToHighlight.filter((w) => w === word).length === 1) {
+            alreadyHighlighted.push(word)
+          }
         }
       }
 
