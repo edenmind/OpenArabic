@@ -92,6 +92,7 @@ it('UIStateReducer', () => {
     englishFontSize: 16,
     isTransliterationOn: 'on',
     textLoading: true,
-    textsLoading: true
+    textsLoading: true,
+    practicingWords: false
   })
 })
