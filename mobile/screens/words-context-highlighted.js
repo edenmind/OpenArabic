@@ -64,8 +64,7 @@ const WordsContextHighLighted = (props) => {
 }
 
 WordsContextHighLighted.propTypes = {
-  englishWord: PropTypes.string.isRequired,
-  englishSentence: PropTypes.string.isRequired,
+  englishSentence: PropTypes.array.isRequired,
   arabicSentence: PropTypes.string.isRequired
 }
 
