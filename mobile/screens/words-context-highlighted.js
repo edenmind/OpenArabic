@@ -14,100 +14,51 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 const WordsContextHighLighted = (props) => {
   const sharedStyle = useSharedStyles()
 
-  //style for highlighted word
-  const highlightedWord = {
-    color: paperDarkTheme.colors.onPrimary,
-    backgroundColor: paperDarkTheme.colors.primary,
-    whiteSpace: 'nowrap',
-    padding: 2
-  }
-
-  //split the sentence into an array of words
-  const splitSentence = (sentence) => {
-    return sentence.split(' ')
+  const rowWrapper = {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingBottom: 10,
+    margin: 0,
+    padding: 0
   }
 
   // highlight a word in splitSentence
   const highlightWords = (sentence, words, style) => {
-    let wordsToHighlight = []
-    const alreadyHighlighted = []
-
-    if (typeof words === 'string' && words.includes(' ')) {
-      wordsToHighlight = words.split(' ')
-    } else if (typeof words === 'string') {
-      wordsToHighlight.push(words)
-    } else {
-      wordsToHighlight = words
-    }
-
-    const splitSentenceArray = splitSentence(sentence)
-    const highlightedSentence = splitSentenceArray.map((wordInSentence, index) => {
-      let foundWord = false
-
-      for (const word of wordsToHighlight) {
-        if (wordInSentence === word) {
-          //if word is found in props.alreadyHighlighted, then continue to next word
-          if (props.alreadyHighlightedIndex.includes(index)) {
-            continue
-          }
-
-          //check if word is found in alreadyHighlighted
-          if (alreadyHighlighted.includes(word)) {
-            continue
-          }
-
-          foundWord = true
-
-          // do not push to alreadyHighlighted if word is found two times in words
-          if (wordsToHighlight.filter((w) => w === word).length === 1) {
-            alreadyHighlighted.push(word)
-          }
-        }
-      }
-
-      if (foundWord) {
-        if (
-          splitSentenceArray[index - 1] &&
-          splitSentenceArray[index + 1] &&
-          wordsToHighlight.includes(splitSentenceArray[index - 1]) &&
-          wordsToHighlight.includes(splitSentenceArray[index + 1])
-        ) {
-          return (
-            <Fragment key={index}>
-              <Text style={highlightedWord} variant="bodyLarge>">
-                {wordInSentence + ' '}
-              </Text>
-            </Fragment>
-          )
-        }
-
+    return sentence.map((word, index) => {
+      if (word.id === words.id) {
         return (
-          <Fragment key={index}>
-            <Text style={highlightedWord} variant="bodyLarge>">
-              {wordInSentence + ' '}
-            </Text>
-          </Fragment>
+          <Text
+            style={{
+              ...sharedStyle.englishBody,
+              color: paperDarkTheme.colors.onPrimary,
+              backgroundColor: paperDarkTheme.colors.primary,
+              opacity: 1,
+              marginHorizontal: 2,
+              paddingHorizontal: 2,
+              paddingBottom: 0
+            }}
+            variant="bodyLarge"
+            key={index}
+          >
+            {word.english}
+          </Text>
         )
       }
 
-      // file deepcode ignore ReactMissingArrayKeys: <please specify a reason of ignoring this>
-      // deepcode ignore ReactMissingArrayKeys: <please specify a reason of ignoring this>
       return (
-        <Text style={style} key={index}>
-          {wordInSentence + ' '}
+        <Text style={{ ...sharedStyle.englishBody, marginHorizontal: 2, paddingBottom: 0 }} key={index}>
+          {word.english}
         </Text>
       )
     })
-
-    return highlightedSentence
   }
 
   return (
     <View>
-      <Text style={{ ...sharedStyle.englishBody, opacity: 1 }} variant="bodyLarge">
+      <View style={rowWrapper}>
         {highlightWords(props.englishSentence, props.englishWord, sharedStyle.englishBody)}
-      </Text>
-      <Text style={sharedStyle.arabicBody}>{props.arabicSentence}</Text>
+      </View>
+      <Text style={{ ...sharedStyle.arabicBody, paddingBottom: 0 }}>{props.arabicSentence}</Text>
     </View>
   )
 }
@@ -115,8 +66,7 @@ const WordsContextHighLighted = (props) => {
 WordsContextHighLighted.propTypes = {
   englishWord: PropTypes.string.isRequired,
   englishSentence: PropTypes.string.isRequired,
-  arabicSentence: PropTypes.string.isRequired,
-  alreadyHighlightedIndex: PropTypes.array.isRequired
+  arabicSentence: PropTypes.string.isRequired
 }
 
 export default WordsContextHighLighted

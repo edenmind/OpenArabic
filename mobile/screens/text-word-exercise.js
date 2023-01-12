@@ -20,9 +20,8 @@ const OrderingWordsInASentence = () => {
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
-  const [currentEnglishWord, setCurrentEnglishWord] = useState('')
+  const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
   const sharedStyle = useSharedStyles()
-  const [alreadyHighlighted, setAlreadyHighlighted] = useState([])
   const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
 
   const styles = StyleSheet.create({
@@ -33,12 +32,10 @@ const OrderingWordsInASentence = () => {
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
-    console.log('loading')
-
     //produce a random list of three words from sentencesInText[currentSentence].arabicWords which contains one arabic word that matches the current english word
     textLoading && getThreeRandomWords()
     //setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
-    setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
+    setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
   }, [currentSentence, sentencesInText, textLoading, currentWord, currentArabicWordsInSentence.length])
 
   const onDismissSnackBar = () => setCelebrationSnackBarVisibility(false)
@@ -98,14 +95,8 @@ const OrderingWordsInASentence = () => {
   //if currentSentence is equal to the length of the wordsInSentences array, set currentSentence to 0
   const handlePress = (id, word, matchingEnglishWord) => {
     if (id === currentWord) {
-      // add matchingEnglish word to setAlreadyHighlighted
-      const alreadyHighlightedCopy = [...alreadyHighlighted]
-
-      alreadyHighlightedCopy.push(matchingEnglishWord.id)
-      setAlreadyHighlighted(alreadyHighlightedCopy)
-
       // set the state for currentEnglishWord
-      setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord].english)
+      setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
 
       //push the arabic word to the currentArabicSentenceFromCorrectAnswers array and set the state
       let currentArabicSentenceFromCorrectAnswersCopy = [...currentArabicSentenceFromCorrectAnswers]
@@ -127,12 +118,10 @@ const OrderingWordsInASentence = () => {
 
         if (currentSentence === sentencesInText.length - 1) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-          setAlreadyHighlighted([])
           setCurrentSentence(0)
           setCelebrationSnackBarVisibility(true)
         } else {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-          setAlreadyHighlighted([])
           setCurrentSentence(currentSentence + 1)
         }
 
@@ -166,17 +155,13 @@ const OrderingWordsInASentence = () => {
           mode="elevated"
           style={{ ...sharedStyle.button }}
         >
-          <Text style={{ fontSize: 35, lineHeight: 35, fontWeight: 'medium', color: paperDarkTheme.colors.primary }}>
+          <Text style={{ fontSize: 35, lineHeight: 38, fontWeight: 'medium', color: paperDarkTheme.colors.primary }}>
             {word.arabic}
           </Text>
         </Button>
       ))}
     </View>
   )
-
-  // create a string of all the english words in the englishWords array in the sentencesInText array for the currentSentence
-  const englishWordsInSentence = sentencesInText[currentSentence].englishWords.map((word) => word.english).join(' ')
-
   const getThreeRandomWords = () => {
     const randomWords = []
 
@@ -230,10 +215,9 @@ const OrderingWordsInASentence = () => {
             <Divider style={sharedStyle.divider} />
             <WordsContextHighLighted
               arabicSentence={currentArabicSentenceFromCorrectAnswers + '...'}
-              englishSentence={englishWordsInSentence}
+              englishSentence={sentencesInText[currentSentence].englishWords}
               currentWord={currentWord}
               arabicWord={''}
-              alreadyHighlightedIndex={alreadyHighlighted}
               englishWord={currentEnglishWord}
             ></WordsContextHighLighted>
           </View>
