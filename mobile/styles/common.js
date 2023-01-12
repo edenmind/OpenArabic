@@ -12,7 +12,8 @@ export const useSharedStyles = () => {
   const { englishFontSize } = useSelector(englishSelector)
   const { arabicFontName } = useSelector(arabicFontNameSelector)
 
-  const opacity = 0.9
+  const englishOpacity = 0.7
+  const arabicOpacity = 1
   const paddingBottom = 10
   const horizontalMargin = 33
   const verticalMargin = 33
@@ -46,7 +47,7 @@ export const useSharedStyles = () => {
         fontFamily: arabicFontName,
         fontSize: arabicFontSizeWeighted(),
         lineHeight: arabicFontSize * 2.5,
-        opacity,
+        opacity: arabicOpacity,
         paddingBottom,
         textAlign: 'left',
         writingDirection: 'rtl'
@@ -83,7 +84,7 @@ export const useSharedStyles = () => {
         fontFamily: 'philosopher',
         fontSize: englishFontSize,
         lineHeight: englishFontSize * 1.5,
-        opacity,
+        opacity: englishOpacity,
         paddingBottom,
         writingDirection: 'ltr'
       },

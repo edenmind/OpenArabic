@@ -104,7 +104,7 @@ const WordsContextHighLighted = (props) => {
 
   return (
     <View>
-      <Text style={sharedStyle.englishBody} variant="bodyLarge">
+      <Text style={{ ...sharedStyle.englishBody, opacity: 1 }} variant="bodyLarge">
         {highlightWords(props.englishSentence, props.englishWord, sharedStyle.englishBody)}
       </Text>
       <Text style={sharedStyle.arabicBody}>{props.arabicSentence}</Text>
