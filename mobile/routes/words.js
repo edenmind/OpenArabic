@@ -33,7 +33,6 @@ export default function Words() {
                   <Button
                     mode="text"
                     onPress={() => {
-                      console.log('pressed')
                       dispatch({
                         type: 'SET_PRACTICING_WORDS',
                         payload: false

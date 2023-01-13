@@ -93,7 +93,7 @@ const OrderingWordsInASentence = () => {
   //if it doesn't, do nothing
   //if currentWord is equal to the length of the englishWordsInSentence array, increase currentSentence by 1 and set currentWord to 0
   //if currentSentence is equal to the length of the wordsInSentences array, set currentSentence to 0
-  const handlePress = (id, word, matchingEnglishWord) => {
+  const handlePress = (id, word) => {
     if (id === currentWord) {
       // set the state for currentEnglishWord
       setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
@@ -214,7 +214,7 @@ const OrderingWordsInASentence = () => {
             </Text>
             <Divider style={sharedStyle.divider} />
             <WordsContextHighLighted
-              arabicSentence={currentArabicSentenceFromCorrectAnswers + '...'}
+              arabicSentence={currentArabicSentenceFromCorrectAnswers + ' '}
               englishSentence={sentencesInText[currentSentence].englishWords}
               currentWord={currentWord}
               arabicWord={''}

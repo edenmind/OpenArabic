@@ -12,7 +12,7 @@ export const useSharedStyles = () => {
   const { englishFontSize } = useSelector(englishSelector)
   const { arabicFontName } = useSelector(arabicFontNameSelector)
 
-  const englishOpacity = 0.7
+  const englishOpacity = 0.8
   const arabicOpacity = 1
   const paddingBottom = 10
   const horizontalMargin = 33
@@ -68,6 +68,11 @@ export const useSharedStyles = () => {
         backgroundColor: paperDarkTheme.colors.onPrimary,
         marginBottom: 10,
         marginTop: 10
+      },
+      buttonAnswer: {
+        backgroundColor: paperDarkTheme.colors.onPrimary,
+        marginBottom: 5,
+        marginTop: 5
       },
       container: {
         marginBottom: verticalMargin,

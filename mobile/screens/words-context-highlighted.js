@@ -4,8 +4,8 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
-import React, { Fragment } from 'react'
-import { View } from 'react-native'
+import React, { useState } from 'react'
+import { View, Animated, StyleSheet } from 'react-native'
 import { Text } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
@@ -13,6 +13,24 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const WordsContextHighLighted = (props) => {
   const sharedStyle = useSharedStyles()
+  const [fadeAnim] = useState(new Animated.Value(0)) // Initial value for opacity: 0
+
+  React.useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true
+        }),
+        Animated.timing(fadeAnim, {
+          toValue: 0,
+          duration: 1000,
+          useNativeDriver: true
+        })
+      ])
+    ).start()
+  }, [fadeAnim])
 
   const rowWrapper = {
     flexDirection: 'row',
@@ -23,7 +41,7 @@ const WordsContextHighLighted = (props) => {
   }
 
   // highlight a word in splitSentence
-  const highlightWords = (sentence, words, style) => {
+  const highlightWords = (sentence, words) => {
     return sentence.map((word, index) => {
       if (word.id === words.id) {
         return (
@@ -55,17 +73,31 @@ const WordsContextHighLighted = (props) => {
 
   return (
     <View>
-      <View style={rowWrapper}>
-        {highlightWords(props.englishSentence, props.englishWord, sharedStyle.englishBody)}
-      </View>
-      <Text style={{ ...sharedStyle.arabicBody, paddingBottom: 0 }}>{props.arabicSentence}</Text>
+      <View style={rowWrapper}>{highlightWords(props.englishSentence, props.englishWord)}</View>
+      <Text style={{ ...sharedStyle.arabicBody, paddingBottom: 10 }}>
+        {props.arabicSentence}
+        <Animated.View // Special animatable View
+          style={{
+            opacity: fadeAnim // Bind opacity to animated value
+          }}
+        >
+          <Text
+            style={{
+              ...sharedStyle.arabicBody
+            }}
+          >
+            ...
+          </Text>
+        </Animated.View>
+      </Text>
     </View>
   )
 }
 
 WordsContextHighLighted.propTypes = {
   englishSentence: PropTypes.array.isRequired,
-  arabicSentence: PropTypes.string.isRequired
+  arabicSentence: PropTypes.string.isRequired,
+  englishWord: PropTypes.object.isRequired
 }
 
 export default WordsContextHighLighted
