@@ -18,7 +18,7 @@ export default function TextArabic() {
   const { textLoading } = useSelector(textLoadSelector)
   const styles = StyleSheet.create({
     button: {
-      margin: -7
+      margin: -10
     },
     rowWrapper: {
       direction: 'rtl',

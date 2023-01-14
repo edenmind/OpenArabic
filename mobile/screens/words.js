@@ -144,26 +144,18 @@ const Words = () => {
     splitText.forEach((w, index) => {
       if (w === word) {
         newText.push(
-          // <Animated.View // Special animatable View
-          //   key={index}
-          //   style={{
-          //     opacity: fadeAnim // Bind opacity to animated value
-          //   }}
-          // >
           <Text
             style={{
-              fontWeight: 'bold',
-              opacity: 1
+              ...sharedStyle.englishBody
             }}
           >
-            [.......]{' '}
+            &nbsp;[.......]
           </Text>
-          // </Animated.View>
         )
       } else {
         newText.push(
-          <Text style={{ ...sharedStyle.englishBody, opacity: 0.9 }} key={index}>
-            {w}{' '}
+          <Text key={index} style={{ ...sharedStyle.englishBody, opacity: 1 }}>
+            &nbsp;{w}
           </Text>
         )
       }
@@ -184,7 +176,7 @@ const Words = () => {
               backgroundColor: paperDarkTheme.colors.primary,
               color: paperDarkTheme.colors.onPrimary,
               fontSize: 40,
-              lineHeight: 60
+              lineHeight: 75
             }}
           >
             &nbsp;{w}&nbsp;
@@ -192,7 +184,7 @@ const Words = () => {
         )
       } else {
         newText.push(
-          <Text style={{ ...sharedStyle.arabicBody, fontSize: 40, lineHeight: 60 }} key={index}>
+          <Text style={{ ...sharedStyle.arabicBody, fontSize: 40, lineHeight: 75 }} key={index}>
             {' ' + w + ' '}
           </Text>
         )
@@ -203,17 +195,18 @@ const Words = () => {
 
   const getContent = (
     //only show it if there are words
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} color={paperDarkTheme.colors.primary} />
 
       <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 300 }} elevation={2}>
-        <Text style={{ ...sharedStyle.arabicBody, width: '90%', textAlign: 'center', fontSize: 40, paddingTop: 20 }}>
+        <Text style={{ direction: 'rtl', width: '95%' }}>
           {words[currentWord] != undefined &&
             highlightWordArabic(words[currentWord].arabicSentence, words[currentWord].arabic)}
         </Text>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <Text style={{ ...sharedStyle.englishBody, width: '90%', textAlign: 'center' }}>
-          {words[currentWord] != undefined && highlightWordEnglish(words[currentWord].englishSentence, 'each')}
+        <Text style={{ ...sharedStyle.englishBody, width: '95%', direction: 'ltr', textAlign: 'left' }}>
+          {words[currentWord] != undefined &&
+            highlightWordEnglish(words[currentWord].englishSentence, words[currentWord].english)}
         </Text>
       </Surface>
 
@@ -227,7 +220,7 @@ const Words = () => {
       {buttons.map((button, index) => (
         <View key={index}>{button}</View>
       ))}
-    </View>
+    </ScrollView>
   )
 
   const getSetup = (
