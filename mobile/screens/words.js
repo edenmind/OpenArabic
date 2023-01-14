@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
 import React, { useState } from 'react'
-import { View, StyleSheet, Animated } from 'react-native'
+import { View, StyleSheet, Animated, Image } from 'react-native'
 import { Button, Divider, Surface, Text, ProgressBar, SegmentedButtons } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
@@ -38,9 +38,7 @@ const Words = () => {
       paddingBottom: 10,
       paddingTop: 25
     },
-    segmentedButtons: {
-      width: '25%'
-    },
+
     surface: {
       padding: 15
     }
@@ -224,66 +222,95 @@ const Words = () => {
     </View>
   )
 
+  function getDifficultyLevelDescription(difficultyLevel) {
+    let difficultyLevelDescription
+
+    if (difficultyLevel === 10) {
+      difficultyLevelDescription = '../assets/beginner.jpeg'
+    } else if (difficultyLevel === 20) {
+      difficultyLevelDescription = '../assets/mid-level.jpeg'
+    } else if (difficultyLevel === 30) {
+      difficultyLevelDescription = '../assets/advanced.jpeg'
+    } else {
+      difficultyLevelDescription = ''
+    }
+
+    return difficultyLevelDescription
+  }
+
   const getSetup = (
     <View style={sharedStyle.headerContainer}>
       <Text variant="labelLarge">Number of Words</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <SegmentedButtons
         value={numberOfWordsToPractice}
-        style={style.segmentedButtons}
-        density="compact"
+        style={{ width: '100%' }}
         onValueChange={(value) => {
           setNumberOfWordsToPractice(value)
         }}
         buttons={[
           {
             value: 10,
-            label: '10'
+            label: '10',
+            style: { width: '33%' }
           },
           {
             value: 20,
-            label: '20'
+            label: '20',
+            style: { width: '33%' }
           },
           {
             value: 40,
-            label: '40'
-          },
-          {
-            value: 80,
-            label: '80'
+            label: '40',
+            style: { width: '33%' }
           }
         ]}
       />
-
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-
+      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingTop: 20 }} />
       <Text variant="labelLarge">Difficulty Level</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <SegmentedButtons
         value={difficultyLevel}
-        style={style.segmentedButtons}
-        density="compact"
         onValueChange={(value) => {
           setDifficultyLevel(value)
         }}
         buttons={[
           {
             value: 10,
-            label: 'Easy'
+            label: 'Beginner',
+            style: { width: '33%' }
           },
           {
             value: 20,
-            label: 'Medium'
+            label: 'Mid-level',
+            style: { width: '33%' }
           },
           {
             value: 30,
-            label: 'Hard'
+            label: 'Advanced',
+            style: { width: '33%' }
           }
         ]}
       />
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      {
+        //return the difficulty level description
+        difficultyLevel === 10 ? (
+          <Image source={require('../assets/beginner.jpeg')} style={{ width: '100%', height: 150, borderRadius: 10 }} />
+        ) : difficultyLevel === 20 ? (
+          <Image
+            source={require('../assets/mid-level.jpeg')}
+            style={{ width: '100%', height: 150, borderRadius: 10 }}
+          />
+        ) : difficultyLevel === 30 ? (
+          <Image source={require('../assets/advanced.jpeg')} style={{ width: '100%', height: 150, borderRadius: 10 }} />
+        ) : (
+          ''
+        )
+      }
 
-      <Text variant="labelSmall" style={{ marginBottom: 30 }}>
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <Text variant="labelMedium" style={{ marginBottom: 30 }}>
         {
           //return the difficulty level description
           difficultyLevel === 10
@@ -295,12 +322,11 @@ const Words = () => {
             : ''
         }
       </Text>
-
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-
       <Button
         mode="contained"
         onPress={() => {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           resetStateForNewWords()
           dispatch(getWords(difficultyLevel, numberOfWordsToPractice))
           dispatch({
