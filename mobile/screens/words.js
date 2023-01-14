@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
 import React, { useState } from 'react'
-import { View, StyleSheet, Animated, Image } from 'react-native'
+import { View, StyleSheet, Animated, Image, ScrollView } from 'react-native'
 import { Button, Divider, Surface, Text, ProgressBar, SegmentedButtons } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
@@ -144,18 +144,25 @@ const Words = () => {
     splitText.forEach((w, index) => {
       if (w === word) {
         newText.push(
-          <Animated.View // Special animatable View
-            key={index}
+          // <Animated.View // Special animatable View
+          //   key={index}
+          //   style={{
+          //     opacity: fadeAnim // Bind opacity to animated value
+          //   }}
+          // >
+          <Text
             style={{
-              opacity: fadeAnim // Bind opacity to animated value
+              fontWeight: 'bold',
+              opacity: 1
             }}
           >
-            <Text style={{ fontSize: 45 }}> ..... </Text>
-          </Animated.View>
+            [.......]{' '}
+          </Text>
+          // </Animated.View>
         )
       } else {
         newText.push(
-          <Text style={sharedStyle.englishBody} key={index}>
+          <Text style={{ ...sharedStyle.englishBody, opacity: 0.9 }} key={index}>
             {w}{' '}
           </Text>
         )
@@ -175,7 +182,9 @@ const Words = () => {
             style={{
               ...sharedStyle.arabicBody,
               backgroundColor: paperDarkTheme.colors.primary,
-              color: paperDarkTheme.colors.onPrimary
+              color: paperDarkTheme.colors.onPrimary,
+              fontSize: 40,
+              lineHeight: 60
             }}
           >
             &nbsp;{w}&nbsp;
@@ -183,9 +192,8 @@ const Words = () => {
         )
       } else {
         newText.push(
-          <Text style={sharedStyle.arabicBody} key={index}>
-            {' '}
-            {w}{' '}
+          <Text style={{ ...sharedStyle.arabicBody, fontSize: 40, lineHeight: 60 }} key={index}>
+            {' ' + w + ' '}
           </Text>
         )
       }
@@ -222,25 +230,9 @@ const Words = () => {
     </View>
   )
 
-  function getDifficultyLevelDescription(difficultyLevel) {
-    let difficultyLevelDescription
-
-    if (difficultyLevel === 10) {
-      difficultyLevelDescription = '../assets/beginner.jpeg'
-    } else if (difficultyLevel === 20) {
-      difficultyLevelDescription = '../assets/mid-level.jpeg'
-    } else if (difficultyLevel === 30) {
-      difficultyLevelDescription = '../assets/advanced.jpeg'
-    } else {
-      difficultyLevelDescription = ''
-    }
-
-    return difficultyLevelDescription
-  }
-
   const getSetup = (
-    <View style={sharedStyle.headerContainer}>
-      <Text variant="labelLarge">Number of Words</Text>
+    <ScrollView style={sharedStyle.scrollViewLTR}>
+      <Text variant="titleMedium">Number of Words</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <SegmentedButtons
         value={numberOfWordsToPractice}
@@ -267,7 +259,7 @@ const Words = () => {
         ]}
       />
       <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingTop: 20 }} />
-      <Text variant="labelLarge">Difficulty Level</Text>
+      <Text variant="titleMedium">Difficulty Level</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <SegmentedButtons
         value={difficultyLevel}
@@ -296,32 +288,72 @@ const Words = () => {
       {
         //return the difficulty level description
         difficultyLevel === 10 ? (
-          <Image source={require('../assets/beginner.jpeg')} style={{ width: '100%', height: 150, borderRadius: 10 }} />
+          <Surface elevation={4} style={{ borderRadius: 10 }}>
+            <Image
+              source={require('../assets/beginner.jpeg')}
+              style={{ width: '100%', height: 150, borderRadius: 10 }}
+            />
+            <View style={{ padding: 10 }}>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Goal: </Text>
+              <Text style={sharedStyle.englishBody}>Learn the words in the prayer.</Text>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Example: </Text>
+              <Text style={sharedStyle.englishBody}>
+                Say (قل), Path (صِرَٰطَ), And not (وَلَا), He (هُوَ), The Dawn (ٱلْفَلَقِ), He created (خَلَقَ).
+              </Text>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Number of Words: </Text>
+              <Text style={sharedStyle.englishBody}>100.</Text>
+            </View>
+          </Surface>
         ) : difficultyLevel === 20 ? (
-          <Image
-            source={require('../assets/mid-level.jpeg')}
-            style={{ width: '100%', height: 150, borderRadius: 10 }}
-          />
+          <Surface elevation={4} style={{ borderRadius: 10 }}>
+            <Image
+              source={require('../assets/mid-level.jpeg')}
+              style={{ width: '100%', height: 150, borderRadius: 10 }}
+            />
+            <View style={{ padding: 10 }}>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Goal: </Text>
+              <Text style={sharedStyle.englishBody}>Read Imām Nawawīs 40 Hadith.</Text>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Example of Words: </Text>
+              <Text style={sharedStyle.englishBody}>
+                Man (رَجُلٌ), Hair (الشَّعْرِ), Inform me (أَخْبِرْنِي), Astonished us (فَعَجِبْنَا), About (عَنْ), His
+                books (كُتُبِهِ).
+              </Text>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Number of Words: </Text>
+              <Text style={sharedStyle.englishBody}>400.</Text>
+            </View>
+          </Surface>
         ) : difficultyLevel === 30 ? (
-          <Image source={require('../assets/advanced.jpeg')} style={{ width: '100%', height: 150, borderRadius: 10 }} />
+          <Surface elevation={4} style={{ borderRadius: 10 }}>
+            <Image
+              source={require('../assets/advanced.jpeg')}
+              style={{ width: '100%', height: 150, borderRadius: 10 }}
+            />
+            <View style={{ padding: 10 }}>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Goal: </Text>
+              <Text style={sharedStyle.englishBody}>Read short texts about Aqīdah and Fiqh.</Text>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Example of Words: </Text>
+              <Text style={sharedStyle.englishBody}>
+                Man (رَجُلٌ), Hair (الشَّعْرِ), Inform me (أَخْبِرْنِي), Astonished us (فَعَجِبْنَا), About (عَنْ), His
+                books (كُتُبِهِ).
+              </Text>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="titleSmall">Number of Words: </Text>
+              <Text style={sharedStyle.englishBody}>In progress.</Text>
+            </View>
+          </Surface>
         ) : (
           ''
         )
       }
 
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <Text variant="labelMedium" style={{ marginBottom: 30 }}>
-        {
-          //return the difficulty level description
-          difficultyLevel === 10
-            ? 'Common Arabic Words for Beginners, often found in the Quran and the Prayer, that are easy to learn.'
-            : difficultyLevel === 20
-            ? 'Words found in The Quran and Hadith, excluding the most common words.'
-            : difficultyLevel === 30
-            ? 'Terminology used in Fiqh and Aqeedah for more advanced students.'
-            : ''
-        }
-      </Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <Button
         mode="contained"
@@ -337,7 +369,8 @@ const Words = () => {
       >
         START PRACTICE
       </Button>
-    </View>
+      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 50 }} />
+    </ScrollView>
   )
 
   return practicingWords ? getContent : getSetup

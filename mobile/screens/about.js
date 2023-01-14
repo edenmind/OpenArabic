@@ -81,9 +81,7 @@ function About() {
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(ijaad)}>
         Ijaada Institute
       </Button>
-      <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(sixtysteps)}>
-        The Arabic in 60 Steps Program
-      </Button>
+
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Translating Arabic

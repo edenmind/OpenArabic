@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import defaultExport from '../screens/words.js'
 import { CombinedDarkTheme } from '../constants/paper-theme.js'
 import { useDispatch, useSelector } from 'react-redux'
+import * as Haptics from 'expo-haptics'
 
 const Stack = createNativeStackNavigator()
 const practicingWordsSelector = (state) => state.practicingWords
@@ -33,6 +34,7 @@ export default function Words() {
                   <Button
                     mode="text"
                     onPress={() => {
+                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
                       dispatch({
                         type: 'SET_PRACTICING_WORDS',
                         payload: false
