@@ -50,10 +50,11 @@ export default function TextList({ route, navigation }) {
       data={texts}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
-      ListHeaderComponent={categoryDescription.length > 0 && description}
+      ListHeaderComponent={
+        categoryDescription.length > 0 ? description : <Text style={sharedStyle.arabicFooter}>{getHijriDate()}</Text>
+      }
       ListFooterComponent={
         <>
-          <Text style={sharedStyle.arabicFooter}>{getHijriDate()}</Text>
           <Text style={sharedStyle.arabicFooter}>سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك</Text>
           <Text style={sharedStyle.arabicFooter}></Text>
         </>

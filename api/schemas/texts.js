@@ -58,6 +58,7 @@ const getTextsWithIdOptions = {
             author: { type: 'string' },
             category: { type: 'string' },
             source: { type: 'string' },
+            sentences: { type: 'array' },
             texts: { arabic: { type: 'object' }, english: { type: 'object' } }
           }
         }

@@ -8,7 +8,6 @@ import { StyleSheet, TouchableOpacity, Animated, Share } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
 import PlaySound from '../components/play-sound.js'
 import { paperDarkTheme } from '../constants/paper-theme.js'
-import WordPairs from './text-bilingual-sentences-word-pairs.js'
 
 export default function TextListCard(props) {
   const sharedStyle = useSharedStyles()
@@ -64,28 +63,43 @@ export default function TextListCard(props) {
   const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}  `
   const english = props.text.texts.english && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic && prepareIngress(props.text.texts.arabic, 100)
-  const hadithTitle = `Narrated by ${props.text.author} in ${props.text.source}:`
+  const hadithTitle = `From ${props.text.author} in ${props.text.source}`
+  const englishHadith = '"' + props.text.texts.english + '"'
 
-  if (props.text.category === 'Hadith') {
+  if (props.text.category == 'Quote') {
+    //it is a hadith
     return (
       <Animated.View style={animatedStyle}>
         <Card style={style.card} testID="textCard" mode="elevated">
           <Surface elevation={2}>
             <Card.Content>
               <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="labelMedium">{hadithTitle}</Text>
-              <Divider style={sharedStyle.divider} />
-              <Text style={{ ...sharedStyle.arabicBody }}>{arabic}</Text>
+              <Text variant="labelMedium" style={{ opacity: 0.7, paddingBottom: 10 }}>
+                {hadithTitle}
+              </Text>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text style={{ ...sharedStyle.arabicBody }}>{props.text.texts.arabic}</Text>
               <Text variant="bodyLarge" style={sharedStyle.englishBody}>
-                {english}
+                {englishHadith}
+              </Text>
+              <Text
+                variant="labelSmall"
+                style={{ marginTop: 10, marginBottom: 10, marginRight: 10, opacity: 0.7, textAlign: 'right' }}
+              >
+                {props.text.timeAgo}
               </Text>
               <Divider style={sharedStyle.divider} />
             </Card.Content>
-            <Card.Actions style={style.cardAction}>
-              <PlaySound audioFileName={'abc'} buttonText={'LISTEN'} />
+            <Card.Actions style={{ ...style.cardAction, opacity: 1 }}>
+              <PlaySound
+                audioFileName={
+                  'https://openarabic.ams3.digitaloceanspaces.com/audio/' + props.text.sentences[0].filename
+                }
+                buttonText={'LISTEN'}
+              />
               <Button
                 onPress={() => {
-                  onShare(arabic, english)
+                  onShare(props.text.texts.arabic, props.text.texts.english)
                 }}
               >
                 <Text style={{ color: paperDarkTheme.colors.onPrimary }}>SHARE</Text>
