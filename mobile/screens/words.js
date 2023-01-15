@@ -199,7 +199,7 @@ const Words = () => {
       <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} color={paperDarkTheme.colors.primary} />
 
       <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 300 }} elevation={2}>
-        <Text style={{ direction: 'rtl', width: '95%' }}>
+        <Text style={{ direction: 'rtl', width: '95%', paddingTop: 15 }}>
           {words[currentWord] != undefined &&
             highlightWordArabic(words[currentWord].arabicSentence, words[currentWord].arabic)}
         </Text>
@@ -225,34 +225,7 @@ const Words = () => {
 
   const getSetup = (
     <ScrollView style={sharedStyle.scrollViewLTR}>
-      <Text variant="titleMedium">Number of Words</Text>
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <SegmentedButtons
-        value={numberOfWordsToPractice}
-        style={{ width: '100%' }}
-        onValueChange={(value) => {
-          setNumberOfWordsToPractice(value)
-        }}
-        buttons={[
-          {
-            value: 10,
-            label: '10',
-            style: { width: '33%' }
-          },
-          {
-            value: 20,
-            label: '20',
-            style: { width: '33%' }
-          },
-          {
-            value: 40,
-            label: '40',
-            style: { width: '33%' }
-          }
-        ]}
-      />
-      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingTop: 20 }} />
-      <Text variant="titleMedium">Difficulty Level</Text>
+      <Text variant="titleMedium">Difficulty Level:</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <SegmentedButtons
         value={difficultyLevel}
@@ -281,7 +254,7 @@ const Words = () => {
       {
         //return the difficulty level description
         difficultyLevel === 10 ? (
-          <Surface elevation={4} style={{ borderRadius: 10 }}>
+          <Surface elevation={2} style={{ borderRadius: 10 }}>
             <Image
               source={require('../assets/beginner.jpeg')}
               style={{ width: '100%', height: 150, borderRadius: 10 }}
@@ -295,9 +268,6 @@ const Words = () => {
               <Text style={sharedStyle.englishBody}>
                 Say (قل), Path (صِرَٰطَ), And not (وَلَا), He (هُوَ), The Dawn (ٱلْفَلَقِ), He created (خَلَقَ).
               </Text>
-              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Number of Words: </Text>
-              <Text style={sharedStyle.englishBody}>100.</Text>
             </View>
           </Surface>
         ) : difficultyLevel === 20 ? (
@@ -316,9 +286,6 @@ const Words = () => {
                 Man (رَجُلٌ), Hair (الشَّعْرِ), Inform me (أَخْبِرْنِي), Astonished us (فَعَجِبْنَا), About (عَنْ), His
                 books (كُتُبِهِ).
               </Text>
-              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Number of Words: </Text>
-              <Text style={sharedStyle.englishBody}>400.</Text>
             </View>
           </Surface>
         ) : difficultyLevel === 30 ? (
@@ -337,17 +304,41 @@ const Words = () => {
                 Man (رَجُلٌ), Hair (الشَّعْرِ), Inform me (أَخْبِرْنِي), Astonished us (فَعَجِبْنَا), About (عَنْ), His
                 books (كُتُبِهِ).
               </Text>
-              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Number of Words: </Text>
-              <Text style={sharedStyle.englishBody}>In progress.</Text>
             </View>
           </Surface>
         ) : (
           ''
         )
       }
-
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <Text variant="titleMedium">Number of Words:</Text>
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <SegmentedButtons
+        value={numberOfWordsToPractice}
+        style={{ width: '100%' }}
+        onValueChange={(value) => {
+          setNumberOfWordsToPractice(value)
+        }}
+        buttons={[
+          {
+            value: 10,
+            label: '10',
+            style: { width: '33%' }
+          },
+          {
+            value: 20,
+            label: '20',
+            style: { width: '33%' }
+          },
+          {
+            value: 40,
+            label: '40',
+            style: { width: '33%' }
+          }
+        ]}
+      />
+
+      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 30 }} />
       <Button
         mode="contained"
         onPress={() => {
