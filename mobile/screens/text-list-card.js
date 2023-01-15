@@ -1,6 +1,6 @@
 /* eslint-disable putout/long-properties-destructuring */
 import { prepareIngress } from '../services/utility-service.js'
-import { Text, Card, Divider, Surface, Button } from 'react-native-paper'
+import { Text, Card, Divider, Surface, Button, Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import SCREENS from '../constants/screens.js'
@@ -29,10 +29,10 @@ export default function TextListCard(props) {
     }).start()
   }
 
-  const onShare = async (arabic, english) => {
+  const onShare = async (arabic, english, hadithTitle) => {
     await Share.share({
       title: 'Open Arabic',
-      message: `${arabic} \n\n ${english} \n\n`,
+      message: `${arabic}\n\n"${english}"\n\n${hadithTitle} \n`,
       url: 'https://openarabic.app.link'
     })
   }
@@ -66,18 +66,30 @@ export default function TextListCard(props) {
   const hadithTitle = `From ${props.text.author} in ${props.text.source}`
   const englishHadith = '"' + props.text.texts.english + '"'
 
-  if (props.text.category == 'Quote') {
+  if (props.text.category == 'Quotes') {
     //it is a hadith
     return (
       <Animated.View style={animatedStyle}>
         <Card style={style.card} testID="textCard" mode="elevated">
           <Surface elevation={2}>
             <Card.Content>
-              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Chip
+                compact={true}
+                mode="outlined"
+                style={{
+                  marginTop: 15,
+                  marginBottom: 5,
+                  width: 67,
+                  backgroundColor: paperDarkTheme.colors.onPrimary
+                }}
+              >
+                <Text style={{ textAlign: 'left' }}>Quote</Text>
+              </Chip>
+              <Divider style={{ ...sharedStyle.dividerHidden }} />
               <Text variant="labelMedium" style={{ opacity: 0.7, paddingBottom: 10 }}>
                 {hadithTitle}
               </Text>
-              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Divider style={{ ...sharedStyle.dividerHidden }} />
               <Text style={{ ...sharedStyle.arabicBody }}>{props.text.texts.arabic}</Text>
               <Text variant="bodyLarge" style={sharedStyle.englishBody}>
                 {englishHadith}
@@ -99,7 +111,7 @@ export default function TextListCard(props) {
               />
               <Button
                 onPress={() => {
-                  onShare(props.text.texts.arabic, props.text.texts.english)
+                  onShare(props.text.texts.arabic, props.text.texts.english, hadithTitle)
                 }}
               >
                 <Text style={{ color: paperDarkTheme.colors.onPrimary }}>SHARE</Text>

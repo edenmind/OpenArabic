@@ -84,6 +84,11 @@ export const useSharedStyles = () => {
         marginBottom: 5,
         marginTop: 5
       },
+      dividerHidden: {
+        marginBottom: 5,
+        marginTop: 5,
+        opacity: 0
+      },
       englishBody: {
         direction: 'ltr',
         fontFamily: 'philosopher',

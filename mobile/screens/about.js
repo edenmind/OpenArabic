@@ -156,8 +156,7 @@ function About() {
         platform for Arabic language and culture.
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        Yūnus hopes this platform will make it easier for people from all backgrounds to learn and understand the
-        Islamic religion, In sha'Allah.
+        Yunus has had three years of private lessons in Sarf and Nahw with Shaykh Mujahid from Philadelphia.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
         Twitter.com/YunusAndreasson

@@ -12,7 +12,7 @@ export default function TextListCard(properties) {
     </Grid>
   ) : (
     properties.texts
-      .filter((order) => order.status !== 'Draft')
+      .filter((order) => order.status !== 'Draft' && order.category !== 'Quotes')
       .map((text, index) => (
         <Grid item md={4} xs={12} key={index}>
           <Card>
