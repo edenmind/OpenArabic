@@ -1,11 +1,14 @@
 /* eslint-disable putout/long-properties-destructuring */
 import { prepareIngress } from '../services/utility-service.js'
-import { Text, Card, Divider, Surface } from 'react-native-paper'
+import { Text, Card, Divider, Surface, Button } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import SCREENS from '../constants/screens.js'
-import { StyleSheet, TouchableOpacity, Animated } from 'react-native'
+import { StyleSheet, TouchableOpacity, Animated, Share } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
+import PlaySound from '../components/play-sound.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
+import WordPairs from './text-bilingual-sentences-word-pairs.js'
 
 export default function TextListCard(props) {
   const sharedStyle = useSharedStyles()
@@ -25,6 +28,14 @@ export default function TextListCard(props) {
       toValue: 1,
       duration: 300
     }).start()
+  }
+
+  const onShare = async (arabic, english) => {
+    await Share.share({
+      title: 'Open Arabic',
+      message: `${arabic} \n\n ${english} \n\n`,
+      url: 'https://openarabic.app.link'
+    })
   }
 
   const style = StyleSheet.create({
@@ -53,6 +64,38 @@ export default function TextListCard(props) {
   const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}  `
   const english = props.text.texts.english && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic && prepareIngress(props.text.texts.arabic, 100)
+  const hadithTitle = `Narrated by ${props.text.author} in ${props.text.source}:`
+
+  if (props.text.category === 'Hadith') {
+    return (
+      <Animated.View style={animatedStyle}>
+        <Card style={style.card} testID="textCard" mode="elevated">
+          <Surface elevation={2}>
+            <Card.Content>
+              <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+              <Text variant="labelMedium">{hadithTitle}</Text>
+              <Divider style={sharedStyle.divider} />
+              <Text style={{ ...sharedStyle.arabicBody }}>{arabic}</Text>
+              <Text variant="bodyLarge" style={sharedStyle.englishBody}>
+                {english}
+              </Text>
+              <Divider style={sharedStyle.divider} />
+            </Card.Content>
+            <Card.Actions style={style.cardAction}>
+              <PlaySound audioFileName={'abc'} buttonText={'LISTEN'} />
+              <Button
+                onPress={() => {
+                  onShare(arabic, english)
+                }}
+              >
+                <Text style={{ color: paperDarkTheme.colors.onPrimary }}>SHARE</Text>
+              </Button>
+            </Card.Actions>
+          </Surface>
+        </Card>
+      </Animated.View>
+    )
+  }
 
   return (
     <Card style={style.card} testID="textCard" mode="elevated">
@@ -108,6 +151,9 @@ TextListCard.propTypes = {
     author: PropTypes.string,
     source: PropTypes.string,
     texts: PropTypes.object,
-    category: PropTypes.string
+    category: PropTypes.string,
+    sentences: PropTypes.array,
+    english: PropTypes.string,
+    arabic: PropTypes.string
   })
 }
