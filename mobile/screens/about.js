@@ -153,10 +153,10 @@ function About() {
       </Text>
       <Text variant="bodyLarge" style={style.english}>
         As a software developer based in Sweden, he created OpenArabic to provide a comprehensive online learning
-        platform for Arabic language and culture.
+        platform for Arabic language.
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        Yunus has had three years of private lessons in Sarf and Nahw with Shaykh Mujahid from Philadelphia.
+        Yunus has been receiving Sarf and Nahw lessons from Shaykh Mujahid of Philadelphia. May Allah protect him.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
         Twitter.com/YunusAndreasson

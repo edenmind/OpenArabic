@@ -34,6 +34,7 @@ const OrderingWordsInASentence = () => {
   useEffect(() => {
     //produce a random list of three words from sentencesInText[currentSentence].arabicWords which contains one arabic word that matches the current english word
     textLoading && getThreeRandomWords()
+    console.log('first useEffect')
     //setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
     setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
   }, [currentSentence, sentencesInText, textLoading, currentWord, currentArabicWordsInSentence.length])
@@ -150,7 +151,7 @@ const OrderingWordsInASentence = () => {
             const matchingEnglishWord = sentencesInText[currentSentence].englishWords.find(
               (englishWord) => englishWord.id === word.id
             )
-            handlePress(word.id, word.arabic, matchingEnglishWord)
+            handlePress(word.id, word.arabic)
           }}
           mode="elevated"
           style={{ ...sharedStyle.button }}
@@ -165,27 +166,19 @@ const OrderingWordsInASentence = () => {
   const getThreeRandomWords = () => {
     const randomWords = []
 
-    //pick a random sentence
-    const randomSentence = Math.floor(Math.random() * sentencesInText.length)
+    while (randomWords.length < 2) {
+      //pick a random sentence
+      const randomSentence = Math.floor(Math.random() * sentencesInText.length)
 
-    //get the random words from that sentence
-    const randomWordsFromSentence = sentencesInText[randomSentence].arabicWords
-      .slice(0, 2)
-      .sort(() => Math.random() - 0.5)
+      //get the random words from that sentence
+      const randomWordsFromSentence = sentencesInText[randomSentence].arabicWords
+        .slice(0, 2)
+        .sort(() => Math.random() - 0.5)
 
-    //make sure that the words are unique
-    for (const element of randomWordsFromSentence) {
-      if (randomWords.includes(element)) {
-        //if the word is not unique, get a new random word
-        const newRandomWord = sentencesInText[randomSentence].arabicWords.slice(0, 1).sort(() => Math.random() - 0.5)[0]
+      //add the random words to the randomWords array
+      randomWords.push(...randomWordsFromSentence)
 
-        //only add the new word if it is unique
-        if (!randomWords.includes(newRandomWord)) {
-          randomWords.push(newRandomWord)
-        }
-      } else {
-        randomWords.push(element)
-      }
+      console.log(randomWordsFromSentence)
     }
 
     //find the matching arabic word based on the currentWord and add it to the randomWords array

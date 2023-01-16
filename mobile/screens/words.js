@@ -225,7 +225,7 @@ const Words = () => {
 
   const getSetup = (
     <ScrollView style={sharedStyle.scrollViewLTR}>
-      <Text variant="titleMedium">Difficulty Level:</Text>
+      <Text variant="titleMedium">Difficulty Level</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <SegmentedButtons
         value={difficultyLevel}
@@ -309,7 +309,7 @@ const Words = () => {
         )
       }
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <Text variant="titleMedium">Number of Words:</Text>
+      <Text variant="titleMedium">Number of Words</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <SegmentedButtons
         value={numberOfWordsToPractice}

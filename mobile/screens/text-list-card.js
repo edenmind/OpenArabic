@@ -63,7 +63,7 @@ export default function TextListCard(props) {
   const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}  `
   const english = props.text.texts.english && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic && prepareIngress(props.text.texts.arabic, 100)
-  const hadithTitle = `From ${props.text.author} in ${props.text.source}`
+  const hadithTitle = `${props.text.author} in ${props.text.source}`
   const englishHadith = '"' + props.text.texts.english + '"'
 
   if (props.text.category == 'Quotes') {
