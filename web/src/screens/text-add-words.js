@@ -97,7 +97,17 @@ function TextAddWords() {
                 //get the category level property of the category with the name text.category
                 const categoryLevel = categories.find((category) => category.name === text.category).level
 
-                handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel, word.quiz)
+                //check that word.english exists in the sentence.english for both lower and upper case
+                const quiz = sentence.english.toLowerCase().includes(word.english.toLowerCase())
+
+                // if the word is not found the open the snack bar with the message
+                if (quiz) {
+                  handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel, word.quiz)
+                } else {
+                  setOpenSnackbar(true)
+                  setPostMessage('Word not found in sentence')
+                  setPostState('error')
+                }
               }}
             >
               Save

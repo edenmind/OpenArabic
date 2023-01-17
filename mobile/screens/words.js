@@ -142,7 +142,7 @@ const Words = () => {
     let splitText = text.split(' ')
     let newText = []
     splitText.forEach((w, index) => {
-      if (w === word) {
+      if (w.toLowerCase() === word.toLowerCase()) {
         newText.push(
           <Text
             style={{
@@ -261,10 +261,10 @@ const Words = () => {
             />
             <View style={{ padding: 10 }}>
               <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Goal: </Text>
-              <Text style={sharedStyle.englishBody}>Learn the words in the prayer by heart..</Text>
+              <Text variant="titleSmall">Goal </Text>
+              <Text style={sharedStyle.englishBody}>Learn the words in the prayer by heart.</Text>
               <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Examples: </Text>
+              <Text variant="titleSmall">Examples </Text>
               <Text style={sharedStyle.englishBody}>
                 Say (قل), Path (صِرَٰطَ), And not (وَلَا), He (هُوَ), The Dawn (ٱلْفَلَقِ), He created (خَلَقَ).
               </Text>
@@ -278,10 +278,10 @@ const Words = () => {
             />
             <View style={{ padding: 10 }}>
               <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Goal: </Text>
+              <Text variant="titleSmall">Goal </Text>
               <Text style={sharedStyle.englishBody}>Read the 40 Hadith of Imām Nawawī.</Text>
               <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Examples: </Text>
+              <Text variant="titleSmall">Examples </Text>
               <Text style={sharedStyle.englishBody}>
                 Man (رَجُلٌ), Hair (الشَّعْرِ), Inform me (أَخْبِرْنِي), Astonished us (فَعَجِبْنَا), About (عَنْ).
               </Text>
@@ -295,10 +295,10 @@ const Words = () => {
             />
             <View style={{ padding: 10 }}>
               <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Goal: </Text>
+              <Text variant="titleSmall">Goal </Text>
               <Text style={sharedStyle.englishBody}>Read short texts about Aqīdah and Fiqh.</Text>
               <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-              <Text variant="titleSmall">Examples: </Text>
+              <Text variant="titleSmall">Examples </Text>
               <Text style={sharedStyle.englishBody}>
                 Man (رَجُلٌ), Hair (الشَّعْرِ), Inform me (أَخْبِرْنِي), Astonished us (فَعَجِبْنَا), About (عَنْ).
               </Text>
