@@ -1,4 +1,6 @@
-import { Chip, Container, Divider } from '@mui/material'
+/* eslint-disable unicorn/prefer-spread */
+/* eslint-disable unicorn/no-array-reduce */
+import { Chip, Container, Divider, Button, TextField } from '@mui/material'
 import React, { Fragment } from 'react'
 import Footer from '../components/footer.js'
 import Grid from '@mui/material/Grid'
@@ -9,6 +11,7 @@ const selector = (state) => state.text
 
 function TextAddPreview() {
   const { text } = useSelector(selector)
+  const [englishWordsAggregated, setEnglishWordsAggregated] = React.useState('')
 
   return text.sentences.length > 1 ? (
     <React.Fragment>
@@ -27,6 +30,25 @@ function TextAddPreview() {
           <img src={text.image} alt={text.title} width={700} />
           <Divider width="200" />
           <TextListIdSentences sentences={text.sentences} />
+
+          <h3>Grammar Check</h3>
+          <TextField value={englishWordsAggregated} multiline rows={10} fullWidth />
+          <br />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              // loop through text.sentences.words.english and aggregate the english word property
+              const englishWordsAggregatedAcc = text.sentences.reduce((acc, sentence) => {
+                const englishWords = sentence.words.map((word) => ' ' + word.english)
+                return acc.concat(englishWords)
+              }, [])
+
+              setEnglishWordsAggregated(englishWordsAggregatedAcc)
+            }}
+          >
+            Update Grammar Check
+          </Button>
         </Grid>
         <Footer />
       </Container>

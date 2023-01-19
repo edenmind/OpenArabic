@@ -3574,12 +3574,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-declare-undefined-variables@npm:^7.0.0":
-  version: 7.2.0
-  resolution: "@putout/plugin-declare-undefined-variables@npm:7.2.0"
+"@putout/plugin-declare-undefined-variables@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@putout/plugin-declare-undefined-variables@npm:8.0.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: 7c6f60f2f1012aa8547d4e4c69c1c6954a3ecd8a6fcab52ff6bd77871167337bc02f2d26fbf4c32b95c20eccecee634a347cb1e9b079e9b63c011690a1160d1a
+    putout: ">=28"
+  checksum: 94393d39770bead8a2fe652bca4e7e3c9e56b3fa4b9091423c8f2d239ecc447a8f5aecaf1ca7d5d27208b251fbc8d22fbeeb735f462715e8267aaa15c4d38302
   languageName: node
   linkType: hard
 
@@ -3762,15 +3762,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-regexp@npm:^5.0.0":
-  version: 5.5.1
-  resolution: "@putout/plugin-regexp@npm:5.5.1"
+"@putout/plugin-regexp@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-regexp@npm:6.0.0"
   dependencies:
     regexp-tree: ^0.1.21
     try-catch: ^3.0.0
   peerDependencies:
-    putout: ">=25"
-  checksum: 93cd1b64f02ed34757e67970bc42c34b1e32b168f8ecd8b1465fa556194c428623094a410fa63dc35d913e646cc7dca12ccf11dabf762ef2e2256cff553c0b28
+    putout: ">=28"
+  checksum: cace2d14ed337b447ef6da1942ff60714c5d1bb018d00d19776c5b8168280bc835dc477a6384a6eac30b32e9f46f74dc1d83bc1e241792e4ab50786fbfb318c7
   languageName: node
   linkType: hard
 
@@ -3839,12 +3839,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-iife@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "@putout/plugin-remove-iife@npm:2.1.1"
+"@putout/plugin-remove-iife@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-remove-iife@npm:3.0.0"
   peerDependencies:
-    putout: ">=27"
-  checksum: a843375994d4a7ea6ee5f9d84bcca019257355f6dc9355033f29327e1cc5ac7f84410b68fd4d4db0c317f3e7ab3e72b4f674f56f42569ad6779b7f1093b4bd50
+    putout: ">=28"
+  checksum: 5afa9b98120a548d0cb0e262bb9beefe01cb29f5658bca7aeec96e86dc4d25bcec813384df2c64868f3681bc44a63a125f45609c292be0b35c60f6749c039b64
   languageName: node
   linkType: hard
 
@@ -5747,14 +5747,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "axios@npm:1.2.2"
+"axios@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "axios@npm:1.2.3"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: 6e357491b38426c5720f7328ecbafca3c643b03952c052d787570672ce7a9365717c2d64db4ce97cfbee3f830fa405101e360e14d0857ef7f96a9f4d814c4e03
+  checksum: 52802a1e317e8a6fd2c014aa06a6978ea8381142c98e91f2be5e9e213b77b541451e588e17a3d6db2d6e76faea82911239ca4981d7af959d67fb66018dab3ac9
   languageName: node
   linkType: hard
 
@@ -12810,7 +12810,7 @@ __metadata:
     "@reduxjs/toolkit": ^1.9.1
     "@testing-library/react-native": ^11.2.0
     "@types/jest": ^29.1.1
-    axios: ^1.2.2
+    axios: ^1.2.3
     axios-mock-adapter: ^1.21.2
     axios-retry: ^3.3.1
     deepmerge: ^4.2.2
@@ -12842,7 +12842,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.3
     prop-types: ^15.8.1
-    putout: ^28.5.0
+    putout: ^28.7.0
     react: 18.1.0
     react-dom: 18.1.0
     react-native: 0.70.5
@@ -14103,9 +14103,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.5.0":
-  version: 28.5.0
-  resolution: "putout@npm:28.5.0"
+"putout@npm:^28.7.0":
+  version: 28.7.0
+  resolution: "putout@npm:28.7.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14168,7 +14168,7 @@ __metadata:
     "@putout/plugin-convert-typeof-to-is-type": ^2.0.0
     "@putout/plugin-declare-before-reference": ^1.0.0
     "@putout/plugin-declare-imports-first": ^2.0.0
-    "@putout/plugin-declare-undefined-variables": ^7.0.0
+    "@putout/plugin-declare-undefined-variables": ^8.0.0
     "@putout/plugin-eslint": ^4.2.0
     "@putout/plugin-extract-object-properties": ^8.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
@@ -14188,7 +14188,7 @@ __metadata:
     "@putout/plugin-promises": ^8.0.0
     "@putout/plugin-putout": ^11.0.0
     "@putout/plugin-putout-config": ^2.0.0
-    "@putout/plugin-regexp": ^5.0.0
+    "@putout/plugin-regexp": ^6.0.0
     "@putout/plugin-remove-boolean-from-assertions": ^1.0.0
     "@putout/plugin-remove-console": ^5.0.0
     "@putout/plugin-remove-constant-conditions": ^4.0.0
@@ -14196,7 +14196,7 @@ __metadata:
     "@putout/plugin-remove-duplicate-case": ^2.0.0
     "@putout/plugin-remove-duplicate-keys": ^3.0.0
     "@putout/plugin-remove-empty": ^9.0.0
-    "@putout/plugin-remove-iife": ^2.0.0
+    "@putout/plugin-remove-iife": ^3.0.0
     "@putout/plugin-remove-nested-blocks": ^6.0.0
     "@putout/plugin-remove-unreachable-code": ^1.0.0
     "@putout/plugin-remove-unreferenced-variables": ^2.0.0
@@ -14263,7 +14263,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: b121a3d0763baae7e331e1a2ec89ea208db383b7e416e33b3e62f5364fd24f0281c837ff155a268de063e3e00bda5137d15e32cea259a6c64d1e1790ef4d8fc8
+  checksum: 3dd14f87271d10d414bca775314f36484f57841e872e85cbc706dc83ba7f3d0252904521f13ba0e6db8af9c7faf306394a4299e6fb76cb15a1ee80be6f8f70a0
   languageName: node
   linkType: hard
 

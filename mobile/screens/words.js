@@ -144,18 +144,25 @@ const Words = () => {
     splitText.forEach((w, index) => {
       if (w.toLowerCase() === word.toLowerCase()) {
         newText.push(
-          <Text
-            style={{
-              ...sharedStyle.englishBody
-            }}
-          >
-            &nbsp;[.......]
-          </Text>
+          <>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                backgroundColor: paperDarkTheme.colors.primary,
+                color: paperDarkTheme.colors.onPrimary
+              }}
+            >
+              &nbsp;[......]&nbsp;
+            </Text>
+            <Text key={index} style={{ ...sharedStyle.englishBody, opacity: 1 }}>
+              &nbsp;
+            </Text>
+          </>
         )
       } else {
         newText.push(
           <Text key={index} style={{ ...sharedStyle.englishBody, opacity: 1 }}>
-            &nbsp;{w}
+            {w}&nbsp;
           </Text>
         )
       }
@@ -204,7 +211,7 @@ const Words = () => {
             highlightWordArabic(words[currentWord].arabicSentence, words[currentWord].arabic)}
         </Text>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <Text style={{ ...sharedStyle.englishBody, width: '95%', direction: 'ltr', textAlign: 'left' }}>
+        <Text style={{ ...sharedStyle.englishBody, width: '95%', direction: 'ltr', textAlign: 'left', opacity: 1 }}>
           {words[currentWord] != undefined &&
             highlightWordEnglish(words[currentWord].englishSentence, words[currentWord].english)}
         </Text>
@@ -214,7 +221,7 @@ const Words = () => {
         visible={celebrationSnackBarVisibility}
         onDismissSnackBar={onDismissSnackBar}
         duration={2500}
-        text="Congratulations! You have completed the practice!"
+        text="Congratulations! You have completed the practice! 🎉"
       />
 
       {buttons.map((button, index) => (

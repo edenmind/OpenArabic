@@ -59,6 +59,7 @@ function TextAddWords() {
           multiline
           variant="outlined"
         />
+        <br />
 
         {sentence.words.map((word, indexArabicWord) => (
           <Box sx={{ fontSize: 'h4.fontSize', fontWeight: 'bold' }} key={indexArabicWord}>
@@ -101,7 +102,7 @@ function TextAddWords() {
                 const quiz = sentence.english.toLowerCase().includes(word.english.toLowerCase())
 
                 // if the word is not found the open the snack bar with the message
-                if (quiz) {
+                if (quiz || !word.quiz) {
                   handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel, word.quiz)
                 } else {
                   setOpenSnackbar(true)

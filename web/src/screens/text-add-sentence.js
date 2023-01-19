@@ -126,13 +126,29 @@ const TextAddSentences = () => {
         <Chip label={`Number of Arabic Letters: ${numberOfArabicLetters}`} />
         {checkForEmptyLines(text) && <Chip label="Empty line detected" color="error" />}
         <Button
+          size="small"
+          variant="outlined"
           onClick={async () => {
             //count the number of letters in text.texts.arabic excluding the spaces and line breaks
             const numberOfLetters = text.texts.arabic.replace(/ /g, '').replace(/\n/g, '').length
             setNumberOfArabicLetters(numberOfLetters)
+            dispatch({ type: 'SET_NUMBER_OF_WORDS', number: numberOfLetters })
           }}
         >
           Check Number of Letters
+        </Button>
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={async () => {
+            // loop through the english text and replace every "صلى الله عليه وسلم" with "ﷺ"
+            const newText = text.texts.arabic.replace(/صلى الله عليه وسلم/g, 'ﷺ')
+
+            //update the state
+            dispatch({ type: 'SET_ARABIC_TEXT', arabic: newText })
+          }}
+        >
+          Correct Texts
         </Button>
         <LoadingButton
           size="small"

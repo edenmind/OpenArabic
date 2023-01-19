@@ -219,7 +219,7 @@ const OrderingWordsInASentence = () => {
           visible={celebrationSnackBarVisibility}
           onDismissSnackBar={onDismissSnackBar}
           duration={2000}
-          text="Congratulations! You have completed the quiz! You can do it again if you want."
+          text="Congratulations! You have completed the quiz! 🎉"
         />
         <Divider style={sharedStyle.divider} />
 

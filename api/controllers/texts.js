@@ -110,9 +110,9 @@ async function addText(request, reply) {
 
   if (data.status !== 'Draft') {
     // Validate that at least 15 words has quiz property set to true
-    if (!validateThatCorrectNumberOfWordsHasQuizSet(sentences, 15)) {
+    if (!validateThatCorrectNumberOfWordsHasQuizSet(sentences, 1)) {
       return reply.internalServerError(
-        'At least 15 words in then sentences words must must have property quiz set to true!'
+        'At least 1 words in then sentences words must must have property quiz set to true!'
       )
     }
 
