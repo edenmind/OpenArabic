@@ -4,13 +4,13 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.119",
+  "version": "1444.4.120",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
   "private": true,
   "dependencies": {
-    "@auth0/auth0-react": "^1.12.1",
+    "@auth0/auth0-react": "^2.0.0",
     "@bugsnag/js": "^7.18.0",
     "@bugsnag/plugin-react": "^7.18.0",
     "@date-io/moment": "^2.16.1",

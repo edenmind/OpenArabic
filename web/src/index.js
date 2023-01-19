@@ -28,8 +28,9 @@ root.render(
     <Auth0Provider
       domain="dev-7yb6kp7f.eu.auth0.com"
       clientId="qMfwZdOKxHHnPwPLQturQ9LB4x2OAEKX"
-      redirectUri={window.location.origin}
-      useRefreshTokens={true}
+      authorizationParams={{
+        redirect_uri: window.location.origin
+      }}
     >
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
