@@ -4235,9 +4235,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/processor-markdown@npm:^7.0.0":
-  version: 7.3.0
-  resolution: "@putout/processor-markdown@npm:7.3.0"
+"@putout/processor-markdown@npm:^8.0.0":
+  version: 8.0.1
+  resolution: "@putout/processor-markdown@npm:8.0.1"
   dependencies:
     "@putout/processor-json": ^5.0.0
     once: ^1.4.0
@@ -4248,8 +4248,8 @@ __metadata:
     unified-lint-rule: ^2.1.0
     unist-util-visit: ^4.0.0
   peerDependencies:
-    putout: ">=26"
-  checksum: 1a1323ce238a729f9ef762b991757cf91d3008d4c340537c06cc52848c4f73994008dd9b880fc34363ff9a02d26aadb9e6262c78404f8c8cb47b94b55a4a9cee
+    putout: ">=28"
+  checksum: 80c84385b99de8256603283a3435a12063303bbb7b1b209891e470258943089d07e42a50cac2e83d62d2b510de30a06dc47da65411abf68147d6c6e13df2208e
   languageName: node
   linkType: hard
 
@@ -4665,9 +4665,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reduxjs/toolkit@npm:^1.9.1":
-  version: 1.9.1
-  resolution: "@reduxjs/toolkit@npm:1.9.1"
+"@reduxjs/toolkit@npm:^1.9.2":
+  version: 1.9.2
+  resolution: "@reduxjs/toolkit@npm:1.9.2"
   dependencies:
     immer: ^9.0.16
     redux: ^4.2.0
@@ -4681,7 +4681,7 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: e6700a0d45198ab525c96ff0425fa0125fbdc37ce514f0c77c30225837113279ceec9190ac3da35cb20e77553e56342021788bbf17465819068c4db34cb3d87f
+  checksum: 8eac4fb65aa5ef969545e4d72a81c5a7679935d08df8cc4dd955362beb0b0b8d3cb1e2252df256a50bbe0c887b797a0e2e271656d6b50cbec5d26f61da3a80d4
   languageName: node
   linkType: hard
 
@@ -5747,14 +5747,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "axios@npm:1.2.3"
+"axios@npm:^1.2.6":
+  version: 1.2.6
+  resolution: "axios@npm:1.2.6"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: 52802a1e317e8a6fd2c014aa06a6978ea8381142c98e91f2be5e9e213b77b541451e588e17a3d6db2d6e76faea82911239ca4981d7af959d67fb66018dab3ac9
+  checksum: cbd19be3e07d2fbb6a0b126e49880cecdd44c1f68496ae0e7d21e7dc1c31fd59703a8eec51c9fd69034344f519cc1cdc22c22153131063657c4cef50195f0c00
   languageName: node
   linkType: hard
 
@@ -7927,12 +7927,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-security@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "eslint-plugin-security@npm:1.6.0"
+"eslint-plugin-security@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "eslint-plugin-security@npm:1.7.0"
   dependencies:
     safe-regex: ^2.1.1
-  checksum: e47fa1a71abe8b4b5849037c7e537f00d7d6ad28aa3b4f5e467686ed394d25896880007efad0f3ed23ab39dbc864726bf91fdf5c211f09586d0f6716f54194bd
+  checksum: e6ef5123c4ae7ea0953a97cdb8b34146abec2d88d6c5f96d0c5930c8c6d3c77826f1be1fae346fe2f6c4631c107dbacf345a5952c8451bf1c4dc05375279505e
   languageName: node
   linkType: hard
 
@@ -12807,10 +12807,10 @@ __metadata:
     "@react-navigation/material-top-tabs": ^6.5.2
     "@react-navigation/native": ^6.1.2
     "@react-navigation/native-stack": ^6.9.8
-    "@reduxjs/toolkit": ^1.9.1
+    "@reduxjs/toolkit": ^1.9.2
     "@testing-library/react-native": ^11.2.0
     "@types/jest": ^29.1.1
-    axios: ^1.2.3
+    axios: ^1.2.6
     axios-mock-adapter: ^1.21.2
     axios-retry: ^3.3.1
     deepmerge: ^4.2.2
@@ -12823,7 +12823,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-native: ^4.0.0
     eslint-plugin-react-redux: ^4.0.0
-    eslint-plugin-security: ^1.6.0
+    eslint-plugin-security: ^1.7.0
     eslint-plugin-unicorn: ^45.0.2
     expo: ^47.0.13
     expo-application: ~5.0.1
@@ -12842,7 +12842,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.3
     prop-types: ^15.8.1
-    putout: ^28.7.0
+    putout: ^28.8.0
     react: 18.1.0
     react-dom: 18.1.0
     react-native: 0.70.5
@@ -14103,9 +14103,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.7.0":
-  version: 28.7.0
-  resolution: "putout@npm:28.7.0"
+"putout@npm:^28.8.0":
+  version: 28.8.0
+  resolution: "putout@npm:28.8.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14239,7 +14239,7 @@ __metadata:
     "@putout/processor-ignore": ^3.0.0
     "@putout/processor-javascript": ^4.0.0
     "@putout/processor-json": ^5.0.0
-    "@putout/processor-markdown": ^7.0.0
+    "@putout/processor-markdown": ^8.0.0
     "@putout/processor-yaml": ^4.0.0
     "@putout/traverse": ^5.0.0
     ajv: ^8.8.2
@@ -14263,7 +14263,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 3dd14f87271d10d414bca775314f36484f57841e872e85cbc706dc83ba7f3d0252904521f13ba0e6db8af9c7faf306394a4299e6fb76cb15a1ee80be6f8f70a0
+  checksum: 7cdd723db0edbad4b569785d408539ecd2d828a2465e1fa478722f43816923a8414a69b2dbc1b72bf777a0966c8870e343472f94c2daff3143b5396f1688d8c4
   languageName: node
   linkType: hard
 

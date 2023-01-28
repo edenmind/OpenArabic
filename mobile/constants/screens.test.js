@@ -10,7 +10,7 @@ it('text should be correct', () => {
 })
 
 it('shinyOlive should be correct', () => {
-  expect(SCREENS.home).toBe('Texts')
+  expect(SCREENS.home).toBe('Feed')
 })
 
 it('bilingual should be correct', () => {
