@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -3776,12 +3776,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-useless-conditions@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "@putout/plugin-remove-useless-conditions@npm:1.1.0"
+"@putout/plugin-remove-useless-conditions@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-remove-useless-conditions@npm:3.0.0"
   peerDependencies:
-    putout: ">=16"
-  checksum: f642d44eda87cfc459a5e20a1058d44f2916537a28b557386226b8f03fa85b132c703f669b3f4e3cb22659dc0ab0fceb9442a70dc769d4cc06ee7b2eb2b119f1
+    putout: ">=28"
+  checksum: 63535e2cee68dec835dd23e7cb1383a2f7a01110113c56ff7c7d8774313e683e20f5d39ec2871c5c50e4a8e476855856bca78c1dda180e26cf3e7fd449cdc990
   languageName: node
   linkType: hard
 
@@ -4003,12 +4003,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-webpack@npm:^1.0.0":
-  version: 1.4.0
-  resolution: "@putout/plugin-webpack@npm:1.4.0"
+"@putout/plugin-webpack@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-webpack@npm:2.0.0"
   peerDependencies:
-    putout: ">=10"
-  checksum: dce3459c89b842fbb94a047370cdd15549659ed77d2b7d9456749475a1ee363485d2980eff5139f3a23672ffe3c11cab1a20b4e7948afdcdba89c764c838e81c
+    putout: ">=28"
+  checksum: 6aa64ae5eb7de4bee92455f2209e5ff3e45ebd21a0a469438690cf8b157d20d32e85e415f8212c39f0e4decf3ce5f52f10372c90ec8aa8a6e4940aa115e10aee
   languageName: node
   linkType: hard
 
@@ -4626,7 +4626,7 @@ __metadata:
     moment: ^2.29.4
     mongodb: ^4.13.0
     prettier: ^2.8.3
-    putout: ^28.8.0
+    putout: ^28.10.0
     tap: ^16.3.4
     try-to-catch: ^3.0.1
     uuid: ^9.0.0
@@ -10128,9 +10128,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.8.0":
-  version: 28.8.0
-  resolution: "putout@npm:28.8.0"
+"putout@npm:^28.10.0":
+  version: 28.10.0
+  resolution: "putout@npm:28.10.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -10234,7 +10234,7 @@ __metadata:
     "@putout/plugin-remove-useless-array-entries": ^1.0.0
     "@putout/plugin-remove-useless-array-from": ^2.0.0
     "@putout/plugin-remove-useless-assign": ^1.0.0
-    "@putout/plugin-remove-useless-conditions": ^1.0.0
+    "@putout/plugin-remove-useless-conditions": ^3.0.0
     "@putout/plugin-remove-useless-constructor": ^1.0.0
     "@putout/plugin-remove-useless-continue": ^1.0.0
     "@putout/plugin-remove-useless-else": ^1.0.0
@@ -10259,7 +10259,7 @@ __metadata:
     "@putout/plugin-tape": ^9.0.0
     "@putout/plugin-try-catch": ^1.0.0
     "@putout/plugin-typescript": ^3.0.0
-    "@putout/plugin-webpack": ^1.0.0
+    "@putout/plugin-webpack": ^2.0.0
     "@putout/processor-css": ^6.0.0
     "@putout/processor-ignore": ^3.0.0
     "@putout/processor-javascript": ^4.0.0
@@ -10288,7 +10288,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 7cdd723db0edbad4b569785d408539ecd2d828a2465e1fa478722f43816923a8414a69b2dbc1b72bf777a0966c8870e343472f94c2daff3143b5396f1688d8c4
+  checksum: 2c8ca058f546554ec3de86b7d71f35fb01cdf8ab12c452d10684df569042f4b11b14e9759047d9abc7588d66b9b3fbb480801fe67e1a85a7062c167683ccfb65
   languageName: node
   linkType: hard
 
@@ -12040,11 +12040,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
