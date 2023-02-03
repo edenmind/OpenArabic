@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import SelectableChip from '../components/selectable-chip.js'
 import LANGUAGES from '../constants/languages.js'
-import { Text, Button, Surface } from 'react-native-paper'
+import { Text, Button } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 
 function TextQuizVocabularies(props) {

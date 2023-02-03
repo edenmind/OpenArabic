@@ -166,29 +166,24 @@ const OrderingWordsInASentence = () => {
   const getThreeRandomWords = () => {
     const randomWords = []
 
-    while (randomWords.length < 2) {
-      //pick a random sentence
-      const randomSentence = Math.floor(Math.random() * sentencesInText.length)
-
-      //get the random words from that sentence
-      const randomWordsFromSentence = sentencesInText[randomSentence].arabicWords
-        .slice(0, 2)
-        .sort(() => Math.random() - 0.5)
-
-      //add the random words to the randomWords array
-      randomWords.push(...randomWordsFromSentence)
-
-      console.log(randomWordsFromSentence)
-    }
-
     //find the matching arabic word based on the currentWord and add it to the randomWords array
     const matchingArabicWord = sentencesInText[currentSentence].arabicWords.find(
       (arabicWord) => arabicWord.id === sentencesInText[currentSentence].englishWords[currentWord].id
     )
 
-    //only add the matching arabic word if it is unique
-    if (!randomWords.includes(matchingArabicWord)) {
-      randomWords.push(matchingArabicWord)
+    randomWords.push(matchingArabicWord)
+
+    while (randomWords.length < 3) {
+      //pick a random sentence
+      const randomSentence = Math.floor(Math.random() * sentencesInText.length)
+
+      //get the random words from that sentence
+      const randomWordFromSentence = sentencesInText[randomSentence].arabicWords.sort(() => Math.random() - 0.5)
+
+      //add the random words to the randomWords array if it doesn't already exist
+      if (!randomWords.includes(randomWordFromSentence[0])) randomWords.push(randomWordFromSentence[0])
+
+      console.log(randomWordFromSentence)
     }
 
     //randomize the order of the words in the randomWords array
@@ -221,7 +216,7 @@ const OrderingWordsInASentence = () => {
           duration={2000}
           text="Congratulations! You have completed the quiz! 🎉"
         />
-        <Divider style={sharedStyle.divider} />
+        <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
         {arabicWordsInSentenceComponents}
       </ScrollView>
