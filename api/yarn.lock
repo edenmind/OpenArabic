@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -3122,12 +3122,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-flat-map@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@putout/plugin-apply-flat-map@npm:1.0.0"
+"@putout/plugin-apply-flat-map@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-apply-flat-map@npm:2.0.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: 49b67b46a60b42d439b7725613da0f43a2f758654554a80936ee2295afc897d1f4a79f874280d982e28f6d810219ece037af7cf005d76481c78d9a6711c7335c
+    putout: ">=28"
+  checksum: f3a7fd30395e56db9fe98ffcff9876cdff58f733bec6690c70fbadbc92d9e9842d6ca6c8f23e16abc1cf2e4b7c5be668372abc56cf39d86bbc2169433af4e2c2
   languageName: node
   linkType: hard
 
@@ -3155,6 +3155,15 @@ __metadata:
   peerDependencies:
     putout: ">=9"
   checksum: af8ae9dbf7e7e2fc36c9403be1be033973167b95b3263577f3547fdca1c1a05703a5f6cdb537acc079e789fd0f4a16efbf482f1342d6be8f68d74766b43a954b
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-apply-template-literals@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-apply-template-literals@npm:1.0.0"
+  peerDependencies:
+    putout: ">=28"
+  checksum: bb1ee89678c4cd1b4ce381e8227b9561cad3308a02347ba01dbe729e81c734f2ad91f8c1bd6945cca79f535afeb3c82e0a09c3f7949be544908575d4c4d4d708
   languageName: node
   linkType: hard
 
@@ -3268,12 +3277,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-for-each-to-for-of@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@putout/plugin-convert-for-each-to-for-of@npm:7.0.0"
+"@putout/plugin-convert-for-each-to-for-of@npm:^8.0.0":
+  version: 8.1.0
+  resolution: "@putout/plugin-convert-for-each-to-for-of@npm:8.1.0"
   peerDependencies:
-    putout: ">=24"
-  checksum: e33ae795bbe5c1b9e90f409abf22ea42630048d338b11c41c37bb53669fd93db5e0bec245f5fd62c57d2a26302add510f0d95f3c0a7632174d8f096576592e19
+    putout: ">=28"
+  checksum: a3df0b7aa9462ed2f1f043fff4d9acae97597fe737d0fbffcab51a504a7486e7a640ba4869e5b8d597d2114613c780a6f274d6d3d4972a1d7c0af02409a2f93f
   languageName: node
   linkType: hard
 
@@ -3549,14 +3558,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-promises@npm:^8.0.0":
-  version: 8.4.0
-  resolution: "@putout/plugin-promises@npm:8.4.0"
+"@putout/plugin-promises@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@putout/plugin-promises@npm:9.0.0"
   dependencies:
     fullstore: ^3.0.0
   peerDependencies:
-    putout: ">=25"
-  checksum: fb929fa8d20d52b6be2db242a7e66c3d5e6f3e6e9ff9d06eee192e7cd54253ddbde6802bac5b423a08f0739473d27385f70a0d0ba76f64006bff55191734ac6e
+    putout: ">=28"
+  checksum: 0eaafdc063c47e140671e8f688806d3cd6b5e828dad0f75657929312c207e077df8bca88220280bec772dd6653a524c8f06398ae53bd6ab9c79ad97729a44fd8
   languageName: node
   linkType: hard
 
@@ -3776,12 +3785,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-useless-conditions@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "@putout/plugin-remove-useless-conditions@npm:1.1.0"
+"@putout/plugin-remove-useless-conditions@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-remove-useless-conditions@npm:3.0.0"
   peerDependencies:
-    putout: ">=16"
-  checksum: f642d44eda87cfc459a5e20a1058d44f2916537a28b557386226b8f03fa85b132c703f669b3f4e3cb22659dc0ab0fceb9442a70dc769d4cc06ee7b2eb2b119f1
+    putout: ">=28"
+  checksum: 63535e2cee68dec835dd23e7cb1383a2f7a01110113c56ff7c7d8774313e683e20f5d39ec2871c5c50e4a8e476855856bca78c1dda180e26cf3e7fd449cdc990
   languageName: node
   linkType: hard
 
@@ -3794,12 +3803,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-useless-continue@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "@putout/plugin-remove-useless-continue@npm:1.0.1"
+"@putout/plugin-remove-useless-continue@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-remove-useless-continue@npm:2.0.0"
   peerDependencies:
-    putout: ">=16"
-  checksum: 6968f289c20c5d8f6dc3beb04bd7619b90761f9af13e2815f7e0c5a977665fe8933cd52c867824e8eba2f7157395499ac03d357f9ac1f959999752c6388f07b2
+    putout: ">=28"
+  checksum: 6086e92a5241f1929abc1276399cc80f9f739d2b52ff9316a5317efa6c51b6c347ba062b41408a271452d7d1e10148ed3758956e662c45020cbbf0d0f62d46bb
   languageName: node
   linkType: hard
 
@@ -3949,12 +3958,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-split-nested-destructuring@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "@putout/plugin-split-nested-destructuring@npm:1.1.0"
+"@putout/plugin-split-nested-destructuring@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-split-nested-destructuring@npm:2.0.0"
   peerDependencies:
-    putout: ">=7.17"
-  checksum: 68d70eddb15db61bdf84a56ec35bc9acdf1e22b75662c06577ecdc46473c32bed8f699dd284aa32d546c2b5863eabb98c64d3ba43fd42e5bece1e5377428d3d9
+    putout: ">=28"
+  checksum: a17183ba9073cfb357cbd57c02ce60580653eb13ae838aab28518f09ea6ae040db9014b1b886ee674beeb9c852e261da8ea0b019a7a033bff0d596a46d3420ce
   languageName: node
   linkType: hard
 
@@ -4003,12 +4012,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-webpack@npm:^1.0.0":
-  version: 1.4.0
-  resolution: "@putout/plugin-webpack@npm:1.4.0"
+"@putout/plugin-webpack@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-webpack@npm:2.0.0"
   peerDependencies:
-    putout: ">=10"
-  checksum: dce3459c89b842fbb94a047370cdd15549659ed77d2b7d9456749475a1ee363485d2980eff5139f3a23672ffe3c11cab1a20b4e7948afdcdba89c764c838e81c
+    putout: ">=28"
+  checksum: 6aa64ae5eb7de4bee92455f2209e5ff3e45ebd21a0a469438690cf8b157d20d32e85e415f8212c39f0e4decf3ce5f52f10372c90ec8aa8a6e4940aa115e10aee
   languageName: node
   linkType: hard
 
@@ -4626,7 +4635,7 @@ __metadata:
     moment: ^2.29.4
     mongodb: ^4.13.0
     prettier: ^2.8.3
-    putout: ^28.8.0
+    putout: ^28.15.0
     tap: ^16.3.4
     try-to-catch: ^3.0.1
     uuid: ^9.0.0
@@ -10128,9 +10137,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.8.0":
-  version: 28.8.0
-  resolution: "putout@npm:28.8.0"
+"putout@npm:^28.15.0":
+  version: 28.15.0
+  resolution: "putout@npm:28.15.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -10163,10 +10172,11 @@ __metadata:
     "@putout/plugin-apply-comparison-order": ^1.0.0
     "@putout/plugin-apply-destructuring": ^5.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
-    "@putout/plugin-apply-flat-map": ^1.0.0
+    "@putout/plugin-apply-flat-map": ^2.0.0
     "@putout/plugin-apply-if-condition": ^1.0.0
     "@putout/plugin-apply-is-array": ^3.0.0
     "@putout/plugin-apply-optional-chaining": ^2.0.0
+    "@putout/plugin-apply-template-literals": ^1.0.0
     "@putout/plugin-browserlist": ^1.0.0
     "@putout/plugin-convert-apply-to-spread": ^3.0.0
     "@putout/plugin-convert-arguments-to-rest": ^1.0.0
@@ -10179,7 +10189,7 @@ __metadata:
     "@putout/plugin-convert-const-to-let": ^1.0.0
     "@putout/plugin-convert-equal-to-strict-equal": ^1.0.0
     "@putout/plugin-convert-esm-to-commonjs": ^5.0.0
-    "@putout/plugin-convert-for-each-to-for-of": ^7.0.0
+    "@putout/plugin-convert-for-each-to-for-of": ^8.0.0
     "@putout/plugin-convert-for-in-to-for-of": ^2.0.0
     "@putout/plugin-convert-for-to-for-of": ^4.0.0
     "@putout/plugin-convert-index-of-to-includes": ^1.0.0
@@ -10210,7 +10220,7 @@ __metadata:
     "@putout/plugin-nodejs": ^5.0.0
     "@putout/plugin-npmignore": ^2.0.0
     "@putout/plugin-package-json": ^4.0.0
-    "@putout/plugin-promises": ^8.0.0
+    "@putout/plugin-promises": ^9.0.0
     "@putout/plugin-putout": ^11.0.0
     "@putout/plugin-putout-config": ^2.0.0
     "@putout/plugin-regexp": ^6.0.0
@@ -10234,9 +10244,9 @@ __metadata:
     "@putout/plugin-remove-useless-array-entries": ^1.0.0
     "@putout/plugin-remove-useless-array-from": ^2.0.0
     "@putout/plugin-remove-useless-assign": ^1.0.0
-    "@putout/plugin-remove-useless-conditions": ^1.0.0
+    "@putout/plugin-remove-useless-conditions": ^3.0.0
     "@putout/plugin-remove-useless-constructor": ^1.0.0
-    "@putout/plugin-remove-useless-continue": ^1.0.0
+    "@putout/plugin-remove-useless-continue": ^2.0.0
     "@putout/plugin-remove-useless-else": ^1.0.0
     "@putout/plugin-remove-useless-escape": ^3.0.0
     "@putout/plugin-remove-useless-for-of": ^2.0.0
@@ -10253,13 +10263,13 @@ __metadata:
     "@putout/plugin-reuse-duplicate-init": ^4.0.0
     "@putout/plugin-simplify-assignment": ^2.0.0
     "@putout/plugin-simplify-ternary": ^4.0.0
-    "@putout/plugin-split-nested-destructuring": ^1.0.0
+    "@putout/plugin-split-nested-destructuring": ^2.0.0
     "@putout/plugin-split-variable-declarations": ^2.0.0
     "@putout/plugin-strict-mode": ^5.0.0
     "@putout/plugin-tape": ^9.0.0
     "@putout/plugin-try-catch": ^1.0.0
     "@putout/plugin-typescript": ^3.0.0
-    "@putout/plugin-webpack": ^1.0.0
+    "@putout/plugin-webpack": ^2.0.0
     "@putout/processor-css": ^6.0.0
     "@putout/processor-ignore": ^3.0.0
     "@putout/processor-javascript": ^4.0.0
@@ -10288,7 +10298,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 7cdd723db0edbad4b569785d408539ecd2d828a2465e1fa478722f43816923a8414a69b2dbc1b72bf777a0966c8870e343472f94c2daff3143b5396f1688d8c4
+  checksum: cf7be52ff23879c2a283f7a93e17e3d909e8807aa82c625dbc00d47f27967113c1f9f817e5a6651753da13beaed32598958f0ee7ba50c93302b4153f3579e358
   languageName: node
   linkType: hard
 
@@ -12040,11 +12050,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
