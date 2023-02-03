@@ -40,10 +40,29 @@ function Text() {
       dispatch({ type: 'SET_ARABIC_FONT_NAME', payload: name })
     }
 
-    setArabicFontSize(arabicFontSize)
-    setEnglishFontSize(englishFontSize)
-    setIsTransliterationOn(isTransliterationOn)
-    setArabicFontName(arabicFontName)
+    if (typeof arabicFontSize === 'number') {
+      setArabicFontSize(arabicFontSize)
+    } else {
+      setArabicFontSize(23)
+    }
+
+    if (typeof englishFontSize === 'number') {
+      setEnglishFontSize(englishFontSize)
+    } else {
+      setEnglishFontSize(20)
+    }
+
+    if (typeof isTransliterationOn === 'boolean') {
+      setIsTransliterationOn(isTransliterationOn)
+    } else {
+      setIsTransliterationOn(true)
+    }
+
+    if (typeof arabicFontName === 'string') {
+      setArabicFontName(arabicFontName)
+    } else {
+      setArabicFontName('uthman')
+    }
   })
 
   const { text } = useSelector(selector)
