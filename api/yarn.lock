@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -4617,7 +4617,7 @@ __metadata:
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-putout: ^16.3.0
-    eslint-plugin-security: ^1.7.0
+    eslint-plugin-security: ^1.7.1
     eslint-plugin-unicorn: ^45.0.2
     fastify: ^4.12.0
     fastify-cli: ^5.7.1
@@ -6079,12 +6079,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-security@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "eslint-plugin-security@npm:1.7.0"
+"eslint-plugin-security@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "eslint-plugin-security@npm:1.7.1"
   dependencies:
     safe-regex: ^2.1.1
-  checksum: e6ef5123c4ae7ea0953a97cdb8b34146abec2d88d6c5f96d0c5930c8c6d3c77826f1be1fae346fe2f6c4631c107dbacf345a5952c8451bf1c4dc05375279505e
+  checksum: 3a650e2482e108bb4b9c3b9ac64adefcf1dfda069cd43f89a7d3b84822da2417c9d1b764ec5e1acf4c193b48edc630c7ef2d0a5279a478a8672f9030bc78a8c0
   languageName: node
   linkType: hard
 
@@ -12040,11 +12040,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
