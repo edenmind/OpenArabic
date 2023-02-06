@@ -54,7 +54,7 @@ jobs:
           GIT_SHA: ${{ steps.prep.outputs.GIT_SHA }}
 
       - name: 📦  Build and Push API to Container Registry
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           file: ./api/Dockerfile
           tags: registry.digitalocean.com/openarabic/api:${{ steps.prep.outputs.BUILD_ID }}
@@ -62,7 +62,7 @@ jobs:
           push: true
 
       - name: 📦  Build and Push Web to Container Registry
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           file: ./web/Dockerfile
           tags: registry.digitalocean.com/openarabic/web:${{ steps.prep.outputs.BUILD_ID }}
