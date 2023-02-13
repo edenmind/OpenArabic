@@ -20,7 +20,7 @@
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.259.0",
+    "@aws-sdk/client-s3": "^3.267.0",
     "@fastify/autoload": "^5.7.1",
     "@fastify/cors": "^8.2.0",
     "@fastify/env": "^4.2.0",
