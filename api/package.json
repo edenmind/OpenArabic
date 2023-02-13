@@ -28,7 +28,7 @@
     "@fastify/mongodb": "^6.2.0",
     "@fastify/rate-limit": "^7.6.0",
     "@fastify/sensible": "^5.2.0",
-    "@fastify/static": "^6.7.0",
+    "@fastify/static": "^6.9.0",
     "@fastify/swagger": "^8.3.0",
     "@google-cloud/text-to-speech": "^4.1.0",
     "axios": "^1.2.6",
