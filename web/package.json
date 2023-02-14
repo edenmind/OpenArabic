@@ -21,7 +21,7 @@
     "@mui/lab": "^5.0.0-alpha.117",
     "@mui/material": "^5.11.6",
     "@mui/x-data-grid": "^5.17.21",
-    "@mui/x-date-pickers": "^5.0.16",
+    "@mui/x-date-pickers": "^5.0.18",
     "@reduxjs/toolkit": "^1.9.2",
     "@types/react-redux": "^7.1.25",
     "axios": "^0.27.2",
