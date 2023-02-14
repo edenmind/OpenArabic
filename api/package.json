@@ -38,7 +38,7 @@
     "fastify-healthcheck": "^4.4.0",
     "fastify-plugin": "^4.5.0",
     "moment": "^2.29.4",
-    "mongodb": "^4.14.0",
+    "mongodb": "^5.0.1",
     "try-to-catch": "^3.0.1",
     "uuid": "^9.0.0"
   },
