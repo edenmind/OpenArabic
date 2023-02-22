@@ -14,13 +14,13 @@ jobs:
       - name: 🏗  Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
           check-latest: true
           cache: yarn
           cache-dependency-path: mobile/yarn.lock
 
       - name: 🏗  Setup Expo
-        uses: expo/expo-github-action@v7
+        uses: expo/expo-github-action@v8
         with:
           expo-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
