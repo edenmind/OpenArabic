@@ -68,8 +68,8 @@ const initialStateWords = {
 }
 
 const initialStateUI = {
-  arabicFontSize: 27,
-  englishFontSize: 16,
+  arabicFontSize: 19,
+  englishFontSize: 17,
   isTransliterationOn: 'on',
   arabicFontName: 'amiri',
   textLoading: true,

@@ -2569,9 +2569,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^5.17.24":
-  version: 5.17.24
-  resolution: "@mui/x-data-grid@npm:5.17.24"
+"@mui/x-data-grid@npm:^5.17.25":
+  version: 5.17.25
+  resolution: "@mui/x-data-grid@npm:5.17.25"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@mui/utils": ^5.10.3
@@ -2583,13 +2583,13 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: 9fdcd0075b9e4ac121121fab62659e31e32bb003eaabd99238fdb4bdafdcf2f5964bb68c901add2d4af033548b4f3306854f807d5bd5ec3713222ce4307b7c4e
+  checksum: 6aacc38f10ffdcc1620140f069a9ac379c14f50e323995d57a1d4546f1eb5b3fcc6bfae8e9bff3ac6bdeca82269f4a9f598a60319eda2a4b353639d8547575a8
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^5.0.19":
-  version: 5.0.19
-  resolution: "@mui/x-date-pickers@npm:5.0.19"
+"@mui/x-date-pickers@npm:^5.0.20":
+  version: 5.0.20
+  resolution: "@mui/x-date-pickers@npm:5.0.20"
   dependencies:
     "@babel/runtime": ^7.18.9
     "@date-io/core": ^2.15.0
@@ -2627,7 +2627,7 @@ __metadata:
       optional: true
     moment:
       optional: true
-  checksum: a058d59dcd398cd29f3bfe0182f3d3ab1f50750a1c56ab61db046afc60cef9190fe0ecac097b5fcdd971d5ede730456ed49e902c282fd35c3b027ef77d65e11a
+  checksum: c8537e6c0cee2659494c9f7250eb0ad35fb84bcd09f9cc0ae5c0ba2d4faaa3a87c598c97f0aa065aadb540384e4d7ac0cf1107f8ca94d7bf7a2d7f393adfd011
   languageName: node
   linkType: hard
 
@@ -3045,12 +3045,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-destructuring@npm:^5.0.0":
-  version: 5.2.1
-  resolution: "@putout/plugin-apply-destructuring@npm:5.2.1"
+"@putout/plugin-apply-destructuring@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-apply-destructuring@npm:6.0.0"
   peerDependencies:
-    putout: ">=7.3"
-  checksum: 032e80fcd8083fdccdae297ad466d7edc02286a2580e9d83ef4c46958f04615322e31617a7999359c85ee0821bdc72c0f60af950dad65f1c4927081f1edb0248
+    putout: ">=28"
+  checksum: cc97f94b08e078f72f4bb802e735a9b8f584bca4cb791a507e2b247ce50c343f938df5918b94d220a9a2377c09e08f6d47068d1fa84eead48ddf0b81940896ec
   languageName: node
   linkType: hard
 
@@ -13838,9 +13838,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.16.0":
-  version: 28.16.0
-  resolution: "putout@npm:28.16.0"
+"putout@npm:^28.17.0":
+  version: 28.17.0
+  resolution: "putout@npm:28.17.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13871,7 +13871,7 @@ __metadata:
     "@putout/operator-regexp": ^1.0.0
     "@putout/plugin-apply-array-at": ^2.0.0
     "@putout/plugin-apply-comparison-order": ^1.0.0
-    "@putout/plugin-apply-destructuring": ^5.0.0
+    "@putout/plugin-apply-destructuring": ^6.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
     "@putout/plugin-apply-flat-map": ^2.0.0
     "@putout/plugin-apply-if-condition": ^1.0.0
@@ -14000,7 +14000,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: c775f9518afaf0b5d66e54eb499586573642a55321902afd7dc77b784749f4df988135897f437a2df58568ccc6879de9bea46198c757ef6d0ab37c5ce25a6023
+  checksum: 89bd315d63bfc7912cce24fc8a994ff2ddb04f9226a91bb0224cf347f2e2ca6bdf6bb3e12e6057a27126035e9a833fc1c277553301b7acfd489e1d98b9112a79
   languageName: node
   linkType: hard
 
@@ -17061,8 +17061,8 @@ __metadata:
     "@mui/icons-material": ^5.11.9
     "@mui/lab": ^5.0.0-alpha.120
     "@mui/material": ^5.11.10
-    "@mui/x-data-grid": ^5.17.24
-    "@mui/x-date-pickers": ^5.0.19
+    "@mui/x-data-grid": ^5.17.25
+    "@mui/x-date-pickers": ^5.0.20
     "@reduxjs/toolkit": ^1.9.3
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -17085,7 +17085,7 @@ __metadata:
     moment-timezone: ^0.5.40
     node-notifier: ^10.0.1
     prettier: ^2.8.4
-    putout: ^28.16.0
+    putout: ^28.17.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.3

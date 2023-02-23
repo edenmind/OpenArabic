@@ -1,5 +1,5 @@
 import { Text, SegmentedButtons, Surface, Switch } from 'react-native-paper'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
 import { useDispatch } from 'react-redux'
@@ -8,9 +8,9 @@ import { ScrollView } from 'react-native-gesture-handler'
 
 function TextSettings() {
   const [arabicFontName, setArabicFontName] = React.useState('amiri') // default font
-  const [englishFontSizeValue, setEnglishSizeValue] = React.useState(16) // default font size
-  const [arabicFontSizeValue, setArabicSizeValue] = React.useState(20) // default font size
-  const [isTransliterationOn, setIsTransliterationOn] = React.useState(false)
+  const [englishFontSizeValue, setEnglishSizeValue] = React.useState('17') // default font size
+  const [arabicFontSizeValue, setArabicSizeValue] = React.useState('19') // default font size
+  const [isTransliterationOn, setIsTransliterationOn] = React.useState(true)
   const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
 

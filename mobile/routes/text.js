@@ -43,13 +43,13 @@ function Text() {
     if (typeof arabicFontSize === 'number') {
       setArabicFontSize(arabicFontSize)
     } else {
-      setArabicFontSize(23)
+      setArabicFontSize(19)
     }
 
     if (typeof englishFontSize === 'number') {
       setEnglishFontSize(englishFontSize)
     } else {
-      setEnglishFontSize(20)
+      setEnglishFontSize(17)
     }
 
     if (typeof isTransliterationOn === 'boolean') {
