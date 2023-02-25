@@ -18,7 +18,8 @@ export default function TextArabic() {
   const { textLoading } = useSelector(textLoadSelector)
   const styles = StyleSheet.create({
     button: {
-      margin: -10
+      margin: -10,
+      padding: 5
     },
     rowWrapper: {
       direction: 'rtl',
@@ -42,7 +43,7 @@ export default function TextArabic() {
             setEnglishTranslation(word.english + ' (' + util.transliterateArabicToEnglish(word.arabic) + ')')
           }}
         >
-          <Text style={sharedStyle.arabicBody}>{word.arabic}</Text>
+          <Text style={{ ...sharedStyle.arabicBody }}>{word.arabic}</Text>
         </Button>
       )
     })

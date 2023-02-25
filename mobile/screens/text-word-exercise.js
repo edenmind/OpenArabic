@@ -34,7 +34,7 @@ const OrderingWordsInASentence = () => {
   useEffect(() => {
     //produce a random list of three words from sentencesInText[currentSentence].arabicWords which contains one arabic word that matches the current english word
     textLoading && getThreeRandomWords()
-    console.log('first useEffect')
+
     //setCurrentArabicWordsInSentence(sentencesInText[currentSentence].arabicWords)
     setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
   }, [currentSentence, sentencesInText, textLoading, currentWord, currentArabicWordsInSentence.length])
@@ -156,7 +156,13 @@ const OrderingWordsInASentence = () => {
           mode="elevated"
           style={{ ...sharedStyle.button }}
         >
-          <Text style={{ fontSize: 35, lineHeight: 42, fontWeight: 'medium', color: paperDarkTheme.colors.primary }}>
+          <Text
+            style={{
+              ...sharedStyle.arabicBody,
+              fontWeight: 'medium',
+              color: paperDarkTheme.colors.primary
+            }}
+          >
             {word.arabic}
           </Text>
         </Button>

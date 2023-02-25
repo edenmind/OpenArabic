@@ -46,10 +46,10 @@ export const useSharedStyles = () => {
         direction: 'rtl',
         fontFamily: arabicFontName,
         fontSize: arabicFontSizeWeighted(),
-        lineHeight: arabicFontSize * 2.5,
+        lineHeight: arabicFontSize * 3.5,
         opacity: arabicOpacity,
         paddingBottom,
-        textAlign: 'left',
+        textAlign: 'right',
         writingDirection: 'rtl'
       },
       arabicFooter: {
