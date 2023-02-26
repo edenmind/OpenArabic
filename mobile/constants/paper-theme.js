@@ -64,8 +64,8 @@ const navigationDarkTheme = {
 }
 
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
-  light: NavigationDefaultTheme,
-  dark: NavigationDarkTheme
+  reactNavigationLight: NavigationDefaultTheme,
+  reactNavigationDark: NavigationDarkTheme
 })
 
 export const CombinedDefaultTheme = merge(MD3LightTheme, LightTheme)
