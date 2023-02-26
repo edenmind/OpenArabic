@@ -1,5 +1,5 @@
 import { Text, SegmentedButtons, Surface, Switch } from 'react-native-paper'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
 import { useDispatch } from 'react-redux'
@@ -215,13 +215,15 @@ function TextSettings() {
       <Text variant="labelMedium" style={style.element}>
         Transliteration
       </Text>
-      <Switch
-        value={isTransliterationOn}
-        onValueChange={(value) => {
-          storeTransliteration(value)
-          setIsTransliterationOn(value)
-        }}
-      />
+      <View style={{ alignItems: 'flex-start' }}>
+        <Switch
+          value={isTransliterationOn}
+          onValueChange={(value) => {
+            storeTransliteration(value)
+            setIsTransliterationOn(value)
+          }}
+        />
+      </View>
     </ScrollView>
   )
 }
