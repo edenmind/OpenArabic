@@ -43,7 +43,6 @@ export const useSharedStyles = () => {
 
     return StyleSheet.create({
       arabicBody: {
-        direction: 'rtl',
         fontFamily: arabicFontName,
         fontSize: arabicFontSizeWeighted(),
         lineHeight: arabicFontSize * 3.5,

@@ -33,17 +33,6 @@ const Words = () => {
     startAnimation(fadeAnim)
   }, [fadeAnim])
 
-  const style = StyleSheet.create({
-    element: {
-      paddingBottom: 10,
-      paddingTop: 25
-    },
-
-    surface: {
-      padding: 15
-    }
-  })
-
   const onDismissSnackBar = () => setCelebrationSnackBarVisibility(false)
 
   const vibrateBetweenTwoColors = () => {
@@ -232,6 +221,37 @@ const Words = () => {
 
   const getSetup = (
     <ScrollView style={sharedStyle.scrollViewLTR}>
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <Text variant="titleMedium">Number of Words</Text>
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <SegmentedButtons
+        value={numberOfWordsToPractice}
+        style={{ width: '100%' }}
+        onValueChange={(value) => {
+          setNumberOfWordsToPractice(value)
+        }}
+        buttons={[
+          {
+            value: 10,
+            label: '10',
+            style: { width: '33%' }
+          },
+          {
+            value: 20,
+            label: '20',
+            style: { width: '33%' }
+          },
+          {
+            value: 40,
+            label: '40',
+            style: { width: '33%' }
+          }
+        ]}
+      />
+
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+
       <Text variant="titleMedium">Difficulty Level</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <SegmentedButtons
@@ -243,18 +263,18 @@ const Words = () => {
           {
             value: 10,
             label: 'Beginner',
-            style: { width: '33%' }
+            style: { width: '50%' }
           },
           {
             value: 20,
             label: 'Mid-level',
-            style: { width: '33%' }
-          },
-          {
-            value: 30,
-            label: 'Advanced',
-            style: { width: '33%' }
+            style: { width: '50%' }
           }
+          // {
+          //   value: 30,
+          //   label: 'Advanced',
+          //   style: { width: '33%' }
+          // }
         ]}
       />
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
@@ -294,7 +314,7 @@ const Words = () => {
               </Text>
             </View>
           </Surface>
-        ) : difficultyLevel === 30 ? (
+        ) : difficultyLevel === 30 ? ( //Not in use yet.
           <Surface elevation={4} style={{ borderRadius: 10 }}>
             <Image
               source={require('../assets/advanced.jpeg')}
@@ -315,33 +335,6 @@ const Words = () => {
           ''
         )
       }
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <Text variant="titleMedium">Number of Words</Text>
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <SegmentedButtons
-        value={numberOfWordsToPractice}
-        style={{ width: '100%' }}
-        onValueChange={(value) => {
-          setNumberOfWordsToPractice(value)
-        }}
-        buttons={[
-          {
-            value: 10,
-            label: '10',
-            style: { width: '33%' }
-          },
-          {
-            value: 20,
-            label: '20',
-            style: { width: '33%' }
-          },
-          {
-            value: 40,
-            label: '40',
-            style: { width: '33%' }
-          }
-        ]}
-      />
 
       <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 30 }} />
       <Button
