@@ -71,7 +71,8 @@ export const useSharedStyles = () => {
       buttonAnswer: {
         backgroundColor: paperDarkTheme.colors.onPrimary,
         marginBottom: 5,
-        marginTop: 5
+        marginTop: 5,
+        padding: 10
       },
       container: {
         marginBottom: verticalMargin,

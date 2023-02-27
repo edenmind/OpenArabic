@@ -96,11 +96,7 @@ function TextSettings() {
       paddingBottom: 10,
       paddingTop: 25
     },
-    segmentedButtons: {
-      width: '25%'
-    },
     surface: {
-      height: 185,
       padding: 15
     }
   })
@@ -123,7 +119,6 @@ function TextSettings() {
 
       <SegmentedButtons
         value={arabicFontSizeValue}
-        style={style.segmentedButtons}
         onValueChange={(value) => {
           storeArabicFontSize(value)
           setArabicSizeValue(value)
@@ -153,7 +148,6 @@ function TextSettings() {
       </Text>
 
       <SegmentedButtons
-        style={style.segmentedButtons}
         value={englishFontSizeValue}
         density="small"
         onValueChange={(value) => {
@@ -185,7 +179,6 @@ function TextSettings() {
       </Text>
 
       <SegmentedButtons
-        style={style.segmentedButtons}
         value={arabicFontName}
         density="small"
         onValueChange={(value) => {

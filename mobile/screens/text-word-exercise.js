@@ -159,6 +159,7 @@ const OrderingWordsInASentence = () => {
           <Text
             style={{
               ...sharedStyle.arabicBody,
+              fontSize: 45,
               fontWeight: 'medium',
               color: paperDarkTheme.colors.primary
             }}
