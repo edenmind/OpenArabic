@@ -1,6 +1,6 @@
 /* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable react-redux/useSelector-prefer-selectors */
-import { View, StyleSheet, ScrollView } from 'react-native'
+import { View, StyleSheet, ScrollView, Platform } from 'react-native'
 import { Text, Button, Surface, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
@@ -154,13 +154,15 @@ const OrderingWordsInASentence = () => {
             handlePress(word.id, word.arabic)
           }}
           mode="elevated"
-          style={{ ...sharedStyle.button }}
+          style={{ ...sharedStyle.button, height: Platform.OS === 'android' ? 90 : 90 }}
         >
           <Text
             style={{
               ...sharedStyle.arabicBody,
-              fontSize: 45,
+              fontSize: 30,
               fontWeight: 'medium',
+              fontFamily: 'noto',
+              lineHeight: Platform.OS === 'android' ? 90 : 60,
               color: paperDarkTheme.colors.primary
             }}
           >

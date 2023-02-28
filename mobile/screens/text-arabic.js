@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler'
-import { ScrollView, View, StyleSheet } from 'react-native'
+import { ScrollView, View, StyleSheet, Platform } from 'react-native'
 import { Text, Button, Chip, Divider } from 'react-native-paper'
 import React from 'react'
 import Spinner from '../components/spinner.js'
@@ -21,11 +21,9 @@ export default function TextArabic() {
       margin: -10
     },
     rowWrapper: {
-      direction: 'rtl',
-      flexDirection: 'row',
+      flexDirection: Platform.OS === 'android' ? 'row-reverse' : 'row',
       flexWrap: 'wrap',
-      paddingBottom: 50,
-      readingDirection: 'rtl'
+      paddingBottom: 50
     }
   })
 
