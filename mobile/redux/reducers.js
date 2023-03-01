@@ -70,7 +70,7 @@ const initialStateWords = {
 const initialStateUI = {
   arabicFontSize: 19,
   englishFontSize: 17,
-  isTransliterationOn: true,
+  isTransliterationOn: 'on',
   arabicFontName: 'uthman',
   textLoading: true,
   textsLoading: true,

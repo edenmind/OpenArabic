@@ -87,7 +87,7 @@ it('textReducer', () => {
 
 it('UIStateReducer', () => {
   expect(UIStateReducer(undefined, { type: 'SET_TEXT_LOADING', payload: true })).toEqual({
-    arabicFontName: 'amiri',
+    arabicFontName: 'uthman',
     arabicFontSize: 19,
     englishFontSize: 17,
     isTransliterationOn: 'on',
