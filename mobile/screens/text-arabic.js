@@ -6,6 +6,7 @@ import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 import * as util from '../services/utility-service.js'
+import * as Haptics from 'expo-haptics'
 
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -34,6 +35,7 @@ export default function TextArabic() {
           mode="text"
           onPress={() => {
             setEnglishTranslation(word.english + ' (' + util.transliterateArabicToEnglish(word.arabic) + ')')
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           }}
         >
           <Text style={{ ...sharedStyle.arabicBody, lineHeight: 90 }}>{word.arabic}</Text>
