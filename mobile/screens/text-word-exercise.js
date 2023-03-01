@@ -148,9 +148,6 @@ const OrderingWordsInASentence = () => {
           key={index}
           onPress={() => {
             //find the matching english word and and log it to the console
-            const matchingEnglishWord = sentencesInText[currentSentence].englishWords.find(
-              (englishWord) => englishWord.id === word.id
-            )
             handlePress(word.id, word.arabic)
           }}
           mode="elevated"
@@ -190,9 +187,11 @@ const OrderingWordsInASentence = () => {
       const randomWordFromSentence = sentencesInText[randomSentence].arabicWords.sort(() => Math.random() - 0.5)
 
       //add the random words to the randomWords array if it doesn't already exist
-      if (!randomWords.includes(randomWordFromSentence[0])) randomWords.push(randomWordFromSentence[0])
-
-      console.log(randomWordFromSentence)
+      if (!randomWords.includes(randomWordFromSentence[0]) && randomWordFromSentence[0] !== matchingArabicWord) {
+        randomWords.push(randomWordFromSentence[0])
+      } else {
+        continue
+      }
     }
 
     //randomize the order of the words in the randomWords array

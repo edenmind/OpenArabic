@@ -7,7 +7,7 @@ import { useSharedStyles } from '../styles/common.js'
 import { ScrollView } from 'react-native-gesture-handler'
 
 function TextSettings() {
-  const [arabicFontName, setArabicFontName] = React.useState('amiri') // default font
+  const [arabicFontName, setArabicFontName] = React.useState('uthman') // default font
   const [englishFontSizeValue, setEnglishSizeValue] = React.useState('17') // default font size
   const [arabicFontSizeValue, setArabicSizeValue] = React.useState('19') // default font size
   const [isTransliterationOn, setIsTransliterationOn] = React.useState(true)

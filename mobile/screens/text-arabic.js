@@ -17,9 +17,6 @@ export default function TextArabic() {
   const { text } = useSelector(textSelector)
   const { textLoading } = useSelector(textLoadSelector)
   const styles = StyleSheet.create({
-    button: {
-      margin: -10
-    },
     rowWrapper: {
       flexDirection: Platform.OS === 'android' ? 'row-reverse' : 'row',
       flexWrap: 'wrap',
@@ -35,12 +32,11 @@ export default function TextArabic() {
         <Button
           key={wordIndex}
           mode="text"
-          style={styles.button}
           onPress={() => {
             setEnglishTranslation(word.english + ' (' + util.transliterateArabicToEnglish(word.arabic) + ')')
           }}
         >
-          <Text style={{ ...sharedStyle.arabicBody }}>{word.arabic}</Text>
+          <Text style={{ ...sharedStyle.arabicBody, lineHeight: 90 }}>{word.arabic}</Text>
         </Button>
       )
     })

@@ -45,7 +45,7 @@ export const useSharedStyles = () => {
       arabicBody: {
         fontFamily: arabicFontName,
         fontSize: arabicFontSizeWeighted(),
-        lineHeight: arabicFontSize * 3.5,
+        lineHeight: arabicFontSize * 2.5,
         opacity: arabicOpacity,
         paddingBottom,
         textAlign: 'right',
@@ -111,7 +111,6 @@ export const useSharedStyles = () => {
       },
       scrollViewLTR: {
         direction: 'ltr',
-
         padding: 10,
         writingDirection: 'ltr'
       }
