@@ -194,16 +194,18 @@ const Words = () => {
     <ScrollView style={styles.container}>
       <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} color={paperDarkTheme.colors.primary} />
 
-      <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 300 }} elevation={2}>
-        <Text style={{ direction: 'rtl', width: '95%', paddingTop: 15 }}>
+      <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 200 }} elevation={2}>
+        <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
           {words[currentWord] != undefined &&
             highlightWordArabic(words[currentWord].arabicSentence, words[currentWord].arabic)}
         </Text>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <Text style={{ ...sharedStyle.englishBody, width: '95%', direction: 'ltr', textAlign: 'left', opacity: 1 }}>
+        {
+          /* We could show the english text if the answer is correct.
+          /* <Text style={{ ...sharedStyle.englishBody, width: '95%', direction: 'ltr', textAlign: 'left', opacity: 1 }}>
           {words[currentWord] != undefined &&
             highlightWordEnglish(words[currentWord].englishSentence, words[currentWord].english)}
-        </Text>
+        </Text> */}
       </Surface>
 
       <SnackButton
