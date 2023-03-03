@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import Quiz from '../screens/text-quiz.js'
 import SCREENS from '../constants/screens.js'
 import Spinner from '../components/spinner.js'
 import TextArabic from '../screens/text-arabic.js'
@@ -8,7 +7,7 @@ import TextBilingual from '../screens/text-bilingual.js'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { getText } from '../services/api-service.js'
 import { useDispatch } from 'react-redux'
-import OrderingWordsInASentence from '../screens/text-word-exercise.js'
+import OrderingWordsInASentence from '../screens/text-practice.js'
 
 export default function TextTabs({ route }) {
   const Tab = createMaterialTopTabNavigator()
@@ -38,7 +37,7 @@ export default function TextTabs({ route }) {
       <Tab.Navigator
         screenOptions={{
           tabBarLabelStyle: {
-            fontSize: 13,
+            fontSize: 14,
             fontWeight: 'bold',
             textTransform: 'none'
           }

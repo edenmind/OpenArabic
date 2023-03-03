@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { paperDarkTheme } from '../constants/paper-theme.js'
-import WordsContextHighLighted from './words-context-highlighted.js'
+import WordsContextHighLighted from '../components/context-highlighted.js'
 import SnackButton from '../components/snack-button.js'
 
 const selector = (state) => state.text

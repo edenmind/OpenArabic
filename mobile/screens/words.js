@@ -128,38 +128,6 @@ const Words = () => {
     .sort((a, b) => a.position - b.position)
     .map((item) => item.button)
 
-  function highlightWordEnglish(text, word) {
-    let splitText = text.split(' ')
-    let newText = []
-    splitText.forEach((w, index) => {
-      if (w.toLowerCase() === word.toLowerCase()) {
-        newText.push(
-          <>
-            <Text
-              style={{
-                fontWeight: 'bold',
-                backgroundColor: paperDarkTheme.colors.primary,
-                color: paperDarkTheme.colors.onPrimary
-              }}
-            >
-              &nbsp;[......]&nbsp;
-            </Text>
-            <Text key={index} style={{ ...sharedStyle.englishBody, opacity: 1 }}>
-              &nbsp;
-            </Text>
-          </>
-        )
-      } else {
-        newText.push(
-          <Text key={index} style={{ ...sharedStyle.englishBody, opacity: 1 }}>
-            {w}&nbsp;
-          </Text>
-        )
-      }
-    })
-    return newText
-  }
-
   function highlightWordArabic(text, word) {
     let splitText = text.split(' ')
     let newText = []

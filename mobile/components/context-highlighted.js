@@ -5,7 +5,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
 import React, { useState } from 'react'
-import { View, Animated, StyleSheet } from 'react-native'
+import { View, Animated } from 'react-native'
 import { Text } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'

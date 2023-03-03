@@ -8,8 +8,6 @@ import Words from './words.js'
 import { CombinedDarkTheme } from '../constants/paper-theme.js'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import { StyleSheet } from 'react-native'
-import { getData } from '../services/storage.js'
-import { useDispatch } from 'react-redux'
 
 const Tab = createMaterialBottomTabNavigator()
 
