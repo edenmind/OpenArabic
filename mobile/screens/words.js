@@ -14,8 +14,9 @@ const wordsSelector = (state) => state.words
 const practicingWordsSelector = (state) => state.practicingWords
 
 const Words = () => {
-  const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
+
+  const sharedStyle = useSharedStyles()
   const { words } = useSelector(wordsSelector)
   const [currentWord, setCurrentWord] = useState(0)
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
@@ -98,12 +99,12 @@ const Words = () => {
   const button2 = (
     <Button
       mode="elevated"
-      style={sharedStyle.buttonAnswer}
+      style={{ ...sharedStyle.buttonAnswer }}
       onPress={() => {
         vibrateBetweenTwoColors()
       }}
     >
-      <Text style={styles.text}>{words.length > 1 && words[currentWord].alternative1}</Text>
+      <Text style={{ ...styles.text }}>{words.length > 1 && words[currentWord].alternative1}</Text>
     </Button>
   )
 
@@ -194,14 +195,13 @@ const Words = () => {
     <ScrollView style={styles.container}>
       <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} color={paperDarkTheme.colors.primary} />
 
-      <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 200 }} elevation={2}>
+      <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10 }} elevation={2}>
         <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
           {words[currentWord] != undefined &&
             highlightWordArabic(words[currentWord].arabicSentence, words[currentWord].arabic)}
         </Text>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        {
-          /* We could show the english text if the answer is correct.
+        {/* We could show the english text if the answer is correct.
           /* <Text style={{ ...sharedStyle.englishBody, width: '95%', direction: 'ltr', textAlign: 'left', opacity: 1 }}>
           {words[currentWord] != undefined &&
             highlightWordEnglish(words[currentWord].englishSentence, words[currentWord].english)}
@@ -361,11 +361,6 @@ const Words = () => {
 }
 
 const styles = StyleSheet.create({
-  arabicText: {
-    color: paperDarkTheme.colors.secondary,
-    fontFamily: 'uthman',
-    fontSize: 75
-  },
   container: {
     flex: 1,
     margin: 10
@@ -374,18 +369,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
-    minHeight: 100
+    minHeight: 300
   },
   text: {
     color: paperDarkTheme.colors.primary,
-    fontSize: 17,
+    fontSize: 23,
+    fontWeight: 'bold',
+    lineHeight: 55,
     textAlign: 'center'
   },
   topView: {
     flex: 1
-  },
-  transliterationText: {
-    color: paperDarkTheme.colors.secondary
   }
 })
 

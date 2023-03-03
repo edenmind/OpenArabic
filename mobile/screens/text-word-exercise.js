@@ -151,15 +151,14 @@ const OrderingWordsInASentence = () => {
             handlePress(word.id, word.arabic)
           }}
           mode="elevated"
-          style={{ ...sharedStyle.button, height: Platform.OS === 'android' ? 90 : 90 }}
+          style={{ ...sharedStyle.button, margin: 0, padding: 0, height: Platform.OS === 'android' ? 90 : 90 }}
         >
           <Text
             style={{
-              ...sharedStyle.arabicBody,
               fontSize: 30,
               fontWeight: 'medium',
               fontFamily: 'noto',
-              lineHeight: Platform.OS === 'android' ? 90 : 60,
+              lineHeight: Platform.OS === 'android' ? 90 : 70,
               color: paperDarkTheme.colors.primary
             }}
           >

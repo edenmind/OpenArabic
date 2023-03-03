@@ -4506,12 +4506,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-tape@npm:^9.0.0":
-  version: 9.14.0
-  resolution: "@putout/plugin-tape@npm:9.14.0"
+"@putout/plugin-tape@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "@putout/plugin-tape@npm:10.0.1"
   peerDependencies:
-    putout: ">=25"
-  checksum: ddfa4161ac8450404354d3262c2468e4db541002a7b01edcf6a3068dba5c92754daf7ee0e3c3518d745ff6f1761c83539d911fe69e5e3adba88ee03abb1d23ae
+    putout: ">=28"
+  checksum: 121a9b552ab9a08a21aacf32722528ea6450ece9b5a83cc17b6a99cd53ecd368d48a6e812a1ad177df22bc29f40c683d703ac7d765fc8792a0208fcbad197e3f
   languageName: node
   linkType: hard
 
@@ -8393,9 +8393,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:^45.0.2":
-  version: 45.0.2
-  resolution: "eslint-plugin-unicorn@npm:45.0.2"
+"eslint-plugin-unicorn@npm:^46.0.0":
+  version: 46.0.0
+  resolution: "eslint-plugin-unicorn@npm:46.0.0"
   dependencies:
     "@babel/helper-validator-identifier": ^7.19.1
     "@eslint-community/eslint-utils": ^4.1.2
@@ -8415,7 +8415,7 @@ __metadata:
     strip-indent: ^3.0.0
   peerDependencies:
     eslint: ">=8.28.0"
-  checksum: c6ef0a0694f147b58bcb389090d0da87892b469de176c26cf062758a670d288753336d98613f5519d7997d272248eadbc45a4d5127c0cbd39804c61dd0975962
+  checksum: 30f9c67b9f94e42ae9917601ce203aa89a33c5fb821a1f45db389c8a143d3887c6b3316a74f0de7edc5e6cdac7a54d9e527cd109b96426cf2eca8f37478d0021
   languageName: node
   linkType: hard
 
@@ -13364,7 +13364,7 @@ __metadata:
     eslint-plugin-react-native: ^4.0.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.7.1
-    eslint-plugin-unicorn: ^45.0.2
+    eslint-plugin-unicorn: ^46.0.0
     expo: ^48.0.0
     expo-application: ~5.1.1
     expo-av: ~13.2.1
@@ -13382,7 +13382,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.4
     prop-types: ^15.8.1
-    putout: ^28.17.0
+    putout: ^28.18.0
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.3
@@ -14681,9 +14681,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.17.0":
-  version: 28.17.0
-  resolution: "putout@npm:28.17.0"
+"putout@npm:^28.18.0":
+  version: 28.18.0
+  resolution: "putout@npm:28.18.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14811,7 +14811,7 @@ __metadata:
     "@putout/plugin-split-nested-destructuring": ^2.0.0
     "@putout/plugin-split-variable-declarations": ^2.0.0
     "@putout/plugin-strict-mode": ^5.0.0
-    "@putout/plugin-tape": ^9.0.0
+    "@putout/plugin-tape": ^10.0.0
     "@putout/plugin-try-catch": ^1.0.0
     "@putout/plugin-typescript": ^3.0.0
     "@putout/plugin-webpack": ^2.0.0
@@ -14843,7 +14843,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 89bd315d63bfc7912cce24fc8a994ff2ddb04f9226a91bb0224cf347f2e2ca6bdf6bb3e12e6057a27126035e9a833fc1c277553301b7acfd489e1d98b9112a79
+  checksum: c21051ecadd19c2edfc89d663bcb8e6465c2c3fd6288b93ae00e3c5f0611097767cb5f761cf908324bb1fdeb21974efe41d196e0ce39528c6280314a857f5216
   languageName: node
   linkType: hard
 
