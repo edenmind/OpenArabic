@@ -1,0 +1,19 @@
+import { describe, it, jest } from '@jest/globals'
+import React from 'react'
+import ShallowRenderer from 'react-test-renderer/shallow' // ES6
+import Words from './words.js'
+import { Provider } from 'react-redux'
+import { store } from '../redux/store.js'
+import { NavigationContainer } from '@react-navigation/native'
+describe('<TextNavigator />', () => {
+  it('renders without crashing', () => {
+    const renderer = new ShallowRenderer()
+    renderer.render(
+      <Provider store={store}>
+        <NavigationContainer>
+          <Words />
+        </NavigationContainer>
+      </Provider>
+    )
+  })
+})

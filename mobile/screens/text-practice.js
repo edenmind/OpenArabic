@@ -1,7 +1,7 @@
 /* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable react-redux/useSelector-prefer-selectors */
-import { View, StyleSheet, ScrollView, Platform } from 'react-native'
-import { Text, Button, Surface, Divider } from 'react-native-paper'
+import { View, ScrollView } from 'react-native'
+import { Text, Surface, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
 import { useSharedStyles } from '../styles/common.js'
@@ -9,10 +9,12 @@ import * as Haptics from 'expo-haptics'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import WordsContextHighLighted from '../components/context-highlighted.js'
 import SnackButton from '../components/snack-button.js'
+import TextPracticeArabicWords from './text-practice-arabic-words.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
-const OrderingWordsInASentence = () => {
+
+const TextPractice = () => {
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
   const [currentSentence, setCurrentSentence] = useState(0)
@@ -23,12 +25,6 @@ const OrderingWordsInASentence = () => {
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
   const sharedStyle = useSharedStyles()
   const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
-
-  const styles = StyleSheet.create({
-    rowWrapper: {
-      paddingBottom: 25
-    }
-  })
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
@@ -139,35 +135,6 @@ const OrderingWordsInASentence = () => {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
     }
   }
-
-  // create a component for each word in the arabicWords array in the sentencesInText array for the currentSentence and wrap them with a button
-  const arabicWordsInSentenceComponents = (
-    <View style={styles.rowWrapper}>
-      {currentArabicWordsInSentence.map((word, index) => (
-        <Button
-          key={index}
-          onPress={() => {
-            //find the matching english word and and log it to the console
-            handlePress(word.id, word.arabic)
-          }}
-          mode="elevated"
-          style={{ ...sharedStyle.button, margin: 0, padding: 0, height: Platform.OS === 'android' ? 90 : 90 }}
-        >
-          <Text
-            style={{
-              fontSize: 30,
-              fontWeight: 'medium',
-              fontFamily: 'noto',
-              lineHeight: Platform.OS === 'android' ? 90 : 70,
-              color: paperDarkTheme.colors.primary
-            }}
-          >
-            {word.arabic}
-          </Text>
-        </Button>
-      ))}
-    </View>
-  )
   const getThreeRandomWords = () => {
     const randomWords = []
 
@@ -225,10 +192,13 @@ const OrderingWordsInASentence = () => {
         />
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
-        {arabicWordsInSentenceComponents}
+        <TextPracticeArabicWords
+          currentArabicWordsInSentence={currentArabicWordsInSentence}
+          handlePress={handlePress}
+        />
       </ScrollView>
     )
   )
 }
 
-export default OrderingWordsInASentence
+export default TextPractice

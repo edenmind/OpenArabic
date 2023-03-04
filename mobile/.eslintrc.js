@@ -41,6 +41,7 @@ module.exports = {
     'putout/keyword-spacing': 0,
     'security/detect-object-injection': 0,
     'putout/objects-braces-inside-array': 0,
+    'react-native/no-inline-styles': 0,
     'multiple-properties-destructuring': 0,
     'putout/padding-line-between-statements': 0,
     'putout/add-newlines-between-specifiers': 0,
