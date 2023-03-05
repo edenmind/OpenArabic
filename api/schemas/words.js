@@ -18,8 +18,7 @@ const postWordOptions = {
             english: { type: 'string', minLength: 1 },
             arabicSentence: { type: 'string', minLength: 1 },
             englishSentence: { type: 'string', minLength: 1 },
-            categoryLevel: { type: 'number', minimum: 1, maximum: 50 },
-            quiz: { type: 'boolean' }
+            categoryLevel: { type: 'number', minimum: 1, maximum: 50 }
           }
         }
       }
@@ -45,8 +44,7 @@ const getWordOptions = {
           alternative2: { type: 'string' },
           arabicSentence: { type: 'string' },
           englishSentence: { type: 'string' },
-          categoryLevel: { type: 'string' },
-          quiz: { type: 'boolean' }
+          categoryLevel: { type: 'string' }
         }
       }
     }
@@ -88,8 +86,7 @@ const getWordsOptions = {
             arabicSentence: { type: 'string' },
             englishSentence: { type: 'string' },
             categoryLevel: { type: 'string' },
-            id: { type: 'string' },
-            quiz: { type: 'boolean' }
+            id: { type: 'string' }
           }
         }
       }

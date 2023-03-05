@@ -1,12 +1,13 @@
 import { Button, Chip, Stack } from '@mui/material'
+import dayjs from 'dayjs'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import MenuSelect from '../components/menu-select.js'
 import SnackBar from '../components/snack-bar.js'
 import * as api from '../services/api-service.js'
-import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
+import { DesktopDateTimePicker } from '@mui/x-date-pickers/DesktopDateTimePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import TextField from '@mui/material/TextField'
 const selector = (state) => state.text
@@ -21,7 +22,7 @@ function TextAddPublish() {
 
   const setStatus = (event) => dispatch({ type: 'SET_STATUS', status: event.target.value })
   const resetText = () => dispatch({ type: 'RESET_TEXT' })
-  const setPublishAt = (event) => dispatch({ type: 'SET_PUBLISH_AT', publishAt: event.target.value })
+  const setPublishAt = (value) => dispatch({ type: 'SET_PUBLISH_AT', publishAt: value })
   const setGenerateAudio = (event) => dispatch({ type: 'SET_GENERATE_AUDIO', generateAudio: event.target.value })
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -110,13 +111,11 @@ function TextAddPublish() {
         <MenuSelect Values={statuses} value={text.status} onChangeFunc={setStatus} />
 
         <h4>Publication Date</h4>
-        <LocalizationProvider dateAdapter={AdapterMoment}>
-          <DesktopDatePicker
-            label="Date desktop"
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DesktopDateTimePicker
             inputFormat="YYYY-MM-DD"
-            value={text.publishAt}
-            onChange={setPublishAt}
-            renderInput={(params) => <TextField {...params} />}
+            value={dayjs(text.publishAt)}
+            onChange={(newValue) => setPublishAt(newValue)}
           />
         </LocalizationProvider>
         {id && (

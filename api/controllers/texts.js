@@ -14,7 +14,6 @@ const {
   batchGenerateAudio,
   readingTime,
   slugifyWithAuthor,
-  validateThatCorrectNumberOfWordsHasQuizSet,
   produceVocabularyCollection
 } = require('../services/texts')
 const { ObjectId } = require('mongodb')
@@ -109,13 +108,6 @@ async function addText(request, reply) {
   data.textGuid = uuidv4().slice(0, 8)
 
   if (data.status !== 'Draft') {
-    // Validate that at least 15 words has quiz property set to true
-    if (!validateThatCorrectNumberOfWordsHasQuizSet(sentences, 1)) {
-      return reply.internalServerError(
-        'At least 1 words in then sentences words must must have property quiz set to true!'
-      )
-    }
-
     //generate a guid for every sentence and word
     data.sentences = generateGuidForSentencesAndWords(sentences)
     //generate the mp3 files in the background
@@ -234,13 +226,6 @@ async function updateText(request, reply) {
 
   if (!validateThatNoObjectsAreEmpty(data)) {
     return reply.internalServerError('One or more values are empty!')
-  }
-
-  // Validate that at least 15 words has quiz property set to true
-  if (!validateThatCorrectNumberOfWordsHasQuizSet(sentences, 15)) {
-    return reply.internalServerError(
-      'At least 15 words in then sentences words must must have property quiz set to true!'
-    )
   }
 
   // remove the host from the image url

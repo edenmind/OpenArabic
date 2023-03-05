@@ -186,16 +186,6 @@ const slugifyWithAuthor = (title, author) => {
   return `${titleSlug}-${authorSlug}-${id}`
 }
 
-// validate that the correct number of words has quiz set to true
-const validateThatCorrectNumberOfWordsHasQuizSet = (sentences, threshold) => {
-  const sentencesWords = sentences.map((sentence) => sentence.words)
-  const sentencesWordsFlat = sentencesWords.flat()
-  const sentencesWordsFlatQuizTrue = sentencesWordsFlat.filter((word) => word.quiz)
-
-  //return true if number of words with quiz set is higher than threshold
-  return sentencesWordsFlatQuizTrue.length > threshold
-}
-
 //return a mp3 filename separated by dashes with text, sentence,, language and word
 const mp3Filename = (text, sentence, language, word) => {
   console.log('slug: ' + text, sentence, language, word)
@@ -250,7 +240,6 @@ module.exports = {
   generateGuidForSentencesAndWords,
   addGuidToArray,
   addGuidToInnerArray,
-  validateThatCorrectNumberOfWordsHasQuizSet,
   produceVocabularyCollection,
   shuffleArray,
   readingTime,

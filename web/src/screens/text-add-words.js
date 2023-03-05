@@ -2,7 +2,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable security/detect-non-literal-fs-filename */
 import * as api from '../services/api-service.js'
-import { Box, Button, Chip, Stack, Switch, TextField, Tooltip, FormControlLabel, Divider } from '@mui/material'
+import { Box, Button, Chip, Stack, TextField, Tooltip, Divider } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import SnackBar from '../components/snack-bar.js'
 import React, { Fragment } from 'react'
@@ -18,8 +18,8 @@ function TextAddWords() {
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [postState, setPostState] = React.useState('')
   const [postMessage, setPostMessage] = React.useState('')
-  const handleSave = async (arabic, english, arabicSentence, englishSentence, categoryLevel, quiz) => {
-    const result = await api.postWord(arabic, english, arabicSentence, englishSentence, categoryLevel, quiz)
+  const handleSave = async (arabic, english, arabicSentence, englishSentence, categoryLevel) => {
+    const result = await api.postWord(arabic, english, arabicSentence, englishSentence, categoryLevel)
 
     setOpenSnackbar(true)
     setPostMessage(result.message)
@@ -33,11 +33,6 @@ function TextAddWords() {
   const handleChangeEnglishSentence = (indexSentence, englishSentence) => {
     dispatch({ type: 'UPDATE_ENGLISH_SENTENCE', value: { indexSentence, englishSentence } })
   }
-
-  const handleChangeQuiz = (indexSentence, indexArabicWord, quiz) => {
-    dispatch({ type: 'UPDATE_SENTENCE_QUIZ', value: { indexSentence, indexArabicWord, quiz } })
-  }
-
   const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
       return
@@ -98,17 +93,8 @@ function TextAddWords() {
                 //get the category level property of the category with the name text.category
                 const categoryLevel = categories.find((category) => category.name === text.category).level
 
-                //check that word.english exists in the sentence.english for both lower and upper case
-                const quiz = sentence.english.toLowerCase().includes(word.english.toLowerCase())
-
-                // if the word is not found the open the snack bar with the message
-                if (quiz || !word.quiz) {
-                  handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel, word.quiz)
-                } else {
-                  setOpenSnackbar(true)
-                  setPostMessage('Word not found in sentence')
-                  setPostState('error')
-                }
+                //call the handleSave function
+                handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel)
               }}
             >
               Save
@@ -151,18 +137,7 @@ function TextAddWords() {
                 <SearchIcon />
               </Button>
             </Tooltip>
-            <FormControlLabel
-              sx={{ margin: 1 }}
-              value="Quiz"
-              control={
-                <Switch
-                  checked={word.quiz}
-                  onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
-                />
-              }
-              label="Quiz"
-              labelPlacement="left"
-            />
+
             <Divider style={{ paddingBottom: '5px', opacity: 0 }} />
           </Box>
         ))}
