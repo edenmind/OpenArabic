@@ -4007,12 +4007,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-merge-destructuring-properties@npm:^6.0.0":
-  version: 6.2.1
-  resolution: "@putout/plugin-merge-destructuring-properties@npm:6.2.1"
+"@putout/plugin-merge-destructuring-properties@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@putout/plugin-merge-destructuring-properties@npm:7.0.0"
   peerDependencies:
-    putout: ">=24"
-  checksum: 67eecd4f0570687d56d04e8a9bb145968a95c0dde7883b4358be9b3e28ae60f44bf9730748849d119b8fbaddb0b73cb1d1ecc87019fdc58219853d7dd3dd1bab
+    putout: ">=28"
+  checksum: 0a1c4ba60f7919ac53c0d5b933559d3e27086e2ad3f8d59dba0f38b517214a30a0adf88c07a18488fa76c0f80aa8144696e25ba67a89059940cc929b79c709d6
   languageName: node
   linkType: hard
 
@@ -4425,12 +4425,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-useless-type-conversion@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@putout/plugin-remove-useless-type-conversion@npm:2.0.0"
+"@putout/plugin-remove-useless-type-conversion@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-remove-useless-type-conversion@npm:3.0.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: 82bf7975f9eafb24ecb6bf397469824f12363d14bd1a31054ddca0b8f4ee66e4ce786e2b5b9c382a7e1f1c3cdf0f020dc457ee85cfe15de7d471910d8db5f01d
+    putout: ">=28"
+  checksum: 46cc04e0ea059082d441e104b81b1a7d42b9404d9ab37481be1fbe197696dd83a6533bcde2e177ad05d994293609bcff7f229e450737b3102fd87415d2eda09f
   languageName: node
   linkType: hard
 
@@ -8165,14 +8165,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.6.0":
-  version: 8.6.0
-  resolution: "eslint-config-prettier@npm:8.6.0"
+"eslint-config-prettier@npm:^8.7.0":
+  version: 8.7.0
+  resolution: "eslint-config-prettier@npm:8.7.0"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: ff0d0dfc839a556355422293428637e8d35693de58dabf8638bf0b6529131a109d0b2ade77521aa6e54573bb842d7d9d322e465dd73dd61c7590fa3834c3fa81
+  checksum: b05bc7f2296ce3e0925c14147849706544870e0382d38af2352d709a6cf8521bdaff2bd8e5021f1780e570775a8ffa1d2bac28b8065d90d43a3f1f98fd26ce52
   languageName: node
   linkType: hard
 
@@ -8269,9 +8269,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^16.4.0":
-  version: 16.4.0
-  resolution: "eslint-plugin-putout@npm:16.4.0"
+"eslint-plugin-putout@npm:^16.9.0":
+  version: 16.9.0
+  resolution: "eslint-plugin-putout@npm:16.9.0"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -8285,12 +8285,13 @@ __metadata:
     "@typescript-eslint/parser": ^5.4.0
     align-spaces: ^1.0.0
     eslint-plugin-n: ^15.2.4
+    eslint-plugin-react: ^7.32.2
     try-catch: ^3.0.0
     typescript: ^4.5.2
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=26"
-  checksum: c6785f537da690cc4f7975dfd59200f53c68b15ba61469dace97b7789e48f5b76679b449438d0c93b707f8655204553a16836757ec143f067e32e85d0905f6c7
+  checksum: fac47e1d187d88a779952951a2453d8d5659e7534e0d01ddea615ad7fb9bd3298501a3920f1acac9f68f2f2dfcb504c908612ec0f9dab6c7a9fc920232a5f25e
   languageName: node
   linkType: hard
 
@@ -13355,10 +13356,10 @@ __metadata:
     axios-retry: ^3.4.0
     deepmerge: ^4.3.0
     eslint: ^8.35.0
-    eslint-config-prettier: ^8.6.0
+    eslint-config-prettier: ^8.7.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^16.4.0
+    eslint-plugin-putout: ^16.9.0
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-native: ^4.0.0
@@ -13382,7 +13383,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.4
     prop-types: ^15.8.1
-    putout: ^28.18.0
+    putout: ^29.0.0
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.3
@@ -14681,9 +14682,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^28.18.0":
-  version: 28.18.0
-  resolution: "putout@npm:28.18.0"
+"putout@npm:^29.0.0":
+  version: 29.0.0
+  resolution: "putout@npm:29.0.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14757,7 +14758,7 @@ __metadata:
     "@putout/plugin-logical-expressions": ^1.0.0
     "@putout/plugin-madrun": ^14.0.0
     "@putout/plugin-math": ^1.0.0
-    "@putout/plugin-merge-destructuring-properties": ^6.0.0
+    "@putout/plugin-merge-destructuring-properties": ^7.0.0
     "@putout/plugin-merge-duplicate-imports": ^8.0.0
     "@putout/plugin-merge-if-statements": ^3.0.0
     "@putout/plugin-montag": ^1.0.0
@@ -14802,7 +14803,7 @@ __metadata:
     "@putout/plugin-remove-useless-return": ^4.0.0
     "@putout/plugin-remove-useless-spread": ^6.0.0
     "@putout/plugin-remove-useless-template-expressions": ^1.0.0
-    "@putout/plugin-remove-useless-type-conversion": ^2.0.0
+    "@putout/plugin-remove-useless-type-conversion": ^3.0.0
     "@putout/plugin-remove-useless-typeof": ^1.0.0
     "@putout/plugin-remove-useless-variables": ^7.0.0
     "@putout/plugin-reuse-duplicate-init": ^4.0.0
@@ -14843,7 +14844,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: c21051ecadd19c2edfc89d663bcb8e6465c2c3fd6288b93ae00e3c5f0611097767cb5f761cf908324bb1fdeb21974efe41d196e0ce39528c6280314a857f5216
+  checksum: 7639a897bc53c8b19743474a72adc50ff7eb568699ffc995b2104fd7f5b6394ed2229a8bf447e73bea564e8f5698b36116a234953a5481820a366032c66c02e4
   languageName: node
   linkType: hard
 

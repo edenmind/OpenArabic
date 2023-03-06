@@ -45,7 +45,7 @@ function TextAddWords() {
     <Fragment key={indexSentence}>
       <Stack spacing={0} style={{ paddingBottom: '10px', width: '900px' }}>
         <h1 style={{ direction: 'rtl', fontSize: 45 }}>{sentence.arabic}</h1>
-        <h3>{sentence.googleTranslation}</h3>
+        <h3>Google Translation: {sentence.googleTranslation}</h3>
         <TextField
           InputProps={{ style: { fontSize: 18 } }}
           value={sentence.english}

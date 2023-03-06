@@ -1,4 +1,4 @@
-import { Button, Chip, Stack } from '@mui/material'
+import { Button, Chip, Stack, Tooltip } from '@mui/material'
 import dayjs from 'dayjs'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import React, { Fragment } from 'react'
@@ -9,7 +9,7 @@ import SnackBar from '../components/snack-bar.js'
 import * as api from '../services/api-service.js'
 import { DesktopDateTimePicker } from '@mui/x-date-pickers/DesktopDateTimePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import TextField from '@mui/material/TextField'
+
 const selector = (state) => state.text
 
 function TextAddPublish() {
@@ -95,15 +95,43 @@ function TextAddPublish() {
       <Stack spacing={0} style={{ paddingBottom: '50px', width: '700px' }}>
         <h4>Validation</h4>
         <Stack direction="row" spacing={2}>
-          {text.title.length > 4 ? <Chip label="Title" color="success" /> : <Chip label="Title" color="error" />}
-          {text.category.length > 4 ? (
+          {text.title.length > 3 ? (
+            <Chip label="Title" color="success" />
+          ) : (
+            <Tooltip title="Must have at least four chars.">
+              <Chip label="Title" color="error" />
+            </Tooltip>
+          )}
+          {text.category.length > 3 ? (
             <Chip label="Category" color="success" />
           ) : (
-            <Chip label="Category" color="error" />
+            <Tooltip title="Must have at least four chars.">
+              <Chip label="Category" color="error" />
+            </Tooltip>
           )}
-          {text.source.length > 4 ? <Chip label="Source" color="success" /> : <Chip label="Source" color="error" />}
-          {text.author.length > 4 ? <Chip label="Author" color="success" /> : <Chip label="Author" color="error" />}
-          {text.sentences.length > 4 ? <Chip label="Words" color="success" /> : <Chip label="Words" color="error" />}
+          {text.source.length > 3 ? (
+            <Chip label="Source" color="success" />
+          ) : (
+            <Tooltip title="Must have at least four chars.">
+              {' '}
+              <Chip label="Source" color="error" />
+            </Tooltip>
+          )}
+          {text.author.length > 3 ? (
+            <Chip label="Author" color="success" />
+          ) : (
+            <Tooltip title="Must have at least four chars.">
+              {' '}
+              <Chip label="Author" color="error" />
+            </Tooltip>
+          )}
+          {text.sentences.length > 2 ? (
+            <Chip label="Words" color="success" />
+          ) : (
+            <Tooltip title="Must have at least three sentences.">
+              <Chip label="Words" color="error" />
+            </Tooltip>
+          )}
         </Stack>
       </Stack>
       <Stack spacing={0} style={{ paddingBottom: '50px', width: '700px' }}>

@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/prefer-spread */
 /* eslint-disable unicorn/no-array-reduce */
-import { Chip, Container, Divider, Button, TextField } from '@mui/material'
+import { Chip, Container, Divider, Button, TextField, Tooltip } from '@mui/material'
 import React, { Fragment } from 'react'
 import Footer from '../components/footer.js'
 import Grid from '@mui/material/Grid'
@@ -34,21 +34,23 @@ function TextAddPreview() {
           <h3>Grammar Check</h3>
           <TextField value={englishWordsAggregated} multiline rows={10} fullWidth />
           <br />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => {
-              // loop through text.sentences.words.english and aggregate the english word property
-              const englishWordsAggregatedAcc = text.sentences.reduce((acc, sentence) => {
-                const englishWords = sentence.words.map((word) => ' ' + word.english)
-                return acc.concat(englishWords)
-              }, [])
+          <Tooltip title="This will aggregate all the words in the text and check for grammar. If errors are found, they can be updated in the sentences.">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                // loop through text.sentences.words.english and aggregate the english word property
+                const englishWordsAggregatedAcc = text.sentences.reduce((acc, sentence) => {
+                  const englishWords = sentence.words.map((word) => ' ' + word.english)
+                  return acc.concat(englishWords)
+                }, [])
 
-              setEnglishWordsAggregated(englishWordsAggregatedAcc)
-            }}
-          >
-            Update Grammar Check
-          </Button>
+                setEnglishWordsAggregated(englishWordsAggregatedAcc)
+              }}
+            >
+              Update Grammar Check
+            </Button>
+          </Tooltip>
         </Grid>
         <Footer />
       </Container>
