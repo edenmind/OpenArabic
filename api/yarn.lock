@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -3885,7 +3885,7 @@ __metadata:
     eslint: ^8.35.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^16.6.0
+    eslint-plugin-putout: ^16.8.0
     eslint-plugin-security: ^1.7.1
     eslint-plugin-unicorn: ^46.0.0
     fastify: ^4.14.0
@@ -5313,9 +5313,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^16.6.0":
-  version: 16.6.0
-  resolution: "eslint-plugin-putout@npm:16.6.0"
+"eslint-plugin-putout@npm:^16.8.0":
+  version: 16.8.0
+  resolution: "eslint-plugin-putout@npm:16.8.0"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -5335,7 +5335,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=26"
-  checksum: eab1dfe73f14e406c54fb3b8e23cca68e44f7d972c5a0c0a9c2ad0b30e88ada136268d4ee58c4787a24c5b12554fb778c1cfaa3d9f4497cb1203a8c1d3d1724a
+  checksum: e0b224cdbc7c873ad186c32699d25a8adb2b5a0a660a061a9f7605cb4ae85e2f8141c711cd2acf83416997c0a1f58d685b73527f2b18e40c24b7f5473fc17cac
   languageName: node
   linkType: hard
 
@@ -11439,11 +11439,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
