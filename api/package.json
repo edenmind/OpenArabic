@@ -26,7 +26,7 @@
     "@fastify/env": "^4.2.0",
     "@fastify/helmet": "^10.1.0",
     "@fastify/mongodb": "^6.2.0",
-    "@fastify/rate-limit": "^7.6.0",
+    "@fastify/rate-limit": "^8.0.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.9.0",
     "@fastify/swagger": "^8.3.1",
