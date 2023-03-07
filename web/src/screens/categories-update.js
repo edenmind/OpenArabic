@@ -92,7 +92,7 @@ const CategoriesUpdate = () => {
               onChange={(event) => setLevel(event.target.value)}
             >
               <MenuItem value={10}>Introduction</MenuItem>
-              <MenuItem value={20}>Intermediate</MenuItem>
+              <MenuItem value={20}>Mid-Level</MenuItem>
               <MenuItem value={30}>Advanced</MenuItem>
             </Select>
           </FormControl>

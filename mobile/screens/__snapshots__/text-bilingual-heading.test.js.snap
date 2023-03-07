@@ -19,7 +19,6 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
           "fontSize": 28,
           "fontWeight": "400",
@@ -30,6 +29,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "textAlign": "left",
         },
         {
+          "color": "rgba(28, 27, 31, 1)",
           "writingDirection": "ltr",
         },
         {
@@ -46,7 +46,6 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
           "fontSize": 16,
           "fontWeight": "500",
@@ -57,6 +56,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "textAlign": "left",
         },
         {
+          "color": "rgba(28, 27, 31, 1)",
           "writingDirection": "ltr",
         },
         {
@@ -74,7 +74,6 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
           "fontSize": 16,
           "fontWeight": "500",
@@ -85,6 +84,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "textAlign": "left",
         },
         {
+          "color": "rgba(28, 27, 31, 1)",
           "writingDirection": "ltr",
         },
         {
@@ -102,7 +102,6 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
     style={
       [
         {
-          "color": "rgba(28, 27, 31, 1)",
           "fontFamily": "System",
           "fontSize": 12,
           "fontWeight": "500",
@@ -113,6 +112,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "textAlign": "left",
         },
         {
+          "color": "rgba(28, 27, 31, 1)",
           "writingDirection": "ltr",
         },
         {

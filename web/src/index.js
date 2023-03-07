@@ -23,6 +23,7 @@ Bugsnag.start({
 const container = document.querySelector('#root')
 const root = createRoot(container)
 const ErrorBoundary = Bugsnag.getPlugin('react').createErrorBoundary(React)
+
 root.render(
   <React.StrictMode>
     <Auth0Provider

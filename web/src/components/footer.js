@@ -1,4 +1,4 @@
-import { Link, Stack, Button } from '@mui/material'
+import { Link, Stack } from '@mui/material'
 import packageJson from '../../package.json'
 import { getHijriYear } from '../services/dates.js'
 
