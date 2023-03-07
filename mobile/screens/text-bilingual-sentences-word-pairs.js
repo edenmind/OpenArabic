@@ -18,7 +18,7 @@ function TextBilingualSentencesWordPairs(props) {
       opacity: 0.3
     },
     english: {
-      opacity: 0.9
+      opacity: 0.75
     },
     flexOne: {
       flex: 1

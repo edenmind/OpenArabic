@@ -6,7 +6,7 @@ import Settings from './settings.js'
 import Text from './text.js'
 import Words from './words.js'
 import { CombinedDarkTheme } from '../constants/paper-theme.js'
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
 import { StyleSheet } from 'react-native'
 
 const Tab = createMaterialBottomTabNavigator()

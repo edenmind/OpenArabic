@@ -48,7 +48,7 @@ const WordsSetup = (props) => {
       <SegmentedButtons
         value={props.difficultyLevel}
         onValueChange={(value) => {
-          props.setDifficultyLevel(value)
+          props.handleSetDifficultyLevel(value)
         }}
         buttons={[
           {

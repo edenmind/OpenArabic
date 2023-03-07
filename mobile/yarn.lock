@@ -3661,15 +3661,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-maybe@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "@putout/plugin-apply-maybe@npm:1.1.0"
-  peerDependencies:
-    putout: ">=28"
-  checksum: 54f8b79ef47245209c025ef6be61b2643b8005cf27db275d5e839481f9a0590726a0a70a6bc524727470beb9b0b3389988fde20b44d13fa9d5d00a35b90dacd7
-  languageName: node
-  linkType: hard
-
 "@putout/plugin-apply-optional-chaining@npm:^2.0.0":
   version: 2.0.2
   resolution: "@putout/plugin-apply-optional-chaining@npm:2.0.2"
@@ -3924,12 +3915,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-declare-undefined-variables@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@putout/plugin-declare-undefined-variables@npm:8.0.0"
+"@putout/plugin-declare@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "@putout/plugin-declare@npm:1.0.2"
   peerDependencies:
-    putout: ">=28"
-  checksum: 94393d39770bead8a2fe652bca4e7e3c9e56b3fa4b9091423c8f2d239ecc447a8f5aecaf1ca7d5d27208b251fbc8d22fbeeb735f462715e8267aaa15c4d38302
+    putout: ">=29"
+  checksum: 02a16933f4744c03a36432827e83e47ebed5d62673275fcb1e9171aaa01c99f5237c35187ee8173b7983951a021ce92a6b0d673973d72c0a8a032602e34b4c4f
   languageName: node
   linkType: hard
 
@@ -4004,6 +3995,15 @@ __metadata:
   peerDependencies:
     putout: ">=28"
   checksum: f3fe80a6baa698038d0f05845564ba7549643a961c29d3d269a1cc2c2e76b82d370e209e0461036cbc3600c2a61505782233c18dd9e475d11d955cbe86e050b6
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-maybe@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@putout/plugin-maybe@npm:1.0.0"
+  peerDependencies:
+    putout: ">=29"
+  checksum: b0533a8a10e6510b80b623708edc018a5e81585ab94d52554b9d25ccc813abaec741a15eebf6f6143191a8114104b195c59775dcd2a0c200e4fccd179136b84a
   languageName: node
   linkType: hard
 
@@ -4099,16 +4099,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-putout@npm:^11.0.0":
-  version: 11.13.0
-  resolution: "@putout/plugin-putout@npm:11.13.0"
+"@putout/plugin-putout@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "@putout/plugin-putout@npm:12.0.0"
   dependencies:
     fullstore: ^3.0.0
     just-camel-case: ^6.0.1
     try-catch: ^3.0.0
   peerDependencies:
-    putout: ">=25"
-  checksum: 1604242205ac38952372a07774bc4f55f634e857ea4fa75359132a84baee3e7cc9c4fb355df8b72be7701c8476f754588283d7ae20437557f01edd1fe69cd188
+    putout: ">=29"
+  checksum: da7c7e5473ceee9fbc9e8cabb00fde815da69c28297e28316af046003b6a88f431a023f25e80421dc7c1a6b051a98137e8c9cf95b9cff313e895c9900e16239b
   languageName: node
   linkType: hard
 
@@ -8269,9 +8269,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^16.9.0":
-  version: 16.9.0
-  resolution: "eslint-plugin-putout@npm:16.9.0"
+"eslint-plugin-putout@npm:^16.10.0":
+  version: 16.10.0
+  resolution: "eslint-plugin-putout@npm:16.10.0"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -8291,7 +8291,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=26"
-  checksum: fac47e1d187d88a779952951a2453d8d5659e7534e0d01ddea615ad7fb9bd3298501a3920f1acac9f68f2f2dfcb504c908612ec0f9dab6c7a9fc920232a5f25e
+  checksum: d0e44f396a8d05ff13b44cdeca5e1cba36e148db895ab18015f73046d2ba4a1a392a54ab389afca11649f3ef25f53fe4cbc36341d9e23700bb4985bf7511870f
   languageName: node
   linkType: hard
 
@@ -13359,7 +13359,7 @@ __metadata:
     eslint-config-prettier: ^8.7.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^16.9.0
+    eslint-plugin-putout: ^16.10.0
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-native: ^4.0.0
@@ -13383,7 +13383,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.4
     prop-types: ^15.8.1
-    putout: ^29.0.0
+    putout: ^29.0.2
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.3
@@ -13391,7 +13391,7 @@ __metadata:
     react-native-gesture-handler: ~2.9.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 6.1.2
-    react-native-paper: 5.2.0
+    react-native-paper: 5.3.1
     react-native-reanimated: ~2.14.4
     react-native-safe-area-context: 4.5.0
     react-native-screens: ~3.20.0
@@ -14682,9 +14682,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.0.0":
-  version: 29.0.0
-  resolution: "putout@npm:29.0.0"
+"putout@npm:^29.0.2":
+  version: 29.0.2
+  resolution: "putout@npm:29.0.2"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14720,7 +14720,6 @@ __metadata:
     "@putout/plugin-apply-flat-map": ^2.0.0
     "@putout/plugin-apply-if-condition": ^1.0.0
     "@putout/plugin-apply-is-array": ^3.0.0
-    "@putout/plugin-apply-maybe": ^1.0.0
     "@putout/plugin-apply-optional-chaining": ^2.0.0
     "@putout/plugin-apply-template-literals": ^1.0.0
     "@putout/plugin-browserlist": ^1.0.0
@@ -14747,9 +14746,9 @@ __metadata:
     "@putout/plugin-convert-template-to-string": ^1.0.0
     "@putout/plugin-convert-to-arrow-function": ^3.0.0
     "@putout/plugin-convert-typeof-to-is-type": ^2.0.0
+    "@putout/plugin-declare": ^1.0.1
     "@putout/plugin-declare-before-reference": ^1.0.0
     "@putout/plugin-declare-imports-first": ^2.0.0
-    "@putout/plugin-declare-undefined-variables": ^8.0.0
     "@putout/plugin-eslint": ^4.2.0
     "@putout/plugin-extract-object-properties": ^8.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
@@ -14758,6 +14757,7 @@ __metadata:
     "@putout/plugin-logical-expressions": ^1.0.0
     "@putout/plugin-madrun": ^14.0.0
     "@putout/plugin-math": ^1.0.0
+    "@putout/plugin-maybe": ^1.0.0
     "@putout/plugin-merge-destructuring-properties": ^7.0.0
     "@putout/plugin-merge-duplicate-imports": ^8.0.0
     "@putout/plugin-merge-if-statements": ^3.0.0
@@ -14767,7 +14767,7 @@ __metadata:
     "@putout/plugin-npmignore": ^2.0.0
     "@putout/plugin-package-json": ^4.0.0
     "@putout/plugin-promises": ^9.0.0
-    "@putout/plugin-putout": ^11.0.0
+    "@putout/plugin-putout": ^12.0.0
     "@putout/plugin-putout-config": ^2.0.0
     "@putout/plugin-regexp": ^6.0.0
     "@putout/plugin-remove-boolean-from-assertions": ^1.0.0
@@ -14844,7 +14844,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 7639a897bc53c8b19743474a72adc50ff7eb568699ffc995b2104fd7f5b6394ed2229a8bf447e73bea564e8f5698b36116a234953a5481820a366032c66c02e4
+  checksum: eda28754a821971d2fd63015b62252ce383bf0ce1da16a4f8181d670e9ce672794da63d97f57483938a54ea70451424c161c4d756d92905fa77c12ccab14748c
   languageName: node
   linkType: hard
 
@@ -15078,9 +15078,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:5.2.0":
-  version: 5.2.0
-  resolution: "react-native-paper@npm:5.2.0"
+"react-native-paper@npm:5.3.1":
+  version: 5.3.1
+  resolution: "react-native-paper@npm:5.3.1"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.8
     color: ^3.1.2
@@ -15090,7 +15090,7 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
-  checksum: bf5e6eecde852719d74713757e678fe576f32b92509ed5417f35fafb3bb4ea0fae0ce0bd6df7d61f38acd191bd1f36c1c6a5572b6f3d05944bd0b2d54f1a18e8
+  checksum: 57b2654fc7cff23168e183cbcee7dccd3f467b754ebf512c67f770d0989fdb67608f4546361a1f009b0bbcc52153e9f8c5c529eca493d631a2b4a965fc707a04
   languageName: node
   linkType: hard
 
