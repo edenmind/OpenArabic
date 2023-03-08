@@ -1,3 +1,7 @@
+// do not lint this file
+/* eslint-disable no-console */
+
+//disable putout/putout in this file for eslint
 /* eslint-disable putout/putout */
 
 'use strict'
@@ -7,12 +11,6 @@ const moment = require('moment')
 
 //return true if all objects are not empty
 const validateThatNoObjectsAreEmpty = (data) => {
-  //console log the values that are empty
-  Object.entries(data).forEach(([key, value]) => {
-    if (value === '') {
-      console.log(key + ' is empty')
-    }
-  })
   return Object.values(data).every((value) => value !== '')
 }
 

@@ -1,11 +1,11 @@
 import CategoriesList from './categories-list.js'
 import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
-it('renders without crashing', () => {
-  const handleClickOpenDummy = () => {
-    console.log('handleClickOpen')
-  }
 
+const handleClickOpenDummy = () => {
+  console.log('handleClickOpen')
+}
+it('renders without crashing', () => {
   const renderer = new ShallowRenderer()
 
   // eslint-disable-next-line putout/objects-braces-inside-array

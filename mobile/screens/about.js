@@ -5,23 +5,22 @@ import { useSharedStyles } from '../styles/common.js'
 
 function About() {
   const style = StyleSheet.create({
-    button: { margin: 10 },
+    arabic: {
+      direction: 'rtl',
+      fontFamily: 'philosopher',
+      padding: 10,
+      textAlign: 'center'
+    },
+    divider: { margin: 10 },
     english: {
       direction: 'ltr',
-      padding: 10,
-      fontFamily: 'philosopher'
-    },
-    arabic: {
-      textAlign: 'center',
-      padding: 10,
-      direction: 'rtl',
-      fontFamily: 'philosopher'
+      fontFamily: 'philosopher',
+      padding: 10
     },
     scrollView: {
       padding: 10,
       paddingBottom: 150
-    },
-    divider: { margin: 10 }
+    }
   })
 
   const sharedStyle = useSharedStyles()
@@ -58,7 +57,7 @@ function About() {
         vocabulary.
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        By studying these terms, you will - in sha'Allah - gain a better understanding of the prayer, the Quran, and the
+        By studying these terms, you will - in sha Allah - gain a better understanding of the prayer, the Quran, and the
         sayings of the Prophet ﷺ.
       </Text>
       <Text variant="bodyLarge" style={style.english}>
@@ -73,13 +72,13 @@ function About() {
         and in-person courses available that can teach the alphabet as well as advanced grammar.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(andalus)}>
-        Andalus Institute
+        <Text>Andalus Institute</Text>
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(amau)}>
-        Arabic With AMAU
+        <Text>Arabic With AMAU</Text>
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(ijaad)}>
-        Ijaada Institute
+        <Text>Ijaada Institute</Text>
       </Button>
 
       <Divider style={style.divider} />
@@ -108,10 +107,10 @@ function About() {
         assisting with the development of OpenArabic, please take a look at the OpenArabic project on GitHub.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
-        OpenArabic on GitHub
+        <Text>OpenArabic on GitHub</Text>
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(gitHubFirstIssue)}>
-        Good First Issues
+        <Text>Good First Issues</Text>
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
@@ -159,10 +158,10 @@ function About() {
         Yunus has been receiving Sarf and Nahw lessons from Shaykh Mujahid of Philadelphia. May Allah protect him.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
-        Twitter.com/YunusAndreasson
+        <Text>Twitter.com/YunusAndreasson</Text>
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubYunus)}>
-        GitHub.com/YunusAndreasson
+        <Text>GitHub.com/YunusAndreasson</Text>
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
@@ -170,16 +169,16 @@ function About() {
       </Text>
       <Text variant="bodyLarge" style={style.english}>
         We would love to receive your suggestions and feedback to help us improve the app. If you have any ideas,
-        improvements, or bug reports, please don't hesitate to get in touch with us.
+        improvements, or bug reports, please do not hesitate to get in touch with us.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
-        Email
+        <Text>Email</Text>
       </Button>
       <Button style={sharedStyle.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
-        Twitter
+        <Text>Twitter</Text>
       </Button>
       <Button style={sharedStyle.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
-        Instagram
+        <Text>Instagram</Text>
       </Button>
       <Text variant="titleLarge" style={style.english}></Text>
     </ScrollView>

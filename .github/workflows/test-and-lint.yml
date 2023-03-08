@@ -46,21 +46,21 @@ jobs:
           TASHKEEL_URL: http://localhost:3020
         run: |
           yarn install
-          #yarn lint
+          yarn lint
           yarn test
 
       - name: 🧪  Test and Lint Mobile
         working-directory: ./mobile
         run: |
           yarn install
-          #yarn lint
+          yarn lint
           yarn test
 
       - name: 🧪  Test and Lint Web
         working-directory: ./web
         run: |
           yarn install
-          #yarn lint
+          yarn lint
           yarn test
 
       - name: ✅  Tests

@@ -102,7 +102,7 @@ test('delete text that does not exist', async (t) => {
 
   // act
   const result = await app.inject({
-    url: '/texts/' + id,
+    url: `/texts/${id}`,
     method: 'DELETE',
     headers: {
       auth: 'somesecurekey'

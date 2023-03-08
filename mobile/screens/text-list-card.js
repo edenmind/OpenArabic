@@ -1,3 +1,4 @@
+/* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable putout/long-properties-destructuring */
 import { prepareIngress } from '../services/utility-service.js'
 import { Text, Card, Divider, Surface, Button, Chip } from 'react-native-paper'

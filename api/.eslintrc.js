@@ -10,7 +10,6 @@ module.exports = {
     es2022: true,
     es6: true,
     node: true,
-    jest: true,
     commonjs: true
   },
   parserOptions: {
@@ -60,10 +59,5 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:unicorn/recommended',
     'plugin:security/recommended'
-  ],
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  }
+  ]
 }

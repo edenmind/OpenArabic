@@ -38,7 +38,9 @@ export default function TextArabic() {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           }}
         >
-          <Text style={{ ...sharedStyle.arabicBody, lineHeight: 90 }}>{word.arabic}</Text>
+          <Text style={{ ...sharedStyle.arabicBody, lineHeight: Platform.OS === 'android' ? 90 : 50 }}>
+            {word.arabic}
+          </Text>
         </Button>
       )
     })

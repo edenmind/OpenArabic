@@ -65,7 +65,7 @@ test('delete author that does not exist', async (t) => {
 
   // act
   const result = await app.inject({
-    url: '/authors/' + id,
+    url: `'/authors/'${id}`,
     method: 'DELETE',
     headers: {
       auth: 'somesecurekey'

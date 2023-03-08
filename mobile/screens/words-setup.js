@@ -1,3 +1,5 @@
+/* eslint-disable react-native/no-color-literals */
+/* eslint-disable unicorn/no-nested-ternary */
 import React from 'react'
 import { View, Image, ScrollView } from 'react-native'
 import { Button, Divider, Surface, Text, SegmentedButtons } from 'react-native-paper'
@@ -5,6 +7,7 @@ import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { getWords } from '../services/api-service.js'
 import { useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
 
 const WordsSetup = (props) => {
   const sharedStyle = useSharedStyles()
@@ -135,7 +138,7 @@ const WordsSetup = (props) => {
           })
         }}
       >
-        START PRACTICE
+        <Text style={{ color: 'black', fontWeight: '500' }}>START PRACTICE</Text>
       </Button>
       <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 50 }} />
     </ScrollView>
@@ -143,3 +146,11 @@ const WordsSetup = (props) => {
 }
 
 export default WordsSetup
+
+WordsSetup.propTypes = {
+  numberOfWordsToPractice: PropTypes.number.isRequired,
+  setNumberOfWordsToPractice: PropTypes.func.isRequired,
+  difficultyLevel: PropTypes.number.isRequired,
+  resetStateForNewWords: PropTypes.func.isRequired,
+  handleSetDifficultyLevel: PropTypes.func.isRequired
+}

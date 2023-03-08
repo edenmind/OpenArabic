@@ -1,3 +1,4 @@
+/* eslint-disable putout/array-element-newline */
 import * as wordProcessing from './word-processing.js'
 
 describe('test wordProcessing', () => {

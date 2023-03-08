@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { Button } from 'react-native-paper'
+import { Button, Text } from 'react-native-paper'
 import React, { Fragment } from 'react'
 import SCREENS from '../constants/screens.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -14,6 +14,7 @@ const practicingWordsSelector = (state) => state.practicingWords
 export default function Words() {
   const dispatch = useDispatch()
   const { practicingWords } = useSelector(practicingWordsSelector)
+
   return (
     <NavigationContainer independent theme={CombinedDarkTheme}>
       <Stack.Navigator>
@@ -41,7 +42,7 @@ export default function Words() {
                       })
                     }}
                   >
-                    Stop
+                    <Text>Stop</Text>
                   </Button>
                 </Fragment>
               )
