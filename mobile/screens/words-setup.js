@@ -57,12 +57,17 @@ const WordsSetup = (props) => {
           {
             value: 10,
             label: 'Beginner',
-            style: { width: '50%' }
+            style: { width: '33%' }
           },
           {
             value: 20,
             label: 'Mid-level',
-            style: { width: '50%' }
+            style: { width: '33%' }
+          },
+          {
+            value: 30,
+            label: 'Advanced',
+            style: { width: '33%' }
           }
         ]}
       />

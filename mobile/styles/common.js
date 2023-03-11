@@ -51,6 +51,24 @@ export const useSharedStyles = () => {
         textAlign: 'right',
         writingDirection: 'rtl'
       },
+      arabicDateArabic: {
+        fontFamily: 'amiri',
+        fontSize: 21,
+        opacity: 0.9,
+        paddingLeft: 75,
+        paddingRight: 75,
+        paddingTop: 10,
+        textAlign: 'center'
+      },
+      arabicDateLatin: {
+        fontFamily: 'philosopher',
+        fontSize: 15,
+        opacity: 0.7,
+        paddingBottom: 10,
+        paddingLeft: 75,
+        paddingRight: 75,
+        textAlign: 'center'
+      },
       arabicFooter: {
         fontFamily: 'amiri',
         fontSize: 17,

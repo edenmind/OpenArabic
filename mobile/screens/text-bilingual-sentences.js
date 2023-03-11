@@ -45,7 +45,7 @@ export default function TextBilingualSentences(props) {
           showModal()
         }}
       >
-        <Text>SHOW WORDS</Text>
+        SHOW WORDS
       </Button>
       <PlaySound audioFileName={sentence.filename} buttonText={'PLAY SENTENCE'} />
     </View>

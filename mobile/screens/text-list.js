@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import Spinner from '../components/spinner.js'
 import TextListCard from './text-list-card.js'
 import { useFocusEffect } from '@react-navigation/native'
-import { getHijriDate } from '../services/utility-service.js'
+import { getHijriDate, getHijriDateLatin } from '../services/utility-service.js'
 import { Text } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 
@@ -51,7 +51,14 @@ export default function TextList({ route, navigation }) {
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
       ListHeaderComponent={
-        categoryDescription.length > 0 ? description : <Text style={sharedStyle.arabicFooter}>{getHijriDate()}</Text>
+        categoryDescription.length > 0 ? (
+          description
+        ) : (
+          <>
+            <Text style={sharedStyle.arabicDateArabic}>{getHijriDate()}</Text>
+            <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
+          </>
+        )
       }
       ListFooterComponent={
         <>

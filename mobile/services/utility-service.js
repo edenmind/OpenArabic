@@ -44,6 +44,14 @@ export const getHijriDate = () => {
   })
 }
 
+export const getHijriDateLatin = () => {
+  return new Date().toLocaleDateString('en-US-u-ca-islamic-civil', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
+
 //replace every letter in a string based on a map defined in the function
 //the service is kept in the mobile codebase to lower the load on the backend
 //the transliterations are not saved since they will regenerate if the code changes
