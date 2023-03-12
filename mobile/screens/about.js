@@ -145,6 +145,24 @@ function About() {
       />
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
+        Contact Us
+      </Text>
+      <Text variant="bodyLarge" style={style.english}>
+        We would love to receive your suggestions and feedback to help us improve the app. If you have any ideas,
+        improvements, or bug reports, please do not hesitate to get in touch with us.
+      </Text>
+      <Button style={sharedStyle.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
+        <Text>Email</Text>
+      </Button>
+      <Button style={sharedStyle.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
+        <Text>Twitter</Text>
+      </Button>
+      <Button style={sharedStyle.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
+        <Text>Instagram</Text>
+      </Button>
+      <Text variant="titleLarge" style={style.english}></Text>
+      <Divider style={style.divider} />
+      <Text variant="titleLarge" style={style.english}>
         Founder
       </Text>
       <Text variant="bodyLarge" style={style.english}>
@@ -163,24 +181,6 @@ function About() {
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubYunus)}>
         <Text>GitHub.com/YunusAndreasson</Text>
       </Button>
-      <Divider style={style.divider} />
-      <Text variant="titleLarge" style={style.english}>
-        Contact Us
-      </Text>
-      <Text variant="bodyLarge" style={style.english}>
-        We would love to receive your suggestions and feedback to help us improve the app. If you have any ideas,
-        improvements, or bug reports, please do not hesitate to get in touch with us.
-      </Text>
-      <Button style={sharedStyle.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
-        <Text>Email</Text>
-      </Button>
-      <Button style={sharedStyle.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
-        <Text>Twitter</Text>
-      </Button>
-      <Button style={sharedStyle.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
-        <Text>Instagram</Text>
-      </Button>
-      <Text variant="titleLarge" style={style.english}></Text>
     </ScrollView>
   )
 }
