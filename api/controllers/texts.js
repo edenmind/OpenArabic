@@ -2,11 +2,12 @@
 /* eslint-disable unicorn/prefer-ternary */
 /* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable operator-linebreak */
+/* eslint-disable putout/putout */
 
 'use strict'
 
 const axios = require('axios').default
-const COLLECTIONS = require('../constants/collections.js').default
+const COLLECTIONS = require('../constants/collections.js')
 const { timeAgo, removeHost, validateThatNoObjectsAreEmpty, validateAPIKey } = require('../services/utils')
 const {
   generateGuidForSentencesAndWords,
@@ -24,10 +25,11 @@ async function listTexts(request, reply) {
   let textList = []
 
   // if request.params.id is undefined, then get all texts
-  textList =
-    request.params.id === undefined
-      ? await textsCollection.find({}).toArray()
-      : await textsCollection.find({ category: request.params.id }).toArray()
+  if (request.params.id === undefined) {
+    textList = await textsCollection.find({}).toArray()
+  } else {
+    textList = await textsCollection.find({ category: request.params.id }).toArray()
+  }
 
   //sort texts by publishAt
   const textListWithNewestFirst = textList.reverse()
@@ -105,9 +107,7 @@ async function addText(request, reply) {
   //generate a guid for the text
   data.textGuid = uuidv4().slice(0, 8)
 
-  const dataStatus = data.status
-
-  if (dataStatus !== 'Draft') {
+  if (data.status !== 'Draft') {
     //generate a guid for every sentence and word
     data.sentences = generateGuidForSentencesAndWords(sentences)
     //generate the mp3 files in the background
@@ -144,30 +144,30 @@ async function getText(request, reply) {
     return reply.code(404).send('Text not found!')
   }
 
+  //update property "views" in the text
+  const views = text.views + 1
+
   // try update views with one by searching by id and if not found by slug
-  const textId = request.params.id
-  const requestViews = request.body.views
-
-  if (ObjectId.isValid(textId)) {
-    texts.updateOne({ id: new ObjectId(textId) }, { $set: { reqViews: requestViews } })
-  } else {
-    texts.updateOne({ slug: textId }, { $set: { reqViews: requestViews } })
+  try {
+    const id = new ObjectId(request.params.id)
+    await texts.updateOne({ id }, { $set: { views } })
+  } catch {
+    await texts.updateOne({ slug: request.params.id }, { $set: { views } })
   }
-
   //decorate the text with some extra properties
   text.timeAgo = timeAgo(text.publishAt)
   text.readingTime = readingTime(text.texts.arabic)
   text.vocabularyCollection = produceVocabularyCollection(text)
-  text.image += process.env.IMAGES_URL
+  text.image = process.env.IMAGES_URL + text.image
 
   //loop through the sentences and words and add the url to the audio file
   text.sentences = text.sentences.map((sentence) => {
     sentence.words = sentence.words.map((word) => {
-      word.filename += process.env.AUDIO_URL
+      word.filename = process.env.AUDIO_URL + word.filename
 
       return word
     })
-    sentence.filename += process.env.AUDIO_URL
+    sentence.filename = process.env.AUDIO_URL + sentence.filename
 
     return sentence
   })

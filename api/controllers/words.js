@@ -1,6 +1,6 @@
 'use strict'
 
-const COLLECTIONS = require('../constants/collections.js').default
+const COLLECTIONS = require('../constants/collections.js')
 const { ObjectId } = require('mongodb')
 const { capitalizeFirstLetter, shuffleArray } = require('../services/texts')
 
