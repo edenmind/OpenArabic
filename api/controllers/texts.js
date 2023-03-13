@@ -2,7 +2,6 @@
 /* eslint-disable unicorn/prefer-ternary */
 /* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable operator-linebreak */
-/* eslint-disable putout/putout */
 
 'use strict'
 
@@ -25,11 +24,10 @@ async function listTexts(request, reply) {
   let textList = []
 
   // if request.params.id is undefined, then get all texts
-  if (request.params.id === undefined) {
-    textList = await textsCollection.find({}).toArray()
-  } else {
-    textList = await textsCollection.find({ category: request.params.id }).toArray()
-  }
+  textList =
+    request.params.id === undefined
+      ? await textsCollection.find({}).toArray()
+      : await textsCollection.find({ category: request.params.id }).toArray()
 
   //sort texts by publishAt
   const textListWithNewestFirst = textList.reverse()
@@ -107,7 +105,9 @@ async function addText(request, reply) {
   //generate a guid for the text
   data.textGuid = uuidv4().slice(0, 8)
 
-  if (data.status !== 'Draft') {
+  const dataStatus = data.status
+
+  if (dataStatus !== 'Draft') {
     //generate a guid for every sentence and word
     data.sentences = generateGuidForSentencesAndWords(sentences)
     //generate the mp3 files in the background
@@ -158,16 +158,16 @@ async function getText(request, reply) {
   text.timeAgo = timeAgo(text.publishAt)
   text.readingTime = readingTime(text.texts.arabic)
   text.vocabularyCollection = produceVocabularyCollection(text)
-  text.image = process.env.IMAGES_URL + text.image
+  text.image += process.env.IMAGES_URL
 
   //loop through the sentences and words and add the url to the audio file
   text.sentences = text.sentences.map((sentence) => {
     sentence.words = sentence.words.map((word) => {
-      word.filename = process.env.AUDIO_URL + word.filename
+      word.filename += process.env.AUDIO_URL
 
       return word
     })
-    sentence.filename = process.env.AUDIO_URL + sentence.filename
+    sentence.filename += process.env.AUDIO_URL
 
     return sentence
   })
