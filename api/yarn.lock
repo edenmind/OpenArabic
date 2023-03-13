@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -2174,12 +2174,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/eslint@npm:^1.0.0, @putout/eslint@npm:^1.3.0":
+"@putout/eslint@npm:^1.0.0":
   version: 1.3.0
   resolution: "@putout/eslint@npm:1.3.0"
   dependencies:
     try-to-catch: ^3.0.1
   checksum: 59211649ddf47418f25de671d9a40313e2d22efbea9986a14119f538e5ef7b11ca8add1bba694111375074e41294b8d75e622f61f34bda1830afe71729efc3ce
+  languageName: node
+  linkType: hard
+
+"@putout/eslint@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/eslint@npm:2.0.0"
+  dependencies:
+    find-up: ^6.3.0
+    try-to-catch: ^3.0.1
+  checksum: 316153f64933eecaf4aba90950d1c3f8ee3993fa246c4e6277849c6ca58fd8a1b58e20fe886dce7c64f9bbb6e382412025667b546a3c82f4c016695d93f28c5c
   languageName: node
   linkType: hard
 
@@ -3885,7 +3895,7 @@ __metadata:
     eslint: ^8.35.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^16.10.0
+    eslint-plugin-putout: ^17.0.3
     eslint-plugin-security: ^1.7.1
     eslint-plugin-unicorn: ^46.0.0
     fastify: ^4.14.1
@@ -5313,9 +5323,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^16.10.0":
-  version: 16.10.0
-  resolution: "eslint-plugin-putout@npm:16.10.0"
+"eslint-plugin-putout@npm:^17.0.3":
+  version: 17.0.3
+  resolution: "eslint-plugin-putout@npm:17.0.3"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -5323,7 +5333,7 @@ __metadata:
     "@babel/traverse": ^7.16.3
     "@eslint/eslintrc": ^1.3.1
     "@putout/engine-parser": ^5.0.0
-    "@putout/eslint": ^1.3.0
+    "@putout/eslint": ^2.0.0
     "@putout/eslint-config": ^7.0.0
     "@typescript-eslint/eslint-plugin": ^5.5.0
     "@typescript-eslint/parser": ^5.4.0
@@ -5334,8 +5344,8 @@ __metadata:
     typescript: ^4.5.2
   peerDependencies:
     eslint: ">=8.0.0"
-    putout: ">=26"
-  checksum: d0e44f396a8d05ff13b44cdeca5e1cba36e148db895ab18015f73046d2ba4a1a392a54ab389afca11649f3ef25f53fe4cbc36341d9e23700bb4985bf7511870f
+    putout: ">=29"
+  checksum: 07b3733dcac322a197d08041ebd077a8f89d5630cb5762d36660440993c6618cf76476208377d0ae4a574d46fca4ebc95d356682fb5465895bf77bd2e2d22455
   languageName: node
   linkType: hard
 
@@ -5978,7 +5988,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-up@npm:^6.0.0, find-up@npm:^6.2.0":
+"find-up@npm:^6.0.0, find-up@npm:^6.2.0, find-up@npm:^6.3.0":
   version: 6.3.0
   resolution: "find-up@npm:6.3.0"
   dependencies:
@@ -11439,11 +11449,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
