@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.133",
+  "version": "1444.4.138",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -20,8 +20,8 @@
     "@mui/icons-material": "^5.11.11",
     "@mui/lab": "^5.0.0-alpha.122",
     "@mui/material": "^5.11.12",
-    "@mui/x-data-grid": "^6.0.0",
-    "@mui/x-date-pickers": "^6.0.0",
+    "@mui/x-data-grid": "^6.0.1",
+    "@mui/x-date-pickers": "^6.0.1",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/react-redux": "^7.1.25",
     "axios": "^1.3.4",
@@ -31,7 +31,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-mui-unused-classes": "^2.0.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-putout": "^16.10.0",
+    "eslint-plugin-putout": "^17.1.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-redux": "^4.0.0",
     "eslint-plugin-security": "^1.7.1",
@@ -42,16 +42,16 @@
     "moment-timezone": "^0.5.41",
     "node-notifier": "^10.0.1",
     "prettier": "^2.8.4",
-    "putout": "^29.0.2",
+    "putout": "^29.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-moment": "^1.1.3",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.8.2",
+    "react-router-dom": "^6.9.0",
     "react-scripts": "^5.0.1",
     "redux": "^4.2.1",
     "url": "^0.11.0",
-    "web-vitals": "^3.1.1"
+    "web-vitals": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

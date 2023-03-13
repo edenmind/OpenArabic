@@ -27,10 +27,10 @@ async function addCategory(request, reply) {
   }
 
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
-  const id = new ObjectId()
-  const { data } = body
 
-  data.id = id
+  const { data } = body
+  data.id = new ObjectId()
+
   const result = await categories.insertOne(data)
 
   reply.code(201).send(result.insertedId)

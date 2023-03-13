@@ -149,11 +149,11 @@ async function getText(request, reply) {
 
   // try update views with one by searching by id and if not found by slug
   try {
-    await texts.updateOne({ id: new ObjectId(request.params.id) }, { $set: { views } })
+    const id = new ObjectId(request.params.id)
+    await texts.updateOne({ id }, { $set: { views } })
   } catch {
     await texts.updateOne({ slug: request.params.id }, { $set: { views } })
   }
-
   //decorate the text with some extra properties
   text.timeAgo = timeAgo(text.publishAt)
   text.readingTime = readingTime(text.texts.arabic)

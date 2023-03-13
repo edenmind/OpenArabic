@@ -14,7 +14,6 @@ const isTransliterationOnSelector = (state) => state.isTransliterationOn
 
 export default function TextBilingualSentences(props) {
   const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
-
   const sharedStyle = useSharedStyles()
 
   //if isTransliterationOn is a string with value on then set showTransliteration to true
@@ -24,6 +23,8 @@ export default function TextBilingualSentences(props) {
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
   const getListOfWordPairs = (index) => setWords(index)
+
+  const showWords = 'SHOW WORDS'
 
   const sentences = props.sentences.map((sentence, index) => (
     <View key={index} style={sharedStyle.container}>
@@ -45,7 +46,7 @@ export default function TextBilingualSentences(props) {
           showModal()
         }}
       >
-        SHOW WORDS
+        {showWords}
       </Button>
       <PlaySound audioFileName={sentence.filename} buttonText={'PLAY SENTENCE'} />
     </View>
