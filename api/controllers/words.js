@@ -1,6 +1,6 @@
 'use strict'
 
-const COLLECTIONS = require('../constants/collections.js')
+const COLLECTIONS = require('../constants/collections.js').default
 const { ObjectId } = require('mongodb')
 const { capitalizeFirstLetter, shuffleArray } = require('../services/texts')
 
@@ -50,9 +50,7 @@ async function addWord(request, reply) {
     word.english = [english]
 
     //add an id to the word
-    const id = new ObjectId()
-
-    word.id = id
+    word.id = new ObjectId()
 
     await words.insertOne(word)
 

@@ -6,7 +6,7 @@
 'use strict'
 
 const axios = require('axios').default
-const COLLECTIONS = require('../constants/collections.js')
+const COLLECTIONS = require('../constants/collections.js').default
 const { timeAgo, removeHost, validateThatNoObjectsAreEmpty, validateAPIKey } = require('../services/utils')
 const {
   generateGuidForSentencesAndWords,
@@ -144,14 +144,14 @@ async function getText(request, reply) {
     return reply.code(404).send('Text not found!')
   }
 
-  //update property "views" in the text
-  const views = text.views + 1
-
   // try update views with one by searching by id and if not found by slug
-  try {
-    await texts.updateOne({ id: new ObjectId(request.params.id) }, { $set: { views } })
-  } catch {
-    await texts.updateOne({ slug: request.params.id }, { $set: { views } })
+  const textId = request.params.id
+  const requestViews = request.body.views
+
+  if (ObjectId.isValid(textId)) {
+    texts.updateOne({ id: new ObjectId(textId) }, { $set: { reqViews: requestViews } })
+  } else {
+    texts.updateOne({ slug: textId }, { $set: { reqViews: requestViews } })
   }
 
   //decorate the text with some extra properties

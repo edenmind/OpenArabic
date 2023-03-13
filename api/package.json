@@ -3,7 +3,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.146",
+  "version": "1444.4.147",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -20,7 +20,7 @@
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.287.0",
+    "@aws-sdk/client-s3": "^3.290.0",
     "@fastify/autoload": "^5.7.1",
     "@fastify/cors": "^8.2.0",
     "@fastify/env": "^4.2.0",
@@ -43,14 +43,14 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.35.0",
+    "eslint": "^8.36.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-putout": "^16.10.0",
+    "eslint-plugin-putout": "^17.1.0",
     "eslint-plugin-security": "^1.7.1",
     "eslint-plugin-unicorn": "^46.0.0",
     "prettier": "^2.8.4",
-    "putout": "^29.0.4",
+    "putout": "^29.1.4",
     "tap": "^16.3.4"
   }
 }

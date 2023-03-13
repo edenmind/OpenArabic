@@ -1,7 +1,7 @@
 'use strict'
 
 const { ObjectId } = require('mongodb')
-const COLLECTIONS = require('../constants/collections.js')
+const COLLECTIONS = require('../constants/collections.js').default
 const { validateAPIKey } = require('../services/utils')
 
 async function listCategories(request, reply) {
@@ -27,10 +27,10 @@ async function addCategory(request, reply) {
   }
 
   const categories = this.mongo.db.collection(COLLECTIONS.CATEGORIES)
-  const id = new ObjectId()
+
   const { data } = body
 
-  data.id = id
+  data.id = new ObjectId()
   const result = await categories.insertOne(data)
 
   reply.code(201).send(result.insertedId)
