@@ -13450,7 +13450,7 @@ __metadata:
     react-native-gesture-handler: ~2.9.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 6.1.2
-    react-native-paper: 5.4.0
+    react-native-paper: 5.4.1
     react-native-reanimated: ~2.14.4
     react-native-safe-area-context: 4.5.0
     react-native-screens: ~3.20.0
@@ -15134,19 +15134,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:5.4.0":
-  version: 5.4.0
-  resolution: "react-native-paper@npm:5.4.0"
+"react-native-paper@npm:5.4.1":
+  version: 5.4.1
+  resolution: "react-native-paper@npm:5.4.1"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.8
     color: ^3.1.2
-    use-event-callback: ^0.1.0
+    use-latest-callback: ^0.1.5
   peerDependencies:
     react: "*"
     react-native: "*"
     react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
-  checksum: 3b0f013881e89f757941c105eda8dc4cc9bf8327df708a9587ba08734fe747639078ff3f621aee76688aaf5fd57331a609b747981e5da5a4dbdbdeffae4ce611
+  checksum: b6bca70b935ca3b69ba4d2bc16717b938b4219d0a1fc17b1e0c7b87df753ba3cd8f52e8f17cf09ca862c7e6be243fb52092054fc176a4b284fa3143cf32d0672
   languageName: node
   linkType: hard
 
@@ -18063,15 +18063,6 @@ __metadata:
     querystringify: ^2.1.1
     requires-port: ^1.0.0
   checksum: fbdba6b1d83336aca2216bbdc38ba658d9cfb8fc7f665eb8b17852de638ff7d1a162c198a8e4ed66001ddbf6c9888d41e4798912c62b4fd777a31657989f7bdf
-  languageName: node
-  linkType: hard
-
-"use-event-callback@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "use-event-callback@npm:0.1.0"
-  peerDependencies:
-    react: ">=16.8"
-  checksum: 1e15fb21306c74f877e9d57686546c363165429412dcb9260254d2dd8f56692cb01ba2162f9169e6fc15b01cf3921b9cd8a9c60cf777d0143afcee92c1a7976a
   languageName: node
   linkType: hard
 
