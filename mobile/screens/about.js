@@ -173,7 +173,8 @@ function About() {
         platform for Arabic language.
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        Yunus has been receiving Sarf and Nahw lessons from Shaykh Mujahid of Philadelphia. May Allah protect him.
+        Yūnus has been receiving Sarf and Nahw lessons from Shaykh Mujahid residing in Philadelphia. May Allah protect
+        him.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
         <Text>Twitter.com/YunusAndreasson</Text>
@@ -181,6 +182,7 @@ function About() {
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubYunus)}>
         <Text>GitHub.com/YunusAndreasson</Text>
       </Button>
+      <Divider style={style.divider} />
     </ScrollView>
   )
 }

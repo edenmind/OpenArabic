@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/number-literal-case */
 /* eslint-disable quote-props */
 const truncate = (stringToTruncate, truncateLength) => {
   const cleanString = stringToTruncate.replace(' \n', '')
@@ -61,18 +62,39 @@ export const transliterateArabicToEnglish = (string) => {
   // remove all ,.(){}[]!?:; from string
   string = string.replace(/[!"(),-;?[\]{}]/g, '')
 
+  //replace إلَّا with "illa"
+  string = string.replace(/إلَّا/g, 'illa')
+
+  //replace لًا with "la"
+  string = string.replace(/يلًا/g, 'lan')
+
+  // replace alif lam (definite article) with al- when no non-whitespace character is before 'ا'
+  string = string.replace(/(?<!\S)ال/g, 'al-')
+
+  // replace 'وَال' at the beginning of the string with 'wal-'
+  string = string.replace(/^وَال/, 'wal-')
+
+  // if a damma us followed by a waw, then i want to replace with û AND the next letter is not shadda or sukon or waw or damma or fatha or kesra
+  string = string.replace(/ُو(?!ّ|ْ|و|َ|ُ|ِ)/g, 'ū')
+
+  // if a kesra is followed by ya, then i want to replace with î AND the next letter is not shadda or sukon or alif or damma or fatha or kesra
+  string = string.replace(/ِي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ī')
+
+  // if a fatha is followed by a yam, then i want to replace with â AND ht next letter is not shadda or sukon or alif or damma or fatha or kesra
+  string = string.replace(/َي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ā')
+
+  // replace bial wit bil- when no non-whitespace character is before 'ب'
+  string = string.replace(/(?<!\S)بِال/g, 'bil-')
+
+  string = string.replace(/أَ/g, "'a")
   //replace all ئٍ with ´i
-  string = string.replace(/ئ/g, '`i')
-
+  string = string.replace(/ئ/g, 'ʾ')
   // replace all إِ with i
-  string = string.replace(/إِ/g, '`i')
-
+  string = string.replace(/إِ/g, 'ʾi')
   //replace all hamza on wav with a
-  string = string.replace(/ؤْ/g, '`')
-
+  string = string.replace(/ؤْ/g, 'ʾ')
   // replace أ with a
-  string = string.replace(/أ/g, '`a')
-
+  string = string.replace(/أ/g, 'ʾ')
   // replace all fatha with the letter a
   string = string.replace(/َ/g, 'a')
 
@@ -82,17 +104,25 @@ export const transliterateArabicToEnglish = (string) => {
   // replace all damma with the letter u
   string = string.replace(/ُ/g, 'u')
 
-  // replace all alif lam with the letter al
-  string = string.replace(/ﻻ/g, 'al-')
-
-  //remove all shadda
-  string = string.replace(/ّ/g, '')
-
-  //remove all sukon
+  //replace all sukun with nothing
   string = string.replace(/ْ/g, '')
 
+  //replace all al-° with al-
+  string = string.replace(/° /g, ' ')
+
+  // replace all fathatan (tanwiin) with the letters an
+  string = string.replace(/ً/g, 'an')
+
+  // replace all kasratan (tanwiin) with the letters in
+  string = string.replace(/ٍ/g, 'in')
+
+  // replace all dammatan (tanwiin) with the letters un
+  string = string.replace(/ٌ/g, 'un')
+
+  // replace all alif madda with the letter a
+  string = string.replace(/آ/g, 'ʾā')
   const letterMap = {
-    ٱ: 'a',
+    ٱ: '`a',
     إ: '`i',
     ء: '',
     ا: 'a',
@@ -112,7 +142,7 @@ export const transliterateArabicToEnglish = (string) => {
     ض: 'ḍ',
     ط: 'ṭ',
     ظ: 'ẓ',
-    ع: 'ʻ',
+    ع: '3',
     غ: 'ġ',
     ف: 'f',
     ق: 'q',
@@ -134,49 +164,69 @@ export const transliterateArabicToEnglish = (string) => {
     ' ': ' '
   }
 
-  for (const letter of string) {
-    const newLetter = letterMap[letter] || letter
-    transliteratedArabicToEnglish += newLetter
-  }
+  transliteratedArabicToEnglish = [...string].reduce((acc, letter, index, arr) => {
+    if (letter === 'ّ') {
+      const prevLetter = arr[index - 2]
 
-  //replace aā with a
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aā', 'ā')
+      if (prevLetter && letterMap[prevLetter]) {
+        const doubledConsonant = letterMap[prevLetter]
+        return acc.slice(0, -2) + doubledConsonant + doubledConsonant + acc.slice(-1)
+      }
+    }
 
-  //replace aa with ā
-  //transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aa', 'ā')
+    return acc + (letterMap[letter] || letter)
+  }, '')
 
-  // replace all ii with ī
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('ii', 'ī')
+  //if iy is followed by a consonant, replace iy with i
+  // transliteratedArabicToEnglish = transliteratedArabicToEnglish.replace(/iy(?=[^aeiou])/g, 'ī')
 
-  // replace all uu with ū
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('uu', 'ū')
-
-  //replace iī with ī
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('iī', 'ī')
-
-  //replace uū with ū
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('uū', 'ū')
-
-  //replace aٰ with ā
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aٰ', 'ā')
-
-  //replace bni with ibn
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('bni', 'ibn')
-
-  // replace uw with ū
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('uw', 'ū')
-
-  // replace all ´aa with ´a
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('´aa', '`a')
-
-  // replace all aa with ā
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('aa', 'ā')
-
-  //replace iy with ī
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replaceAll('iy', 'ī')
-
-  //remove all arabic letters
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish.replace(/[\u0600-\u06FF]/g, '')
-
-  return transliteratedArabicToEnglish
+  // Apply replacement rules
+  transliteratedArabicToEnglish = transliteratedArabicToEnglish
+    .replaceAll('aā', 'ā')
+    .replaceAll('ii', 'ī')
+    .replaceAll('uu', 'ū')
+    .replaceAll('iī', 'ī')
+    .replaceAll('iy ', 'ī ')
+    .replaceAll('uū', 'ū')
+    .replaceAll('aay', 'ay')
+    .replaceAll('aٰ', 'ā')
+    .replaceAll('bni', 'ibn')
+    .replaceAll('´aa', '`a')
+    .replaceAll('aa', 'ā')
+    .replaceAll('ʻu', 'ʾ')
+    .replaceAll('ʾiy', 'ī')
+    .replaceAll('ʾu', 'ū')
+    .replaceAll('ʾa', 'ā')
+    .replaceAll('al-tt', 'at-t')
+    .replaceAll('al-ṯṯ', 'aṯ-ṯ')
+    .replaceAll('al-dd', 'ad-d')
+    .replaceAll('al-ḏḏ', 'aḏ-ḏ')
+    .replaceAll('al-rr', 'ar-r')
+    .replaceAll('al-zz', 'az-z')
+    .replaceAll('al-ss', 'as-s')
+    .replaceAll('al-šš', 'aš-š')
+    .replaceAll('al-ṣṣ', 'aṣ-ṣ')
+    .replaceAll('al-ḍḍ', 'aḍ-ḍ')
+    .replaceAll('al-ṭṭ', 'aṭ-ṭ')
+    .replaceAll('al-ẓẓ', 'aẓ-ẓ')
+    .replaceAll('al-ll', 'al-')
+    .replaceAll('al-nn', 'an-n')
+    .replaceAll('al-ahu', 'allahu')
+    .replaceAll('al-aha', 'allaha')
+    .replaceAll('al-ahi', 'allahi')
+    .replaceAll('al-lhu', 'allahu')
+    .replaceAll('al-llahi', 'allahi')
+    .replaceAll('biālllahi', 'billāhi')
+    .replaceAll('rasūli allahi', 'rasūlillahi')
+    .replaceAll('rasūlu allahi', 'rasūlullahi')
+    .replaceAll('muḥammadana', 'muḥammadan')
+  // Remove all Arabic letters and return
+  return [...transliteratedArabicToEnglish]
+    .filter((char) => {
+      const codePoint = char.codePointAt(0)
+      return codePoint < 0x06_00 || codePoint > 0x06_ff
+    })
+    .join('')
 }
+
+// biāllahi should be transliterad to bilāhi

@@ -30,7 +30,7 @@ export default function TextBilingualSentences(props) {
     <View key={index} style={sharedStyle.container}>
       <Text style={sharedStyle.arabicBody}>{sentence.arabic}</Text>
       {showTransliteration && (
-        <Text style={{ ...sharedStyle.englishBody, textAlign: 'right' }} variant="bodyLarge">
+        <Text style={{ ...sharedStyle.englishBody }} variant="bodyLarge">
           {util.transliterateArabicToEnglish(sentence.arabic)}
         </Text>
       )}
