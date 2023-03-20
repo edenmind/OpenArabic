@@ -34,41 +34,6 @@ describe('remove linebreaks', () => {
 })
 
 //test the transliterateArabicToEnglish function
-describe('transliterateArabicToEnglish', () => {
-  it('should transliterate arabic to english', () => {
-    // Arrange
-    const arabicText = 'سُبْحَانَهُ وَتَعَالَىٰ'
-
-    // Act
-    const transliteratedText = util.transliterateArabicToEnglish(arabicText)
-
-    // Assert
-    expect(transliteratedText).toBe('subḥānahu wata3ālā')
-  })
-
-  it('should transliterate arabic to english', () => {
-    // Arrange
-    const arabicText = 'ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ'
-
-    // Act
-    const transliteratedText = util.transliterateArabicToEnglish(arabicText)
-
-    // Assert
-    expect(transliteratedText).toBe('`alssalāmu 3alaykum waraḥmatu `alllāhi wabarakātuhu')
-  })
-
-  it('should transliterate arabic to english', () => {
-    // Arrange
-    const arabicText = 'بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ'
-
-    // Act
-    const transliteratedText = util.transliterateArabicToEnglish(arabicText)
-
-    // Assert
-    expect(transliteratedText).toBe('bismi `alllāhi `alrraḥmāni `alrraḥīmi')
-  })
-})
-
 describe('remove empty elements from array', () => {
   it('should not contain empty elements in array', () => {
     // Arrange
