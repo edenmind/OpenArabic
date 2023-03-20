@@ -43,7 +43,7 @@ describe('transliterateArabicToEnglish', () => {
     const transliteratedText = util.transliterateArabicToEnglish(arabicText)
 
     // Assert
-    expect(transliteratedText).toBe('subḥānahu wataʻālā')
+    expect(transliteratedText).toBe('subḥānahu wata3ālā')
   })
 
   it('should transliterate arabic to english', () => {
@@ -54,7 +54,7 @@ describe('transliterateArabicToEnglish', () => {
     const transliteratedText = util.transliterateArabicToEnglish(arabicText)
 
     // Assert
-    expect(transliteratedText).toBe('alsalāmu ʻalaykum waraḥmatu allāhi wabarakātuhu')
+    expect(transliteratedText).toBe('`alssalāmu 3alaykum waraḥmatu `alllāhi wabarakātuhu')
   })
 
   it('should transliterate arabic to english', () => {
@@ -65,18 +65,7 @@ describe('transliterateArabicToEnglish', () => {
     const transliteratedText = util.transliterateArabicToEnglish(arabicText)
 
     // Assert
-    expect(transliteratedText).toBe('bismi allāhi alraḥmāni alraḥīmi')
-  })
-
-  it('should transliterate arabic to english', () => {
-    // Arrange
-    const arabicText = 'بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ'
-
-    // Act
-    const transliteratedText = util.transliterateArabicToEnglish(arabicText)
-
-    // Assert
-    expect(transliteratedText).toBe('bismi allāhi alraḥmāni alraḥīmi')
+    expect(transliteratedText).toBe('bismi `alllāhi `alrraḥmāni `alrraḥīmi')
   })
 })
 

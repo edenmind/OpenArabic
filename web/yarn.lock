@@ -2696,27 +2696,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/utils@npm:^5.11.7":
-  version: 5.11.11
-  resolution: "@mui/utils@npm:5.11.11"
-  dependencies:
-    "@babel/runtime": ^7.21.0
-    "@types/prop-types": ^15.7.5
-    "@types/react-is": ^16.7.1 || ^17.0.0
-    prop-types: ^15.8.1
-    react-is: ^18.2.0
-  peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-  checksum: 268ac11cfcf5acc90137502f1fb999c4b5a4a05b00769056f48a15c9aa0c358b2ce93655c04929136282ed2f3b8b0a62d12653449c3463ed4b79723764ab6d71
-  languageName: node
-  linkType: hard
-
-"@mui/x-data-grid@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "@mui/x-data-grid@npm:6.0.1"
+"@mui/x-data-grid@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "@mui/x-data-grid@npm:6.0.2"
   dependencies:
     "@babel/runtime": ^7.20.13
-    "@mui/utils": ^5.11.7
+    "@mui/utils": ^5.11.13
     clsx: ^1.2.1
     prop-types: ^15.8.1
     reselect: ^4.1.7
@@ -2725,13 +2710,13 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: c2bdf3ac96f1338eb3d593d58c65ef2d1b159ce207d49887411cbd3efb834e767a9590b2c329923d2c807d57713bef98c34388180e6e0a1e01653fb449b3b46e
+  checksum: bfb4cae5829e02a67b4562f268a35bb70fedb893e9552b61ac7ef175f6600dbc93cb962134dca12c5ece7fd0b30cd9cd343ae9824c9e2171fc44f8bd5c5ee075
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "@mui/x-date-pickers@npm:6.0.1"
+"@mui/x-date-pickers@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "@mui/x-date-pickers@npm:6.0.2"
   dependencies:
     "@babel/runtime": ^7.20.13
     "@date-io/core": ^2.16.0
@@ -2742,7 +2727,7 @@ __metadata:
     "@date-io/jalaali": ^2.16.1
     "@date-io/luxon": ^2.16.1
     "@date-io/moment": ^2.16.1
-    "@mui/utils": ^5.11.7
+    "@mui/utils": ^5.11.13
     "@types/react-transition-group": ^4.4.5
     clsx: ^1.2.1
     prop-types: ^15.8.1
@@ -2780,7 +2765,7 @@ __metadata:
       optional: true
     moment-jalaali:
       optional: true
-  checksum: e961de7d239620fff09040490e9badef2a872aa99dc28f3a5a4cbfae6ab10b3ce1dec3e4c1eef739f4ea9f15977128c47db8c4469144b8c98695d90ba18d1fab
+  checksum: ff6f7e88ba49d6590d129be5b6e0e285b733ca77055d9ec925705012a8d66df066142eb0cd06eb79a5d4417626b91dedbd5700e8d098f3aea3cf32f6fccaf0ea
   languageName: node
   linkType: hard
 
@@ -3180,16 +3165,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/operator-add-args@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "@putout/operator-add-args@npm:3.0.1"
+"@putout/operator-add-args@npm:^4.0.0":
+  version: 4.1.0
+  resolution: "@putout/operator-add-args@npm:4.1.0"
   dependencies:
     "@babel/types": ^7.17.0
     "@putout/compare": ^9.0.0
     "@putout/engine-parser": ^5.0.0
   peerDependencies:
-    putout: ">=25"
-  checksum: 93e34da6f3cf3f06f90a16cfc9048c5ec8cd661c5a46c2b0a9fc7c16383df651ab26b919587505bafe6dc7ebbce73c4e7193807bd402cb88e15b229fab548b0d
+    putout: ">=29"
+  checksum: ba7881ec74156198c00aed705a15f182721480fa606077fadacbaed033c8116f0742e60e1ca069a48366a66590bee4eeab68d056b3f4f5e41bde7328f7574353
   languageName: node
   linkType: hard
 
@@ -8250,12 +8235,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mui-unused-classes@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "eslint-plugin-mui-unused-classes@npm:2.0.0"
+"eslint-plugin-mui-unused-classes@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "eslint-plugin-mui-unused-classes@npm:2.0.2"
   peerDependencies:
     eslint: "*"
-  checksum: d4cf49bf917e34c5c728a207840c7b16f8dc846787248ff88e1a2c47e5cc4f43b3dae5204c34bcc4b65225efaf74f0c286869d0887c94e4bbb7e59c536a388f4
+  checksum: 6879cdc01f24449582ccc19f732ef2bb841345b2e18a11f1397c7ff14096ff7e90932ad3885cccab24fa5de75d785587aad42a14259cdfe1c65ad044b73d4fb6
   languageName: node
   linkType: hard
 
@@ -13912,12 +13897,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.4":
-  version: 2.8.4
-  resolution: "prettier@npm:2.8.4"
+"prettier@npm:^2.8.5":
+  version: 2.8.5
+  resolution: "prettier@npm:2.8.5"
   bin:
     prettier: bin-prettier.js
-  checksum: c173064bf3df57b6d93d19aa98753b9b9dd7657212e33b41ada8e2e9f9884066bb9ca0b4005b89b3ab137efffdf8fbe0b462785aba20364798ff4303aadda57e
+  checksum: b7f8d30e14061e0478bc5a59d4d889688d804c173a0daa91b1b85dc08eef5eb6956d1b59f4037770776fda5b967f6c9ca3b7a8a43c50bedb4c7b182029f865aa
   languageName: node
   linkType: hard
 
@@ -14051,9 +14036,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.1.4":
-  version: 29.1.4
-  resolution: "putout@npm:29.1.4"
+"putout@npm:^29.1.5":
+  version: 29.1.5
+  resolution: "putout@npm:29.1.5"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14079,7 +14064,7 @@ __metadata:
     "@putout/formatter-progress-bar": ^3.0.0
     "@putout/formatter-stream": ^4.0.0
     "@putout/operate": ^8.0.0
-    "@putout/operator-add-args": ^3.0.0
+    "@putout/operator-add-args": ^4.0.0
     "@putout/operator-declare": ^5.0.0
     "@putout/operator-regexp": ^1.0.0
     "@putout/plugin-apply-at": ^1.0.0
@@ -14200,7 +14185,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: bcf5a5140f521e6aa4c3bb0f649151b30f62885af470bc6d6ac1f6270656a5bc5c9d641664075fdd6050f6b1a700bba7c7b4169e0fbcd3dca1964036e1f91f91
+  checksum: f5f0c02c42bcdbe3f1c9767af78d8926e4d4b9224b3f0e6eef4b06efc11002899a83ece140e2910f8eb5324f3da1cd14113200300c9d8d0b4ed8364db565cb59
   languageName: node
   linkType: hard
 
@@ -17300,8 +17285,8 @@ __metadata:
     "@mui/icons-material": ^5.11.11
     "@mui/lab": ^5.0.0-alpha.123
     "@mui/material": ^5.11.13
-    "@mui/x-data-grid": ^6.0.1
-    "@mui/x-date-pickers": ^6.0.1
+    "@mui/x-data-grid": ^6.0.2
+    "@mui/x-date-pickers": ^6.0.2
     "@reduxjs/toolkit": ^1.9.3
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
@@ -17312,7 +17297,7 @@ __metadata:
     dayjs: ^1.11.7
     eslint-plugin-array-func: ^3.1.8
     eslint-plugin-import: ^2.27.5
-    eslint-plugin-mui-unused-classes: ^2.0.0
+    eslint-plugin-mui-unused-classes: ^2.0.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-putout: ^17.1.0
     eslint-plugin-react-hooks: ^4.6.0
@@ -17324,8 +17309,8 @@ __metadata:
     moment: ^2.29.4
     moment-timezone: ^0.5.41
     node-notifier: ^10.0.1
-    prettier: ^2.8.4
-    putout: ^29.1.4
+    prettier: ^2.8.5
+    putout: ^29.1.5
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.3
