@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -1745,12 +1745,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/fast-json-stringify-compiler@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@fastify/fast-json-stringify-compiler@npm:4.1.0"
+"@fastify/fast-json-stringify-compiler@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@fastify/fast-json-stringify-compiler@npm:4.2.0"
   dependencies:
     fast-json-stringify: ^5.0.0
-  checksum: 5f848f606e23b04904189bf98c44ccae70c4ceaa793d619d3804ba4a9969d4b9846ceef4ac8a53d536a1cf8f1d3c30a4602850a44fc62bdc1893e341442b6e4f
+  checksum: c79e9aab14fe2693c4ae399824e0bdd2337a5f1ae403aeec0178a566b03633681d10fc16f010bcf503fb13a50127db463cfa25783dfbed1338b9ccd2593124bd
   languageName: node
   linkType: hard
 
@@ -3952,7 +3952,7 @@ __metadata:
     eslint-plugin-putout: ^17.1.0
     eslint-plugin-security: ^1.7.1
     eslint-plugin-unicorn: ^46.0.0
-    fastify: ^4.14.1
+    fastify: ^4.15.0
     fastify-cli: ^5.7.1
     fastify-healthcheck: ^4.4.0
     fastify-plugin: ^4.5.0
@@ -5970,17 +5970,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:^4.14.1":
-  version: 4.14.1
-  resolution: "fastify@npm:4.14.1"
+"fastify@npm:^4.15.0":
+  version: 4.15.0
+  resolution: "fastify@npm:4.15.0"
   dependencies:
     "@fastify/ajv-compiler": ^3.5.0
     "@fastify/error": ^3.0.0
-    "@fastify/fast-json-stringify-compiler": ^4.1.0
+    "@fastify/fast-json-stringify-compiler": ^4.2.0
     abstract-logging: ^2.0.1
     avvio: ^8.2.0
     fast-content-type-parse: ^1.0.0
-    find-my-way: ^7.3.0
+    find-my-way: ^7.6.0
     light-my-request: ^5.6.1
     pino: ^8.5.0
     process-warning: ^2.0.0
@@ -5989,7 +5989,7 @@ __metadata:
     secure-json-parse: ^2.5.0
     semver: ^7.3.7
     tiny-lru: ^10.0.0
-  checksum: 243c376fea832a80627fdfdc191043c648430ff4f6c44831b6cad9328cbd02f5ef589de6e4bbe4d075d248e686a0b20832d9b2a6a6f13a92a75a1cbd30ce2cd5
+  checksum: f263809abf15c0bcb76ccc8abd9799da5ca2ea0c819aee05805c434e21a468543b1ebb43647c9a418d65711c907ab7d264d1dbdbb69bcd6e02f1b677a2519ce7
   languageName: node
   linkType: hard
 
@@ -6041,14 +6041,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-my-way@npm:^7.3.0":
-  version: 7.3.1
-  resolution: "find-my-way@npm:7.3.1"
+"find-my-way@npm:^7.6.0":
+  version: 7.6.0
+  resolution: "find-my-way@npm:7.6.0"
   dependencies:
     fast-deep-equal: ^3.1.3
     fast-querystring: ^1.0.0
     safe-regex2: ^2.0.0
-  checksum: eec65665c34fbfeb323a52989de51b106485ec0d6182996fc70d42570a73f88b9637572bb8ae89332532da9ca856615e195768116aeede75d73b929b9534bf7a
+  checksum: b5bf14dadf52c61208351519a4681ee389ebec2547cf6ab82ae3ede1eb622657bc6ae45520d40eef09456345e80e145199aa801730cf998c481a602547cca763
   languageName: node
   linkType: hard
 
@@ -11568,11 +11568,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
