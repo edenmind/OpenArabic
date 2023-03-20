@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -2467,16 +2467,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/operator-add-args@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "@putout/operator-add-args@npm:3.0.1"
+"@putout/operator-add-args@npm:^4.0.0":
+  version: 4.1.0
+  resolution: "@putout/operator-add-args@npm:4.1.0"
   dependencies:
     "@babel/types": ^7.17.0
     "@putout/compare": ^9.0.0
     "@putout/engine-parser": ^5.0.0
   peerDependencies:
-    putout: ">=25"
-  checksum: 93e34da6f3cf3f06f90a16cfc9048c5ec8cd661c5a46c2b0a9fc7c16383df651ab26b919587505bafe6dc7ebbce73c4e7193807bd402cb88e15b229fab548b0d
+    putout: ">=29"
+  checksum: ba7881ec74156198c00aed705a15f182721480fa606077fadacbaed033c8116f0742e60e1ca069a48366a66590bee4eeab68d056b3f4f5e41bde7328f7574353
   languageName: node
   linkType: hard
 
@@ -3959,7 +3959,7 @@ __metadata:
     moment: ^2.29.4
     mongodb: ^5.1.0
     prettier: ^2.8.4
-    putout: ^29.1.4
+    putout: ^29.1.5
     tap: ^16.3.4
     try-to-catch: ^3.0.1
     uuid: ^9.0.0
@@ -9625,9 +9625,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.1.4":
-  version: 29.1.4
-  resolution: "putout@npm:29.1.4"
+"putout@npm:^29.1.5":
+  version: 29.1.5
+  resolution: "putout@npm:29.1.5"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -9653,7 +9653,7 @@ __metadata:
     "@putout/formatter-progress-bar": ^3.0.0
     "@putout/formatter-stream": ^4.0.0
     "@putout/operate": ^8.0.0
-    "@putout/operator-add-args": ^3.0.0
+    "@putout/operator-add-args": ^4.0.0
     "@putout/operator-declare": ^5.0.0
     "@putout/operator-regexp": ^1.0.0
     "@putout/plugin-apply-at": ^1.0.0
@@ -9774,7 +9774,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: bcf5a5140f521e6aa4c3bb0f649151b30f62885af470bc6d6ac1f6270656a5bc5c9d641664075fdd6050f6b1a700bba7c7b4169e0fbcd3dca1964036e1f91f91
+  checksum: f5f0c02c42bcdbe3f1c9767af78d8926e4d4b9224b3f0e6eef4b06efc11002899a83ece140e2910f8eb5324f3da1cd14113200300c9d8d0b4ed8364db565cb59
   languageName: node
   linkType: hard
 
@@ -11568,11 +11568,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
