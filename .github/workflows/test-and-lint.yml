@@ -102,7 +102,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: "50 60"
+          thresholds: "40 60"
 
       - uses: jwalton/gh-find-current-pr@v1
         id: finder
