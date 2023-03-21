@@ -86,7 +86,8 @@ export const transliterateArabicToEnglish = (string) => {
   // replace bial wit bil- when no non-whitespace character is before 'ب'
   string = string.replace(/(?<!\S)بِال/g, 'bil-')
 
-  string = string.replace(/أَ/g, "'a")
+  // eslint-disable-next-line prettier/prettier
+  string = string.replace(/أَ/g, '`a')
   //replace all ئٍ with ´i
   string = string.replace(/ئ/g, 'ʾ')
   // replace all إِ with i
@@ -164,19 +165,20 @@ export const transliterateArabicToEnglish = (string) => {
     ' ': ' '
   }
 
-  transliteratedArabicToEnglish = [...string].reduce((acc, letter, index, arr) => {
-    if (letter === 'ّ') {
-      const prevLetter = arr[index - 2]
+  transliteratedArabicToEnglish = [...string]
+    .map((letter, index, arr) => {
+      if (letter === 'ّ') {
+        const prevLetter = arr[index - 2]
 
-      if (prevLetter && letterMap[prevLetter]) {
-        const doubledConsonant = letterMap[prevLetter]
-        return acc.slice(0, -2) + doubledConsonant + doubledConsonant + acc.slice(-1)
+        if (prevLetter && letterMap[prevLetter]) {
+          const doubledConsonant = letterMap[prevLetter]
+          return doubledConsonant + doubledConsonant
+        }
       }
-    }
 
-    return acc + (letterMap[letter] || letter)
-  }, '')
-
+      return letterMap[letter] || letter
+    })
+    .join('')
   //if iy is followed by a consonant, replace iy with i
   // transliteratedArabicToEnglish = transliteratedArabicToEnglish.replace(/iy(?=[^aeiou])/g, 'ī')
 

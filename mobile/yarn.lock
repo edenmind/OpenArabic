@@ -3617,16 +3617,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/operator-add-args@npm:^3.0.0":
-  version: 3.1.0
-  resolution: "@putout/operator-add-args@npm:3.1.0"
+"@putout/operator-add-args@npm:^4.0.0":
+  version: 4.1.0
+  resolution: "@putout/operator-add-args@npm:4.1.0"
   dependencies:
     "@babel/types": ^7.17.0
     "@putout/compare": ^9.0.0
     "@putout/engine-parser": ^5.0.0
   peerDependencies:
-    putout: ">=25"
-  checksum: 48414cf7931ed12ce2507f481361b02a05ed303e98284c765e3d1b75cd8043f75a32a4da1d2b5a73dd7d1096098eeda7fa960089eeaaa20a93616bf08beaaac8
+    putout: ">=29"
+  checksum: ba7881ec74156198c00aed705a15f182721480fa606077fadacbaed033c8116f0742e60e1ca069a48366a66590bee4eeab68d056b3f4f5e41bde7328f7574353
   languageName: node
   linkType: hard
 
@@ -8153,14 +8153,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.7.0":
-  version: 8.7.0
-  resolution: "eslint-config-prettier@npm:8.7.0"
+"eslint-config-prettier@npm:^8.8.0":
+  version: 8.8.0
+  resolution: "eslint-config-prettier@npm:8.8.0"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: b05bc7f2296ce3e0925c14147849706544870e0382d38af2352d709a6cf8521bdaff2bd8e5021f1780e570775a8ffa1d2bac28b8065d90d43a3f1f98fd26ce52
+  checksum: 1e94c3882c4d5e41e1dcfa2c368dbccbfe3134f6ac7d40101644d3bfbe3eb2f2ffac757f3145910b5eacf20c0e85e02b91293d3126d770cbf3dc390b3564681c
   languageName: node
   linkType: hard
 
@@ -13415,7 +13415,7 @@ __metadata:
     axios-retry: ^3.4.0
     deepmerge: ^4.3.1
     eslint: ^8.36.0
-    eslint-config-prettier: ^8.7.0
+    eslint-config-prettier: ^8.8.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-putout: ^17.1.0
@@ -13440,9 +13440,9 @@ __metadata:
     jest: ^29.2.1
     jest-expo: ^48.0.0
     node-notifier: ^10.0.1
-    prettier: ^2.8.4
+    prettier: ^2.8.5
     prop-types: ^15.8.1
-    putout: ^29.1.4
+    putout: ^29.1.5
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.3
@@ -13450,7 +13450,7 @@ __metadata:
     react-native-gesture-handler: ~2.9.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 6.1.2
-    react-native-paper: 5.4.1
+    react-native-paper: 5.5.0
     react-native-reanimated: ~2.14.4
     react-native-safe-area-context: 4.5.0
     react-native-screens: ~3.20.0
@@ -14593,12 +14593,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.4":
-  version: 2.8.4
-  resolution: "prettier@npm:2.8.4"
+"prettier@npm:^2.8.5":
+  version: 2.8.5
+  resolution: "prettier@npm:2.8.5"
   bin:
     prettier: bin-prettier.js
-  checksum: c173064bf3df57b6d93d19aa98753b9b9dd7657212e33b41ada8e2e9f9884066bb9ca0b4005b89b3ab137efffdf8fbe0b462785aba20364798ff4303aadda57e
+  checksum: b7f8d30e14061e0478bc5a59d4d889688d804c173a0daa91b1b85dc08eef5eb6956d1b59f4037770776fda5b967f6c9ca3b7a8a43c50bedb4c7b182029f865aa
   languageName: node
   linkType: hard
 
@@ -14751,9 +14751,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.1.4":
-  version: 29.1.4
-  resolution: "putout@npm:29.1.4"
+"putout@npm:^29.1.5":
+  version: 29.1.5
+  resolution: "putout@npm:29.1.5"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14779,7 +14779,7 @@ __metadata:
     "@putout/formatter-progress-bar": ^3.0.0
     "@putout/formatter-stream": ^4.0.0
     "@putout/operate": ^8.0.0
-    "@putout/operator-add-args": ^3.0.0
+    "@putout/operator-add-args": ^4.0.0
     "@putout/operator-declare": ^5.0.0
     "@putout/operator-regexp": ^1.0.0
     "@putout/plugin-apply-at": ^1.0.0
@@ -14900,7 +14900,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: bcf5a5140f521e6aa4c3bb0f649151b30f62885af470bc6d6ac1f6270656a5bc5c9d641664075fdd6050f6b1a700bba7c7b4169e0fbcd3dca1964036e1f91f91
+  checksum: f5f0c02c42bcdbe3f1c9767af78d8926e4d4b9224b3f0e6eef4b06efc11002899a83ece140e2910f8eb5324f3da1cd14113200300c9d8d0b4ed8364db565cb59
   languageName: node
   linkType: hard
 
@@ -15134,9 +15134,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:5.4.1":
-  version: 5.4.1
-  resolution: "react-native-paper@npm:5.4.1"
+"react-native-paper@npm:5.5.0":
+  version: 5.5.0
+  resolution: "react-native-paper@npm:5.5.0"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.8
     color: ^3.1.2
@@ -15146,7 +15146,7 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
-  checksum: b6bca70b935ca3b69ba4d2bc16717b938b4219d0a1fc17b1e0c7b87df753ba3cd8f52e8f17cf09ca862c7e6be243fb52092054fc176a4b284fa3143cf32d0672
+  checksum: 1d433e5d48462a8a6477d979f7c9ae44278dfaf713d5f57ff218cfbd8d6f6556d42ace6d01cce410a922157242bd61f92bdf87e0cbd84c6231f1ab369af1777b
   languageName: node
   linkType: hard
 
