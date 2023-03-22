@@ -62,6 +62,15 @@ export const transliterateArabicToEnglish = (string) => {
   // remove all ,.(){}[]!?:; from string
   string = string.replace(/[!"(),-;?[\]{}]/g, '')
 
+  // replace لَا anywhere in a word with lâ
+  string = string.replace(/لَا/g, 'lâ')
+
+  //replace  tanwin with an
+  string = string.replace(/ً/g, 'an')
+
+  // replace alif with a
+  string = string.replace(/َ/g, 'a')
+
   //replace إلَّا with "illa"
   string = string.replace(/إلَّا/g, 'illa')
 
@@ -96,8 +105,6 @@ export const transliterateArabicToEnglish = (string) => {
   string = string.replace(/ؤْ/g, 'ʾ')
   // replace أ with a
   string = string.replace(/أ/g, 'ʾ')
-  // replace all fatha with the letter a
-  string = string.replace(/َ/g, 'a')
 
   // replace all kasra with the letter i
   string = string.replace(/ِ/g, 'i')
@@ -122,6 +129,8 @@ export const transliterateArabicToEnglish = (string) => {
 
   // replace all alif madda with the letter a
   string = string.replace(/آ/g, 'ʾā')
+
+  string = string.replace(/َا/g, 'ā')
   const letterMap = {
     ٱ: '`a',
     إ: '`i',
@@ -165,20 +174,19 @@ export const transliterateArabicToEnglish = (string) => {
     ' ': ' '
   }
 
-  transliteratedArabicToEnglish = [...string]
-    .map((letter, index, arr) => {
-      if (letter === 'ّ') {
-        const prevLetter = arr[index - 2]
+  // eslint-disable-next-line unicorn/no-array-reduce
+  transliteratedArabicToEnglish = [...string].reduce((acc, letter, index, arr) => {
+    if (letter === 'ّ') {
+      const prevLetter = arr[index - 2]
 
-        if (prevLetter && letterMap[prevLetter]) {
-          const doubledConsonant = letterMap[prevLetter]
-          return doubledConsonant + doubledConsonant
-        }
+      if (prevLetter && letterMap[prevLetter]) {
+        const doubledConsonant = letterMap[prevLetter]
+        return acc.slice(0, -2) + doubledConsonant + doubledConsonant + acc.slice(-1)
       }
+    }
 
-      return letterMap[letter] || letter
-    })
-    .join('')
+    return acc + (letterMap[letter] || letter)
+  }, '')
   //if iy is followed by a consonant, replace iy with i
   // transliteratedArabicToEnglish = transliteratedArabicToEnglish.replace(/iy(?=[^aeiou])/g, 'ī')
 
@@ -213,14 +221,14 @@ export const transliterateArabicToEnglish = (string) => {
     .replaceAll('al-ẓẓ', 'aẓ-ẓ')
     .replaceAll('al-ll', 'al-')
     .replaceAll('al-nn', 'an-n')
-    .replaceAll('al-ahu', 'allahu')
-    .replaceAll('al-aha', 'allaha')
-    .replaceAll('al-ahi', 'allahi')
+    .replaceAll('al-ahu', 'allāhu')
+    .replaceAll('al-aha', 'allāha')
+    .replaceAll('al-ahi', 'allāhi')
     .replaceAll('al-lhu', 'allahu')
     .replaceAll('al-llahi', 'allahi')
     .replaceAll('biālllahi', 'billāhi')
-    .replaceAll('rasūli allahi', 'rasūlillahi')
-    .replaceAll('rasūlu allahi', 'rasūlullahi')
+    .replaceAll('rasūli allāhi', 'rasūlillāhi')
+    .replaceAll('rasūlu allāhi', 'rasūlullāhi')
     .replaceAll('muḥammadana', 'muḥammadan')
   // Remove all Arabic letters and return
   return [...transliteratedArabicToEnglish]
