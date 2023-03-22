@@ -66,6 +66,46 @@ describe('remove empty elements from array', () => {
   })
 })
 
+//test the transliterateArabicToEnglish function
+describe('transliterateArabicToEnglish', () => {
+  describe('transliterateArabicToEnglish', () => {
+    test('should handle words with shadda correctly', () => {
+      const arabicText = 'رَمَضَّان'
+      const expectedResult = 'ramaḍḍān'
+
+      expect(util.transliterateArabicToEnglish(arabicText)).toEqual(expectedResult)
+    })
+
+    test('should handle words with hamza correctly', () => {
+      const arabicText = 'مُؤْمِنٌ'
+      const expectedResult = 'muʾminun'
+
+      expect(util.transliterateArabicToEnglish(arabicText)).toEqual(expectedResult)
+    })
+
+    test('should handle words with alif madda correctly', () => {
+      const arabicText = 'آمَنَ'
+      const expectedResult = 'ʾāmana'
+
+      expect(util.transliterateArabicToEnglish(arabicText)).toEqual(expectedResult)
+    })
+
+    test('should handle words with special replacement rules correctly', () => {
+      const arabicText = 'رَسُولُ اللَّهِ'
+      const expectedResult = 'rasūlullāhi'
+
+      expect(util.transliterateArabicToEnglish(arabicText)).toEqual(expectedResult)
+    })
+
+    test('should return an empty string for an empty input', () => {
+      const arabicText = ''
+      const expectedResult = ''
+
+      expect(util.transliterateArabicToEnglish(arabicText)).toEqual(expectedResult)
+    })
+  })
+})
+
 describe('shoud return correct hijridate', () => {
   it('should return correct hijridate', () => {
     // Arrange
