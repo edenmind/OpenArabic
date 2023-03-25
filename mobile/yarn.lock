@@ -13440,7 +13440,7 @@ __metadata:
     jest: ^29.2.1
     jest-expo: ^48.0.0
     node-notifier: ^10.0.1
-    prettier: ^2.8.5
+    prettier: ^2.8.7
     prop-types: ^15.8.1
     putout: ^29.1.5
     react: 18.2.0
@@ -13450,7 +13450,7 @@ __metadata:
     react-native-gesture-handler: ~2.9.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 6.1.2
-    react-native-paper: 5.5.0
+    react-native-paper: 5.5.1
     react-native-reanimated: ~2.14.4
     react-native-safe-area-context: 4.5.0
     react-native-screens: ~3.20.0
@@ -14593,12 +14593,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.5":
-  version: 2.8.5
-  resolution: "prettier@npm:2.8.5"
+"prettier@npm:^2.8.7":
+  version: 2.8.7
+  resolution: "prettier@npm:2.8.7"
   bin:
     prettier: bin-prettier.js
-  checksum: b7f8d30e14061e0478bc5a59d4d889688d804c173a0daa91b1b85dc08eef5eb6956d1b59f4037770776fda5b967f6c9ca3b7a8a43c50bedb4c7b182029f865aa
+  checksum: fdc8f2616f099f5f0d685907f4449a70595a0fc1d081a88919604375989e0d5e9168d6121d8cc6861f21990b31665828e00472544d785d5940ea08a17660c3a6
   languageName: node
   linkType: hard
 
@@ -15134,9 +15134,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:5.5.0":
-  version: 5.5.0
-  resolution: "react-native-paper@npm:5.5.0"
+"react-native-paper@npm:5.5.1":
+  version: 5.5.1
+  resolution: "react-native-paper@npm:5.5.1"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.8
     color: ^3.1.2
@@ -15146,7 +15146,7 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
-  checksum: 1d433e5d48462a8a6477d979f7c9ae44278dfaf713d5f57ff218cfbd8d6f6556d42ace6d01cce410a922157242bd61f92bdf87e0cbd84c6231f1ab369af1777b
+  checksum: d4034074772657dc5be617adca4112402bcf344c3dcddb7763f64209f8a449ab2198484e53ece55136ad226e29360592cfc873172cbf093844788e2fed42521e
   languageName: node
   linkType: hard
 
