@@ -23,7 +23,9 @@ function TextListIdSentences(properties) {
 
   const sentences = properties.sentences.map((sentence, index) => (
     <Fragment key={index}>
-      <Box sx={{ fontSize: 'h4.fontSize', m: 2, paddingTop: '25px', direction: 'rtl' }}>{sentence.arabic}</Box>
+      <Box sx={{ fontSize: 'h4.fontSize', m: 2, paddingTop: '25px', direction: 'rtl' }}>
+        <h3 style={{ direction: 'rtl', fontSize: 33 }}>{sentence.arabic}</h3>
+      </Box>
       <Box sx={{ m: 2 }}>{sentence.english}</Box>
       <Button
         variant="text"
@@ -44,7 +46,9 @@ function TextListIdSentences(properties) {
         <DialogContentText id="alert-dialog-description">
           {sentencesToShow.map((word, index) => (
             <Fragment key={index}>
-              <Box sx={{ fontSize: 'h3.fontSize', m: 2, minWidth: '300px', direction: 'rtl' }}>{word.arabic}</Box>
+              <Box sx={{ fontSize: 'h3.fontSize', m: 2, minWidth: '300px', direction: 'rtl' }}>
+                <h3 style={{ direction: 'rtl', fontSize: 33 }}>{word.arabic}</h3>
+              </Box>
               <Box sx={{ m: 2 }}>{word.english.charAt(0).toUpperCase() + word.english.slice(1)}</Box>
               <Divider />
             </Fragment>

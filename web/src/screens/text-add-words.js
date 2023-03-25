@@ -1,3 +1,5 @@
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable security/detect-non-literal-fs-filename */
@@ -9,6 +11,8 @@ import React, { Fragment } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
 import TextAddWordsGetFromDatabase from './text-add-words-get-translations.js'
 import SearchIcon from '@mui/icons-material/Search'
+import BasicModal from '../components/basic-modal.js'
+import * as prompts from '../services/prompts.js'
 
 const selectorText = (state) => state.text
 
@@ -18,6 +22,16 @@ function TextAddWords() {
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
   const [postState, setPostState] = React.useState('')
   const [postMessage, setPostMessage] = React.useState('')
+  const [promptTitle, setPromptTitle] = React.useState('')
+  const [promptText, setPromptText] = React.useState('')
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = (promptTitle, promptText) => {
+    setOpen(true)
+    setPromptText(promptText)
+    setPromptTitle(promptTitle)
+  }
+  const handleClose = () => setOpen(false)
+
   const handleSave = async (arabic, english, arabicSentence, englishSentence, categoryLevel) => {
     const result = await api.postWord(arabic, english, arabicSentence, englishSentence, categoryLevel)
 
@@ -58,8 +72,11 @@ function TextAddWords() {
 
         {sentence.words.map((word, indexArabicWord) => (
           <Box sx={{ fontSize: 'h4.fontSize', fontWeight: 'bold' }} key={indexArabicWord}>
-            <Stack spacing={5} direction="row">
-              <Box sx={{ minWidth: '90px' }}>{word.arabic}</Box>
+            <br />
+            <Stack spacing={5} direction="row" style={{ marginBottom: -25 }}>
+              <Box sx={{ minWidth: '90px' }}>
+                <h3 style={{ direction: 'rtl', fontSize: 33, marginTop: 5 }}>{word.arabic}</h3>
+              </Box>
 
               <TextField
                 InputProps={{ style: { fontSize: 15 } }}
@@ -70,12 +87,7 @@ function TextAddWords() {
               />
             </Stack>
 
-            <Chip
-              label={`${indexSentence}:${indexArabicWord}`}
-              color="primary"
-              variant="outlined"
-              style={{ marginLeft: '130px' }}
-            />
+            <Chip label={`${indexSentence}:${indexArabicWord}`} color="secondary" style={{ marginLeft: '130px' }} />
 
             <Button
               onClick={async () => {
@@ -142,6 +154,24 @@ function TextAddWords() {
           </Box>
         ))}
       </Stack>
+      <Button
+        onClick={() => handleOpen('Verifying Sentence', prompts.getArabicAndEnglishText(sentence))}
+        variant="contained"
+        color="primary"
+        style={{ marginLeft: '130px' }}
+      >
+        Verify
+      </Button>
+      <Button
+        onClick={() => handleOpen('Word-by-Word Translation', prompts.getArabicAndEnglishSentence(sentence, text))}
+        variant="contained"
+        color="primary"
+        style={{ marginLeft: '10px' }}
+      >
+        Translate
+      </Button>
+      <Divider style={{ paddingBottom: '75px', opacity: 0 }} />
+      <BasicModal open={open} handleClose={handleClose} title={promptTitle} text={promptText} />
       <SnackBar
         openSnackBar={openSnackBar}
         handleCloseSnackbar={handleCloseSnackbar}
