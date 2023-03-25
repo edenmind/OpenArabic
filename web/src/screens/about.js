@@ -29,9 +29,13 @@ const About = () => {
       <Nav />
       <Container maxWidth="lg">
         <Typography component="div">
-          <Box sx={{ fontSize: title, m: 2 }}>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</Box>
+          <Box sx={{ fontSize: title, m: 2 }}>
+            <h3 style={{ fontSize: 33, textAlign: 'center' }}>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h3>
+          </Box>
 
-          <Box sx={{ fontSize: subTitle, m: 2 }}>Audience</Box>
+          <Box sx={{ fontSize: subTitle, m: 2 }}>
+            <h3 style={{ fontSize: subTitle }}>Audience</h3>
+          </Box>
 
           <Box sx={{ m: 2 }}>
             If you know some Arabic and strive to switch from reading Islamic texts in English to read in Arabic; then
@@ -47,13 +51,17 @@ const About = () => {
             might come in handy.
           </Box>
 
-          <Box sx={{ fontSize: subTitle, m: 2 }}>Technological Platform</Box>
+          <Box sx={{ m: 2 }}>
+            <h3 style={{ fontSize: subTitle }}>Technological Platform</h3>
+          </Box>
           <Box sx={{ m: 2 }}>
             The platform that OpenArabic runs upon is built using Open Source tools such as React Native, Fastify,
             MongoDB and Kubernetes.
           </Box>
 
-          <Box sx={{ fontSize: subTitle, m: 2 }}>Foundation</Box>
+          <Box sx={{ m: 2 }}>
+            <h3 style={{ fontSize: subTitle }}>Foundation</h3>
+          </Box>
           <Box sx={{ m: 2 }}>
             The theological foundation of OpenArabic is based upon the Qurʼān, the Prophetic Sunnah and the first
             generations of Muslims understanding with texts from Islamic Scholars such as:
@@ -61,7 +69,9 @@ const About = () => {
 
           <List>{authorsList}</List>
 
-          <Box sx={{ fontSize: subTitle, m: 2 }}>Founder</Box>
+          <Box sx={{ m: 2 }}>
+            <h3 style={{ fontSize: subTitle }}>Founder</h3>
+          </Box>
           <Box sx={{ m: 2 }}>
             OpenArabic.io was founded by Yūnus Andréasson in 1442 AH or 2020 AD. Yūnus is a convert to Islam since ~20
             years ago residing in Sweden working as a Software Developer. If you want to reach out, then please send an
@@ -69,7 +79,9 @@ const About = () => {
             <Link href="https://twitter.com/YunusAndreasson">Twitter</Link>.
           </Box>
 
-          <Box sx={{ fontSize: subTitle, m: 2 }}>Contact</Box>
+          <Box sx={{ m: 2 }}>
+            <h3 style={{ fontSize: subTitle }}>Contact</h3>
+          </Box>
           <Box sx={{ m: 2 }}>
             If you find any bugs 🐛 or have any feature suggestions 💭 on how to improve OpenArabic, then please use any
             of the following channels:.
