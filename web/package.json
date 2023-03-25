@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.143",
+  "version": "1444.4.144",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -41,7 +41,7 @@
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.41",
     "node-notifier": "^10.0.1",
-    "prettier": "^2.8.5",
+    "prettier": "^2.8.7",
     "putout": "^29.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
