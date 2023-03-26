@@ -38,7 +38,7 @@ export default function TextListCard(props) {
     })
   }
 
-  const style = StyleSheet.create({
+  const styles = StyleSheet.create({
     card: {
       margin: 10
     },
@@ -48,10 +48,22 @@ export default function TextListCard(props) {
       paddingBottom: 15,
       paddingTop: 5
     },
-
     cardTitle: {
       fontFamily: 'philosopher',
       paddingVertical: 5
+    },
+    chip: {
+      backgroundColor: paperDarkTheme.colors.onPrimary,
+      marginBottom: 5,
+      marginTop: 15,
+      width: 67
+    },
+    labelSmall: {
+      marginBottom: 10,
+      marginRight: 10,
+      marginTop: 10,
+      opacity: 0.7,
+      textAlign: 'right'
     }
   })
 
@@ -65,25 +77,16 @@ export default function TextListCard(props) {
   const english = props.text.texts.english && prepareIngress(props.text.texts.english, 125)
   const arabic = props.text.texts.arabic && prepareIngress(props.text.texts.arabic, 100)
   const hadithTitle = `${props.text.author} in ${props.text.source}`
-  const englishHadith = '"' + props.text.texts.english + '"'
+  const englishHadith = `"${props.text.texts.english}"`
 
   if (props.text.category == 'Quotes') {
     //it is a hadith
     return (
       <Animated.View style={animatedStyle}>
-        <Card style={style.card} testID="textCard" mode="elevated">
-          <Surface elevation={2}>
+        <Card style={styles.card} testID="textCard" mode="elevated">
+          <Surface elevation={1}>
             <Card.Content>
-              <Chip
-                compact={true}
-                mode="outlined"
-                style={{
-                  marginTop: 15,
-                  marginBottom: 5,
-                  width: 67,
-                  backgroundColor: paperDarkTheme.colors.onPrimary
-                }}
-              >
+              <Chip compact={true} mode="outlined" style={styles.chip}>
                 <Text style={{ textAlign: 'left' }}>Quote</Text>
               </Chip>
               <Divider style={{ ...sharedStyle.dividerHidden }} />
@@ -95,15 +98,12 @@ export default function TextListCard(props) {
               <Text variant="bodyLarge" style={sharedStyle.englishBody}>
                 {englishHadith}
               </Text>
-              <Text
-                variant="labelSmall"
-                style={{ marginTop: 10, marginBottom: 10, marginRight: 10, opacity: 0.7, textAlign: 'right' }}
-              >
+              <Text variant="labelSmall" style={styles.labelSmall}>
                 {props.text.timeAgo}
               </Text>
               <Divider style={sharedStyle.divider} />
             </Card.Content>
-            <Card.Actions style={{ ...style.cardAction, opacity: 1 }}>
+            <Card.Actions style={{ ...styles.cardAction, opacity: 1 }}>
               <PlaySound
                 audioFileName={
                   'https://openarabic.ams3.digitaloceanspaces.com/audio/' + props.text.sentences[0].filename
@@ -125,8 +125,8 @@ export default function TextListCard(props) {
   }
 
   return (
-    <Card style={style.card} testID="textCard" mode="elevated">
-      <Surface elevation={2}>
+    <Card style={styles.card} testID="textCard" mode="elevated">
+      <Surface elevation={1}>
         <TouchableOpacity
           activeOpacity={1}
           onPressIn={scaleCard}
@@ -144,7 +144,7 @@ export default function TextListCard(props) {
               title={props.text.title}
               subtitle={subtitle}
               titleVariant="headlineSmall"
-              titleStyle={style.cardTitle}
+              titleStyle={styles.cardTitle}
               subtitleVariant="labelMedium"
             />
             <Card.Content>
@@ -154,7 +154,7 @@ export default function TextListCard(props) {
               </Text>
               <Divider style={sharedStyle.divider} />
             </Card.Content>
-            <Card.Actions style={style.cardAction}>
+            <Card.Actions style={styles.cardAction}>
               <Text variant="labelSmall">{footer}</Text>
             </Card.Actions>
           </Animated.View>
