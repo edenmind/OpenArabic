@@ -89,8 +89,14 @@ async function getWords(request, reply) {
   const { query } = request
   const { numberOfWordsToPractice, difficultyLevel } = query
 
-  // eslint-disable-next-line putout/putout
-  console.log(numberOfWordsToPractice, difficultyLevel)
+  // if numberOfWordsToPractice and difficultyLevel are not provided then return all words
+  if (!numberOfWordsToPractice && !difficultyLevel) {
+    const allWords = await words.find().toArray()
+    // eslint-disable-next-line padding-line-between-statements
+    if (allWords) {
+      return reply.code(200).send(allWords)
+    }
+  }
 
   //set difficultyLevel to number
   const difficultyLevelNumber = Number(difficultyLevel)
