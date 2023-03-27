@@ -6,7 +6,7 @@
 
 ### 📚 Learn Arabic for reading the Qur'an and Islamic texts with OpenArabic, a cutting-edge platform that provides free apps for iPhone and Android.
 
-### 💻 Our platform is built with the latest technologies, including OpenAI, Flux2, Flagger, Terraform, Kubernetes, and React.
+### 💻 Our platform is built with the latest technologies, including OpenAI, Flux2, Flagger, Istio, Terraform, Kubernetes, MongoDB and React.
 
 ### 🌟 Join thousands of users who have benefitted from our platform and start your journey towards mastering Arabic today.
 
