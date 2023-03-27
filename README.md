@@ -4,6 +4,12 @@
 
 ![opeanarabic](https://pbs.twimg.com/profile_banners/1327982041099595776/1626038054/1500x500)
 
+📚 **Learn Arabic for reading the Qur'an and Islamic texts with OpenArabic.**
+
+💻 **Built with top technologies like OpenAI, Flux2, Flagger, Terraform, Kubernetes, and React.**
+
+🌟 **Follow our progress based on the Islamic calendar with our unique CalVer versioning and join us as we build the future of Islamic tech.**
+
 OpenArabic is a free and open-source Arabic language learning platform with a focus on classic Islamic texts. The target audience is primarily non-native speakers of Arabic who are interested in learning the language for the purpose of reading the Qur'an and other Islamic texts. The platform is currently in beta and is being developed by volunteers from all over the world. The project is open to contributions from anyone who is interested in helping to make the platform better.
 
 ## Theological Foundation
@@ -86,3 +92,5 @@ If you have skills in any of these technologies and an interest in helping take 
 ## Support
 
 If you need any help, then please drop an email to salam@edenmind.com or contact [@YunusAndreasson](https://twitter.com/YunusAndreasson) on Twitter.
+
+**Give us a ⭐ to support our mission and help us reach more people.**
