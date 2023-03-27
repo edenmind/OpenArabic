@@ -8,7 +8,9 @@
 
 💻 **Built with top technologies like OpenAI, Flux2, Flagger, Terraform, Kubernetes, and React.**
 
-🌟 **Follow our progress based on the Islamic calendar with our unique CalVer versioning and join us as we build the future of Islamic tech.**
+🌟 **Free apps for iPhone and Android.**
+
+[![Donload from App Store](https://web.openarabic.io/iphone.svg)](https://apps.apple.com/se/app/open-arabic/id1594031029?l=en) [![Download from Google Play](https://web.openarabic.io/android.svg)](https://play.google.com/store/apps/details?id=com.edenmind.OpenArabic)
 
 OpenArabic is a free and open-source Arabic language learning platform with a focus on classic Islamic texts. The target audience is primarily non-native speakers of Arabic who are interested in learning the language for the purpose of reading the Qur'an and other Islamic texts. The platform is currently in beta and is being developed by volunteers from all over the world. The project is open to contributions from anyone who is interested in helping to make the platform better.
 
@@ -49,11 +51,11 @@ You can also start the development environment with `docker-compose`:
 docker-compose --env-file ./docker-compose-default.env up
 ```
 
-## Branching Model
+### Branching Model
 
 We use the GitHub Flow branching model. The `main` branch is the default branch and is protected. All changes are made in feature branches, which are then merged into the `main` branch through the passing of a pull request. The `main` branch is deployed to production using progressive delivery techniques and GitOps principles. For more information, see [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow).
 
-## Versioning
+### Versioning
 
 We use [CalVer](https://calver.org/) for versioning. CalVer is a versioning convention based on the project's release calendar, instead of arbitrary numbers. The calendar is based on the Islamic calendar, and the version number is the year and month of the release. For example, the version number for the release in the month of Ramadan in the year 1444 AH would be `1444.09`.
 
@@ -89,7 +91,7 @@ If you have skills in any of these technologies and an interest in helping take 
 - [Facebook](https://www.facebook.com/openarabic.io)
 - [Twitter](https://twitter.com/openarabicio)
 
-## Support
+## Support 🫶
 
 If you need any help, then please drop an email to salam@edenmind.com or contact [@YunusAndreasson](https://twitter.com/YunusAndreasson) on Twitter.
 
