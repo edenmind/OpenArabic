@@ -4,11 +4,11 @@
 
 ![opeanarabic](https://pbs.twimg.com/profile_banners/1327982041099595776/1626038054/1500x500)
 
-📚 ## Learn Arabic for reading the Qur'an and Islamic texts with OpenArabic, a cutting-edge platform that provides free apps for iPhone and Android.
+## 📚 Learn Arabic for reading the Qur'an and Islamic texts with OpenArabic, a cutting-edge platform that provides free apps for iPhone and Android.
 
-💻 ## Our platform is built with the latest technologies, including OpenAI, Flux2, Flagger, Terraform, Kubernetes, and React.
+## 💻 Our platform is built with the latest technologies, including OpenAI, Flux2, Flagger, Terraform, Kubernetes, and React.
 
-🌟 ## Join thousands of users who have benefitted from our platform and start your journey towards mastering Arabic today.
+## 🌟 Join thousands of users who have benefitted from our platform and start your journey towards mastering Arabic today.
 
 [![Donload from App Store](https://web.openarabic.io/iphone.svg)](https://apps.apple.com/se/app/open-arabic/id1594031029?l=en) [![Download from Google Play](https://web.openarabic.io/android.svg)](https://play.google.com/store/apps/details?id=com.edenmind.OpenArabic)
 
