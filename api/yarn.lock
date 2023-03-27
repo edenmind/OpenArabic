@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -2988,12 +2988,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-empty@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "@putout/plugin-remove-empty@npm:9.0.0"
+"@putout/plugin-remove-empty@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@putout/plugin-remove-empty@npm:10.0.0"
   peerDependencies:
-    putout: ">=27"
-  checksum: 95f7763c8df78b5ef55f1a1bfe420a6cfbb4a29a5ef759608fbf0caf878188b302749ae22d24bf56a5c8937c6790fd1fda9bb6c3962131731cc27fb80bbc8428
+    putout: ">=29"
+  checksum: af6b75eff68a67ca3b7df9fadf4d2302b6252a542481b410fa7dbedce75e79d671052d50d78454c29aa4ba05f4be0e4d65be7460ac4e333ce61d09bc8f97f241
   languageName: node
   linkType: hard
 
@@ -3060,12 +3060,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-unused-variables@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@putout/plugin-remove-unused-variables@npm:4.0.0"
+"@putout/plugin-remove-unused-variables@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-remove-unused-variables@npm:5.0.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: 545fd39b73984f299eb6034d80940da86f8ae97312e9b29f455414ba76ed1cd204b26ccb0136ffd11c779842847da4a48e26f4c75cef80d55611082f71f93d1a
+    putout: ">=29"
+  checksum: 4c2e1f875df037d225c46a525a03fe93971bcf30ebd5a94b6d1bbe1f39ecb05d68d92bd6b0487ad079610d58f86163b56872b1f0d90a005680fe9ba7d627b5ce
   languageName: node
   linkType: hard
 
@@ -3941,7 +3941,7 @@ __metadata:
     moment: ^2.29.4
     mongodb: ^5.1.0
     prettier: ^2.8.7
-    putout: ^29.1.5
+    putout: ^29.1.6
     tap: ^16.3.4
     try-to-catch: ^3.0.1
     uuid: ^9.0.0
@@ -9607,9 +9607,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.1.5":
-  version: 29.1.5
-  resolution: "putout@npm:29.1.5"
+"putout@npm:^29.1.6":
+  version: 29.1.6
+  resolution: "putout@npm:29.1.6"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -9692,7 +9692,7 @@ __metadata:
     "@putout/plugin-remove-debugger": ^5.0.0
     "@putout/plugin-remove-duplicate-case": ^2.0.0
     "@putout/plugin-remove-duplicate-keys": ^3.0.0
-    "@putout/plugin-remove-empty": ^9.0.0
+    "@putout/plugin-remove-empty": ^10.0.0
     "@putout/plugin-remove-iife": ^4.0.0
     "@putout/plugin-remove-nested-blocks": ^6.0.0
     "@putout/plugin-remove-unreachable-code": ^1.0.0
@@ -9700,7 +9700,7 @@ __metadata:
     "@putout/plugin-remove-unused-expressions": ^5.0.0
     "@putout/plugin-remove-unused-for-of-variables": ^3.0.0
     "@putout/plugin-remove-unused-private-fields": ^2.0.0
-    "@putout/plugin-remove-unused-variables": ^4.0.0
+    "@putout/plugin-remove-unused-variables": ^5.0.0
     "@putout/plugin-remove-useless-arguments": ^6.0.0
     "@putout/plugin-remove-useless-array-constructor": ^1.0.0
     "@putout/plugin-remove-useless-array-entries": ^1.0.0
@@ -9756,7 +9756,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: f5f0c02c42bcdbe3f1c9767af78d8926e4d4b9224b3f0e6eef4b06efc11002899a83ece140e2910f8eb5324f3da1cd14113200300c9d8d0b4ed8364db565cb59
+  checksum: b28e96e515ef2d97f8a44cf36ebe44059599a71bb03aac91a1c3d78df92211730f9b744ecbef1dc03ef648a6420f5ef5844f257da1b22cd9141c7d067d317bdc
   languageName: node
   linkType: hard
 
@@ -11557,11 +11557,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
   languageName: node
   linkType: hard
 
