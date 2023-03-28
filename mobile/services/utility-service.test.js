@@ -1,5 +1,6 @@
 import * as util from './utility-service.js'
 import { expect, describe, it } from '@jest/globals'
+import { getHijriDateLatin } from './utility-service.js'
 describe('space', () => {
   it('should add space after dot', () => {
     // Arrange
@@ -105,21 +106,16 @@ describe('transliterateArabicToEnglish', () => {
     })
   })
 })
+describe('getHijriDateLatin', () => {
+  test('returns the hijri date in the format: 1444 AH, 6 Ramadan', () => {
+    // Mock the Date object to return a fixed date
+    const fixedDate = new Date('2023-04-22T00:00:00')
+    jest.spyOn(global, 'Date').mockImplementation(() => fixedDate)
 
-describe('shoud return correct hijridate', () => {
-  it('should return correct hijridate', () => {
-    // Arrange
+    const hijriDate = getHijriDateLatin()
+    expect(hijriDate).toMatch('1444 AH Shawwal 1')
 
-    const expectedDate = new Date().toLocaleDateString('ar-SA-u-ca-islamic-civil', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
-
-    // Act
-    const hijriDate = util.getHijriDate()
-
-    // Assert
-    expect(hijriDate).toBe(expectedDate)
+    // Clean up the Date mock
+    jest.restoreAllMocks()
   })
 })
