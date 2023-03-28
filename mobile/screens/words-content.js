@@ -16,6 +16,11 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10
   },
+  footer: {
+    fontFamily: 'philosopher',
+    fontSize: 15,
+    opacity: 0.8
+  },
   surface: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -177,13 +182,16 @@ const WordsContent = (props) => {
           )}
         </Text>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+        <Text
+          style={{ ...styles.footer, width: '95%', padding: 15 }}
+        >{`Source: ${props.source} - ${props.author}`}</Text>
       </Surface>
 
       <SnackButton
         visible={props.celebrationSnackBarVisibility}
         onDismissSnackBar={onDismissSnackBar}
         duration={2500}
-        text="Congratulations! You have completed the practice! 🎉"
+        text="Congratulations! You've successfully completed the practice! 🎉"
       />
 
       {buttons.map((button, index) => (
@@ -202,5 +210,7 @@ WordsContent.propTypes = {
   currentWordIndex: PropTypes.number.isRequired,
   handleSetCurrentWordIndex: PropTypes.func.isRequired,
   celebrationSnackBarVisibility: PropTypes.bool.isRequired,
-  handleSetCelebrationSnackBarVisibility: PropTypes.func.isRequired
+  handleSetCelebrationSnackBarVisibility: PropTypes.func.isRequired,
+  source: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired
 }
