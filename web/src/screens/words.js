@@ -23,19 +23,105 @@ export default function Words() {
       field: 'arabic',
       headerName: 'Arabic',
       width: 250,
-      editable: false
+      editable: false,
+      valueGetter: (params) => {
+        return params.value || ''
+      },
+      renderCell: (params) => {
+        return (
+          <div
+            style={{
+              fontSize: 35,
+              direction: 'rtl'
+            }}
+          >
+            {params.value || ''}
+          </div>
+        )
+      }
     },
     {
       field: 'english',
       headerName: 'English',
-      width: 450,
+      width: 250,
+      editable: false,
+      valueGetter: (params) => {
+        return params.value || ''
+      },
+      renderCell: (params) => {
+        return (
+          <div
+            style={{
+              fontSize: 15
+            }}
+          >
+            {params.value || ''}
+          </div>
+        )
+      }
+    },
+    {
+      field: 'source',
+      headerName: 'Source',
+      width: 100,
       editable: false
     },
     {
-      field: 'sentence',
-      headerName: 'Sentence',
-      width: 750,
+      field: 'author',
+      headerName: 'Author',
+      width: 100,
       editable: false
+    },
+    {
+      field: 'categoryLevel',
+      headerName: 'Level',
+      width: 100,
+      editable: false
+    },
+    {
+      field: 'arabicSentence',
+      headerName: 'Arabic Sentence',
+      width: 750,
+      editable: false,
+      valueGetter: (params) => {
+        return params.value || ''
+      },
+      renderCell: (params) => {
+        return (
+          <div
+            style={{
+              whiteSpace: 'pre-wrap',
+              lineHeight: 3.5,
+              fontSize: 25 // set your desired font size
+            }}
+          >
+            {params.value || ''}
+          </div>
+        )
+      }
+    },
+    {
+      field: 'englishSentence',
+      headerName: 'English Sentence',
+      width: 750,
+      editable: false,
+      cellClassName: 'word-wrap',
+      valueGetter: (params) => {
+        return params.value || ''
+      },
+      renderCell: (params) => {
+        return (
+          <div
+            style={{
+              whiteSpace: 'pre-wrap',
+              lineHeight: 3.5,
+              fontSize: 15 // set your desired font size
+            }}
+          >
+            {params.value || ''}
+          </div>
+        )
+      }
     },
     {
       field: 'actions',
@@ -111,9 +197,9 @@ export default function Words() {
   ) : (
     <React.Fragment>
       <Nav />
-      <Container maxWidth="false">
+      <Container maxWidth="true">
         <h2>Words</h2>
-        <div style={{ height: 800, width: '100%', paddingBottom: '35px', fontSize: '21px' }}>
+        <div style={{ height: 800, width: '100%', paddingBottom: '35px', fontSize: '17px' }}>
           {words !== undefined && (
             <DataGrid
               rows={words}

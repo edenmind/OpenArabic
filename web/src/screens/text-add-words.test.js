@@ -1,3 +1,5 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 import TextAddWords from './text-add-words.js'
 import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6

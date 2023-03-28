@@ -15,3 +15,18 @@ it('renders without crashing', () => {
     </Provider>
   )
 })
+
+it('should match snapshot', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(
+    <Provider store={store}>
+      <NavigationContainer>
+        <WordsContent />
+      </NavigationContainer>
+    </Provider>
+  )
+
+  const result = renderer.getRenderOutput()
+
+  expect(result).toMatchSnapshot()
+})

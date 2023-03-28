@@ -70,7 +70,7 @@ test('words should be returned based on the query parameters for level 3', async
   t.equal(words.statusCode, 200)
 })
 
-test('cannot add word if Arabic or English word is empty', async (t) => {
+test('cannot add word if English word is empty', async (t) => {
   // arrange
   const app = await build(t)
 
@@ -80,8 +80,7 @@ test('cannot add word if Arabic or English word is empty', async (t) => {
     method: 'POST',
     payload: {
       word: {
-        arabic: '',
-        english: 'the_translation'
+        arabic: ''
       }
     }
   })
@@ -122,7 +121,7 @@ test('cannot add duplicate word', async (t) => {
   t.equal(response.statusCode, 400)
 })
 
-test('cannot add word if Arabic or English word is not provided', async (t) => {
+test('cannot add word if Arabic word is not provided', async (t) => {
   // arrange
   const app = await build(t)
 
@@ -133,6 +132,48 @@ test('cannot add word if Arabic or English word is not provided', async (t) => {
     payload: {
       word: {
         english: 'the_translation'
+      }
+    }
+  })
+
+  // assert
+  t.equal(response.statusCode, 400)
+})
+
+test('csnnot att word if sentenceEnglish is not provided', async (t) => {
+  // arrange
+  const app = await build(t)
+
+  // act
+  const response = await app.inject({
+    url: '/words',
+    method: 'POST',
+    payload: {
+      word: {
+        arabic: 'the_word',
+        english: 'the_translation',
+        sentenceArabic: 'the_sentence'
+      }
+    }
+  })
+
+  // assert
+  t.equal(response.statusCode, 400)
+})
+
+test('cannot add word if sentenceArabic is not provided', async (t) => {
+  // arrange
+  const app = await build(t)
+
+  // act
+  const response = await app.inject({
+    url: '/words',
+    method: 'POST',
+    payload: {
+      word: {
+        arabic: 'the_word',
+        english: 'the_translation',
+        sentenceEnglish: 'the_sentence'
       }
     }
   })

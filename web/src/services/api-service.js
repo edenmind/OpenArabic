@@ -15,16 +15,7 @@ export const getTranslation = async (arabicWord) => {
   return translatedText
 }
 
-export const postWord = async (arabic, english, arabicSentence, englishSentence, categoryLevel, quiz) => {
-  const word = {
-    arabic,
-    english,
-    arabicSentence,
-    englishSentence,
-    categoryLevel,
-    quiz
-  }
-
+export const postWord = async (word) => {
   const url = `${process.env.REACT_APP_API_URL}/words`
 
   const result = await axios({
@@ -34,7 +25,15 @@ export const postWord = async (arabic, english, arabicSentence, englishSentence,
       word
     }
   }).catch((error) => {
-    return { message: error.response.data.message, state: 'error' }
+    if (error.response) {
+      return { message: error.response.data.message, state: 'error' }
+    }
+
+    if (error.request) {
+      return { message: 'There was a problem with the request', state: 'error' }
+    }
+
+    return { message: error.message, state: 'error' }
   })
 
   if (result.status === 201) {
@@ -46,7 +45,6 @@ export const postWord = async (arabic, english, arabicSentence, englishSentence,
 
 export const getWord = async (arabicWord) => {
   const url = `${process.env.REACT_APP_API_URL}/words/${arabicWord}`
-  console.log('getting:', arabicWord)
   const result = await axios({
     method: 'get',
     url

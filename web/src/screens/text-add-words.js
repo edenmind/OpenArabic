@@ -32,8 +32,8 @@ function TextAddWords() {
   }
   const handleClose = () => setOpen(false)
 
-  const handleSave = async (arabic, english, arabicSentence, englishSentence, categoryLevel) => {
-    const result = await api.postWord(arabic, english, arabicSentence, englishSentence, categoryLevel)
+  const handleSave = async (word) => {
+    const result = await api.postWord(word)
 
     setOpenSnackbar(true)
     setPostMessage(result.message)
@@ -98,6 +98,7 @@ function TextAddWords() {
               Fetch
             </Button>
             <Button
+              data-testid="Save"
               onClick={async () => {
                 //get all categories by using the api getCategories
                 const categories = await api.getCategories()
@@ -105,8 +106,21 @@ function TextAddWords() {
                 //get the category level property of the category with the name text.category
                 const categoryLevel = categories.find((category) => category.name === text.category).level
 
+                const translation = {
+                  textId: text.id,
+                  sentenceId: sentence.id,
+                  wordId: word.id,
+                  author: text.author,
+                  source: text.source,
+                  arabic: word.arabic,
+                  english: word.english,
+                  arabicSentence: sentence.arabic,
+                  englishSentence: sentence.english,
+                  categoryLevel
+                }
+
                 //call the handleSave function
-                handleSave(word.arabic, word.english, sentence.arabic, sentence.english, categoryLevel)
+                handleSave(translation)
               }}
             >
               Save

@@ -12,13 +12,29 @@ const postWordOptions = {
       properties: {
         word: {
           type: 'object',
-          required: ['arabic', 'english'],
+          required: [
+            'arabic',
+            'english',
+            'arabicSentence',
+            'englishSentence',
+            'categoryLevel',
+            'author',
+            'source',
+            'textId',
+            'sentenceId',
+            'wordId'
+          ],
           properties: {
             arabic: { type: 'string', minLength: 1 },
             english: { type: 'string', minLength: 1 },
             arabicSentence: { type: 'string', minLength: 1 },
             englishSentence: { type: 'string', minLength: 1 },
-            categoryLevel: { type: 'number', minimum: 1, maximum: 50 }
+            categoryLevel: { type: 'number', minimum: 1, maximum: 50 },
+            author: { type: 'string', minLength: 1 },
+            source: { type: 'string', minLength: 1 },
+            textId: { type: 'string', minLength: 1 },
+            sentenceId: { type: 'string', minLength: 1 },
+            wordId: { type: 'string', minLength: 1 }
           }
         }
       }
@@ -44,7 +60,12 @@ const getWordOptions = {
           alternative2: { type: 'string' },
           arabicSentence: { type: 'string' },
           englishSentence: { type: 'string' },
-          categoryLevel: { type: 'string' }
+          categoryLevel: { type: 'string' },
+          author: { type: 'string' },
+          source: { type: 'string' },
+          textId: { type: 'string' },
+          sentenceId: { type: 'string' },
+          wordId: { type: 'string' }
         }
       }
     }
@@ -86,7 +107,12 @@ const getWordsOptions = {
             arabicSentence: { type: 'string' },
             englishSentence: { type: 'string' },
             categoryLevel: { type: 'string' },
-            id: { type: 'string' }
+            author: { type: 'string', minLength: 1 },
+            source: { type: 'string', minLength: 1 },
+            id: { type: 'string' },
+            textId: { type: 'string' },
+            sentenceId: { type: 'string' },
+            wordId: { type: 'string' }
           }
         }
       }
@@ -118,6 +144,8 @@ const updateWordOptions = {
           arabic: { type: 'string', minLength: 1 },
           english: { type: 'string', minLength: 1 },
           sentence: { type: 'string', minLength: 5 },
+          author: { type: 'string', minLength: 1 },
+          source: { type: 'string', minLength: 1 },
           categoryLevel: { type: 'number', minimum: 1, maximum: 50 }
         }
       }
