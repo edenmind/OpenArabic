@@ -35,10 +35,7 @@ function TextBilingualSentencesWordPairs(props) {
     }
   })
 
-  // Remove duplicate words
-  const distinctValues = props.words.filter(
-    (item, index, self) => index === self.findIndex((t) => t.arabic === item.arabic)
-  )
+  const distinctValues = [...new Set(props.words.filter((word) => word.arabic && word.english))]
 
   return distinctValues.map((word, index) => (
     <Fragment key={index}>

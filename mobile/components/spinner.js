@@ -5,8 +5,13 @@ import { StyleSheet } from 'react-native'
 const style = StyleSheet.create({
   container: {
     alignItems: 'center',
+    bottom: 0,
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0
   }
 })
 

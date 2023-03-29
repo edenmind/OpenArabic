@@ -1,6 +1,7 @@
 import * as util from './utility-service.js'
 import { expect, describe, it } from '@jest/globals'
-import { getHijriDateLatin } from './utility-service.js'
+import { getHijriDateLatin, prepareIngress, removeLineBreak, addSpaceAfterDot } from './utility-service.js'
+
 describe('space', () => {
   it('should add space after dot', () => {
     // Arrange
@@ -13,6 +14,36 @@ describe('space', () => {
 
     // Assert
     expect(spacedActual).toEqual(spaced)
+  })
+})
+
+describe('prepareIngress', () => {
+  describe('prepareIngress', () => {
+    it('should return truncated text with removed line breaks and spaces added after dots', () => {
+      const text = 'This is a test.\nWith line breaks,\nand extra spaces.!'
+      const length = 20
+      const expectedOutput = 'This is a test....'
+
+      expect(prepareIngress(text, length)).toEqual(expectedOutput)
+    })
+  })
+
+  describe('removeLineBreak', () => {
+    it('should remove line breaks from a given string', () => {
+      const stringWithLineBreaks = 'This\nis\na\ntest.'
+      const expectedOutput = 'Thisisatest.'
+
+      expect(removeLineBreak(stringWithLineBreaks)).toEqual(expectedOutput)
+    })
+  })
+
+  describe('addSpaceAfterDot', () => {
+    it('should add a space after dots in a given string', () => {
+      const text = 'This is a test. With punctuation, like: this one. And, this one!'
+      const expectedOutput = 'This is a test. With punctuation, like: this one. And, this one!'
+
+      expect(addSpaceAfterDot(text)).toEqual(expectedOutput)
+    })
   })
 })
 describe('remove linebreaks', () => {

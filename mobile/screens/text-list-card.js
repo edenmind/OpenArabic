@@ -10,6 +10,35 @@ import { useSharedStyles } from '../styles/common.js'
 import PlaySound from '../components/play-sound.js'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 
+const styles = StyleSheet.create({
+  card: {
+    margin: 10
+  },
+  cardAction: {
+    marginRight: 10,
+    opacity: 0.7,
+    paddingBottom: 15,
+    paddingTop: 5
+  },
+  cardTitle: {
+    fontFamily: 'philosopher',
+    paddingVertical: 5
+  },
+  chip: {
+    backgroundColor: paperDarkTheme.colors.onPrimary,
+    marginBottom: 5,
+    marginTop: 15,
+    width: 67
+  },
+  labelSmall: {
+    marginBottom: 10,
+    marginRight: 10,
+    marginTop: 10,
+    opacity: 0.7,
+    textAlign: 'right'
+  }
+})
+
 export default function TextListCard(props) {
   const sharedStyle = useSharedStyles()
   const [scaleValue] = useState(new Animated.Value(1))
@@ -30,42 +59,14 @@ export default function TextListCard(props) {
     }).start()
   }
 
-  const onShare = async (arabic, english, hadithTitle) => {
+  // After
+  const onShare = React.useCallback(async (arabic, english, hadithTitle) => {
     await Share.share({
       title: 'Open Arabic',
       message: `${arabic}\n\n"${english}"\n\n${hadithTitle} \n`,
       url: 'https://openarabic.app.link'
     })
-  }
-
-  const styles = StyleSheet.create({
-    card: {
-      margin: 10
-    },
-    cardAction: {
-      marginRight: 10,
-      opacity: 0.7,
-      paddingBottom: 15,
-      paddingTop: 5
-    },
-    cardTitle: {
-      fontFamily: 'philosopher',
-      paddingVertical: 5
-    },
-    chip: {
-      backgroundColor: paperDarkTheme.colors.onPrimary,
-      marginBottom: 5,
-      marginTop: 15,
-      width: 67
-    },
-    labelSmall: {
-      marginBottom: 10,
-      marginRight: 10,
-      marginTop: 10,
-      opacity: 0.7,
-      textAlign: 'right'
-    }
-  })
+  }, [])
 
   const animatedStyle = {
     transform: [{ scale: scaleValue }]
