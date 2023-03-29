@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import { store } from '../redux/store.js'
 import { NavigationContainer } from '@react-navigation/native'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
-import { render, fireEvent } from '@testing-library/react-native'
 
 it('renders without crashing', () => {
   const renderer = new ShallowRenderer()
