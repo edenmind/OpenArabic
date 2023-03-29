@@ -2390,27 +2390,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@eslint/eslintrc@npm:2.0.1"
+"@eslint/eslintrc@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@eslint/eslintrc@npm:2.0.2"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
-    espree: ^9.5.0
+    espree: ^9.5.1
     globals: ^13.19.0
     ignore: ^5.2.0
     import-fresh: ^3.2.1
     js-yaml: ^4.1.0
     minimatch: ^3.1.2
     strip-json-comments: ^3.1.1
-  checksum: 56b9192a687a450db53a7b883daf9f0f447c43b3510189cf88808a7a2467c2a302a42a50f184cc6d5a9faf3d1df890a2ef0fd0d60b751f32a3e9dfea717c6b48
+  checksum: cfcf5e12c7b2c4476482e7f12434e76eae16fcd163ee627309adb10b761e5caa4a4e52ed7be464423320ff3d11eca5b50de5bf8be3e25834222470835dd5c801
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.36.0":
-  version: 8.36.0
-  resolution: "@eslint/js@npm:8.36.0"
-  checksum: b7d6b84b823c8c7784be390741196617565527b1f7c0977fde9455bfb57fd88f81c074a03dd878757d2c33fa29f24291e9ecbc1425710f067917324b55e1bf3a
+"@eslint/js@npm:8.37.0":
+  version: 8.37.0
+  resolution: "@eslint/js@npm:8.37.0"
+  checksum: 7a07fb085c94ce1538949012c292fd3a6cd734f149bc03af6157dfbd8a7477678899ef57b4a27e15b36470a997389ad79a0533d5880c71e67720ae1a7de7c62d
   languageName: node
   linkType: hard
 
@@ -3691,12 +3691,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-optional-chaining@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "@putout/plugin-apply-optional-chaining@npm:2.0.2"
+"@putout/plugin-apply-optional-chaining@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-apply-optional-chaining@npm:3.0.0"
   peerDependencies:
-    putout: ">=9"
-  checksum: af8ae9dbf7e7e2fc36c9403be1be033973167b95b3263577f3547fdca1c1a05703a5f6cdb537acc079e789fd0f4a16efbf482f1342d6be8f68d74766b43a954b
+    putout: ">=29"
+  checksum: e49286631d9ab270e50c67b9e9146c3b00c9a0c4dd6c3c2610aa4ed0b7a09fcf98c2cdb182987036b3206511669b24ff935b4e5ce0fd7abe9ae3534ed1cc4d34
   languageName: node
   linkType: hard
 
@@ -3810,12 +3810,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-index-of-to-includes@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "@putout/plugin-convert-index-of-to-includes@npm:1.1.0"
+"@putout/plugin-convert-index-of-to-includes@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "@putout/plugin-convert-index-of-to-includes@npm:2.0.1"
   peerDependencies:
-    putout: ">=8"
-  checksum: 57d1107914a344111dc8b7b59560e854e88bebbcd7066bb75b0b0bc73498fe5ec86f931d87bc584d720dd605eedad51f24091207f511a2041d32dd35a69ab580
+    putout: ">=29"
+  checksum: 81ee28b0ce1a455a3101080f51f865a88357d86e78a7762cf9e0fc08764a53120ec80979b85955bd2ad09c3ab4a0c740cdc1cabd8785a79946e56e1e36172f4e
   languageName: node
   linkType: hard
 
@@ -3891,12 +3891,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-eslint@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "@putout/plugin-eslint@npm:4.2.0"
+"@putout/plugin-eslint@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-eslint@npm:5.0.0"
   peerDependencies:
-    putout: ">=26"
-  checksum: 900852f2c41b88fe1a219ed93d0e6a0a103cda3c21711bd9d37442b1b3ce677fbbfcb49a8806d9fa10ab46c37ccb6e479a8373acfbc9a9d9754d6051e7d296bc
+    putout: ">=29"
+  checksum: dfce38790d899ae68d1cde18ab2573f04f940158b265b8bb3e9819c7652459e6f87fd8a802ca7ff6f063323644e7236dc285c860d9d6cf0245de436c6a0fdc86
   languageName: node
   linkType: hard
 
@@ -4109,12 +4109,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-console@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@putout/plugin-remove-console@npm:5.0.0"
+"@putout/plugin-remove-console@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-remove-console@npm:6.0.0"
   peerDependencies:
-    putout: ">=27"
-  checksum: 3b7b8f8eb92cded9e374cba59677ffac24e8c51ee6d1bb716f94fd71e805b3db2fe29662cc6153727bf6638856df4d06a146a91ec42cc446b726ed2227029334
+    putout: ">=29"
+  checksum: 69bb66bed5975d99028a9a9672f565c8e4d81497863a40c1137fb7fd8eec7c41aab00a1e1b79791413513c2ed81d59dfaa54ded2ab0f97148276fe37c5ced778
   languageName: node
   linkType: hard
 
@@ -4156,12 +4156,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-empty@npm:^9.0.0":
-  version: 9.1.0
-  resolution: "@putout/plugin-remove-empty@npm:9.1.0"
+"@putout/plugin-remove-empty@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@putout/plugin-remove-empty@npm:10.0.0"
   peerDependencies:
-    putout: ">=27"
-  checksum: 13842341a03855e0cda83ba940a023c75ca7d64d06bacbcfbc64b6bf14aac95529cb49c83528170a81b7761465703a2adbc16121e6576638f3b496d0b132b125
+    putout: ">=29"
+  checksum: af6b75eff68a67ca3b7df9fadf4d2302b6252a542481b410fa7dbedce75e79d671052d50d78454c29aa4ba05f4be0e4d65be7460ac4e333ce61d09bc8f97f241
   languageName: node
   linkType: hard
 
@@ -4228,12 +4228,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-unused-variables@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "@putout/plugin-remove-unused-variables@npm:4.1.0"
+"@putout/plugin-remove-unused-variables@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-remove-unused-variables@npm:5.0.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: 4b6beab1fad9fcfc021d3474a5c203b411939f3c5475459e147f234d10d27775457c914b85392ae5d63c759ea40ea6e4961e10ac9043a511c7aae986279a69c9
+    putout: ">=29"
+  checksum: 4c2e1f875df037d225c46a525a03fe93971bcf30ebd5a94b6d1bbe1f39ecb05d68d92bd6b0487ad079610d58f86163b56872b1f0d90a005680fe9ba7d627b5ce
   languageName: node
   linkType: hard
 
@@ -4593,14 +4593,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:1.17.11":
-  version: 1.17.11
-  resolution: "@react-native-async-storage/async-storage@npm:1.17.11"
+"@react-native-async-storage/async-storage@npm:1.18.1":
+  version: 1.18.1
+  resolution: "@react-native-async-storage/async-storage@npm:1.18.1"
   dependencies:
     merge-options: ^3.0.4
   peerDependencies:
-    react-native: ^0.0.0-0 || 0.60 - 0.71 || 1000.0.0
-  checksum: 691f2b74498160d0b532f673402d8affeecb28b005b1c6d6fa2e7c87f89ab3068177e8e2d2686738306e7592a39c6d7148aa4c426b7e8e149c43a336ad446648
+    react-native: ^0.0.0-0 || 0.60 - 0.72 || 1000.0.0
+  checksum: 58c8497fafdd4d112c4a70b0976783abdc6fa487f0cffca196901efd146fc838dee0cf498fdc4ef67a4634ba4ca97d60fec5a24720aea1d46f1999b0ba8b249b
   languageName: node
   linkType: hard
 
@@ -6106,15 +6106,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios-mock-adapter@npm:^1.21.2":
-  version: 1.21.2
-  resolution: "axios-mock-adapter@npm:1.21.2"
+"axios-mock-adapter@npm:^1.21.3":
+  version: 1.21.3
+  resolution: "axios-mock-adapter@npm:1.21.3"
   dependencies:
     fast-deep-equal: ^3.1.3
     is-buffer: ^2.0.5
   peerDependencies:
     axios: ">= 0.17.0"
-  checksum: 0d334838a819597f49fd5bf807e2a46cd846397cbea734fd53dcb425dee914e2d3e57cff65eb36af70cdbba848416c48979b75223afbfc1ab49789fd12011618
+  checksum: c7b12b95f0c028c39893f1c992758bb5ccb44fc238522c3b9d6927b37f6a5c0332183ad20429ff86bf3832ae5516efdece11e68818c81808a10e5707dd8ba1f8
   languageName: node
   linkType: hard
 
@@ -8257,9 +8257,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^17.1.0":
-  version: 17.1.0
-  resolution: "eslint-plugin-putout@npm:17.1.0"
+"eslint-plugin-putout@npm:^17.2.1":
+  version: 17.2.1
+  resolution: "eslint-plugin-putout@npm:17.2.1"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -8279,7 +8279,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=29"
-  checksum: 4ef0f9ca3c944fda0c904b5f50d676b409755f6d3e1b511d6b30142eedfb6576ccc3b07f170d02312a13ce234259bbe7b3ddfb665c1999e3565b4b4bbff9b2d1
+  checksum: 4c6ff9ba91fca1b4a31a858b5e027cf6b8eb654587cddfb96913d82e6c173f031a64d5aecc96cc048f047479e4c4ae93db194b7c1dfaa217bd99d93ce20a74c7
   languageName: node
   linkType: hard
 
@@ -8476,14 +8476,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.36.0":
-  version: 8.36.0
-  resolution: "eslint@npm:8.36.0"
+"eslint-visitor-keys@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "eslint-visitor-keys@npm:3.4.0"
+  checksum: 33159169462d3989321a1ec1e9aaaf6a24cc403d5d347e9886d1b5bfe18ffa1be73bdc6203143a28a606b142b1af49787f33cff0d6d0813eb5f2e8d2e1a6043c
+  languageName: node
+  linkType: hard
+
+"eslint@npm:^8.37.0":
+  version: 8.37.0
+  resolution: "eslint@npm:8.37.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@eslint-community/regexpp": ^4.4.0
-    "@eslint/eslintrc": ^2.0.1
-    "@eslint/js": 8.36.0
+    "@eslint/eslintrc": ^2.0.2
+    "@eslint/js": 8.37.0
     "@humanwhocodes/config-array": ^0.11.8
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -8494,8 +8501,8 @@ __metadata:
     doctrine: ^3.0.0
     escape-string-regexp: ^4.0.0
     eslint-scope: ^7.1.1
-    eslint-visitor-keys: ^3.3.0
-    espree: ^9.5.0
+    eslint-visitor-keys: ^3.4.0
+    espree: ^9.5.1
     esquery: ^1.4.2
     esutils: ^2.0.2
     fast-deep-equal: ^3.1.3
@@ -8522,7 +8529,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: e9a961fc3b3de5cff5a1cb2c92eeffaa7e155a715489e30b3e1e76f186bd1255e0481e09564f2094733c0b1dbd3453499fb72ae7c043c83156e11e6d965b2304
+  checksum: 80f3d5cdce2d671f4794e392d234a78d039c347673defb0596268bd481e8f30a53d93c01ff4f66a546c87d97ab4122c0e9cafe1371f87cb03cee6b7d5aa97595
   languageName: node
   linkType: hard
 
@@ -8537,14 +8544,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.5.0":
-  version: 9.5.0
-  resolution: "espree@npm:9.5.0"
+"espree@npm:^9.5.1":
+  version: 9.5.1
+  resolution: "espree@npm:9.5.1"
   dependencies:
     acorn: ^8.8.0
     acorn-jsx: ^5.3.2
-    eslint-visitor-keys: ^3.3.0
-  checksum: a7f110aefb6407e0d3237aa635ab3cea87106ae63748dd23c67031afccc640d04c4209fca2daf16e2233c82efb505faead0fb84097478fd9cc6e8f8dd80bf99d
+    eslint-visitor-keys: ^3.4.0
+  checksum: cdf6e43540433d917c4f2ee087c6e987b2063baa85a1d9cdaf51533d78275ebd5910c42154e7baf8e3e89804b386da0a2f7fad2264d8f04420e7506bf87b3b88
   languageName: node
   linkType: hard
 
@@ -13400,7 +13407,7 @@ __metadata:
     "@bugsnag/expo": ^48.0.0
     "@bugsnag/plugin-expo-eas-sourcemaps": ^48.0.0
     "@bugsnag/source-maps": ^2.3.1
-    "@react-native-async-storage/async-storage": 1.17.11
+    "@react-native-async-storage/async-storage": 1.18.1
     "@react-native-community/netinfo": 9.3.7
     "@react-navigation/drawer": ^6.6.2
     "@react-navigation/material-bottom-tabs": ^6.2.15
@@ -13411,14 +13418,14 @@ __metadata:
     "@testing-library/react-native": ^11.2.0
     "@types/jest": ^29.1.1
     axios: ^1.3.4
-    axios-mock-adapter: ^1.21.2
+    axios-mock-adapter: ^1.21.3
     axios-retry: ^3.4.0
     deepmerge: ^4.3.1
-    eslint: ^8.36.0
+    eslint: ^8.37.0
     eslint-config-prettier: ^8.8.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^17.1.0
+    eslint-plugin-putout: ^17.2.1
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-native: ^4.0.0
@@ -13442,7 +13449,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.7
     prop-types: ^15.8.1
-    putout: ^29.1.5
+    putout: ^29.1.10
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.3
@@ -13450,7 +13457,7 @@ __metadata:
     react-native-gesture-handler: ~2.9.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 6.1.2
-    react-native-paper: 5.5.1
+    react-native-paper: 5.5.2
     react-native-reanimated: ~2.14.4
     react-native-safe-area-context: 4.5.0
     react-native-screens: ~3.20.0
@@ -14751,9 +14758,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.1.5":
-  version: 29.1.5
-  resolution: "putout@npm:29.1.5"
+"putout@npm:^29.1.10":
+  version: 29.1.10
+  resolution: "putout@npm:29.1.10"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14786,7 +14793,7 @@ __metadata:
     "@putout/plugin-apply-destructuring": ^6.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
     "@putout/plugin-apply-flat-map": ^2.0.0
-    "@putout/plugin-apply-optional-chaining": ^2.0.0
+    "@putout/plugin-apply-optional-chaining": ^3.0.0
     "@putout/plugin-apply-template-literals": ^1.0.0
     "@putout/plugin-browserlist": ^1.0.0
     "@putout/plugin-conditions": ^1.0.0
@@ -14799,7 +14806,7 @@ __metadata:
     "@putout/plugin-convert-concat-to-flat": ^1.0.0
     "@putout/plugin-convert-const-to-let": ^1.0.0
     "@putout/plugin-convert-esm-to-commonjs": ^5.0.0
-    "@putout/plugin-convert-index-of-to-includes": ^1.0.0
+    "@putout/plugin-convert-index-of-to-includes": ^2.0.0
     "@putout/plugin-convert-mock-require-to-mock-import": ^4.0.0
     "@putout/plugin-convert-object-assign-to-merge-spread": ^6.0.0
     "@putout/plugin-convert-quotes-to-backticks": ^2.0.0
@@ -14808,7 +14815,7 @@ __metadata:
     "@putout/plugin-declare": ^1.0.1
     "@putout/plugin-declare-before-reference": ^2.0.0
     "@putout/plugin-declare-imports-first": ^2.0.0
-    "@putout/plugin-eslint": ^4.2.0
+    "@putout/plugin-eslint": ^5.0.0
     "@putout/plugin-extract-object-properties": ^8.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
     "@putout/plugin-for-of": ^1.0.0
@@ -14831,12 +14838,12 @@ __metadata:
     "@putout/plugin-putout": ^12.0.0
     "@putout/plugin-putout-config": ^2.0.0
     "@putout/plugin-regexp": ^6.0.0
-    "@putout/plugin-remove-console": ^5.0.0
+    "@putout/plugin-remove-console": ^6.0.0
     "@putout/plugin-remove-constant-conditions": ^4.0.0
     "@putout/plugin-remove-debugger": ^5.0.0
     "@putout/plugin-remove-duplicate-case": ^2.0.0
     "@putout/plugin-remove-duplicate-keys": ^3.0.0
-    "@putout/plugin-remove-empty": ^9.0.0
+    "@putout/plugin-remove-empty": ^10.0.0
     "@putout/plugin-remove-iife": ^4.0.0
     "@putout/plugin-remove-nested-blocks": ^6.0.0
     "@putout/plugin-remove-unreachable-code": ^1.0.0
@@ -14844,7 +14851,7 @@ __metadata:
     "@putout/plugin-remove-unused-expressions": ^5.0.0
     "@putout/plugin-remove-unused-for-of-variables": ^3.0.0
     "@putout/plugin-remove-unused-private-fields": ^2.0.0
-    "@putout/plugin-remove-unused-variables": ^4.0.0
+    "@putout/plugin-remove-unused-variables": ^5.0.0
     "@putout/plugin-remove-useless-arguments": ^6.0.0
     "@putout/plugin-remove-useless-array-constructor": ^1.0.0
     "@putout/plugin-remove-useless-array-entries": ^1.0.0
@@ -14900,7 +14907,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: f5f0c02c42bcdbe3f1c9767af78d8926e4d4b9224b3f0e6eef4b06efc11002899a83ece140e2910f8eb5324f3da1cd14113200300c9d8d0b4ed8364db565cb59
+  checksum: ec70a0687ef47b51e551e456398290246d60c6f52068fed1d42dd7a2d4ec21402a47c696f3bd5b37e8a549da0b45442ba838d8a10e98e1a13cbf3c887e50c613
   languageName: node
   linkType: hard
 
@@ -15134,9 +15141,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:5.5.1":
-  version: 5.5.1
-  resolution: "react-native-paper@npm:5.5.1"
+"react-native-paper@npm:5.5.2":
+  version: 5.5.2
+  resolution: "react-native-paper@npm:5.5.2"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.8
     color: ^3.1.2
@@ -15146,7 +15153,7 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
-  checksum: d4034074772657dc5be617adca4112402bcf344c3dcddb7763f64209f8a449ab2198484e53ece55136ad226e29360592cfc873172cbf093844788e2fed42521e
+  checksum: fd87b64409e51a2a8c64019710c79c17d6dd016ea3744d869e9aa6a891093418ca6a2326f8ab063ef460d781459b8ed676952a030e64acf8312bc4d05a4c50eb
   languageName: node
   linkType: hard
 

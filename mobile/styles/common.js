@@ -18,27 +18,16 @@ export const useSharedStyles = () => {
   const horizontalMargin = 33
   const verticalMargin = 33
 
-  const styles = useMemo(() => {
+  return useMemo(() => {
+    const FONT_WEIGHTS = {
+      amiri: 1.2,
+      uthman: 1.5,
+      indopak: 1.75,
+      noto: 1.2
+    }
+
     const arabicFontSizeWeighted = () => {
-      if (arabicFontName == 'amiri') {
-        return arabicFontSize * 1.2
-      }
-
-      if (arabicFontName == 'uthman') {
-        return arabicFontSize * 1.5
-      }
-
-      if (arabicFontName == 'indopak') {
-        return arabicFontSize * 1.75
-      }
-
-      if (arabicFontName == 'indopak') {
-        return arabicFontSize * 1.5
-      }
-
-      if (arabicFontName == 'noto') {
-        return arabicFontSize * 1.2
-      }
+      return arabicFontSize * (FONT_WEIGHTS[arabicFontName] || 1)
     }
 
     return StyleSheet.create({
@@ -133,6 +122,4 @@ export const useSharedStyles = () => {
       }
     })
   }, [arabicFontSize, englishFontSize, arabicFontName])
-
-  return styles
 }

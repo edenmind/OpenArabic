@@ -30,3 +30,11 @@ test('getData works', async () => {
 
   expect(language).toBe('ar')
 })
+
+test('storeData overwrites existing data', async () => {
+  await storage.storeData('language', 'en')
+  await storage.storeData('language', 'ar')
+  const language = await storage.getData('language')
+
+  expect(language).toBe('ar')
+})

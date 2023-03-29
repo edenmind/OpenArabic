@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
 import React, { useState } from 'react'
-import { View, ScrollView, Animated, StyleSheet } from 'react-native'
+import { View, Animated, StyleSheet, FlatList } from 'react-native'
 import { Divider, Surface, Text, ProgressBar, Button } from 'react-native-paper'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import SnackButton from '../components/snack-button.js'
@@ -10,7 +10,6 @@ import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import HighlightedWordInText from '../components/highlighted-word-in-text.js'
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -61,7 +60,7 @@ const WordsContent = (props) => {
 
     setTimeout(() => {
       setColor(paperDarkTheme.colors.elevation.level3)
-    }, 100)
+    }, 150)
   }
 
   const startAnimation = (fadeAnim) => {
@@ -91,20 +90,24 @@ const WordsContent = (props) => {
   }
 
   const correctAnswer = () => {
-    //give a random number between 1 and 100
-    const randomNumber1 = Math.floor(Math.random() * 100) + 1
-    const randomNumber2 = Math.floor(Math.random() * 100) + 1
-    const randomNumber3 = Math.floor(Math.random() * 100) + 1
+    const randomNumbers = [
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1
+    ]
 
-    setButton1position(randomNumber1)
-    setButton2position(randomNumber2)
-    setButton3position(randomNumber3)
+    setButton1position(() => randomNumbers[0])
+    setButton2position(() => randomNumbers[1])
+    setButton3position(() => randomNumbers[2])
 
-    props.handleSetCurrentWord(props.currentWord + 1)
-
-    props.handleSetCurrentWordIndex(props.currentWordIndex + 1)
+    props.handleSetCurrentWord((currentWord) => currentWord + 1)
+    props.handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
+  }
+  const handleWrongAnswer = () => {
+    vibrateBetweenTwoColors()
   }
 
+  // correct answer button
   const button1 = (
     <Button
       mode="elevated"
@@ -122,82 +125,68 @@ const WordsContent = (props) => {
               payload: false
             })
           }, 2500)
-        } else {
-          correctAnswer()
-          startAnimation(fadeAnim)
+
+          return
         }
+
+        correctAnswer()
+        startAnimation(fadeAnim)
       }}
     >
       <Text style={styles.text}>{words.length > 1 && words[props.currentWord].english}</Text>
     </Button>
   )
 
-  const button2 = (
-    <Button
-      mode="elevated"
-      style={{ ...sharedStyle.buttonAnswer }}
-      onPress={() => {
-        vibrateBetweenTwoColors()
-      }}
-    >
-      <Text style={{ ...styles.text }}>{words.length > 1 && words[props.currentWord].alternative1}</Text>
+  const wrongAnswerButton = (text) => (
+    <Button mode="elevated" style={sharedStyle.buttonAnswer} onPress={handleWrongAnswer}>
+      <Text style={styles.text}>{words.length > 1 && text}</Text>
     </Button>
   )
 
-  const button3 = (
-    <Button
-      mode="elevated"
-      style={sharedStyle.buttonAnswer}
-      onPress={() => {
-        vibrateBetweenTwoColors()
-      }}
-    >
-      <Text style={styles.text}>{words.length > 1 && words[props.currentWord].alternative2}</Text>
-    </Button>
-  )
-
+  const button2 = wrongAnswerButton(words[props.currentWord]?.alternative1)
+  const button3 = wrongAnswerButton(words[props.currentWord]?.alternative2)
   const buttons = [
     { button: button1, position: button1position },
     { button: button2, position: button2position },
     { button: button3, position: button3position }
-  ]
-    .sort((a, b) => a.position - b.position)
-    .map((item) => item.button)
+  ].sort((a, b) => a.position - b.position)
 
+  const renderItem = ({ item }) => <View>{item.button}</View>
   return (
-    //only show it if there are words
-    <ScrollView style={styles.container}>
-      <ProgressBar
-        progress={props.currentWordIndex / (props.numberOfWordsToPractice - 1)}
-        color={paperDarkTheme.colors.primary}
-      />
-
-      <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10 }} elevation={2}>
-        <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
-          {words[props.currentWord] != undefined && (
-            <HighlightedWordInText
-              text={words[props.currentWord].arabicSentence}
-              word={words[props.currentWord].arabic}
-            />
-          )}
-        </Text>
-        <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <Text
-          style={{ ...styles.footer, width: '95%', padding: 15 }}
-        >{`Source: ${props.source} - ${props.author}`}</Text>
-      </Surface>
-
-      <SnackButton
-        visible={props.celebrationSnackBarVisibility}
-        onDismissSnackBar={onDismissSnackBar}
-        duration={2500}
-        text="Congratulations! You've successfully completed the practice! 🎉"
-      />
-
-      {buttons.map((button, index) => (
-        <View key={index}>{button}</View>
-      ))}
-    </ScrollView>
+    <FlatList
+      style={styles.container}
+      data={buttons}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.position.toString()}
+      ListHeaderComponent={
+        <React.Fragment>
+          <ProgressBar
+            progress={props.currentWordIndex / (props.numberOfWordsToPractice - 1)}
+            color={paperDarkTheme.colors.primary}
+          />
+          <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10 }} elevation={2}>
+            <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
+              {words[props.currentWord]?.arabicSentence && (
+                <HighlightedWordInText
+                  text={words[props.currentWord].arabicSentence}
+                  word={words[props.currentWord].arabic}
+                />
+              )}
+            </Text>
+            <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+            <Text
+              style={{ ...styles.footer, width: '95%', padding: 15 }}
+            >{`Source: ${props.source} - ${props.author}`}</Text>
+          </Surface>
+          <SnackButton
+            visible={props.celebrationSnackBarVisibility}
+            onDismissSnackBar={onDismissSnackBar}
+            duration={2500}
+            text="Congratulations! You've successfully completed the practice! 🎉"
+          />
+        </React.Fragment>
+      }
+    />
   )
 }
 

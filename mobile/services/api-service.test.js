@@ -2,8 +2,9 @@ import axios from 'axios'
 import { expect, describe, jest } from '@jest/globals'
 import { getCategories, getText, getTexts } from './api-service.js'
 import MockAdapter from 'axios-mock-adapter'
-
+import { useSelector } from 'react-redux'
 const mockDispatch = jest.fn()
+
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
   useDispatch: () => mockDispatch
@@ -87,6 +88,21 @@ describe('getTexts', () => {
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'SET_TEXTS',
       payload: { data: 'test' }
+    })
+  })
+  describe('MyComponent', () => {
+    it('renders with correct data from Redux store', () => {
+      const mockState = {
+        texts: {
+          data: [
+            { id: 1, title: 'Test Text 1' },
+            { id: 2, title: 'Test Text 2' }
+          ],
+          loaded: true
+        }
+      }
+      useSelector.mockImplementation((selector) => selector(mockState))
+      // Render MyComponent and perform assertions
     })
   })
 })

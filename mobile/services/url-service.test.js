@@ -33,4 +33,19 @@ describe('url', () => {
     // Assert
     expect(urlExpected).toEqual(urlActual)
   })
+
+  test('categoryWithId returns correct URL when category is empty', () => {
+    const expected = 'http://localhost:3030/texts'
+    const result = url.categoryWithId()
+
+    expect(result).toEqual(expected)
+  })
+
+  test('categoryWithId returns correct URL when category is provided', () => {
+    const category = 'science'
+    const expected = 'http://localhost:3030/texts/categories/science'
+    const result = url.categoryWithId(category)
+
+    expect(result).toEqual(expected)
+  })
 })

@@ -43,26 +43,23 @@ const TextPractice = () => {
 
     setTimeout(() => {
       setColor(paperDarkTheme.colors.elevation.level3)
-    }, 100)
+    }, 150)
   }
 
   // loop through all sentences in the text
   const sentencesInText = text.sentences.map((sentence, sentenceIndex) => {
     // loop through all words in the sentence
     const wordsInSentence = sentence.words.map((word, wordIndex) => {
-      // create an index for each word in the sentence
-      const id = wordIndex
-
       // create an object that contains the arabic word and the id
       const arabicWord = {
         arabic: word.arabic,
-        id
+        id: wordIndex
       }
 
       // create an object that contains the english word and the id
       const englishWord = {
         english: word.english,
-        id
+        id: wordIndex
       }
 
       // return an object that contains the arabic word and the english word
@@ -91,114 +88,103 @@ const TextPractice = () => {
   //if currentWord is equal to the length of the englishWordsInSentence array, increase currentSentence by 1 and set currentWord to 0
   //if currentSentence is equal to the length of the wordsInSentences array, set currentSentence to 0
   const handlePress = (id, word) => {
-    if (id === currentWord) {
-      // set the state for currentEnglishWord
-      setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
-
-      //push the arabic word to the currentArabicSentenceFromCorrectAnswers array and set the state
-      let currentArabicSentenceFromCorrectAnswersCopy = [...currentArabicSentenceFromCorrectAnswers]
-
-      currentArabicSentenceFromCorrectAnswersCopy = currentArabicSentenceFromCorrectAnswersCopy + ' ' + word
-      setCurrentArabicSentenceFromCorrectAnswers(currentArabicSentenceFromCorrectAnswers + ' ' + word)
-
-      //remove the arabic word from the currentArabicWordsInSentence array and set the state
-      const currentArabicWordsInSentenceCopy = [...currentArabicWordsInSentence]
-
-      const index = currentArabicWordsInSentenceCopy.findIndex((word) => word.id === id)
-
-      currentArabicWordsInSentenceCopy.splice(index, 1)
-
-      setCurrentArabicWordsInSentence(currentArabicWordsInSentenceCopy)
-
-      if (currentWord === sentencesInText[currentSentence].englishWords.length - 1) {
-        setCurrentArabicSentenceFromCorrectAnswers([])
-
-        if (currentSentence === sentencesInText.length - 1) {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-          setCurrentSentence(0)
-          setCelebrationSnackBarVisibility(true)
-        } else {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-          setCurrentSentence(currentSentence + 1)
-        }
-
-        setCurrentWord(0)
-      } else {
-        //increase currentWord by 1 and then set the state
-        setCurrentWord(currentWord + 1)
-      }
-
-      getThreeRandomWords()
-    } else {
+    if (id !== currentWord) {
       // wrong answer
       vibrateBetweenTwoColors()
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
+
+      return
     }
+
+    const updatedArabicSentence = currentArabicSentenceFromCorrectAnswers + ' ' + word
+    const updatedArabicWords = currentArabicWordsInSentence.filter((w) => w.id !== id)
+    const isLastWordInSentence = currentWord === sentencesInText[currentSentence].englishWords.length - 1
+    const isLastSentence = currentSentence === sentencesInText.length - 1
+
+    setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
+    setCurrentArabicSentenceFromCorrectAnswers(() => updatedArabicSentence)
+    setCurrentArabicWordsInSentence(() => updatedArabicWords)
+
+    if (isLastWordInSentence) {
+      setCurrentArabicSentenceFromCorrectAnswers('')
+
+      if (isLastSentence) {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+        setCurrentSentence(0)
+        setCelebrationSnackBarVisibility(true)
+      } else {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+        setCurrentSentence((prev) => prev + 1)
+      }
+
+      setCurrentWord(0)
+    } else {
+      setCurrentWord((prev) => prev + 1)
+    }
+
+    getThreeRandomWords()
   }
+
   const getThreeRandomWords = () => {
-    const randomWords = []
+    const randomWords = new Set()
 
     //find the matching arabic word based on the currentWord and add it to the randomWords array
     const matchingArabicWord = sentencesInText[currentSentence].arabicWords.find(
       (arabicWord) => arabicWord.id === sentencesInText[currentSentence].englishWords[currentWord].id
     )
 
-    randomWords.push(matchingArabicWord)
+    randomWords.add(matchingArabicWord)
 
-    while (randomWords.length < 3) {
+    while (randomWords.size < 3) {
       //pick a random sentence
       const randomSentence = Math.floor(Math.random() * sentencesInText.length)
 
       //get the random words from that sentence
-      const randomWordFromSentence = sentencesInText[randomSentence].arabicWords.sort(() => Math.random() - 0.5)
+      const randomWordFromSentence = sentencesInText[randomSentence].arabicWords.sort(() => Math.random() - 0.5)[0]
 
-      //add the random words to the randomWords array if it doesn't already exist
-      if (!randomWords.includes(randomWordFromSentence[0]) && randomWordFromSentence[0] !== matchingArabicWord) {
-        randomWords.push(randomWordFromSentence[0])
-      } else {
-        continue
+      //add the random words to the randomWords set if it doesn't already exist
+      if (randomWordFromSentence !== matchingArabicWord && !randomWords.has(randomWordFromSentence)) {
+        randomWords.add(randomWordFromSentence)
       }
     }
 
-    //randomize the order of the words in the randomWords array
-    const randomWordsRandomized = randomWords.sort(() => Math.random() - 0.5)
+    //convert the set to an array and randomize the order of the words in the array
+    const randomWordsRandomized = [...randomWords].sort(() => Math.random() - 0.5)
     //set the state for currentArabicWordsInSentence
     setCurrentArabicWordsInSentence(randomWordsRandomized)
   }
 
-  return (
-    textLoading && (
-      <ScrollView style={sharedStyle.headerContainer}>
-        <Surface style={{ ...sharedStyle.surface, minHeight: 200, backgroundColor: color }} elevation={2}>
-          <View style={sharedStyle.headerContainer}>
-            <Text variant="labelLarge">
-              Sentence: {currentSentence + 1} of {sentencesInText.length}
-            </Text>
-            <Divider style={sharedStyle.divider} />
-            <WordsContextHighLighted
-              arabicSentence={currentArabicSentenceFromCorrectAnswers + ' '}
-              englishSentence={sentencesInText[currentSentence].englishWords}
-              currentWord={currentWord}
-              arabicWord={''}
-              englishWord={currentEnglishWord}
-            ></WordsContextHighLighted>
-          </View>
-        </Surface>
-        <SnackButton
-          visible={celebrationSnackBarVisibility}
-          onDismissSnackBar={onDismissSnackBar}
-          duration={2000}
-          text="Congratulations! You have completed the quiz! 🎉"
-        />
-        <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-
-        <TextPracticeArabicWords
-          currentArabicWordsInSentence={currentArabicWordsInSentence}
-          handlePress={handlePress}
-        />
-      </ScrollView>
-    )
-  )
+  return textLoading ? (
+    <ScrollView style={sharedStyle.headerContainer}>
+      <Surface style={{ ...sharedStyle.surface, minHeight: 200, backgroundColor: color }} elevation={2}>
+        <View style={sharedStyle.headerContainer}>
+          <Text variant="labelLarge">
+            Sentence: {currentSentence + 1} of {sentencesInText.length}
+          </Text>
+          <Divider style={sharedStyle.divider} />
+          <WordsContextHighLighted
+            arabicSentence={currentArabicSentenceFromCorrectAnswers + ' '}
+            englishSentence={sentencesInText[currentSentence].englishWords}
+            currentWord={currentWord}
+            arabicWord=""
+            englishWord={currentEnglishWord}
+          />
+        </View>
+      </Surface>
+      <SnackButton
+        visible={celebrationSnackBarVisibility}
+        onDismissSnackBar={onDismissSnackBar}
+        duration={2000}
+        text="Congratulations! You have completed the quiz! 🎉"
+      />
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <TextPracticeArabicWords
+        testID="textPracticeArabicWords"
+        currentArabicWordsInSentence={currentArabicWordsInSentence}
+        handlePress={handlePress}
+      />
+    </ScrollView>
+  ) : undefined
 }
 
 export default TextPractice
