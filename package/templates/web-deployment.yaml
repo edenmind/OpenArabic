@@ -11,6 +11,7 @@ spec:
   strategy:
     rollingUpdate:
       maxUnavailable: 1
+      maxSurge: 1
     type: RollingUpdate
   selector:
     matchLabels:
@@ -31,7 +32,7 @@ spec:
             - containerPort: 3040
           resources:
             limits:
-              memory: 512Mi
+              memory: 256Mi
               cpu: 512m
             requests:
               memory: 50Mi
