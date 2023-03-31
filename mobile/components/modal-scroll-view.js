@@ -1,47 +1,49 @@
 import { Button, Divider, Modal, Portal, Text } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ScrollView } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 
-const ModalScrollView = (props) => {
-  const containerStyle = {
-    margin: 10,
-    padding: 10,
-    backgroundColor: paperDarkTheme.colors.background,
-    maxHeight: '95%',
-    borderRadius: 25
-  }
-
-  const buttonPadding = {
+const styles = StyleSheet.create({
+  buttonPadding: {
     marginLeft: 25,
     marginRight: 25,
     marginTop: 15
-  }
+  },
 
-  const titleStyle = {
+  containerStyle: {
+    backgroundColor: paperDarkTheme.colors.background,
+    borderRadius: 25,
+    margin: 10,
+    maxHeight: '95%',
+    padding: 10
+  },
+
+  dividerStyle: {
+    marginBottom: 15,
+    marginTop: 15
+  },
+
+  titleStyle: {
     alignSelf: 'center',
-    padding: 5,
-    fontFamily: 'philosopher'
+    fontFamily: 'philosopher',
+    padding: 5
   }
+})
 
-  const dividerStyle = {
-    marginTop: 15,
-    marginBottom: 15
-  }
-
+const ModalScrollView = ({ title, content, visible, hideModal }) => {
   const close = 'CLOSE'
 
   return (
     <Portal>
-      <Modal visible={props.visible} onDismiss={props.hideModal} contentContainerStyle={containerStyle}>
-        <Text variant="titleLarge" style={titleStyle}>
-          {props.title}
+      <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.containerStyle}>
+        <Text variant="titleLarge" style={styles.titleStyle}>
+          {title}
         </Text>
-        <Divider style={dividerStyle} />
-        <ScrollView>{props.content}</ScrollView>
+        <Divider style={styles.dividerStyle} />
+        <ScrollView>{content}</ScrollView>
         <Divider />
-        <Button onPress={props.hideModal} style={buttonPadding} mode="elevated">
+        <Button onPress={hideModal} style={styles.buttonPadding} mode="elevated">
           {close}
         </Button>
       </Modal>

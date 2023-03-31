@@ -31,18 +31,15 @@ export default function TextList({ route, navigation }) {
     }, [category, dispatch, shouldReload])
   )
 
-  const renderItem = ({ item }) => (
-    <TextListCard text={item} navigation={navigation} setShouldReload={setShouldReload} />
-  )
-
-  const description = () => (
-    <View style={sharedStyle.headerContainer}>
-      <Text style={sharedStyle.englishBody}>{categoryDescription.length > 0 && categoryDescription}</Text>
-    </View>
+  const renderItem = React.useCallback(
+    ({ item }) => <TextListCard text={item} navigation={navigation} setShouldReload={setShouldReload} />,
+    [navigation]
   )
 
   // loop through the categories and if the name matches the category passed in through route.params get the description
-  const categoryDescription = categories.filter((cat) => cat.name === category).map((cat) => cat.description)
+  const categoryDescription = React.useMemo(() => {
+    return categories.filter((cat) => cat.name === category).map((cat) => cat.description)
+  }, [categories, category])
 
   return textsLoading ? (
     <FlatList

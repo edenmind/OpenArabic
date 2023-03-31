@@ -5,15 +5,15 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
 
+const styles = StyleSheet.create({
+  rowWrapper: {
+    paddingBottom: 25
+  }
+})
+
 // create a component for each word in the arabicWords array in the sentencesInText array for the currentSentence and wrap them with a button
 const TextPracticeArabicWords = (props) => {
   const sharedStyle = useSharedStyles()
-  const styles = StyleSheet.create({
-    rowWrapper: {
-      paddingBottom: 25
-    }
-  })
-
   return (
     <View style={styles.rowWrapper}>
       {props.currentArabicWordsInSentence.map((word, index) => (

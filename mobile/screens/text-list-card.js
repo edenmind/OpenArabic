@@ -3,13 +3,12 @@
 import { prepareIngress } from '../services/utility-service.js'
 import { Text, Card, Divider, Surface, Button, Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import SCREENS from '../constants/screens.js'
-import { StyleSheet, TouchableOpacity, Animated, Share } from 'react-native'
+import { StyleSheet, Pressable, Animated, Share } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
 import PlaySound from '../components/play-sound.js'
 import { paperDarkTheme } from '../constants/paper-theme.js'
-
 const styles = StyleSheet.create({
   card: {
     margin: 10
@@ -39,48 +38,50 @@ const styles = StyleSheet.create({
   }
 })
 
-export default function TextListCard(props) {
+export default function TextListCard({ setShouldReload, navigation, text }) {
   const sharedStyle = useSharedStyles()
   const [scaleValue] = useState(new Animated.Value(1))
 
-  const scaleCard = () => {
+  const scaleCard = useCallback(() => {
     Animated.timing(scaleValue, {
       useNativeDriver: true,
-      toValue: 0.95,
+      toValue: 0.98,
       duration: 300
     }).start()
-  }
+  }, [scaleValue])
 
-  const restoreCard = () => {
+  const restoreCard = useCallback(() => {
     Animated.timing(scaleValue, {
       useNativeDriver: true,
       toValue: 1,
       duration: 300
     }).start()
-  }
+  }, [scaleValue])
 
-  // After
-  const onShare = React.useCallback(async (arabic, english, hadithTitle) => {
+  const onShare = useCallback(async () => {
+    const arabic = prepareIngress(text.texts.arabic, 100)
+    const englishHadith = `"${text.texts.english}"`
+    const hadithTitle = `${text.author} in ${text.source}`
     await Share.share({
       title: 'Open Arabic',
-      message: `${arabic}\n\n"${english}"\n\n${hadithTitle} \n`,
+      message: `${arabic}\n\n"${englishHadith}"\n\n${hadithTitle} \n`,
       url: 'https://openarabic.app.link'
     })
-  }, [])
+  }, [text])
 
   const animatedStyle = {
     transform: [{ scale: scaleValue }]
   }
 
   //prepare the texts
-  const subtitle = `${props.text.author} in #${props.text.category}`
-  const footer = `${props.text.views} views · ${props.text.timeAgo} · ${props.text.readingTime}  `
-  const english = props.text.texts.english && prepareIngress(props.text.texts.english, 125)
-  const arabic = props.text.texts.arabic && prepareIngress(props.text.texts.arabic, 100)
-  const hadithTitle = `${props.text.author} in ${props.text.source}`
-  const englishHadith = `"${props.text.texts.english}"`
+  const subtitle = `${text.author} in #${text.category}`
+  const footer = `${text.views} views · ${text.timeAgo} · ${text.readingTime}  `
+  const english = text.texts.english && prepareIngress(text.texts.english, 125)
+  const arabic = text.texts.arabic && prepareIngress(text.texts.arabic, 100)
+  const hadithTitle = `${text.author} in ${text.source}`
+  const englishHadith = `"${text.texts.english}"`
 
-  if (props.text.category == 'Quotes') {
+  if (text.category == 'Quotes') {
     //it is a hadith
     return (
       <Animated.View style={animatedStyle}>
@@ -95,25 +96,23 @@ export default function TextListCard(props) {
                 {hadithTitle}
               </Text>
               <Divider style={{ ...sharedStyle.dividerHidden }} />
-              <Text style={{ ...sharedStyle.arabicBody }}>{props.text.texts.arabic}</Text>
+              <Text style={{ ...sharedStyle.arabicBody }}>{text.texts.arabic}</Text>
               <Text variant="bodyLarge" style={sharedStyle.englishBody}>
                 {englishHadith}
               </Text>
               <Text variant="labelSmall" style={styles.labelSmall}>
-                {props.text.timeAgo}
+                {text.timeAgo}
               </Text>
               <Divider style={sharedStyle.divider} />
             </Card.Content>
             <Card.Actions style={{ ...styles.cardAction, opacity: 1 }}>
               <PlaySound
-                audioFileName={
-                  'https://openarabic.ams3.digitaloceanspaces.com/audio/' + props.text.sentences[0].filename
-                }
+                audioFileName={'https://openarabic.ams3.digitaloceanspaces.com/audio/' + text.sentences[0].filename}
                 buttonText={'LISTEN'}
               />
               <Button
                 onPress={() => {
-                  onShare(props.text.texts.arabic, props.text.texts.english, hadithTitle)
+                  onShare(text.texts.arabic, text.texts.english, hadithTitle)
                 }}
               >
                 <Text style={{ color: paperDarkTheme.colors.onPrimary }}>SHARE</Text>
@@ -128,21 +127,20 @@ export default function TextListCard(props) {
   return (
     <Card style={styles.card} testID="textCard" mode="elevated">
       <Surface elevation={1}>
-        <TouchableOpacity
-          activeOpacity={1}
+        <Pressable
           onPressIn={scaleCard}
           onPressOut={restoreCard}
           onPress={() => {
-            props.setShouldReload(false)
-            props.navigation.navigate(SCREENS.textScreen, {
-              id: props.text.id
+            setShouldReload(false)
+            navigation.navigate(SCREENS.textScreen, {
+              id: text.id
             })
           }}
         >
           <Animated.View style={animatedStyle}>
-            <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: props.text.image }} />
+            <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: text.image }} />
             <Card.Title
-              title={props.text.title}
+              title={text.title}
               subtitle={subtitle}
               titleVariant="headlineSmall"
               titleStyle={styles.cardTitle}
@@ -159,7 +157,7 @@ export default function TextListCard(props) {
               <Text variant="labelSmall">{footer}</Text>
             </Card.Actions>
           </Animated.View>
-        </TouchableOpacity>
+        </Pressable>
       </Surface>
     </Card>
   )

@@ -1,21 +1,15 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable putout/newline-function-call-arguments */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/jsx-key */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react-native/no-color-literals */
-import React, { useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { View, Animated } from 'react-native'
 import { Text } from 'react-native-paper'
-import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
+import { useSharedStyles } from '../styles/common.js'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const WordsContextHighLighted = (props) => {
   const sharedStyle = useSharedStyles()
-  const [fadeAnim] = useState(new Animated.Value(0)) // Initial value for opacity: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current
 
-  React.useEffect(() => {
+  useEffect(() => {
     Animated.loop(
       Animated.sequence([
         Animated.timing(fadeAnim, {
@@ -40,27 +34,10 @@ const WordsContextHighLighted = (props) => {
     padding: 0
   }
 
-  // highlight a word in splitSentence
   const highlightWords = (sentence, words) => {
     return sentence.map((word, index) => {
       if (word.id === words.id) {
-        return (
-          <Text
-            style={{
-              ...sharedStyle.englishBody,
-              color: paperDarkTheme.colors.onPrimary,
-              backgroundColor: paperDarkTheme.colors.primary,
-              opacity: 1,
-              marginHorizontal: 2,
-              paddingHorizontal: 2,
-              paddingBottom: 0
-            }}
-            variant="bodyLarge"
-            key={index}
-          >
-            {word.english}
-          </Text>
-        )
+        return <HighlightedWord word={word} key={index} />
       }
 
       return (
@@ -76,18 +53,8 @@ const WordsContextHighLighted = (props) => {
       <View style={rowWrapper}>{highlightWords(props.englishSentence, props.englishWord)}</View>
       <Text style={{ ...sharedStyle.arabicBody, paddingBottom: 10 }}>
         {props.arabicSentence}
-        <Animated.View // Special animatable View
-          style={{
-            opacity: fadeAnim // Bind opacity to animated value
-          }}
-        >
-          <Text
-            style={{
-              ...sharedStyle.arabicBody
-            }}
-          >
-            ...
-          </Text>
+        <Animated.View style={{ opacity: fadeAnim }}>
+          <Text style={{ ...sharedStyle.arabicBody }}>...</Text>
         </Animated.View>
       </Text>
     </View>
@@ -101,3 +68,27 @@ WordsContextHighLighted.propTypes = {
 }
 
 export default WordsContextHighLighted
+
+const HighlightedWord = ({ word }) => {
+  const sharedStyle = useSharedStyles()
+  return (
+    <Text
+      style={{
+        ...sharedStyle.englishBody,
+        color: paperDarkTheme.colors.onPrimary,
+        backgroundColor: paperDarkTheme.colors.primary,
+        opacity: 1,
+        marginHorizontal: 2,
+        paddingHorizontal: 2,
+        paddingBottom: 0
+      }}
+      variant="bodyLarge"
+    >
+      {word.english}
+    </Text>
+  )
+}
+
+HighlightedWord.propTypes = {
+  word: PropTypes.string.isRequired
+}

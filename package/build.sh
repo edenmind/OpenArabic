@@ -18,7 +18,7 @@ echo "Helm chart linted successfully!"
 
 # Package the Helm chart
 echo "Packaging Helm chart into $DESTINATION_DIRECTORY..."
-if ! helm package $SOURCE_DIRECTORY= --destination $DESTINATION_DIRECTORY; then
+if ! helm package $SOURCE_DIRECTORY --destination $DESTINATION_DIRECTORY; then
     echo "Packaging failed!"
     exit 1
 fi

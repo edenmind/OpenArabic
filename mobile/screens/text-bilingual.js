@@ -20,21 +20,21 @@ export default function TextBilingual() {
   const report = 'REPORT ERROR'
   const sharedStyle = useSharedStyles()
 
-  const onShare = async () => {
+  const onShare = React.useCallback(async () => {
     await Share.share({
       message: `🔗 ${text.title} - ${text.author}`,
       title: `🔗 ${text.title} - ${text.author}`,
       url: `${HOST.frontend}/${ENDPOINT.texts}/${text.slug}`
     })
-  }
+  }, [text])
 
-  const onErrorReport = async () => {
+  const onErrorReport = React.useCallback(async () => {
     MailComposer.composeAsync({
       recipients: ['salam@edenmin.com'],
       subject: `Found an error in the text: ${text.title}`,
       body: `Please describe the error you found in the text: ${text.id}...`
     })
-  }
+  }, [text])
 
   return textLoading ? getContent() : <Spinner />
 

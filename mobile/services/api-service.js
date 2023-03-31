@@ -1,9 +1,16 @@
+/* eslint-disable import/no-named-as-default-member */
 import * as url from './url-service.js'
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 
-axiosRetry(axios, { retries: 3 })
-
+axiosRetry(axios, {
+  retries: 3,
+  retryDelay: axiosRetry.exponentialDelay,
+  retryCondition: (error) => {
+    // Retry on network errors, timeouts, and 5xx status codes
+    return axiosRetry.isNetworkOrIdempotentRequestError(error) || error.response.status >= 500
+  }
+})
 export const getTexts = (id) => async (dispatch) => {
   try {
     dispatch({
@@ -37,10 +44,7 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const getWords = (numberOfWordsToPractice, difficultyLevel) => async (dispatch) => {
-  const urlWordsWithParameters =
-    url.words() + `?numberOfWordsToPractice=${numberOfWordsToPractice}&difficultyLevel=${difficultyLevel}`
-
-  console.log(urlWordsWithParameters)
+  const urlWordsWithParameters = `${url.words()}?numberOfWordsToPractice=${numberOfWordsToPractice}&difficultyLevel=${difficultyLevel}`
   const res = await axios.get(urlWordsWithParameters)
 
   dispatch({

@@ -1,5 +1,6 @@
 import { DarkTheme as NavigationDarkTheme, DefaultTheme as NavigationDefaultTheme } from '@react-navigation/native'
 import { MD3DarkTheme, MD3LightTheme, adaptNavigationTheme } from 'react-native-paper'
+
 import merge from 'deepmerge'
 
 export const paperDarkTheme = {
@@ -56,7 +57,7 @@ const navigationDarkTheme = {
     ...NavigationDarkTheme.colors,
 
     primary: 'rgb(204, 204, 82)',
-    background: 'rgb(37, 37, 26)',
+    background: 'rgb(28, 28, 23)',
     card: 'rgb(37, 37, 26)',
     text: 'rgb(230, 226, 217)',
     border: 'rgb(72, 71, 58)'
