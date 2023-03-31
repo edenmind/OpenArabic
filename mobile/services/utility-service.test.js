@@ -1,6 +1,42 @@
 import * as util from './utility-service.js'
 import { expect, describe, it } from '@jest/globals'
-import { getHijriDateLatin, prepareIngress, removeLineBreak, addSpaceAfterDot } from './utility-service.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
+import {
+  getHijriDateLatin,
+  prepareIngress,
+  removeLineBreak,
+  addSpaceAfterDot,
+  getThreeRandomWords,
+  vibrateBetweenTwoColors
+} from './utility-service.js'
+
+describe('vibrateBetweenTwoColors', () => {
+  jest.mock('expo-haptics', () => ({
+    impactAsync: jest.fn()
+  }))
+
+  test('should set the color to paperDarkTheme.colors.errorContainer first', () => {
+    const setColor = jest.fn()
+
+    vibrateBetweenTwoColors(setColor)
+
+    expect(setColor).toHaveBeenCalledWith(paperDarkTheme.colors.errorContainer)
+  })
+
+  test('should set the color to paperDarkTheme.colors.elevation.level3 after 150ms', () => {
+    const setColor = jest.fn()
+
+    jest.useFakeTimers()
+
+    vibrateBetweenTwoColors(setColor)
+
+    jest.advanceTimersByTime(150)
+
+    expect(setColor).toHaveBeenCalledWith(paperDarkTheme.colors.elevation.level3)
+
+    jest.useRealTimers()
+  })
+})
 
 describe('space', () => {
   it('should add space after dot', () => {
@@ -148,5 +184,77 @@ describe('getHijriDateLatin', () => {
 
     // Clean up the Date mock
     jest.restoreAllMocks()
+  })
+})
+
+// test so that getThreeRandomWords returns an array with three words
+
+describe('getThreeRandomWords', () => {
+  let arabicWords, currentEnglishWordId, sentencesInText
+
+  beforeEach(() => {
+    arabicWords = [
+      { arabic: 'مرحبا', id: 0 },
+      { arabic: 'صباح', id: 1 },
+      { arabic: 'جميل', id: 2 },
+      { arabic: 'مساء', id: 3 },
+      { arabic: 'سعيد', id: 4 }
+    ]
+
+    currentEnglishWordId = 1
+
+    sentencesInText = [
+      {
+        arabicWords: [
+          { arabic: 'مرحبا', id: 0 },
+          { arabic: 'بكم', id: 1 }
+        ]
+      },
+      {
+        arabicWords: [
+          {
+            arabic: 'صباح',
+            id: 2
+          },
+          {
+            arabic: 'الخير',
+            id: 3
+          }
+        ]
+      },
+      {
+        arabicWords: [
+          {
+            arabic: 'مساء',
+            id: 4
+          },
+          {
+            arabic: 'النور',
+            id: 5
+          }
+        ]
+      }
+    ]
+  })
+
+  test('returns an array with exactly three elements', () => {
+    const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
+    expect(result).toHaveLength(3)
+  })
+
+  test('returns an array containing objects with "arabic" and "id" properties', () => {
+    const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
+
+    for (const word of result) {
+      expect(word).toHaveProperty('arabic')
+      expect(word).toHaveProperty('id')
+    }
+  })
+
+  test('returns an array with unique words', () => {
+    const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
+    const ids = result.map((word) => word.id)
+
+    expect(new Set(ids).size).toEqual(3)
   })
 })

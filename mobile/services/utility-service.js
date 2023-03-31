@@ -1,5 +1,8 @@
 /* eslint-disable unicorn/number-literal-case */
 /* eslint-disable quote-props */
+import * as Haptics from 'expo-haptics'
+import { paperDarkTheme } from '../constants/paper-theme.js'
+
 const truncate = (stringToTruncate, truncateLength) => {
   const cleanString = stringToTruncate.replace(' \n', '')
 
@@ -20,6 +23,42 @@ const truncate = (stringToTruncate, truncateLength) => {
   return cleanString
 }
 
+export const vibrateBetweenTwoColors = (setColor) => {
+  setColor(paperDarkTheme.colors.errorContainer)
+  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
+
+  setTimeout(() => {
+    setColor(paperDarkTheme.colors.elevation.level3)
+  }, 150)
+}
+
+export const getThreeRandomWords = (arabicWords, currentEnglishWordId, sentencesInText) => {
+  const randomWords = new Set()
+
+  // Find the matching Arabic word based on the currentWord and add it to the randomWords set
+  const matchingArabicWord = arabicWords.find((arabicWord) => arabicWord.id === currentEnglishWordId)
+
+  randomWords.add(matchingArabicWord)
+
+  // Keep generating random words until we have exactly three unique ones
+  while (randomWords.size < 3) {
+    const randomSentence = Math.floor(Math.random() * sentencesInText.length)
+    const randomWordFromSentence = sentencesInText[randomSentence].arabicWords.sort(() => Math.random() - 0.5)[0]
+
+    // Check if the random word is already in the randomWords set based on id and spelling
+    const alreadyExists = [...randomWords].some(
+      (word) => word.id === randomWordFromSentence.id || word.arabic === randomWordFromSentence.arabic
+    )
+
+    // Add the random word to the set only if it doesn't have the same id or spelling as the words already in the set
+    if (!alreadyExists) {
+      randomWords.add(randomWordFromSentence)
+    }
+  }
+
+  // Set the state for currentArabicWordsInSentence
+  return [...randomWords].sort(() => Math.random() - 0.5)
+}
 export const prepareIngress = (text, length) => {
   const noLineBreaks = removeLineBreak(text)
   const spaceAfterDot = addSpaceAfterDot(noLineBreaks)

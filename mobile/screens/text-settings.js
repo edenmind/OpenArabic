@@ -6,10 +6,24 @@ import { useDispatch } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 import { ScrollView } from 'react-native-gesture-handler'
 
+const style = StyleSheet.create({
+  element: {
+    paddingBottom: 10,
+    paddingTop: 25
+  },
+  surface: {
+    padding: 15
+  }
+})
+
+const DEFAULT_ENGLISH_FONT_SIZE = '17'
+const DEFAULT_ARABIC_FONT_SIZE = '19'
+const DEFAULT_ARABIC_FONT_NAME = 'uthman'
+
 function TextSettings() {
-  const [arabicFontName, setArabicFontName] = React.useState('uthman') // default font
-  const [englishFontSizeValue, setEnglishSizeValue] = React.useState('17') // default font size
-  const [arabicFontSizeValue, setArabicSizeValue] = React.useState('19') // default font size
+  const [arabicFontName, setArabicFontName] = React.useState(DEFAULT_ARABIC_FONT_NAME) // default font
+  const [englishFontSizeValue, setEnglishSizeValue] = React.useState(DEFAULT_ENGLISH_FONT_SIZE) // default font size
+  const [arabicFontSizeValue, setArabicSizeValue] = React.useState(DEFAULT_ARABIC_FONT_SIZE) // default font size
   const [isTransliterationOn, setIsTransliterationOn] = React.useState(true)
   const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
@@ -86,20 +100,19 @@ function TextSettings() {
   // load the value when the component mounts
   React.useEffect(() => {
     getEnglishFontSize()
-    getArabicFontSize()
-    getTransliteration()
-    getArabicFontName()
   }, [])
 
-  const style = StyleSheet.create({
-    element: {
-      paddingBottom: 10,
-      paddingTop: 25
-    },
-    surface: {
-      padding: 15
-    }
-  })
+  React.useEffect(() => {
+    getArabicFontSize()
+  }, [])
+
+  React.useEffect(() => {
+    getTransliteration()
+  }, [])
+
+  React.useEffect(() => {
+    getArabicFontName()
+  }, [])
 
   return (
     <ScrollView style={style.surface}>

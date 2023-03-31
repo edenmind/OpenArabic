@@ -1,6 +1,6 @@
 import * as util from '../services/utility-service.js'
 import { Button, Text } from 'react-native-paper'
-import React, { Fragment } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import PropTypes from 'prop-types'
@@ -12,7 +12,7 @@ import { useSharedStyles } from '../styles/common.js'
 const filterFunction = (element) => element.english && element.arabic
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
 
-export default function TextBilingualSentences(props) {
+function TextBilingualSentences(props) {
   const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
   const sharedStyle = useSharedStyles()
 
@@ -22,8 +22,7 @@ export default function TextBilingualSentences(props) {
   const [words, setWords] = React.useState([])
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
-  const getListOfWordPairs = (index) => setWords(index)
-
+  const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
   const showWords = 'SHOW WORDS'
 
   const sentences = props.sentences.map((sentence, index) => (
@@ -53,10 +52,10 @@ export default function TextBilingualSentences(props) {
   ))
 
   return (
-    <Fragment>
+    <>
       {sentences}
       <ModalScrollView visible={visible} content={words} title="Vocabulary" hideModal={hideModal} />
-    </Fragment>
+    </>
   )
 }
 
@@ -64,7 +63,8 @@ TextBilingualSentences.propTypes = {
   sentences: PropTypes.arrayOf(
     PropTypes.shape({
       word: PropTypes.string,
-      wordId: PropTypes.string
+      wordId: PropTypes.string.isRequired // Add validation
     })
-  )
+  ).isRequired // Add validation
 }
+export default React.memo(TextBilingualSentences)

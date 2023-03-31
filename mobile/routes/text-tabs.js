@@ -1,54 +1,60 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { useDispatch } from 'react-redux'
 import SCREENS from '../constants/screens.js'
 import Spinner from '../components/spinner.js'
 import TextArabic from '../screens/text-arabic.js'
 import TextBilingual from '../screens/text-bilingual.js'
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import { getText } from '../services/api-service.js'
-import { useDispatch } from 'react-redux'
 import OrderingWordsInASentence from '../screens/text-practice.js'
+import { getText } from '../services/api-service.js'
+
+const Tab = createMaterialTopTabNavigator()
 
 export default function TextTabs({ route }) {
-  const Tab = createMaterialTopTabNavigator()
-
-  const { id } = route.params
   const dispatch = useDispatch()
+  const { id } = route.params
   const [isLoading, setIsLoading] = useState(true)
-  const tabArray = [
+
+  useEffect(() => {
+    const fetchText = async () => {
+      await dispatch(getText(id))
+      setIsLoading(false)
+    }
+    fetchText()
+  }, [dispatch, id])
+
+  const tabs = [
     { name: SCREENS.bilingual, component: TextBilingual },
     { name: SCREENS.arabic, component: TextArabic },
     { name: SCREENS.quiz, component: OrderingWordsInASentence }
   ]
 
-  useEffect(() => {
-    dispatch(getText(id))
-    setIsLoading(false)
-  }, [dispatch, id])
-
-  const tabs = tabArray.map((screen) => (
-    <Tab.Screen name={screen.name} component={screen.component} initialParams={{ id }} key={screen.name} />
-  ))
-
-  return isLoading ? (
-    <Spinner />
-  ) : (
-    <Fragment>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarLabelStyle: {
-            fontSize: 14,
-            fontWeight: 'bold',
-            textTransform: 'none'
-          }
-        }}
-      >
-        {tabs}
-      </Tab.Navigator>
-    </Fragment>
+  return (
+    <>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          <Tab.Navigator
+            screenOptions={{
+              tabBarLabelStyle: {
+                fontSize: 14,
+                fontWeight: 'bold',
+                textTransform: 'none'
+              }
+            }}
+          >
+            {tabs.map((screen) => (
+              <Tab.Screen key={screen.name} name={screen.name} component={screen.component} initialParams={{ id }} />
+            ))}
+          </Tab.Navigator>
+        </Fragment>
+      )}
+    </>
   )
 }
 
 TextTabs.propTypes = {
-  route: PropTypes.any.isRequired
+  route: PropTypes.object.isRequired
 }

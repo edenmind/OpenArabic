@@ -11,20 +11,20 @@ import * as Haptics from 'expo-haptics'
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
 
+const styles = StyleSheet.create({
+  rowWrapper: {
+    flexDirection: Platform.OS === 'android' ? 'row-reverse' : 'row',
+    flexWrap: 'wrap',
+    paddingBottom: 50
+  }
+})
+
 export default function TextArabic() {
   const sharedStyle = useSharedStyles()
   const [englishTranslation, setEnglishTranslation] = React.useState('Tap Arabic Word for Translation...')
 
   const { text } = useSelector(textSelector)
   const { textLoading } = useSelector(textLoadSelector)
-  const styles = StyleSheet.create({
-    rowWrapper: {
-      flexDirection: Platform.OS === 'android' ? 'row-reverse' : 'row',
-      flexWrap: 'wrap',
-      paddingBottom: 50
-    }
-  })
-
   // loop through all sentences in the text and all the words and return a component that displays the arabic word with each sentence on a new line
 
   const componentWithArabicWordInATextElementWithEachSentenceOnANewLine = text.sentences.map((sentence) => {

@@ -1,6 +1,6 @@
 import { Text, Divider } from 'react-native-paper'
 import { Image, StyleSheet } from 'react-native'
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 const style = StyleSheet.create({
@@ -32,17 +32,15 @@ const style = StyleSheet.create({
   }
 })
 
-export default function TextBilingualHeading(props) {
-  const author = `${props.heading.author}`
-  const source = `${props.heading.source}`
-
-  const caption = `${props.heading.readingTime} · ${props.heading.views} views · ${props.heading.timeAgo}`
+export default function TextBilingualHeading({ heading }) {
+  const { author, source, readingTime, views, timeAgo, image, title } = heading
+  const caption = `${readingTime} · ${views} views · ${timeAgo}`
 
   return (
-    <Fragment>
-      <Image source={{ uri: props.heading.image }} style={style.image} />
+    <>
+      <Image source={{ uri: image }} style={style.image} />
       <Text variant="headlineMedium" style={style.title}>
-        {props.heading.title}
+        {title}
       </Text>
       <Text variant="titleMedium" style={style.author}>
         {author}
@@ -54,7 +52,7 @@ export default function TextBilingualHeading(props) {
         {caption}
       </Text>
       <Divider style={style.divider} />
-    </Fragment>
+    </>
   )
 }
 

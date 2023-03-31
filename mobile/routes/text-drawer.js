@@ -13,41 +13,41 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const selector = (state) => state.categories
 
+const style = StyleSheet.create({
+  divider: {
+    margin: 15
+  },
+  icon: {
+    height: 55,
+    marginLeft: 10,
+    width: 55
+  },
+  semver: {
+    bottom: 10,
+    left: 0,
+    margin: 15,
+    position: 'absolute'
+  },
+  title: {
+    fontFamily: 'philosopher',
+    fontWeight: 'bold',
+    marginBottom: 10,
+    marginLeft: 15,
+    marginTop: 10
+  },
+  version: {
+    bottom: 15,
+    left: 0,
+    margin: 15,
+    position: 'absolute'
+  }
+})
+
 export default function TextDrawer() {
   const Drawer = createDrawerNavigator()
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
   const hijriYear = `${packageJson.version} ١٤٤٤ هـ`
-
-  const style = StyleSheet.create({
-    divider: {
-      margin: 15
-    },
-    icon: {
-      height: 55,
-      marginLeft: 10,
-      width: 55
-    },
-    semver: {
-      bottom: 10,
-      left: 0,
-      margin: 15,
-      position: 'absolute'
-    },
-    title: {
-      fontFamily: 'philosopher',
-      fontWeight: 'bold',
-      marginBottom: 10,
-      marginLeft: 15,
-      marginTop: 10
-    },
-    version: {
-      bottom: 15,
-      left: 0,
-      margin: 15,
-      position: 'absolute'
-    }
-  })
 
   const categoryItems = categories.map((category) => (
     <Drawer.Screen

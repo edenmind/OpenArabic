@@ -5,20 +5,13 @@ import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
 
 // This is more of a component than a server and might be better placed in the components folder
-export default function PlaySound(props) {
+export default function PlaySound({ audioFileName, buttonText }) {
   const [sound, setSound] = React.useState()
   const sharedStyle = useSharedStyles()
 
-  async function playSound() {
-    await Audio.setAudioModeAsync({
-      staysActiveInBackground: true,
-      shouldDuckAndroid: false,
-      playThroughEarpieceAndroid: true,
-      playsInSilentModeIOS: true
-    })
-
+  const playSound = React.useCallback(async () => {
     const { sound } = await Audio.Sound.createAsync(
-      { uri: props.audioFileName },
+      { uri: audioFileName },
       {
         shouldPlay: true,
         rate: 1,
@@ -30,9 +23,8 @@ export default function PlaySound(props) {
     )
 
     setSound(sound)
-
     await sound.playAsync()
-  }
+  }, [audioFileName])
 
   React.useEffect(() => {
     return sound
@@ -44,7 +36,7 @@ export default function PlaySound(props) {
 
   return (
     <Button onPress={playSound} style={sharedStyle.button} mode="elevated">
-      {props.buttonText}
+      {buttonText}
     </Button>
   )
 }
