@@ -1,1 +1,1 @@
-FROM mongo:5-focal
+FROM mongo:6-jammy

@@ -12,9 +12,8 @@ const { shuffleArray, removeHost } = require('../services/utils')
 // generate a guid for each sentence and word
 const generateGuidForSentencesAndWords = (sentences) => {
   const sentencesWithGuid = addGuidToArray(sentences)
-  const sentencesWithGuidAndWordsWithGuid = addGuidToInnerArray(sentencesWithGuid)
 
-  return sentencesWithGuidAndWordsWithGuid
+  return addGuidToInnerArray(sentencesWithGuid)
 }
 
 // add guid to array of objects

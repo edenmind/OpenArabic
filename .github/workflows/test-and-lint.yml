@@ -8,7 +8,7 @@ jobs:
     permissions: write-all
     services:
       mongodb:
-        image: mongo:5-focal
+        image: mongo:6-jammy
         ports:
           - 27017:27017
         env:
