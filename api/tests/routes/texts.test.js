@@ -538,8 +538,8 @@ test('create new text', async (t) => {
   t.ok(resultGet.json().length > 0)
 
   // check if it is possible to get a single text
-  const firstText = resultGet.json()[0]
-  const id = firstText.id
+  const [firstText] = resultGet.json()
+  const { id } = firstText
 
   // check if the text is created
   const resultGetSingle = await app.inject({

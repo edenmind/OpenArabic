@@ -54,8 +54,8 @@ async function listTexts(request, reply) {
     }
 
     return reply.code(404).send('No texts found!')
-  } catch (err) {
-    console.error(err)
+  } catch (error) {
+    console.error(error)
     return reply.internalServerError('Error connecting to database')
   }
 }
@@ -108,7 +108,7 @@ async function addText(request, reply) {
 
   if (data.status !== 'Draft') {
     //generate a guid for every sentence and word
-    data.sentences = generateGuidForSentencesAndWords(sentences)
+    data.sentences = generateGuidForSentencesAndWords(body.sentences)
     //generate the mp3 files in the background
     batchGenerateAudio(data)
   }
