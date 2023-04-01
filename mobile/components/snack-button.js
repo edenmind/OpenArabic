@@ -8,12 +8,7 @@ const SnackButton = (props) => {
   const sharedStyle = useSharedStyles()
 
   return (
-    <Snackbar
-      theme={theme}
-      visible={props.visible}
-      onDismiss={props.onDismissSnackBar}
-      duration={props.duration || 350}
-    >
+    <Snackbar theme={theme} visible={props.visible} onDismiss={props.onDismissSnackBar} duration={350}>
       <Text style={{ ...sharedStyle.englishBody, color: theme.colors.onPrimary }} variant="headlineLarge">
         {props.text}
       </Text>
@@ -26,6 +21,5 @@ export default SnackButton
 SnackButton.propTypes = {
   visible: PropTypes.bool.isRequired,
   onDismissSnackBar: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-  duration: PropTypes.number.optional
+  text: PropTypes.string.isRequired
 }

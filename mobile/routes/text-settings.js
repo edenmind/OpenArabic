@@ -3,7 +3,7 @@ import React from 'react'
 import SCREENS from '../constants/screens.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import TextSettingsScreen from '../screens/text-settings.js'
-import { CombinedDarkTheme } from '../constants/paper-theme.js'
+import { CombinedDarkTheme, paperDarkTheme } from '../constants/paper-theme.js'
 
 const Stack = createNativeStackNavigator()
 
@@ -16,7 +16,10 @@ export default function TextSettings() {
           component={TextSettingsScreen}
           options={{
             headerLargeTitle: false,
-            headerShown: false
+            headerShown: false,
+            headerStyle: {
+              backgroundColor: paperDarkTheme.colors.background
+            }
           }}
         />
       </Stack.Navigator>

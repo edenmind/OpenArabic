@@ -59,6 +59,7 @@ const Words = () => {
   ) : (
     <WordsSetup
       numberOfWordsToPractice={numberOfWordsToPractice}
+      setNumberOfWordsToPractice={setNumberOfWordsToPractice}
       difficultyLevel={difficultyLevel}
       handleSetDifficultyLevel={handleSetDifficultyLevel}
       handleSetNumberOfWordsToPractice={handleSetNumberOfWordsToPractice}

@@ -8,6 +8,7 @@ import TextSettings from './text-settings.js'
 import defaultExport from './text-tabs.js'
 import UI from '../constants/ui.js'
 import { getData } from '../services/storage.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const Stack = createNativeStackNavigator()
 const selector = (state) => state.text
@@ -18,8 +19,8 @@ function Text() {
 
   useEffect(() => {
     const initSettings = async () => {
-      const englishFontSize = (await getData('englishFontSize')) || 17
-      const arabicFontSize = (await getData('arabicFontSize')) || 19
+      const englishFontSize = Number(await getData('englishFontSize')) || 17
+      const arabicFontSize = Number(await getData('arabicFontSize')) || 19
       const isTransliterationOn = (await getData('isTransliterationOn')) ?? true
       const arabicFontName = (await getData('arabicFontName')) ?? 'uthman'
 
@@ -49,6 +50,9 @@ function Text() {
           headerShown: true,
           title: text.title,
           headerTitle: UI.null,
+          headerStyle: {
+            backgroundColor: paperDarkTheme.colors.background
+          },
           headerRight: () => (
             <Button
               icon="cog"

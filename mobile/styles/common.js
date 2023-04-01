@@ -66,7 +66,6 @@ export const useSharedStyles = () => {
         paddingLeft: 75,
         paddingRight: 75,
         paddingTop: 20,
-        readingDirection: 'rtl',
         textAlign: 'center',
         writingDirection: 'rtl'
       },

@@ -62,8 +62,7 @@ function TextBilingualSentences(props) {
 TextBilingualSentences.propTypes = {
   sentences: PropTypes.arrayOf(
     PropTypes.shape({
-      word: PropTypes.string,
-      wordId: PropTypes.string.isRequired // Add validation
+      word: PropTypes.string
     })
   ).isRequired // Add validation
 }

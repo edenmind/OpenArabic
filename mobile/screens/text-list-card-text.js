@@ -91,7 +91,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
 }
 
 TextListCardText.propTypes = {
-  navigation: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired,
   setShouldReload: PropTypes.func.isRequired,
   text: PropTypes.shape({
     id: PropTypes.string,

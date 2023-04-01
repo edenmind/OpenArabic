@@ -3,7 +3,7 @@ import React from 'react'
 import SCREENS from '../constants/screens.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import defaultExport from '../screens/about.js'
-import { CombinedDarkTheme } from '../constants/paper-theme.js'
+import { CombinedDarkTheme, paperDarkTheme } from '../constants/paper-theme.js'
 
 const Stack = createNativeStackNavigator()
 
@@ -21,6 +21,9 @@ export default function Settings() {
               fontFamily: 'philosopher',
               fontWeight: 'bold',
               fontSize: 25
+            },
+            headerStyle: {
+              backgroundColor: paperDarkTheme.colors.background
             }
           }}
         />

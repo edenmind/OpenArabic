@@ -107,11 +107,11 @@ export default function TextDrawer() {
       screenOptions={{
         unmountOnBlur: true,
         drawerStyle: {
-          width: 200
+          width: 225
         },
         headerTintColor: 'rgb(230, 226, 217)',
         headerStyle: {
-          backgroundColor: paperDarkTheme.colors.level0
+          backgroundColor: paperDarkTheme.colors.background
         },
         headerTitleStyle: {
           fontFamily: 'philosopher',

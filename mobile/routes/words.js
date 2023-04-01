@@ -4,7 +4,7 @@ import React, { Fragment } from 'react'
 import SCREENS from '../constants/screens.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import defaultExport from '../screens/words.js'
-import { CombinedDarkTheme } from '../constants/paper-theme.js'
+import { CombinedDarkTheme, paperDarkTheme } from '../constants/paper-theme.js'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Haptics from 'expo-haptics'
 
@@ -28,6 +28,9 @@ export default function Words() {
               fontFamily: 'philosopher',
               fontWeight: 'bold',
               fontSize: 25
+            },
+            headerStyle: {
+              backgroundColor: paperDarkTheme.colors.background
             },
             headerRight: () =>
               practicingWords && (
