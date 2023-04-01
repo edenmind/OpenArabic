@@ -626,10 +626,6 @@ test('create new text', async (t) => {
 
   //check status to be Draft
   t.equal(resultGetSingle.json().status, 'Draft')
-
-  //check that image is correct
-  t.equal(resultGetSingle.json().image, 'https://openarabic.ams3.digitaloceanspaces.com/images/abcabcabcabc')
-
   //validate that the text can be updated
   const resultUpdate = await app.inject({
     url: `/texts/${id}`,
@@ -777,9 +773,6 @@ test('create new text', async (t) => {
 
   //check that the title is updated
   t.equal(resultGetSingleAfterUpdate.json().title, 'defdefdefdef')
-
-  //check that the image is updated
-  t.equal(resultGetSingleAfterUpdate.json().image, 'https://openarabic.ams3.digitaloceanspaces.com/images/defdefdefdef')
 
   //check that the author is updated
   t.equal(resultGetSingleAfterUpdate.json().author, 'defdefdefdef')

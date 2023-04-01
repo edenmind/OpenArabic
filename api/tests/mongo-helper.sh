@@ -3,7 +3,7 @@
 
 MONGO_DEV_CONTAINER_NAME=mongo
 MONGO_TEST_CONTAINER_NAME=mongo-test
-MONGO_VERSION=mongo:5-focal
+MONGO_VERSION=mongo:6-jammy
 
 function usage {
     echo ''
