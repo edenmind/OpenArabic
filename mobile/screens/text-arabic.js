@@ -1,12 +1,11 @@
 import 'react-native-gesture-handler'
 import { ScrollView, View, StyleSheet, Platform } from 'react-native'
-import { Text, Button, Chip, Divider } from 'react-native-paper'
+import { Text, Chip, Divider } from 'react-native-paper'
 import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
-import * as util from '../services/utility-service.js'
-import * as Haptics from 'expo-haptics'
+import TextArabicWords from './text-arabic-words.js'
 
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -27,25 +26,6 @@ export default function TextArabic() {
   const { textLoading } = useSelector(textLoadSelector)
   // loop through all sentences in the text and all the words and return a component that displays the arabic word with each sentence on a new line
 
-  const componentWithArabicWordInATextElementWithEachSentenceOnANewLine = text.sentences.map((sentence) => {
-    return sentence.words.map((word, wordIndex) => {
-      return (
-        <Button
-          key={wordIndex}
-          mode="text"
-          onPress={() => {
-            setEnglishTranslation(word.english + ' (' + util.transliterateArabicToEnglish(word.arabic) + ')')
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-          }}
-        >
-          <Text style={{ ...sharedStyle.arabicBody, lineHeight: Platform.OS === 'android' ? 90 : 50 }}>
-            {word.arabic}
-          </Text>
-        </Button>
-      )
-    })
-  })
-
   return textLoading ? (
     <>
       <Chip icon="information" style={{ margin: 10 }}>
@@ -53,7 +33,9 @@ export default function TextArabic() {
       </Chip>
       <Divider style={sharedStyle.divider} />
       <ScrollView style={sharedStyle.scrollView}>
-        <View style={styles.rowWrapper}>{componentWithArabicWordInATextElementWithEachSentenceOnANewLine}</View>
+        <View style={styles.rowWrapper}>
+          {<TextArabicWords text={text} setEnglishTranslation={setEnglishTranslation} />}
+        </View>
       </ScrollView>
     </>
   ) : (

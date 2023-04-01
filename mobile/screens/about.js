@@ -141,7 +141,7 @@ function About() {
       <List.Item title="Sunnah.com - Ḥadīth." />
       <List.Item
         title="Islamqa.com - Islamic
-        jurisprudence"
+        jurisprudence."
       />
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
