@@ -174,13 +174,13 @@ describe('transliterateArabicToEnglish', () => {
   })
 })
 describe('getHijriDateLatin', () => {
-  test('returns the hijri date in the format: 1444 AH, 6 Ramadan', () => {
+  test('returns the hijri date in the format: 1444 Shawwal 1', () => {
     // Mock the Date object to return a fixed date
     const fixedDate = new Date('2023-04-22T00:00:00')
     jest.spyOn(global, 'Date').mockImplementation(() => fixedDate)
 
     const hijriDate = getHijriDateLatin()
-    expect(hijriDate).toMatch('1444 AH Shawwal 1')
+    expect(hijriDate).toMatch('1444 Shawwal 1')
 
     // Clean up the Date mock
     jest.restoreAllMocks()

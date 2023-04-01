@@ -1,7 +1,4 @@
-/* eslint-disable putout/newline-function-call-arguments */
-/* eslint-disable react-redux/useSelector-prefer-selectors */
 import { View, ScrollView, StyleSheet } from 'react-native'
-
 import { Text, Surface, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
@@ -15,8 +12,7 @@ import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utilit
 import Spinner from '../components/spinner.js'
 
 const selector = (state) => state.text
-const textLoadSelector = (state) => state.textLoading
-
+const textLoadSelector = (state) => state.textLoading ?? true
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -128,7 +124,6 @@ const TextPractice = () => {
           setCurrentSentence(0)
           setCelebrationSnackBarVisibility(true)
         } else {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
           setCurrentSentence((prev) => prev + 1)
         }
 
