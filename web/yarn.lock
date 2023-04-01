@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@adobe/css-tools@npm:^4.0.1":
@@ -605,7 +605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-private-property-in-object@npm:^7.18.6":
+"@babel/plugin-proposal-private-property-in-object@npm:^7.16.0, @babel/plugin-proposal-private-property-in-object@npm:^7.18.6":
   version: 7.21.0
   resolution: "@babel/plugin-proposal-private-property-in-object@npm:7.21.0"
   dependencies:
@@ -5819,15 +5819,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios-mock-adapter@npm:^1.21.2":
-  version: 1.21.2
-  resolution: "axios-mock-adapter@npm:1.21.2"
+"axios-mock-adapter@npm:^1.21.3":
+  version: 1.21.3
+  resolution: "axios-mock-adapter@npm:1.21.3"
   dependencies:
     fast-deep-equal: ^3.1.3
     is-buffer: ^2.0.5
   peerDependencies:
     axios: ">= 0.17.0"
-  checksum: 0d334838a819597f49fd5bf807e2a46cd846397cbea734fd53dcb425dee914e2d3e57cff65eb36af70cdbba848416c48979b75223afbfc1ab49789fd12011618
+  checksum: c7b12b95f0c028c39893f1c992758bb5ccb44fc238522c3b9d6927b37f6a5c0332183ad20429ff86bf3832ae5516efdece11e68818c81808a10e5707dd8ba1f8
   languageName: node
   linkType: hard
 
@@ -16427,7 +16427,7 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -16927,7 +16927,7 @@ __metadata:
     "@testing-library/user-event": ^14.4.3
     "@types/react-redux": ^7.1.25
     axios: ^1.3.4
-    axios-mock-adapter: ^1.21.2
+    axios-mock-adapter: ^1.21.3
     dayjs: ^1.11.7
     eslint-plugin-array-func: ^3.1.8
     eslint-plugin-import: ^2.27.5
