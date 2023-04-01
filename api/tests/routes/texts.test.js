@@ -1,9 +1,11 @@
-/* eslint-disable putout/objects-braces-inside-array */
-
 'use strict'
+
+/* eslint-disable unicorn/consistent-function-scoping */
+/* eslint-disable putout/objects-braces-inside-array */
 
 const { test } = require('tap')
 const { build } = require('../helper')
+const moment = require('moment')
 
 test('create new text with to few sentences', async (t) => {
   //arrange
@@ -383,4 +385,442 @@ test('create text with wrong id should fail', async (t) => {
 
   //assert
   t.equal(result.statusCode, 404)
+})
+
+test('create new text', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  // act
+  const result = await app.inject({
+    url: '/texts',
+    method: 'POST',
+    headers: {
+      auth: 'somesecurekey'
+    },
+    payload: {
+      title: 'abcabcabcabc',
+      status: 'Draft',
+      image: 'abcabcabcabc',
+      createdAt: moment.utc().format(),
+      publishAt: moment.utc().format(),
+      author: 'abcabcabcabc',
+      category: 'abcabcabcabc',
+      source: 'abcabcabcabc',
+      sentences: [
+        {
+          english: 'Praise be to Allah.',
+          arabic: 'الحمد لله.',
+          words: [
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: false
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            }
+          ]
+        },
+        {
+          english: 'Praise be to Allah.',
+          arabic: 'الحمد لله.',
+          words: [
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: false
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            }
+          ]
+        },
+        {
+          english: 'Praise be to Allah.',
+          arabic: 'الحمد لله.',
+          words: [
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: false
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            }
+          ]
+        }
+      ],
+      texts: {
+        arabic:
+          'a\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\ne',
+        english:
+          '1\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n5'
+      }
+    }
+  })
+
+  t.equal(result.statusCode, 201)
+
+  // check if it is possible to get a list of texts
+  const resultGet = await app.inject({
+    url: '/texts',
+    method: 'GET'
+  })
+
+  t.equal(resultGet.statusCode, 200)
+  t.ok(resultGet.json().length > 0)
+
+  // check if it is possible to get a single text
+  const firstText = resultGet.json()[0]
+  const id = firstText.id
+
+  // check if the text is created
+  const resultGetSingle = await app.inject({
+    url: `/texts/${id}`,
+    method: 'GET'
+  })
+
+  t.equal(resultGetSingle.statusCode, 200)
+
+  //check the length of sentences
+  t.equal(resultGetSingle.json().sentences.length, 3)
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[0].english, 'Praise be to Allah.')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[1].english, 'Praise be to Allah.')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[2].english, 'Praise be to Allah.')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[0].words.length, 3)
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[1].words.length, 3)
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[2].words.length, 12)
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[0].words[0].english, 'Praise')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[0].words[1].english, 'Allah')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[0].words[2].english, 'Allah')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[1].words[0].english, 'Praise')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[1].words[1].english, 'Allah')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[1].words[2].english, 'Allah')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[2].words[0].english, 'Praise')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[2].words[1].english, 'Praise')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[2].words[2].english, 'Praise')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[2].words[3].english, 'Praise')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[2].words[4].english, 'Praise')
+
+  //check that the sentences are correct
+  t.equal(resultGetSingle.json().sentences[2].words[5].english, 'Praise')
+
+  //check that author is correct
+  t.equal(resultGetSingle.json().author, 'abcabcabcabc')
+
+  //check that title is correct
+  t.equal(resultGetSingle.json().title, 'abcabcabcabc')
+
+  //check that source is correct
+  t.equal(resultGetSingle.json().source, 'abcabcabcabc')
+
+  //check that category is correct
+  t.equal(resultGetSingle.json().category, 'abcabcabcabc')
+
+  // check that english text contains the correct number of words
+  t.equal(resultGetSingle.json().texts.english.split(' ').length, 1)
+
+  // check that arabic text contains the correct number of words
+  t.equal(resultGetSingle.json().texts.arabic.split(' ').length, 1)
+
+  //check status to be Draft
+  t.equal(resultGetSingle.json().status, 'Draft')
+
+  //check that image is correct
+  t.equal(resultGetSingle.json().image, 'https://openarabic.ams3.digitaloceanspaces.com/images/abcabcabcabc')
+
+  //validate that the text can be updated
+  const resultUpdate = await app.inject({
+    url: `/texts/${id}`,
+    method: 'PUT',
+    headers: {
+      auth: 'somesecurekey'
+    },
+    payload: {
+      title: 'defdefdefdef',
+      status: 'Draft',
+      image: 'defdefdefdef',
+      createdAt: moment.utc().format(),
+      publishAt: moment.utc().format(),
+      author: 'defdefdefdef',
+      category: 'defdefdefdef',
+      source: 'defdefdefdef',
+      sentences: [
+        {
+          english: 'Praise be to Allah.',
+          arabic: 'الحمد لله.',
+          words: [
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: false
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            }
+          ]
+        },
+        {
+          english: 'Praise be to Allah.',
+          arabic: 'الحمد لله.',
+          words: [
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: false
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            }
+          ]
+        },
+        {
+          english: 'Praise be to Allah.',
+          arabic: 'الحمد لله.',
+          words: [
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: false
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'الحمد',
+              english: 'Praise',
+              quiz: true
+            },
+            {
+              arabic: 'لله',
+              english: 'Allah',
+              quiz: true
+            }
+          ]
+        }
+      ],
+      texts: {
+        arabic:
+          'a\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\nea\nb\nc\nd\ne',
+        english:
+          '1\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n51\n2\n3\n4\n5'
+      }
+    }
+  })
+
+  t.equal(resultUpdate.statusCode, 200)
+
+  // check if the text is created
+  const resultGetSingleAfterUpdate = await app.inject({
+    url: `/texts/${id}`,
+    method: 'GET'
+  })
+
+  t.equal(resultGetSingleAfterUpdate.statusCode, 200)
+
+  //check that the title is updated
+  t.equal(resultGetSingleAfterUpdate.json().title, 'defdefdefdef')
+
+  //check that the image is updated
+  t.equal(resultGetSingleAfterUpdate.json().image, 'https://openarabic.ams3.digitaloceanspaces.com/images/defdefdefdef')
+
+  //check that the author is updated
+  t.equal(resultGetSingleAfterUpdate.json().author, 'defdefdefdef')
+
+  //check that the category is updated
+  t.equal(resultGetSingleAfterUpdate.json().category, 'defdefdefdef')
+
+  //check that the source is updated
+  t.equal(resultGetSingleAfterUpdate.json().source, 'defdefdefdef')
+
+  //check that the status is not updated
+  t.equal(resultGetSingleAfterUpdate.json().status, 'Draft')
+
+  //check that sentences are the same
+  t.equal(resultGetSingleAfterUpdate.json().sentences.length, 3)
+
+  //check that the first sentence is the same
+  t.equal(resultGetSingleAfterUpdate.json().sentences[0].english, 'Praise be to Allah.')
+
+  //check that the second sentence is the same
+  t.equal(resultGetSingleAfterUpdate.json().sentences[1].english, 'Praise be to Allah.')
+
+  //check that the third sentence is the same
+  t.equal(resultGetSingleAfterUpdate.json().sentences[2].english, 'Praise be to Allah.')
+
+  //test that the text can be deleted
+  const resultDelete = await app.inject({
+    url: `/texts/${id}`,
+    method: 'DELETE',
+    headers: {
+      auth: 'somesecurekey'
+    }
+  })
+
+  t.equal(resultDelete.statusCode, 204)
+
+  //check that the text is deleted
+  const resultGetSingleAfterDelete = await app.inject({
+    url: `/texts/${id}`,
+    method: 'GET'
+  })
+
+  t.equal(resultGetSingleAfterDelete.statusCode, 404)
 })

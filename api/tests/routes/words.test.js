@@ -140,7 +140,7 @@ test('cannot add word if Arabic word is not provided', async (t) => {
   t.equal(response.statusCode, 400)
 })
 
-test('csnnot att word if sentenceEnglish is not provided', async (t) => {
+test('cannot add word if sentenceEnglish is not provided', async (t) => {
   // arrange
   const app = await build(t)
 

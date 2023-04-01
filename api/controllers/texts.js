@@ -20,50 +20,49 @@ const { ObjectId } = require('mongodb')
 const { v4: uuidv4 } = require('uuid')
 
 async function listTexts(request, reply) {
-  //get the texts collection
-  const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  let textList = []
+  try {
+    // Get the texts collection
+    const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
 
-  // if request.params.id is undefined, then get all texts
-  if (request.params.id === undefined) {
-    textList = await textsCollection.find({}).toArray()
-  } else {
-    textList = await textsCollection.find({ category: request.params.id }).toArray()
-  }
+    // If request.params.id is undefined, then get all texts, else get texts by category
+    const textList =
+      request.params.id === undefined
+        ? await textsCollection.find({}).toArray()
+        : await textsCollection.find({ category: request.params.id }).toArray()
 
-  //sort texts by publishAt
-  const textListWithNewestFirst = textList.reverse()
+    // Sort texts by publishAt
+    const textListWithNewestFirst = textList.reverse()
 
-  //add properties for timeAgo and readingTime for each text
-  const textListWithProperties = textListWithNewestFirst.map((text) => {
-    if (!Array.isArray(textListWithNewestFirst) || !text.publishAt || !text.texts.arabic || !text.image) {
-      return reply.internalServerError('One or more values are empty!')
+    // Add properties for timeAgo, readingTime, numberOfSentences, numberOfWords, and image for each text
+    const textListWithProperties = textListWithNewestFirst.map((text) => {
+      if (!text.publishAt || !text.texts.arabic || !text.image) {
+        return reply.internalServerError('One or more values are empty!')
+      }
+
+      return Object.assign({}, text, {
+        timeAgo: timeAgo(text.publishAt),
+        readingTime: readingTime(text.texts.arabic),
+        numberOfSentences: text.sentences.length,
+        numberOfWords: text.sentences.reduce((total, sentence) => total + sentence.words.length, 0),
+        image: process.env.IMAGES_URL + text.image
+      })
+    })
+
+    // Send the texts
+    if (textListWithProperties.length > 0) {
+      return reply.code(200).send(textListWithProperties)
     }
 
-    return {
-      ...text,
-      timeAgo: timeAgo(text.publishAt),
-      readingTime: readingTime(text.texts.arabic),
-      image: process.env.IMAGES_URL + text.image,
-      // add property for the number of sentences in the text
-      numberOfSentences: text.sentences.length,
-      //return the total number of words in the text
-      numberOfWords: text.sentences.map((sentence) => sentence.words.length).reduce((total, current) => total + current)
-    }
-  })
-
-  //send the texts
-  if (textListWithProperties.length > 0) {
-    return reply.code(200).send(textListWithProperties)
+    return reply.code(404).send('No texts found!')
+  } catch (err) {
+    console.error(err)
+    return reply.internalServerError('Error connecting to database')
   }
-
-  return reply.code(404).send('No texts found!')
 }
 
 async function addText(request, reply) {
   //get the data from the request
   const { headers, body } = request
-  const { title, author, category, source, sentences, texts, publishAt, status, image } = body
   const { auth } = headers
 
   //check if the user is authorized
@@ -75,22 +74,22 @@ async function addText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const id = new ObjectId() //generate a new id
   const views = 0 //initially, the text has no views
-  const slug = slugifyWithAuthor(title, author) //generate a slug
+  const slug = slugifyWithAuthor(body.title, body.author) //generate a slug
   const createdAt = new Date()
   const data = {
-    title,
+    title: body.title,
     slug,
-    author,
-    image,
+    author: body.author,
+    image: body.image,
     createdAt,
-    publishAt,
-    category,
-    source,
+    publishAt: body.publishAt,
+    category: body.category,
+    source: body.source,
     id,
-    sentences,
-    texts,
+    sentences: body.sentences,
+    texts: body.texts,
     views,
-    status
+    status: body.status
   }
 
   // Validate that no objects are empty
@@ -128,16 +127,7 @@ async function addText(request, reply) {
 async function getText(request, reply) {
   //get the text from the database
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-
-  let text = ''
-
-  //get the text by slug
-  text = await texts.findOne({ slug: request.params.id })
-
-  // if the text is null or undefined, try to get the text by id
-  if (!text) {
-    text = await texts.findOne({ id: new ObjectId(request.params.id) })
-  }
+  const text = await texts.findOne({ $or: [{ slug: request.params.id }, { id: new ObjectId(request.params.id) }] })
 
   //if the text is null or undefined, send a 404
   if (!text) {
@@ -146,14 +136,8 @@ async function getText(request, reply) {
 
   //update property "views" in the text
   const views = text.views + 1
+  await texts.updateOne({ _id: text._id }, { $set: { views } }, { upsert: true })
 
-  // try update views with one by searching by id and if not found by slug
-  try {
-    const id = new ObjectId(request.params.id)
-    await texts.updateOne({ id }, { $set: { views } })
-  } catch {
-    await texts.updateOne({ slug: request.params.id }, { $set: { views } })
-  }
   //decorate the text with some extra properties
   text.timeAgo = timeAgo(text.publishAt)
   text.readingTime = readingTime(text.texts.arabic)
@@ -161,16 +145,13 @@ async function getText(request, reply) {
   text.image = process.env.IMAGES_URL + text.image
 
   //loop through the sentences and words and add the url to the audio file
-  text.sentences = text.sentences.map((sentence) => {
+  for (const sentence of text.sentences) {
     sentence.words = sentence.words.map((word) => {
       word.filename = process.env.AUDIO_URL + word.filename
-
       return word
     })
     sentence.filename = process.env.AUDIO_URL + sentence.filename
-
-    return sentence
-  })
+  }
 
   //send the text
   reply.code(200).send(text)
@@ -186,9 +167,11 @@ async function getTashkeel(request, reply) {
 
 async function updateText(request, reply) {
   //get the data from the request
-  const { body, headers, params } = request
-  const { auth } = headers
-  const { id } = params
+  const {
+    headers: { auth },
+    body,
+    params: { id }
+  } = request
 
   //check if the user is authorized
   if (!validateAPIKey(auth)) {
@@ -198,32 +181,19 @@ async function updateText(request, reply) {
   //prepare the data to be inserted into the database
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const updatedAt = new Date()
-  const { title, author, category, sentences, source, texts, publishAt, status, image, generateAudio, textGuid } = body
-  const { arabic, english } = texts
+  const { texts, ...rest } = body
   const data = {
     $set: {
-      title,
-      textGuid,
-      category,
-      status,
-      image,
-      publishAt,
-      updatedAt,
-      generateAudio,
+      ...rest,
+      textGuid: texts.textGuid,
       texts: {
-        arabic,
-        english
+        ...texts
       },
-      author,
-      source,
-      sentences
+      updatedAt
     }
   }
 
   // Validate that no objects are empty
-  // data: the data being validated
-  // Returns: true if no objects are empty, false otherwise
-
   if (!validateThatNoObjectsAreEmpty(data)) {
     return reply.internalServerError('One or more values are empty!')
   }
