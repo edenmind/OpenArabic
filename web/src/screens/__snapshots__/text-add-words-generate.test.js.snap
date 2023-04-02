@@ -24,6 +24,6 @@ exports[`should match snapshot 1`] = `
     }
   }
 >
-  <TextAddWordsGenerate />
+  <Memo />
 </Context.Provider>
 `;

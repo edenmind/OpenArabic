@@ -36,10 +36,9 @@ function TextBilingualSentences(props) {
       <Text style={sharedStyle.englishBody} variant="bodyLarge">
         {sentence.english}
       </Text>
-
+      <PlaySound audioFileName={sentence.filename} buttonText={'PLAY SENTENCE'} />
       <Button
         mode="elevated"
-        style={sharedStyle.button}
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()
@@ -47,7 +46,6 @@ function TextBilingualSentences(props) {
       >
         {showWords}
       </Button>
-      <PlaySound audioFileName={sentence.filename} buttonText={'PLAY SENTENCE'} />
     </View>
   ))
 

@@ -2523,10 +2523,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/core-downloads-tracker@npm:^5.11.14":
-  version: 5.11.14
-  resolution: "@mui/core-downloads-tracker@npm:5.11.14"
-  checksum: 8b1b42e125b15136ee82d2cb48354202b87beb8e20defcf3a8b758b033732444d09446d85a28c23b0dcaa8b5d067bc20bdd654c9adf551d826b142b4b09d7dd7
+"@mui/base@npm:5.0.0-alpha.123":
+  version: 5.0.0-alpha.123
+  resolution: "@mui/base@npm:5.0.0-alpha.123"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+    "@emotion/is-prop-valid": ^1.2.0
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.13
+    "@popperjs/core": ^2.11.7
+    clsx: ^1.2.1
+    prop-types: ^15.8.1
+    react-is: ^18.2.0
+  peerDependencies:
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: a17c266d0a922903e43c08cce8f42d1a35716b5d1574393c90ac89290029f6c08ef7261ba7af3609917a32fce1a1c0efdab06320df4d1ab351fd987e429f6dfd
+  languageName: node
+  linkType: hard
+
+"@mui/core-downloads-tracker@npm:^5.11.15":
+  version: 5.11.15
+  resolution: "@mui/core-downloads-tracker@npm:5.11.15"
+  checksum: 8dc377b415ac1c18ec11a55fe916aeb0317e4c454759e3c3c0d3bdeaef75236486f17cb9ef3ae01eaee5f51e2cc7ada6a7e7ca452a64ddbbb8638c32e2615938
   languageName: node
   linkType: hard
 
@@ -2576,14 +2599,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.11.14":
-  version: 5.11.14
-  resolution: "@mui/material@npm:5.11.14"
+"@mui/material@npm:^5.11.15":
+  version: 5.11.15
+  resolution: "@mui/material@npm:5.11.15"
   dependencies:
     "@babel/runtime": ^7.21.0
-    "@mui/base": 5.0.0-alpha.122
-    "@mui/core-downloads-tracker": ^5.11.14
-    "@mui/system": ^5.11.14
+    "@mui/base": 5.0.0-alpha.123
+    "@mui/core-downloads-tracker": ^5.11.15
+    "@mui/system": ^5.11.15
     "@mui/types": ^7.2.3
     "@mui/utils": ^5.11.13
     "@types/react-transition-group": ^4.4.5
@@ -2605,7 +2628,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 48fdd56ee55da6d551b8b716b8a080afe2276a62e0441efdd58be3b10ab1204d196a8ecc5f35ac23b8e9c7f5d6884ce37966cdcf8846771fe8ccc5ca626a8e1e
+  checksum: 53726a8aa2ab541c967eda43fe0094486e2f2ac743c39f09a5326aeffdba0be414187f216346c45135751b63a28a9871f4e68f4d6ab89b5b1d86e468f869d328
   languageName: node
   linkType: hard
 
@@ -2675,6 +2698,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mui/system@npm:^5.11.15":
+  version: 5.11.15
+  resolution: "@mui/system@npm:5.11.15"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+    "@mui/private-theming": ^5.11.13
+    "@mui/styled-engine": ^5.11.11
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.13
+    clsx: ^1.2.1
+    csstype: ^3.1.1
+    prop-types: ^15.8.1
+  peerDependencies:
+    "@emotion/react": ^11.5.0
+    "@emotion/styled": ^11.3.0
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@emotion/react":
+      optional: true
+    "@emotion/styled":
+      optional: true
+    "@types/react":
+      optional: true
+  checksum: c8b8ffcf48b204f8e0ff6cc2ef5a35b6a3ef3517c9626dbb2fda073b81992c93750167440737459b82ff1ac2bf6d4e9eb9ce3b39887bdc4dbded5bc8266032ac
+  languageName: node
+  linkType: hard
+
 "@mui/types@npm:^7.2.3":
   version: 7.2.3
   resolution: "@mui/types@npm:7.2.3"
@@ -2702,9 +2753,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "@mui/x-data-grid@npm:6.0.3"
+"@mui/x-data-grid@npm:^6.0.4":
+  version: 6.0.4
+  resolution: "@mui/x-data-grid@npm:6.0.4"
   dependencies:
     "@babel/runtime": ^7.21.0
     "@mui/utils": ^5.11.13
@@ -2716,13 +2767,13 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: fc8f3c6152ef65ca0381a6334c1114a6da77632e844a571c9ef37177706377fb9f04bb06f9b7738af095c1cc4d2b16c59ed1e310f30b1ddde3905ab3d8614508
+  checksum: 8f84071287e803807aa4b058583081d400f69c0c2935522b0a67672f623d2606bdcc75aa912deb9ca9d12850faae555ab95a28fdd705af3c6177d346d68da7f0
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "@mui/x-date-pickers@npm:6.0.3"
+"@mui/x-date-pickers@npm:^6.0.4":
+  version: 6.0.4
+  resolution: "@mui/x-date-pickers@npm:6.0.4"
   dependencies:
     "@babel/runtime": ^7.21.0
     "@date-io/core": ^2.16.0
@@ -2771,7 +2822,7 @@ __metadata:
       optional: true
     moment-jalaali:
       optional: true
-  checksum: 9eb4867f90bb7fc275b69bb7f3374f0ddb9947267354cb0d16ba77b4562e23aedcc792eba5e861e176060e18afd3904e1b938944bd0a0e1e1d0af43ad757747f
+  checksum: c1fd2663ce0dace598448f156507bc63ee95203554c36d98db82a85b19dde3aabec789fb554d522c0dc31701987c16383cfbc619ed7f3274836d23d707d87f3e
   languageName: node
   linkType: hard
 
@@ -2870,7 +2921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.11.6":
+"@popperjs/core@npm:^2.11.6, @popperjs/core@npm:^2.11.7":
   version: 2.11.7
   resolution: "@popperjs/core@npm:2.11.7"
   checksum: 5b6553747899683452a1d28898c1b39173a4efd780e74360bfcda8eb42f1c5e819602769c81a10920fc68c881d07fb40429604517d499567eac079cfa6470f19
@@ -3241,12 +3292,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-optional-chaining@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "@putout/plugin-apply-optional-chaining@npm:2.0.2"
+"@putout/plugin-apply-optional-chaining@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-apply-optional-chaining@npm:3.0.0"
   peerDependencies:
-    putout: ">=9"
-  checksum: af8ae9dbf7e7e2fc36c9403be1be033973167b95b3263577f3547fdca1c1a05703a5f6cdb537acc079e789fd0f4a16efbf482f1342d6be8f68d74766b43a954b
+    putout: ">=29"
+  checksum: e49286631d9ab270e50c67b9e9146c3b00c9a0c4dd6c3c2610aa4ed0b7a09fcf98c2cdb182987036b3206511669b24ff935b4e5ce0fd7abe9ae3534ed1cc4d34
   languageName: node
   linkType: hard
 
@@ -3360,12 +3411,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-index-of-to-includes@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "@putout/plugin-convert-index-of-to-includes@npm:1.1.0"
+"@putout/plugin-convert-index-of-to-includes@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "@putout/plugin-convert-index-of-to-includes@npm:2.0.1"
   peerDependencies:
-    putout: ">=8"
-  checksum: 57d1107914a344111dc8b7b59560e854e88bebbcd7066bb75b0b0bc73498fe5ec86f931d87bc584d720dd605eedad51f24091207f511a2041d32dd35a69ab580
+    putout: ">=29"
+  checksum: 81ee28b0ce1a455a3101080f51f865a88357d86e78a7762cf9e0fc08764a53120ec80979b85955bd2ad09c3ab4a0c740cdc1cabd8785a79946e56e1e36172f4e
   languageName: node
   linkType: hard
 
@@ -3384,6 +3435,15 @@ __metadata:
   peerDependencies:
     putout: ">=25"
   checksum: ed6f80b11a72917ad1cbbee9e8ab5337b9a119423fc88f7a33ac64d47024b75320db4a294bc2294e8f7e767cdea1d416adff936be8cf86b6141643ed991ed48c
+  languageName: node
+  linkType: hard
+
+"@putout/plugin-convert-object-entries-to-array-entries@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "@putout/plugin-convert-object-entries-to-array-entries@npm:1.0.1"
+  peerDependencies:
+    putout: ">=26"
+  checksum: ab63d6c5f1b21397d625311680d880617a009ce93fa9ad7d5fb445da1090d4bec50498e2bd70c8a24da1dff54dc90f62d0c494071d5796606e4ce2e131bde99b
   languageName: node
   linkType: hard
 
@@ -3441,21 +3501,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-eslint@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "@putout/plugin-eslint@npm:4.2.0"
+"@putout/plugin-eslint@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-eslint@npm:5.0.0"
   peerDependencies:
-    putout: ">=26"
-  checksum: 900852f2c41b88fe1a219ed93d0e6a0a103cda3c21711bd9d37442b1b3ce677fbbfcb49a8806d9fa10ab46c37ccb6e479a8373acfbc9a9d9754d6051e7d296bc
+    putout: ">=29"
+  checksum: dfce38790d899ae68d1cde18ab2573f04f940158b265b8bb3e9819c7652459e6f87fd8a802ca7ff6f063323644e7236dc285c860d9d6cf0245de436c6a0fdc86
   languageName: node
   linkType: hard
 
-"@putout/plugin-extract-object-properties@npm:^8.0.0":
-  version: 8.3.1
-  resolution: "@putout/plugin-extract-object-properties@npm:8.3.1"
+"@putout/plugin-extract-object-properties@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@putout/plugin-extract-object-properties@npm:9.0.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: 4d51d996cf49d21a7f63091e14ae738bc55d4a938b3606e8a8636b0158ee78021de27f41b65bad167d8839fa501d982a64ebdc1b377694f41304b9a2ab8bca18
+    putout: ">=29"
+  checksum: 05c4cf3f8abcfe3c9453130ad3e7c86d713c744ea93dabcaabc999562f4dcfad367c63c4bd6986157b841b2053f874e62d5deede58b0973b4c85614784eca5ee
   languageName: node
   linkType: hard
 
@@ -3497,12 +3557,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-logical-expressions@npm:^1.0.0":
-  version: 1.2.1
-  resolution: "@putout/plugin-logical-expressions@npm:1.2.1"
+"@putout/plugin-logical-expressions@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-logical-expressions@npm:2.0.0"
   peerDependencies:
-    putout: ">=27.3"
-  checksum: 1667fa3017fe1eac37844b281bebbf58061d727e742af6395f8e3fe53abbf195d0e545521f7b990a490abf600bb554056eb77ad9715ef415fd4122ba979128fa
+    putout: ">=29"
+  checksum: ab374f28656598c1f606366fc1a79810470d631030ed857d16a5c08af38034d7320084aef46ea0bd9dfd09a3dca68e01c93cb87708f03d80da8e4f1186813f86
   languageName: node
   linkType: hard
 
@@ -3659,12 +3719,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-console@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@putout/plugin-remove-console@npm:5.0.0"
+"@putout/plugin-remove-console@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-remove-console@npm:6.0.0"
   peerDependencies:
-    putout: ">=27"
-  checksum: 3b7b8f8eb92cded9e374cba59677ffac24e8c51ee6d1bb716f94fd71e805b3db2fe29662cc6153727bf6638856df4d06a146a91ec42cc446b726ed2227029334
+    putout: ">=29"
+  checksum: 69bb66bed5975d99028a9a9672f565c8e4d81497863a40c1137fb7fd8eec7c41aab00a1e1b79791413513c2ed81d59dfaa54ded2ab0f97148276fe37c5ced778
   languageName: node
   linkType: hard
 
@@ -3706,12 +3766,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-empty@npm:^9.0.0":
-  version: 9.2.0
-  resolution: "@putout/plugin-remove-empty@npm:9.2.0"
+"@putout/plugin-remove-empty@npm:^10.0.0":
+  version: 10.1.0
+  resolution: "@putout/plugin-remove-empty@npm:10.1.0"
   peerDependencies:
-    putout: ">=27"
-  checksum: a94701d101341727f12e51d3014441dbad722ff8c0dfa7da2d2687b808534a5082aea6cfe385501052a5996b07e286c5fcb528709f170820f123a48e8546b003
+    putout: ">=29"
+  checksum: 863c49ff669e88f9305ae3534730976d3bffd348f5c8b074e4884e9afa2b36332ae2427a83afa46f6ffc18609cda83a3caa67ff0305cf0fdd0337a946dd816c7
   languageName: node
   linkType: hard
 
@@ -3778,12 +3838,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-unused-variables@npm:^4.0.0":
-  version: 4.2.0
-  resolution: "@putout/plugin-remove-unused-variables@npm:4.2.0"
+"@putout/plugin-remove-unused-variables@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-remove-unused-variables@npm:5.0.0"
   peerDependencies:
-    putout: ">=25"
-  checksum: 4fa81f7ae5f88278cc31a8f8e81a1d9db1fc2c4dd50e082d9a2642bc791882eacad466af6d70a84e5ba9deace4963cbe4a9b63351bdd49101ceb1c198ce2fbfb
+    putout: ">=29"
+  checksum: 4c2e1f875df037d225c46a525a03fe93971bcf30ebd5a94b6d1bbe1f39ecb05d68d92bd6b0487ad079610d58f86163b56872b1f0d90a005680fe9ba7d627b5ce
   languageName: node
   linkType: hard
 
@@ -4151,10 +4211,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@remix-run/router@npm:1.4.0"
-  checksum: 707dce35a2b8138005cf19e63f6fd3c4da05b4b892e9e9118e8b727c3b95953efe27307ca2df35084044df30fa1fc367cf0bbc98d1ded9020c82e61e6242caaf
+"@remix-run/router@npm:1.5.0":
+  version: 1.5.0
+  resolution: "@remix-run/router@npm:1.5.0"
+  checksum: 9c510c174af1553edd1f039ba16e7e3d34e04d53b3bac18814660e31cd0c48297ea4291ff86d0736b560123ebc63ecb62fa525829181d16a8dad15270d6672d7
   languageName: node
   linkType: hard
 
@@ -5819,15 +5879,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios-mock-adapter@npm:^1.21.2":
-  version: 1.21.2
-  resolution: "axios-mock-adapter@npm:1.21.2"
+"axios-mock-adapter@npm:^1.21.4":
+  version: 1.21.4
+  resolution: "axios-mock-adapter@npm:1.21.4"
   dependencies:
     fast-deep-equal: ^3.1.3
     is-buffer: ^2.0.5
   peerDependencies:
     axios: ">= 0.17.0"
-  checksum: 0d334838a819597f49fd5bf807e2a46cd846397cbea734fd53dcb425dee914e2d3e57cff65eb36af70cdbba848416c48979b75223afbfc1ab49789fd12011618
+  checksum: adcd838c8b21f1ed67950c18b68dcf7c7c9bcddc75418720b5a407fd8448a3aa97b736307c631c27c2971368ac56716a310ea6cfc056517c1f1b0f8825427e58
   languageName: node
   linkType: hard
 
@@ -8082,9 +8142,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^17.1.0":
-  version: 17.1.0
-  resolution: "eslint-plugin-putout@npm:17.1.0"
+"eslint-plugin-putout@npm:^17.2.1":
+  version: 17.2.1
+  resolution: "eslint-plugin-putout@npm:17.2.1"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -8104,7 +8164,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=29"
-  checksum: 4ef0f9ca3c944fda0c904b5f50d676b409755f6d3e1b511d6b30142eedfb6576ccc3b07f170d02312a13ce234259bbe7b3ddfb665c1999e3565b4b4bbff9b2d1
+  checksum: 4c6ff9ba91fca1b4a31a858b5e027cf6b8eb654587cddfb96913d82e6c173f031a64d5aecc96cc048f047479e4c4ae93db194b7c1dfaa217bd99d93ce20a74c7
   languageName: node
   linkType: hard
 
@@ -12028,12 +12088,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.42":
-  version: 0.5.42
-  resolution: "moment-timezone@npm:0.5.42"
+"moment-timezone@npm:^0.5.43":
+  version: 0.5.43
+  resolution: "moment-timezone@npm:0.5.43"
   dependencies:
     moment: ^2.29.4
-  checksum: d4d5d68d4b98e4309e8692ddb6b790ab6b375414ea4e45ef3144bfbc689ab14e3089c4561aea43471fd58595328f43fc554231c9d8fc753b460ca0a29a105693
+  checksum: 8075c897ed8a044f992ef26fe8cdbcad80caf974251db424cae157473cca03be2830de8c74d99341b76edae59f148c9d9d19c1c1d9363259085688ec1cf508d0
   languageName: node
   linkType: hard
 
@@ -13824,9 +13884,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.1.5":
-  version: 29.1.5
-  resolution: "putout@npm:29.1.5"
+"putout@npm:^29.1.13":
+  version: 29.1.13
+  resolution: "putout@npm:29.1.13"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13859,7 +13919,7 @@ __metadata:
     "@putout/plugin-apply-destructuring": ^6.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
     "@putout/plugin-apply-flat-map": ^2.0.0
-    "@putout/plugin-apply-optional-chaining": ^2.0.0
+    "@putout/plugin-apply-optional-chaining": ^3.0.0
     "@putout/plugin-apply-template-literals": ^1.0.0
     "@putout/plugin-browserlist": ^1.0.0
     "@putout/plugin-conditions": ^1.0.0
@@ -13872,22 +13932,23 @@ __metadata:
     "@putout/plugin-convert-concat-to-flat": ^1.0.0
     "@putout/plugin-convert-const-to-let": ^1.0.0
     "@putout/plugin-convert-esm-to-commonjs": ^5.0.0
-    "@putout/plugin-convert-index-of-to-includes": ^1.0.0
+    "@putout/plugin-convert-index-of-to-includes": ^2.0.0
     "@putout/plugin-convert-mock-require-to-mock-import": ^4.0.0
     "@putout/plugin-convert-object-assign-to-merge-spread": ^6.0.0
+    "@putout/plugin-convert-object-entries-to-array-entries": ^1.0.0
     "@putout/plugin-convert-quotes-to-backticks": ^2.0.0
     "@putout/plugin-convert-template-to-string": ^1.0.0
     "@putout/plugin-convert-to-arrow-function": ^3.0.0
     "@putout/plugin-declare": ^1.0.1
     "@putout/plugin-declare-before-reference": ^2.0.0
     "@putout/plugin-declare-imports-first": ^2.0.0
-    "@putout/plugin-eslint": ^4.2.0
-    "@putout/plugin-extract-object-properties": ^8.0.0
+    "@putout/plugin-eslint": ^5.0.0
+    "@putout/plugin-extract-object-properties": ^9.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
     "@putout/plugin-for-of": ^1.0.0
     "@putout/plugin-github": ^4.0.0
     "@putout/plugin-gitignore": ^3.0.0
-    "@putout/plugin-logical-expressions": ^1.0.0
+    "@putout/plugin-logical-expressions": ^2.0.0
     "@putout/plugin-madrun": ^15.0.0
     "@putout/plugin-math": ^2.0.0
     "@putout/plugin-maybe": ^1.0.0
@@ -13904,12 +13965,12 @@ __metadata:
     "@putout/plugin-putout": ^12.0.0
     "@putout/plugin-putout-config": ^2.0.0
     "@putout/plugin-regexp": ^6.0.0
-    "@putout/plugin-remove-console": ^5.0.0
+    "@putout/plugin-remove-console": ^6.0.0
     "@putout/plugin-remove-constant-conditions": ^4.0.0
     "@putout/plugin-remove-debugger": ^5.0.0
     "@putout/plugin-remove-duplicate-case": ^2.0.0
     "@putout/plugin-remove-duplicate-keys": ^3.0.0
-    "@putout/plugin-remove-empty": ^9.0.0
+    "@putout/plugin-remove-empty": ^10.0.0
     "@putout/plugin-remove-iife": ^4.0.0
     "@putout/plugin-remove-nested-blocks": ^6.0.0
     "@putout/plugin-remove-unreachable-code": ^1.0.0
@@ -13917,7 +13978,7 @@ __metadata:
     "@putout/plugin-remove-unused-expressions": ^5.0.0
     "@putout/plugin-remove-unused-for-of-variables": ^3.0.0
     "@putout/plugin-remove-unused-private-fields": ^2.0.0
-    "@putout/plugin-remove-unused-variables": ^4.0.0
+    "@putout/plugin-remove-unused-variables": ^5.0.0
     "@putout/plugin-remove-useless-arguments": ^6.0.0
     "@putout/plugin-remove-useless-array-constructor": ^1.0.0
     "@putout/plugin-remove-useless-array-entries": ^1.0.0
@@ -13973,7 +14034,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: f5f0c02c42bcdbe3f1c9767af78d8926e4d4b9224b3f0e6eef4b06efc11002899a83ece140e2910f8eb5324f3da1cd14113200300c9d8d0b4ed8364db565cb59
+  checksum: d3d8a6d92c3594cf6d29aeb3f657bce784a45b36f007fa3ff8776742b15b1d3aae237f8910188ae6e717d469df57770195e3c4ca7ba3521fc4ae480f1f126024
   languageName: node
   linkType: hard
 
@@ -14201,27 +14262,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.9.0":
-  version: 6.9.0
-  resolution: "react-router-dom@npm:6.9.0"
+"react-router-dom@npm:^6.10.0":
+  version: 6.10.0
+  resolution: "react-router-dom@npm:6.10.0"
   dependencies:
-    "@remix-run/router": 1.4.0
-    react-router: 6.9.0
+    "@remix-run/router": 1.5.0
+    react-router: 6.10.0
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 4d593491ab8db5611feda70002c62902baebb84d5c1c5e5b6172496f31f91130deee132bf4240dea634a88cb86c76d6da348f15b9cd5e5197be455efd88edf72
+  checksum: d048d8cc66e5aec782bd675097d6bf0e5f867f3f0539bff9acdc4a314b5e0e34093944762960ca0977a54c6255272edd262231242b18c4e260d68df6b5288464
   languageName: node
   linkType: hard
 
-"react-router@npm:6.9.0":
-  version: 6.9.0
-  resolution: "react-router@npm:6.9.0"
+"react-router@npm:6.10.0":
+  version: 6.10.0
+  resolution: "react-router@npm:6.10.0"
   dependencies:
-    "@remix-run/router": 1.4.0
+    "@remix-run/router": 1.5.0
   peerDependencies:
     react: ">=16.8"
-  checksum: b2a5f42e042bee7a7f116ca7817b0e58359e5353d84887c9fe7a633d7490c03b1e0ae37cd01830c2a381e3d1e7d501bb4751e53cc3d491e25f36582d3f6e0546
+  checksum: c9fce46147c04257d7d6fa1f5bbfac96c5fdd0b15f26918bd12b2e5fe9143977c5a4452272f9b85795a22e29ec105a60d0bbe036118efc52b383d163cd8829ab
   languageName: node
   linkType: hard
 
@@ -16918,22 +16979,22 @@ __metadata:
     "@fontsource/roboto": ^4.5.8
     "@mui/icons-material": ^5.11.11
     "@mui/lab": ^5.0.0-alpha.124
-    "@mui/material": ^5.11.14
-    "@mui/x-data-grid": ^6.0.3
-    "@mui/x-date-pickers": ^6.0.3
+    "@mui/material": ^5.11.15
+    "@mui/x-data-grid": ^6.0.4
+    "@mui/x-date-pickers": ^6.0.4
     "@reduxjs/toolkit": ^1.9.3
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.4.3
     "@types/react-redux": ^7.1.25
     axios: ^1.3.4
-    axios-mock-adapter: ^1.21.2
+    axios-mock-adapter: ^1.21.4
     dayjs: ^1.11.7
     eslint-plugin-array-func: ^3.1.8
     eslint-plugin-import: ^2.27.5
     eslint-plugin-mui-unused-classes: ^2.0.2
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^17.1.0
+    eslint-plugin-putout: ^17.2.1
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.7.1
@@ -16941,15 +17002,15 @@ __metadata:
     eslint-plugin-unicorn: ^46.0.0
     history: ^5.3.0
     moment: ^2.29.4
-    moment-timezone: ^0.5.42
+    moment-timezone: ^0.5.43
     node-notifier: ^10.0.1
     prettier: ^2.8.7
-    putout: ^29.1.5
+    putout: ^29.1.13
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.3
     react-redux: ^8.0.5
-    react-router-dom: ^6.9.0
+    react-router-dom: ^6.10.0
     react-scripts: ^5.0.1
     react-test-renderer: ^18.2.0
     redux: ^4.2.1

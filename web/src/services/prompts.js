@@ -50,17 +50,22 @@ ${sentence.english}
 - Add words surrounded by [] to make the translation fluent, readable and understandable
 - The translation must be readable as a complete sentence and not only as a list of words
 - Verify that the translation is correct according to Sunni Islam
-- Verify that the translation is correct according to the Arabic sentence
+- Verify that the translation is correct according to the Arabic Sentence
 - Explain the rationale behind translation choices
 - Add alternative translations in the comments
 ---
 
 --- Example output of the above task and requirements:
-إنَّمَا - Indeed,
-الْأَعْمَالُ - the actions [are judged],
-بِالنِّيَّاتِ - by the intentions,
+إنَّمَا - Indeed
+الْأَعْمَالُ - the actions [are judged]
+بِالنِّيَّاتِ - by the intentions
 
 The rationale behind the translation choices:
+The word X is translated as Y because Z... It os not translated as W because Q...
+
+Alternative translations:
+إنَّمَا - Only
+الْأَعْمَالُ - the actions [are by]
 ---
   `
 

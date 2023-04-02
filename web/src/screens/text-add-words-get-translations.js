@@ -1,8 +1,6 @@
 /* eslint-disable operator-linebreak */
 import React, { Fragment } from 'react'
-
 import * as api from '../services/api-service.js'
-import * as wp from '../services/word-processing.js'
 import { useSelector, useDispatch } from 'react-redux'
 import SnackBar from '../components/snack-bar.js'
 import LoadingButton from '@mui/lab/LoadingButton'
@@ -46,7 +44,6 @@ const TextAddWordsGetTranslations = () => {
           )
 
           if (sentenceContainsLowercase || sentenceContainsCapitalized) {
-            console.log('Found: ' + englishWord)
             dispatch({
               type: 'UPDATE_SENTENCE',
               value: { indexSentence, indexArabicWord, englishWord }
@@ -55,14 +52,12 @@ const TextAddWordsGetTranslations = () => {
             wordsFound++
           }
           // eslint-disable-next-line prettier/prettier
-          
+
           continue
         }
 
         // if the word is in the database, then check if the sentence contains the word
         for (const englishWord of englishWords.english) {
-          console.log('checking: ' + englishWord)
-
           //check both lowercase and first letter uppercase
           const sentenceContainsLowercase = sentence.english.includes(englishWord.toLowerCase())
           const sentenceContainsCapitalized = sentence.english.includes(
@@ -70,7 +65,6 @@ const TextAddWordsGetTranslations = () => {
           )
 
           if (sentenceContainsLowercase || sentenceContainsCapitalized) {
-            console.log('Found: ' + englishWord, sentenceContainsCapitalized)
             wordsFound++
             dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWord } })
           }
@@ -83,11 +77,11 @@ const TextAddWordsGetTranslations = () => {
     // if no words were found in the database, then show a message
     if (wordsFound === 0) {
       setStatusMessage('No words were found in the database')
-      setOpen(true)
     } else {
       setStatusMessage(`${wordsFound} were found in the database`)
-      setOpen(true)
     }
+
+    setOpen(true)
   }
 
   const { text } = useSelector(selector)
@@ -108,4 +102,4 @@ const TextAddWordsGetTranslations = () => {
   )
 }
 
-export default TextAddWordsGetTranslations
+export default React.memo(TextAddWordsGetTranslations)
