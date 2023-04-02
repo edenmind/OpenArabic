@@ -30,6 +30,6 @@ export default function TextArabicWords({ text, setEnglishTranslation }) {
 }
 
 TextArabicWords.propTypes = {
-  text: PropTypes.array.isRequired,
+  text: PropTypes.object.isRequired,
   setEnglishTranslation: PropTypes.func.isRequired
 }

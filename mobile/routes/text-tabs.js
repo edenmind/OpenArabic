@@ -8,6 +8,7 @@ import TextArabic from '../screens/text-arabic.js'
 import TextBilingual from '../screens/text-bilingual.js'
 import OrderingWordsInASentence from '../screens/text-practice.js'
 import { getText } from '../services/api-service.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -18,7 +19,7 @@ export default function TextTabs({ route }) {
 
   useEffect(() => {
     const fetchText = async () => {
-      await dispatch(getText(id))
+      dispatch(getText(id))
       setIsLoading(false)
     }
     fetchText()
@@ -39,9 +40,12 @@ export default function TextTabs({ route }) {
           <Tab.Navigator
             screenOptions={{
               tabBarLabelStyle: {
-                fontSize: 14,
+                fontSize: 15,
                 fontWeight: 'bold',
                 textTransform: 'none'
+              },
+              tabBarStyle: {
+                backgroundColor: paperDarkTheme.colors.background
               }
             }}
           >

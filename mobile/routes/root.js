@@ -1,7 +1,7 @@
 import React from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { NavigationContainer } from '@react-navigation/native'
-import { CombinedDarkTheme } from '../constants/paper-theme.js'
+import { CombinedDarkTheme, paperDarkTheme } from '../constants/paper-theme.js'
 import SCREENS from '../constants/screens.js'
 import Text from './text.js'
 import Words from './words.js'
@@ -14,7 +14,12 @@ function Root() {
   return (
     <NavigationContainer theme={CombinedDarkTheme}>
       <Tab.Navigator
-        barStyle={{ height: 75 }}
+        barStyle={{
+          height: 75,
+          backgroundColor: paperDarkTheme.colors.background,
+          borderTopWidth: 1,
+          borderTopColor: paperDarkTheme.colors.backdrop
+        }}
         screenOptions={({ route }) => ({
           tabBarLabel: '',
           tabBarIcon: ({ color }) => {

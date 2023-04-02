@@ -8,7 +8,6 @@ import * as Haptics from 'expo-haptics'
 import { getWords } from '../services/api-service.js'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
-
 const WordsSetup = (props) => {
   const sharedStyle = useSharedStyles()
   const dispatch = useDispatch()
