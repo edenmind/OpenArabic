@@ -8,7 +8,7 @@ const SnackButton = (props) => {
   const sharedStyle = useSharedStyles()
 
   return (
-    <Snackbar theme={theme} visible={props.visible} onDismiss={props.onDismissSnackBar} duration={350}>
+    <Snackbar theme={theme} visible={props.visible} onDismiss={props.onDismissSnackBar} duration={1500}>
       <Text style={{ ...sharedStyle.englishBody, color: theme.colors.onPrimary }} variant="headlineLarge">
         {props.text}
       </Text>

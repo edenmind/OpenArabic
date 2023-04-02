@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
 import { Divider, Text } from 'react-native-paper'
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   }
 })
 
-function WordPair({ word }) {
+function TextBilingualSentencesWords({ word }) {
   return (
     <Fragment>
       <View style={styles.row}>
@@ -52,7 +52,7 @@ function WordPair({ word }) {
   )
 }
 
-WordPair.propTypes = {
+TextBilingualSentencesWords.propTypes = {
   word: PropTypes.arrayOf(
     PropTypes.shape({
       arabic: PropTypes.string.isRequired,
@@ -61,27 +61,4 @@ WordPair.propTypes = {
   ).isRequired
 }
 
-function TextBilingualSentencesWordPairs({ words }) {
-  const distinctValues = useMemo(() => {
-    return [...new Set(words.filter((word) => word.arabic && word.english))]
-  }, [words])
-
-  return (
-    <>
-      {distinctValues.map((word, index) => (
-        <WordPair key={index} word={word} />
-      ))}
-    </>
-  )
-}
-
-TextBilingualSentencesWordPairs.propTypes = {
-  words: PropTypes.arrayOf(
-    PropTypes.shape({
-      arabic: PropTypes.string.isRequired,
-      english: PropTypes.string.isRequired
-    })
-  ).isRequired
-}
-
-export default TextBilingualSentencesWordPairs
+export default TextBilingualSentencesWords

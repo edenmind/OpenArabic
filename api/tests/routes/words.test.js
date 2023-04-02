@@ -7,17 +7,30 @@ test('post word and get it back', async (t) => {
   //arrange
   const app = await build(t)
 
-  // act
-  await app.inject({
+  const result = await app.inject({
     url: '/words',
     method: 'POST',
+    headers: {
+      auth: 'somesecurekey'
+    },
     payload: {
       word: {
         arabic: 'the_word',
-        english: 'the_translation'
+        english: 'the_',
+        arabicSentence: 'the_arabicSentence',
+        englishSentence: 'the_englishSentence',
+        categoryLevel: 1,
+        author: 'the_author',
+        source: 'the_source',
+        textId: 'the_textId',
+        sentenceId: 'the_sentenceId',
+        wordId: 'the_wordId'
       }
     }
   })
+
+  //assert
+  t.equal(result.statusCode, 201)
 
   const getWord = await app.inject({
     url: '/words/the_word',

@@ -106,8 +106,6 @@ async function getWords(request, reply) {
     .find({ categoryLevel: difficultyLevelNumber, quiz: true })
     .toArray()
 
-  //get words from the wordsFilteredByDifficultyLevel in randomized order but not more than numberOfWordsToPractice but do not use shuffleArray function because it is not random enough
-  //const randomWords = wordsFilteredByDifficultyLevel.slice(0, numberOfWordsToPractice)
   const randomWords = wordsFilteredByDifficultyLevel.sort(() => Math.random() - 0.5).slice(0, numberOfWordsToPractice)
 
   const allWordsWithAlternative = randomWords.map((word) => {
@@ -125,12 +123,12 @@ async function getWords(request, reply) {
       alternative1 = randomWords[randomIndex1].english
       alternative2 = randomWords[randomIndex2].english
 
-      //if alternative1 not is an array, make it an array
+      // if alternative1 is not an array, make it an array
       if (!Array.isArray(alternative1)) {
         alternative1 = [alternative1]
       }
 
-      //if alternative2 not is an array, make it an array
+      // if alternative1 or alternative2 is not an array, make it an array
       if (!Array.isArray(alternative2)) {
         alternative2 = [alternative2]
       }
