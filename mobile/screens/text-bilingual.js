@@ -1,14 +1,13 @@
 import 'react-native-gesture-handler'
 import Heading from './text-bilingual-heading.js'
 import React from 'react'
-import { ScrollView, Share, View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import Sentences from './text-bilingual-sentences.js'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 import { Button } from 'react-native-paper'
-import { ENDPOINT, HOST } from '../constants/urls.js'
-import * as MailComposer from 'expo-mail-composer'
 import { useSharedStyles } from '../styles/common.js'
+import { generateError, generateShare } from '../services/ui-services.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -20,22 +19,6 @@ export default function TextBilingual() {
   const report = 'REPORT ERROR'
   const sharedStyle = useSharedStyles()
 
-  const onShare = React.useCallback(async () => {
-    await Share.share({
-      message: `🔗 ${text.title} - ${text.author}`,
-      title: `🔗 ${text.title} - ${text.author}`,
-      url: `${HOST.frontend}/${ENDPOINT.texts}/${text.slug}`
-    })
-  }, [text])
-
-  const onErrorReport = React.useCallback(async () => {
-    MailComposer.composeAsync({
-      recipients: ['salam@edenmin.com'],
-      subject: `Found an error in the text: ${text.title}`,
-      body: `Please describe the error you found in the text: ${text.id}...`
-    })
-  }, [text])
-
   return textLoading ? getContent() : <Spinner />
 
   function getContent() {
@@ -44,10 +27,10 @@ export default function TextBilingual() {
         <Heading heading={text} />
         <Sentences sentences={text.sentences} />
         <View style={sharedStyle.container}>
-          <Button mode="text" onPress={onShare}>
+          <Button mode="text" onPress={generateShare(text)}>
             {share}
           </Button>
-          <Button mode="text" onPress={onErrorReport}>
+          <Button mode="text" onPress={generateError(text)}>
             {report}
           </Button>
         </View>

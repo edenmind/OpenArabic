@@ -1,4 +1,4 @@
-import { View, ScrollView, StyleSheet } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import { Text, Surface, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect } from 'react'
@@ -13,19 +13,7 @@ import Spinner from '../components/spinner.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading ?? true
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'relative'
-  },
-  snackButton: {
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    zIndex: 1
-  }
-})
+
 const TextPractice = () => {
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
@@ -55,41 +43,30 @@ const TextPractice = () => {
   // loop through all sentences in the text
   const sentencesInText = React.useMemo(() => {
     return text.sentences.map((sentence) => {
-      // loop through all words in the sentence
       const wordsInSentence = sentence.words.map((word, wordIndex) => {
-        // create an object that contains the arabic word and the id
         const arabicWord = {
           arabic: word.arabic,
           id: wordIndex
         }
-
-        // create an object that contains the english word and the id
         const englishWord = {
           english: word.english,
           id: wordIndex
         }
 
-        // return an object that contains the arabic word and the english word
         return {
           arabicWord,
           englishWord
         }
       })
-
-      // create an array of all the arabic words in the sentence and randomize the order
-      const arabicWords = wordsInSentence.map((word) => word.arabicWord).sort(() => Math.random() - 0.5) // do not make it too easy :)
-
-      // create an array of all the english words in the sentence
+      const arabicWords = wordsInSentence.map((word) => word.arabicWord).sort(() => Math.random() - 0.5)
       const englishWords = wordsInSentence.map((word) => word.englishWord)
 
-      // return an object that contains the arabic words and the english words
       return {
         arabicWords,
         englishWords
       }
     })
-  }, [text.sentences])
-
+  }, [text])
   //create a handler that when pressed check if the id of the arabic word matches the id for currentWord
   //if it does, increase currentWord by 1
   //if it doesn't, do nothing
@@ -128,10 +105,9 @@ const TextPractice = () => {
         }
 
         setCurrentWord(0)
-        return
+      } else {
+        setCurrentWord((prev) => prev + 1)
       }
-
-      setCurrentWord((prev) => prev + 1)
     },
     [
       currentWord,
@@ -150,41 +126,37 @@ const TextPractice = () => {
       setCelebrationSnackBarVisibility
     ]
   )
-
   return textLoading ? (
-    <View style={styles.container}>
+    <ScrollView style={sharedStyle.headerContainer}>
+      <Surface style={{ ...sharedStyle.surface, minHeight: 200, backgroundColor: color }} elevation={2}>
+        <View style={sharedStyle.headerContainer}>
+          <Text variant="labelLarge">
+            Sentence: {currentSentence + 1} of {sentencesInText.length}
+          </Text>
+          <Divider style={sharedStyle.divider} />
+          <WordsContextHighLighted
+            arabicSentence={`${currentArabicSentenceFromCorrectAnswers} `}
+            englishSentence={sentencesInText[currentSentence].englishWords}
+            currentWord={currentWord}
+            arabicWord=""
+            englishWord={currentEnglishWord}
+          />
+        </View>
+      </Surface>
+
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <TextPracticeArabicWords
+        testID="textPracticeArabicWords"
+        currentArabicWordsInSentence={currentArabicWordsInSentence}
+        handlePress={handlePress}
+      />
       <SnackButton
-        style={styles.snackButton}
         visible={celebrationSnackBarVisibility}
         onDismissSnackBar={onDismissSnackBar}
         duration={2000}
         text="Congratulations! You have completed the quiz! 🎉"
       />
-      <ScrollView style={sharedStyle.headerContainer}>
-        <Surface style={{ ...sharedStyle.surface, minHeight: 200, backgroundColor: color }} elevation={2}>
-          <View style={sharedStyle.headerContainer}>
-            <Text variant="labelLarge">
-              Sentence: {currentSentence + 1} of {sentencesInText.length}
-            </Text>
-            <Divider style={sharedStyle.divider} />
-            <WordsContextHighLighted
-              arabicSentence={`${currentArabicSentenceFromCorrectAnswers} `}
-              englishSentence={sentencesInText[currentSentence].englishWords}
-              currentWord={currentWord}
-              arabicWord=""
-              englishWord={currentEnglishWord}
-            />
-          </View>
-        </Surface>
-
-        <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <TextPracticeArabicWords
-          testID="textPracticeArabicWords"
-          currentArabicWordsInSentence={currentArabicWordsInSentence}
-          handlePress={handlePress}
-        />
-      </ScrollView>
-    </View>
+    </ScrollView>
   ) : (
     <Spinner />
   )

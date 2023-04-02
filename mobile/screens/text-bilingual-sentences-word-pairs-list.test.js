@@ -1,7 +1,7 @@
 import { describe, it, jest } from '@jest/globals'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 import React from 'react'
-import TextBilingualSentencesWordPairs from './text-bilingual-sentences-word-pairs.js'
+import TextBilingualSentencesWordPairs from './text-bilingual-sentences-word-pairs-list.js'
 import renderer from 'react-test-renderer'
 
 jest.useFakeTimers()

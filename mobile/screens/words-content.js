@@ -1,7 +1,8 @@
+/* eslint-disable putout/destructuring-as-function-argument */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
 import React, { useState } from 'react'
-import { View, Animated, StyleSheet, FlatList } from 'react-native'
+import { View, StyleSheet, FlatList } from 'react-native'
 import { Divider, Surface, Text, ProgressBar, Button } from 'react-native-paper'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import SnackButton from '../components/snack-button.js'
@@ -10,6 +11,8 @@ import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import HighlightedWordInText from '../components/highlighted-word-in-text.js'
+import { vibrateBetweenTwoColors } from '../services/utility-service.js'
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -37,53 +40,31 @@ const styles = StyleSheet.create({
 
 const wordsSelector = (state) => state.words
 
-const WordsContent = (props) => {
+const WordsContent = ({
+  currentWord,
+  numberOfWordsToPractice,
+  handleSetCurrentWord,
+  currentWordIndex,
+  handleSetCurrentWordIndex,
+  celebrationSnackBarVisibility,
+  handleSetCelebrationSnackBarVisibility,
+  source,
+  author
+}) => {
   const sharedStyle = useSharedStyles()
   const { words } = useSelector(wordsSelector)
-
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
   const [button1position, setButton1position] = useState(1)
   const [button2position, setButton2position] = useState(2)
   const [button3position, setButton3position] = useState(3)
-  const [fadeAnim] = useState(new Animated.Value(0)) // Initial value for opacity: 0
   const dispatch = useDispatch()
 
-  React.useEffect(() => {
-    startAnimation(fadeAnim)
-  }, [fadeAnim])
-
-  const onDismissSnackBar = () => props.handleSetCelebrationSnackBarVisibility(false)
-
-  const vibrateBetweenTwoColors = () => {
-    setColor(paperDarkTheme.colors.errorContainer)
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
-
-    setTimeout(() => {
-      setColor(paperDarkTheme.colors.elevation.level3)
-    }, 150)
-  }
-
-  const startAnimation = (fadeAnim) => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 1000,
-          useNativeDriver: true
-        }),
-        Animated.timing(fadeAnim, {
-          toValue: 0,
-          duration: 1000,
-          useNativeDriver: true
-        })
-      ])
-    ).start()
-  }
+  const onDismissSnackBar = () => handleSetCelebrationSnackBarVisibility(false)
 
   const resetStateForNewWords = () => {
-    props.handleSetCurrentWord(0)
-    props.handleSetCurrentWordIndex(0)
-    props.handleSetCelebrationSnackBarVisibility(false)
+    handleSetCurrentWord(0)
+    handleSetCurrentWordIndex(0)
+    handleSetCelebrationSnackBarVisibility(false)
     dispatch({
       type: 'RESET_WORDS'
     })
@@ -100,11 +81,11 @@ const WordsContent = (props) => {
     setButton2position(() => randomNumbers[1])
     setButton3position(() => randomNumbers[2])
 
-    props.handleSetCurrentWord((currentWord) => currentWord + 1)
-    props.handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
+    handleSetCurrentWord((currentWord) => currentWord + 1)
+    handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
   }
   const handleWrongAnswer = () => {
-    vibrateBetweenTwoColors()
+    vibrateBetweenTwoColors(setColor)
   }
 
   // correct answer button
@@ -113,9 +94,9 @@ const WordsContent = (props) => {
       mode="elevated"
       style={sharedStyle.buttonAnswer}
       onPress={() => {
-        if (props.currentWord === words.length - 1) {
+        if (currentWord === words.length - 1) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-          props.handleSetCelebrationSnackBarVisibility(true)
+          handleSetCelebrationSnackBarVisibility(true)
 
           //set a timeout for 1 second before resetting the words
           setTimeout(() => {
@@ -130,10 +111,9 @@ const WordsContent = (props) => {
         }
 
         correctAnswer()
-        startAnimation(fadeAnim)
       }}
     >
-      <Text style={styles.text}>{words.length > 1 && words[props.currentWord].english}</Text>
+      <Text style={styles.text}>{words.length > 1 && words[currentWord].english}</Text>
     </Button>
   )
 
@@ -143,8 +123,8 @@ const WordsContent = (props) => {
     </Button>
   )
 
-  const button2 = wrongAnswerButton(words[props.currentWord]?.alternative1)
-  const button3 = wrongAnswerButton(words[props.currentWord]?.alternative2)
+  const button2 = wrongAnswerButton(words[currentWord]?.alternative1)
+  const button3 = wrongAnswerButton(words[currentWord]?.alternative2)
   const buttons = [
     { button: button1, position: button1position },
     { button: button2, position: button2position },
@@ -161,25 +141,20 @@ const WordsContent = (props) => {
       ListHeaderComponent={
         <React.Fragment>
           <ProgressBar
-            progress={props.currentWordIndex / (props.numberOfWordsToPractice - 1)}
+            progress={currentWordIndex / (numberOfWordsToPractice - 1)}
             color={paperDarkTheme.colors.primary}
           />
           <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10 }} elevation={2}>
             <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
-              {words[props.currentWord]?.arabicSentence && (
-                <HighlightedWordInText
-                  text={words[props.currentWord].arabicSentence}
-                  word={words[props.currentWord].arabic}
-                />
+              {words[currentWord]?.arabicSentence && (
+                <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
               )}
             </Text>
             <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-            <Text
-              style={{ ...styles.footer, width: '95%', padding: 15 }}
-            >{`Source: ${props.source} - ${props.author}`}</Text>
+            <Text style={{ ...styles.footer, width: '95%', padding: 15 }}>{`Source: ${source} - ${author}`}</Text>
           </Surface>
           <SnackButton
-            visible={props.celebrationSnackBarVisibility}
+            visible={celebrationSnackBarVisibility}
             onDismissSnackBar={onDismissSnackBar}
             duration={2500}
             text="Congratulations! You've successfully completed the practice! 🎉"
