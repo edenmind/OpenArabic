@@ -8,10 +8,9 @@ const englishSelector = (state) => state.englishFontSize
 const arabicFontNameSelector = (state) => state.arabicFontName
 
 export const useSharedStyles = () => {
-  const { arabicFontSize } = useSelector(arabicSelector)
-  const { englishFontSize } = useSelector(englishSelector)
-  const { arabicFontName } = useSelector(arabicFontNameSelector)
-
+  const { arabicFontSize } = useSelector(arabicSelector) || { arabicFontSize: 19 }
+  const { englishFontSize } = useSelector(englishSelector) || { englishFontSize: 17 }
+  const { arabicFontName } = useSelector(arabicFontNameSelector) || { arabicFontName: 'uthman' }
   const englishOpacity = 0.77
   const arabicOpacity = 1
   const paddingBottom = 10
