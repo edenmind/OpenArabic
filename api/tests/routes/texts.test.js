@@ -387,6 +387,75 @@ test('create text with wrong id should fail', async (t) => {
   t.equal(result.statusCode, 404)
 })
 
+test('stress test', async (t) => {
+  const app = await build(t)
+
+  function createWords(numberWords) {
+    const words = []
+
+    for (let index = 0; index < numberWords; index++) {
+      words.push({
+        arabic: `arabic-word-${index}`,
+        english: `english-word-${index}`,
+        quiz: Math.random() < 0.5
+      })
+    }
+
+    return words
+  }
+
+  function createSentences(numberSentences, minWords, maxWords) {
+    const sentences = []
+
+    for (let index = 0; index < numberSentences; index++) {
+      const numberWords = Math.floor(Math.random() * (maxWords - minWords + 1)) + minWords
+      const words = createWords(numberWords)
+
+      sentences.push({
+        arabic: `arabic-sentence-${index}`,
+        english: `english-sentence-${index}`,
+        words
+      })
+    }
+
+    return sentences
+  }
+
+  async function createTextWithRandomSentencesAndWords(numberSentences, minWords, maxWords, authKey) {
+    const sentences = createSentences(numberSentences, minWords, maxWords)
+
+    const payload = {
+      title: 'Randomly Generated Text',
+      status: 'Draft',
+      image: 'random-image.png',
+      createdAt: moment.utc().format(),
+      publishAt: moment.utc().format(),
+      author: 'John Doe',
+      category: 'Uncategorized',
+      source: 'Generated',
+      sentences,
+      texts: {
+        arabic: sentences.map((s) => s.arabic).join('\n'),
+        english: sentences.map((s) => s.english).join('\n')
+      }
+    }
+
+    const result = await app.inject({
+      url: '/texts',
+      method: 'POST',
+      headers: {
+        auth: authKey
+      },
+      payload
+    })
+
+    return result
+  }
+
+  const result = await createTextWithRandomSentencesAndWords(10, 3, 10, 'somesecurekey')
+  t.equal(result.statusCode, 201)
+})
+
 test('create new text', async (t) => {
   //arrange
   const app = await build(t)

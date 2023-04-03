@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/consistent-function-scoping */
+
 'use strict'
 
 const { test } = require('tap')
@@ -19,7 +21,7 @@ test('post word and get it back', async (t) => {
         english: 'the_',
         arabicSentence: 'the_arabicSentence',
         englishSentence: 'the_englishSentence',
-        categoryLevel: 1,
+        categoryLevel: 10,
         author: 'the_author',
         source: 'the_source',
         textId: 'the_textId',
@@ -41,6 +43,80 @@ test('post word and get it back', async (t) => {
   t.equal(getWord.statusCode, 200)
 })
 
+test('read a created word', async (t) => {
+  //arrange
+  const app = await build(t)
+
+  async function createWordsForLevel(level) {
+    for (let index = 1; index <= 40; index++) {
+      const result = await app.inject({
+        url: '/words',
+        method: 'POST',
+        headers: {
+          auth: 'somesecurekey'
+        },
+        payload: {
+          word: {
+            arabic: `the_word_${level}_${index}`,
+            english: `the_${level}_${index}`,
+            arabicSentence: 'the_arabicSentence',
+            englishSentence: 'the_englishSentence',
+            categoryLevel: level,
+            author: 'the_author',
+            source: 'the_source',
+            textId: 'the_textId',
+            sentenceId: 'the_sentenceId',
+            wordId: 'the_wordId'
+          }
+        }
+      })
+
+      t.equal(result.statusCode, 201)
+      // check that the created word is returned
+      const getWord = await app.inject({
+        url: `/words/the_word_${level}_${index}`,
+        method: 'GET'
+      })
+
+      t.equal(getWord.statusCode, 200)
+    }
+  }
+
+  // call the function for each level
+  await createWordsForLevel(10)
+  await createWordsForLevel(20)
+  await createWordsForLevel(30)
+
+  async function getWords(app) {
+    const levels = [10, 20, 30]
+    const counts = [10, 20, 40]
+
+    const results = []
+
+    for (const level of levels) {
+      for (const count of counts) {
+        const getWord = await app.inject({
+          url: `/words?numberOfWordsToPractice=${count}&difficultyLevel=${level}`,
+          method: 'GET'
+        })
+
+        results.push(getWord)
+
+        // Test that the response status code is 200
+        t.equal(getWord.statusCode, 200)
+
+        // Parse the response body and check the length/count
+        const words = JSON.parse(getWord.body)
+        const expectedLength = Math.min(count, words.length) // In case there aren't enough words
+        t.equal(words.length, expectedLength)
+      }
+    }
+
+    return results
+  }
+  await getWords(app)
+})
+
 test('all words should be returned when no query parameters are provided', async (t) => {
   //arrange
   const app = await build(t)
@@ -53,34 +129,6 @@ test('all words should be returned when no query parameters are provided', async
 
   //assert
   t.equal(allWords.statusCode, 200)
-})
-
-test('words should be returned based on the query parameters for level 1', async (t) => {
-  //arrange
-  const app = await build(t)
-
-  // act
-  const words = await app.inject({
-    url: '/words?numberOfWordsToPractice=10&difficultyLevel=1',
-    method: 'GET'
-  })
-
-  //assert
-  t.equal(words.statusCode, 200)
-})
-
-test('words should be returned based on the query parameters for level 3', async (t) => {
-  //arrange
-  const app = await build(t)
-
-  // act
-  const words = await app.inject({
-    url: '/words?numberOfWordsToPractice=10&difficultyLevel=3',
-    method: 'GET'
-  })
-
-  //assert
-  t.equal(words.statusCode, 200)
 })
 
 test('cannot add word if English word is empty', async (t) => {

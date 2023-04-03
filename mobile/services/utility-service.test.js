@@ -7,7 +7,8 @@ import {
   removeLineBreak,
   addSpaceAfterDot,
   getThreeRandomWords,
-  vibrateBetweenTwoColors
+  vibrateBetweenTwoColors,
+  generateRandomPositions
 } from './utility-service.js'
 
 describe('vibrateBetweenTwoColors', () => {
@@ -256,5 +257,26 @@ describe('getThreeRandomWords', () => {
     const ids = result.map((word) => word.id)
 
     expect(new Set(ids).size).toEqual(3)
+  })
+})
+
+describe('generateRandomPositions', () => {
+  it('should return an array of length 3', () => {
+    const positions = generateRandomPositions()
+    expect(positions.length).toBe(3)
+  })
+
+  it('should return an array of unique values', () => {
+    const positions = generateRandomPositions()
+    const set = new Set(positions)
+
+    expect(set.size).toBe(3)
+  })
+
+  it('should return an array of numbers between 1 and 100', () => {
+    const positions = generateRandomPositions()
+    const isInRange = positions.every((position) => position >= 1 && position <= 100)
+
+    expect(isInRange).toBe(true)
   })
 })

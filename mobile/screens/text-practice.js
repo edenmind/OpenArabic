@@ -128,7 +128,10 @@ const TextPractice = () => {
   )
   return textLoading ? (
     <ScrollView style={sharedStyle.headerContainer}>
-      <Surface style={{ ...sharedStyle.surface, minHeight: 200, backgroundColor: color }} elevation={2}>
+      <Surface
+        style={{ ...sharedStyle.surface, minHeight: 225, backgroundColor: color, borderRadius: 10 }}
+        elevation={2}
+      >
         <View style={sharedStyle.headerContainer}>
           <Text variant="labelLarge">
             Sentence: {currentSentence + 1} of {sentencesInText.length}

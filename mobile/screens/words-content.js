@@ -1,9 +1,9 @@
 /* eslint-disable putout/destructuring-as-function-argument */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
-import React, { useState } from 'react'
+import React, { useState, useCallback, memo } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
-import { Divider, Surface, Text, ProgressBar, Button } from 'react-native-paper'
+import { Surface, Text, ProgressBar, Button } from 'react-native-paper'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import SnackButton from '../components/snack-button.js'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,7 +11,7 @@ import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import HighlightedWordInText from '../components/highlighted-word-in-text.js'
-import { vibrateBetweenTwoColors } from '../services/utility-service.js'
+import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
   surface: {
     alignItems: 'center',
+    borderRadius: 10,
     justifyContent: 'center',
     marginBottom: 10,
     minHeight: 300
@@ -54,39 +55,32 @@ const WordsContent = ({
   const sharedStyle = useSharedStyles()
   const { words } = useSelector(wordsSelector)
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
-  const [button1position, setButton1position] = useState(1)
-  const [button2position, setButton2position] = useState(2)
-  const [button3position, setButton3position] = useState(3)
+  const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
+
   const dispatch = useDispatch()
 
-  const onDismissSnackBar = () => handleSetCelebrationSnackBarVisibility(false)
-
-  const resetStateForNewWords = () => {
+  const onDismissSnackBar = useCallback(() => {
+    handleSetCelebrationSnackBarVisibility(false)
+  }, [handleSetCelebrationSnackBarVisibility])
+  const resetStateForNewWords = useCallback(() => {
     handleSetCurrentWord(0)
     handleSetCurrentWordIndex(0)
     handleSetCelebrationSnackBarVisibility(false)
+    setButtonPositions(generateRandomPositions())
+
     dispatch({
       type: 'RESET_WORDS'
     })
-  }
-
-  const correctAnswer = () => {
-    const randomNumbers = [
-      Math.floor(Math.random() * 100) + 1,
-      Math.floor(Math.random() * 100) + 1,
-      Math.floor(Math.random() * 100) + 1
-    ]
-
-    setButton1position(() => randomNumbers[0])
-    setButton2position(() => randomNumbers[1])
-    setButton3position(() => randomNumbers[2])
-
+  }, [dispatch, handleSetCelebrationSnackBarVisibility, handleSetCurrentWord, handleSetCurrentWordIndex])
+  const correctAnswer = useCallback(() => {
+    setButtonPositions(generateRandomPositions())
     handleSetCurrentWord((currentWord) => currentWord + 1)
     handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
-  }
-  const handleWrongAnswer = () => {
+  }, [handleSetCurrentWord, handleSetCurrentWordIndex])
+
+  const handleWrongAnswer = useCallback(() => {
     vibrateBetweenTwoColors(setColor)
-  }
+  }, [setColor])
 
   // correct answer button
   const button1 = (
@@ -126,9 +120,9 @@ const WordsContent = ({
   const button2 = wrongAnswerButton(words[currentWord]?.alternative1)
   const button3 = wrongAnswerButton(words[currentWord]?.alternative2)
   const buttons = [
-    { button: button1, position: button1position },
-    { button: button2, position: button2position },
-    { button: button3, position: button3position }
+    { button: button1, position: buttonPositions[0] },
+    { button: button2, position: buttonPositions[1] },
+    { button: button3, position: buttonPositions[2] }
   ].sort((a, b) => a.position - b.position)
 
   const renderItem = ({ item }) => <View>{item.button}</View>
@@ -144,14 +138,16 @@ const WordsContent = ({
             progress={currentWordIndex / (numberOfWordsToPractice - 1)}
             color={paperDarkTheme.colors.primary}
           />
-          <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10 }} elevation={2}>
+          <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 350 }}>
             <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
               {words[currentWord]?.arabicSentence && (
                 <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
               )}
             </Text>
-            <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-            <Text style={{ ...styles.footer, width: '95%', padding: 15 }}>{`Source: ${source} - ${author}`}</Text>
+
+            <Text
+              style={{ ...styles.footer, width: '95%', padding: 15, opacity: 0.7 }}
+            >{`Source: ${source} - ${author}`}</Text>
           </Surface>
           <SnackButton
             visible={celebrationSnackBarVisibility}
@@ -165,7 +161,7 @@ const WordsContent = ({
   )
 }
 
-export default WordsContent
+export default memo(WordsContent)
 
 WordsContent.propTypes = {
   currentWord: PropTypes.number.isRequired,

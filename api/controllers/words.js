@@ -102,9 +102,7 @@ async function getWords(request, reply) {
   const difficultyLevelNumber = Number(difficultyLevel)
 
   //get all words where categoryLevel is equal to the difficultyLevel
-  const wordsFilteredByDifficultyLevel = await words
-    .find({ categoryLevel: difficultyLevelNumber, quiz: true })
-    .toArray()
+  const wordsFilteredByDifficultyLevel = await words.find({ categoryLevel: difficultyLevelNumber }).toArray()
 
   const randomWords = wordsFilteredByDifficultyLevel.sort(() => Math.random() - 0.5).slice(0, numberOfWordsToPractice)
 

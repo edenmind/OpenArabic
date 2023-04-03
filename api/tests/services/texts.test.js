@@ -28,31 +28,58 @@ test('addGuidToArray returns an array with the same length as the input array', 
 })
 //test that shuffleArray returns an array with the same length as the input array
 test('shuffleArray returns an array with the same length as the input array', (t) => {
-  //arrange
-  const array = [1, 2, 3, 4, 5]
-  const expected = array.length
-  //act
-  const actual = shuffleArray(array).length
-  //assert
-  t.equal(actual, expected)
+  function generateScenario(arrayLength) {
+    const array = Array.from({ length: arrayLength }, (_, index) => index + 1)
+    const expected = arrayLength
+    const shuffled = shuffleArray(array)
+    const actual = shuffled.length
+
+    t.equal(actual, expected)
+
+    // Check that the shuffled array contains the same elements as the original array
+    t.same(new Set(shuffled), new Set(array))
+  }
+
+  // Test with array lengths from 0 to 10
+  for (let index = 0; index <= 10; index++) {
+    generateScenario(index)
+  }
+
   t.end()
 })
+
 //test that mp3Filename returns the expected string
 test('mp3Filename returns the expected string', (t) => {
-  //arrange
-  const text = 'text'
-  const sentence = 'sentence'
-  const language = 'language'
-  const word = 'word'
+  function generateScenario(textLength, sentenceLength, languageLength, wordLength) {
+    const text = generateString(textLength)
+    const sentence = generateString(sentenceLength)
+    const language = generateString(languageLength)
+    const word = generateString(wordLength)
 
-  const expected = 'text-sentence-language-word.mp3'
-  //act
-  const actual = mp3Filename(text, sentence, language, word)
-  //assert
-  t.equal(actual, expected)
+    const expected = `${text}-${sentence}-${language}-${word}.mp3`
+    const actual = mp3Filename(text, sentence, language, word)
+
+    t.equal(actual, expected)
+  }
+
+  // Test with string lengths from 0 to 10
+  for (let index = 0; index <= 10; index++) {
+    generateScenario(index, index, index, index)
+  }
+
   t.end()
 })
 
+function generateString(length) {
+  const characters = 'abcdefghijklmnopqrstuvwxyz'
+  let result = ''
+
+  for (let index = 0; index < length; index++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length))
+  }
+
+  return result
+}
 test('should return reading time based on length of text', (t) => {
   //arrange
   const text =

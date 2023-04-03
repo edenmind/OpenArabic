@@ -45,8 +45,10 @@ if [[ ${START} ]]; then
     fi
 
     if [ "$(docker ps -q -f name=$MONGO_TEST_CONTAINER_NAME)" ]; then
-        echo "Stopping MongoDB dev container..."
+        echo "Stopping MongoDB test container..."
         docker stop $MONGO_TEST_CONTAINER_NAME
+        echo "Removing MongoDB test container..."
+        docker rm $MONGO_TEST_CONTAINER_NAME
     fi
 
     if [ "$(docker ps -aq -f status=exited -f name=$MONGO_TEST_CONTAINER_NAME)" ]; then
