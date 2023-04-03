@@ -25,7 +25,7 @@ exports[`should match snapshot 1`] = `
   }
 >
   <ForwardRef(NavigationContainerInner)>
-    <WordsContent />
+    <Memo(WordsContent) />
   </ForwardRef(NavigationContainerInner)>
 </Context.Provider>
 `;

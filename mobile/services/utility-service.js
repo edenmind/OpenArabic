@@ -3,6 +3,20 @@
 import * as Haptics from 'expo-haptics'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 
+export const generateRandomPositions = () => {
+  const positions = []
+
+  while (positions.length < 3) {
+    const position = Math.floor(Math.random() * 100) + 1
+
+    if (!positions.includes(position)) {
+      positions.push(position)
+    }
+  }
+
+  return positions
+}
+
 const truncate = (stringToTruncate, truncateLength) => {
   const cleanString = stringToTruncate.replace(' \n', '')
 

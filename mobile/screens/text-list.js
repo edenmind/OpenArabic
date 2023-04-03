@@ -43,7 +43,9 @@ export default function TextList({ route, navigation }) {
 
   return textsLoading ? (
     <FlatList
-      testID="flatList"
+      initialNumToRender={5}
+      removeClippedSubviews={true}
+      windowSize={5}
       data={texts}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}

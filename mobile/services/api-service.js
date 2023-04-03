@@ -4,7 +4,7 @@ import axios from 'axios'
 import axiosRetry from 'axios-retry'
 
 axiosRetry(axios, {
-  retries: 3,
+  retries: 5,
   retryDelay: axiosRetry.exponentialDelay,
   retryCondition: (error) => {
     // Retry on network errors, timeouts, and 5xx status codes
@@ -43,7 +43,7 @@ export const getCategories = () => async (dispatch) => {
   })
 }
 
-export const getWords = (numberOfWordsToPractice, difficultyLevel) => async (dispatch) => {
+export const getWords = (difficultyLevel, numberOfWordsToPractice) => async (dispatch) => {
   const urlWordsWithParameters = `${url.words()}?numberOfWordsToPractice=${numberOfWordsToPractice}&difficultyLevel=${difficultyLevel}`
   const res = await axios.get(urlWordsWithParameters)
 

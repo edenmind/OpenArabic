@@ -9,6 +9,16 @@
 const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3')
 const moment = require('moment')
 
+const getRandomIndices = (n, max) => {
+  const indices = new Set()
+
+  while (indices.size < n) {
+    indices.add(Math.floor(Math.random() * max))
+  }
+
+  return [...indices]
+}
+
 //return true if all objects are not empty
 const validateThatNoObjectsAreEmpty = (data) => {
   return Object.values(data).every((value) => value !== '')
@@ -69,5 +79,6 @@ module.exports = {
   copyFileToS3,
   removeHost,
   validateThatNoObjectsAreEmpty,
-  validateAPIKey
+  validateAPIKey,
+  getRandomIndices
 }
