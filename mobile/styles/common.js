@@ -12,8 +12,8 @@ export const useSharedStyles = () => {
   const { englishFontSize } = useSelector(englishSelector)
   const { arabicFontName } = useSelector(arabicFontNameSelector)
 
-  const englishOpacity = 0.8
-  const arabicOpacity = 0.9
+  const englishOpacity = 0.77
+  const arabicOpacity = 1
   const paddingBottom = 10
   const horizontalMargin = 33
   const verticalMargin = 33

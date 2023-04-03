@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { Fragment } from 'react'
 import { Tooltip, Button } from '@mui/material'
 import * as wordProcessing from '../services/word-processing.js'
@@ -7,7 +8,7 @@ import * as api from '../services/api-service.js'
 
 const selector = (state) => state.text
 
-const TextAddWordsGenerate = (props) => {
+const TextAddWordsGenerate = React.memo((props) => {
   const { text } = useSelector(selector)
   const [open, setOpen] = React.useState(false)
   const [statusMessage, setStatusMessage] = React.useState('')
@@ -38,11 +39,9 @@ const TextAddWordsGenerate = (props) => {
       for (const cleanWord of wordsInDictionaryRemoved) {
         //remove all invalid characters from the word
         const illegalCharactersRemoved = wordProcessing.cleanWordFromInvalidCharacters(cleanWord)
-        //remove all words that are not arabic
-        const nonArabicCharactersRemoved = illegalCharactersRemoved //wordProcessing.removeNonArabicCharacters(illegalCharactersRemoved)
 
         //if the word is empty or null, then we wont add it
-        if (nonArabicCharactersRemoved === '' || nonArabicCharactersRemoved === null) {
+        if (illegalCharactersRemoved === '' || illegalCharactersRemoved === null) {
           continue
         }
 
@@ -50,7 +49,7 @@ const TextAddWordsGenerate = (props) => {
 
         //prepare the words with its translation
         const wordPair = {
-          arabic: nonArabicCharactersRemoved,
+          arabic: illegalCharactersRemoved,
           english: ''
         }
         //add the word to the words array
@@ -84,6 +83,6 @@ const TextAddWordsGenerate = (props) => {
       <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity="success" message={statusMessage} />
     </Fragment>
   )
-}
+})
 
-export default TextAddWordsGenerate
+export default React.memo(TextAddWordsGenerate)
