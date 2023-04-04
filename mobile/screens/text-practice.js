@@ -12,7 +12,7 @@ import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utilit
 import Spinner from '../components/spinner.js'
 
 const selector = (state) => state.text
-const textLoadSelector = (state) => state.textLoading ?? true
+const textLoadSelector = (state) => state.textLoading ?? false
 
 const TextPractice = () => {
   const { text } = useSelector(selector)
@@ -105,9 +105,10 @@ const TextPractice = () => {
         }
 
         setCurrentWord(0)
-      } else {
-        setCurrentWord((prev) => prev + 1)
+        return
       }
+
+      setCurrentWord((prev) => prev + 1)
     },
     [
       currentWord,

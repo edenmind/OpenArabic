@@ -19,6 +19,7 @@ const TextPracticeArabicWords = (props) => {
       {props.currentArabicWordsInSentence.map((word, index) => (
         <Button
           key={index}
+          testID={word.arabic}
           onPress={() => {
             //find the matching english word and and log it to the console
             props.handlePress(word.id, word.arabic)

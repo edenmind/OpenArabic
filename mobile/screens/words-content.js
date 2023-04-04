@@ -48,9 +48,7 @@ const WordsContent = ({
   currentWordIndex,
   handleSetCurrentWordIndex,
   celebrationSnackBarVisibility,
-  handleSetCelebrationSnackBarVisibility,
-  source,
-  author
+  handleSetCelebrationSnackBarVisibility
 }) => {
   const sharedStyle = useSharedStyles()
   const { words } = useSelector(wordsSelector)
@@ -145,9 +143,11 @@ const WordsContent = ({
               )}
             </Text>
 
-            <Text
-              style={{ ...styles.footer, width: '95%', padding: 15, opacity: 0.7 }}
-            >{`Source: ${source} - ${author}`}</Text>
+            <Text style={{ ...styles.footer, width: '95%', padding: 15, opacity: 0.7 }}>
+              {words[currentWord]?.arabicSentence && (
+                <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
+              )}
+            </Text>
           </Surface>
           <SnackButton
             visible={celebrationSnackBarVisibility}
@@ -170,7 +170,5 @@ WordsContent.propTypes = {
   currentWordIndex: PropTypes.number.isRequired,
   handleSetCurrentWordIndex: PropTypes.func.isRequired,
   celebrationSnackBarVisibility: PropTypes.bool.isRequired,
-  handleSetCelebrationSnackBarVisibility: PropTypes.func.isRequired,
-  source: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired
+  handleSetCelebrationSnackBarVisibility: PropTypes.func.isRequired
 }
