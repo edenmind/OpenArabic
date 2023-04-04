@@ -53,6 +53,8 @@ ${sentence.english}
 - Verify that the translation is correct according to the Arabic Sentence
 - Explain the rationale behind translation choices
 - Add alternative translations in the comments
+- Prefer simpler words over complex words
+- Prefer one word over multiple words
 ---
 
 --- Example output of the above task and requirements:
@@ -61,7 +63,7 @@ ${sentence.english}
 بِالنِّيَّاتِ - by the intentions
 
 The rationale behind the translation choices:
-The word X is translated as Y because Z... It os not translated as W because Q...
+The word X is translated as Y because Z... It is not translated as W because Q...
 
 Alternative translations:
 إنَّمَا - Only

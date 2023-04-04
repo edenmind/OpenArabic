@@ -144,6 +144,11 @@ async function getWords(request, reply) {
         continue
       }
 
+      // check so that no elements in the array contains a [ or ,
+      if (alternative2[0].includes('[') || alternative2[0].includes(',')) {
+        continue
+      }
+
       //if word.english not is an array, make it an array
       if (!Array.isArray(word.english)) {
         word.english = [word.english]
