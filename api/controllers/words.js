@@ -1,8 +1,11 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable operator-linebreak */
+
 'use strict'
 
 const COLLECTIONS = require('../constants/collections.js')
 const { ObjectId } = require('mongodb')
-const { capitalizeFirstLetter, shuffleArray } = require('../services/texts')
+const { capitalizeFirstLetter, shuffleArray, convertToLowerCase } = require('../services/texts')
 
 async function addWord(request, reply) {
   const { word } = request.body
@@ -121,6 +124,14 @@ async function getWords(request, reply) {
       alternative1 = randomWords[randomIndex1].english
       alternative2 = randomWords[randomIndex2].english
 
+      // break if alternative 1 or alternative 2  is over 7 characters or contains [] or ,
+      const isInvalidAlternative = (alternative) =>
+        alternative.length > 11 || alternative.includes(',') || alternative.includes('[') || alternative.includes('(')
+
+      if ([alternative1, alternative2].some((element) => isInvalidAlternative(element))) {
+        continue
+      }
+
       // if alternative1 is not an array, make it an array
       if (!Array.isArray(alternative1)) {
         alternative1 = [alternative1]
@@ -136,11 +147,9 @@ async function getWords(request, reply) {
         word.english = [word.english]
       }
 
-      // lowercase the words
-      alternative1 = alternative1[0].toLowerCase()
-      alternative2 = alternative2[0].toLowerCase()
-      word.english = word.english[0].toLowerCase()
-
+      alternative1 = convertToLowerCase(alternative1[0])
+      alternative2 = convertToLowerCase(alternative2[0])
+      word.english = convertToLowerCase(word.english[0])
       // make sure the alternatives are not the same
       alternative1IsSame = alternative1 === word.english || alternative1 === alternative2
       alternative2IsSame = alternative2 === word.english || alternative2 === alternative1

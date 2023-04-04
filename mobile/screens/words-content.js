@@ -143,10 +143,8 @@ const WordsContent = ({
               )}
             </Text>
 
-            <Text style={{ ...styles.footer, width: '95%', padding: 15, opacity: 0.7 }}>
-              {words[currentWord]?.arabicSentence && (
-                <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
-              )}
+            <Text style={{ ...styles.footer, width: '95%', padding: 15, opacity: 0.5 }}>
+              {words[currentWord]?.arabicSentence && `${words[currentWord].source} by ${words[currentWord].author}`}
             </Text>
           </Surface>
           <SnackButton
