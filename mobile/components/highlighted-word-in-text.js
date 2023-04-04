@@ -11,13 +11,14 @@ const HighlightedWordInText = ({ word, text }) => {
     if (w === word) {
       newText.push(
         <Text
+          testID="highlighted"
           key={index}
           style={{
             ...sharedStyle.arabicBody,
             backgroundColor: paperDarkTheme.colors.primary,
             color: paperDarkTheme.colors.onPrimary,
-            fontSize: 40,
-            lineHeight: 75
+            fontSize: 37,
+            lineHeight: 70
           }}
         >
           &nbsp;{w}&nbsp;
@@ -25,7 +26,7 @@ const HighlightedWordInText = ({ word, text }) => {
       )
     } else {
       newText.push(
-        <Text style={{ ...sharedStyle.arabicBody, fontSize: 40, lineHeight: 75 }} key={index}>
+        <Text style={{ ...sharedStyle.arabicBody, fontSize: 37, lineHeight: 70 }} key={index}>
           {` ${w} `}
         </Text>
       )
