@@ -39,9 +39,9 @@ describe('WordsContent', () => {
         const buttons = getAllByRole('button')
         expect(buttons.length).toBe(3)
 
-        const wordToPractice = getByText('hello') //correct answer
-        const wordToPractice2 = getByText('hi') //incorrect answer
-        const wordToPractice3 = getByText('hey') //incorrect answer
+        const wordToPractice = getByText('peace') //correct answer
+        const wordToPractice2 = getByText('upon') //incorrect answer
+        const wordToPractice3 = getByText('you') //incorrect answer
 
         expect(wordToPractice).toBeDefined()
         expect(wordToPractice2).toBeDefined()
