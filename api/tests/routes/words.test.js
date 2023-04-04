@@ -43,11 +43,11 @@ test('post word and get it back', async (t) => {
   t.equal(getWord.statusCode, 200)
 })
 
-test('read a created word', async (t) => {
+test('create words', { timeout: 60 * 1000 }, async (t) => {
   //arrange
   const app = await build(t)
 
-  async function createWordsForLevel(level) {
+  async function createWords(numberWords, level, app) {
     function generateRandomWord(minLength, maxLength) {
       const alphabet = 'abcdefghijklmnopqrstuvwxyz'
       const length = Math.floor(Math.random() * (maxLength - minLength + 1) + minLength) // generate a random length between minLength and maxLength
@@ -60,7 +60,7 @@ test('read a created word', async (t) => {
       return result
     }
 
-    for (let index = 1; index <= 40; index++) {
+    for (let index = 1; index <= numberWords; index++) {
       const englishWord = generateRandomWord(5, 21)
       const result = await app.inject({
         url: '/words',
@@ -95,11 +95,6 @@ test('read a created word', async (t) => {
     }
   }
 
-  // call the function for each level
-  await createWordsForLevel(10)
-  await createWordsForLevel(20)
-  await createWordsForLevel(30)
-
   async function getWords(app) {
     const levels = [10, 20, 30]
     const counts = [10, 20, 40]
@@ -108,6 +103,7 @@ test('read a created word', async (t) => {
 
     for (const level of levels) {
       for (const count of counts) {
+        await createWords(count, level, app)
         const getWord = await app.inject({
           url: `/words?numberOfWordsToPractice=${count}&difficultyLevel=${level}`,
           method: 'GET'
