@@ -124,14 +124,6 @@ async function getWords(request, reply) {
       alternative1 = randomWords[randomIndex1].english
       alternative2 = randomWords[randomIndex2].english
 
-      // break if alternative 1 or alternative 2  is over 7 characters or contains [] or ,
-      const isInvalidAlternative = (alternative) =>
-        alternative.length > 11 || alternative.includes(',') || alternative.includes('[') || alternative.includes('(')
-
-      if ([alternative1, alternative2].some((element) => isInvalidAlternative(element))) {
-        continue
-      }
-
       // if alternative1 is not an array, make it an array
       if (!Array.isArray(alternative1)) {
         alternative1 = [alternative1]
@@ -140,6 +132,16 @@ async function getWords(request, reply) {
       // if alternative1 or alternative2 is not an array, make it an array
       if (!Array.isArray(alternative2)) {
         alternative2 = [alternative2]
+      }
+
+      // check so that no elements in the arrays are longer than 11 characters, if so, then continue
+      if (alternative1[0].length > 11 || alternative2[0].length > 11) {
+        continue
+      }
+
+      // check so that no elements in the array contains a [ or ,
+      if (alternative1[0].includes('[') || alternative1[0].includes(',')) {
+        continue
       }
 
       //if word.english not is an array, make it an array

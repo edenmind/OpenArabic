@@ -48,7 +48,20 @@ test('read a created word', async (t) => {
   const app = await build(t)
 
   async function createWordsForLevel(level) {
+    function generateRandomWord(minLength, maxLength) {
+      const alphabet = 'abcdefghijklmnopqrstuvwxyz'
+      const length = Math.floor(Math.random() * (maxLength - minLength + 1) + minLength) // generate a random length between minLength and maxLength
+      let result = ''
+
+      for (let index = 0; index < length; index++) {
+        result += alphabet[Math.floor(Math.random() * alphabet.length)] // add a random letter to the result string
+      }
+
+      return result
+    }
+
     for (let index = 1; index <= 40; index++) {
+      const englishWord = generateRandomWord(5, 21)
       const result = await app.inject({
         url: '/words',
         method: 'POST',
@@ -58,7 +71,7 @@ test('read a created word', async (t) => {
         payload: {
           word: {
             arabic: `the_word_${level}_${index}`,
-            english: `the_${level}_${index}`,
+            english: englishWord,
             arabicSentence: 'the_arabicSentence',
             englishSentence: 'the_englishSentence',
             categoryLevel: level,
@@ -109,6 +122,43 @@ test('read a created word', async (t) => {
         const words = JSON.parse(getWord.body)
         const expectedLength = Math.min(count, words.length) // In case there aren't enough words
         t.equal(words.length, expectedLength)
+
+        // check so that no properties are empty
+        for (const word of words) {
+          t.ok(word.arabic)
+          t.ok(word.english)
+          t.ok(word.arabicSentence)
+          t.ok(word.englishSentence)
+          t.ok(word.categoryLevel)
+          t.ok(word.author)
+          t.ok(word.source)
+          t.ok(word.textId)
+          t.ok(word.sentenceId)
+          t.ok(word.wordId)
+        }
+
+        // check so that alternative1 and alternative2 are not the same as the correct answer
+        for (const word of words) {
+          t.notEqual(word.english, word.alternative1)
+          t.notEqual(word.english, word.alternative2)
+          t.notEqual(word.alternative1, word.alternative2)
+        }
+
+        // check so that the difficulty level is correct
+        for (const word of words) {
+          t.equal(Number(word.categoryLevel), level)
+        }
+
+        // check so that the words are unique
+        const uniqueWords = new Set(words.map((word) => word.arabic))
+
+        t.equal(uniqueWords.size, words.length)
+
+        // check so that alternative1 and alternative2 are less than 11 characters
+        for (const word of words) {
+          t.ok(word.alternative1.length <= 11)
+          t.ok(word.alternative2.length <= 11)
+        }
       }
     }
 
