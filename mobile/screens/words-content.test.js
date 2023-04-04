@@ -34,17 +34,23 @@ describe('WordsContent', () => {
       </Provider>
     )
 
-    const wordToPractice = getByText('hello') //correct answer
-    const wordToPractice2 = getByText('hi') //incorrect answer
-    const wordToPractice3 = getByText('hey') //incorrect answer
+    function iterateTest(time) {
+      for (let i = 0; i < time; i++) {
+        const wordToPractice = getByText('hello') //correct answer
+        const wordToPractice2 = getByText('hi') //incorrect answer
+        const wordToPractice3 = getByText('hey') //incorrect answer
 
-    expect(wordToPractice).toBeDefined()
-    expect(wordToPractice2).toBeDefined()
-    expect(wordToPractice3).toBeDefined()
-    //Press correct answer
-    fireEvent(wordToPractice, 'press', { nativeEvent: {} })
-    expect(handleSetCurrentWord).toHaveBeenCalledTimes(1)
-    expect(handleSetCurrentWordIndex).toHaveBeenCalledTimes(1)
+        expect(wordToPractice).toBeDefined()
+        expect(wordToPractice2).toBeDefined()
+        expect(wordToPractice3).toBeDefined()
+        //Press correct answer
+        fireEvent(wordToPractice, 'press', { nativeEvent: {} })
+        expect(handleSetCurrentWord).toHaveBeenCalledTimes(i + 1)
+        expect(handleSetCurrentWordIndex).toHaveBeenCalledTimes(i + 1)
+      }
+    }
+
+    iterateTest(100)
   })
   it('renders without crashing', () => {
     render(

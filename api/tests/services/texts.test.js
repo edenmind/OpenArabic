@@ -11,9 +11,22 @@ const {
   shuffleArray,
   readingTime,
   mp3Filename,
-  addGuidToArray
+  addGuidToArray,
+  convertToLowerCase
 } = require('../../services/texts')
 const { test } = require('tap')
+
+test('convertToLowerCase should convert words to lowercase, except for specific words', (t) => {
+  t.equal(convertToLowerCase('Hello'), 'hello')
+  t.equal(convertToLowerCase('Allah'), 'Allah')
+  t.equal(convertToLowerCase('Madina'), 'Madina')
+  t.equal(convertToLowerCase('Ramadan'), 'Ramadan')
+  t.equal(convertToLowerCase('Masjid'), 'Masjid')
+  t.equal(convertToLowerCase('Quran'), 'Quran')
+  t.equal(convertToLowerCase('Hajj'), 'Hajj')
+  t.equal(convertToLowerCase('Sunnah'), 'Sunnah')
+  t.end()
+})
 
 // test that addGuidToArray returns an array with the same length as the input array
 test('addGuidToArray returns an array with the same length as the input array', (t) => {

@@ -9,6 +9,33 @@ const { synthesize } = require('../services/tts')
 const { v4: uuidv4 } = require('uuid')
 const { shuffleArray, removeHost } = require('../services/utils')
 
+// lowercase the words
+
+function convertToLowerCase(word) {
+  const doNotLowerCase = [
+    'Allah',
+    'Mohammed',
+    'Muhammed',
+    'Allahs',
+    'Quran',
+    'Ramadan',
+    'Eid',
+    'Hajj',
+    'Sunnah',
+    'Salah',
+    'Masjid',
+    'Imam',
+    'Hadith',
+    'Mecca',
+    'Madina'
+  ]
+
+  function shouldNotLowerCase(word) {
+    return doNotLowerCase.some((item) => word.includes(item))
+  }
+
+  return shouldNotLowerCase(word) ? word : word.toLowerCase()
+}
 // generate a guid for each sentence and word
 const generateGuidForSentencesAndWords = (sentences) => {
   const sentencesWithGuid = addGuidToArray(sentences)
@@ -244,5 +271,6 @@ module.exports = {
   readingTime,
   slugifyWithAuthor,
   mp3Filename,
-  capitalizeFirstLetter
+  capitalizeFirstLetter,
+  convertToLowerCase
 }
