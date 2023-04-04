@@ -17,7 +17,7 @@ describe('WordsContent', () => {
     const handleSetCurrentWord = jest.fn()
     const handleSetCurrentWordIndex = jest.fn()
 
-    const { getByText } = render(
+    const { getByText, getAllByRole } = render(
       <Provider store={store}>
         <WordsContent
           currentWord={0}
@@ -36,6 +36,9 @@ describe('WordsContent', () => {
 
     function iterateTest(time) {
       for (let i = 0; i < time; i++) {
+        const buttons = getAllByRole('button')
+        expect(buttons.length).toBe(3)
+
         const wordToPractice = getByText('hello') //correct answer
         const wordToPractice2 = getByText('hi') //incorrect answer
         const wordToPractice3 = getByText('hey') //incorrect answer
@@ -47,6 +50,7 @@ describe('WordsContent', () => {
         fireEvent(wordToPractice, 'press', { nativeEvent: {} })
         expect(handleSetCurrentWord).toHaveBeenCalledTimes(i + 1)
         expect(handleSetCurrentWordIndex).toHaveBeenCalledTimes(i + 1)
+        expect(buttons.length).toBe(3)
       }
     }
 
