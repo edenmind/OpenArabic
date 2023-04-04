@@ -12,7 +12,6 @@ import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import HighlightedWordInText from '../components/highlighted-word-in-text.js'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
-import Spinner from '../components/spinner.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -125,44 +124,44 @@ const WordsContent = ({
   ].sort((a, b) => a.position - b.position)
 
   const renderItem = ({ item }) => <View>{item.button}</View>
+  return (
+    <FlatList
+      style={styles.container}
+      data={buttons}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.position.toString()}
+      ListHeaderComponent={
+        <React.Fragment>
+          <ProgressBar
+            progress={currentWordIndex / (numberOfWordsToPractice - 1)}
+            color={paperDarkTheme.colors.primary}
+          />
+          <Surface
+            elevation={0}
+            style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 350 }}
+          >
+            <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
+              {words[currentWord]?.arabicSentence && (
+                <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
+              )}
+            </Text>
 
-  return words.length < 3 ? <Spinner /> : getContent()
-
-  function getContent() {
-    return (
-      <FlatList
-        style={styles.container}
-        data={buttons}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.position.toString()}
-        ListHeaderComponent={
-          <React.Fragment>
-            <ProgressBar
-              progress={currentWordIndex / (numberOfWordsToPractice - 1)}
-              color={paperDarkTheme.colors.primary}
-            />
-            <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 350 }}>
-              <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
-                {words[currentWord]?.arabicSentence && (
-                  <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
-                )}
-              </Text>
-
-              <Text style={{ ...styles.footer, width: '95%', padding: 15, opacity: 0.5 }}>
-                {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
-              </Text>
-            </Surface>
-            <SnackButton
-              visible={celebrationSnackBarVisibility}
-              onDismissSnackBar={onDismissSnackBar}
-              duration={2500}
-              text="Congratulations! You've successfully completed the practice! 🎉"
-            />
-          </React.Fragment>
-        }
-      />
-    )
-  }
+            <Text
+              style={{ ...styles.footer, width: '95%', padding: 15, opacity: 0.5, position: 'absolute', bottom: 20 }}
+            >
+              {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
+            </Text>
+          </Surface>
+          <SnackButton
+            visible={celebrationSnackBarVisibility}
+            onDismissSnackBar={onDismissSnackBar}
+            duration={2500}
+            text="Congratulations! You've successfully completed the practice! 🎉"
+          />
+        </React.Fragment>
+      }
+    />
+  )
 }
 
 export default memo(WordsContent)

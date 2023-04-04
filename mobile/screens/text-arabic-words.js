@@ -16,7 +16,7 @@ export default function TextArabicWords({ text, setEnglishTranslation }) {
           key={wordIndex}
           mode="text"
           onPress={() => {
-            setEnglishTranslation(word.english + ' (' + util.transliterateArabicToEnglish(word.arabic) + ')')
+            setEnglishTranslation(`${word.english} (${util.transliterateArabicToEnglish(word.arabic)})`)
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           }}
         >

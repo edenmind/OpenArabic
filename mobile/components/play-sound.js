@@ -2,6 +2,16 @@ import * as React from 'react'
 import { Button } from 'react-native-paper'
 import { Audio } from 'expo-av'
 import PropTypes from 'prop-types'
+import { paperDarkTheme } from '../constants/paper-theme.js'
+import { StyleSheet } from 'react-native'
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: paperDarkTheme.colors.onPrimary,
+    marginBottom: 10,
+    marginTop: 10
+  }
+})
 
 // This is more of a component than a server and might be better placed in the components folder
 export default function PlaySound({ audioFileName, buttonText }) {
@@ -33,7 +43,7 @@ export default function PlaySound({ audioFileName, buttonText }) {
   }, [sound])
 
   return (
-    <Button onPress={playSound} mode="elevated">
+    <Button onPress={playSound} mode="elevated" style={styles.button}>
       {buttonText}
     </Button>
   )
