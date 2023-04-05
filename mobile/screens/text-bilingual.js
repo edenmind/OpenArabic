@@ -5,9 +5,10 @@ import { ScrollView, View } from 'react-native'
 import Sentences from './text-bilingual-sentences.js'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
-import { Button } from 'react-native-paper'
+import { Button, Divider } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import { generateError, generateShare } from '../services/ui-services.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -27,10 +28,15 @@ export default function TextBilingual() {
         <Heading heading={text} />
         <Sentences sentences={text.sentences} />
         <View style={sharedStyle.container}>
-          <Button mode="text" onPress={generateShare(text)}>
+          <Button mode="contained" onPress={generateShare(text)}>
             {share}
           </Button>
-          <Button mode="text" onPress={generateError(text)}>
+          <Divider style={sharedStyle.divider} />
+          <Button
+            mode="outlined"
+            onPress={generateError(text)}
+            style={{ borderColor: paperDarkTheme.colors.onErrorContainer }}
+          >
             {report}
           </Button>
         </View>

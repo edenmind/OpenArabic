@@ -54,10 +54,13 @@ export const getThreeRandomWords = (arabicWords, currentEnglishWordId, sentences
 
   randomWords.add(matchingArabicWord)
 
+  // Helper function to get a random element from an array
+  const getRandomElement = (array) => array[Math.floor(Math.random() * array.length)]
+
   // Keep generating random words until we have exactly three unique ones
   while (randomWords.size < 3) {
-    const randomSentence = Math.floor(Math.random() * sentencesInText.length)
-    const randomWordFromSentence = sentencesInText[randomSentence].arabicWords.sort(() => Math.random() - 0.5)[0]
+    const randomSentence = getRandomElement(sentencesInText)
+    const randomWordFromSentence = getRandomElement(randomSentence.arabicWords)
 
     // Check if the random word is already in the randomWords set based on id and spelling
     const alreadyExists = [...randomWords].some(
@@ -73,6 +76,7 @@ export const getThreeRandomWords = (arabicWords, currentEnglishWordId, sentences
   // Set the state for currentArabicWordsInSentence
   return [...randomWords].sort(() => Math.random() - 0.5)
 }
+
 export const prepareIngress = (text, length) => {
   const noLineBreaks = removeLineBreak(text)
   const spaceAfterDot = addSpaceAfterDot(noLineBreaks)

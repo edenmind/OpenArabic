@@ -15,23 +15,21 @@ const WordsSetupDifficultyLevel = (props) => {
   switch (props.difficultyLevel) {
     case 10: {
       source = require('../assets/beginner.jpeg')
-      goal = 'Learn vocabulary in The Shahada and short Surahs.'
-      examples = 'Say (قل), Path (صِرَٰطَ), And not (وَلَا), He (هُوَ), The Dawn (ٱلْفَلَقِ), He created (خَلَقَ).'
+      goal =
+        'Learn the vocabulary in the Shahada (testimony of faith) and short Surahs (Al-Fatiha, Al-Ikhlas, Al-Falaq, and An-Nas).'
 
       break
     }
     case 20: {
       source = require('../assets/mid-level.jpeg')
-      goal = 'Learn vocabulary in the prayer and more Surahs.'
-      examples = 'Man (رَجُلٌ), Hair (الشَّعْرِ), Inform me (أَخْبِرْنِي), Astonished us (فَعَجِبْنَا), About (عَنْ).'
+      goal = 'Learn vocabulary in the five daily prayers and additional short Surahs from Juz Amma in the Quran.'
 
       break
     }
     case 30: {
       //Not in use yet.
       source = require('../assets/advanced.jpeg')
-      goal = 'Read the 40 Hadith of Imām Nawawī.'
-      examples = 'Man (رَجُلٌ), Hair (الشَّعْرِ), Inform me (أَخْبِرْنِي), Astonished us (فَعَجِبْنَا), About (عَنْ).'
+      goal = 'Read the Forty Hadith of Imām Nawawī (may Allah preserve him) directly from the Arabic source.'
 
       break
     }
@@ -41,15 +39,12 @@ const WordsSetupDifficultyLevel = (props) => {
   }
 
   return (
-    <Surface style={{ borderRadius: 10, minHeight: 370 }}>
+    <Surface style={{ borderRadius: 10, minHeight: 330 }}>
       <Image source={source} style={{ width: '100%', height: 190 }} />
       <View style={{ padding: 10 }}>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <Text variant="titleSmall">Goal </Text>
+        <Text variant="titleSmall">Goal</Text>
         <Text style={{ ...sharedStyle.englishBody }}>{goal}</Text>
-        <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <Text variant="titleSmall">Examples </Text>
-        <Text style={sharedStyle.englishBody}>{examples}</Text>
       </View>
     </Surface>
   )
