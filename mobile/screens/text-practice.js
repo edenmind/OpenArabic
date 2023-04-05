@@ -12,8 +12,7 @@ import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utilit
 import Spinner from '../components/spinner.js'
 
 const selector = (state) => state.text
-const textLoadSelector = (state) => state.textLoading ?? false
-
+const textLoadSelector = (state) => state.textLoading
 const TextPractice = () => {
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
@@ -28,7 +27,7 @@ const TextPractice = () => {
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
-    if (!(textLoading && sentencesInText[currentSentence])) {
+    if (!textLoading || !sentencesInText[currentSentence]) {
       return
     }
 
@@ -38,6 +37,7 @@ const TextPractice = () => {
     setCurrentArabicWordsInSentence(getThreeRandomWords(arabicWords, englishWordId, sentencesInText))
     setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
   }, [currentSentence, currentWord, sentencesInText, textLoading])
+
   const onDismissSnackBar = () => setCelebrationSnackBarVisibility(false)
 
   // loop through all sentences in the text

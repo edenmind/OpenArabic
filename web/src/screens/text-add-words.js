@@ -10,6 +10,8 @@ import React, { Fragment, useCallback, useMemo, Suspense } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
 import TextAddWordsGetFromDatabase from './text-add-words-get-translations.js'
 import * as prompts from '../services/prompts.js'
+import { v4 as uuidv4 } from 'uuid'
+
 const SnackBar = React.lazy(() => import('../components/snack-bar.js'))
 const BasicModal = React.lazy(() => import('../components/basic-modal.js'))
 
@@ -47,16 +49,14 @@ function TextAddWords() {
   const handleChangeArabic = useCallback(
     (sentenceIndex, wordIndex, englishWord) => {
       const indexSentence = (currentPage - 1) * PAGE_SIZE + sentenceIndex
-      const indexArabicWord = wordIndex
 
-      dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord, englishWord } })
+      dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord: wordIndex, englishWord } })
     },
     [currentPage, dispatch, PAGE_SIZE]
   )
 
   const handleChangeEnglishSentence = useCallback(
     (indexSentence, englishSentence) => {
-      console.log(indexSentence, englishSentence)
       dispatch({ type: 'UPDATE_ENGLISH_SENTENCE', value: { indexSentence, englishSentence } })
     },
     [dispatch]
@@ -126,9 +126,10 @@ function TextAddWords() {
                   const categoryLevel = categories.find((category) => category.name === text.category).level
 
                   const translation = {
-                    textId: text.id,
-                    sentenceId: sentence.id,
-                    wordId: word.id,
+                    //set textId to a new generated guid
+                    textId: uuidv4(),
+                    sentenceId: indexSentence,
+                    wordId: indexArabicWord,
                     author: text.author,
                     source: text.source,
                     arabic: word.arabic,

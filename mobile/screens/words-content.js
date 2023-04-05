@@ -1,7 +1,7 @@
 /* eslint-disable putout/destructuring-as-function-argument */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
-import React, { useState, useCallback, memo } from 'react'
+import React, { useState, useCallback, memo, useEffect } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
 import { Surface, Text, ProgressBar, Button } from 'react-native-paper'
 import { paperDarkTheme } from '../constants/paper-theme.js'
@@ -54,8 +54,17 @@ const WordsContent = ({
   const { words } = useSelector(wordsSelector)
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
   const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
+  const [timeoutId, setTimeoutId] = useState()
 
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [timeoutId])
 
   const onDismissSnackBar = useCallback(() => {
     handleSetCelebrationSnackBarVisibility(false)
@@ -90,7 +99,7 @@ const WordsContent = ({
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
           handleSetCelebrationSnackBarVisibility(true)
 
-          //set a timeout for 1 second before resetting the words
+          // reset state for new words when we are done practicing
           setTimeout(() => {
             resetStateForNewWords()
             dispatch({
@@ -98,6 +107,7 @@ const WordsContent = ({
               payload: false
             })
           }, 2500)
+          setTimeoutId(timeoutId)
 
           return
         }
@@ -156,7 +166,7 @@ const WordsContent = ({
             visible={celebrationSnackBarVisibility}
             onDismissSnackBar={onDismissSnackBar}
             duration={2500}
-            text="Congratulations! You've successfully completed the practice! 🎉"
+            text="Congratulations! You've successfully completed the session!"
           />
         </React.Fragment>
       }
