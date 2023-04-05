@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@adobe/css-tools@npm:^4.0.1":
@@ -605,7 +605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-private-property-in-object@npm:^7.18.6":
+"@babel/plugin-proposal-private-property-in-object@npm:^7.16.0, @babel/plugin-proposal-private-property-in-object@npm:^7.18.6":
   version: 7.21.0
   resolution: "@babel/plugin-proposal-private-property-in-object@npm:7.21.0"
   dependencies:
@@ -3047,6 +3047,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/engine-parser@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/engine-parser@npm:6.0.0"
+  dependencies:
+    "@babel/generator": ^7.19.0
+    "@babel/parser": ^7.19.0
+    "@babel/template": ^7.18.10
+    "@babel/types": ^7.19.0
+    "@putout/printer": ^1.20.0
+    "@putout/recast": ^1.12.1
+    estree-to-babel: ^5.0.0
+    nano-memoize: ^2.0.0
+    once: ^1.4.0
+    try-catch: ^3.0.0
+  checksum: 3037b9d8508987f9dedee01cf0d893400ceffe8b8482fa3e45336bbf4e768348542a8379009ebec2ce062d110e016aeae21ec8205ed5ff55a18c8e142b279d7d
+  languageName: node
+  linkType: hard
+
 "@putout/engine-processor@npm:^6.0.0":
   version: 6.4.2
   resolution: "@putout/engine-processor@npm:6.4.2"
@@ -4011,12 +4029,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-simplify-ternary@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@putout/plugin-simplify-ternary@npm:4.0.0"
+"@putout/plugin-simplify-ternary@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@putout/plugin-simplify-ternary@npm:5.0.1"
   peerDependencies:
-    putout: ">=28"
-  checksum: cfc4353c0e1715e563ecf84e695b705dae3dded15604b752c58c3896188c15a49d186f1fca6b43674f60f31b169ec666be2f09bbebf2ce200e8ea3e3e45b7e81
+    putout: ">=29"
+  checksum: acaba94fbe650698642d5207f4b6587dc45574fcacfef008efb15c2c87be7dec1c766f1665287bf3e7b87f9bdf61b30c50d6728dd4c62226d95f93a8c9cfa931
   languageName: node
   linkType: hard
 
@@ -4089,6 +4107,20 @@ __metadata:
   peerDependencies:
     putout: ">=28"
   checksum: 6aa64ae5eb7de4bee92455f2209e5ff3e45ebd21a0a469438690cf8b157d20d32e85e415f8212c39f0e4decf3ce5f52f10372c90ec8aa8a6e4940aa115e10aee
+  languageName: node
+  linkType: hard
+
+"@putout/printer@npm:^1.20.0":
+  version: 1.22.0
+  resolution: "@putout/printer@npm:1.22.0"
+  dependencies:
+    "@babel/code-frame": ^7.18.6
+    "@babel/parser": ^7.19.0
+    "@babel/traverse": ^7.21.2
+    "@babel/types": ^7.21.3
+    fullstore: ^3.0.0
+    just-snake-case: ^3.2.0
+  checksum: 1448db440bfd2799d9b5c4a5b201c98f3cce0d073513d44afeaaea3db5071fa182ccec999ca9bdaa97f7e362dbc4e9a749d515a1b1214ea8301969792e76c2d9
   languageName: node
   linkType: hard
 
@@ -11124,6 +11156,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"just-snake-case@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "just-snake-case@npm:3.2.0"
+  checksum: a946e92b328bc72797a4080d1c13b7c1e13043e6d237dcf5bf7268aabdee36b59e0f4a40a0fea3383d5a0a32a186a43552b6702d6563c740e5d3913b0f2d6eea
+  languageName: node
+  linkType: hard
+
 "kind-of@npm:^6.0.2, kind-of@npm:^6.0.3":
   version: 6.0.3
   resolution: "kind-of@npm:6.0.3"
@@ -13884,9 +13923,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.1.13":
-  version: 29.1.13
-  resolution: "putout@npm:29.1.13"
+"putout@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "putout@npm:29.2.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -13898,7 +13937,7 @@ __metadata:
     "@putout/cli-validate-args": ^1.0.0
     "@putout/compare": ^9.0.0
     "@putout/engine-loader": ^8.0.0
-    "@putout/engine-parser": ^5.0.0
+    "@putout/engine-parser": ^6.0.0
     "@putout/engine-processor": ^6.0.0
     "@putout/engine-runner": ^15.0.0
     "@putout/eslint": ^2.0.0
@@ -13997,7 +14036,7 @@ __metadata:
     "@putout/plugin-remove-useless-variables": ^8.0.0
     "@putout/plugin-reuse-duplicate-init": ^4.0.0
     "@putout/plugin-simplify-assignment": ^3.0.0
-    "@putout/plugin-simplify-ternary": ^4.0.0
+    "@putout/plugin-simplify-ternary": ^5.0.1
     "@putout/plugin-split-nested-destructuring": ^2.0.0
     "@putout/plugin-split-variable-declarations": ^2.0.0
     "@putout/plugin-strict-mode": ^5.0.0
@@ -14034,7 +14073,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: d3d8a6d92c3594cf6d29aeb3f657bce784a45b36f007fa3ff8776742b15b1d3aae237f8910188ae6e717d469df57770195e3c4ca7ba3521fc4ae480f1f126024
+  checksum: c982aae0891eb06c111c7d342596c78ca43fb038b75cecedd2dfaaa4999f857a435785d2686cbb920380070de44e59b47d69587833a64c5b9e215d69bedec69b
   languageName: node
   linkType: hard
 
@@ -16488,7 +16527,7 @@ __metadata:
 
 "typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -17005,7 +17044,7 @@ __metadata:
     moment-timezone: ^0.5.43
     node-notifier: ^10.0.1
     prettier: ^2.8.7
-    putout: ^29.1.13
+    putout: ^29.2.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.3
