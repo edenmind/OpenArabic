@@ -64,7 +64,7 @@ const TextAddHeading = () => {
       <MenuSelect Heading="Author" Values={authors} value={text.author} onChangeFunc={setAuthor} />
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <MenuSelect Heading="Category" Values={categories} value={text.category} onChangeFunc={setCategory} />
-        <FormHelperText>The category affects the generation of vocabularies. [PRAYER] and [40 HADITH]</FormHelperText>
+        <FormHelperText>The category affects the generation of vocabularies. </FormHelperText>
       </FormControl>
 
       <img src={text.image} alt={text.title} width={700} />

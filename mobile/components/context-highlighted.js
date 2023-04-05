@@ -3,7 +3,7 @@ import { View, Animated } from 'react-native'
 import { Text } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import { useSharedStyles } from '../styles/common.js'
-import { paperDarkTheme } from '../constants/paper-theme.js'
+import HighlightedWord from './context-highlighted-word.js'
 
 const WordsContextHighLighted = (props) => {
   const sharedStyle = useSharedStyles()
@@ -36,12 +36,17 @@ const WordsContextHighLighted = (props) => {
 
   const highlightWords = (sentence, words) => {
     return sentence.map((word, index) => {
-      if (word.id === words.id) {
-        return <HighlightedWord word={word} key={index} />
-      }
-
-      return (
-        <Text style={{ ...sharedStyle.englishBody, marginHorizontal: 2, paddingBottom: 0 }} key={index}>
+      return word.id === words.id ? (
+        <HighlightedWord word={word} key={index} />
+      ) : (
+        <Text
+          style={{
+            ...sharedStyle.englishBody,
+            marginHorizontal: 2,
+            paddingBottom: 0
+          }}
+          key={index}
+        >
           {word.english}
         </Text>
       )
@@ -68,29 +73,3 @@ WordsContextHighLighted.propTypes = {
 }
 
 export default WordsContextHighLighted
-
-const HighlightedWord = ({ word }) => {
-  const sharedStyle = useSharedStyles()
-  return (
-    <Text
-      style={{
-        ...sharedStyle.englishBody,
-        color: paperDarkTheme.colors.onPrimary,
-        backgroundColor: paperDarkTheme.colors.primary,
-        opacity: 1,
-        marginHorizontal: 2,
-        paddingHorizontal: 2,
-        paddingBottom: 0
-      }}
-      variant="bodyLarge"
-    >
-      {word.english}
-    </Text>
-  )
-}
-
-HighlightedWord.propTypes = {
-  word: PropTypes.shape({
-    english: PropTypes.string.isRequired
-  }).isRequired
-}

@@ -47,14 +47,13 @@ ${sentence.english}
 - Put the Arabic Word first, then the English Word
 - Add a new line after every word
 - The translation should be in the same order as the words in the Arabic sentence
-- Add words surrounded by [] to make the translation fluent, readable and understandable
+- Add words surrounded by square brackets [] to make the translation fluent, readable and understandable
 - The translation must be readable as a complete sentence and not only as a list of words
 - Verify that the translation is correct according to Sunni Islam
 - Verify that the translation is correct according to the Arabic Sentence
-- Explain the rationale behind translation choices
 - Add alternative translations in the comments
 - Prefer simpler words over complex words
-- Prefer one word over multiple words
+- Always put additional words in square brackets []
 ---
 
 --- Example output of the above task and requirements:
@@ -62,7 +61,6 @@ ${sentence.english}
 الْأَعْمَالُ - the actions [are judged]
 بِالنِّيَّاتِ - by the intentions
 
-The rationale behind the translation choices:
 The word X is translated as Y because Z... It is not translated as W because Q...
 
 Alternative translations:

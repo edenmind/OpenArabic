@@ -127,7 +127,16 @@ async function addText(request, reply) {
 async function getText(request, reply) {
   //get the text from the database
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const text = await texts.findOne({ $or: [{ slug: request.params.id }, { id: new ObjectId(request.params.id) }] })
+
+  let text = ''
+
+  //get the text by slug
+  text = await texts.findOne({ slug: request.params.id })
+
+  // if the text is null or undefined, try to get the text by id
+  if (!text) {
+    text = await texts.findOne({ id: new ObjectId(request.params.id) })
+  }
 
   //if the text is null or undefined, send a 404
   if (!text) {

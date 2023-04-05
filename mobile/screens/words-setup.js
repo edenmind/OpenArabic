@@ -86,7 +86,7 @@ const WordsSetup = (props) => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         }}
       >
-        <Text style={{ color: 'black', fontWeight: '800' }}>START SESSION</Text>
+        <Text style={{ color: 'black' }}>START SESSION</Text>
       </Button>
       <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 50 }} />
     </ScrollView>
