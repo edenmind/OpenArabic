@@ -109,7 +109,7 @@ export default function TextDrawer() {
         drawerStyle: {
           width: 225
         },
-        headerTintColor: 'rgb(230, 226, 217)',
+        headerTintColor: paperDarkTheme.colors.onBackground,
         headerStyle: {
           backgroundColor: paperDarkTheme.colors.background
         },

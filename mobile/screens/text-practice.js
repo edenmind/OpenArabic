@@ -44,29 +44,19 @@ const TextPractice = () => {
   const sentencesInText = React.useMemo(() => {
     return text.sentences.map((sentence) => {
       const wordsInSentence = sentence.words.map((word, wordIndex) => {
-        const arabicWord = {
-          arabic: word.arabic,
-          id: wordIndex
-        }
-        const englishWord = {
-          english: word.english,
-          id: wordIndex
-        }
-
         return {
-          arabicWord,
-          englishWord
+          arabicWord: { arabic: word.arabic, id: wordIndex },
+          englishWord: { english: word.english, id: wordIndex }
         }
       })
+
       const arabicWords = wordsInSentence.map((word) => word.arabicWord).sort(() => Math.random() - 0.5)
       const englishWords = wordsInSentence.map((word) => word.englishWord)
 
-      return {
-        arabicWords,
-        englishWords
-      }
+      return { arabicWords, englishWords }
     })
   }, [text])
+
   //create a handler that when pressed check if the id of the arabic word matches the id for currentWord
   //if it does, increase currentWord by 1
   //if it doesn't, do nothing
