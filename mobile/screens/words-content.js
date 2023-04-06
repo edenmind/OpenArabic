@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
 
 const wordsSelector = (state) => state.words
 
+const ENGLISH = 'English'
+
 const WordsContent = ({
   currentWord,
   numberOfWordsToPractice,
@@ -172,7 +174,7 @@ const WordsContent = ({
               style={{ position: 'absolute', bottom: 20, right: 10, opacity: 0.5, margin: 10 }}
               onPress={() => showModal()}
             >
-              English
+              {ENGLISH}
             </Button>
           </Surface>
 
