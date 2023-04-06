@@ -10,6 +10,11 @@ jest.mock('../components/snack-button.js', () => {
   return SnackButton
 })
 
+//mock the modal scrollview
+jest.mock('../components/modal-scroll-view.js', () => {
+  const ModalScrollView = () => {}
+  return ModalScrollView
+})
 jest.useFakeTimers()
 
 describe('WordsContent', () => {
@@ -37,7 +42,7 @@ describe('WordsContent', () => {
     function iterateTest(time) {
       for (let i = 0; i < time; i++) {
         const buttons = getAllByRole('button')
-        expect(buttons.length).toBe(3)
+        expect(buttons.length).toBe(4)
 
         const wordToPractice = getByText('peace') //correct answer
         const wordToPractice2 = getByText('upon') //incorrect answer
@@ -50,7 +55,7 @@ describe('WordsContent', () => {
         fireEvent(wordToPractice, 'press', { nativeEvent: {} })
         expect(handleSetCurrentWord).toHaveBeenCalledTimes(i + 1)
         expect(handleSetCurrentWordIndex).toHaveBeenCalledTimes(i + 1)
-        expect(buttons.length).toBe(3)
+        expect(buttons.length).toBe(4)
       }
     }
 
@@ -92,6 +97,6 @@ describe('WordsContent', () => {
     )
 
     const buttons = getAllByRole('button')
-    expect(buttons.length).toBe(3)
+    expect(buttons.length).toBe(4)
   })
 })

@@ -13,7 +13,6 @@ export default function TextArabicWords({ text, setEnglishTranslation }) {
   const [sound, setSound] = React.useState()
 
   const playSound = async (filename) => {
-    console.log(filename)
     const { sound } = await Audio.Sound.createAsync(
       { uri: filename },
       {
