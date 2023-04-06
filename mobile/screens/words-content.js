@@ -12,6 +12,8 @@ import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import HighlightedWordInText from '../components/highlighted-word-in-text.js'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
+import ModalScrollView from '../components/modal-scroll-view.js'
+import * as util from '../services/utility-service.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -41,6 +43,8 @@ const styles = StyleSheet.create({
 
 const wordsSelector = (state) => state.words
 
+const ENGLISH = 'English'
+
 const WordsContent = ({
   currentWord,
   numberOfWordsToPractice,
@@ -55,6 +59,9 @@ const WordsContent = ({
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
   const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
   const [timeoutId, setTimeoutId] = useState()
+  const hideModal = () => setVisible(false)
+  const showModal = () => setVisible(true)
+  const [visible, setVisible] = React.useState(false)
 
   const dispatch = useDispatch()
 
@@ -141,7 +148,7 @@ const WordsContent = ({
       renderItem={renderItem}
       keyExtractor={(item) => item.position.toString()}
       ListHeaderComponent={
-        <React.Fragment>
+        <>
           <ProgressBar
             progress={currentWordIndex / (numberOfWordsToPractice - 1)}
             color={paperDarkTheme.colors.primary}
@@ -150,25 +157,45 @@ const WordsContent = ({
             elevation={0}
             style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 350 }}
           >
-            <Text style={{ ...styles.arabicBody, width: '95%', padding: 15 }}>
+            <Text style={{ ...styles.arabicBody, width: '95%', padding: 10 }}>
               {words[currentWord]?.arabicSentence && (
                 <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
               )}
             </Text>
 
             <Text
-              style={{ ...styles.footer, width: '95%', padding: 15, opacity: 0.5, position: 'absolute', bottom: 20 }}
+              style={{ ...styles.footer, width: '95%', opacity: 0.5, position: 'absolute', bottom: 20, padding: 10 }}
             >
               {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
             </Text>
+
+            <Button
+              mode="outlined"
+              style={{ position: 'absolute', bottom: 20, right: 10, opacity: 0.5, margin: 10 }}
+              onPress={() => showModal()}
+            >
+              {ENGLISH}
+            </Button>
           </Surface>
+
           <SnackButton
             visible={celebrationSnackBarVisibility}
             onDismissSnackBar={onDismissSnackBar}
             duration={2500}
             text="Congratulations! You've successfully completed the session!"
           />
-        </React.Fragment>
+          <ModalScrollView
+            visible={visible}
+            content=<Text style={{ ...useSharedStyles().englishBody, margin: 20 }} variant="bodyLarge">
+              {words[currentWord].englishSentence &&
+                words[currentWord].englishSentence +
+                  '\n\n' +
+                  util.transliterateArabicToEnglish(words[currentWord].arabicSentence)}
+            </Text>
+            title="English"
+            hideModal={hideModal}
+          />
+        </>
       }
     />
   )

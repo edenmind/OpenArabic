@@ -6,7 +6,6 @@ import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 import TextArabicWords from './text-arabic-words.js'
-
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
 
@@ -18,13 +17,12 @@ const styles = StyleSheet.create({
   }
 })
 
-export default function TextArabic() {
+function TextArabic() {
   const sharedStyle = useSharedStyles()
-  const [englishTranslation, setEnglishTranslation] = React.useState('Tap Arabic Word for Translation...')
+  const [englishTranslation, setEnglishTranslation] = React.useState('Tap for Translation and Audio...')
 
   const { text } = useSelector(textSelector)
   const { textLoading } = useSelector(textLoadSelector)
-  // loop through all sentences in the text and all the words and return a component that displays the arabic word with each sentence on a new line
 
   return textLoading ? (
     <>
@@ -42,3 +40,5 @@ export default function TextArabic() {
     <Spinner />
   )
 }
+
+export default React.memo(TextArabic)
