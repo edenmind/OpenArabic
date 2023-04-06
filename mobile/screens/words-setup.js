@@ -29,18 +29,15 @@ const WordsSetup = (props) => {
         buttons={[
           {
             value: 10,
-            label: '10',
-            style: { width: '33%' }
+            label: '10'
           },
           {
             value: 20,
-            label: '20',
-            style: { width: '33%' }
+            label: '20'
           },
           {
             value: 40,
-            label: '40',
-            style: { width: '33%' }
+            label: '40'
           }
         ]}
       />
@@ -72,7 +69,7 @@ const WordsSetup = (props) => {
 
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <WordsSetupDifficultyLevel difficultyLevel={props.difficultyLevel} />
-      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 30 }} />
+      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 15 }} />
 
       <Button
         mode="contained"
@@ -88,7 +85,6 @@ const WordsSetup = (props) => {
       >
         <Text style={{ color: 'black' }}>START SESSION</Text>
       </Button>
-      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 50 }} />
     </ScrollView>
   )
 }

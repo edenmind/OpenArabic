@@ -191,6 +191,8 @@ async function updateText(request, reply) {
   const textsCollection = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const updatedAt = new Date()
   const { texts, ...rest } = body
+
+  //loop through the sentences and words and add the url to the audio file
   const data = {
     $set: {
       ...rest,
@@ -216,6 +218,21 @@ async function updateText(request, reply) {
 
     //generate the mp3 files in the background
     batchGenerateAudio(data.$set)
+  }
+
+  //loop through the sentences and words and use removeHost from the filename property
+  for (const sentence of data.$set.sentences) {
+    sentence.words = sentence.words.map((word) => {
+      if (word.filename) {
+        word.filename = removeHost(word.filename)
+      }
+
+      return word
+    })
+
+    if (sentence.filename) {
+      sentence.filename = removeHost(sentence.filename)
+    }
   }
 
   //try to update the data

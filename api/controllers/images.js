@@ -8,6 +8,9 @@ function getImages(request, reply) {
     img: `${IMAGES_URL_PREFIX}${index + 1}.jpg`
   }))
 
+  // Randomize the order of the images
+  images.sort(() => Math.random() - 0.5)
+
   reply.send(images)
 }
 
