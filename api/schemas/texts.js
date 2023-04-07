@@ -117,7 +117,6 @@ const updateTextOptions = {
       required: ['title', 'author', 'category', 'source', 'sentences', 'texts', 'status', 'image', 'publishAt'],
       properties: {
         title: { type: 'string', minLength: 5, maxLength: 25 },
-        textGuid: { type: 'string', minLength: 5, maxLength: 25 },
         status: { type: 'string', minLength: 5, maxLength: 10 },
         image: { type: 'string', minLength: 5, maxLength: 70 },
         createdAt: { type: 'string', minLength: 5, maxLength: 40 },
