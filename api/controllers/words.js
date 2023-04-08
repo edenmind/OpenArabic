@@ -5,31 +5,43 @@
 /* eslint-disable operator-linebreak */
 
 const COLLECTIONS = require('../constants/collections.js')
-const { capitalizeFirstLetter, shuffleArray, convertToLowerCase, getNumberFromString } = require('../services/texts')
+const { capitalizeFirstLetter, shuffleArray, convertToLowerCase, getAllWordsFromTexts } = require('../services/texts')
 
 async function getWordId(request, reply) {
-  const { wordId, sentenceId, textId } = request.params
+  try {
+    const { wordId, sentenceId, textId } = request.params
 
-  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const textDocument = await texts.findOne({ textGuid: textId })
-  // eslint-disable-next-line putout/nonblock-statement-body-newline
-  if (textDocument) {
-    const sentence = textDocument.sentences.find((s) => s.id === sentenceId)
-    // eslint-disable-next-line putout/nonblock-statement-body-newline
-    if (sentence) {
-      const word = sentence.words.find((w) => w.id === wordId)
+    // Validate input parameters
+    if (!wordId || !sentenceId || !textId) {
+      return reply.code(400).send('Missing required parameters.')
+    }
 
-      const updatedWord = {
-        ...word,
-        englishSentence: sentence.english,
-        arabicSentence: sentence.arabic
+    const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
+    const textDocument = await texts.findOne({ textGuid: textId })
+
+    if (textDocument) {
+      const sentence = textDocument.sentences.find((s) => s.id === sentenceId)
+      if (sentence) {
+        const word = sentence.words.find((w) => w.id === wordId)
+        if (word) {
+          const updatedWord = {
+            ...word,
+            englishSentence: sentence.english,
+            arabicSentence: sentence.arabic
+          }
+
+          return reply.code(200).send(updatedWord)
+        }
+
+        return reply.code(404).send('Word not found.')
       }
 
-      return reply.code(200).send(updatedWord)
+      return reply.code(404).send('Sentence not found.')
     }
+    return reply.code(404).send('Text not found.')
+  } catch {
+    return reply.code(500).send('An error occurred while processing the request.')
   }
-
-  return reply.code(404).send('Word not found.')
 }
 
 async function getWordTranslation(request, reply) {
@@ -47,28 +59,8 @@ async function getWordTranslation(request, reply) {
 async function getWords(request, reply) {
   const { query } = request
   const { numberOfWordsToPractice, difficultyLevel } = query
-
-  // loop through all texts in COLLECTIONS.TEXT and add all words in all sentences to an array
-  const allWords = []
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-  const allTexts = await texts.find({}).toArray()
-  for (const text of allTexts) {
-    for (const sentence of text.sentences) {
-      for (const word of sentence.words) {
-        const updatedWord = {
-          id: word.id,
-          ...word,
-          textId: text.textGuid,
-          sentenceId: sentence.id,
-          wordId: word.id,
-          arabicSentence: sentence.arabic,
-          englishSentence: sentence.english,
-          categoryLevel: getNumberFromString(text.category)
-        }
-        allWords.push(updatedWord)
-      }
-    }
-  }
+  const allWords = await getAllWordsFromTexts(texts)
 
   // if numberOfWordsToPractice and difficultyLevel are not provided then return all words
   if (!numberOfWordsToPractice && !difficultyLevel) {
@@ -79,6 +71,7 @@ async function getWords(request, reply) {
 
   //get all words where categoryLevel is equal to the difficultyLevel
   const wordsFilteredByDifficultyLevel = allWords.filter((word) => word.categoryLevel === difficultyLevelNumber)
+  //get random words because we do not want to practice in the same order
   const randomWords = wordsFilteredByDifficultyLevel.sort(() => Math.random() - 0.5).slice(0, numberOfWordsToPractice)
 
   const allWordsWithAlternative = randomWords.map((word) => {
