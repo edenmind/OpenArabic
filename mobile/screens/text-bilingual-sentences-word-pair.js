@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
 import { Divider, Text } from 'react-native-paper'
@@ -33,22 +33,20 @@ const styles = StyleSheet.create({
 
 function TextBilingualSentencesWords({ word }) {
   return (
-    <Fragment>
+    <>
       <View style={styles.row}>
         <View style={styles.flexOne}>
           <Text style={styles.arabic}>{word.arabic}</Text>
           <Text variant="bodyMedium" style={styles.english}>
-            {word.english.charAt(0).toUpperCase() + word.english.slice(1)} ·{' '}
+            {word.english.charAt(0).toUpperCase() + word.english.slice(1)} ·{'\n'}
             {util.transliterateArabicToEnglish(word.arabic)}
           </Text>
         </View>
-
-        <View style={styles.flexOne}>
-          <PlaySound audioFileName={word.filename} buttonText={'PLAY'} />
-        </View>
+        <PlaySound audioFileName={word.filename} buttonText={'PLAY'} />
       </View>
+      <View style={styles.flexOne}>{word.grammar}</View>
       <Divider style={styles.divider} />
-    </Fragment>
+    </>
   )
 }
 

@@ -23,7 +23,7 @@ function TextBilingualSentences(props) {
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
   const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
-  const showWords = 'SHOW WORDS'
+  const showWords = 'DETAILS'
 
   const sentences = props.sentences.map((sentence, index) => (
     <View key={index} style={sharedStyle.container}>
