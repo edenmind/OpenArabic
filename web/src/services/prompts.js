@@ -16,7 +16,34 @@ ${sentence.english}
 - The suggestion should abide by Sunni Islam
 - Explain the rationale behind your suggestion
 ---
-  `
+`
+
+  return result.trimStart()
+}
+
+export const getExplanationOfWord = (english, arabic, arabicSentence, englishSentence) => {
+  const result = `
+--- Arabic Original Sentence:
+${arabicSentence}
+---
+
+--- English Translation of Arabic Original Sentence:
+${englishSentence}
+---
+
+--- Arabic Word:
+${arabic}
+---
+
+--- English Translation of Arabic Word:
+${english}
+---
+
+--- Instruction:
+- Explain the meaning of the Arabic Word in the context of the Arabic Original Sentence
+- Explain simple grammar such as if the word is a noun, verb, adjective; definitiveness; mood; tense; etc.
+---
+`
 
   return result.trimStart()
 }
@@ -67,7 +94,37 @@ Alternative translations:
 إنَّمَا - Only
 الْأَعْمَالُ - the actions [are by]
 ---
-  `
+`
+  return result.trimStart()
+}
+
+export const getSentenceVerification = (sentence) => {
+  // loop through sentence and add all properties of word.english to a string
+  const englishTranslation = sentence.words.map((word) => word.english).join(' ')
+
+  const result = `
+--- Arabic Original Sentence:
+${sentence.arabic}
+---
+
+--- English Original Translation of Sentence:
+${sentence.english}
+---
+
+--- English Word for Word Translation of Sentence:
+${englishTranslation}
+---
+
+--- Instruction:
+- The Arabic original is an Islamic hadith from the Forty Hadith of Imam Nawawi
+- Verify the English Word for Word Translation of Sentence is correct according to the Arabic Original Sentence
+- Check for spelling mistakes, grammar mistakes, punctuation mistakes, etc.
+- Check that the translation is correct according to Sunni Islam
+- Check so that additional words are surrounded by square brackets [] and that they are correct
+- Suggest improvements to "English Word for Word Translation of Sentence", if you see any
+- Do not suggest improvements to "English Original Translation of Sentence"
+---
+`
 
   return result.trimStart()
 }

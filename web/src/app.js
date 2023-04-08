@@ -36,7 +36,7 @@ export default function App() {
           <Route path="/texts/categories/:id" element={<Home />} />
           <Route path="/texts/update/:id" element={<TextAdd />} />
           <Route path="/words" element={<Words />} />
-          <Route path="/words/update/:id" element={<WordsUpdate />} />
+          <Route path="/words/update/:textId/:sentenceId/:wordId" element={<WordsUpdate />} />
         </Routes>
       </Provider>
     </BrowserRouter>

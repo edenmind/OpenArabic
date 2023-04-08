@@ -172,7 +172,7 @@ function TextAddWords() {
           color="primary"
           style={{ marginLeft: '130px' }}
         >
-          Verify
+          Verify Original
         </Button>
         <Button
           onClick={() => handleOpen('Word-by-Word Translation', prompts.getArabicAndEnglishSentence(sentence, text))}
@@ -181,6 +181,14 @@ function TextAddWords() {
           style={{ marginLeft: '10px' }}
         >
           Translate
+        </Button>
+        <Button
+          onClick={() => handleOpen('Translation Verify', prompts.getSentenceVerification(sentence, text))}
+          variant="contained"
+          color="primary"
+          style={{ marginLeft: '10px' }}
+        >
+          Verify Translation
         </Button>
         <Divider style={{ paddingBottom: '75px', opacity: 0 }} />
         <Suspense fallback={<div>Loading...</div>}>
