@@ -153,10 +153,7 @@ const WordsContent = ({
             progress={currentWordIndex / (numberOfWordsToPractice - 1)}
             color={paperDarkTheme.colors.primary}
           />
-          <Surface
-            elevation={0}
-            style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 350 }}
-          >
+          <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 300 }}>
             <Text style={{ ...styles.arabicBody, width: '95%', padding: 10 }}>
               {words[currentWord]?.arabicSentence && (
                 <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />

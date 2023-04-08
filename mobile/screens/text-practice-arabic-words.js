@@ -25,7 +25,7 @@ const TextPracticeArabicWords = (props) => {
             props.handlePress(word.id, word.arabic)
           }}
           mode="elevated"
-          style={{ ...sharedStyle.button, margin: 0, padding: 0, height: 90 }}
+          style={{ ...sharedStyle.buttonAnswer, height: 90 }}
         >
           <Text
             style={{

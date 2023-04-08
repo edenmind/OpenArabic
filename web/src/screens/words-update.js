@@ -3,15 +3,37 @@ import { Link, useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
 import Footer from '../components/footer.js'
 import Nav from '../components/nav.js'
-import React from 'react'
+import React, { Suspense } from 'react'
 import SnackBar from '../components/snack-bar.js'
+import * as prompts from '../services/prompts.js'
+import BasicModal from '../components/basic-modal.js'
 
 const WordsUpdate = () => {
   const [english, setEnglish] = React.useState('')
   const [arabic, setArabic] = React.useState('')
-  const [sentence, setSentence] = React.useState('')
+  const [englishSentence, setEnglishSentence] = React.useState('')
+  const [arabicSentence, setArabicSentence] = React.useState('')
+  const [grammar, setGrammar] = React.useState('')
   const [open, setOpen] = React.useState(false)
   const [status, setStatus] = React.useState('')
+  const [promptTitle, setPromptTitle] = React.useState('')
+  const [promptText, setPromptText] = React.useState('')
+  const [postState, setPostState] = React.useState('')
+  const [openPrompt, setOpenPrompt] = React.useState(false)
+  const [openSnackBar, setOpenSnackbar] = React.useState(false)
+  const handleOpen = (promptTitle, promptText) => {
+    setOpenPrompt(true)
+    setPromptText(promptText)
+    setPromptTitle(promptTitle)
+  }
+
+  const handleCloseSnackbar = (reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpenSnackbar(false)
+  }
 
   const divStyle = {
     padding: '10px'
@@ -22,31 +44,38 @@ const WordsUpdate = () => {
       return
     }
 
-    setOpen(false)
+    setOpenPrompt(false)
   }
 
-  const { id } = useParams()
+  const { textId, sentenceId, wordId } = useParams()
 
   React.useEffect(() => {
     api
-      .getWord(id)
+      .getWordById(textId, sentenceId, wordId)
       .then((res) => {
-        const { english, arabic, sentence } = res
+        const { english, arabic, englishSentence, arabicSentence, grammar } = res
         setEnglish(english)
         setArabic(arabic)
-        setSentence(sentence)
+        setEnglishSentence(englishSentence)
+        setArabicSentence(arabicSentence)
+        setGrammar(grammar)
       })
       .catch((error) => console.log(error))
-  }, [id])
+  }, [sentenceId, textId, wordId])
 
   const updateWord = () => {
     const word = {
       english,
       arabic,
-      sentence
+      arabicSentence,
+      englishSentence,
+      grammar,
+      textId,
+      sentenceId,
+      wordId
     }
     api
-      .updateWord(word, id)
+      .updateWord(word)
       .then((res) => {
         if (res) {
           setStatus('Updated Word!')
@@ -61,6 +90,12 @@ const WordsUpdate = () => {
       <Nav />
       <Container maxWidth="lg">
         <h2>Update Word</h2>
+
+        <div style={divStyle}>
+          <h3>Text ID: {textId}</h3>
+          <h3>Sentence ID: {sentenceId}</h3>
+          <h3>Word ID: {wordId}</h3>
+        </div>
 
         <Box
           component="form"
@@ -95,11 +130,35 @@ const WordsUpdate = () => {
           <FormControl fullWidth>
             <TextField
               fullWidth
-              id="sentence"
-              label="Sentence"
+              id="arabic-sentence"
+              label="Arabic Sentence"
               variant="outlined"
-              value={sentence}
-              onChange={(event) => setSentence(event.target.value)}
+              value={arabicSentence}
+              onChange={(event) => setArabicSentence(event.target.value)}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="english-sentence"
+              label="English Sentence"
+              variant="outlined"
+              value={englishSentence}
+              onChange={(event) => setEnglishSentence(event.target.value)}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="grammar"
+              label="Grammar"
+              variant="outlined"
+              multiline
+              rows={7}
+              value={grammar}
+              onChange={(event) => setGrammar(event.target.value)}
             />
           </FormControl>
         </Box>
@@ -109,6 +168,20 @@ const WordsUpdate = () => {
             <Button variant="contained" onClick={updateWord}>
               Update
             </Button>
+            <Button
+              onClick={() =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                handleOpen(
+                  'Explain Translation',
+                  prompts.getExplanationOfWord(english, arabic, arabicSentence, englishSentence)
+                )
+              }
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '10px' }}
+            >
+              Explain Grammar
+            </Button>
             <Link to="/words">
               <Button variant="outlined">Back</Button>
             </Link>
@@ -116,6 +189,22 @@ const WordsUpdate = () => {
         </div>
         <Footer />
       </Container>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <BasicModal
+          key={`${promptTitle}${promptText}`}
+          open={openPrompt}
+          handleClose={handleClose}
+          title={promptTitle}
+          text={promptText}
+        />
+        <SnackBar
+          openSnackBar={openSnackBar}
+          handleCloseSnackbar={handleCloseSnackbar}
+          severity={postState}
+          message={postMessage}
+        />
+      </Suspense>
 
       <SnackBar openSnackBar={open} handleCloseSnackbar={handleClose} severity="success" message={status} />
     </React.Fragment>

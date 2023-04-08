@@ -156,7 +156,11 @@ export default function Texts() {
       <Container maxWidth="false">
         <h2>Texts</h2>
         <div style={{ height: 800, width: '100%', paddingBottom: '35px' }}>
-          {texts !== undefined && <DataGrid rows={texts} columns={columns} pageSize={15} rowsPerPageOptions={[5]} />}
+          {texts.length > 0 ? (
+            <DataGrid rows={texts} columns={columns} pageSize={15} rowsPerPageOptions={[5]} />
+          ) : (
+            <div>No texts found.</div>
+          )}
         </div>
 
         <Button variant="contained" component={Link} to="/texts/add">

@@ -57,6 +57,20 @@ export const getWord = async (arabicWord) => {
   }
 }
 
+export const getWordById = async (textId, sentenceId, wordId) => {
+  const url = `${process.env.REACT_APP_API_URL}/words/id/${textId}/${sentenceId}/${wordId}`
+  const result = await axios({
+    method: 'get',
+    url
+  }).catch((error) => {
+    console.log('error:', error)
+  })
+
+  if (result.status === 200) {
+    return result.data
+  }
+}
+
 export const getWords = async () => {
   const url = `${process.env.REACT_APP_API_URL}/words`
 
@@ -70,10 +84,10 @@ export const getWords = async () => {
   return result.data
 }
 
-export const updateWord = async (word, id) => {
+export const updateWord = async (word, textId, sentenceId, wordId) => {
   const result = await axios({
     method: 'put',
-    url: `${process.env.REACT_APP_API_URL}/words/${id}`,
+    url: `${process.env.REACT_APP_API_URL}/words/id/`,
     data: {
       word
     },

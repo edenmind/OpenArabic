@@ -144,7 +144,8 @@ const updateTextOptions = {
                   properties: {
                     quiz: { type: 'boolean' },
                     arabic: { type: 'string', minLength: 1, maxLength: 50 },
-                    english: { type: 'string', minLength: 1, maxLength: 50 }
+                    english: { type: 'string', minLength: 1, maxLength: 50 },
+                    grammar: { type: 'string', minLength: 1, maxLength: 5000 }
                   }
                 }
               }
@@ -203,7 +204,8 @@ const postTextOptions = {
                   properties: {
                     quiz: { type: 'boolean' },
                     arabic: { type: 'string', maxLength: 50 },
-                    english: { type: 'string', maxLength: 50 }
+                    english: { type: 'string', maxLength: 50 },
+                    grammar: { type: 'string', minLength: 1, maxLength: 5000 }
                   }
                 }
               }

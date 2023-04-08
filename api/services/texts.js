@@ -239,6 +239,14 @@ function countNumberOfWords(text) {
   return numberOfWords
 }
 
+function getNumberFromString(string) {
+  const map = {
+    'The Daily Prayer': 20,
+    'Forty Hadith': 30
+  }
+  return map[string] || 0
+}
+
 function getWordsPairedWithId(word) {
   const wordId = uuidv4()
 
@@ -271,5 +279,6 @@ module.exports = {
   slugifyWithAuthor,
   mp3Filename,
   capitalizeFirstLetter,
-  convertToLowerCase
+  convertToLowerCase,
+  getNumberFromString
 }
