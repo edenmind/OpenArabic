@@ -2418,10 +2418,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.37.0":
-  version: 8.37.0
-  resolution: "@eslint/js@npm:8.37.0"
-  checksum: 7a07fb085c94ce1538949012c292fd3a6cd734f149bc03af6157dfbd8a7477678899ef57b4a27e15b36470a997389ad79a0533d5880c71e67720ae1a7de7c62d
+"@eslint/js@npm:8.38.0":
+  version: 8.38.0
+  resolution: "@eslint/js@npm:8.38.0"
+  checksum: 1f28987aa8c9cd93e23384e16c7220863b39b5dc4b66e46d7cdbccce868040f455a98d24cd8b567a884f26545a0555b761f7328d4a00c051e7ef689cbea5fce1
   languageName: node
   linkType: hard
 
@@ -4637,12 +4637,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/processor-ignore@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@putout/processor-ignore@npm:3.0.0"
+"@putout/processor-ignore@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@putout/processor-ignore@npm:4.0.0"
   peerDependencies:
-    putout: ">=26"
-  checksum: ea977a926e38537dae5b8cdc53870f99639cfb6d5169938c8acf5775fedf883449b6167deff39730ca400e8f95d6e7210b3ff3da026a5125c6e21bcebd84494e
+    putout: ">=29"
+  checksum: 82e4eaca9b410bbb5290cadfa03a54090099d72c24bc7c27e1ffe3440d3195998df47018473070055bd3f95f04b9543f215f42277c002f628ab5a47157cc854a
   languageName: node
   linkType: hard
 
@@ -4666,6 +4666,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/processor-json@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/processor-json@npm:6.0.0"
+  dependencies:
+    remove-blank-lines: ^1.4.1
+  peerDependencies:
+    putout: ">=29"
+  checksum: 81137969432e2125e18fa8b0ea10c4831ef293dbf3bafc4d0fc4c72ff4dd24dfb16ab511c6ed3f07a656d077d1b9c8eefabfd56021ed40867fad054665c42a65
+  languageName: node
+  linkType: hard
+
 "@putout/processor-markdown@npm:^8.0.0":
   version: 8.0.1
   resolution: "@putout/processor-markdown@npm:8.0.1"
@@ -4684,17 +4695,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/processor-yaml@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "@putout/processor-yaml@npm:4.1.0"
+"@putout/processor-yaml@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/processor-yaml@npm:5.0.0"
   dependencies:
-    "@putout/processor-json": ^5.0.0
+    "@putout/processor-json": ^6.0.0
     just-kebab-case: ^4.0.2
     try-catch: ^3.0.0
     yaml: ^2.1.0
   peerDependencies:
-    putout: ">=26"
-  checksum: 975a4ca260838d17c16c24c78a530d606df5d8d005e5b6615bfb17b2c89e9032d410725e4d5fdb3e2d34af0356d143a80da512163d75a87b5148767a6811139f
+    putout: ">=29"
+  checksum: 5e28c0dfed75a65af700f0a236b608075ac2990a70f1222b365a5a1d3396d540a636323b2e0b3b63f4f21447fb332359c56301e89740a1bd3cf5ec70d9af5a70
   languageName: node
   linkType: hard
 
@@ -8413,9 +8424,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^17.2.1":
-  version: 17.2.1
-  resolution: "eslint-plugin-putout@npm:17.2.1"
+"eslint-plugin-putout@npm:^17.3.0":
+  version: 17.3.0
+  resolution: "eslint-plugin-putout@npm:17.3.0"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -8435,7 +8446,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=29"
-  checksum: 4c6ff9ba91fca1b4a31a858b5e027cf6b8eb654587cddfb96913d82e6c173f031a64d5aecc96cc048f047479e4c4ae93db194b7c1dfaa217bd99d93ce20a74c7
+  checksum: 931705f02801f6ce9d2669e9058c746cc3224cec5e049f6b81b4f842668670305538adefbef557fc609da0979a4bfdd7a78292c959974da03b8bfad15fcc1650
   languageName: node
   linkType: hard
 
@@ -8639,14 +8650,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.37.0":
-  version: 8.37.0
-  resolution: "eslint@npm:8.37.0"
+"eslint@npm:^8.38.0":
+  version: 8.38.0
+  resolution: "eslint@npm:8.38.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@eslint-community/regexpp": ^4.4.0
     "@eslint/eslintrc": ^2.0.2
-    "@eslint/js": 8.37.0
+    "@eslint/js": 8.38.0
     "@humanwhocodes/config-array": ^0.11.8
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -8685,7 +8696,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 80f3d5cdce2d671f4794e392d234a78d039c347673defb0596268bd481e8f30a53d93c01ff4f66a546c87d97ab4122c0e9cafe1371f87cb03cee6b7d5aa97595
+  checksum: 73b6d9b650d0434aa7c07d0a1802f099b086ee70a8d8ba7be730439a26572a5eb71def12125c82942be2ec8ee5be38a6f1b42a13e40d4b67f11a148ec9e263eb
   languageName: node
   linkType: hard
 
@@ -9074,9 +9085,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-updates@npm:~0.16.3":
-  version: 0.16.3
-  resolution: "expo-updates@npm:0.16.3"
+"expo-updates@npm:~0.16.4":
+  version: 0.16.4
+  resolution: "expo-updates@npm:0.16.4"
   dependencies:
     "@expo/code-signing-certificates": 0.0.5
     "@expo/config": ~8.0.0
@@ -9093,7 +9104,7 @@ __metadata:
     expo: "*"
   bin:
     expo-updates: bin/cli.js
-  checksum: 6fcc733007783de2eaa7a7eafeab152e33b454f40f592a2c677e03983eb9fecc180670fc0acc9d055f1b2193132982b89543c2ba6c3ddc6421d91a64e858fce4
+  checksum: 2e5ed7bf7a52d9902a1c6d2b437685e371daf034d4952d349608c53bf8b5e2cca088b60f41a396429668084e08042d047995f74cf039cd6b1222113283974983
   languageName: node
   linkType: hard
 
@@ -13572,11 +13583,11 @@ __metadata:
     axios-mock-adapter: ^1.21.4
     axios-retry: ^3.4.0
     deepmerge: ^4.3.1
-    eslint: ^8.37.0
+    eslint: ^8.38.0
     eslint-config-prettier: ^8.8.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^17.2.1
+    eslint-plugin-putout: ^17.3.0
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-native: ^4.0.0
@@ -13594,13 +13605,13 @@ __metadata:
     expo-haptics: ~12.2.1
     expo-mail-composer: ~12.1.1
     expo-splash-screen: ~0.18.1
-    expo-updates: ~0.16.3
+    expo-updates: ~0.16.4
     jest: ^29.5.0
     jest-expo: ^48.0.2
     node-notifier: ^10.0.1
     prettier: ^2.8.7
     prop-types: ^15.8.1
-    putout: ^29.2.0
+    putout: ^29.2.3
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.6
@@ -14920,9 +14931,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.2.0":
-  version: 29.2.0
-  resolution: "putout@npm:29.2.0"
+"putout@npm:^29.2.3":
+  version: 29.2.3
+  resolution: "putout@npm:29.2.3"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -15043,11 +15054,11 @@ __metadata:
     "@putout/plugin-typescript": ^3.0.0
     "@putout/plugin-webpack": ^2.0.0
     "@putout/processor-css": ^6.0.0
-    "@putout/processor-ignore": ^3.0.0
+    "@putout/processor-ignore": ^4.0.0
     "@putout/processor-javascript": ^4.0.0
-    "@putout/processor-json": ^5.0.0
+    "@putout/processor-json": ^6.0.0
     "@putout/processor-markdown": ^8.0.0
-    "@putout/processor-yaml": ^4.0.0
+    "@putout/processor-yaml": ^5.0.0
     "@putout/traverse": ^5.0.0
     ajv: ^8.8.2
     chalk: ^4.0.0
@@ -15070,7 +15081,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: c982aae0891eb06c111c7d342596c78ca43fb038b75cecedd2dfaaa4999f857a435785d2686cbb920380070de44e59b47d69587833a64c5b9e215d69bedec69b
+  checksum: a90e5b8621681708c5b044b3721083cc5acdef14a013138c535180249fd20e4aa0fb92802f77aa611a8cfa0a89e4b7d40579d4924b87d3a195d2b8bc0f651772
   languageName: node
   linkType: hard
 

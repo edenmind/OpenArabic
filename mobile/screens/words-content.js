@@ -141,12 +141,10 @@ const WordsContent = ({
   ].sort((a, b) => a.position - b.position)
 
   const details = (
-    <View style={{ margin: 20 }}>
+    <View style={{ margin: 10, padding: 15 }}>
       <Text variant="labelMedium">Explanation of Grammar</Text>
       <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-        {words[currentWord].grammar
-          ? util.transliterateArabicToEnglish(words[currentWord].grammar)
-          : 'No explanation available'}
+        {words[currentWord].grammar ?? 'No explanation available'}
       </Text>
       <Text variant="labelMedium">Transliteration of Word</Text>
       <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
