@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
 
 const wordsSelector = (state) => state.words
 
-const ENGLISH = 'English'
+const DETAILS = 'Details'
 
 const WordsContent = ({
   currentWord,
@@ -140,6 +140,29 @@ const WordsContent = ({
     { button: button3, position: buttonPositions[2] }
   ].sort((a, b) => a.position - b.position)
 
+  const details = (
+    <View style={{ margin: 20 }}>
+      <Text variant="labelMedium">Explanation of Grammar</Text>
+      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+        {words[currentWord].grammar
+          ? util.transliterateArabicToEnglish(words[currentWord].grammar)
+          : 'No explanation available'}
+      </Text>
+      <Text variant="labelMedium">Transliteration of Word</Text>
+      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+        {words[currentWord].englishSentence && util.transliterateArabicToEnglish(words[currentWord].arabic)}
+      </Text>
+      <Text variant="labelMedium">English Translation of Sentence</Text>
+      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+        {words[currentWord].englishSentence && words[currentWord].englishSentence}
+      </Text>
+      <Text variant="labelMedium">Transliteration of Sentence</Text>
+      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+        {words[currentWord].englishSentence && util.transliterateArabicToEnglish(words[currentWord].arabicSentence)}
+      </Text>
+    </View>
+  )
+
   const renderItem = ({ item }) => <View>{item.button}</View>
   return (
     <FlatList
@@ -171,7 +194,7 @@ const WordsContent = ({
               style={{ position: 'absolute', bottom: 20, right: 10, opacity: 0.5, margin: 10 }}
               onPress={() => showModal()}
             >
-              {ENGLISH}
+              {DETAILS}
             </Button>
           </Surface>
 
@@ -181,17 +204,7 @@ const WordsContent = ({
             duration={2500}
             text="Congratulations! You've successfully completed the session!"
           />
-          <ModalScrollView
-            visible={visible}
-            content=<Text style={{ ...useSharedStyles().englishBody, margin: 20 }} variant="bodyLarge">
-              {words[currentWord].englishSentence &&
-                words[currentWord].englishSentence +
-                  '\n\n' +
-                  util.transliterateArabicToEnglish(words[currentWord].arabicSentence)}
-            </Text>
-            title="English"
-            hideModal={hideModal}
-          />
+          <ModalScrollView visible={visible} content={details} title="Details" hideModal={hideModal} />
         </>
       }
     />
