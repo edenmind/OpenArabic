@@ -74,8 +74,8 @@ spec:
                   key: GOOGLE_APPLICATION_CREDENTIALS
           resources:
             limits:
-              memory: 256Mi
-              cpu: 500m
+              memory: 512Mi
+              cpu: 1024m
             requests:
               memory: 175Mi
               cpu: 125m

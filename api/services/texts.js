@@ -267,8 +267,29 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+async function getAllWordsFromTexts(textsCollection) {
+  const allTexts = await textsCollection.find({}).toArray()
+
+  return allTexts.flatMap((text) => {
+    return text.sentences.flatMap((sentence) => {
+      return sentence.words.map((word) => {
+        return {
+          id: word.id,
+          ...word,
+          textId: text.textGuid,
+          sentenceId: sentence.id,
+          wordId: word.id,
+          arabicSentence: sentence.arabic,
+          englishSentence: sentence.english,
+          categoryLevel: getNumberFromString(text.category)
+        }
+      })
+    })
+  })
+}
 module.exports = {
   generateAudio,
+  getAllWordsFromTexts,
   batchGenerateAudio,
   generateGuidForSentencesAndWords,
   addGuidToArray,
