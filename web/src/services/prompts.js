@@ -40,8 +40,47 @@ ${english}
 ---
 
 --- Instruction:
-- Explain the meaning of the Arabic Word in the context of the Arabic Original Sentence
-- Explain simple grammar such as if the word is a noun, verb, adjective; definitiveness; mood; tense; etc.
+- Explain the Arabic Word's relation to the other words in the Arabic Original Sentence
+- Suggest alternative translations of the Arabic Word, if any
+- Explain simple grammar such as if the word is a noun (ism), verb (fil), particle (harf); singular (mufrad), plural (jama'), dual (muthanna); definite (ma'arifa), indefinite (nakira); past tense (al-madi), present tense (al-mudari'), future tense (al-mustaqbil).
+- Use paragraphs to separate different explanations, but not bullet points or lists
+- Explain if an arabic word that looks like one word in arabic would be broken up into two or more words in English. Example: الْمَسْجِدُ - the mosque.
+- Do not provide a summary
+- Keep it short and simple
+- Make sure that the explanation is correct according to Sunni Islam
+- Avoid dubiously sourced explanations
+---
+`
+
+  return result.trimStart()
+}
+
+export const verifyGrammar = (english, arabic, arabicSentence, englishSentence, grammar) => {
+  const result = `
+--- Arabic Original Sentence:
+${arabicSentence}
+---
+
+--- English Translation of Arabic Original Sentence:
+${englishSentence}
+---
+
+--- Arabic Word:
+${arabic}
+---
+
+--- English Translation of Arabic Word:
+${english}
+---
+
+--- Grammatical Explanation:
+${grammar}
+---
+
+--- Instruction:
+- Verify that the grammar explanation is correct according to Sunni Islam
+- Verify that the grammar explanation is correct according to the Arabic Word
+- Verify that the grammar explanation is correct according to the Arabic Original Sentence
 ---
 `
 

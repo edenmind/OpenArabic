@@ -241,7 +241,10 @@ function countNumberOfWords(text) {
 
 function getNumberFromString(string) {
   const map = {
+    // eslint-disable-next-line quote-props
+    Foundations: 10,
     'The Daily Prayer': 20,
+    'Juz Amma': 20,
     'Forty Hadith': 30
   }
   return map[string] || 0

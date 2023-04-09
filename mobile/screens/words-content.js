@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable putout/destructuring-as-function-argument */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
@@ -14,6 +15,7 @@ import HighlightedWordInText from '../components/highlighted-word-in-text.js'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import * as util from '../services/utility-service.js'
+import Spinner from '../components/spinner.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -140,28 +142,34 @@ const WordsContent = ({
     { button: button3, position: buttonPositions[2] }
   ].sort((a, b) => a.position - b.position)
 
-  const details = (
-    <View style={{ margin: 10, padding: 15 }}>
-      <Text variant="labelMedium">Explanation of Grammar</Text>
-      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-        {words[currentWord].grammar ?? 'No explanation available'}
-      </Text>
-      <Text variant="labelMedium">Transliteration of Word</Text>
-      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-        {words[currentWord].englishSentence && util.transliterateArabicToEnglish(words[currentWord].arabic)}
-      </Text>
-      <Text variant="labelMedium">English Translation of Sentence</Text>
-      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-        {words[currentWord].englishSentence && words[currentWord].englishSentence}
-      </Text>
-      <Text variant="labelMedium">Transliteration of Sentence</Text>
-      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-        {words[currentWord].englishSentence && util.transliterateArabicToEnglish(words[currentWord].arabicSentence)}
-      </Text>
-    </View>
-  )
+  const details = () => {
+    // eslint-disable-next-line nonblock-statement-body-position
+    if (!words[currentWord]) <Spinner />
+
+    return (
+      <View style={{ margin: 10, padding: 15 }}>
+        <Text variant="labelMedium">Explanation of Grammar</Text>
+        <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+          {words[currentWord].grammar ?? 'No explanation available'}
+        </Text>
+        <Text variant="labelMedium">Transliteration of Word</Text>
+        <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+          {util.transliterateArabicToEnglish(words[currentWord].arabic)}
+        </Text>
+        <Text variant="labelMedium">English Translation of Sentence</Text>
+        <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+          {words[currentWord].englishSentence}
+        </Text>
+        <Text variant="labelMedium">Transliteration of Sentence</Text>
+        <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+          {util.transliterateArabicToEnglish(words[currentWord].arabicSentence)}
+        </Text>
+      </View>
+    )
+  }
 
   const renderItem = ({ item }) => <View>{item.button}</View>
+
   return (
     <FlatList
       style={styles.container}
