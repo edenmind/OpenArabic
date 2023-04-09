@@ -21,13 +21,13 @@ export default function Words() {
     },
     {
       field: 'sentenceId',
-      headerName: 'Sentence',
+      headerName: 'Text',
       width: 250,
       editable: false
     },
     {
       field: 'wordId',
-      headerName: 'Word',
+      headerName: 'Text',
       width: 250,
       editable: false
     },
@@ -86,6 +86,7 @@ export default function Words() {
           {words !== undefined && (
             <DataGrid
               rows={words}
+              getRowId={(row) => row.textId + row.sentenceId + row.wordId}
               columns={columns}
               pageSize={15}
               rowsPerPageOptions={[5]}
