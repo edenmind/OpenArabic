@@ -52,7 +52,7 @@ function TextBilingualSentences(props) {
   return (
     <>
       {sentences}
-      <ModalScrollView visible={visible} content={words} title="Vocabulary" hideModal={hideModal} />
+      <ModalScrollView visible={visible} content={words} title="Details" hideModal={hideModal} />
     </>
   )
 }

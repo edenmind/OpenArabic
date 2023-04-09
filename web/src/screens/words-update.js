@@ -182,6 +182,20 @@ const WordsUpdate = () => {
             >
               Explain Grammar
             </Button>
+            <Button
+              onClick={() =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                handleOpen(
+                  'Verify Grammar',
+                  prompts.verifyGrammar(english, arabic, arabicSentence, englishSentence, grammar)
+                )
+              }
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '10px' }}
+            >
+              Verify Grammar
+            </Button>
             <Link to="/words">
               <Button variant="outlined">Back</Button>
             </Link>
