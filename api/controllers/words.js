@@ -6,6 +6,7 @@
 
 const COLLECTIONS = require('../constants/collections.js')
 const { capitalizeFirstLetter, shuffleArray, convertToLowerCase, getAllWordsFromTexts } = require('../services/texts')
+const { ObjectId } = require('mongodb')
 
 async function getWordId(request, reply) {
   try {
@@ -17,7 +18,7 @@ async function getWordId(request, reply) {
     }
 
     const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
-    const textDocument = await texts.findOne({ textGuid: textId })
+    const textDocument = await texts.findOne({ id: new ObjectId(textId) })
 
     if (textDocument) {
       const sentence = textDocument.sentences.find((s) => s.id === sentenceId)
@@ -26,6 +27,8 @@ async function getWordId(request, reply) {
         if (word) {
           const updatedWord = {
             ...word,
+            englishText: textDocument.texts.english,
+            arabicText: textDocument.texts.arabic,
             englishSentence: sentence.english,
             arabicSentence: sentence.arabic
           }
@@ -69,8 +72,12 @@ async function getWords(request, reply) {
   //set difficultyLevel to number
   const difficultyLevelNumber = Number(difficultyLevel)
 
-  //get all words where categoryLevel is equal to the difficultyLevel
-  const wordsFilteredByDifficultyLevel = allWords.filter((word) => word.categoryLevel === difficultyLevelNumber)
+  //get all words where categoryLevel is equal to the difficultyLevel and quiz is true
+
+  const wordsFilteredByDifficultyLevel = allWords.filter(
+    (word) => word.categoryLevel === difficultyLevelNumber && word.quiz
+  )
+
   //get random words because we do not want to practice in the same order
   const randomWords = wordsFilteredByDifficultyLevel.sort(() => Math.random() - 0.5).slice(0, numberOfWordsToPractice)
 
@@ -154,16 +161,16 @@ async function updateWord(request, reply) {
     id: word.wordId,
     arabic: word.arabic,
     english: word.english,
-    arabicSentence: word.arabicSentence,
-    englishSentence: word.englishSentence,
-    grammar: word.grammar
+    grammar: word.grammar,
+    filename: word.filename,
+    quiz: word.quiz
   }
 
   // Update the word in the database
   const result = await texts.updateOne(
     {
       // eslint-disable-next-line prettier/prettier, quote-props
-      textGuid: word.textId,
+      id: new ObjectId(word.textId),
       'sentences.id': word.sentenceId,
       'sentences.words.id': word.wordId
     },

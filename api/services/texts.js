@@ -277,9 +277,8 @@ async function getAllWordsFromTexts(textsCollection) {
     return text.sentences.flatMap((sentence) => {
       return sentence.words.map((word) => {
         return {
-          id: word.id,
           ...word,
-          textId: text.textGuid,
+          textId: text.id,
           sentenceId: sentence.id,
           wordId: word.id,
           arabicSentence: sentence.arabic,

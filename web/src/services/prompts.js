@@ -21,8 +21,17 @@ ${sentence.english}
   return result.trimStart()
 }
 
-export const getExplanationOfWord = (english, arabic, arabicSentence, englishSentence) => {
+export const getExplanationOfWord = (english, arabic, arabicSentence, englishSentence, arabicText, englishText) => {
   const result = `
+
+--- Full Arabic Text for Reference:
+${arabicText}
+---
+
+--- Full English Text for Reference:
+${englishText}
+---
+
 --- Arabic Original Sentence:
 ${arabicSentence}
 ---
@@ -40,15 +49,21 @@ ${english}
 ---
 
 --- Instruction:
+Act as a teacher and explain the Arabic Word to a student
+---
+
+--- Requirements:
 - Explain the Arabic Word's relation to the other words in the Arabic Original Sentence
+- Do not repeat the sentence with Arabic letters
 - Suggest alternative translations of the Arabic Word, if any
 - Explain simple grammar such as if the word is a noun (ism), verb (fil), particle (harf); singular (mufrad), plural (jama'), dual (muthanna); definite (ma'arifa), indefinite (nakira); past tense (al-madi), present tense (al-mudari'), future tense (al-mustaqbil).
+- Use the arabic terms for the grammar in addition to the english terms
+- Do not explain other grammatical terms than the ones listed above
+- Explain which root the word is derived from and use arabic letters to write the root
 - Use paragraphs to separate different explanations, but not bullet points or lists
-- Explain if an arabic word that looks like one word in arabic would be broken up into two or more words in English. Example: الْمَسْجِدُ - the mosque.
+- If the word is complex, then explain that words that looks like one word in arabic could be broken up into two or more words in English. Example: الْمَسْجِدُ - the mosque.
+- Also explain how the word is broken up
 - Do not provide a summary
-- Keep it short and simple
-- Make sure that the explanation is correct according to Sunni Islam
-- Avoid dubiously sourced explanations
 ---
 `
 
@@ -81,6 +96,7 @@ ${grammar}
 - Verify that the grammar explanation is correct according to Sunni Islam
 - Verify that the grammar explanation is correct according to the Arabic Word
 - Verify that the grammar explanation is correct according to the Arabic Original Sentence
+- Verify that the English in the grammar explanation is correct
 ---
 `
 

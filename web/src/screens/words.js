@@ -16,18 +16,18 @@ export default function Words() {
     {
       field: 'textId',
       headerName: 'Text',
-      width: 250,
+      width: 450,
       editable: false
     },
     {
       field: 'sentenceId',
-      headerName: 'Text',
+      headerName: 'Sentence',
       width: 250,
       editable: false
     },
     {
       field: 'wordId',
-      headerName: 'Text',
+      headerName: 'Word',
       width: 250,
       editable: false
     },
