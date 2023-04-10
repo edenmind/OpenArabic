@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import { Button, Container, FormControl, Stack, TextField, Box } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
@@ -13,7 +14,11 @@ const WordsUpdate = () => {
   const [arabic, setArabic] = React.useState('')
   const [englishSentence, setEnglishSentence] = React.useState('')
   const [arabicSentence, setArabicSentence] = React.useState('')
+  const [arabicText, setArabicText] = React.useState('')
+  const [englishText, setEnglishText] = React.useState('')
   const [grammar, setGrammar] = React.useState('')
+  const [filename, setFilename] = React.useState('')
+  const [quiz, setQuiz] = React.useState('')
   const [open, setOpen] = React.useState(false)
   const [status, setStatus] = React.useState('')
   const [promptTitle, setPromptTitle] = React.useState('')
@@ -53,12 +58,17 @@ const WordsUpdate = () => {
     api
       .getWordById(textId, sentenceId, wordId)
       .then((res) => {
-        const { english, arabic, englishSentence, arabicSentence, grammar } = res
+        const { english, arabic, englishSentence, arabicSentence, grammar, filename, quiz, englishText, arabicText } =
+          res
         setEnglish(english)
         setArabic(arabic)
         setEnglishSentence(englishSentence)
         setArabicSentence(arabicSentence)
         setGrammar(grammar)
+        setFilename(filename)
+        setArabicText(arabicText)
+        setEnglishText(englishText)
+        setQuiz(quiz)
       })
       .catch((error) => console.log(error))
   }, [sentenceId, textId, wordId])
@@ -72,7 +82,9 @@ const WordsUpdate = () => {
       grammar,
       textId,
       sentenceId,
-      wordId
+      wordId,
+      filename,
+      quiz
     }
     api
       .updateWord(word)
@@ -95,6 +107,7 @@ const WordsUpdate = () => {
           <h3>Text ID: {textId}</h3>
           <h3>Sentence ID: {sentenceId}</h3>
           <h3>Word ID: {wordId}</h3>
+          <h3>Filename: {filename}</h3>
         </div>
 
         <Box
@@ -173,7 +186,14 @@ const WordsUpdate = () => {
                 // eslint-disable-next-line implicit-arrow-linebreak
                 handleOpen(
                   'Explain Translation',
-                  prompts.getExplanationOfWord(english, arabic, arabicSentence, englishSentence)
+                  prompts.getExplanationOfWord(
+                    english,
+                    arabic,
+                    arabicSentence,
+                    englishSentence,
+                    arabicText,
+                    englishText
+                  )
                 )
               }
               variant="outlined"

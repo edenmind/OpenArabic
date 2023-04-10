@@ -19,6 +19,7 @@ const initialState = {
     author: '',
     arabicSentence: [''],
     source: '',
+    quiz: false,
     sentences: [
       {
         english: '',

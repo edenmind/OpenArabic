@@ -243,6 +243,7 @@ function getNumberFromString(string) {
   const map = {
     // eslint-disable-next-line quote-props
     Foundations: 10,
+    Sunnah: 10,
     'The Daily Prayer': 20,
     'Juz Amma': 20,
     'Forty Hadith': 30
@@ -277,9 +278,8 @@ async function getAllWordsFromTexts(textsCollection) {
     return text.sentences.flatMap((sentence) => {
       return sentence.words.map((word) => {
         return {
-          id: word.id,
           ...word,
-          textId: text.textGuid,
+          textId: text.id,
           sentenceId: sentence.id,
           wordId: word.id,
           arabicSentence: sentence.arabic,

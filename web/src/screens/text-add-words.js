@@ -4,13 +4,14 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable security/detect-non-literal-fs-filename */
 import * as api from '../services/api-service.js'
-import { Box, Button, Chip, Stack, TextField, Divider } from '@mui/material'
+import { Box, Button, Chip, Stack, TextField, Divider, FormGroup, FormControlLabel } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import React, { Fragment, useCallback, useMemo, Suspense } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
 import TextAddWordsGetFromDatabase from './text-add-words-get-translations.js'
 import * as prompts from '../services/prompts.js'
 import { v4 as uuidv4 } from 'uuid'
+import Switch from '@mui/material/Switch'
 
 const SnackBar = React.lazy(() => import('../components/snack-bar.js'))
 const BasicModal = React.lazy(() => import('../components/basic-modal.js'))
@@ -29,6 +30,8 @@ function TextAddWords() {
   const [promptTitle, setPromptTitle] = React.useState('')
   const [promptText, setPromptText] = React.useState('')
   const [open, setOpen] = React.useState(false)
+  const [checked, setChecked] = React.useState(true)
+
   const handleOpen = (promptTitle, promptText) => {
     setOpen(true)
     setPromptText(promptText)
@@ -61,6 +64,11 @@ function TextAddWords() {
     },
     [dispatch]
   )
+
+  //handle change for switch that should set quiz in the text to true or false in the redux store
+  const handleChangeQuiz = (indexSentence, indexArabicWord, quiz) => {
+    dispatch({ type: 'UPDATE_SENTENCE_QUIZ', value: { indexSentence, indexArabicWord, quiz } })
+  }
 
   const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
@@ -108,7 +116,18 @@ function TextAddWords() {
               </Stack>
 
               <Chip label={`${indexSentence}:${indexArabicWord}`} color="secondary" style={{ marginLeft: '130px' }} />
-
+              <FormControlLabel
+                sx={{ margin: 1 }}
+                value="Quiz"
+                control={
+                  <Switch
+                    checked={word.quiz}
+                    onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
+                  />
+                }
+                label="Quiz"
+                labelPlacement="left"
+              />
               <Button
                 onClick={async () => {
                   const arabicWord = await api.getTranslation(word.arabic)
