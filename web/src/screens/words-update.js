@@ -1,3 +1,7 @@
+/* link to check root word
+add property for when the word was added
+*/
+
 /* eslint-disable operator-linebreak */
 import { Button, Container, FormControl, Stack, TextField, Box } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
@@ -8,7 +12,6 @@ import React, { Suspense } from 'react'
 import SnackBar from '../components/snack-bar.js'
 import * as prompts from '../services/prompts.js'
 import BasicModal from '../components/basic-modal.js'
-
 const WordsUpdate = () => {
   const [english, setEnglish] = React.useState('')
   const [arabic, setArabic] = React.useState('')
@@ -169,9 +172,10 @@ const WordsUpdate = () => {
               label="Grammar"
               variant="outlined"
               multiline
-              rows={7}
+              rows={25}
               value={grammar}
               onChange={(event) => setGrammar(event.target.value)}
+              style={{ fontSize: '20px' }}
             />
           </FormControl>
         </Box>
@@ -215,6 +219,17 @@ const WordsUpdate = () => {
               style={{ marginLeft: '10px' }}
             >
               Verify Grammar
+            </Button>
+            <Button
+              onClick={() =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                handleOpen('Preview', <span style={{ whiteSpace: 'pre-wrap', fontSize: 33 }}>{grammar}</span>)
+              }
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '10px' }}
+            >
+              Preview
             </Button>
             <Link to="/words">
               <Button variant="outlined">Back</Button>

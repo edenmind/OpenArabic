@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
 import { paperDarkTheme } from '../constants/paper-theme.js'
+import * as Haptics from 'expo-haptics'
 
 const styles = StyleSheet.create({
   buttonPadding: {
+    marginBottom: 15,
     marginLeft: 25,
     marginRight: 25,
     marginTop: 15
@@ -13,26 +15,26 @@ const styles = StyleSheet.create({
 
   containerStyle: {
     backgroundColor: paperDarkTheme.colors.background,
-    borderRadius: 25,
-    margin: 10,
-    maxHeight: '95%',
-    padding: 10
-  },
-
-  dividerStyle: {
-    marginBottom: 15,
-    marginTop: 15
+    borderRadius: 15,
+    height: '75%',
+    margin: 10
   },
 
   titleStyle: {
     alignSelf: 'center',
     fontFamily: 'philosopher',
-    padding: 5
+    padding: 15
   }
 })
 
 const ModalScrollView = ({ title, content, visible, hideModal }) => {
   const close = 'CLOSE'
+
+  //a function that triggers a haptic feedback and then runs hideModal
+  const hideModalWithHaptic = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    hideModal()
+  }
 
   return (
     <Portal>
@@ -40,10 +42,10 @@ const ModalScrollView = ({ title, content, visible, hideModal }) => {
         <Text variant="titleLarge" style={styles.titleStyle}>
           {title}
         </Text>
-        <Divider style={styles.dividerStyle} />
+        <Divider />
         <ScrollView>{content}</ScrollView>
         <Divider />
-        <Button onPress={hideModal} style={styles.buttonPadding} mode="elevated">
+        <Button onPress={hideModalWithHaptic} style={styles.buttonPadding} mode="elevated">
           {close}
         </Button>
       </Modal>

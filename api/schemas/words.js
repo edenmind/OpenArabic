@@ -70,7 +70,8 @@ const getWordsOptions = {
             wordId: { type: 'string' },
             quiz: { type: 'boolean' },
             grammar: { type: 'string' },
-            filename: { type: 'string' }
+            filename: { type: 'string' },
+            date: { type: 'string' }
           }
         }
       }

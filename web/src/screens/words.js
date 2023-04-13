@@ -32,6 +32,12 @@ export default function Words() {
       editable: false
     },
     {
+      field: 'date',
+      headerName: 'Date',
+      width: 250,
+      editable: false
+    },
+    {
       field: 'arabic',
       headerName: 'Arabic',
       width: 250,
@@ -42,6 +48,15 @@ export default function Words() {
       headerName: 'English',
       width: 450,
       editable: false
+    },
+    {
+      field: 'grammar',
+      headerName: 'Grammar',
+      width: 450,
+      editable: false,
+      valueGetter: (params) => {
+        return params.row.grammar ? params.row.grammar.length : ''
+      }
     },
     {
       field: 'actions',
