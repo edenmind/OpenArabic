@@ -23,7 +23,7 @@ function TextBilingualSentences(props) {
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
   const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
-  const showWords = 'DETAILS'
+  const showWords = 'SHOW WORDS'
 
   const sentences = props.sentences.map((sentence, index) => (
     <View key={index} style={sharedStyle.container}>
@@ -52,7 +52,7 @@ function TextBilingualSentences(props) {
   return (
     <>
       {sentences}
-      <ModalScrollView visible={visible} content={words} title="Details" hideModal={hideModal} />
+      <ModalScrollView visible={visible} content={words} title="Words" hideModal={hideModal} />
     </>
   )
 }

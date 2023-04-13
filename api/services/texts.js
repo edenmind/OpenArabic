@@ -279,6 +279,7 @@ async function getAllWordsFromTexts(textsCollection) {
         return {
           ...word,
           textId: text.id,
+          date: text.createdAt,
           sentenceId: sentence.id,
           wordId: word.id,
           arabicSentence: sentence.arabic,

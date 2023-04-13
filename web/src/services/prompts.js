@@ -10,7 +10,7 @@ ${sentence.english}
 ---
 
 --- Instruction:
-- The Arabic original is an Islamic hadith from the Forty Hadith of Imam Nawawi
+- The Arabic original is an Islamic text
 - Verify the English Translation of Sentence based on the Arabic Original Sentence
 - Suggest an improved version that is as close to the Arabic original Word-for-word as possible
 - The suggestion should abide by Sunni Islam
@@ -53,18 +53,48 @@ Act as a teacher and explain the Arabic Word to a student
 ---
 
 --- Requirements:
-- Explain the Arabic Word's relation to the other words in the Arabic Original Sentence
-- Do not repeat the sentence with Arabic letters
-- Suggest alternative translations of the Arabic Word, if any
-- Explain simple grammar such as if the word is a noun (ism), verb (fil), particle (harf); singular (mufrad), plural (jama'), dual (muthanna); definite (ma'arifa), indefinite (nakira); past tense (al-madi), present tense (al-mudari'), future tense (al-mustaqbil).
-- Use the arabic terms for the grammar in addition to the english terms
-- Do not explain other grammatical terms than the ones listed above
-- Explain which root the word is derived from and use arabic letters to write the root
-- Use paragraphs to separate different explanations, but not bullet points or lists
-- If the word is complex, then explain that words that looks like one word in arabic could be broken up into two or more words in English. Example: الْمَسْجِدُ - the mosque.
-- Also explain how the word is broken up
-- Do not provide a summary
+- Explain the Arabic Word's most interesting relations to the other words in the Arabic Original Sentence.
+- Do not repeat the Original Sentence.
+- Always use the Arabic letters for the Arabic words together with latin transliteration.
+- Explain briefly and concise grammatical concepts such as if the word is a Noun (ism), Verb (fil), Particle (harf); Singular (mufrad), Plural (jama'), Dual (muthanna); Definite (ma'arifa), Indefinite (nakira); Past Tense (al-madi), Present Tense (al-mudari'), Future Tense (al-mustaqbil); al-mutakallim (the one speaking) al-mukhatib (the one that the speech is directed towards), al-ghā’ib (a thing/person) that is not present.
+- Do not explain other concepts, such as إِعْرَاب, irab.
+- Use the arabic terms for the grammar in addition to the english terms.
+- In the Grammar, explain the components of the word, such as the root, prefixes, suffixes and internal letters.
+- Simplify english grammatical terms.
+- Explain which root the word is derived from and the root words meaning.
+- Give examples of other words that are derived from the same root with both arabic and latin letters.
+- Use paragraphs to separate different explanations, but not bullet points or lists.
+- Explain how the word is derived from the root.
+- If what looks like one word in arabic needs to be broken down into multiple words in english, then describe that process under the Grammar heading. Example: الْمَسْجِدُ - the mosque; سَمِعْتُ - I heard.
+- Use the following headings to organize your explanation: Root, Derived Words, Relation to Other Words, Grammar and Summary.
+- Add a ⟶ before every heading.
+- Make the explanation concise.
+- Make the explanation easy to understand.
+- Make the explanation interesting for a student of arabic.
 ---
+
+--- Example output for a verb:
+⟶ Root
+The Arabic word سَمِعْتُ (sami'tu) is derived from the root س-م-ع (s-m-'a), which carries the meaning of hearing, listening or obeying.
+
+⟶ Derived Words
+Some other words that come from the same root include:
+
+سَمَع (sama'a) - he heard
+يَسْمَعُ (yasma'u) - he hears
+السَّمْع (as-sam') - hearing
+مُسْتَمِعٌ (mustami'un) - listener
+
+⟶ Relation to Other Words
+ سَمِعْتُ (sami'tu) is followed by رَسُولَ اللَّهِ (rasoola Allah), which means "the Messenger of Allah". سَمِعْتُ (sami'tu) is the verb that explains the action of hearing performed by the speaker, and رَسُولَ اللَّهِ (rasoola Allah) is the object being heard.
+
+⟶ Grammar
+سَمِعْتُ (sami'tu) is a verb (fil) in the past tense (al-madi) and is in the first person singular form (al-mutakallim), meaning "I heard". The verb is composed of the root س-م-ع (s-m-'a) with the suffix ـتُ (-tu) added to indicate the first person singular form.
+
+⟶ Summary
+سَمِعْتُ (sami'tu) is a past tense verb derived from the root س-م-ع (s-m-'a), meaning "I heard". It is related to other words like سَمَع (sama'a) and السَّمْع (as-sam'), which also carry meanings connected to hearing. In the Arabic Original Sentence, سَمِعْتُ (sami'tu) is the action performed by the speaker, and it is followed by the object being heard, رَسُولَ اللَّهِ (rasoola Allah), the Messenger of Allah.
+---
+
 `
 
   return result.trimStart()

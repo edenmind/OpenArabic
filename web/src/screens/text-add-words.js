@@ -4,7 +4,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable security/detect-non-literal-fs-filename */
 import * as api from '../services/api-service.js'
-import { Box, Button, Chip, Stack, TextField, Divider, FormGroup, FormControlLabel } from '@mui/material'
+import { Box, Button, Chip, Stack, TextField, Divider, FormControlLabel } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import React, { Fragment, useCallback, useMemo, Suspense } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
@@ -30,7 +30,6 @@ function TextAddWords() {
   const [promptTitle, setPromptTitle] = React.useState('')
   const [promptText, setPromptText] = React.useState('')
   const [open, setOpen] = React.useState(false)
-  const [checked, setChecked] = React.useState(true)
 
   const handleOpen = (promptTitle, promptText) => {
     setOpen(true)
@@ -50,24 +49,31 @@ function TextAddWords() {
   }
 
   const handleChangeArabic = useCallback(
-    (sentenceIndex, wordIndex, englishWord) => {
-      const indexSentence = (currentPage - 1) * PAGE_SIZE + sentenceIndex
+    (indexSentence, indexArabicWord, englishWord) => {
+      const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
 
-      dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence, indexArabicWord: wordIndex, englishWord } })
+      dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence: sentenceIndex, indexArabicWord, englishWord } })
     },
     [currentPage, dispatch, PAGE_SIZE]
   )
 
   const handleChangeEnglishSentence = useCallback(
-    (indexSentence, englishSentence) => {
+    (sentenceIndex, englishSentence) => {
+      const indexSentence = (currentPage - 1) * PAGE_SIZE + sentenceIndex
       dispatch({ type: 'UPDATE_ENGLISH_SENTENCE', value: { indexSentence, englishSentence } })
     },
-    [dispatch]
+    [currentPage, dispatch]
   )
 
   //handle change for switch that should set quiz in the text to true or false in the redux store
   const handleChangeQuiz = (indexSentence, indexArabicWord, quiz) => {
-    dispatch({ type: 'UPDATE_SENTENCE_QUIZ', value: { indexSentence, indexArabicWord, quiz } })
+    const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
+    const currentQuiz = quiz === undefined ? false : quiz
+
+    dispatch({
+      type: 'UPDATE_SENTENCE_QUIZ',
+      value: { indexSentence: sentenceIndex, indexArabicWord, quiz: currentQuiz }
+    })
   }
 
   const handleCloseSnackbar = (reason) => {
@@ -121,7 +127,7 @@ function TextAddWords() {
                 value="Quiz"
                 control={
                   <Switch
-                    checked={word.quiz}
+                    checked={word.quiz || false}
                     onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
                   />
                 }
