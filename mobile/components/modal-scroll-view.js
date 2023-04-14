@@ -20,7 +20,8 @@ const ModalScrollView = ({ title, content, visible, hideModal, height = '75%' })
       backgroundColor: paperDarkTheme.colors.background,
       borderRadius: 15,
       height,
-      margin: 10
+      margin: 10,
+      padding: 5
     },
 
     titleStyle: {

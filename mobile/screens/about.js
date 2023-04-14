@@ -1,4 +1,4 @@
-import { Button, Divider, List, Text } from 'react-native-paper'
+import { Button, Divider, List, Text, Tooltip, IconButton } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { useSharedStyles } from '../styles/common.js'
@@ -64,7 +64,6 @@ function About() {
       <Button style={sharedStyle.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
         <Text>Instagram</Text>
       </Button>
-
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Audience
@@ -97,7 +96,6 @@ function About() {
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(ijaad)}>
         <Text>Ijaada Institute</Text>
       </Button>
-
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Translating Arabic
@@ -161,7 +159,6 @@ function About() {
         jurisprudence."
       />
       <Divider style={style.divider} />
-
       <Text variant="titleLarge" style={style.english}>
         Founder
       </Text>

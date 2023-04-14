@@ -10,12 +10,14 @@ const HighlightedWord = ({ word }) => {
     <Text
       style={{
         ...sharedStyle.englishBody,
+        fontSize: 20,
         color: paperDarkTheme.colors.onPrimary,
         backgroundColor: paperDarkTheme.colors.primary,
         opacity: 1,
         marginHorizontal: 2,
         paddingHorizontal: 2,
-        paddingBottom: 0
+        paddingBottom: 0,
+        lineHeight: 35
       }}
       variant="bodyLarge"
     >
