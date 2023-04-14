@@ -10,6 +10,7 @@ import SnackButton from '../components/snack-button.js'
 import TextPracticeArabicWords from './text-practice-arabic-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
+import ModalScrollView from '../components/modal-scroll-view.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -22,8 +23,12 @@ const TextPractice = () => {
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
+  const [explanation, setExplanation] = useState('')
   const sharedStyle = useSharedStyles()
   const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
+  const hideModal = () => setVisible(false)
+  const showModal = () => setVisible(true)
+  const [visible, setVisible] = React.useState(false)
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
@@ -40,6 +45,13 @@ const TextPractice = () => {
 
   const onDismissSnackBar = () => setCelebrationSnackBarVisibility(false)
 
+  const showModalWithPromise = async () => {
+    return new Promise((resolve) => {
+      showModal(() => {
+        resolve()
+      })
+    })
+  }
   // loop through all sentences in the text
   const sentencesInText = React.useMemo(() => {
     return text.sentences.map((sentence) => {
@@ -57,16 +69,11 @@ const TextPractice = () => {
     })
   }, [text])
 
-  //create a handler that when pressed check if the id of the arabic word matches the id for currentWord
-  //if it does, increase currentWord by 1
-  //if it doesn't, do nothing
-  //if currentWord is equal to the length of the englishWordsInSentence array, increase currentSentence by 1 and set currentWord to 0
-  //if currentSentence is equal to the length of the wordsInSentences array, set currentSentence to 0
   const isLastWordInSentence = currentWord === sentencesInText[currentSentence].englishWords.length - 1
   const isLastSentence = currentSentence === sentencesInText.length - 1
 
   const handlePress = React.useCallback(
-    (id, word) => {
+    async (id, word) => {
       if (id !== currentWord) {
         // wrong answer
         // call vibrateBetweenTwoColors and pass setColor as an argument
@@ -95,6 +102,9 @@ const TextPractice = () => {
         }
 
         setCurrentWord(0)
+        setExplanation(sentencesInText[currentSentence].explanation)
+        await showModalWithPromise()
+
         return
       }
 
@@ -108,18 +118,14 @@ const TextPractice = () => {
       currentSentence,
       isLastWordInSentence,
       isLastSentence,
-      setColor,
-      setCurrentEnglishWord,
-      setCurrentArabicSentenceFromCorrectAnswers,
-      setCurrentArabicWordsInSentence,
-      setCurrentSentence,
-      setCurrentWord,
-      setCelebrationSnackBarVisibility
+      showModalWithPromise
     ]
   )
   return textLoading ? (
     <ScrollView style={sharedStyle.headerContainer}>
-      <Surface style={{ ...sharedStyle.surface, backgroundColor: color, marginVertical: 10, minHeight: 230 }}>
+      <Surface
+        style={{ ...sharedStyle.surface, backgroundColor: color, marginVertical: 10, minHeight: 230, borderRadius: 10 }}
+      >
         <View style={sharedStyle.headerContainer}>
           <Text variant="labelLarge">
             Sentence: {currentSentence + 1} of {sentencesInText.length}
@@ -147,6 +153,7 @@ const TextPractice = () => {
         duration={2000}
         text="Congratulations! You have completed the quiz! 🎉"
       />
+      <ModalScrollView visible={visible} content={explanation} title={'Grammar Explanation'} hideModal={hideModal} />
     </ScrollView>
   ) : (
     <Spinner />

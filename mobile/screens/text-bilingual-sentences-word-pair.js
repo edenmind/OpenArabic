@@ -93,8 +93,9 @@ function TextBilingualSentencesWords({ word }) {
       <ModalScrollView
         visible={visible}
         content={<Text>{explanation}</Text>}
-        title={word.arabic + '\n' + word.english.charAt(0).toUpperCase() + word.english.slice(1)}
+        title={word.arabic}
         hideModal={hideModal}
+        height="60%"
       />
       <Divider style={styles.divider} />
     </Fragment>

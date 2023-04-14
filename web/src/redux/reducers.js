@@ -76,6 +76,10 @@ const textReducer = createReducer(initialState, (builder) => {
       const { indexSentence, indexArabicWord, englishWord } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].english = englishWord
     })
+    .addCase(actions.UPDATE_EXPLANATION_SENTENCE, (state, action) => {
+      const { indexSentence, explanation } = action.value
+      state.text.sentences[indexSentence].explanation = explanation
+    })
     .addCase(actions.UPDATE_SENTENCE_QUIZ, (state, action) => {
       const { indexSentence, indexArabicWord, quiz } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].quiz = quiz

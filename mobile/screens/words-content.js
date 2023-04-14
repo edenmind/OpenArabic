@@ -14,8 +14,6 @@ import PropTypes from 'prop-types'
 import HighlightedWordInText from '../components/highlighted-word-in-text.js'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
-import * as util from '../services/utility-service.js'
-import Spinner from '../components/spinner.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -45,7 +43,7 @@ const styles = StyleSheet.create({
 
 const wordsSelector = (state) => state.words
 
-const DETAILS = 'Details'
+const DETAILS = 'Explain'
 
 const WordsContent = ({
   currentWord,
@@ -74,6 +72,35 @@ const WordsContent = ({
       }
     }
   }, [timeoutId])
+
+  function formatGrammar(gram) {
+    if (!gram) {
+      return 'No explanation available'
+    }
+
+    const lines = gram.split('\n')
+
+    return (
+      <>
+        {lines.map((line, index) => {
+          if (line.startsWith('⟶')) {
+            return (
+              <Text key={index} style={{ fontWeight: 'bold' }}>
+                {`${line.slice(2)}\n`}
+              </Text>
+            )
+          }
+
+          return (
+            <Text
+              key={index}
+              style={{ ...sharedStyle.englishBody, opacity: 0.95, fontSize: 19, lineHeight: 29 }}
+            >{`${line}\n`}</Text>
+          )
+        })}
+      </>
+    )
+  }
 
   const onDismissSnackBar = useCallback(() => {
     handleSetCelebrationSnackBarVisibility(false)
@@ -142,31 +169,13 @@ const WordsContent = ({
     { button: button3, position: buttonPositions[2] }
   ].sort((a, b) => a.position - b.position)
 
-  const details = () => {
-    // eslint-disable-next-line nonblock-statement-body-position
-    if (!words[currentWord]) <Spinner />
-
-    return (
-      <View style={{ margin: 10, padding: 15 }}>
-        <Text variant="labelMedium">Explanation of Grammar</Text>
-        <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-          {words[currentWord].grammar ?? 'No explanation available'}
-        </Text>
-        <Text variant="labelMedium">Transliteration of Word</Text>
-        <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-          {util.transliterateArabicToEnglish(words[currentWord].arabic)}
-        </Text>
-        <Text variant="labelMedium">English Translation of Sentence</Text>
-        <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-          {words[currentWord].englishSentence}
-        </Text>
-        <Text variant="labelMedium">Transliteration of Sentence</Text>
-        <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-          {util.transliterateArabicToEnglish(words[currentWord].arabicSentence)}
-        </Text>
-      </View>
-    )
-  }
+  const details = (
+    <View style={{ margin: 10, padding: 15 }}>
+      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+        {formatGrammar(words[currentWord].grammar) ?? 'No explanation available'}
+      </Text>
+    </View>
+  )
 
   const renderItem = ({ item }) => <View>{item.button}</View>
 
@@ -210,7 +219,12 @@ const WordsContent = ({
             duration={2500}
             text="Congratulations! You've successfully completed the session!"
           />
-          <ModalScrollView visible={visible} content={details} title="Details" hideModal={hideModal} />
+          <ModalScrollView
+            visible={visible}
+            content={details}
+            title={words[currentWord].arabic + '\n' + words[currentWord].english}
+            hideModal={hideModal}
+          />
         </>
       }
     />

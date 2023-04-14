@@ -386,7 +386,6 @@ test('create text with wrong id should fail', async (t) => {
   //assert
   t.equal(result.statusCode, 404)
 })
-
 test('stress test', async (t) => {
   const app = await build(t)
 
@@ -414,6 +413,7 @@ test('stress test', async (t) => {
       sentences.push({
         arabic: `arabic-sentence-${index}`,
         english: `english-sentence-${index}`,
+        explanation: `explanation-sentence-${index}`,
         words
       })
     }
@@ -455,7 +455,6 @@ test('stress test', async (t) => {
   const result = await createTextWithRandomSentencesAndWords(10, 3, 10, 'somesecurekey')
   t.equal(result.statusCode, 201)
 })
-
 test('create new text', async (t) => {
   //arrange
   const app = await build(t)
@@ -478,6 +477,7 @@ test('create new text', async (t) => {
       source: 'abcabcabcabc',
       sentences: [
         {
+          explanation: 'abcabcabcabc',
           english: 'Praise be to Allah.',
           arabic: 'الحمد لله.',
           words: [
@@ -499,6 +499,7 @@ test('create new text', async (t) => {
           ]
         },
         {
+          explanation: 'abcabcabcabc',
           english: 'Praise be to Allah.',
           arabic: 'الحمد لله.',
           words: [
@@ -520,6 +521,7 @@ test('create new text', async (t) => {
           ]
         },
         {
+          explanation: 'abcabcabcabc',
           english: 'Praise be to Allah.',
           arabic: 'الحمد لله.',
           words: [

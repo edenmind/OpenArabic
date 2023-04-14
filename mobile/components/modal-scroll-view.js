@@ -5,30 +5,30 @@ import { ScrollView, StyleSheet } from 'react-native'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import * as Haptics from 'expo-haptics'
 
-const styles = StyleSheet.create({
-  buttonPadding: {
-    marginBottom: 15,
-    marginLeft: 25,
-    marginRight: 25,
-    marginTop: 15
-  },
-
-  containerStyle: {
-    backgroundColor: paperDarkTheme.colors.background,
-    borderRadius: 15,
-    height: '75%',
-    margin: 10
-  },
-
-  titleStyle: {
-    alignSelf: 'center',
-    fontFamily: 'philosopher',
-    padding: 15
-  }
-})
-
-const ModalScrollView = ({ title, content, visible, hideModal }) => {
+const ModalScrollView = ({ title, content, visible, hideModal, height = '75%' }) => {
   const close = 'CLOSE'
+
+  const styles = StyleSheet.create({
+    buttonPadding: {
+      marginBottom: 15,
+      marginLeft: 25,
+      marginRight: 25,
+      marginTop: 15
+    },
+
+    containerStyle: {
+      backgroundColor: paperDarkTheme.colors.background,
+      borderRadius: 15,
+      height,
+      margin: 10
+    },
+
+    titleStyle: {
+      alignSelf: 'center',
+      fontFamily: 'philosopher',
+      padding: 15
+    }
+  })
 
   //a function that triggers a haptic feedback and then runs hideModal
   const hideModalWithHaptic = () => {
@@ -59,5 +59,6 @@ ModalScrollView.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.any.isRequired,
   visible: PropTypes.bool.isRequired,
-  hideModal: PropTypes.func.isRequired
+  hideModal: PropTypes.func.isRequired,
+  height: PropTypes.string
 }
