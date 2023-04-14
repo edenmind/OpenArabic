@@ -284,7 +284,9 @@ async function getAllWordsFromTexts(textsCollection) {
           wordId: word.id,
           arabicSentence: sentence.arabic,
           englishSentence: sentence.english,
-          categoryLevel: getNumberFromString(text.category)
+          categoryLevel: getNumberFromString(text.category),
+          author: text.author,
+          source: text.source
         }
       })
     })

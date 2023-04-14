@@ -135,6 +135,7 @@ const updateTextOptions = {
             properties: {
               arabic: { type: 'string', minLength: 1, maxLength: 5000 },
               english: { type: 'string', minLength: 1, maxLength: 5000 },
+              explanation: { type: 'string' },
               words: {
                 type: 'array',
                 minItems: 1,
@@ -192,10 +193,11 @@ const postTextOptions = {
           type: 'array',
           items: {
             type: 'object',
-            required: ['arabic', 'english', 'words'],
+            required: ['arabic', 'english', 'words', 'explanation'],
             properties: {
               arabic: { type: 'string', maxLength: 5000 },
               english: { type: 'string', maxLength: 5000 },
+              explanation: { type: 'string' },
               words: {
                 type: 'array',
                 items: {

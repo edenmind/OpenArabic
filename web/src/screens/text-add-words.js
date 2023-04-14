@@ -65,6 +65,14 @@ function TextAddWords() {
     [currentPage, dispatch]
   )
 
+  const handleChangeExplanationSentence = useCallback(
+    (sentenceIndex, explanation) => {
+      const indexSentence = (currentPage - 1) * PAGE_SIZE + sentenceIndex
+      dispatch({ type: 'UPDATE_EXPLANATION_SENTENCE', value: { indexSentence, explanation } })
+    },
+    [currentPage, dispatch]
+  )
+
   //handle change for switch that should set quiz in the text to true or false in the redux store
   const handleChangeQuiz = (indexSentence, indexArabicWord, quiz) => {
     const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
@@ -92,13 +100,26 @@ function TextAddWords() {
     return sentencesToShow.map((sentence, indexSentence) => (
       <Fragment key={indexSentence + currentPage}>
         <Stack spacing={0} style={{ paddingBottom: '10px', width: '900px' }}>
+          <h3>Arabic Sentence: </h3>
           <h1 style={{ direction: 'rtl', fontSize: 45 }}>{sentence.arabic}</h1>
-          <h3>Google Translation: {sentence.googleTranslation}</h3>
+          <h3>Google Translation: </h3>
+          <h3>{sentence.googleTranslation}</h3>
+          <h3>English Sentence: </h3>
           <TextField
             InputProps={{ style: { fontSize: 18 } }}
             value={sentence.english}
             onChange={(event) => handleChangeEnglishSentence(indexSentence, event.target.value)}
             fullWidth
+            multiline
+            variant="outlined"
+          />
+          <h3>Explanation: </h3>
+          <TextField
+            InputProps={{ style: { fontSize: 18 } }}
+            value={sentence.explanation}
+            onChange={(event) => handleChangeExplanationSentence(indexSentence, event.target.value)}
+            fullWidth
+            rows={7}
             multiline
             variant="outlined"
           />
@@ -215,6 +236,19 @@ function TextAddWords() {
         >
           Verify Translation
         </Button>
+        <Button
+          onClick={() =>
+            handleOpen(
+              'Explain Sentence',
+              prompts.getExplainSentence(sentence.english, sentence.arabic, text.texts.arabic, text.texts.english)
+            )
+          }
+          variant="contained"
+          color="primary"
+          style={{ marginLeft: '10px' }}
+        >
+          Explain Sentence
+        </Button>
         <Divider style={{ paddingBottom: '75px', opacity: 0 }} />
         <Suspense fallback={<div>Loading...</div>}>
           <BasicModal
@@ -233,7 +267,19 @@ function TextAddWords() {
         </Suspense>
       </Fragment>
     ))
-  }, [text, handleChangeArabic, handleChangeEnglishSentence, handleSave, currentPage])
+  }, [
+    currentPage,
+    text,
+    promptTitle,
+    promptText,
+    open,
+    openSnackBar,
+    postState,
+    postMessage,
+    handleChangeEnglishSentence,
+    handleChangeArabic,
+    handleChangeQuiz
+  ])
 
   const numPages = Math.ceil(text.sentences.length / PAGE_SIZE)
   const pageButtons = []

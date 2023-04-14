@@ -62,6 +62,7 @@ Act as a teacher and explain the Arabic Word to a student
 - In the Grammar, explain the components of the word, such as the root, prefixes, suffixes and internal letters.
 - Simplify english grammatical terms.
 - Explain which root the word is derived from and the root words meaning.
+- Some words such as particles and conjunctions do not have a root, so explain the meaning of the word.
 - Give examples of other words that are derived from the same root with both arabic and latin letters.
 - Use paragraphs to separate different explanations, but not bullet points or lists.
 - Explain how the word is derived from the root.
@@ -69,8 +70,7 @@ Act as a teacher and explain the Arabic Word to a student
 - Use the following headings to organize your explanation: Root, Derived Words, Relation to Other Words, Grammar and Summary.
 - Add a ⟶ before every heading.
 - Make the explanation concise.
-- Make the explanation easy to understand.
-- Make the explanation interesting for a student of arabic.
+- Make the explanation easy to understand and highly pedagogical.
 ---
 
 --- Example output for a verb:
@@ -100,6 +100,68 @@ Some other words that come from the same root include:
   return result.trimStart()
 }
 
+export const getExplainSentence = (englishSentence, arabicSentence, arabicText, englishText) => {
+  const result = `
+--- Full Arabic Text for Reference:
+${arabicText}
+---
+
+--- Full English Text for Reference:
+${englishText}
+---
+
+--- Arabic Original Sentence:
+${arabicSentence}
+---
+
+--- English Translation of Arabic Original Sentence:
+${englishSentence}
+---
+
+--- Instruction:
+Act as a teacher and explain the Arabic Original Sentence to a student
+---
+
+--- Requirements:
+- explain grammatical concepts such as if the word is a Noun (ism), Verb (fil), Particle (harf); Singular (mufrad), Plural (jama'), Dual (muthanna); Definite (ma'arifa), Indefinite (nakira); Past Tense (al-madi), Present Tense (al-mudari'), Future Tense (al-mustaqbil); al-mutakallim (the one speaking) al-mukhatib (the one that the speech is directed towards), al-ghā’ib (a thing/person) that is not present.
+- begin explaining the sentence (Great job! Now let's examine the sentence in more detail:) and then explain the words (Now, let's delve deeper into the words of the sentence:)
+- put the Arabic word with transliteration on its own line preceded by a →
+- put the sentence with transliteration on its own line preceded by a →
+- explain if the word is derived from a three-letter root word or not
+- explain the meaning of the root word
+- avoid difficult English grammatical terms and instead explain the function of the grammatical category
+- put the explanation on the line below
+- do not add anything more than this
+- do not explain the English words
+- explain how the words relate to each other
+---
+
+--- Example output:
+
+Great job! Now let's examine the sentence in more detail:
+
+→ إنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ (innama al-a'malu bi an-niyyati) 
+this sentence can be understood as "Verily, actions are (judged) by intentions". The restrictive particle إنَّمَا emphasizes that it is only the intentions that determine the value of the actions. The preposition بِ (bi) links the nouns الأَعْمَالُ (al-a'malu, actions) and النِّيَّاتِ (an-niyyati, intentions), showing the relationship between them in the sentence.
+
+Now, let's delve deeper into the words of the sentence:
+
+→ إنَّمَا (innama)
+This word is a Particle (harf) and is not derived from a three-letter root word. It functions as a restrictive particle, emphasizing that only the following statement is true or correct.
+
+→ الأَعْمَالُ (al-a'malu)
+This word is a Noun (ism), Plural (jama'), and Definite (ma'arifa). It is derived from the three-letter root word ع-م-ل ('-m-l). The root word means "to work" or "to do". Here, الأَعْمَالُ refers to "actions" or "deeds".
+
+→ بِ (bi)
+This word is a Particle (harf) and is not derived from a three-letter root word. It functions as a preposition that means "with" or "by".
+
+→ النِّيَّاتِ (an-niyyati)
+This word is a Noun (ism), Plural (jama'), and Definite (ma'arifa). It is derived from the three-letter root word ن-و-ي (n-w-y). The root word means "to intend" or "to have a purpose". Here, النِّيَّاتِ refers to "intentions".
+---
+`
+
+  return result.trimStart()
+}
+
 export const verifyGrammar = (english, arabic, arabicSentence, englishSentence, grammar) => {
   const result = `
 --- Arabic Original Sentence:
@@ -123,6 +185,10 @@ ${grammar}
 ---
 
 --- Instruction:
+Act as a grammatical reviewer of classical Arabic grammar and Islamic texts
+---
+
+--- Requirements:
 - Verify that the grammar explanation is correct according to Sunni Islam
 - Verify that the grammar explanation is correct according to the Arabic Word
 - Verify that the grammar explanation is correct according to the Arabic Original Sentence

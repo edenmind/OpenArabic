@@ -26,7 +26,7 @@ const HighlightedWordInText = ({ word, text }) => {
       )
     } else {
       newText.push(
-        <Text style={{ ...sharedStyle.arabicBody, fontSize: 37, lineHeight: 70 }} key={index}>
+        <Text style={{ ...sharedStyle.arabicBody, fontSize: 37, lineHeight: 70, opacity: 0.7 }} key={index}>
           {` ${w} `}
         </Text>
       )
