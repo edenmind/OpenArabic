@@ -119,44 +119,50 @@ ${englishSentence}
 ---
 
 --- Instruction:
-Act as a teacher and explain the Arabic Original Sentence to a student
+Act as a teacher in Arabic Words and Grammar and explain the Arabic Original Sentence to a beginner student
 ---
 
 --- Requirements:
-- explain grammatical concepts such as if the word is a Noun (ism), Verb (fil), Particle (harf); Singular (mufrad), Plural (jama'), Dual (muthanna); Definite (ma'arifa), Indefinite (nakira); Past Tense (al-madi), Present Tense (al-mudari'), Future Tense (al-mustaqbil); al-mutakallim (the one speaking) al-mukhatib (the one that the speech is directed towards), al-ghā’ib (a thing/person) that is not present.
-- begin explaining the sentence (Great job! Now let's examine the sentence in more detail:) and then explain the words (Now, let's delve deeper into the words of the sentence:)
-- put the Arabic word with transliteration on its own line preceded by a →
-- put the sentence with transliteration on its own line preceded by a →
+- begin explaining the sentence (Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:)
+- put the Arabic word on its own line preceded by a →
+- put the sentence on its own line preceded by a →
+- put the explanation on the line below the Arabic word/sentence
 - explain if the word is derived from a three-letter root word or not
-- explain the meaning of the root word
-- avoid difficult English grammatical terms and instead explain the function of the grammatical category
-- put the explanation on the line below
-- do not add anything more than this
+- explain the meaning of the root word in detail
+- avoid difficult English grammatical terms and instead explain the function of the grammatical term
 - do not explain the English words
-- explain how the words relate to each other
+- make a new line for every concept you explain
+- explain how the words relate to each other in the sentence
+- explain grammatical suffixes and prefixes that are added to root words on words such as: bi-, al-, an-, wa-, fi-, li-, min-, ila-, il-, -tu, -na, -kum, -hum, -hum, -ha, -ha, etc.
+- make the the explanation of suffixes and prefixes pedagogical for a beginner that does not know grammar (nahw)
 ---
 
 --- Example output:
+Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:
 
-Great job! Now let's examine the sentence in more detail:
+→ سَمِعْتُ
+This word is derived from the three-letter root word س-م-ع (s-m-'a), which means "to hear" or "to listen." In this case, the word is in the past tense and has the suffix -تُ (-tu) added to the root to indicate the first person singular (I), so it means "I heard."
 
-→ إنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ (innama al-a'malu bi an-niyyati) 
-this sentence can be understood as "Verily, actions are (judged) by intentions". The restrictive particle إنَّمَا emphasizes that it is only the intentions that determine the value of the actions. The preposition بِ (bi) links the nouns الأَعْمَالُ (al-a'malu, actions) and النِّيَّاتِ (an-niyyati, intentions), showing the relationship between them in the sentence.
+→ رَسُولَ
+This word comes from the three-letter root ر-س-ل (r-s-l), which means "to send" or "to deliver a message." In this context, it refers to a messenger, specifically the Messenger of Allah.
 
-Now, let's delve deeper into the words of the sentence:
+→ اللَّهِ
+This word is the name of God in Arabic, "Allah." The prefix الـ (al-) is added to the word, which is used to denote "the" in English, making it "the Allah" or "the God."
 
-→ إنَّمَا (innama)
-This word is a Particle (harf) and is not derived from a three-letter root word. It functions as a restrictive particle, emphasizing that only the following statement is true or correct.
+→ ﷺ
+This symbol is an abbreviation for the Arabic phrase "صلى الله عليه وسلم" (salla Allah 'alayh wa sallam) which means "peace and blessings be upon him." It is commonly used after mentioning the name of the Prophet Muhammad.
 
-→ الأَعْمَالُ (al-a'malu)
-This word is a Noun (ism), Plural (jama'), and Definite (ma'arifa). It is derived from the three-letter root word ع-م-ل ('-m-l). The root word means "to work" or "to do". Here, الأَعْمَالُ refers to "actions" or "deeds".
+→ يَقُولُ
+This word is derived from the three-letter root ق-و-ل (q-w-l), which means "to say" or "to speak." In this case, the word is in the present tense and is used to indicate the third person masculine singular (he), so it means "he says" or "he speaks."
 
-→ بِ (bi)
-This word is a Particle (harf) and is not derived from a three-letter root word. It functions as a preposition that means "with" or "by".
+Now, let's see how the words relate to each other in the sentence:
 
-→ النِّيَّاتِ (an-niyyati)
-This word is a Noun (ism), Plural (jama'), and Definite (ma'arifa). It is derived from the three-letter root word ن-و-ي (n-w-y). The root word means "to intend" or "to have a purpose". Here, النِّيَّاتِ refers to "intentions".
+→ سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ
+The subject is the speaker (I), represented by the verb سَمِعْتُ (I heard), the object is the Messenger of Allah, رَسُولَ اللَّهِ (rasool Allah), and the action is يَقُولُ (he says or speaks).
+
+The overall meaning is "I heard the Messenger of Allah (ﷺ) say."
 ---
+
 `
 
   return result.trimStart()

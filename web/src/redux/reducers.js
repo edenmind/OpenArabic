@@ -24,6 +24,7 @@ const initialState = {
       {
         english: '',
         arabic: '',
+        explanation: '',
         quiz: false,
         words: []
       }

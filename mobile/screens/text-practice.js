@@ -1,12 +1,11 @@
-import { View, ScrollView } from 'react-native'
+import { View, ScrollView, Alert } from 'react-native'
 import { Text, Surface, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import WordsContextHighLighted from '../components/context-highlighted.js'
-import SnackButton from '../components/snack-button.js'
 import TextPracticeArabicWords from './text-practice-arabic-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
@@ -25,8 +24,11 @@ const TextPractice = () => {
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
   const [explanation, setExplanation] = useState('')
   const sharedStyle = useSharedStyles()
-  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = React.useState(false)
-  const hideModal = () => setVisible(false)
+
+  const hideModal = () => {
+    setVisible(false)
+    handleResetQuiz()
+  }
   const showModal = () => setVisible(true)
   const [visible, setVisible] = React.useState(false)
 
@@ -43,15 +45,59 @@ const TextPractice = () => {
     setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
   }, [currentSentence, currentWord, sentencesInText, textLoading])
 
-  const onDismissSnackBar = () => setCelebrationSnackBarVisibility(false)
+  const handleResetQuiz = useCallback(() => {
+    if (currentSentence === sentencesInText.length - 1) {
+      Alert.alert(
+        'Restart Practice',
+        'Do you want to try again?',
+        [
+          {
+            text: 'No',
+            style: 'cancel'
+          },
+          {
+            text: 'Yes',
+            onPress: () => {
+              setVisible(false)
+              setCurrentSentence(0)
+            }
+          }
+        ],
+        { cancelable: false }
+      )
+    }
+  }, [currentSentence])
+  const formatGrammar = useCallback(
+    (gram) => {
+      if (!gram) {
+        return 'No explanation available'
+      }
 
-  const showModalWithPromise = async () => {
-    return new Promise((resolve) => {
-      showModal(() => {
-        resolve()
-      })
-    })
-  }
+      const lines = gram.split('\n')
+
+      return (
+        <>
+          {lines.map((line, index) => {
+            if (line.startsWith('→')) {
+              return (
+                <Text key={index} style={{ ...sharedStyle.arabicBody, fontWeight: 'bold' }}>
+                  {`${line.slice(2)}\n`}
+                </Text>
+              )
+            }
+
+            return (
+              <Text
+                key={index}
+                style={{ ...sharedStyle.englishBody, opacity: 0.95, fontSize: 19, lineHeight: 29 }}
+              >{`${line}\n`}</Text>
+            )
+          })}
+        </>
+      )
+    },
+    [sharedStyle.arabicBody, sharedStyle.englishBody]
+  )
   // loop through all sentences in the text
   const sentencesInText = React.useMemo(() => {
     return text.sentences.map((sentence) => {
@@ -65,7 +111,9 @@ const TextPractice = () => {
       const arabicWords = wordsInSentence.map((word) => word.arabicWord).sort(() => Math.random() - 0.5)
       const englishWords = wordsInSentence.map((word) => word.englishWord)
 
-      return { arabicWords, englishWords }
+      const explanation = sentence.explanation
+
+      return { arabicWords, englishWords, explanation }
     })
   }, [text])
 
@@ -91,19 +139,19 @@ const TextPractice = () => {
       setCurrentArabicWordsInSentence(() => updatedArabicWords)
 
       if (isLastWordInSentence) {
-        setCurrentArabicSentenceFromCorrectAnswers('')
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+        setExplanation(formatGrammar(sentencesInText[currentSentence].explanation))
+        showModal()
 
         if (isLastSentence) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-          setCurrentSentence(0)
-          setCelebrationSnackBarVisibility(true)
+          handleResetQuiz()
         } else {
           setCurrentSentence((prev) => prev + 1)
         }
 
+        setCurrentArabicSentenceFromCorrectAnswers('')
         setCurrentWord(0)
-        setExplanation(sentencesInText[currentSentence].explanation)
-        await showModalWithPromise()
 
         return
       }
@@ -117,8 +165,9 @@ const TextPractice = () => {
       sentencesInText,
       currentSentence,
       isLastWordInSentence,
+      formatGrammar,
       isLastSentence,
-      showModalWithPromise
+      handleResetQuiz
     ]
   )
   return textLoading ? (
@@ -147,13 +196,15 @@ const TextPractice = () => {
         currentArabicWordsInSentence={currentArabicWordsInSentence}
         handlePress={handlePress}
       />
-      <SnackButton
-        visible={celebrationSnackBarVisibility}
-        onDismissSnackBar={onDismissSnackBar}
-        duration={2000}
-        text="Congratulations! You have completed the quiz! 🎉"
+
+      <ModalScrollView
+        visible={visible}
+        content=<View style={{ margin: 10, padding: 15 }}>
+          <Text variant="bodyLarge">{explanation ?? 'No explanation available'}</Text>
+        </View>
+        title={'Great job! 🎉'}
+        hideModal={hideModal}
       />
-      <ModalScrollView visible={visible} content={explanation} title={'Grammar Explanation'} hideModal={hideModal} />
     </ScrollView>
   ) : (
     <Spinner />

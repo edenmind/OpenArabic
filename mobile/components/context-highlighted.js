@@ -43,6 +43,8 @@ const WordsContextHighLighted = (props) => {
           style={{
             ...sharedStyle.englishBody,
             marginHorizontal: 2,
+            fontSize: 20,
+            lineHeight: 35,
             paddingBottom: 0
           }}
           key={index}
