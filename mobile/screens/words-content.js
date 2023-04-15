@@ -170,7 +170,7 @@ const WordsContent = ({
   ].sort((a, b) => a.position - b.position)
 
   const details = (
-    <View style={{ margin: 10, padding: 15 }}>
+    <View style={{ margin: 3, padding: 3 }}>
       <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
         {formatGrammar(words[currentWord].grammar) ?? 'No explanation available'}
       </Text>
@@ -206,7 +206,7 @@ const WordsContent = ({
 
             <Button
               mode="outlined"
-              style={{ position: 'absolute', bottom: 20, right: 10, opacity: 0.5, margin: 10 }}
+              style={{ position: 'absolute', bottom: 20, right: 10, margin: 10 }}
               onPress={() => showModal()}
             >
               {DETAILS}
@@ -222,7 +222,7 @@ const WordsContent = ({
           <ModalScrollView
             visible={visible}
             content={details}
-            title={words[currentWord].arabic + '\n' + words[currentWord].english}
+            title={`${words[currentWord].arabic}\n${words[currentWord].english}`}
             hideModal={hideModal}
           />
         </>

@@ -33,7 +33,7 @@ describe('vibrateBetweenTwoColors', () => {
 
     jest.advanceTimersByTime(150)
 
-    expect(setColor).toHaveBeenCalledWith(paperDarkTheme.colors.elevation.level3)
+    expect(setColor).toHaveBeenCalledWith(paperDarkTheme.colors.elevation.level1)
 
     jest.useRealTimers()
   })

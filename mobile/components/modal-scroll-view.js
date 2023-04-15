@@ -5,9 +5,7 @@ import { ScrollView, StyleSheet } from 'react-native'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import * as Haptics from 'expo-haptics'
 
-const ModalScrollView = ({ title, content, visible, hideModal, height = '75%' }) => {
-  const close = 'CLOSE'
-
+const ModalScrollView = ({ title, content, visible, hideModal, height = '75%', close = 'CLOSE' }) => {
   const styles = StyleSheet.create({
     buttonPadding: {
       marginBottom: 15,
@@ -61,5 +59,6 @@ ModalScrollView.propTypes = {
   content: PropTypes.any.isRequired,
   visible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
-  height: PropTypes.string
+  height: PropTypes.string,
+  close: PropTypes.string
 }

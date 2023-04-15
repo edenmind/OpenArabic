@@ -11,7 +11,7 @@ export const useSharedStyles = () => {
   const { arabicFontSize } = useSelector(arabicSelector) || { arabicFontSize: 19 }
   const { englishFontSize } = useSelector(englishSelector) || { englishFontSize: 17 }
   const { arabicFontName } = useSelector(arabicFontNameSelector) || { arabicFontName: 'uthman' }
-  const englishOpacity = 0.77
+  const englishOpacity = 0.9
   const arabicOpacity = 1
   const paddingBottom = 10
   const horizontalMargin = 33
@@ -74,7 +74,9 @@ export const useSharedStyles = () => {
         marginTop: 10
       },
       buttonAnswer: {
-        backgroundColor: paperDarkTheme.colors.onPrimary,
+        backgroundColor: paperDarkTheme.colors.elevation.level1,
+        borderBottomColor: paperDarkTheme.colors.elevation.level5,
+        borderBottomWidth: 5,
         marginBottom: 5,
         marginTop: 5
       },
@@ -103,8 +105,8 @@ export const useSharedStyles = () => {
         writingDirection: 'ltr'
       },
       headerContainer: {
-        marginLeft: 15,
-        marginRight: 15,
+        marginLeft: 10,
+        marginRight: 10,
         paddingTop: 10
       },
       scrollView: {
