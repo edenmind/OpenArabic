@@ -30,8 +30,8 @@ const TextPracticeArabicWords = (props) => {
           <Text
             style={{
               fontSize: 30,
-              fontWeight: '900',
-              fontFamily: 'noto',
+              fontWeight: '600',
+
               lineHeight: Platform.OS === 'android' ? 90 : 70,
               color: paperDarkTheme.colors.primary
             }}

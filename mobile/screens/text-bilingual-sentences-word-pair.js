@@ -48,17 +48,14 @@ function TextBilingualSentencesWords({ word }) {
         {lines.map((line, index) => {
           if (line.startsWith('⟶')) {
             return (
-              <Text key={index} style={{ fontWeight: 'bold' }}>
+              <Text key={index} variant="titleMedium">
                 {`${line.slice(2)}\n`}
               </Text>
             )
           }
 
           return (
-            <Text
-              key={index}
-              style={{ ...sharedStyle.englishBody, opacity: 0.95, fontSize: 19, lineHeight: 29 }}
-            >{`${line}\n`}</Text>
+            <Text key={index} style={{ ...sharedStyle.englishBody, fontSize: 19, lineHeight: 29 }}>{`${line}\n`}</Text>
           )
         })}
       </>
@@ -67,9 +64,7 @@ function TextBilingualSentencesWords({ word }) {
 
   const explanation = (
     <View style={{ padding: 10 }}>
-      <Text style={{ ...sharedStyle.englishBody, opacity: 0.9, fontSize: 19, lineHeight: 29 }}>
-        {formatGrammar(word.grammar)}
-      </Text>
+      <Text style={{ ...sharedStyle.englishBody, fontSize: 19, lineHeight: 29 }}>{formatGrammar(word.grammar)}</Text>
     </View>
   )
 

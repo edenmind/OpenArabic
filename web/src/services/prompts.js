@@ -60,15 +60,16 @@ Act as a teacher and explain the Arabic Word to a student
 - Do not explain other concepts, such as إِعْرَاب, irab.
 - Use the arabic terms for the grammar in addition to the english terms.
 - In the Grammar, explain the components of the word, such as the root, prefixes, suffixes and internal letters.
-- Simplify english grammatical terms.
+- Simplify english grammatical terms and rather explain the function of the grammatical term.
 - Explain which root the word is derived from and the root words meaning.
 - Some words such as particles and conjunctions do not have a root, so explain the meaning of the word.
 - Give examples of other words that are derived from the same root with both arabic and latin letters.
 - Use paragraphs to separate different explanations, but not bullet points or lists.
 - Explain how the word is derived from the root.
 - If what looks like one word in arabic needs to be broken down into multiple words in english, then describe that process under the Grammar heading. Example: الْمَسْجِدُ - the mosque; سَمِعْتُ - I heard.
-- Use the following headings to organize your explanation: Root, Derived Words, Relation to Other Words, Grammar and Summary.
+- Use the following headings to organize your explanation: Root, Other Derived Words, Relation to Other Words in The Sentence, Grammar and Summary.
 - Add a ⟶ before every heading.
+- Add a new line after every sentence.
 - Make the explanation concise.
 - Make the explanation easy to understand and highly pedagogical.
 ---
@@ -77,7 +78,7 @@ Act as a teacher and explain the Arabic Word to a student
 ⟶ Root
 The Arabic word سَمِعْتُ (sami'tu) is derived from the root س-م-ع (s-m-'a), which carries the meaning of hearing, listening or obeying.
 
-⟶ Derived Words
+⟶ Other Derived Words
 Some other words that come from the same root include:
 
 سَمَع (sama'a) - he heard
@@ -85,14 +86,22 @@ Some other words that come from the same root include:
 السَّمْع (as-sam') - hearing
 مُسْتَمِعٌ (mustami'un) - listener
 
-⟶ Relation to Other Words
- سَمِعْتُ (sami'tu) is followed by رَسُولَ اللَّهِ (rasoola Allah), which means "the Messenger of Allah". سَمِعْتُ (sami'tu) is the verb that explains the action of hearing performed by the speaker, and رَسُولَ اللَّهِ (rasoola Allah) is the object being heard.
+⟶ Relation to Other Words in The Sentence
+ سَمِعْتُ (sami'tu) is followed by رَسُولَ اللَّهِ (rasoola Allah), which means "the Messenger of Allah".
+
+ سَمِعْتُ (sami'tu) is the verb that explains the action of hearing performed by the speaker, and رَسُولَ اللَّهِ (rasoola Allah) is the object being heard.
 
 ⟶ Grammar
-سَمِعْتُ (sami'tu) is a verb (fil) in the past tense (al-madi) and is in the first person singular form (al-mutakallim), meaning "I heard". The verb is composed of the root س-م-ع (s-m-'a) with the suffix ـتُ (-tu) added to indicate the first person singular form.
+سَمِعْتُ (sami'tu) is a verb (fil) in the past tense (al-madi) and is in the first person singular form (al-mutakallim), meaning "I heard". 
+
+The verb is composed of the root س-م-ع (s-m-'a) with the suffix ـتُ (-tu) added to indicate the first person singular form.
 
 ⟶ Summary
-سَمِعْتُ (sami'tu) is a past tense verb derived from the root س-م-ع (s-m-'a), meaning "I heard". It is related to other words like سَمَع (sama'a) and السَّمْع (as-sam'), which also carry meanings connected to hearing. In the Arabic Original Sentence, سَمِعْتُ (sami'tu) is the action performed by the speaker, and it is followed by the object being heard, رَسُولَ اللَّهِ (rasoola Allah), the Messenger of Allah.
+سَمِعْتُ (sami'tu) is a past tense verb derived from the root س-م-ع (s-m-'a), meaning "I heard". 
+
+It is related to other words like سَمَع (sama'a) and السَّمْع (as-sam'), which also carry meanings connected to hearing. 
+
+In the Arabic Original Sentence, سَمِعْتُ (sami'tu) is the action performed by the speaker, and it is followed by the object being heard, رَسُولَ اللَّهِ (rasoola Allah), the Messenger of Allah.
 ---
 
 `
@@ -123,7 +132,7 @@ Act as a teacher in Arabic Words and Grammar and explain the Arabic Original Sen
 ---
 
 --- Requirements:
-- begin explaining the sentence (Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:)
+- begin explaining the sentence (Now, let's analyze the sentence more closely to identify Arabic root words and grammatical elements:)
 - put the Arabic word on its own line preceded by a →
 - put the sentence on its own line preceded by a →
 - put the explanation on the line below the Arabic word/sentence
@@ -131,29 +140,39 @@ Act as a teacher in Arabic Words and Grammar and explain the Arabic Original Sen
 - explain the meaning of the root word in detail
 - avoid difficult English grammatical terms and instead explain the function of the grammatical term
 - do not explain the English words
-- make a new line for every concept you explain
-- explain how the words relate to each other in the sentence
+- add a new line for every concept you explain
+- add a new line after every sentence
+- explain how the individual words relate to each other in the sentence
+- use terms such as: Subject, Object, Action (Verb), Preposition, Pronoun
 - explain grammatical suffixes and prefixes that are added to root words on words such as: bi-, al-, an-, wa-, fi-, li-, min-, ila-, il-, -tu, -na, -kum, -hum, -hum, -ha, -ha, etc.
-- make the the explanation of suffixes and prefixes pedagogical for a beginner that does not know grammar (nahw)
+- make the the explanation of suffixes and prefixes pedagogical for a beginner that does not know arabic grammar (nahw)
 ---
 
 --- Example output:
-Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:
+Now, let's analyze the sentence more closely to identify Arabic root words and grammatical elements:
 
 → سَمِعْتُ
-This word is derived from the three-letter root word س-م-ع (s-m-'a), which means "to hear" or "to listen." In this case, the word is in the past tense and has the suffix -تُ (-tu) added to the root to indicate the first person singular (I), so it means "I heard."
+This word is derived from the three-letter root word س-م-ع (s-m-'a), which means "to hear" or "to listen." 
+
+In this case, the word is in the past tense and has the suffix -تُ (-tu) added to the root to indicate the first person singular (I), so it means "I heard."
 
 → رَسُولَ
-This word comes from the three-letter root ر-س-ل (r-s-l), which means "to send" or "to deliver a message." In this context, it refers to a messenger, specifically the Messenger of Allah.
+This word comes from the three-letter root ر-س-ل (r-s-l), which means "to send" or "to deliver a message." 
+
+In this context, it refers to a messenger, specifically the Messenger of Allah.
 
 → اللَّهِ
 This word is the name of God in Arabic, "Allah." The prefix الـ (al-) is added to the word, which is used to denote "the" in English, making it "the Allah" or "the God."
 
 → ﷺ
-This symbol is an abbreviation for the Arabic phrase "صلى الله عليه وسلم" (salla Allah 'alayh wa sallam) which means "peace and blessings be upon him." It is commonly used after mentioning the name of the Prophet Muhammad.
+This symbol is an abbreviation for the Arabic phrase "صلى الله عليه وسلم" (salla Allah 'alayh wa sallam) which means "peace and blessings be upon him." 
+
+It is commonly used after mentioning the name of the Prophet Muhammad.
 
 → يَقُولُ
-This word is derived from the three-letter root ق-و-ل (q-w-l), which means "to say" or "to speak." In this case, the word is in the present tense and is used to indicate the third person masculine singular (he), so it means "he says" or "he speaks."
+This word is derived from the three-letter root ق-و-ل (q-w-l), which means "to say" or "to speak." 
+
+In this case, the word is in the present tense and is used to indicate the third person masculine singular (he), so it means "he says" or "he speaks."
 
 Now, let's see how the words relate to each other in the sentence:
 
@@ -198,6 +217,7 @@ Act as a grammatical reviewer of classical Arabic grammar and Islamic texts
 - Verify that the grammar explanation is correct according to Sunni Islam
 - Verify that the grammar explanation is correct according to the Arabic Word
 - Verify that the grammar explanation is correct according to the Arabic Original Sentence
+- Verify that the Root Word is absolutely correct
 - Verify that the English in the grammar explanation is correct
 ---
 `

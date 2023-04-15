@@ -42,7 +42,7 @@ export const vibrateBetweenTwoColors = (setColor) => {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 
   setTimeout(() => {
-    setColor(paperDarkTheme.colors.elevation.level3)
+    setColor(paperDarkTheme.colors.elevation.level1)
   }, 150)
 }
 

@@ -116,7 +116,7 @@ function TextSettings() {
 
   return (
     <ScrollView style={style.surface}>
-      <Surface style={style.surface} elevation={2}>
+      <Surface style={style.surface} elevation={1}>
         <Text style={sharedStyle.arabicBody}>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</Text>
         {isTransliterationOn ? (
           <Text style={sharedStyle.englishBody}>bismi allāhi alraḥmāni alraḥīmi</Text>

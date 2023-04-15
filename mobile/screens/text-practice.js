@@ -20,7 +20,7 @@ const TextPractice = () => {
   const [currentWord, setCurrentWord] = useState(0)
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
-  const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
+  const [color, setColor] = useState(paperDarkTheme.colors.elevation.level1)
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
   const [explanation, setExplanation] = useState('')
   const sharedStyle = useSharedStyles()
@@ -48,7 +48,7 @@ const TextPractice = () => {
   const handleResetQuiz = useCallback(() => {
     if (currentSentence === sentencesInText.length - 1) {
       Alert.alert(
-        'Restart Practice',
+        'Practice Complete!',
         'Do you want to try again?',
         [
           {
@@ -89,7 +89,7 @@ const TextPractice = () => {
             return (
               <Text
                 key={index}
-                style={{ ...sharedStyle.englishBody, opacity: 0.95, fontSize: 19, lineHeight: 29 }}
+                style={{ ...sharedStyle.englishBody, opacity: 0.9, fontSize: 19, lineHeight: 29 }}
               >{`${line}\n`}</Text>
             )
           })}
@@ -145,7 +145,6 @@ const TextPractice = () => {
 
         if (isLastSentence) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-          handleResetQuiz()
         } else {
           setCurrentSentence((prev) => prev + 1)
         }
@@ -204,6 +203,7 @@ const TextPractice = () => {
         </View>
         title={'Great job! 🎉'}
         hideModal={hideModal}
+        close="NEXT SENTENCE"
       />
     </ScrollView>
   ) : (
