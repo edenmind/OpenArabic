@@ -165,8 +165,7 @@ const TextPractice = () => {
       currentSentence,
       isLastWordInSentence,
       formatGrammar,
-      isLastSentence,
-      handleResetQuiz
+      isLastSentence
     ]
   )
   return textLoading ? (

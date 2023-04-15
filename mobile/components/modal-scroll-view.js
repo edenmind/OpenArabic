@@ -59,5 +59,6 @@ ModalScrollView.propTypes = {
   content: PropTypes.any.isRequired,
   visible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
-  height: PropTypes.string
+  height: PropTypes.string,
+  close: PropTypes.string
 }
