@@ -1,4 +1,4 @@
-import { Button, Divider, List, Text, Tooltip, IconButton } from 'react-native-paper'
+import { Button, Divider, List, Text } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { useSharedStyles } from '../styles/common.js'
@@ -77,7 +77,10 @@ function About() {
         sayings of the Prophet ﷺ.
       </Text>
       <Text variant="bodyLarge" style={style.english}>
-        However, OpenArabic does not provide instruction in Arabic grammar or the Arabic alphabet.
+        OpenArabic does not offer a comprehensive grammar course, as its main focus is on increasing vocabulary.
+        Therefore, we only cover some basic grammatical concepts that can help you extract the three-letter root word by
+        removing any prefixes and suffixes attached to it. However, this will, inshaAllah, enhance your understanding of
+        how Arabic words are formed without overwhelming you with advanced grammatical concepts.
       </Text>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>

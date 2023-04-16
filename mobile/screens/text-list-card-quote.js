@@ -74,10 +74,7 @@ export default function TextListCardQuote({ text }) {
           <Divider style={sharedStyle.divider} />
         </Card.Content>
         <Card.Actions style={{ ...styles.cardAction, opacity: 1 }}>
-          <PlaySound
-            audioFileName={`https://openarabic.ams3.digitaloceanspaces.com/audio/${text.sentences[0].filename}`}
-            buttonText={'LISTEN'}
-          />
+          <PlaySound audioFileName={text.sentences[0].filename} buttonText={'LISTEN'} />
           <Button onPress={onShare}>
             <Text style={{ color: paperDarkTheme.colors.onPrimary }}>SHARE</Text>
           </Button>

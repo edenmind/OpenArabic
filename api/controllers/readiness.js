@@ -11,6 +11,7 @@ function getReadiness(request, reply) {
     axios.get('http://127.0.0.1:3030/texts'),
     axios.get('http://127.0.0.1:3030/authors'),
     axios.get('http://127.0.0.1:3030/images'),
+    axios.get('http://127.0.0.1:3030/words'),
     axios.get('http://127.0.0.1:3030/health'),
     axios.get('http://127.0.0.1:3030/')
   ])

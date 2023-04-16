@@ -12,6 +12,18 @@ import React, { Suspense } from 'react'
 import SnackBar from '../components/snack-bar.js'
 import * as prompts from '../services/prompts.js'
 import BasicModal from '../components/basic-modal.js'
+
+function addEmptyLineAfterSentences(str) {
+  const sentences = str.split(/(?<!\n)(?<=[!.?]["']?(?=\s|$)) /) // split the string into sentences
+  // eslint-disable-next-line unicorn/no-array-reduce
+  const result = sentences.reduce((acc, sentence) => {
+    acc += sentence.trim() + (/[!.?]["']?$/.test(sentence) ? '\n\n' : '') // add the current sentence to the result string and add a new empty line if it ends with a period, exclamation mark, or question mark followed by an optional quote mark
+    return acc
+  }, '')
+
+  return result.trim() // remove trailing whitespace
+}
+
 const WordsUpdate = () => {
   const [english, setEnglish] = React.useState('')
   const [arabic, setArabic] = React.useState('')
@@ -174,7 +186,7 @@ const WordsUpdate = () => {
               multiline
               rows={25}
               value={grammar}
-              onChange={(event) => setGrammar(event.target.value)}
+              onChange={(event) => setGrammar(addEmptyLineAfterSentences(event.target.value))}
               style={{ fontSize: '20px' }}
             />
           </FormControl>

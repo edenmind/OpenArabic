@@ -1,7 +1,7 @@
 'use strict'
 
 const IMAGES_URL_PREFIX = process.env.IMAGES_URL
-const NUMBER_OF_IMAGES = 441
+const NUMBER_OF_IMAGES = 471
 
 function getImages(request, reply) {
   const images = Array.from({ length: NUMBER_OF_IMAGES }, (_, index) => ({

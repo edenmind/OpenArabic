@@ -1876,20 +1876,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@date-io/dayjs@npm:^2.16.0":
-  version: 2.16.0
-  resolution: "@date-io/dayjs@npm:2.16.0"
-  dependencies:
-    "@date-io/core": ^2.16.0
-  peerDependencies:
-    dayjs: ^1.8.17
-  peerDependenciesMeta:
-    dayjs:
-      optional: true
-  checksum: bb8192207addbf6430c35da7664b97761f87d2c6cf4a3eaf464584a980e6cecaede581af1a40c5ba0a0189dc6bff2ac16408a95ec88e542b16915430191298c8
-  languageName: node
-  linkType: hard
-
 "@date-io/hijri@npm:^2.16.1":
   version: 2.16.1
   resolution: "@date-io/hijri@npm:2.16.1"
@@ -2785,9 +2771,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@mui/x-data-grid@npm:6.1.0"
+"@mui/x-data-grid@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@mui/x-data-grid@npm:6.2.0"
   dependencies:
     "@babel/runtime": ^7.21.0
     "@mui/utils": ^5.11.13
@@ -2799,19 +2785,18 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
-  checksum: 21f5bf6e0ab7468ec65002bd07751bceba0b641a04f14ac5b9414a39c3a3fd7249ba8a5d7befc21f6787ce97899302fc9fc8fe4b2e5e817fa8b69e412e59a173
+  checksum: 6ddc35b183da9e05b7c61bee009af88b0bc8af5b035b893773309ebcbeb59d73fdb2f74852a139dcd4a1340feeea6f4a0e76eced0f8f78781eea10398d1e79fb
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@mui/x-date-pickers@npm:6.1.0"
+"@mui/x-date-pickers@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@mui/x-date-pickers@npm:6.2.0"
   dependencies:
     "@babel/runtime": ^7.21.0
     "@date-io/core": ^2.16.0
     "@date-io/date-fns": ^2.16.0
     "@date-io/date-fns-jalali": ^2.16.0
-    "@date-io/dayjs": ^2.16.0
     "@date-io/hijri": ^2.16.1
     "@date-io/jalaali": ^2.16.1
     "@date-io/luxon": ^2.16.1
@@ -2824,6 +2809,7 @@ __metadata:
   peerDependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
+    "@mui/base": ^5.0.0-alpha.87
     "@mui/material": ^5.8.6
     "@mui/system": ^5.8.0
     date-fns: ^2.25.0
@@ -2854,7 +2840,7 @@ __metadata:
       optional: true
     moment-jalaali:
       optional: true
-  checksum: 4f41607d060970a6813599b3b1a3a328a8583346c460b328b5ce3a124a8957fb268cb1ad8d8a352e11e4ccbe1700f014a008df6caf51bbed089cc1479d40f823
+  checksum: 540d38f5a469c38a6e794976ba471519196b0c1c7e8e37aa696b8385152750c9ae62f25c5f33a07cd21e9ffe36a4e4cd7f9f36f4e1c8441d8768605600fb50bd
   languageName: node
   linkType: hard
 
@@ -17209,8 +17195,8 @@ __metadata:
     "@mui/icons-material": ^5.11.16
     "@mui/lab": ^5.0.0-alpha.126
     "@mui/material": ^5.12.0
-    "@mui/x-data-grid": ^6.1.0
-    "@mui/x-date-pickers": ^6.1.0
+    "@mui/x-data-grid": ^6.2.0
+    "@mui/x-date-pickers": ^6.2.0
     "@reduxjs/toolkit": ^1.9.3
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0

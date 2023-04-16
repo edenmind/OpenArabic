@@ -69,7 +69,7 @@ Act as a teacher and explain the Arabic Word to a student
 - If what looks like one word in arabic needs to be broken down into multiple words in english, then describe that process under the Grammar heading. Example: الْمَسْجِدُ - the mosque; سَمِعْتُ - I heard.
 - Use the following headings to organize your explanation: Root, Other Derived Words, Relation to Other Words in The Sentence, Grammar and Summary.
 - Add a ⟶ before every heading.
-- Add a new line after every sentence.
+- add a new line after every sentence and explanation to improve readability.
 - Make the explanation concise.
 - Make the explanation easy to understand and highly pedagogical.
 ---
@@ -140,8 +140,6 @@ Act as a teacher in Arabic Words and Grammar and explain the Arabic Original Sen
 - explain the meaning of the root word in detail
 - avoid difficult English grammatical terms and instead explain the function of the grammatical term
 - do not explain the English words
-- add a new line for every concept you explain
-- add a new line after every sentence
 - explain how the individual words relate to each other in the sentence
 - use terms such as: Subject, Object, Action (Verb), Preposition, Pronoun
 - explain grammatical suffixes and prefixes that are added to root words on words such as: bi-, al-, an-, wa-, fi-, li-, min-, ila-, il-, -tu, -na, -kum, -hum, -hum, -ha, -ha, etc.
@@ -177,7 +175,11 @@ In this case, the word is in the present tense and is used to indicate the third
 Now, let's see how the words relate to each other in the sentence:
 
 → سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ
-The subject is the speaker (I), represented by the verb سَمِعْتُ (I heard), the object is the Messenger of Allah, رَسُولَ اللَّهِ (rasool Allah), and the action is يَقُولُ (he says or speaks).
+The subject is the speaker (I), represented by the verb سَمِعْتُ (I heard). 
+
+The object is the Messenger of Allah, رَسُولَ اللَّهِ (rasool Allah). 
+
+The action is يَقُولُ (he says or speaks).
 
 The overall meaning is "I heard the Messenger of Allah (ﷺ) say."
 ---

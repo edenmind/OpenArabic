@@ -18,6 +18,17 @@ const BasicModal = React.lazy(() => import('../components/basic-modal.js'))
 
 const selectorText = (state) => state.text
 
+function addEmptyLineAfterSentences(str) {
+  const sentences = str.split(/(?<!\n)(?<=[!.?]["']?(?=\s|$)) /) // split the string into sentences
+  // eslint-disable-next-line unicorn/no-array-reduce
+  const result = sentences.reduce((acc, sentence) => {
+    acc += sentence.trim() + (/[!.?]["']?$/.test(sentence) ? '\n\n' : '') // add the current sentence to the result string and add a new empty line if it ends with a period, exclamation mark, or question mark followed by an optional quote mark
+    return acc
+  }, '')
+
+  return result.trim() // remove trailing whitespace
+}
+
 function TextAddWords() {
   const PAGE_SIZE = 5
 
@@ -117,7 +128,9 @@ function TextAddWords() {
           <TextField
             InputProps={{ style: { fontSize: 18 } }}
             value={sentence.explanation}
-            onChange={(event) => handleChangeExplanationSentence(indexSentence, event.target.value)}
+            onChange={(event) =>
+              handleChangeExplanationSentence(indexSentence, addEmptyLineAfterSentences(event.target.value))
+            }
             fullWidth
             rows={7}
             multiline
