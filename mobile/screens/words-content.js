@@ -198,14 +198,12 @@ const WordsContent = ({
               )}
             </Text>
 
-            <Text
-              style={{ ...styles.footer, width: '95%', opacity: 0.5, position: 'absolute', bottom: 20, padding: 10 }}
-            >
+            <Text style={{ ...styles.footer, width: '95%', position: 'absolute', bottom: 20, padding: 10 }}>
               {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
             </Text>
 
             <Button
-              mode="outlined"
+              mode="contained-tonal"
               style={{ position: 'absolute', bottom: 20, right: 10, margin: 10 }}
               onPress={() => showModal()}
             >

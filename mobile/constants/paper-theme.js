@@ -8,46 +8,46 @@ export const paperDarkTheme = {
   version: 3,
   dark: true,
   colors: {
-    primary: 'rgb(204, 204, 82)',
-    onPrimary: 'rgb(50, 50, 0)',
-    primaryContainer: 'rgb(73, 73, 0)',
-    onPrimaryContainer: 'rgb(233, 232, 107)',
-    secondary: 'rgb(202, 200, 165)',
-    onSecondary: 'rgb(50, 50, 24)',
-    secondaryContainer: 'rgb(73, 72, 45)',
-    onSecondaryContainer: 'rgb(231, 228, 191)',
-    tertiary: 'rgb(164, 208, 189)',
-    onTertiary: 'rgb(11, 55, 42)',
-    tertiaryContainer: 'rgb(37, 78, 64)',
-    onTertiaryContainer: 'rgb(191, 236, 216)',
+    primary: 'rgb(156, 215, 105)',
+    onPrimary: 'rgb(26, 55, 0)',
+    primaryContainer: 'rgb(40, 80, 0)',
+    onPrimaryContainer: 'rgb(183, 244, 129)',
+    secondary: 'rgb(190, 203, 174)',
+    onSecondary: 'rgb(41, 52, 31)',
+    secondaryContainer: 'rgb(63, 74, 52)',
+    onSecondaryContainer: 'rgb(218, 231, 201)',
+    tertiary: 'rgb(160, 207, 205)',
+    onTertiary: 'rgb(0, 55, 54)',
+    tertiaryContainer: 'rgb(30, 78, 77)',
+    onTertiaryContainer: 'rgb(187, 236, 233)',
     error: 'rgb(255, 180, 171)',
     onError: 'rgb(105, 0, 5)',
     errorContainer: 'rgb(147, 0, 10)',
     onErrorContainer: 'rgb(255, 180, 171)',
-    background: 'rgb(28, 28, 23)',
-    onBackground: 'rgb(230, 226, 217)',
-    surface: 'rgb(28, 28, 23)',
-    onSurface: 'rgb(230, 226, 217)',
-    surfaceVariant: 'rgb(72, 71, 58)',
-    onSurfaceVariant: 'rgb(202, 199, 182)',
-    outline: 'rgb(147, 145, 130)',
-    outlineVariant: 'rgb(72, 71, 58)',
+    background: 'rgb(26, 28, 24)',
+    onBackground: 'rgb(227, 227, 220)',
+    surface: 'rgb(26, 28, 24)',
+    onSurface: 'rgb(227, 227, 220)',
+    surfaceVariant: 'rgb(68, 72, 62)',
+    onSurfaceVariant: 'rgb(196, 200, 186)',
+    outline: 'rgb(142, 146, 134)',
+    outlineVariant: 'rgb(68, 72, 62)',
     shadow: 'rgb(0, 0, 0)',
     scrim: 'rgb(0, 0, 0)',
-    inverseSurface: 'rgb(230, 226, 217)',
-    inverseOnSurface: 'rgb(49, 49, 43)',
-    inversePrimary: 'rgb(98, 98, 0)',
+    inverseSurface: 'rgb(227, 227, 220)',
+    inverseOnSurface: 'rgb(47, 49, 44)',
+    inversePrimary: 'rgb(56, 107, 1)',
     elevation: {
       level0: 'transparent',
-      level1: 'rgb(37, 37, 26)',
-      level2: 'rgb(42, 42, 28)',
-      level3: 'rgb(47, 47, 30)',
-      level4: 'rgb(49, 49, 30)',
-      level5: 'rgb(53, 53, 31)'
+      level1: 'rgb(33, 37, 28)',
+      level2: 'rgb(36, 43, 31)',
+      level3: 'rgb(40, 49, 33)',
+      level4: 'rgb(42, 50, 34)',
+      level5: 'rgb(44, 54, 35)'
     },
-    surfaceDisabled: 'rgba(230, 226, 217, 0.12)',
-    onSurfaceDisabled: 'rgba(230, 226, 217, 0.38)',
-    backdrop: 'rgba(49, 49, 37, 0.4)'
+    surfaceDisabled: 'rgba(227, 227, 220, 0.12)',
+    onSurfaceDisabled: 'rgba(227, 227, 220, 0.38)',
+    backdrop: 'rgba(45, 50, 40, 0.4)'
   }
 }
 
@@ -56,11 +56,10 @@ const navigationDarkTheme = {
   colors: {
     ...NavigationDarkTheme.colors,
 
-    primary: 'rgb(204, 204, 82)',
-    background: 'rgb(28, 28, 23)',
-    card: 'rgb(37, 37, 26)',
-    text: 'rgb(230, 226, 217)',
-    border: 'rgb(72, 71, 58)'
+    primary: 'rgb(156, 215, 105)',
+    background: 'rgb(26, 28, 24)',
+    text: 'rgb(227, 227, 220)',
+    border: 'rgb(68, 72, 62)'
   }
 }
 

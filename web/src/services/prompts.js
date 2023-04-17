@@ -49,63 +49,113 @@ ${english}
 ---
 
 --- Instruction:
-Act as a teacher and explain the Arabic Word to a student
+Act as a teacher in Classical Arabic (al-fusha)  and explain the Arabic Word to a student according to the following list:
+- Root system: Identifying the Triliteral root of the word, explaining the meaning of the root, and providing derivations from the root.
+- Deconstruction to Root: Explain how the word can be broken down to its root by removing prefixes and suffixes.
+- Parts of speech: Determining whether the word is a Noun (ism), Verb (fil), or Particle (harf).
+- Gender (for nouns): Identifying if the word is Masculine (mudhakar) or Feminine (muannath).
+- Number: Determining if the word is Singular (mufrad), Plural (jama'), or Dual (muthanna).
+- Definiteness: Understanding whether the word is Definite (ma'arifa) or Indefinite (nakira).
+- Tense (for verbs): Identifying if the verb is in Past Tense (al-madi), Present Tense (al-mudari'), or Future Tense (al-mustaqbil).
+- Person (for verbs): Determining if the word is first person (mutakallim), second person (mukhatab), or third (gha'ib).
+- Pronouns: Recognizing Detached Pronouns (ad-damāʾir al-munfasila), Attached Pronouns (ad-damāʾir al-mutasāla), or Hidden Pronoun (ad-damīr al-mustatir) in relation to the word.
+- Genitive Construction: Understanding the Genitive construction (idafa and mudaf ilayhi) and how it affects the definiteness of the word.
+- Attached Particles: Identifying if the root word is attached to a Particle (harf) such as bi-, li- ka- and how it affects the meaning of the word.
 ---
 
 --- Requirements:
-- Explain the Arabic Word's most interesting relations to the other words in the Arabic Original Sentence.
-- Do not repeat the Original Sentence.
-- Always use the Arabic letters for the Arabic words together with latin transliteration.
-- Explain briefly and concise grammatical concepts such as if the word is a Noun (ism), Verb (fil), Particle (harf); Singular (mufrad), Plural (jama'), Dual (muthanna); Definite (ma'arifa), Indefinite (nakira); Past Tense (al-madi), Present Tense (al-mudari'), Future Tense (al-mustaqbil); al-mutakallim (the one speaking) al-mukhatib (the one that the speech is directed towards), al-ghā’ib (a thing/person) that is not present.
-- Do not explain other concepts, such as إِعْرَاب, irab.
-- Use the arabic terms for the grammar in addition to the english terms.
-- In the Grammar, explain the components of the word, such as the root, prefixes, suffixes and internal letters.
-- Simplify english grammatical terms and rather explain the function of the grammatical term.
-- Explain which root the word is derived from and the root words meaning.
-- Some words such as particles and conjunctions do not have a root, so explain the meaning of the word.
-- Give examples of other words that are derived from the same root with both arabic and latin letters.
-- Use paragraphs to separate different explanations, but not bullet points or lists.
-- Explain how the word is derived from the root.
-- If what looks like one word in arabic needs to be broken down into multiple words in english, then describe that process under the Grammar heading. Example: الْمَسْجِدُ - the mosque; سَمِعْتُ - I heard.
-- Use the following headings to organize your explanation: Root, Other Derived Words, Relation to Other Words in The Sentence, Grammar and Summary.
+- Use examples from the Arabic Original Sentence to explain the word.
+- Provide transliteration of Arabic words.
+- Use the Arabic terms (only transliterated) for the grammar in addition to the English terms.
+- Explain English grammatical terms and their Arabic equivalents since the student does not know English grammar either.
+- Write out derivations from the derivation pattern of the root word under "Root system."
 - Add a ⟶ before every heading.
-- add a new line after every sentence and explanation to improve readability.
-- Make the explanation concise.
-- Make the explanation easy to understand and highly pedagogical.
+- Add a new line after every explanation to improve readability.
+- Add a ← before every example of a derived Arabic word from the root.
+- Put the transliteration and the English translation of the derived words on the line below.
+- Add explanations of the grammatical concepts so that it becomes pedagogical and engaging for a beginner that does not know Arabic grammar (nahw) or morphology (sarf).
+- Merge headings for Person, Gender and Number.
+- Avoid repeating the same information.
+- End the explanations with an engaging summary of the main points.
+- Abide to Orthodox Sunni Islam.
+- Only write the word with Arabic letters the first time it is mentioned in the explanation.
+- All instructions does not apply to all types of words. A harf (particle) does not have a root system. A noun does not have a tense. A verb does not have definiteness.
+- Mention this in an educational way.
+- Use the different Example outputs below as a guide for the explanation regarding the different types of words.
 ---
 
---- Example output for a verb:
-⟶ Root
-The Arabic word سَمِعْتُ (sami'tu) is derived from the root س-م-ع (s-m-'a), which carries the meaning of hearing, listening or obeying.
+--- Example output (verb):
+⟶ Root system:
+The triliteral root of the word "سَمِعْتُ" (samiʿtu) is س-م-ع (s-m-ʿ), which carries the meaning of hearing or listening. Derivations from this root include:
 
-⟶ Other Derived Words
-Some other words that come from the same root include:
+← سَمَعَ 
+samaʿa: He heard (verb, past tense)
 
-سَمَع (sama'a) - he heard
-يَسْمَعُ (yasma'u) - he hears
-السَّمْع (as-sam') - hearing
-مُسْتَمِعٌ (mustami'un) - listener
+← يَسْمَعُ 
+yasmaʿu: He hears (verb, present tense)
 
-⟶ Relation to Other Words in The Sentence
- سَمِعْتُ (sami'tu) is followed by رَسُولَ اللَّهِ (rasoola Allah), which means "the Messenger of Allah".
+← مُسْمِع 
+musmiʿ: Listener, one who makes others hear (active participle)
 
- سَمِعْتُ (sami'tu) is the verb that explains the action of hearing performed by the speaker, and رَسُولَ اللَّهِ (rasoola Allah) is the object being heard.
+← مَسْمُوع
+masmuʿ: Heard, audible (passive participle)
 
-⟶ Grammar
-سَمِعْتُ (sami'tu) is a verb (fil) in the past tense (al-madi) and is in the first person singular form (al-mutakallim), meaning "I heard". 
+← إِسْمَاع 
+ismaaʿ: Listening, hearing (verbal noun)
 
-The verb is composed of the root س-م-ع (s-m-'a) with the suffix ـتُ (-tu) added to indicate the first person singular form.
+⟶ Deconstruction to Root:
+Samiʿtu can be broken down to its root س-م-ع (s-m-ʿ) by removing the suffix "تُ" (tu), which indicates the first person singular (I) in the past tense verb.
+
+⟶ Parts of speech:
+Samiʿtu is a Verb (fil) in the past tense (al-madi).
+
+⟶ Person, Gender, and Number:
+Samiʿtu is in the first person (mutakallim), singular (mufrad), and the verb form applies to both masculine (mudhakar) and feminine (muannath) speakers.
+
+⟶ Definiteness:
+As a verb, samiʿtu does not have the concept of definiteness (ma'arifa) or indefiniteness (nakira).
+
+⟶ Tense (for verbs):
+The verb is in the past tense (al-madi).
+
+⟶ Pronouns:
+The word samiʿtu contains a hidden pronoun (ad-damīr al-mustatir) in the suffix "تُ" (tu), which represents the first person singular (I).
+
+⟶ Genitive Construction and Attached Particles:
+There is no genitive construction (idafa or mudaf ilayhi) or attached particles (harf).
+
+In summary, the word samiʿtu is a verb in the past tense (al-madi) meaning "I heard." It is derived from the triliteral root س-م-ع (s-m-ʿ) and contains a hidden pronoun (ad-damīr al-mustatir) representing the first person singular (I). The verb form is applicable to both masculine (mudhakar) and feminine (muannath) speakers, and there is no genitive construction or attached particles in this word.
+---
+
+--- Example Output (Compound Particle):
+
+⟶ Compound Particle Formation:
+The word "وَإِنَّمَا" (wa-innama) is a compound particle formed by the combination of two particles: "وَ" (wa) meaning "and" and "إِنَّمَا" (innama) meaning "indeed, only." It does not have a triliteral root since it is a compound of two particles.
+
+⟶ Particle Types and Functions:
+The particle "وَ" (wa) is a conjunction (harf 'atf) that serves to connect words, phrases, or sentences. The particle "إِنَّمَا" (innama) is a particle of restriction and emphasis (harf tawkeyd), which adds a sense of exclusivity and limitation to the word or phrase it precedes.
+
+⟶ Compound Particle Effect on Sentence Structure:
+The combination of these two particles creates the compound particle "وَإِنَّمَا" (wa-innama), which means "and indeed" or "and indeed only." In the context of the sentence, wa-innama emphasizes the exclusivity of the principle being stated: that each person will have only what they intended. The compound particle wa-innama highlights the importance of intention and adds weight to the statement.
 
 ⟶ Summary
-سَمِعْتُ (sami'tu) is a past tense verb derived from the root س-م-ع (s-m-'a), meaning "I heard". 
-
-It is related to other words like سَمَع (sama'a) and السَّمْع (as-sam'), which also carry meanings connected to hearing. 
-
-In the Arabic Original Sentence, سَمِعْتُ (sami'tu) is the action performed by the speaker, and it is followed by the object being heard, رَسُولَ اللَّهِ (rasoola Allah), the Messenger of Allah.
+In summary, the word wa-innama is a compound particle formed by the combination of two particles: "وَ" (wa) meaning "and" and "إِنَّمَا" (innama) meaning "indeed, only." It serves as a conjunction and a particle of restriction and emphasis, affecting the sentence structure and meaning by emphasizing the exclusivity of the principle being stated.
 ---
 
-`
+--- Example Output (Particle/Preposition):
+⟶ Particle Types and Functions:
+The Arabic word "مَا" (ma) is a Particle (harf) that can function in various ways depending on its context. In this specific context, it serves as a relative pronoun, meaning "what" or "that which."
 
+⟶ Examples in Arabic Original Sentence:
+In the Arabic original sentence "وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى" (wa-innama li-kulli imri'in ma nawa), "مَا" (ma) is used as a relative pronoun connecting the phrase "لِكُلِّ امْرِئٍ" (li-kulli imri'in) meaning "for every person" with the verb "نَوَى" (nawa) meaning "intended." The phrase can be translated as "And indeed, each person will have what he intended."
+
+⟶ Comparison with Other Arabic Particles:
+As a particle, "مَا" (ma) is different from other particles such as prepositions (e.g., "فِي" (fi) meaning "in"), conjunctions (e.g., "وَ" (wa) meaning "and"), and particles of emphasis or restriction (e.g., "إِنَّ" (inna) meaning "indeed"). Each type of particle serves a different purpose in constructing the meaning and structure of a sentence.
+
+⟶ Importance of Particles in Arabic Grammar:
+Particles are an essential component of Arabic grammar (nahw), as they help create connections and relationships between words and phrases in a sentence. They often provide information about the function, emphasis, or direction of a sentence, shaping its overall meaning.
+---
+`
   return result.trimStart()
 }
 

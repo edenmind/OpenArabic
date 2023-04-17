@@ -51,7 +51,8 @@ function Text() {
           title: text.title,
           headerTitle: UI.null,
           headerStyle: {
-            backgroundColor: paperDarkTheme.colors.background
+            backgroundColor: paperDarkTheme.colors.background,
+            color: paperDarkTheme.colors.onSurface
           },
           headerRight: () => (
             <Button

@@ -80,18 +80,20 @@ const TextPractice = () => {
           {lines.map((line, index) => {
             if (line.startsWith('→')) {
               return (
-                <Text key={index} style={{ ...sharedStyle.arabicBody, fontWeight: 'bold' }}>
+                <Text
+                  key={index}
+                  style={{
+                    color: paperDarkTheme.colors.primary,
+                    fontSize: 35,
+                    lineHeight: 60
+                  }}
+                >
                   {`${line.slice(2)}\n`}
                 </Text>
               )
             }
 
-            return (
-              <Text
-                key={index}
-                style={{ ...sharedStyle.englishBody, opacity: 0.9, fontSize: 19, lineHeight: 29 }}
-              >{`${line}\n`}</Text>
-            )
+            return <Text key={index} style={{ ...sharedStyle.englishBody }}>{`${line}\n`}</Text>
           })}
         </>
       )
@@ -197,7 +199,7 @@ const TextPractice = () => {
 
       <ModalScrollView
         visible={visible}
-        content=<View style={{ margin: 10, padding: 15 }}>
+        content=<View style={{ margin: 5, padding: 5 }}>
           <Text variant="bodyLarge">{explanation ?? 'No explanation available'}</Text>
         </View>
         title={'Great job! 🎉'}

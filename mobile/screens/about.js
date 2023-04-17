@@ -13,12 +13,10 @@ function About() {
     },
     divider: { margin: 10 },
     english: {
-      direction: 'ltr',
-      fontFamily: 'philosopher',
-      padding: 10
+      fontFamily: 'philosopher'
     },
     scrollView: {
-      padding: 10,
+      padding: 15,
       paddingBottom: 150
     }
   })
@@ -33,7 +31,6 @@ function About() {
   const githubYunus = 'https://github.com/YunusAndreasson'
 
   const ijaad = 'https://www.ijaadainstitute.com/'
-  const sixtysteps = 'https://www.arabicin60steps.com/'
   const amau = 'https://www.amauacademy.com/pages/arabic-with-amau-program'
   const andalus = 'https://www.andalusinstitute.com/'
 
@@ -52,31 +49,31 @@ function About() {
       <Text variant="titleLarge" style={style.english}>
         Contact Us
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         We would love to receive your suggestions and feedback to help us improve the app.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" testID="email" onPress={() => Linking.openURL(email)}>
-        <Text>Email</Text>
+        Email
       </Button>
       <Button style={sharedStyle.button} mode="elevated" testID="twitter" onPress={() => Linking.openURL(twitter)}>
-        <Text>Twitter</Text>
+        Twitter
       </Button>
       <Button style={sharedStyle.button} mode="elevated" testID="instagram" onPress={() => Linking.openURL(instagram)}>
-        <Text>Instagram</Text>
+        Instagram
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Audience
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         OpenArabic provides resources to help learners improve their Islamic vocabulary as well as their general
         vocabulary.
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         By studying these terms, you will - in sha Allah - gain a better understanding of the prayer, the Quran, and the
         sayings of the Prophet ﷺ.
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         OpenArabic does not offer a comprehensive grammar course, as its main focus is on increasing vocabulary.
         Therefore, we only cover some basic grammatical concepts that can help you extract the three-letter root word by
         removing any prefixes and suffixes attached to it. However, this will, inshaAllah, enhance your understanding of
@@ -86,24 +83,24 @@ function About() {
       <Text variant="titleLarge" style={style.english}>
         Arabic Courses
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         If you are looking for more comprehensive resources to learn the Arabic language, there are a variety of online
         and in-person courses available that can teach the alphabet as well as advanced grammar.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(andalus)}>
-        <Text>Andalus Institute</Text>
+        Andalus Institute
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(amau)}>
-        <Text>Arabic With AMAU</Text>
+        Arabic With AMAU
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(ijaad)}>
-        <Text>Ijaada Institute</Text>
+        Ijaada Institute
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Translating Arabic
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         Translating from Arabic to English can be a challenging task due to its intricate grammar and syntax, which can
         make it difficult to accurately convey the nuances of the original text. The accuracy of translations can depend
         heavily on the context, so we strive to provide each word with the proper context where it is used in Islamic
@@ -113,28 +110,28 @@ function About() {
       <Text variant="titleLarge" style={style.english}>
         Open Source Platform
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         Through OpenArabic, we are building a platform that is optimized for learning and teaching Arabic since
         traditional social media platforms are not well-suited for this purpose.
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         OpenArabic is built using open source tools such as React Native, ReactJS, Fastify, and Kubernetes.
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         We are actively seeking developers to join us and help us build this platform. If you are interested in
         assisting with the development of OpenArabic, please take a look at the OpenArabic project on GitHub.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubIssues)}>
-        <Text>OpenArabic on GitHub</Text>
+        OpenArabic on GitHub
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(gitHubFirstIssue)}>
-        <Text>Good First Issues</Text>
+        Good First Issues
       </Button>
       <Divider style={style.divider} />
       <Text variant="titleLarge" style={style.english}>
         Islamic Foundation
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         The theological basis of OpenArabic is built upon the Qurʼān, the Prophetic ﷺ Sunnah, and the interpretations of
         the first generations of Muslims, as well as texts from Islamic Scholars such as:
       </Text>
@@ -165,22 +162,22 @@ function About() {
       <Text variant="titleLarge" style={style.english}>
         Founder
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         Yūnus Andréasson, a convert to Islam for two decades, founded OpenArabic in 2020 AD (1442 AH).
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         As a software developer based in Sweden, he created OpenArabic to provide a comprehensive online learning
         platform for Arabic language.
       </Text>
-      <Text variant="bodyLarge" style={style.english}>
+      <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         Yūnus has been receiving Sarf and Nahw lessons from Shaykh Mujahid residing in Philadelphia. May Allah protect
         him.
       </Text>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(twitterYunus)}>
-        <Text>Twitter.com/YunusAndreasson</Text>
+        Twitter.com/YunusAndreasson
       </Button>
       <Button style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(githubYunus)}>
-        <Text>GitHub.com/YunusAndreasson</Text>
+        GitHub.com/YunusAndreasson
       </Button>
       <Divider style={style.divider} />
     </ScrollView>

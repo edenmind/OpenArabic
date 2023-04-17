@@ -42,10 +42,12 @@ export default function TextTabs({ route }) {
               tabBarLabelStyle: {
                 fontSize: 15,
                 fontWeight: 'bold',
-                textTransform: 'none'
+                textTransform: 'none',
+                color: paperDarkTheme.colors.onSurface
               },
               tabBarStyle: {
-                backgroundColor: paperDarkTheme.colors.background
+                backgroundColor: paperDarkTheme.colors.background,
+                color: paperDarkTheme.colors.onSurface
               }
             }}
           >

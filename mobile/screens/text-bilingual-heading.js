@@ -2,9 +2,11 @@ import { Text, Divider } from 'react-native-paper'
 import { Image, StyleSheet } from 'react-native'
 import React from 'react'
 import PropTypes from 'prop-types'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const style = StyleSheet.create({
   author: {
+    color: paperDarkTheme.colors.onSurface,
     marginLeft: 35,
     marginRight: 35,
     paddingTop: 15,
@@ -20,12 +22,13 @@ const style = StyleSheet.create({
     width: '100%'
   },
   reading: {
-    opacity: 0.7,
+    color: paperDarkTheme.colors.outline,
     paddingBottom: 10,
     paddingTop: 20,
     textAlign: 'center'
   },
   title: {
+    color: paperDarkTheme.colors.onSurface,
     fontFamily: 'philosopher',
     paddingTop: 25,
     textAlign: 'center'
