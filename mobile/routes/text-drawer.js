@@ -24,11 +24,13 @@ const style = StyleSheet.create({
   },
   semver: {
     bottom: 10,
+    color: paperDarkTheme.colors.onSurface,
     left: 0,
     margin: 15,
     position: 'absolute'
   },
   title: {
+    color: paperDarkTheme.colors.onSurface,
     fontFamily: 'philosopher',
     fontWeight: 'bold',
     marginBottom: 10,
@@ -37,6 +39,7 @@ const style = StyleSheet.create({
   },
   version: {
     bottom: 15,
+    color: paperDarkTheme.colors.onSurface,
     left: 0,
     margin: 15,
     position: 'absolute'
@@ -115,8 +118,8 @@ export default function TextDrawer() {
         },
         headerTitleStyle: {
           fontFamily: 'philosopher',
-          fontWeight: 'bold',
-          fontSize: 25
+          fontSize: 23,
+          color: paperDarkTheme.colors.onSurface
         }
       }}
     >

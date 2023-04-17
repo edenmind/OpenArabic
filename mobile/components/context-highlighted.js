@@ -4,6 +4,7 @@ import { Text } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import { useSharedStyles } from '../styles/common.js'
 import HighlightedWord from './context-highlighted-word.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const WordsContextHighLighted = (props) => {
   const sharedStyle = useSharedStyles()

@@ -5,6 +5,7 @@ import { prepareIngress } from '../services/utility-service.js'
 import SCREENS from '../constants/screens.js'
 import { Text, Card, Divider } from 'react-native-paper'
 import PropTypes from 'prop-types'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const styles = StyleSheet.create({
   card: {
@@ -12,7 +13,6 @@ const styles = StyleSheet.create({
   },
   cardAction: {
     marginRight: 10,
-    opacity: 0.7,
     paddingBottom: 15,
     paddingTop: 5
   },
@@ -82,7 +82,9 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
             <Divider style={styles.divider} />
           </Card.Content>
           <Card.Actions style={styles.cardAction}>
-            <Text variant="labelSmall">{footer}</Text>
+            <Text variant="labelSmall" style={{ color: paperDarkTheme.colors.outline }}>
+              {footer}
+            </Text>
           </Card.Actions>
         </Animated.View>
       </Pressable>

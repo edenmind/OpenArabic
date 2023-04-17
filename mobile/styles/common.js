@@ -16,6 +16,7 @@ export const useSharedStyles = () => {
   const paddingBottom = 10
   const horizontalMargin = 33
   const verticalMargin = 33
+  const textColor = paperDarkTheme.colors.onSurface
 
   return useMemo(() => {
     const FONT_WEIGHTS = {
@@ -31,6 +32,7 @@ export const useSharedStyles = () => {
 
     return StyleSheet.create({
       arabicBody: {
+        color: textColor,
         fontFamily: arabicFontName,
         fontSize: arabicFontSizeWeighted(),
         lineHeight: arabicFontSize * 2.5,
@@ -40,6 +42,7 @@ export const useSharedStyles = () => {
         writingDirection: 'rtl'
       },
       arabicDateArabic: {
+        color: textColor,
         fontFamily: 'amiri',
         fontSize: 21,
         opacity: 0.9,
@@ -49,6 +52,7 @@ export const useSharedStyles = () => {
         textAlign: 'center'
       },
       arabicDateLatin: {
+        color: textColor,
         fontFamily: 'philosopher',
         fontSize: 15,
         opacity: 0.7,
@@ -58,6 +62,7 @@ export const useSharedStyles = () => {
         textAlign: 'center'
       },
       arabicFooter: {
+        color: textColor,
         fontFamily: 'amiri',
         fontSize: 17,
         opacity: 0.7,
@@ -96,6 +101,7 @@ export const useSharedStyles = () => {
         opacity: 0
       },
       englishBody: {
+        color: textColor,
         direction: 'ltr',
         fontFamily: 'philosopher',
         fontSize: englishFontSize,
@@ -121,5 +127,5 @@ export const useSharedStyles = () => {
         writingDirection: 'ltr'
       }
     })
-  }, [arabicFontSize, englishFontSize, arabicFontName])
+  }, [arabicFontName, arabicFontSize, textColor, englishFontSize])
 }

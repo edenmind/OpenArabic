@@ -7,18 +7,16 @@ import * as util from '../services/utility-service.js'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const EXPLAIN = 'EXPLAIN'
 
 const styles = StyleSheet.create({
   arabic: {
+    color: paperDarkTheme.colors.onSurface,
     fontFamily: 'uthman',
     fontSize: 35,
     opacity: 1
-  },
-  divider: {
-    margin: 10,
-    opacity: 0.3
   },
   flexOne: {
     flex: 1
@@ -26,7 +24,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     paddingHorizontal: 10,
-    paddingVertical: 5
+    paddingVertical: 15
   }
 })
 
@@ -54,8 +52,23 @@ function TextBilingualSentencesWords({ word }) {
             )
           }
 
+          if (line.startsWith('←')) {
+            return (
+              <Text key={index} style={{ fontSize: 25, fontWeight: 500, color: paperDarkTheme.colors.primary }}>
+                {`${line.slice(2)}\n`}
+              </Text>
+            )
+          }
+
           return (
-            <Text key={index} style={{ ...sharedStyle.englishBody, fontSize: 19, lineHeight: 29 }}>{`${line}\n`}</Text>
+            <Text
+              key={index}
+              style={{
+                ...sharedStyle.englishBody,
+                fontSize: 19,
+                lineHeight: 29
+              }}
+            >{`${line}\n`}</Text>
           )
         })}
       </>
@@ -63,7 +76,7 @@ function TextBilingualSentencesWords({ word }) {
   }
 
   const explanation = (
-    <View style={{ padding: 10 }}>
+    <View style={{ padding: 15, paddingTop: 20 }}>
       <Text style={{ ...sharedStyle.englishBody, fontSize: 19, lineHeight: 29 }}>{formatGrammar(word.grammar)}</Text>
     </View>
   )
@@ -73,7 +86,7 @@ function TextBilingualSentencesWords({ word }) {
       <View style={styles.row}>
         <View style={styles.flexOne}>
           <Text style={styles.arabic}>{word.arabic}</Text>
-          <Text style={{ ...sharedStyle.englishBody, opacity: 1 }}>
+          <Text style={{ marginRight: 30 }}>
             {word.english.charAt(0).toUpperCase() + word.english.slice(1)} ·{' '}
             {util.transliterateArabicToEnglish(word.arabic)}
           </Text>
@@ -88,11 +101,10 @@ function TextBilingualSentencesWords({ word }) {
       <ModalScrollView
         visible={visible}
         content={<Text>{explanation}</Text>}
-        title={word.arabic}
+        title={`Explanation of: ${word.arabic}`}
         hideModal={hideModal}
-        height="60%"
       />
-      <Divider style={styles.divider} />
+      <Divider />
     </Fragment>
   )
 }

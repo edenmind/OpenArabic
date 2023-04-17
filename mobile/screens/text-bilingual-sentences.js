@@ -22,7 +22,7 @@ function TextBilingualSentences(props) {
   const [words, setWords] = React.useState([])
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
-  const [currentArabicSentence, setCurrentArabicSentence] = React.useState('')
+
   const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
   const showWords = 'EXPLAIN WORDS'
 
@@ -42,7 +42,6 @@ function TextBilingualSentences(props) {
         mode="elevated"
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
-          setCurrentArabicSentence(sentence.arabic)
           showModal()
         }}
       >
@@ -54,7 +53,7 @@ function TextBilingualSentences(props) {
   return (
     <>
       {sentences}
-      <ModalScrollView visible={visible} content={words} title={currentArabicSentence} hideModal={hideModal} />
+      <ModalScrollView visible={visible} content={words} title={'Explanations'} hideModal={hideModal} />
     </>
   )
 }
