@@ -16,7 +16,11 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     paddingTop: 5
   },
+  cardSubTitle: {
+    color: paperDarkTheme.colors.outline
+  },
   cardTitle: {
+    color: paperDarkTheme.colors.onBackground,
     fontFamily: 'philosopher',
     paddingVertical: 5
   },
@@ -73,6 +77,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
             titleVariant="headlineSmall"
             titleStyle={styles.cardTitle}
             subtitleVariant="labelMedium"
+            subtitleStyle={styles.cardSubTitle}
           />
           <Card.Content>
             <Text style={useSharedStyles().arabicBody}>{arabic}</Text>

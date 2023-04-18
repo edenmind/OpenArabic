@@ -10,6 +10,7 @@ import TextPracticeArabicWords from './text-practice-arabic-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
+import { formatGrammar } from '../services/ui-services.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -67,39 +68,7 @@ const TextPractice = () => {
       )
     }
   }, [currentSentence])
-  const formatGrammar = useCallback(
-    (gram) => {
-      if (!gram) {
-        return 'No explanation available'
-      }
 
-      const lines = gram.split('\n')
-
-      return (
-        <>
-          {lines.map((line, index) => {
-            if (line.startsWith('→')) {
-              return (
-                <Text
-                  key={index}
-                  style={{
-                    color: paperDarkTheme.colors.primary,
-                    fontSize: 35,
-                    lineHeight: 60
-                  }}
-                >
-                  {`${line.slice(2)}\n`}
-                </Text>
-              )
-            }
-
-            return <Text key={index} style={{ ...sharedStyle.englishBody }}>{`${line}\n`}</Text>
-          })}
-        </>
-      )
-    },
-    [sharedStyle.arabicBody, sharedStyle.englishBody]
-  )
   // loop through all sentences in the text
   const sentencesInText = React.useMemo(() => {
     return text.sentences.map((sentence) => {
@@ -142,7 +111,7 @@ const TextPractice = () => {
 
       if (isLastWordInSentence) {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-        setExplanation(formatGrammar(sentencesInText[currentSentence].explanation))
+        setExplanation(formatGrammar(sentencesInText[currentSentence].explanation), sharedStyle)
         showModal()
 
         if (isLastSentence) {
@@ -166,8 +135,8 @@ const TextPractice = () => {
       sentencesInText,
       currentSentence,
       isLastWordInSentence,
-      formatGrammar,
-      isLastSentence
+      isLastSentence,
+      sharedStyle
     ]
   )
   return textLoading ? (
@@ -202,6 +171,7 @@ const TextPractice = () => {
         content=<View style={{ margin: 5, padding: 5 }}>
           <Text variant="bodyLarge">{explanation ?? 'No explanation available'}</Text>
         </View>
+        titleLanguage="english"
         title={'Great job! 🎉'}
         hideModal={hideModal}
         close="NEXT SENTENCE"

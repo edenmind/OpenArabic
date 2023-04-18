@@ -28,11 +28,9 @@ export default function TextBilingual() {
         <Heading heading={text} />
         <Sentences sentences={text.sentences} />
         <View style={sharedStyle.container}>
-          <Button onPress={generateShare(text)} mode="text">
-            {share}
-          </Button>
+          <Button onPress={generateShare(text)}>{share}</Button>
           <Divider style={{ opacity: 0 }} />
-          <Button onPress={generateError(text)} mode="text">
+          <Button onPress={generateError(text)}>
             <Text style={{ color: paperDarkTheme.colors.error }}>{report}</Text>
           </Button>
         </View>

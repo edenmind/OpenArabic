@@ -16,7 +16,7 @@ export const useSharedStyles = () => {
   const paddingBottom = 10
   const horizontalMargin = 33
   const verticalMargin = 33
-  const textColor = paperDarkTheme.colors.onSurface
+  const textColor = paperDarkTheme.colors.onBackground
 
   return useMemo(() => {
     const FONT_WEIGHTS = {
@@ -35,43 +35,44 @@ export const useSharedStyles = () => {
         color: textColor,
         fontFamily: arabicFontName,
         fontSize: arabicFontSizeWeighted(),
-        lineHeight: arabicFontSize * 2.5,
+        lineHeight: arabicFontSize * 2,
         opacity: arabicOpacity,
         paddingBottom,
         textAlign: 'right',
         writingDirection: 'rtl'
       },
       arabicDateArabic: {
-        color: textColor,
+        color: paperDarkTheme.colors.secondary,
         fontFamily: 'amiri',
         fontSize: 21,
-        opacity: 0.9,
         paddingLeft: 75,
         paddingRight: 75,
         paddingTop: 10,
         textAlign: 'center'
       },
       arabicDateLatin: {
-        color: textColor,
+        color: paperDarkTheme.colors.secondary,
         fontFamily: 'philosopher',
         fontSize: 15,
-        opacity: 0.7,
         paddingBottom: 10,
         paddingLeft: 75,
         paddingRight: 75,
         textAlign: 'center'
       },
       arabicFooter: {
-        color: textColor,
-        fontFamily: 'amiri',
+        color: paperDarkTheme.colors.secondary,
         fontSize: 17,
-        opacity: 0.7,
         paddingBottom: 10,
         paddingLeft: 75,
         paddingRight: 75,
         paddingTop: 20,
         textAlign: 'center',
         writingDirection: 'rtl'
+      },
+      arabicHeading: {
+        color: paperDarkTheme.colors.secondary,
+        fontFamily: arabicFontName,
+        fontSize: 35
       },
       button: {
         backgroundColor: paperDarkTheme.colors.onPrimary,

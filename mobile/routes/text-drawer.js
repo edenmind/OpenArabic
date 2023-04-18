@@ -24,7 +24,7 @@ const style = StyleSheet.create({
   },
   semver: {
     bottom: 10,
-    color: paperDarkTheme.colors.onSurface,
+    color: paperDarkTheme.colors.tertiary,
     left: 0,
     margin: 15,
     position: 'absolute'
@@ -32,14 +32,13 @@ const style = StyleSheet.create({
   title: {
     color: paperDarkTheme.colors.onSurface,
     fontFamily: 'philosopher',
-    fontWeight: 'bold',
     marginBottom: 10,
     marginLeft: 15,
     marginTop: 10
   },
   version: {
     bottom: 15,
-    color: paperDarkTheme.colors.onSurface,
+    color: paperDarkTheme.colors.secondary,
     left: 0,
     margin: 15,
     position: 'absolute'

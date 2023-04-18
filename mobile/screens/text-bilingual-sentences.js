@@ -8,6 +8,7 @@ import WordPairs from './text-bilingual-sentences-word-pairs-list.js'
 import { useSelector } from 'react-redux'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const filterFunction = (element) => element.english && element.arabic
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
@@ -20,6 +21,7 @@ function TextBilingualSentences(props) {
   const showTransliteration = isTransliterationOn === 'on'
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
+
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
 
@@ -30,7 +32,10 @@ function TextBilingualSentences(props) {
     <View key={index} style={sharedStyle.container}>
       <Text style={sharedStyle.arabicBody}>{sentence.arabic}</Text>
       {showTransliteration && (
-        <Text style={{ ...sharedStyle.englishBody }} variant="bodyLarge">
+        <Text
+          style={{ ...sharedStyle.englishBody, direction: 'rtl', color: paperDarkTheme.colors.secondary }}
+          variant="bodyLarge"
+        >
           {util.transliterateArabicToEnglish(sentence.arabic)}
         </Text>
       )}
@@ -53,7 +58,7 @@ function TextBilingualSentences(props) {
   return (
     <>
       {sentences}
-      <ModalScrollView visible={visible} content={words} title={'Explanations'} hideModal={hideModal} />
+      <ModalScrollView visible={visible} content={words} title={''} hideModal={hideModal} />
     </>
   )
 }

@@ -45,7 +45,7 @@ export default function Words() {
                       })
                     }}
                   >
-                    <Text style={{ color: paperDarkTheme.colors.secondary }}>Stop</Text>
+                    <Text style={{ color: paperDarkTheme.colors.tertiary }}>Stop</Text>
                   </Button>
                 </Fragment>
               )
