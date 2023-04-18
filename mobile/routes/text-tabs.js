@@ -27,8 +27,8 @@ export default function TextTabs({ route }) {
 
   const tabs = [
     { name: SCREENS.bilingual, component: TextBilingual },
-    { name: SCREENS.arabic, component: TextArabic },
-    { name: SCREENS.quiz, component: OrderingWordsInASentence }
+    { name: SCREENS.quiz, component: OrderingWordsInASentence },
+    { name: SCREENS.arabic, component: TextArabic }
   ]
 
   return (
@@ -42,12 +42,10 @@ export default function TextTabs({ route }) {
               tabBarLabelStyle: {
                 fontSize: 15,
                 fontWeight: 'bold',
-                textTransform: 'none',
-                color: paperDarkTheme.colors.onSurface
+                textTransform: 'none'
               },
               tabBarStyle: {
-                backgroundColor: paperDarkTheme.colors.background,
-                color: paperDarkTheme.colors.onSurface
+                backgroundColor: paperDarkTheme.colors.background
               }
             }}
           >

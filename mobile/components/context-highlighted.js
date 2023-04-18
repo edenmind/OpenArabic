@@ -62,7 +62,7 @@ const WordsContextHighLighted = (props) => {
       <Text style={{ ...sharedStyle.arabicBody, paddingBottom: 10 }}>
         {props.arabicSentence}
         <Animated.View style={{ opacity: fadeAnim }}>
-          <Text style={{ ...sharedStyle.arabicBody }}>...</Text>
+          <Text style={{ ...sharedStyle.arabicBody, color: paperDarkTheme.colors.tertiary }}>...</Text>
         </Animated.View>
       </Text>
     </View>

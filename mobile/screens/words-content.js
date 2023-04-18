@@ -14,6 +14,7 @@ import PropTypes from 'prop-types'
 import HighlightedWordInText from '../components/highlighted-word-in-text.js'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
+import { formatGrammar } from '../services/ui-services.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -21,9 +22,9 @@ const styles = StyleSheet.create({
     margin: 10
   },
   footer: {
+    color: paperDarkTheme.colors.secondary,
     fontFamily: 'philosopher',
-    fontSize: 15,
-    opacity: 0.8
+    fontSize: 15
   },
   surface: {
     alignItems: 'center',
@@ -72,35 +73,6 @@ const WordsContent = ({
       }
     }
   }, [timeoutId])
-
-  function formatGrammar(gram) {
-    if (!gram) {
-      return 'No explanation available'
-    }
-
-    const lines = gram.split('\n')
-
-    return (
-      <>
-        {lines.map((line, index) => {
-          if (line.startsWith('⟶')) {
-            return (
-              <Text key={index} style={{ fontWeight: 'bold' }}>
-                {`${line.slice(2)}\n`}
-              </Text>
-            )
-          }
-
-          return (
-            <Text
-              key={index}
-              style={{ ...sharedStyle.englishBody, opacity: 0.95, fontSize: 19, lineHeight: 29 }}
-            >{`${line}\n`}</Text>
-          )
-        })}
-      </>
-    )
-  }
 
   const onDismissSnackBar = useCallback(() => {
     handleSetCelebrationSnackBarVisibility(false)
@@ -172,7 +144,7 @@ const WordsContent = ({
   const details = (
     <View style={{ margin: 3, padding: 3 }}>
       <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
-        {formatGrammar(words[currentWord].grammar) ?? 'No explanation available'}
+        {formatGrammar(words[currentWord].grammar, sharedStyle) ?? 'No explanation available'}
       </Text>
     </View>
   )
@@ -220,7 +192,7 @@ const WordsContent = ({
           <ModalScrollView
             visible={visible}
             content={details}
-            title={`${words[currentWord].arabic}\n${words[currentWord].english}`}
+            title={words[currentWord].arabic}
             hideModal={hideModal}
           />
         </>

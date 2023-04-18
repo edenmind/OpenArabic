@@ -4,8 +4,18 @@ import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
 import { paperDarkTheme } from '../constants/paper-theme.js'
 import * as Haptics from 'expo-haptics'
-
-const ModalScrollView = ({ title, content, visible, hideModal, height = '80%', close = 'CLOSE' }) => {
+import { useSharedStyles } from '../styles/common.js'
+// eslint-disable-next-line putout/destructuring-as-function-argument
+const ModalScrollView = ({
+  title,
+  content,
+  visible,
+  hideModal,
+  height = '85%',
+  close = 'CLOSE',
+  titleLanguage = 'arabic'
+}) => {
+  const sharedStyled = useSharedStyles()
   const styles = StyleSheet.create({
     buttonPadding: {
       marginBottom: 15,
@@ -23,10 +33,19 @@ const ModalScrollView = ({ title, content, visible, hideModal, height = '80%', c
     },
 
     titleStyle: {
+      ...sharedStyled.arabicHeading,
       alignSelf: 'center',
-      color: paperDarkTheme.colors.onSurface,
+      marginHorizontal: 33,
+      textAlign: 'center',
+      writingDirection: 'rtl'
+    },
+    titleStyleEnglish: {
+      alignSelf: 'center',
       fontFamily: 'philosopher',
-      paddingBottom: 10
+      fontSize: 25,
+      marginHorizontal: 25,
+      marginVertical: 15,
+      textAlign: 'center'
     }
   })
 
@@ -39,10 +58,12 @@ const ModalScrollView = ({ title, content, visible, hideModal, height = '80%', c
   return (
     <Portal>
       <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.containerStyle}>
-        <Text variant="titleLarge" style={styles.titleStyle}>
-          {title}
-        </Text>
-        <Divider />
+        {title && (
+          <>
+            <Text style={titleLanguage === 'english' ? styles.titleStyleEnglish : styles.titleStyle}>{title}</Text>
+            <Divider />
+          </>
+        )}
         <ScrollView>{content}</ScrollView>
         <Divider />
         <Button onPress={hideModalWithHaptic} style={styles.buttonPadding} mode="elevated">
@@ -57,6 +78,7 @@ export default ModalScrollView
 
 ModalScrollView.propTypes = {
   title: PropTypes.string.isRequired,
+  titleLanguage: PropTypes.string.isRequired,
   content: PropTypes.any.isRequired,
   visible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,

@@ -33,6 +33,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "writingDirection": "ltr",
         },
         {
+          "color": "rgb(227, 227, 220)",
           "fontFamily": "philosopher",
           "paddingTop": 25,
           "textAlign": "center",
@@ -60,6 +61,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "writingDirection": "ltr",
         },
         {
+          "color": "rgb(227, 227, 220)",
           "marginLeft": 35,
           "marginRight": 35,
           "paddingTop": 15,
@@ -88,6 +90,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "writingDirection": "ltr",
         },
         {
+          "color": "rgb(227, 227, 220)",
           "marginLeft": 35,
           "marginRight": 35,
           "paddingTop": 15,
@@ -116,7 +119,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "writingDirection": "ltr",
         },
         {
-          "opacity": 0.7,
+          "color": "rgb(142, 146, 134)",
           "paddingBottom": 10,
           "paddingTop": 20,
           "textAlign": "center",

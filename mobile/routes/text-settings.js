@@ -15,7 +15,6 @@ export default function TextSettings() {
           name={SCREENS.textSettings}
           component={TextSettingsScreen}
           options={{
-            headerLargeTitle: false,
             headerShown: false,
             headerStyle: {
               backgroundColor: paperDarkTheme.colors.background

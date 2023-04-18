@@ -2,6 +2,10 @@ import 'react-native-gesture-handler'
 import { Share } from 'react-native'
 import { ENDPOINT, HOST } from '../constants/urls.js'
 import * as MailComposer from 'expo-mail-composer'
+import React from 'react'
+import { Text } from 'react-native-paper'
+import { paperDarkTheme } from '../constants/paper-theme.js'
+import { color } from 'react-native-reanimated'
 
 export function generateShare(text) {
   async function shareText() {
@@ -25,4 +29,38 @@ export function generateError(text) {
   }
 
   return composeError
+}
+
+export function formatGrammar(gram, sharedStyle) {
+  if (!gram) {
+    return 'No explanation available'
+  }
+
+  const lines = gram.split('\n')
+
+  return (
+    <>
+      {lines.map((line, index) => {
+        if (line.startsWith('⟶')) {
+          return (
+            <Text key={index} variant="titleMedium" style={{ color: paperDarkTheme.colors.tertiary }}>
+              {`${line.slice(2)}\n`}
+            </Text>
+          )
+        }
+
+        if (line.startsWith('←')) {
+          return (
+            <Text key={index} style={sharedStyle.arabicHeading}>
+              {`\n${line.slice(2)}\n`}
+            </Text>
+          )
+        }
+
+        return (
+          <Text key={index} variant="bodyLarge" style={{ color: paperDarkTheme.colors.onSurface }}>{`${line}\n`}</Text>
+        )
+      })}
+    </>
+  )
 }

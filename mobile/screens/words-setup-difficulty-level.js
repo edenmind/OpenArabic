@@ -10,7 +10,6 @@ const WordsSetupDifficultyLevel = (props) => {
   const sharedStyle = useSharedStyles()
   let source
   let goal
-  let examples
 
   switch (props.difficultyLevel) {
     case 10: {

@@ -18,7 +18,6 @@ function Root() {
           height: 75,
           backgroundColor: paperDarkTheme.colors.background,
           borderTopWidth: 1,
-          color: paperDarkTheme.colors.onSurface,
           borderTopColor: paperDarkTheme.colors.backdrop
         }}
         screenOptions={({ route }) => ({
