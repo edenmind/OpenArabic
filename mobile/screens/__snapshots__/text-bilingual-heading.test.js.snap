@@ -61,7 +61,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "writingDirection": "ltr",
         },
         {
-          "color": "rgb(227, 227, 220)",
+          "color": "rgb(196, 200, 186)",
           "marginLeft": 35,
           "marginRight": 35,
           "paddingTop": 15,
@@ -90,7 +90,7 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "writingDirection": "ltr",
         },
         {
-          "color": "rgb(227, 227, 220)",
+          "color": "rgb(196, 200, 186)",
           "marginLeft": 35,
           "marginRight": 35,
           "paddingTop": 15,

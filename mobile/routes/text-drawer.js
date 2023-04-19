@@ -1,7 +1,7 @@
-import { Caption, Divider, Text } from 'react-native-paper'
+import { Caption, Divider, Switch, Text } from 'react-native-paper'
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import { Image, StyleSheet } from 'react-native'
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import SCREENS from '../constants/screens.js'
 import TextList from '../screens/text-list.js'
@@ -14,6 +14,12 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 const selector = (state) => state.categories
 
 const style = StyleSheet.create({
+  darkLightMode: {
+    bottom: 45,
+    left: 0,
+    margin: 15,
+    position: 'absolute'
+  },
   divider: {
     margin: 15
   },
@@ -38,7 +44,7 @@ const style = StyleSheet.create({
   },
   version: {
     bottom: 15,
-    color: paperDarkTheme.colors.secondary,
+    color: paperDarkTheme.colors.onSurfaceVariant,
     left: 0,
     margin: 15,
     position: 'absolute'
@@ -73,7 +79,7 @@ export default function TextDrawer() {
 
   function CustomDrawerContent(props) {
     return (
-      <Fragment>
+      <>
         <DrawerContentScrollView {...props}>
           <Image source={icon} style={style.icon} />
           <Text style={style.title} variant="headlineSmall">
@@ -82,9 +88,12 @@ export default function TextDrawer() {
           <DrawerItemList {...props} />
           <Divider style={style.divider} />
         </DrawerContentScrollView>
-        <Text style={style.version}>Version</Text>
+        <Switch value={false} style={style.darkLightMode} />
+        <Text style={style.version} variant="labelMedium">
+          Version
+        </Text>
         <Caption style={style.semver}>{hijriYear}</Caption>
-      </Fragment>
+      </>
     )
   }
 

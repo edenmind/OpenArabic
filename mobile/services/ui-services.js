@@ -5,7 +5,6 @@ import * as MailComposer from 'expo-mail-composer'
 import React from 'react'
 import { Text } from 'react-native-paper'
 import { paperDarkTheme } from '../constants/paper-theme.js'
-import { color } from 'react-native-reanimated'
 
 export function generateShare(text) {
   async function shareText() {
@@ -43,7 +42,7 @@ export function formatGrammar(gram, sharedStyle) {
       {lines.map((line, index) => {
         if (line.startsWith('⟶')) {
           return (
-            <Text key={index} variant="titleMedium" style={{ color: paperDarkTheme.colors.tertiary }}>
+            <Text key={index} variant="titleMedium" style={{ color: paperDarkTheme.colors.onBackground }}>
               {`${line.slice(2)}\n`}
             </Text>
           )
@@ -57,9 +56,7 @@ export function formatGrammar(gram, sharedStyle) {
           )
         }
 
-        return (
-          <Text key={index} variant="bodyLarge" style={{ color: paperDarkTheme.colors.onSurface }}>{`${line}\n`}</Text>
-        )
+        return <Text key={index} style={sharedStyle.englishBody}>{`${line}\n`}</Text>
       })}
     </>
   )

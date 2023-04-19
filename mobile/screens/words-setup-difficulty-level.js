@@ -42,7 +42,7 @@ const WordsSetupDifficultyLevel = (props) => {
       <Image source={source} style={{ width: '100%', height: 190 }} />
       <View style={{ padding: 10 }}>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <Text variant="titleSmall">Goal</Text>
+        <Text variant="titleMedium">Goal</Text>
         <Text style={{ ...sharedStyle.englishBody }}>{goal}</Text>
       </View>
     </Surface>

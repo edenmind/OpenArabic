@@ -15,6 +15,7 @@ import { formatGrammar } from '../services/ui-services.js'
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
 const TextPractice = () => {
+  const sharedStyle = useSharedStyles()
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
   const [currentSentence, setCurrentSentence] = useState(0)
@@ -24,7 +25,6 @@ const TextPractice = () => {
   const [color, setColor] = useState(paperDarkTheme.colors.elevation.level1)
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
   const [explanation, setExplanation] = useState('')
-  const sharedStyle = useSharedStyles()
 
   const hideModal = () => {
     setVisible(false)
@@ -111,7 +111,7 @@ const TextPractice = () => {
 
       if (isLastWordInSentence) {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-        setExplanation(formatGrammar(sentencesInText[currentSentence].explanation), sharedStyle)
+        setExplanation(formatGrammar(sentencesInText[currentSentence].explanation, sharedStyle))
         showModal()
 
         if (isLastSentence) {
@@ -145,7 +145,7 @@ const TextPractice = () => {
         style={{ ...sharedStyle.surface, backgroundColor: color, marginVertical: 10, minHeight: 230, borderRadius: 10 }}
       >
         <View style={sharedStyle.headerContainer}>
-          <Text variant="labelLarge">
+          <Text variant="labelLarge" style={{ color: paperDarkTheme.colors.tertiary }}>
             Sentence: {currentSentence + 1} of {sentencesInText.length}
           </Text>
           <Divider style={sharedStyle.divider} />

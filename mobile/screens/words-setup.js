@@ -9,6 +9,7 @@ import { getWords } from '../services/api-service.js'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import WordsSetupDifficultyLevel from './words-setup-difficulty-level.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const WordsSetup = (props) => {
   const sharedStyle = useSharedStyles()
@@ -22,7 +23,6 @@ const WordsSetup = (props) => {
 
       <SegmentedButtons
         value={props.numberOfWordsToPractice}
-        style={{ width: '100%' }}
         onValueChange={(value) => {
           props.setNumberOfWordsToPractice(value)
         }}
@@ -80,10 +80,10 @@ const WordsSetup = (props) => {
             type: 'SET_PRACTICING_WORDS',
             payload: true
           })
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }}
       >
-        <Text style={{ color: 'black', fontWeight: 800, fontSize: 15 }}>START SESSION</Text>
+        <Text style={{ color: paperDarkTheme.colors.onPrimary, fontWeight: 800, fontSize: 15 }}>START SESSION</Text>
       </Button>
     </ScrollView>
   )

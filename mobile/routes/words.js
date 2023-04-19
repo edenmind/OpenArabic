@@ -36,17 +36,15 @@ export default function Words() {
               practicingWords && (
                 <Fragment>
                   <Button
-                    mode="text"
+                    icon="stop"
                     onPress={() => {
-                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
+                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
                       dispatch({
                         type: 'SET_PRACTICING_WORDS',
                         payload: false
                       })
                     }}
-                  >
-                    <Text style={{ color: paperDarkTheme.colors.tertiary }}>Stop</Text>
-                  </Button>
+                  />
                 </Fragment>
               )
           }}

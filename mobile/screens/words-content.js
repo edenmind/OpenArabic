@@ -159,10 +159,7 @@ const WordsContent = ({
       keyExtractor={(item) => item.position.toString()}
       ListHeaderComponent={
         <>
-          <ProgressBar
-            progress={currentWordIndex / (numberOfWordsToPractice - 1)}
-            color={paperDarkTheme.colors.primary}
-          />
+          <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} />
           <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 300 }}>
             <Text style={{ ...styles.arabicBody, width: '95%', padding: 10 }}>
               {words[currentWord]?.arabicSentence && (

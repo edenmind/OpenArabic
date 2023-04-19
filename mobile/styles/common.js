@@ -42,7 +42,7 @@ export const useSharedStyles = () => {
         writingDirection: 'rtl'
       },
       arabicDateArabic: {
-        color: paperDarkTheme.colors.secondary,
+        color: paperDarkTheme.colors.tertiary,
         fontFamily: 'amiri',
         fontSize: 21,
         paddingLeft: 75,
@@ -51,7 +51,7 @@ export const useSharedStyles = () => {
         textAlign: 'center'
       },
       arabicDateLatin: {
-        color: paperDarkTheme.colors.secondary,
+        color: paperDarkTheme.colors.tertiary,
         fontFamily: 'philosopher',
         fontSize: 15,
         paddingBottom: 10,
@@ -61,7 +61,8 @@ export const useSharedStyles = () => {
       },
       arabicFooter: {
         color: paperDarkTheme.colors.secondary,
-        fontSize: 17,
+        fontFamily: 'amiri',
+        fontSize: 19,
         paddingBottom: 10,
         paddingLeft: 75,
         paddingRight: 75,
@@ -70,7 +71,7 @@ export const useSharedStyles = () => {
         writingDirection: 'rtl'
       },
       arabicHeading: {
-        color: paperDarkTheme.colors.secondary,
+        color: paperDarkTheme.colors.onBackground,
         fontFamily: arabicFontName,
         fontSize: 35
       },
@@ -102,11 +103,11 @@ export const useSharedStyles = () => {
         opacity: 0
       },
       englishBody: {
-        color: textColor,
+        color: paperDarkTheme.colors.onSurfaceVariant,
         direction: 'ltr',
         fontFamily: 'philosopher',
         fontSize: englishFontSize,
-        lineHeight: englishFontSize * 1.5,
+        lineHeight: englishFontSize * 1.4,
         opacity: englishOpacity,
         paddingBottom,
         writingDirection: 'ltr'

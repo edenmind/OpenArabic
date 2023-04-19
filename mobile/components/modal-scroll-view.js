@@ -78,7 +78,7 @@ export default ModalScrollView
 
 ModalScrollView.propTypes = {
   title: PropTypes.string.isRequired,
-  titleLanguage: PropTypes.string.isRequired,
+  titleLanguage: PropTypes.string,
   content: PropTypes.any.isRequired,
   visible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,

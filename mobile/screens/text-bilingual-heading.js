@@ -6,7 +6,7 @@ import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const style = StyleSheet.create({
   author: {
-    color: paperDarkTheme.colors.onSurface,
+    color: paperDarkTheme.colors.onSurfaceVariant,
     marginLeft: 35,
     marginRight: 35,
     paddingTop: 15,
@@ -28,7 +28,7 @@ const style = StyleSheet.create({
     textAlign: 'center'
   },
   title: {
-    color: paperDarkTheme.colors.onSurface,
+    color: paperDarkTheme.colors.onBackground,
     fontFamily: 'philosopher',
     paddingTop: 25,
     textAlign: 'center'

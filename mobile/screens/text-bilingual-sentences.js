@@ -8,7 +8,6 @@ import WordPairs from './text-bilingual-sentences-word-pairs-list.js'
 import { useSelector } from 'react-redux'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const filterFunction = (element) => element.english && element.arabic
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
@@ -32,10 +31,7 @@ function TextBilingualSentences(props) {
     <View key={index} style={sharedStyle.container}>
       <Text style={sharedStyle.arabicBody}>{sentence.arabic}</Text>
       {showTransliteration && (
-        <Text
-          style={{ ...sharedStyle.englishBody, direction: 'rtl', color: paperDarkTheme.colors.secondary }}
-          variant="bodyLarge"
-        >
+        <Text style={{ ...sharedStyle.englishBody, direction: 'rtl' }} variant="bodyLarge">
           {util.transliterateArabicToEnglish(sentence.arabic)}
         </Text>
       )}
