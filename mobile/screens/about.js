@@ -11,7 +11,7 @@ function About() {
       padding: 10,
       textAlign: 'center'
     },
-    divider: { margin: 10 },
+    divider: { margin: 10, opacity: 0 },
     english: {
       fontFamily: 'philosopher'
     },
