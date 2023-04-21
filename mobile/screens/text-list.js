@@ -7,7 +7,7 @@ import Spinner from '../components/spinner.js'
 import TextListCard from './text-list-card.js'
 import { useFocusEffect } from '@react-navigation/native'
 import { getHijriDate, getHijriDateLatin } from '../services/utility-service.js'
-import { Text, Surface } from 'react-native-paper'
+import { Text, Surface, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 
 const selector = (state) => state.texts
@@ -15,13 +15,14 @@ const categoriesSelector = (state) => state.categories
 const textsLoadSelector = (state) => state.textsLoading
 
 export default function TextList({ route, navigation }) {
+  const theme = useTheme()
   const { category } = route.params
   const [shouldReload, setShouldReload] = useState(true)
   const { texts } = useSelector(selector)
   const { categories } = useSelector(categoriesSelector)
   const { textsLoading } = useSelector(textsLoadSelector)
   const dispatch = useDispatch()
-  const sharedStyle = useSharedStyles()
+  const sharedStyle = useSharedStyles(theme)
 
   useFocusEffect(
     React.useCallback(() => {

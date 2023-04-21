@@ -1,10 +1,10 @@
 import { View, ScrollView, Alert } from 'react-native'
-import { Text, Surface, Divider } from 'react-native-paper'
+import { Text, Surface, Divider, useTheme } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
-import { paperDarkTheme } from '../constants/paper-theme.js'
+
 import WordsContextHighLighted from '../components/context-highlighted.js'
 import TextPracticeArabicWords from './text-practice-arabic-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
@@ -15,14 +15,15 @@ import { formatGrammar } from '../services/ui-services.js'
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
 const TextPractice = () => {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
   const [currentSentence, setCurrentSentence] = useState(0)
   const [currentWord, setCurrentWord] = useState(0)
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
-  const [color, setColor] = useState(paperDarkTheme.colors.elevation.level1)
+  const [color, setColor] = useState(theme.colors.elevation.level1)
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
   const [explanation, setExplanation] = useState('')
 
@@ -96,7 +97,7 @@ const TextPractice = () => {
       if (id !== currentWord) {
         // wrong answer
         // call vibrateBetweenTwoColors and pass setColor as an argument
-        vibrateBetweenTwoColors(setColor)
+        vibrateBetweenTwoColors(setColor, theme)
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 
         return
@@ -145,7 +146,7 @@ const TextPractice = () => {
         style={{ ...sharedStyle.surface, backgroundColor: color, marginVertical: 10, minHeight: 230, borderRadius: 10 }}
       >
         <View style={sharedStyle.headerContainer}>
-          <Text variant="labelLarge" style={{ color: paperDarkTheme.colors.tertiary }}>
+          <Text variant="labelLarge" style={{ color: theme.colors.tertiary }}>
             Sentence: {currentSentence + 1} of {sentencesInText.length}
           </Text>
           <Divider style={sharedStyle.divider} />

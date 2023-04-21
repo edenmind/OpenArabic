@@ -1,4 +1,4 @@
-import { Button, Divider, List, Text } from 'react-native-paper'
+import { Button, Divider, List, Text, useTheme } from 'react-native-paper'
 import { Linking, ScrollView, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { useSharedStyles } from '../styles/common.js'
@@ -21,7 +21,8 @@ function About() {
     }
   })
 
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
 
   // contact links
   const email = 'mailto:salam@edenmind.com?subject=Question&body=Enter your question...'

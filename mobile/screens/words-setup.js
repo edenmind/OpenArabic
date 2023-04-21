@@ -2,17 +2,17 @@
 /* eslint-disable unicorn/no-nested-ternary */
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Button, Divider, Text, SegmentedButtons } from 'react-native-paper'
+import { Button, Divider, Text, SegmentedButtons, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { getWords } from '../services/api-service.js'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import WordsSetupDifficultyLevel from './words-setup-difficulty-level.js'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const WordsSetup = (props) => {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   const dispatch = useDispatch()
 
   return (
@@ -83,7 +83,7 @@ const WordsSetup = (props) => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }}
       >
-        <Text style={{ color: paperDarkTheme.colors.onPrimary, fontWeight: 800, fontSize: 15 }}>START SESSION</Text>
+        <Text style={{ color: theme.colors.onPrimary, fontWeight: 800, fontSize: 15 }}>START SESSION</Text>
       </Button>
     </ScrollView>
   )

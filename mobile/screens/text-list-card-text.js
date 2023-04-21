@@ -3,31 +3,8 @@ import { StyleSheet, Pressable, Animated } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
 import { prepareIngress } from '../services/utility-service.js'
 import SCREENS from '../constants/screens.js'
-import { Text, Card, Divider } from 'react-native-paper'
+import { Text, Card, Divider, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
-import { paperDarkTheme } from '../constants/paper-theme.js'
-
-const styles = StyleSheet.create({
-  card: {
-    margin: 10
-  },
-  cardAction: {
-    marginRight: 10,
-    paddingBottom: 15,
-    paddingTop: 5
-  },
-  cardSubTitle: {
-    color: paperDarkTheme.colors.outline
-  },
-  cardTitle: {
-    color: paperDarkTheme.colors.onBackground,
-    fontFamily: 'philosopher',
-    paddingVertical: 5
-  },
-  divider: {
-    marginVertical: 10
-  }
-})
 
 const animatedStyle = StyleSheet.create({
   animatedView: {
@@ -56,6 +33,29 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
   const footer = `${text.views} views · ${text.timeAgo} · ${text.readingTime}  `
   const english = text.texts?.english && prepareIngress(text.texts.english, 125)
   const arabic = text.texts?.arabic && prepareIngress(text.texts.arabic, 100)
+  const theme = useTheme()
+
+  const styles = StyleSheet.create({
+    card: {
+      margin: 10
+    },
+    cardAction: {
+      marginRight: 10,
+      paddingBottom: 15,
+      paddingTop: 5
+    },
+    cardSubTitle: {
+      color: theme.colors.outline
+    },
+    cardTitle: {
+      color: theme.colors.onBackground,
+      fontFamily: 'philosopher',
+      paddingVertical: 5
+    },
+    divider: {
+      marginVertical: 10
+    }
+  })
 
   return (
     <Card style={styles.card} testID="textCard" mode="elevated">
@@ -80,14 +80,14 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
             subtitleStyle={styles.cardSubTitle}
           />
           <Card.Content>
-            <Text style={useSharedStyles().arabicBody}>{arabic}</Text>
-            <Text variant="bodyLarge" style={useSharedStyles().englishBody}>
+            <Text style={useSharedStyles(theme).arabicBody}>{arabic}</Text>
+            <Text variant="bodyLarge" style={useSharedStyles(theme).englishBody}>
               {english}
             </Text>
             <Divider style={styles.divider} />
           </Card.Content>
           <Card.Actions style={styles.cardAction}>
-            <Text variant="labelSmall" style={{ color: paperDarkTheme.colors.outline }}>
+            <Text variant="labelSmall" style={{ color: theme.colors.outline }}>
               {footer}
             </Text>
           </Card.Actions>

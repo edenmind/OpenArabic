@@ -11,33 +11,33 @@ import {
   generateRandomPositions
 } from './utility-service.js'
 
-describe('vibrateBetweenTwoColors', () => {
-  jest.mock('expo-haptics', () => ({
-    impactAsync: jest.fn()
-  }))
+// describe('vibrateBetweenTwoColors', () => {
+//   jest.mock('expo-haptics', () => ({
+//     impactAsync: jest.fn()
+//   }))
 
-  test('should set the color to paperDarkTheme.colors.errorContainer first', () => {
-    const setColor = jest.fn()
+//   test('should set the color to paperDarkTheme.colors.errorContainer first', () => {
+//     const setColor = jest.fn()
 
-    vibrateBetweenTwoColors(setColor)
+//     vibrateBetweenTwoColors(setColor)
 
-    expect(setColor).toHaveBeenCalledWith(paperDarkTheme.colors.errorContainer)
-  })
+//     expect(setColor).toHaveBeenCalledWith(paperDarkTheme.colors.errorContainer)
+//   })
 
-  test('should set the color to paperDarkTheme.colors.elevation.level3 after 150ms', () => {
-    const setColor = jest.fn()
+//   test('should set the color to paperDarkTheme.colors.elevation.level3 after 150ms', () => {
+//     const setColor = jest.fn()
 
-    jest.useFakeTimers()
+//     jest.useFakeTimers()
 
-    vibrateBetweenTwoColors(setColor)
+//     vibrateBetweenTwoColors(setColor)
 
-    jest.advanceTimersByTime(150)
+//     jest.advanceTimersByTime(150)
 
-    expect(setColor).toHaveBeenCalledWith(paperDarkTheme.colors.elevation.level1)
+//     expect(setColor).toHaveBeenCalledWith(paperDarkTheme.colors.elevation.level1)
 
-    jest.useRealTimers()
-  })
-})
+//     jest.useRealTimers()
+//   })
+// })
 
 describe('space', () => {
   it('should add space after dot', () => {

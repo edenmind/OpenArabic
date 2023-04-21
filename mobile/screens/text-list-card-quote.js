@@ -1,41 +1,41 @@
 import { prepareIngress } from '../services/utility-service.js'
-import { Text, Card, Divider, Button, Chip } from 'react-native-paper'
+import { Text, Card, Divider, Button, Chip, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback } from 'react'
 import { StyleSheet, Animated, Share } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
 import PlaySound from '../components/play-sound.js'
-import { paperDarkTheme } from '../constants/paper-theme.js'
-
-const styles = StyleSheet.create({
-  card: {
-    margin: 10
-  },
-  cardAction: {
-    marginRight: 10,
-    opacity: 0.7,
-    paddingBottom: 15,
-    paddingTop: 5
-  },
-  chip: {
-    backgroundColor: paperDarkTheme.colors.onPrimary,
-    marginBottom: 5,
-    marginTop: 15,
-    width: 67
-  },
-  labelSmall: {
-    marginBottom: 10,
-    marginRight: 10,
-    marginTop: 10,
-    opacity: 0.7,
-    textAlign: 'right'
-  }
-})
 
 export default function TextListCardQuote({ text }) {
   const [scaleValue] = useState(new Animated.Value(1))
   const hadithTitle = `${text.author} in ${text.source}`
   const englishHadith = `"${text.texts.english}"`
+
+  const theme = useTheme()
+  const styles = StyleSheet.create({
+    card: {
+      margin: 10
+    },
+    cardAction: {
+      marginRight: 10,
+      opacity: 0.7,
+      paddingBottom: 15,
+      paddingTop: 5
+    },
+    chip: {
+      backgroundColor: theme.colors.onPrimary,
+      marginBottom: 5,
+      marginTop: 15,
+      width: 67
+    },
+    labelSmall: {
+      marginBottom: 10,
+      marginRight: 10,
+      marginTop: 10,
+      opacity: 0.7,
+      textAlign: 'right'
+    }
+  })
 
   const onShare = useCallback(async () => {
     const arabic = prepareIngress(text.texts.arabic, 100)
@@ -50,7 +50,7 @@ export default function TextListCardQuote({ text }) {
     transform: [{ scale: scaleValue }]
   }
 
-  const sharedStyle = useSharedStyles()
+  const sharedStyle = useSharedStyles(theme)
 
   return (
     <Animated.View style={animatedStyle}>
@@ -76,7 +76,7 @@ export default function TextListCardQuote({ text }) {
         <Card.Actions style={{ ...styles.cardAction, opacity: 1 }}>
           <PlaySound audioFileName={text.sentences[0].filename} buttonText={'LISTEN'} />
           <Button onPress={onShare}>
-            <Text style={{ color: paperDarkTheme.colors.onPrimary }}>SHARE</Text>
+            <Text style={{ color: theme.colors.onPrimary }}>SHARE</Text>
           </Button>
         </Card.Actions>
       </Card>

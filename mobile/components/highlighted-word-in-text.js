@@ -1,9 +1,9 @@
-import { Text } from 'react-native-paper'
+import { Text, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const HighlightedWordInText = ({ word, text }) => {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   const splitText = text.split(' ')
   const newText = []
 
@@ -15,8 +15,8 @@ const HighlightedWordInText = ({ word, text }) => {
           key={index}
           style={{
             ...sharedStyle.arabicBody,
-            backgroundColor: paperDarkTheme.colors.primary,
-            color: paperDarkTheme.colors.onPrimary,
+            backgroundColor: theme.colors.primary,
+            color: theme.colors.onPrimary,
             fontSize: 37,
             lineHeight: 70
           }}

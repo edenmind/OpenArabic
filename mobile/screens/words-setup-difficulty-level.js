@@ -2,12 +2,13 @@
 /* eslint-disable unicorn/no-nested-ternary */
 import React from 'react'
 import { View, Image } from 'react-native'
-import { Divider, Surface, Text } from 'react-native-paper'
+import { Divider, Surface, Text, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
 
 const WordsSetupDifficultyLevel = (props) => {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   let source
   let goal
 

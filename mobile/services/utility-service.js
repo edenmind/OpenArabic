@@ -1,7 +1,6 @@
 /* eslint-disable unicorn/number-literal-case */
 /* eslint-disable quote-props */
 import * as Haptics from 'expo-haptics'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 
 export const generateRandomPositions = () => {
   const positions = []
@@ -37,12 +36,12 @@ const truncate = (stringToTruncate, truncateLength) => {
   return cleanString
 }
 
-export const vibrateBetweenTwoColors = (setColor) => {
-  setColor(paperDarkTheme.colors.errorContainer)
+export const vibrateBetweenTwoColors = (setColor, theme) => {
+  setColor(theme.colors.errorContainer)
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 
   setTimeout(() => {
-    setColor(paperDarkTheme.colors.elevation.level1)
+    setColor(theme.colors.elevation.level1)
   }, 150)
 }
 

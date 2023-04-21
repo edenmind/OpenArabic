@@ -4,8 +4,7 @@
 /* eslint-disable react-native/no-color-literals */
 import React, { useState, useCallback, memo, useEffect } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
-import { Surface, Text, ProgressBar, Button } from 'react-native-paper'
-import { paperDarkTheme } from '../constants/paper-theme.js'
+import { Surface, Text, ProgressBar, Button, useTheme } from 'react-native-paper'
 import SnackButton from '../components/snack-button.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
@@ -15,32 +14,6 @@ import HighlightedWordInText from '../components/highlighted-word-in-text.js'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import { formatGrammar } from '../services/ui-services.js'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 10
-  },
-  footer: {
-    color: paperDarkTheme.colors.secondary,
-    fontFamily: 'philosopher',
-    fontSize: 15
-  },
-  surface: {
-    alignItems: 'center',
-    borderRadius: 10,
-    justifyContent: 'center',
-    marginBottom: 10,
-    minHeight: 300
-  },
-  text: {
-    color: paperDarkTheme.colors.primary,
-    fontSize: 23,
-    fontWeight: 'bold',
-    lineHeight: 55,
-    textAlign: 'center'
-  }
-})
 
 const wordsSelector = (state) => state.words
 
@@ -55,16 +28,43 @@ const WordsContent = ({
   celebrationSnackBarVisibility,
   handleSetCelebrationSnackBarVisibility
 }) => {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
   const { words } = useSelector(wordsSelector)
-  const [color, setColor] = useState(paperDarkTheme.colors.elevation.level3)
+  const [color, setColor] = useState(theme.colors.elevation.level3)
   const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
   const [timeoutId, setTimeoutId] = useState()
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
   const [visible, setVisible] = React.useState(false)
+  const sharedStyle = useSharedStyles(theme)
 
   const dispatch = useDispatch()
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      margin: 10
+    },
+    footer: {
+      color: theme.colors.secondary,
+      fontFamily: 'philosopher',
+      fontSize: 15
+    },
+    surface: {
+      alignItems: 'center',
+      borderRadius: 10,
+      justifyContent: 'center',
+      marginBottom: 10,
+      minHeight: 300
+    },
+    text: {
+      color: theme.colors.primary,
+      fontSize: 23,
+      fontWeight: 'bold',
+      lineHeight: 55,
+      textAlign: 'center'
+    }
+  })
 
   useEffect(() => {
     return () => {
@@ -94,7 +94,7 @@ const WordsContent = ({
   }, [handleSetCurrentWord, handleSetCurrentWordIndex])
 
   const handleWrongAnswer = useCallback(() => {
-    vibrateBetweenTwoColors(setColor)
+    vibrateBetweenTwoColors(setColor, theme)
   }, [setColor])
 
   // correct answer button
@@ -143,7 +143,7 @@ const WordsContent = ({
 
   const details = (
     <View style={{ margin: 3, padding: 3 }}>
-      <Text style={{ ...useSharedStyles().englishBody }} variant="bodyLarge">
+      <Text style={{ ...useSharedStyles(theme).englishBody }} variant="bodyLarge">
         {formatGrammar(words[currentWord].grammar, sharedStyle) ?? 'No explanation available'}
       </Text>
     </View>
@@ -198,7 +198,7 @@ const WordsContent = ({
   )
 }
 
-export default memo(WordsContent)
+export default WordsContent
 
 WordsContent.propTypes = {
   currentWord: PropTypes.number.isRequired,

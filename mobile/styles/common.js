@@ -1,13 +1,12 @@
 import { useMemo } from 'react'
 import { StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const arabicSelector = (state) => state.arabicFontSize
 const englishSelector = (state) => state.englishFontSize
 const arabicFontNameSelector = (state) => state.arabicFontName
 
-export const useSharedStyles = () => {
+export const useSharedStyles = (theme) => {
   const { arabicFontSize } = useSelector(arabicSelector) || { arabicFontSize: 19 }
   const { englishFontSize } = useSelector(englishSelector) || { englishFontSize: 17 }
   const { arabicFontName } = useSelector(arabicFontNameSelector) || { arabicFontName: 'uthman' }
@@ -16,7 +15,7 @@ export const useSharedStyles = () => {
   const paddingBottom = 10
   const horizontalMargin = 33
   const verticalMargin = 33
-  const textColor = paperDarkTheme.colors.onBackground
+  const textColor = theme.colors.onBackground
 
   return useMemo(() => {
     const FONT_WEIGHTS = {
@@ -42,7 +41,7 @@ export const useSharedStyles = () => {
         writingDirection: 'rtl'
       },
       arabicDateArabic: {
-        color: paperDarkTheme.colors.tertiary,
+        color: theme.colors.tertiary,
         fontFamily: 'amiri',
         fontSize: 21,
         paddingLeft: 75,
@@ -51,7 +50,7 @@ export const useSharedStyles = () => {
         textAlign: 'center'
       },
       arabicDateLatin: {
-        color: paperDarkTheme.colors.tertiary,
+        color: theme.colors.tertiary,
         fontFamily: 'philosopher',
         fontSize: 15,
         paddingBottom: 10,
@@ -60,7 +59,7 @@ export const useSharedStyles = () => {
         textAlign: 'center'
       },
       arabicFooter: {
-        color: paperDarkTheme.colors.secondary,
+        color: theme.colors.secondary,
         fontFamily: 'amiri',
         fontSize: 19,
         paddingBottom: 10,
@@ -71,18 +70,17 @@ export const useSharedStyles = () => {
         writingDirection: 'rtl'
       },
       arabicHeading: {
-        color: paperDarkTheme.colors.onBackground,
+        color: theme.colors.onBackground,
         fontFamily: arabicFontName,
         fontSize: 35
       },
       button: {
-        backgroundColor: paperDarkTheme.colors.onPrimary,
         marginBottom: 10,
         marginTop: 10
       },
       buttonAnswer: {
-        backgroundColor: paperDarkTheme.colors.elevation.level1,
-        borderBottomColor: paperDarkTheme.colors.elevation.level5,
+        backgroundColor: theme.colors.elevation.level1,
+        borderBottomColor: theme.colors.elevation.level5,
         borderBottomWidth: 5,
         marginBottom: 5,
         marginTop: 5
@@ -103,7 +101,7 @@ export const useSharedStyles = () => {
         opacity: 0
       },
       englishBody: {
-        color: paperDarkTheme.colors.onSurfaceVariant,
+        color: theme.colors.onSurfaceVariant,
         direction: 'ltr',
         fontFamily: 'philosopher',
         fontSize: englishFontSize,

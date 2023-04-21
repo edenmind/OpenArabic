@@ -5,7 +5,7 @@ import { useSharedStyles } from '../styles/common.js'
 
 const SnackButton = (props) => {
   const theme = useTheme()
-  const sharedStyle = useSharedStyles()
+  const sharedStyle = useSharedStyles(theme)
 
   return (
     <Snackbar theme={theme} visible={props.visible} onDismiss={props.onDismissSnackBar} duration={1500}>

@@ -12,7 +12,8 @@ const rootReducer = combineReducers({
   isTransliterationOn: UIStateReducer,
   arabicFontName: UIStateReducer,
   practicingWords: UIStateReducer,
-  words: wordsReducer
+  words: wordsReducer,
+  isDarkMode: UIStateReducer
 })
 
 const store = configureStore({

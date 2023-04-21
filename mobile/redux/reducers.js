@@ -78,7 +78,8 @@ const initialStateUI = {
   arabicFontName: 'uthman',
   textLoading: true,
   textsLoading: true,
-  practicingWords: false
+  practicingWords: false,
+  isDarkMode: false
 }
 
 const UIStateReducer = createReducer(initialStateUI, (builder) => {
@@ -102,6 +103,9 @@ const UIStateReducer = createReducer(initialStateUI, (builder) => {
   })
   builder.addCase(actions.SET_PRACTICING_WORDS, (state, action) => {
     return { ...state, practicingWords: action.payload }
+  })
+  builder.addCase(actions.SET_DARK_MODE, (state, action) => {
+    return { ...state, isDarkMode: action.payload }
   })
 })
 
