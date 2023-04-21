@@ -1,13 +1,12 @@
 import React, { useRef, useEffect } from 'react'
 import { View, Animated } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import { useSharedStyles } from '../styles/common.js'
 import HighlightedWord from './context-highlighted-word.js'
-import { paperDarkTheme } from '../constants/paper-theme.js'
-
 const WordsContextHighLighted = (props) => {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   const fadeAnim = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
@@ -62,7 +61,7 @@ const WordsContextHighLighted = (props) => {
       <Text style={{ ...sharedStyle.arabicBody, paddingBottom: 10 }}>
         {props.arabicSentence}
         <Animated.View style={{ opacity: fadeAnim }}>
-          <Text style={{ ...sharedStyle.arabicBody, color: paperDarkTheme.colors.tertiary }}>...</Text>
+          <Text style={{ ...sharedStyle.arabicBody, color: theme.colors.tertiary }}>...</Text>
         </Animated.View>
       </Text>
     </View>

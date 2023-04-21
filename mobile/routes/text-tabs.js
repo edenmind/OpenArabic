@@ -8,12 +8,12 @@ import TextArabic from '../screens/text-arabic.js'
 import TextBilingual from '../screens/text-bilingual.js'
 import OrderingWordsInASentence from '../screens/text-practice.js'
 import { getText } from '../services/api-service.js'
-import { paperDarkTheme } from '../constants/paper-theme.js'
-
+import { useTheme } from 'react-native-paper'
 const Tab = createMaterialTopTabNavigator()
 
 export default function TextTabs({ route }) {
   const dispatch = useDispatch()
+  const theme = useTheme()
   const { id } = route.params
   const [isLoading, setIsLoading] = useState(true)
 
@@ -45,7 +45,7 @@ export default function TextTabs({ route }) {
                 textTransform: 'none'
               },
               tabBarStyle: {
-                backgroundColor: paperDarkTheme.colors.background
+                backgroundColor: theme.colors.background
               }
             }}
           >

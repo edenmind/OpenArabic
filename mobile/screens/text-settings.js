@@ -1,4 +1,4 @@
-import { Text, SegmentedButtons, Surface, Switch } from 'react-native-paper'
+import { Text, SegmentedButtons, Surface, Switch, useTheme } from 'react-native-paper'
 import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { storeData, getData } from '../services/storage.js'
@@ -25,7 +25,8 @@ function TextSettings() {
   const [englishFontSizeValue, setEnglishSizeValue] = React.useState(DEFAULT_ENGLISH_FONT_SIZE) // default font size
   const [arabicFontSizeValue, setArabicSizeValue] = React.useState(DEFAULT_ARABIC_FONT_SIZE) // default font size
   const [isTransliterationOn, setIsTransliterationOn] = React.useState(true)
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   const dispatch = useDispatch()
 
   // store arabic font name

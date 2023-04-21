@@ -1,5 +1,5 @@
 import * as util from '../services/utility-service.js'
-import { Button, Text } from 'react-native-paper'
+import { Button, Text, useTheme } from 'react-native-paper'
 import React from 'react'
 import { View } from 'react-native'
 import ModalScrollView from '../components/modal-scroll-view.js'
@@ -13,8 +13,9 @@ const filterFunction = (element) => element.english && element.arabic
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
 
 function TextBilingualSentences(props) {
+  const theme = useTheme()
   const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
-  const sharedStyle = useSharedStyles()
+  const sharedStyle = useSharedStyles(theme)
 
   //if isTransliterationOn is a string with value on then set showTransliteration to true
   const showTransliteration = isTransliterationOn === 'on'

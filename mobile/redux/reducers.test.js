@@ -93,6 +93,7 @@ it('UIStateReducer', () => {
     isTransliterationOn: 'on',
     textLoading: true,
     textsLoading: true,
-    practicingWords: false
+    practicingWords: false,
+    isDarkMode: false
   })
 })

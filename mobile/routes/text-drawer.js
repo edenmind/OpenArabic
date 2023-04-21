@@ -1,6 +1,6 @@
-import { Caption, Divider, Switch, Text } from 'react-native-paper'
+import { Caption, Divider, Switch, Text, useTheme } from 'react-native-paper'
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
-import { Image, StyleSheet } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import SCREENS from '../constants/screens.js'
@@ -9,53 +9,82 @@ import { getCategories } from '../services/api-service.js'
 import icon from '../assets/logo.png'
 import packageJson from '../package.json'
 import { useFocusEffect } from '@react-navigation/core'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 
+import { storeData, getData } from '../services/storage.js'
 const selector = (state) => state.categories
-
-const style = StyleSheet.create({
-  darkLightMode: {
-    bottom: 45,
-    left: 0,
-    margin: 15,
-    position: 'absolute'
-  },
-  divider: {
-    margin: 15
-  },
-  icon: {
-    height: 55,
-    marginLeft: 10,
-    width: 55
-  },
-  semver: {
-    bottom: 10,
-    color: paperDarkTheme.colors.tertiary,
-    left: 0,
-    margin: 15,
-    position: 'absolute'
-  },
-  title: {
-    color: paperDarkTheme.colors.onSurface,
-    fontFamily: 'philosopher',
-    marginBottom: 10,
-    marginLeft: 15,
-    marginTop: 10
-  },
-  version: {
-    bottom: 15,
-    color: paperDarkTheme.colors.onSurfaceVariant,
-    left: 0,
-    margin: 15,
-    position: 'absolute'
-  }
-})
 
 export default function TextDrawer() {
   const Drawer = createDrawerNavigator()
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
   const hijriYear = `${packageJson.version} ١٤٤٤ هـ`
+  const [isDarkModeOn, setIsDarkModeOn] = React.useState(false)
+  const theme = useTheme()
+
+  const style = StyleSheet.create({
+    darkLightMode: {
+      bottom: 75,
+      left: 0,
+      margin: 15,
+      position: 'absolute'
+    },
+    darkModeLabel: {
+      bottom: 50,
+      color: theme.colors.onSurfaceVariant,
+      left: 0,
+      margin: 15,
+      position: 'absolute'
+    },
+    divider: {
+      margin: 15
+    },
+    icon: {
+      height: 55,
+      marginLeft: 10,
+      width: 55
+    },
+    semver: {
+      bottom: 10,
+      color: theme.colors.tertiary,
+      left: 0,
+      margin: 15,
+      position: 'absolute'
+    },
+    title: {
+      color: theme.colors.onSurface,
+      fontFamily: 'philosopher',
+      marginBottom: 10,
+      marginLeft: 15,
+      marginTop: 10
+    },
+    version: {
+      bottom: 15,
+      color: theme.colors.onSurfaceVariant,
+      left: 0,
+      margin: 15,
+      position: 'absolute'
+    }
+  })
+
+  React.useEffect(() => {
+    getDarkMode()
+  }, [])
+
+  // store a value using storeData
+  const storeDarkMode = async (value) => {
+    // we need to convert the value to a string before storing it
+    const boolValuesForDarkMode = value === true ? 'on' : 'off'
+
+    await storeData('isDarkModeOn', boolValuesForDarkMode)
+    dispatch({ type: 'SET_DARK_MODE', payload: !value })
+  }
+
+  // get a value using getData
+  const getDarkMode = async () => {
+    const value = await getData('isDarkModeOn')
+
+    setIsDarkModeOn(value === 'on')
+  }
 
   const categoryItems = categories.map((category) => (
     <Drawer.Screen
@@ -88,7 +117,17 @@ export default function TextDrawer() {
           <DrawerItemList {...props} />
           <Divider style={style.divider} />
         </DrawerContentScrollView>
-        <Switch value={false} style={style.darkLightMode} />
+        <View>
+          <Text style={style.darkModeLabel}>Dark Mode</Text>
+          <Switch
+            value={isDarkModeOn}
+            style={style.darkLightMode}
+            onValueChange={(value) => {
+              storeDarkMode(value)
+              setIsDarkModeOn(value)
+            }}
+          />
+        </View>
         <Text style={style.version} variant="labelMedium">
           Version
         </Text>
@@ -120,14 +159,14 @@ export default function TextDrawer() {
         drawerStyle: {
           width: 225
         },
-        headerTintColor: paperDarkTheme.colors.onBackground,
+        headerTintColor: theme.colors.onBackground,
         headerStyle: {
-          backgroundColor: paperDarkTheme.colors.background
+          backgroundColor: theme.colors.background
         },
         headerTitleStyle: {
           fontFamily: 'philosopher',
           fontSize: 23,
-          color: paperDarkTheme.colors.onSurface
+          color: theme.colors.onSurface
         }
       }}
     >

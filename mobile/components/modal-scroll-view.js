@@ -1,8 +1,8 @@
-import { Button, Divider, Modal, Portal, Text } from 'react-native-paper'
+import { Button, Divider, Modal, Portal, Text, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
-import { paperDarkTheme } from '../constants/paper-theme.js'
+
 import * as Haptics from 'expo-haptics'
 import { useSharedStyles } from '../styles/common.js'
 // eslint-disable-next-line putout/destructuring-as-function-argument
@@ -15,7 +15,8 @@ const ModalScrollView = ({
   close = 'CLOSE',
   titleLanguage = 'arabic'
 }) => {
-  const sharedStyled = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyled = useSharedStyles(theme)
   const styles = StyleSheet.create({
     buttonPadding: {
       marginBottom: 15,
@@ -25,7 +26,7 @@ const ModalScrollView = ({
     },
 
     containerStyle: {
-      backgroundColor: paperDarkTheme.colors.background,
+      backgroundColor: theme.colors.background,
       borderRadius: 15,
       height,
       margin: 10,

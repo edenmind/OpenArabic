@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import { ScrollView, View, StyleSheet, Platform } from 'react-native'
-import { Text, Chip, Divider } from 'react-native-paper'
+import { Text, Chip, Divider, useTheme } from 'react-native-paper'
 import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
 })
 
 function TextArabic() {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   const [englishTranslation, setEnglishTranslation] = React.useState('Tap for Translation and Audio...')
 
   const { text } = useSelector(textSelector)

@@ -1,43 +1,42 @@
-import { Text, Divider } from 'react-native-paper'
+import { Text, Divider, useTheme } from 'react-native-paper'
 import { Image, StyleSheet } from 'react-native'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { paperDarkTheme } from '../constants/paper-theme.js'
-
-const style = StyleSheet.create({
-  author: {
-    color: paperDarkTheme.colors.onSurfaceVariant,
-    marginLeft: 35,
-    marginRight: 35,
-    paddingTop: 15,
-    textAlign: 'center'
-  },
-  divider: {
-    marginLeft: 15,
-    marginRight: 15,
-    marginTop: 25
-  },
-  image: {
-    height: 250,
-    width: '100%'
-  },
-  reading: {
-    color: paperDarkTheme.colors.outline,
-    paddingBottom: 10,
-    paddingTop: 20,
-    textAlign: 'center'
-  },
-  title: {
-    color: paperDarkTheme.colors.onBackground,
-    fontFamily: 'philosopher',
-    paddingTop: 25,
-    textAlign: 'center'
-  }
-})
 
 export default function TextBilingualHeading({ heading }) {
   const { author, source, readingTime, views, timeAgo, image, title } = heading
   const caption = `${readingTime} · ${views} views · ${timeAgo}`
+  const theme = useTheme()
+  const style = StyleSheet.create({
+    author: {
+      color: theme.colors.onSurfaceVariant,
+      marginLeft: 35,
+      marginRight: 35,
+      paddingTop: 15,
+      textAlign: 'center'
+    },
+    divider: {
+      marginLeft: 15,
+      marginRight: 15,
+      marginTop: 25
+    },
+    image: {
+      height: 250,
+      width: '100%'
+    },
+    reading: {
+      color: theme.colors.outline,
+      paddingBottom: 10,
+      paddingTop: 20,
+      textAlign: 'center'
+    },
+    title: {
+      color: theme.colors.onBackground,
+      fontFamily: 'philosopher',
+      paddingTop: 25,
+      textAlign: 'center'
+    }
+  })
 
   return (
     <>

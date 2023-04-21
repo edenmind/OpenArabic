@@ -2,12 +2,11 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
-import { Divider, Text, Button } from 'react-native-paper'
+import { Divider, Text, Button, useTheme } from 'react-native-paper'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import { formatGrammar } from '../services/ui-services.js'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 
 const EXPLAIN = 'EXPLAIN'
 
@@ -23,7 +22,8 @@ const styles = StyleSheet.create({
 })
 
 function TextBilingualSentencesWords({ word }) {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   const [visible, setVisible] = React.useState(false)
   const showModal = () => setVisible(true)
   const hideModal = () => setVisible(false)
@@ -41,7 +41,7 @@ function TextBilingualSentencesWords({ word }) {
       <View style={styles.row}>
         <View style={styles.flexOne}>
           <Text style={sharedStyle.arabicHeading}>{word.arabic}</Text>
-          <Text style={{ marginRight: 30, color: paperDarkTheme.colors.onSurfaceVariant }}>
+          <Text style={{ marginRight: 30, color: theme.colors.onSurfaceVariant }}>
             {word.english.charAt(0).toUpperCase() + word.english.slice(1)}
           </Text>
         </View>

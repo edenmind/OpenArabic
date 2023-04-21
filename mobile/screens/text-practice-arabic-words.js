@@ -1,7 +1,6 @@
 import { View, Platform, StyleSheet } from 'react-native'
-import { Text, Button } from 'react-native-paper'
+import { Text, Button, useTheme } from 'react-native-paper'
 import React from 'react'
-import { paperDarkTheme } from '../constants/paper-theme.js'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
 
@@ -13,7 +12,9 @@ const styles = StyleSheet.create({
 
 // create a component for each word in the arabicWords array in the sentencesInText array for the currentSentence and wrap them with a button
 const TextPracticeArabicWords = (props) => {
-  const sharedStyle = useSharedStyles()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
+
   return (
     <View style={styles.rowWrapper}>
       {props.currentArabicWordsInSentence.map((word, index) => (
@@ -33,7 +34,7 @@ const TextPracticeArabicWords = (props) => {
               fontWeight: '600',
 
               lineHeight: Platform.OS === 'android' ? 90 : 70,
-              color: paperDarkTheme.colors.primary
+              color: theme.colors.primary
             }}
           >
             {word.arabic}

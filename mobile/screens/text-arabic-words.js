@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import { Platform } from 'react-native'
-import { Text, Button } from 'react-native-paper'
+import { Text, Button, useTheme } from 'react-native-paper'
 import React from 'react'
 import * as util from '../services/utility-service.js'
 import * as Haptics from 'expo-haptics'
@@ -9,8 +9,9 @@ import PropTypes from 'prop-types'
 import { Audio } from 'expo-av'
 
 export default function TextArabicWords({ text, setEnglishTranslation }) {
-  const sharedStyle = useSharedStyles()
   const [sound, setSound] = React.useState()
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
 
   const playSound = async (filename) => {
     const { sound } = await Audio.Sound.createAsync(
