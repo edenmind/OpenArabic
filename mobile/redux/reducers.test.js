@@ -94,6 +94,6 @@ it('UIStateReducer', () => {
     textLoading: true,
     textsLoading: true,
     practicingWords: false,
-    isDarkMode: false
+    isDarkMode: true
   })
 })

@@ -16,13 +16,13 @@ const WordsSetupDifficultyLevel = (props) => {
     case 10: {
       source = require('../assets/beginner.jpeg')
       goal =
-        'Learn the vocabulary in the Shahada (testimony of faith) and short Surahs (Al-Fatiha, Al-Ikhlas, Al-Falaq, and An-Nas).'
+        'Learn the words in the Shahada (testimony of faith) and short Surahs (Al-Fatiha, Al-Ikhlas, Al-Falaq, and An-Nas).'
 
       break
     }
     case 20: {
       source = require('../assets/mid-level.jpeg')
-      goal = 'Learn vocabulary in the five daily prayers and additional short Surahs from Juz Amma in the Quran.'
+      goal = 'Learn the words in the five daily prayers and additional short Surahs from Juz Amma in the Quran.'
 
       break
     }
@@ -39,11 +39,10 @@ const WordsSetupDifficultyLevel = (props) => {
   }
 
   return (
-    <Surface style={{ borderRadius: 10, minHeight: 330 }}>
+    <Surface style={{ borderRadius: 10, minHeight: 310 }}>
       <Image source={source} style={{ width: '100%', height: 190 }} />
       <View style={{ padding: 10 }}>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        <Text variant="titleMedium">Goal</Text>
         <Text style={{ ...sharedStyle.englishBody }}>{goal}</Text>
       </View>
     </Surface>

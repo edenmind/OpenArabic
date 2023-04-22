@@ -10,7 +10,7 @@ export const useSharedStyles = (theme) => {
   const { arabicFontSize } = useSelector(arabicSelector) || { arabicFontSize: 19 }
   const { englishFontSize } = useSelector(englishSelector) || { englishFontSize: 17 }
   const { arabicFontName } = useSelector(arabicFontNameSelector) || { arabicFontName: 'uthman' }
-  const englishOpacity = 0.9
+  const englishOpacity = 1
   const arabicOpacity = 1
   const paddingBottom = 10
   const horizontalMargin = 33
@@ -33,8 +33,8 @@ export const useSharedStyles = (theme) => {
       arabicBody: {
         color: textColor,
         fontFamily: arabicFontName,
-        fontSize: arabicFontSizeWeighted(),
-        lineHeight: arabicFontSize * 2,
+        fontSize: arabicFontSizeWeighted() * 1.1,
+        lineHeight: arabicFontSize * 2.9,
         opacity: arabicOpacity,
         paddingBottom,
         textAlign: 'right',
@@ -104,8 +104,8 @@ export const useSharedStyles = (theme) => {
         color: theme.colors.onSurfaceVariant,
         direction: 'ltr',
         fontFamily: 'philosopher',
-        fontSize: englishFontSize,
-        lineHeight: englishFontSize * 1.4,
+        fontSize: englishFontSize * 1.1,
+        lineHeight: englishFontSize * 1.5,
         opacity: englishOpacity,
         paddingBottom,
         writingDirection: 'ltr'
@@ -127,5 +127,16 @@ export const useSharedStyles = (theme) => {
         writingDirection: 'ltr'
       }
     })
-  }, [arabicFontName, arabicFontSize, textColor, englishFontSize])
+  }, [
+    textColor,
+    arabicFontName,
+    arabicFontSize,
+    theme.colors.tertiary,
+    theme.colors.secondary,
+    theme.colors.onBackground,
+    theme.colors.elevation.level1,
+    theme.colors.elevation.level5,
+    theme.colors.onSurfaceVariant,
+    englishFontSize
+  ])
 }

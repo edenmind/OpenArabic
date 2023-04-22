@@ -9,7 +9,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 const style = StyleSheet.create({
   element: {
     paddingBottom: 10,
-    paddingTop: 25
+    paddingTop: 15
   },
   surface: {
     padding: 15
@@ -117,7 +117,7 @@ function TextSettings() {
 
   return (
     <ScrollView style={style.surface}>
-      <Surface style={style.surface} elevation={1}>
+      <Surface style={{ ...style.surface, borderRadius: 10 }} elevation={1}>
         <Text style={sharedStyle.arabicBody}>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</Text>
         {isTransliterationOn ? (
           <Text style={sharedStyle.englishBody}>bismi allāhi alraḥmāni alraḥīmi</Text>
@@ -126,11 +126,9 @@ function TextSettings() {
         )}
         <Text style={sharedStyle.englishBody}>In the Name of Allah, the Most Gracious, the Most Merciful.</Text>
       </Surface>
-
       <Text variant="labelMedium" style={style.element}>
         Arabic Font Size
       </Text>
-
       <SegmentedButtons
         value={arabicFontSizeValue}
         onValueChange={(value) => {
@@ -140,7 +138,7 @@ function TextSettings() {
         buttons={[
           {
             value: '14',
-            label: 'X-Small'
+            label: 'Tiny'
           },
           {
             value: '16',
@@ -156,11 +154,9 @@ function TextSettings() {
           }
         ]}
       />
-
       <Text variant="labelMedium" style={style.element}>
         English Font Size
       </Text>
-
       <SegmentedButtons
         value={englishFontSizeValue}
         density="small"
@@ -171,7 +167,7 @@ function TextSettings() {
         buttons={[
           {
             value: '15',
-            label: 'X-Small'
+            label: 'Tiny'
           },
           {
             value: '16',
@@ -187,11 +183,9 @@ function TextSettings() {
           }
         ]}
       />
-
       <Text variant="labelMedium" style={style.element}>
         Arabic Font
       </Text>
-
       <SegmentedButtons
         value={arabicFontName}
         density="small"
@@ -219,11 +213,12 @@ function TextSettings() {
         ]}
       />
 
-      <Text variant="labelMedium" style={style.element}>
-        Transliteration
-      </Text>
       <View style={{ alignItems: 'flex-start' }}>
+        <Text variant="labelMedium" style={style.element}>
+          Transliteration
+        </Text>
         <Switch
+          style={{ paddingTop: 0, marginTop: 0 }}
           value={isTransliterationOn}
           onValueChange={(value) => {
             storeTransliteration(value)
@@ -231,6 +226,10 @@ function TextSettings() {
           }}
         />
       </View>
+      <Text style={{ ...sharedStyle.englishBody, paddingTop: 5 }}>
+        Transliteration converts Arabic letters into Latin letters, allowing people who can not read Arabic to
+        understand and pronounce Arabic words using familiar letters.
+      </Text>
     </ScrollView>
   )
 }

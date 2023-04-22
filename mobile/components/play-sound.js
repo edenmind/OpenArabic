@@ -24,7 +24,10 @@ export default function PlaySound({ audioFileName, buttonText }) {
         shouldCorrectPitch: false,
         volume: 1,
         isMuted: false,
-        isLooping: false
+        isLooping: false,
+        isPlaybackAllowed: true,
+        isLoopingIOS: false,
+        isMutedIOS: false
       }
     )
 
@@ -41,7 +44,7 @@ export default function PlaySound({ audioFileName, buttonText }) {
   }, [sound])
 
   return (
-    <Button onPress={playSound} mode="elevated" style={styles.button}>
+    <Button onPress={playSound} mode="elevated" style={styles.button} icon={'play'}>
       {buttonText}
     </Button>
   )

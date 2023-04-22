@@ -29,11 +29,9 @@ function TextBilingualSentencesWords({ word }) {
   const hideModal = () => setVisible(false)
 
   const explanation = (
-    <View style={{ padding: 15, paddingTop: 20 }}>
-      <Text style={{ ...sharedStyle.englishBody, fontSize: 19, lineHeight: 29 }}>
-        {formatGrammar(word.grammar, sharedStyle)}
-      </Text>
-    </View>
+    <Text style={{ ...sharedStyle.englishBody, fontSize: 19, lineHeight: 29 }}>
+      {formatGrammar(word.grammar, sharedStyle)}
+    </Text>
   )
 
   return (
@@ -47,14 +45,16 @@ function TextBilingualSentencesWords({ word }) {
         </View>
         <View style={styles.flexOne}>
           <PlaySound audioFileName={word.filename} buttonText={'PLAY'} />
-          <Button mode="elevated" onPress={showModal}>
+          <Button mode="text" onPress={showModal}>
             {EXPLAIN}
           </Button>
         </View>
       </View>
       <ModalScrollView
         visible={visible}
-        content={<Text>{explanation}</Text>}
+        content=<View style={{ margin: 5, padding: 5 }}>
+          <Text variant="bodyLarge">{explanation ?? 'No explanation available'}</Text>
+        </View>
         title={word.arabic}
         hideModal={hideModal}
         height="77%"

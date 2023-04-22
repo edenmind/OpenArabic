@@ -6,11 +6,8 @@ import merge from 'deepmerge'
 export const paperDefaultTheme = {
   ...MD3LightTheme,
   version: 3,
-  dark: true,
+  dark: false,
   mode: 'adaptive',
-  animation: {
-    scale: 1
-  },
   colors: {
     primary: 'rgb(56, 107, 1)',
     onPrimary: 'rgb(255, 255, 255)',
@@ -70,9 +67,6 @@ export const paperDarkTheme = {
   version: 3,
   dark: true,
   mode: 'adaptive',
-  animation: {
-    scale: 1
-  },
   colors: {
     primary: 'rgb(156, 215, 105)',
     onPrimary: 'rgb(26, 55, 0)',

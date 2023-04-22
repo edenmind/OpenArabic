@@ -28,6 +28,12 @@ function Root() {
       />
       <NavigationContainer theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
         <Tab.Navigator
+          activeColor={
+            isDarkModeOn.isDarkMode ? CombinedDefaultTheme.colors.secondary : CombinedDarkTheme.colors.secondary
+          }
+          inactiveColor={
+            isDarkModeOn.isDarkMode ? CombinedDefaultTheme.colors.secondary : CombinedDarkTheme.colors.secondary
+          }
           barStyle={{
             height: 75,
             backgroundColor: isDarkModeOn.isDarkMode
@@ -45,11 +51,11 @@ function Root() {
 
               switch (route.name) {
                 case SCREENS.text: {
-                  iconName = 'script-text'
+                  iconName = 'home'
                   break
                 }
                 case SCREENS.words: {
-                  iconName = 'comment-check'
+                  iconName = 'script-text'
                   break
                 }
                 case SCREENS.settings: {

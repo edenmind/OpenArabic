@@ -161,7 +161,7 @@ const WordsContent = ({
         <>
           <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} />
           <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 300 }}>
-            <Text style={{ ...styles.arabicBody, width: '95%', padding: 10 }}>
+            <Text style={{ ...styles.arabicBody, width: '95%', padding: 10, textAlign: 'right' }}>
               {words[currentWord]?.arabicSentence && (
                 <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
               )}

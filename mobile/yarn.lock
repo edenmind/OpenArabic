@@ -2418,10 +2418,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.38.0":
-  version: 8.38.0
-  resolution: "@eslint/js@npm:8.38.0"
-  checksum: 1f28987aa8c9cd93e23384e16c7220863b39b5dc4b66e46d7cdbccce868040f455a98d24cd8b567a884f26545a0555b761f7328d4a00c051e7ef689cbea5fce1
+"@eslint/js@npm:8.39.0":
+  version: 8.39.0
+  resolution: "@eslint/js@npm:8.39.0"
+  checksum: 63fe36e2bfb5ff5705d1c1a8ccecd8eb2f81d9af239713489e767b0e398759c0177fcc75ad62581d02942f2776903a8496d5fae48dc2d883dff1b96fcb19e9e2
   languageName: node
   linkType: hard
 
@@ -4054,14 +4054,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-github@npm:^4.0.0":
-  version: 4.4.0
-  resolution: "@putout/plugin-github@npm:4.4.0"
+"@putout/plugin-github@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-github@npm:5.0.0"
   dependencies:
     fast-deep-equal: ^3.1.3
   peerDependencies:
-    putout: ">=28"
-  checksum: 37df91b9df260ae4ce87a2da4690133795109ffbe20176d3424f629408b493f5603ff1b57cc7c7ebf255d6be963227637debdbf74ba5489b3237ff89687f04da
+    putout: ">=29"
+  checksum: fb38d0ca6c5ae810da1f3e2a9e735034d3d70d97ba5071c4e842123c0bf70031b3d416e4a2febf8beedc63db6c1c8a77d4177d0f7f28f46fc63b28ae34fa140b
   languageName: node
   linkType: hard
 
@@ -6254,14 +6254,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.3.5":
-  version: 1.3.5
-  resolution: "axios@npm:1.3.5"
+"axios@npm:^1.3.6":
+  version: 1.3.6
+  resolution: "axios@npm:1.3.6"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: 4d6bcf933b1cdff86d4993752aaeeeedc4a7f7a4b1c942847f6884bb13fc6106610ff826b076acf0b08d8ced55dee9344bb9a11f3624c3e70ab1da1a40bb5506
+  checksum: c90497ebf738723654a6e80147dc294186ad9d7b08f95f5a22fd48f826c7e06a576229b8dff3137195ca627349a4312e00fa78e4f1c499250b9860596adef44a
   languageName: node
   linkType: hard
 
@@ -8424,9 +8424,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-putout@npm:^17.4.0":
-  version: 17.4.0
-  resolution: "eslint-plugin-putout@npm:17.4.0"
+"eslint-plugin-putout@npm:^17.5.0":
+  version: 17.5.0
+  resolution: "eslint-plugin-putout@npm:17.5.0"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/eslint-parser": ^7.15.0
@@ -8446,7 +8446,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     putout: ">=29"
-  checksum: 6e578c78ca8984fc54d4af43df1bbd2d8f5a5c8eb87145006954634068464135df472aac97fe91abac45215d07ebcbb4cc6b65bd28d4cbd796cc8cd9ae23b853
+  checksum: 282571490de51fa250f411fad28453f3ad7d50b79e92feae31050a78f49c1b1784596d485104c5a872fb78139371c7c2d165e8d011979c517bde0d733bb520a9
   languageName: node
   linkType: hard
 
@@ -8592,13 +8592,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "eslint-scope@npm:7.1.1"
+"eslint-scope@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "eslint-scope@npm:7.2.0"
   dependencies:
     esrecurse: ^4.3.0
     estraverse: ^5.2.0
-  checksum: 9f6e974ab2db641ca8ab13508c405b7b859e72afe9f254e8131ff154d2f40c99ad4545ce326fd9fde3212ff29707102562a4834f1c48617b35d98c71a97fbf3e
+  checksum: 64591a2d8b244ade9c690b59ef238a11d5c721a98bcee9e9f445454f442d03d3e04eda88e95a4daec558220a99fa384309d9faae3d459bd40e7a81b4063980ae
   languageName: node
   linkType: hard
 
@@ -8650,14 +8650,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.38.0":
-  version: 8.38.0
-  resolution: "eslint@npm:8.38.0"
+"eslint@npm:^8.39.0":
+  version: 8.39.0
+  resolution: "eslint@npm:8.39.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@eslint-community/regexpp": ^4.4.0
     "@eslint/eslintrc": ^2.0.2
-    "@eslint/js": 8.38.0
+    "@eslint/js": 8.39.0
     "@humanwhocodes/config-array": ^0.11.8
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -8667,7 +8667,7 @@ __metadata:
     debug: ^4.3.2
     doctrine: ^3.0.0
     escape-string-regexp: ^4.0.0
-    eslint-scope: ^7.1.1
+    eslint-scope: ^7.2.0
     eslint-visitor-keys: ^3.4.0
     espree: ^9.5.1
     esquery: ^1.4.2
@@ -8696,7 +8696,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 73b6d9b650d0434aa7c07d0a1802f099b086ee70a8d8ba7be730439a26572a5eb71def12125c82942be2ec8ee5be38a6f1b42a13e40d4b67f11a148ec9e263eb
+  checksum: d7a074ff326e7ea482500dc0427a7d4b0260460f0f812d19b46b1cca681806b67309f23da9d17cd3de8eb74dd3c14cb549c4d58b05b140564d14cc1a391122a0
   languageName: node
   linkType: hard
 
@@ -13579,15 +13579,15 @@ __metadata:
     "@reduxjs/toolkit": ^1.9.5
     "@testing-library/react-native": ^11.2.0
     "@types/jest": ^29.1.1
-    axios: ^1.3.5
+    axios: ^1.3.6
     axios-mock-adapter: ^1.21.4
     axios-retry: ^3.4.0
     deepmerge: ^4.3.1
-    eslint: ^8.38.0
+    eslint: ^8.39.0
     eslint-config-prettier: ^8.8.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-putout: ^17.4.0
+    eslint-plugin-putout: ^17.5.0
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-native: ^4.0.0
@@ -13611,7 +13611,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.7
     prop-types: ^15.8.1
-    putout: ^29.2.4
+    putout: ^29.2.5
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.6
@@ -14931,9 +14931,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.2.4":
-  version: 29.2.4
-  resolution: "putout@npm:29.2.4"
+"putout@npm:^29.2.5":
+  version: 29.2.5
+  resolution: "putout@npm:29.2.5"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14993,7 +14993,7 @@ __metadata:
     "@putout/plugin-extract-object-properties": ^9.0.0
     "@putout/plugin-extract-sequence-expressions": ^3.0.0
     "@putout/plugin-for-of": ^1.0.0
-    "@putout/plugin-github": ^4.0.0
+    "@putout/plugin-github": ^5.0.0
     "@putout/plugin-gitignore": ^3.0.0
     "@putout/plugin-logical-expressions": ^2.0.0
     "@putout/plugin-madrun": ^15.0.0
@@ -15081,7 +15081,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: caf455c52a78a3439ddcd21ef27067ba95209e14839942c677512b51439593f11daa90419a11d9a0747163cdc8ea85e380b3c3f8735614d97ce4e69559f27e50
+  checksum: 2853c22a6c04abd59b9c0eb93644c3a407f7a45d2f1e312cb981775e454bcd342dea9882224a0d796e6139262144b31870fdc3933a4c3b26f90c064aed36e1f4
   languageName: node
   linkType: hard
 

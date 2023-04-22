@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { Button, Divider, Text, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import { generateError, generateShare } from '../services/ui-services.js'
+import FadeInView from '../components/fade-in-view.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -24,17 +25,21 @@ export default function TextBilingual() {
 
   function getContent() {
     return (
-      <ScrollView>
-        <Heading heading={text} />
-        <Sentences sentences={text.sentences} />
-        <View style={sharedStyle.container}>
-          <Button onPress={generateShare(text)}>{share}</Button>
-          <Divider style={{ opacity: 0 }} />
-          <Button onPress={generateError(text)}>
-            <Text style={{ color: theme.colors.error }}>{report}</Text>
-          </Button>
-        </View>
-      </ScrollView>
+      <FadeInView style={{ flex: 1 }}>
+        <ScrollView>
+          <Heading heading={text} />
+          <Sentences sentences={text.sentences} />
+          <View style={sharedStyle.container}>
+            <Button onPress={generateShare(text)} icon={'share'}>
+              {share}
+            </Button>
+            <Divider style={{ opacity: 0 }} />
+            <Button onPress={generateError(text)}>
+              <Text style={{ color: theme.colors.error }}>{report}</Text>
+            </Button>
+          </View>
+        </ScrollView>
+      </FadeInView>
     )
   }
 }
