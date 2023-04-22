@@ -79,7 +79,7 @@ const initialStateUI = {
   textLoading: true,
   textsLoading: true,
   practicingWords: false,
-  isDarkMode: false
+  isDarkMode: true
 }
 
 const UIStateReducer = createReducer(initialStateUI, (builder) => {

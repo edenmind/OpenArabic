@@ -15,6 +15,7 @@ const darkModeSelector = (state) => state.isDarkMode
 export default function Words() {
   const dispatch = useDispatch()
   const { practicingWords } = useSelector(practicingWordsSelector)
+  const theme = useTheme()
 
   const isDarkModeOn = useSelector(darkModeSelector)
 
@@ -29,8 +30,8 @@ export default function Words() {
             title: SCREENS.words,
             headerTitleStyle: {
               fontFamily: 'philosopher',
-              fontWeight: 'bold',
-              fontSize: 25
+              fontSize: 25,
+              color: theme.colors.onSurface
             },
             headerStyle: {
               backgroundColor: isDarkModeOn.isDarkMode
@@ -49,7 +50,9 @@ export default function Words() {
                         payload: false
                       })
                     }}
-                  />
+                  >
+                    Stop
+                  </Button>
                 </Fragment>
               )
           }}

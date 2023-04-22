@@ -8,14 +8,17 @@ import TextSettings from './text-settings.js'
 import defaultExport from './text-tabs.js'
 import UI from '../constants/ui.js'
 import { getData } from '../services/storage.js'
+import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 
 const Stack = createNativeStackNavigator()
 const selector = (state) => state.text
+const darkModeSelector = (state) => state.isDarkMode
 
 function Text() {
   const dispatch = useDispatch()
   const { text } = useSelector(selector)
   const theme = useTheme()
+  const isDarkModeOn = useSelector(darkModeSelector)
 
   useEffect(() => {
     const initSettings = async () => {
@@ -23,7 +26,7 @@ function Text() {
       const arabicFontSize = Number(await getData('arabicFontSize')) || 19
       const isTransliterationOn = (await getData('isTransliterationOn')) ?? 'off'
       const arabicFontName = (await getData('arabicFontName')) ?? 'uthman'
-      const isDarkModeOn = (await getData('isDarkModeOn')) ?? 'off'
+      const isDarkModeOn = (await getData('isDarkModeOn')) ?? 'on'
 
       dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: arabicFontSize })
       dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: englishFontSize })
@@ -42,7 +45,18 @@ function Text() {
         name={SCREENS.textSettings}
         component={TextSettings}
         options={{
-          title: 'Text Settings'
+          headerTitle: 'Text Settings',
+          headerTitleStyle: {
+            fontFamily: 'philosopher',
+            fontSize: 25,
+            color: theme.colors.onSurface
+          },
+
+          headerStyle: {
+            backgroundColor: isDarkModeOn.isDarkMode
+              ? CombinedDefaultTheme.colors.background
+              : CombinedDarkTheme.colors.background
+          }
         }}
       />
       <Stack.Screen
@@ -51,7 +65,7 @@ function Text() {
         options={({ navigation }) => ({
           headerShown: true,
           title: text.title,
-          headerTitle: UI.null,
+          headerTitle: '',
           headerStyle: {
             backgroundColor: theme.colors.background,
             color: theme.colors.onSurface

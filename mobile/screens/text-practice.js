@@ -137,7 +137,8 @@ const TextPractice = () => {
       currentSentence,
       isLastWordInSentence,
       isLastSentence,
-      sharedStyle
+      sharedStyle,
+      theme
     ]
   )
   return textLoading ? (
@@ -173,8 +174,9 @@ const TextPractice = () => {
           <Text variant="bodyLarge">{explanation ?? 'No explanation available'}</Text>
         </View>
         titleLanguage="english"
-        title={'Great job! 🎉'}
+        title={'Great Job!'}
         hideModal={hideModal}
+        icon="forward"
         close="NEXT SENTENCE"
       />
     </ScrollView>

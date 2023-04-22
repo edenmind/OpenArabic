@@ -70,6 +70,9 @@ describe('PlaySound component', () => {
         shouldPlay: true,
         rate: 1,
         shouldCorrectPitch: false,
+        isLoopingIOS: false,
+        isMutedIOS: false,
+        isPlaybackAllowed: true,
         volume: 1,
         isMuted: false,
         isLooping: false

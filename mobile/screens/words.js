@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import WordsContent from './words-content.js'
 import WordsSetup from './words-setup.js'
+import FadeInView from '../components/fade-in-view.js'
 
 const practicingWordsSelector = (state) => state.practicingWords
 
@@ -57,14 +58,16 @@ const Words = () => {
       handleSetCelebrationSnackBarVisibility={handleSetCelebrationSnackBarVisibility}
     />
   ) : (
-    <WordsSetup
-      numberOfWordsToPractice={numberOfWordsToPractice}
-      setNumberOfWordsToPractice={setNumberOfWordsToPractice}
-      difficultyLevel={difficultyLevel}
-      handleSetDifficultyLevel={handleSetDifficultyLevel}
-      handleSetNumberOfWordsToPractice={handleSetNumberOfWordsToPractice}
-      resetStateForNewWords={resetStateForNewWords}
-    />
+    <FadeInView style={{ flex: 1 }}>
+      <WordsSetup
+        numberOfWordsToPractice={numberOfWordsToPractice}
+        setNumberOfWordsToPractice={setNumberOfWordsToPractice}
+        difficultyLevel={difficultyLevel}
+        handleSetDifficultyLevel={handleSetDifficultyLevel}
+        handleSetNumberOfWordsToPractice={handleSetNumberOfWordsToPractice}
+        resetStateForNewWords={resetStateForNewWords}
+      />
+    </FadeInView>
   )
 }
 

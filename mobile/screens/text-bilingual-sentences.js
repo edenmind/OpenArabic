@@ -26,10 +26,10 @@ function TextBilingualSentences(props) {
   const showModal = () => setVisible(true)
 
   const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
-  const showWords = 'EXPLAIN WORDS'
+  const showWords = 'SHOW WORDS'
 
   const sentences = props.sentences.map((sentence, index) => (
-    <View key={index} style={sharedStyle.container}>
+    <View key={index} style={{ ...sharedStyle.container, marginTop: 25, marginBottom: 25 }}>
       <Text style={sharedStyle.arabicBody}>{sentence.arabic}</Text>
       {showTransliteration && (
         <Text style={{ ...sharedStyle.englishBody, direction: 'rtl' }} variant="bodyLarge">
@@ -41,7 +41,6 @@ function TextBilingualSentences(props) {
       </Text>
       <PlaySound audioFileName={sentence.filename} buttonText={'PLAY SENTENCE'} />
       <Button
-        mode="elevated"
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()

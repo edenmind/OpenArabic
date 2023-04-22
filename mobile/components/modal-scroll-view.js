@@ -13,7 +13,8 @@ const ModalScrollView = ({
   hideModal,
   height = '85%',
   close = 'CLOSE',
-  titleLanguage = 'arabic'
+  titleLanguage = 'arabic',
+  icon
 }) => {
   const theme = useTheme()
   const sharedStyled = useSharedStyles(theme)
@@ -67,7 +68,7 @@ const ModalScrollView = ({
         )}
         <ScrollView>{content}</ScrollView>
         <Divider />
-        <Button onPress={hideModalWithHaptic} style={styles.buttonPadding} mode="elevated">
+        <Button onPress={hideModalWithHaptic} style={styles.buttonPadding} mode="elevated" icon={icon}>
           {close}
         </Button>
       </Modal>
@@ -84,5 +85,6 @@ ModalScrollView.propTypes = {
   visible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
   height: PropTypes.string,
-  close: PropTypes.string
+  close: PropTypes.string,
+  icon: PropTypes.string
 }

@@ -22,6 +22,10 @@ export default function TextDrawer() {
   const theme = useTheme()
 
   const style = StyleSheet.create({
+    container: {
+      backgroundColor: theme.colors.surface,
+      flex: 1
+    },
     darkLightMode: {
       bottom: 75,
       left: 0,
@@ -108,7 +112,7 @@ export default function TextDrawer() {
 
   function CustomDrawerContent(props) {
     return (
-      <>
+      <View style={style.container}>
         <DrawerContentScrollView {...props}>
           <Image source={icon} style={style.icon} />
           <Text style={style.title} variant="headlineSmall">
@@ -117,7 +121,7 @@ export default function TextDrawer() {
           <DrawerItemList {...props} />
           <Divider style={style.divider} />
         </DrawerContentScrollView>
-        <View>
+        <View style={{ backgroundColor: theme.colors.surface }}>
           <Text style={style.darkModeLabel}>Dark Mode</Text>
           <Switch
             value={isDarkModeOn}
@@ -132,7 +136,7 @@ export default function TextDrawer() {
           Version
         </Text>
         <Caption style={style.semver}>{hijriYear}</Caption>
-      </>
+      </View>
     )
   }
 
@@ -156,16 +160,17 @@ export default function TextDrawer() {
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
         unmountOnBlur: true,
+        backgroundColor: theme.colors.surface,
         drawerStyle: {
           width: 225
         },
-        headerTintColor: theme.colors.onBackground,
+        headerTintColor: theme.colors.secondary,
         headerStyle: {
           backgroundColor: theme.colors.background
         },
         headerTitleStyle: {
           fontFamily: 'philosopher',
-          fontSize: 23,
+          fontSize: 25,
           color: theme.colors.onSurface
         }
       }}

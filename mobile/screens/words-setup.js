@@ -18,7 +18,7 @@ const WordsSetup = (props) => {
   return (
     <ScrollView style={sharedStyle.scrollViewLTR}>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <Text variant="titleMedium">Number of Words</Text>
+      <Text variant="labelMedium">Select Number of Words</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
       <SegmentedButtons
@@ -43,7 +43,7 @@ const WordsSetup = (props) => {
       />
 
       <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 15 }} />
-      <Text variant="titleMedium">Difficulty Level</Text>
+      <Text variant="labelMedium">Select Difficulty Level</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
       <SegmentedButtons
@@ -73,6 +73,7 @@ const WordsSetup = (props) => {
 
       <Button
         mode="contained"
+        icon={'play'}
         onPress={() => {
           props.resetStateForNewWords()
           dispatch(getWords(props.difficultyLevel, props.numberOfWordsToPractice))
@@ -83,7 +84,7 @@ const WordsSetup = (props) => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }}
       >
-        <Text style={{ color: theme.colors.onPrimary, fontWeight: 800, fontSize: 15 }}>START SESSION</Text>
+        <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>START PRACTICE</Text>
       </Button>
     </ScrollView>
   )

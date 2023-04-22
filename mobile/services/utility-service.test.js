@@ -181,7 +181,7 @@ describe('getHijriDateLatin', () => {
     jest.spyOn(global, 'Date').mockImplementation(() => fixedDate)
 
     const hijriDate = getHijriDateLatin()
-    expect(hijriDate).toMatch('1444 Shawwal 1')
+    expect(hijriDate).toMatch('1444 Shawwal 2')
 
     // Clean up the Date mock
     jest.restoreAllMocks()

@@ -20,12 +20,7 @@ export default function TextSettings() {
           name={SCREENS.textSettings}
           component={TextSettingsScreen}
           options={{
-            headerShown: false,
-            headerStyle: {
-              backgroundColor: isDarkModeOn.isDarkMode
-                ? CombinedDefaultTheme.colors.background
-                : CombinedDarkTheme.colors.background
-            }
+            headerShown: false
           }}
         />
       </Stack.Navigator>
