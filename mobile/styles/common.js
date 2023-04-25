@@ -72,7 +72,10 @@ export const useSharedStyles = (theme) => {
       arabicHeading: {
         color: theme.colors.onBackground,
         fontFamily: arabicFontName,
-        fontSize: 35
+        fontSize: arabicFontSizeWeighted() * 1.1,
+        lineHeight: arabicFontSize * 2.9,
+        opacity: arabicOpacity,
+        writingDirection: 'rtl'
       },
       button: {
         marginBottom: 10,

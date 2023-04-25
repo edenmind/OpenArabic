@@ -17,7 +17,7 @@ import { formatGrammar } from '../services/ui-services.js'
 
 const wordsSelector = (state) => state.words
 
-const DETAILS = 'Explain'
+const DETAILS = 'Examine'
 
 const WordsContent = ({
   currentWord,
@@ -175,6 +175,8 @@ const WordsContent = ({
               mode="contained-tonal"
               style={{ position: 'absolute', bottom: 20, right: 10, margin: 10 }}
               onPress={() => showModal()}
+              textColor={theme.colors.tertiary}
+              icon="eye-outline"
             >
               {DETAILS}
             </Button>

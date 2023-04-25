@@ -6,7 +6,6 @@ import SCREENS from '../constants/screens.js'
 import TextDrawer from './text-drawer.js'
 import TextSettings from './text-settings.js'
 import defaultExport from './text-tabs.js'
-import UI from '../constants/ui.js'
 import { getData } from '../services/storage.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 
@@ -45,7 +44,7 @@ function Text() {
         name={SCREENS.textSettings}
         component={TextSettings}
         options={{
-          headerTitle: 'Text Settings',
+          headerTitle: 'Font Settings',
           headerTitleStyle: {
             fontFamily: 'philosopher',
             fontSize: 25,
@@ -72,11 +71,13 @@ function Text() {
           },
           headerRight: () => (
             <Button
-              icon="cog"
+              icon="format-size"
               onPress={() => {
                 navigation.navigate('TextSettings')
               }}
-            />
+            >
+              Font
+            </Button>
           )
         })}
       />

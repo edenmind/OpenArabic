@@ -38,7 +38,7 @@ export function formatGrammar(gram, sharedStyle) {
   return (
     <>
       {lines.map((line, index) => {
-        if (line.startsWith('⟶')) {
+        if (line.startsWith('⇉')) {
           return (
             <Text key={index} variant="titleMedium">
               {`${line.slice(2)}\n`}
@@ -46,10 +46,10 @@ export function formatGrammar(gram, sharedStyle) {
           )
         }
 
-        if (line.startsWith('←')) {
+        if (line.startsWith('⟶')) {
           return (
             <Text key={index} style={sharedStyle.arabicHeading}>
-              {`\n${line.slice(2)}\n`}
+              {`${line.slice(2)}\n`}
             </Text>
           )
         }

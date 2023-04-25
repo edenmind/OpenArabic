@@ -115,7 +115,7 @@ const WordsUpdate = () => {
   return (
     <React.Fragment>
       <Nav />
-      <Container maxWidth="lg">
+      <Container fullWidth>
         <h2>Update Word</h2>
 
         <div style={divStyle}>
@@ -124,73 +124,6 @@ const WordsUpdate = () => {
           <h3>Word ID: {wordId}</h3>
           <h3>Filename: {filename}</h3>
         </div>
-
-        <Box
-          component="form"
-          sx={{
-            '& .MuiTextField-root': { m: 1, width: '75ch' }
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <FormControl fullWidth>
-            <TextField
-              fullWidth
-              id="english"
-              label="English"
-              variant="outlined"
-              value={english}
-              onChange={(event) => setEnglish(event.target.value)}
-            />
-          </FormControl>
-
-          <FormControl fullWidth>
-            <TextField
-              fullWidth
-              id="arabic"
-              label="Arabic"
-              variant="outlined"
-              value={arabic}
-              onChange={(event) => setArabic(event.target.value)}
-            />
-          </FormControl>
-
-          <FormControl fullWidth>
-            <TextField
-              fullWidth
-              id="arabic-sentence"
-              label="Arabic Sentence"
-              variant="outlined"
-              value={arabicSentence}
-              onChange={(event) => setArabicSentence(event.target.value)}
-            />
-          </FormControl>
-
-          <FormControl fullWidth>
-            <TextField
-              fullWidth
-              id="english-sentence"
-              label="English Sentence"
-              variant="outlined"
-              value={englishSentence}
-              onChange={(event) => setEnglishSentence(event.target.value)}
-            />
-          </FormControl>
-
-          <FormControl fullWidth>
-            <TextField
-              fullWidth
-              id="grammar"
-              label="Grammar"
-              variant="outlined"
-              multiline
-              rows={25}
-              value={grammar}
-              onChange={(event) => setGrammar(addEmptyLineAfterSentences(event.target.value))}
-              style={{ fontSize: '20px' }}
-            />
-          </FormControl>
-        </Box>
 
         <div style={divStyle}>
           <Stack spacing={2} direction="row">
@@ -201,8 +134,8 @@ const WordsUpdate = () => {
               onClick={() =>
                 // eslint-disable-next-line implicit-arrow-linebreak
                 handleOpen(
-                  'Explain Translation',
-                  prompts.getExplanationOfWord(
+                  'Explain Verb',
+                  prompts.getExplanationOfVerb(
                     english,
                     arabic,
                     arabicSentence,
@@ -216,7 +149,49 @@ const WordsUpdate = () => {
               color="primary"
               style={{ marginLeft: '10px' }}
             >
-              Explain Grammar
+              Explain Verb
+            </Button>
+            <Button
+              onClick={() =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                handleOpen(
+                  'Explain Noun',
+                  prompts.getExplanationOfNoun(
+                    english,
+                    arabic,
+                    arabicSentence,
+                    englishSentence,
+                    arabicText,
+                    englishText
+                  )
+                )
+              }
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '10px' }}
+            >
+              Explain Noun
+            </Button>
+            <Button
+              onClick={() =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                handleOpen(
+                  'Explain Particle',
+                  prompts.getExplanationOfParticle(
+                    english,
+                    arabic,
+                    arabicSentence,
+                    englishSentence,
+                    arabicText,
+                    englishText
+                  )
+                )
+              }
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '10px' }}
+            >
+              Explain Particle
             </Button>
             <Button
               onClick={() =>
@@ -248,6 +223,88 @@ const WordsUpdate = () => {
             </Link>
           </Stack>
         </div>
+
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '100%' } // Set width of all text fields to 100%
+          }}
+          fullWidth
+          noValidate
+          autoComplete="off"
+        >
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="english"
+              label="English"
+              variant="outlined"
+              value={english}
+              onChange={(event) => setEnglish(event.target.value)}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="arabic"
+              label="Arabic"
+              variant="outlined"
+              value={arabic}
+              onChange={(event) => setArabic(event.target.value)}
+              InputProps={{
+                style: {
+                  fontSize: '40px'
+                }
+              }}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="arabic-sentence"
+              label="Arabic Sentence"
+              variant="outlined"
+              value={arabicSentence}
+              onChange={(event) => setArabicSentence(event.target.value)}
+              InputProps={{
+                style: {
+                  fontSize: '40px'
+                }
+              }}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="english-sentence"
+              label="English Sentence"
+              variant="outlined"
+              value={englishSentence}
+              onChange={(event) => setEnglishSentence(event.target.value)}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="grammar"
+              label="Grammar"
+              variant="outlined"
+              multiline
+              rows={25}
+              value={grammar}
+              onChange={(event) => setGrammar(addEmptyLineAfterSentences(event.target.value))}
+              InputProps={{
+                style: {
+                  fontSize: '25px'
+                }
+              }}
+            />
+          </FormControl>
+        </Box>
         <Footer />
       </Container>
 
