@@ -54,15 +54,18 @@ const WordsSetup = (props) => {
         buttons={[
           {
             value: 10,
-            label: 'Easy'
+            label: 'Easy',
+            icon: 'alpha-a-box'
           },
           {
             value: 20,
-            label: 'Medium'
+            label: 'Medium',
+            icon: 'alpha-b-box'
           },
           {
             value: 30,
-            label: 'Hard'
+            label: 'Hard',
+            icon: 'alpha-c-box'
           }
         ]}
       />

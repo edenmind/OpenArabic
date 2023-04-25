@@ -8,7 +8,7 @@ import { useSharedStyles } from '../styles/common.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import { formatGrammar } from '../services/ui-services.js'
 
-const EXPLAIN = 'EXPLAIN'
+const EXPLAIN = 'EXAMINE'
 
 const styles = StyleSheet.create({
   flexOne: {
@@ -45,7 +45,7 @@ function TextBilingualSentencesWords({ word }) {
         </View>
         <View style={styles.flexOne}>
           <PlaySound audioFileName={word.filename} buttonText={'PLAY'} />
-          <Button mode="text" onPress={showModal}>
+          <Button mode="elevated" textColor={theme.colors.tertiary} onPress={showModal} icon="eye-outline">
             {EXPLAIN}
           </Button>
         </View>
@@ -57,7 +57,7 @@ function TextBilingualSentencesWords({ word }) {
         </View>
         title={word.arabic}
         hideModal={hideModal}
-        height="77%"
+        height="82%"
       />
       <Divider />
     </Fragment>

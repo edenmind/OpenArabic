@@ -1,13 +1,21 @@
 import { createTheme } from '@mui/material/styles'
+import { green, teal } from '@mui/material/colors'
 
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: 'rgb(204, 204, 82)'
+      main: 'rgb(156, 215, 105)'
     },
     secondary: {
-      main: 'rgb(202, 200, 165)'
+      main: 'rgb(190, 203, 174)'
+    },
+    text: {
+      primary: 'rgb(227, 227, 220)'
+    },
+    background: {
+      default: 'rgb(26, 28, 24)',
+      paper: 'rgb(26, 28, 24)'
     }
   },
   typography: {

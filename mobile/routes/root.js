@@ -55,7 +55,7 @@ function Root() {
                   break
                 }
                 case SCREENS.words: {
-                  iconName = 'script-text'
+                  iconName = 'text-box-check'
                   break
                 }
                 case SCREENS.settings: {

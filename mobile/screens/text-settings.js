@@ -226,9 +226,9 @@ function TextSettings() {
           }}
         />
       </View>
-      <Text style={{ ...sharedStyle.englishBody, paddingTop: 5 }}>
-        Transliteration converts Arabic letters into Latin letters, allowing people who can not read Arabic to
-        understand and pronounce Arabic words using familiar letters.
+      <Text variant={'bodySmall'} style={{ paddingTop: 5 }}>
+        Transliteration changes Arabic letters into Latin letters. This helps people who can not read Arabic to
+        understand and say Arabic words using familiar letters.
       </Text>
     </ScrollView>
   )

@@ -111,7 +111,9 @@ function TextAddWords() {
     return sentencesToShow.map((sentence, indexSentence) => (
       <Fragment key={indexSentence + currentPage}>
         <Stack spacing={0} style={{ paddingBottom: '10px', width: '900px' }}>
-          <h3>Arabic Sentence: </h3>
+          <h2>
+            Sentence <Chip label={indexSentence} color="secondary" />
+          </h2>
           <h1 style={{ direction: 'rtl', fontSize: 45 }}>{sentence.arabic}</h1>
           <h3>Google Translation: </h3>
           <h3>{sentence.googleTranslation}</h3>
@@ -137,7 +139,7 @@ function TextAddWords() {
             variant="outlined"
           />
           <br />
-
+          <h3>Words: </h3>
           {sentence.words.map((word, indexArabicWord) => (
             <Box sx={{ fontSize: 'h4.fontSize', fontWeight: 'bold' }} key={indexArabicWord + currentPage}>
               <br />
@@ -262,7 +264,7 @@ function TextAddWords() {
         >
           Explain Sentence
         </Button>
-        <Divider style={{ paddingBottom: '75px', opacity: 0 }} />
+
         <Suspense fallback={<div>Loading...</div>}>
           <BasicModal
             key={`${promptTitle}${promptText}`}
@@ -278,6 +280,7 @@ function TextAddWords() {
             message={postMessage}
           />
         </Suspense>
+        <Divider style={{ marginTop: 75, marginBottom: 75 }} />
       </Fragment>
     ))
   }, [
@@ -290,6 +293,7 @@ function TextAddWords() {
     postState,
     postMessage,
     handleChangeEnglishSentence,
+    handleChangeExplanationSentence,
     handleChangeArabic,
     handleChangeQuiz
   ])

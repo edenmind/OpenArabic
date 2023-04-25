@@ -26,7 +26,7 @@ function TextBilingualSentences(props) {
   const showModal = () => setVisible(true)
 
   const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
-  const showWords = 'SHOW WORDS'
+  const showWords = 'EXAMINE'
 
   const sentences = props.sentences.map((sentence, index) => (
     <View key={index} style={{ ...sharedStyle.container, marginTop: 25, marginBottom: 25 }}>
@@ -39,8 +39,11 @@ function TextBilingualSentences(props) {
       <Text style={sharedStyle.englishBody} variant="bodyLarge">
         {sentence.english}
       </Text>
-      <PlaySound audioFileName={sentence.filename} buttonText={'PLAY SENTENCE'} />
+      <PlaySound audioFileName={sentence.filename} buttonText={'PLAY'} />
       <Button
+        mode="elevated"
+        textColor={theme.colors.tertiary}
+        icon="eye-outline"
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()

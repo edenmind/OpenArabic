@@ -1,12 +1,17 @@
 import { Container, IconButton, Tooltip } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import EditIcon from '@mui/icons-material/Edit'
-import Footer from '../components/footer.js'
 import { Link } from 'react-router-dom'
 import Nav from '../components/nav.js'
 import Progress from '../components/progress.js'
 import React from 'react'
 import * as api from '../services/api-service.js'
+//import makeStyles
+import { styled } from '@mui/system'
+
+const ArabicCell = styled('div')({
+  fontSize: 40
+})
 
 export default function Words() {
   const [words, setWords] = React.useState([])
@@ -16,7 +21,7 @@ export default function Words() {
     {
       field: 'textId',
       headerName: 'Text',
-      width: 450,
+      width: 400,
       editable: false
     },
     {
@@ -34,14 +39,28 @@ export default function Words() {
     {
       field: 'date',
       headerName: 'Date',
-      width: 250,
-      editable: false
+      width: 350,
+      editable: false,
+      valueGetter: (params) => {
+        const date = new Date(params.row.date)
+        const options = {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false // use 24-hour time format
+        }
+
+        return date.toLocaleString('en-GB', options)
+      }
     },
     {
       field: 'arabic',
       headerName: 'Arabic',
       width: 250,
-      editable: false
+      editable: false,
+      renderCell: (params) => <ArabicCell>{params.value}</ArabicCell>
     },
     {
       field: 'english',
@@ -52,7 +71,7 @@ export default function Words() {
     {
       field: 'grammar',
       headerName: 'Grammar',
-      width: 450,
+      width: 200,
       editable: false,
       valueGetter: (params) => {
         return params.row.grammar ? params.row.grammar.length : ''
@@ -97,7 +116,7 @@ export default function Words() {
       <Nav />
       <Container maxWidth="true">
         <h2>Words</h2>
-        <div style={{ height: 800, width: '100%', paddingBottom: '35px', fontSize: '17px' }}>
+        <div style={{ height: 1100, width: '100%', paddingBottom: '35px', fontSize: '17px' }}>
           {words !== undefined && (
             <DataGrid
               rows={words}
@@ -109,7 +128,6 @@ export default function Words() {
             />
           )}
         </div>
-        <Footer />
       </Container>
     </React.Fragment>
   )
