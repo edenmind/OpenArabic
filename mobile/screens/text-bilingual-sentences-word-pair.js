@@ -7,8 +7,7 @@ import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import { formatGrammar } from '../services/ui-services.js'
-
-const EXPLAIN = 'EXAMINE'
+import UI from '../constants/ui.js'
 
 const styles = StyleSheet.create({
   flexOne: {
@@ -28,11 +27,7 @@ function TextBilingualSentencesWords({ word }) {
   const showModal = () => setVisible(true)
   const hideModal = () => setVisible(false)
 
-  const explanation = (
-    <Text style={{ ...sharedStyle.englishBody, fontSize: 19, lineHeight: 29 }}>
-      {formatGrammar(word.grammar, sharedStyle)}
-    </Text>
-  )
+  const explanation = formatGrammar(word.grammar, sharedStyle)
 
   return (
     <Fragment>
@@ -44,16 +39,16 @@ function TextBilingualSentencesWords({ word }) {
           </Text>
         </View>
         <View style={styles.flexOne}>
-          <PlaySound audioFileName={word.filename} buttonText={'PLAY'} />
+          <PlaySound audioFileName={word.filename} buttonText={UI.play} />
           <Button mode="elevated" textColor={theme.colors.tertiary} onPress={showModal} icon="eye-outline">
-            {EXPLAIN}
+            {UI.study}
           </Button>
         </View>
       </View>
       <ModalScrollView
         visible={visible}
-        content=<View style={{ margin: 5, padding: 5 }}>
-          <Text variant="bodyLarge">{explanation ?? 'No explanation available'}</Text>
+        content=<View style={{ margin: 5, padding: 5, paddingTop: 15 }}>
+          {explanation ?? 'No explanation available'}
         </View>
         title={word.arabic}
         hideModal={hideModal}

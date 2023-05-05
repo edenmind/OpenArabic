@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-use-of-empty-return-value */
 /* link to check root word
 add property for when the word was added
 */
@@ -22,6 +23,10 @@ function addEmptyLineAfterSentences(str) {
   }, '')
 
   return result.trim() // remove trailing whitespace
+}
+
+function handleCopy(text) {
+  navigator.clipboard.writeText(text)
 }
 
 const WordsUpdate = () => {
@@ -221,6 +226,15 @@ const WordsUpdate = () => {
             <Link to="/words">
               <Button variant="outlined">Back</Button>
             </Link>
+            <Button color="primary" style={{ marginLeft: '10px' }} variant="outlined" onClick={() => handleCopy('⇉')}>
+              ⇉
+            </Button>
+            <Button color="primary" style={{ marginLeft: '10px' }} variant="outlined" onClick={() => handleCopy('⟶')}>
+              ⟶
+            </Button>
+            <Button color="primary" style={{ marginLeft: '10px' }} variant="outlined" onClick={() => handleCopy('↠')}>
+              ↠
+            </Button>
           </Stack>
         </div>
 

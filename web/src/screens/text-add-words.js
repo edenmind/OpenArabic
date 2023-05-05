@@ -112,7 +112,7 @@ function TextAddWords() {
       <Fragment key={indexSentence + currentPage}>
         <Stack spacing={0} style={{ paddingBottom: '10px', width: '900px' }}>
           <h2>
-            Sentence <Chip label={indexSentence} color="secondary" />
+            Sentence <Chip label={(currentPage - 1) * PAGE_SIZE + indexSentence} color="secondary" />
           </h2>
           <h1 style={{ direction: 'rtl', fontSize: 45 }}>{sentence.arabic}</h1>
           <h3>Google Translation: </h3>
@@ -128,16 +128,45 @@ function TextAddWords() {
           />
           <h3>Explanation: </h3>
           <TextField
-            InputProps={{ style: { fontSize: 18 } }}
-            value={sentence.explanation}
+            InputProps={{ style: { fontSize: 20 } }}
+            value={sentence.explanation || 'Add...'}
             onChange={(event) =>
               handleChangeExplanationSentence(indexSentence, addEmptyLineAfterSentences(event.target.value))
             }
             fullWidth
-            rows={7}
+            rows={15}
             multiline
             variant="outlined"
           />
+          <br />
+          <Stack spacing={5} direction="row" style={{ marginBottom: -25 }}>
+            <Button
+              onClick={() =>
+                handleOpen(
+                  'Explain Sentence',
+                  prompts.getExplainSentence(sentence.english, sentence.arabic, text.texts.arabic, text.texts.english)
+                )
+              }
+              variant="contained"
+              color="primary"
+              style={{ marginLeft: '10px', width: '250px' }}
+            >
+              Explain Sentence
+            </Button>
+            <Button
+              onClick={() =>
+                handleOpen(
+                  'Explain Sentence',
+                  prompts.verifyExplanation(sentence.explanation, sentence.arabic, sentence.english)
+                )
+              }
+              variant="contained"
+              color="primary"
+              style={{ marginLeft: '10px', width: '250px' }}
+            >
+              Verify Explanation
+            </Button>
+          </Stack>
           <br />
           <h3>Words: </h3>
           {sentence.words.map((word, indexArabicWord) => (
@@ -156,8 +185,11 @@ function TextAddWords() {
                   fullWidth
                 />
               </Stack>
-
-              <Chip label={`${indexSentence}:${indexArabicWord}`} color="secondary" style={{ marginLeft: '130px' }} />
+              <Chip
+                label={`${(currentPage - 1) * PAGE_SIZE + indexSentence}:${indexArabicWord}`}
+                color="secondary"
+                style={{ marginLeft: '130px' }}
+              />
               <FormControlLabel
                 sx={{ margin: 1 }}
                 value="Quiz"
@@ -206,7 +238,6 @@ function TextAddWords() {
               >
                 Save
               </Button>
-
               <Button
                 color="secondary"
                 //open in a new tab when clicked
@@ -214,13 +245,19 @@ function TextAddWords() {
               >
                 quran.com
               </Button>
-
               <Button
                 color="secondary"
                 //open in a new tab when clicked
                 onClick={() => window.open(`https://sunnah.com/search?q=${word.arabic}`)}
               >
                 sunnah.com
+              </Button>
+              <Button
+                color="secondary"
+                //open in a new tab when clicked
+                onClick={() => window.open(`https://www.almaany.com/ar/dict/ar-ar/${word.arabic}/`)}
+              >
+                almaany.com
               </Button>
 
               <Divider style={{ paddingBottom: '5px', opacity: 0 }} />
@@ -251,19 +288,6 @@ function TextAddWords() {
         >
           Verify Translation
         </Button>
-        <Button
-          onClick={() =>
-            handleOpen(
-              'Explain Sentence',
-              prompts.getExplainSentence(sentence.english, sentence.arabic, text.texts.arabic, text.texts.english)
-            )
-          }
-          variant="contained"
-          color="primary"
-          style={{ marginLeft: '10px' }}
-        >
-          Explain Sentence
-        </Button>
 
         <Suspense fallback={<div>Loading...</div>}>
           <BasicModal
@@ -280,7 +304,7 @@ function TextAddWords() {
             message={postMessage}
           />
         </Suspense>
-        <Divider style={{ marginTop: 75, marginBottom: 75 }} />
+        <Divider style={{ marginTop: 75, marginBottom: 75, height: 15 }} />
       </Fragment>
     ))
   }, [

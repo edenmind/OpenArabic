@@ -18,6 +18,7 @@ function Text() {
   const { text } = useSelector(selector)
   const theme = useTheme()
   const isDarkModeOn = useSelector(darkModeSelector)
+  const FONT = 'Font'
 
   useEffect(() => {
     const initSettings = async () => {
@@ -76,7 +77,7 @@ function Text() {
                 navigation.navigate('TextSettings')
               }}
             >
-              Font
+              {FONT}
             </Button>
           )
         })}

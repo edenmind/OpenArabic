@@ -8,6 +8,7 @@ import WordPairs from './text-bilingual-sentences-word-pairs-list.js'
 import { useSelector } from 'react-redux'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
+import UI from '../constants/ui.js'
 
 const filterFunction = (element) => element.english && element.arabic
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
@@ -26,8 +27,6 @@ function TextBilingualSentences(props) {
   const showModal = () => setVisible(true)
 
   const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
-  const showWords = 'EXAMINE'
-
   const sentences = props.sentences.map((sentence, index) => (
     <View key={index} style={{ ...sharedStyle.container, marginTop: 25, marginBottom: 25 }}>
       <Text style={sharedStyle.arabicBody}>{sentence.arabic}</Text>
@@ -39,7 +38,7 @@ function TextBilingualSentences(props) {
       <Text style={sharedStyle.englishBody} variant="bodyLarge">
         {sentence.english}
       </Text>
-      <PlaySound audioFileName={sentence.filename} buttonText={'PLAY'} />
+      <PlaySound audioFileName={sentence.filename} buttonText={UI.play} />
       <Button
         mode="elevated"
         textColor={theme.colors.tertiary}
@@ -49,7 +48,7 @@ function TextBilingualSentences(props) {
           showModal()
         }}
       >
-        {showWords}
+        {UI.study}
       </Button>
     </View>
   ))

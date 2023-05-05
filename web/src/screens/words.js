@@ -6,7 +6,6 @@ import Nav from '../components/nav.js'
 import Progress from '../components/progress.js'
 import React from 'react'
 import * as api from '../services/api-service.js'
-//import makeStyles
 import { styled } from '@mui/system'
 
 const ArabicCell = styled('div')({
@@ -102,7 +101,7 @@ export default function Words() {
     api
       .getWords()
       .then((data) => {
-        console.log('data:', data)
+        data.sort((a, b) => new Date(b.date) - new Date(a.date))
         setWords(data)
         setIsLoading(false)
       })

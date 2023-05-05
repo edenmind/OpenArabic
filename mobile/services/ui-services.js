@@ -4,6 +4,7 @@ import { ENDPOINT, HOST } from '../constants/urls.js'
 import * as MailComposer from 'expo-mail-composer'
 import React from 'react'
 import { Text } from 'react-native-paper'
+import { prepareTitle } from '../services/utility-service.js'
 export function generateShare(text) {
   async function shareText() {
     await Share.share({
@@ -40,8 +41,8 @@ export function formatGrammar(gram, sharedStyle) {
       {lines.map((line, index) => {
         if (line.startsWith('⇉')) {
           return (
-            <Text key={index} variant="titleMedium">
-              {`${line.slice(2)}\n`}
+            <Text key={index} style={sharedStyle.englishHeading}>
+              {`${prepareTitle(line.slice(2))}`}
             </Text>
           )
         }
@@ -49,12 +50,20 @@ export function formatGrammar(gram, sharedStyle) {
         if (line.startsWith('⟶')) {
           return (
             <Text key={index} style={sharedStyle.arabicHeading}>
-              {`${line.slice(2)}\n`}
+              {`${line.slice(2)}`}
             </Text>
           )
         }
 
-        return <Text key={index} style={sharedStyle.englishBody}>{`${line}\n`}</Text>
+        if (line.startsWith('↠')) {
+          return (
+            <Text key={index} style={sharedStyle.arabicTerm}>
+              {`${line.slice(2)}`}
+            </Text>
+          )
+        }
+
+        return <Text key={index} style={sharedStyle.englishBody}>{`${line}`}</Text>
       })}
     </>
   )

@@ -24,7 +24,6 @@ const initialState = {
       {
         english: '',
         arabic: '',
-        explanation: '',
         quiz: false,
         words: []
       }
@@ -109,7 +108,6 @@ const textReducer = createReducer(initialState, (builder) => {
     .addCase(actions.SET_PUBLISH_AT, (state, action) => {
       state.text.publishAt = action.publishAt
     })
-
     .addCase(actions.SET_GENERATE_AUDIO, (state, action) => {
       state.text.generateAudio = action.generateAudio
     })

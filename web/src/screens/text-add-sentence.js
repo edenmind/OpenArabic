@@ -1,4 +1,4 @@
-import { Chip, TextField, Box, Button, Tooltip } from '@mui/material'
+import { Chip, TextField, Box, Button } from '@mui/material'
 import { Fragment } from 'react'
 import { styled } from '@mui/material/styles'
 import { useDispatch, useSelector } from 'react-redux'
@@ -137,21 +137,22 @@ const TextAddSentences = () => {
         >
           Check Number of Letters
         </Button>
-        <Tooltip title="Make minor corrections to the text.">
-          <Button
-            size="small"
-            variant="outlined"
-            onClick={async () => {
-              // loop through the english text and replace every "صلى الله عليه وسلم" with "ﷺ"
-              const newText = text.texts.arabic.replace(/صلى الله عليه وسلم/g, 'ﷺ')
 
-              //update the state
-              dispatch({ type: 'SET_ARABIC_TEXT', arabic: newText })
-            }}
-          >
-            Correct Texts
-          </Button>
-        </Tooltip>
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={async () => {
+            // loop through the english text and replace every "صلى الله عليه وسلم" with "ﷺ"
+
+            const newText = text.texts.arabic.replace(/صلى الله عليه و سلم/g, 'ﷺ')
+
+            //update the state
+            dispatch({ type: 'SET_ARABIC_TEXT', arabic: newText })
+          }}
+        >
+          Correct Texts
+        </Button>
+
         <LoadingButton
           size="small"
           onClick={handleClick}

@@ -31,8 +31,8 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
 
   const subtitle = `${text.author} in #${text.category}`
   const footer = `${text.views} views · ${text.timeAgo} · ${text.readingTime}  `
-  const english = text.texts?.english && prepareIngress(text.texts.english, 125)
-  const arabic = text.texts?.arabic && prepareIngress(text.texts.arabic, 100)
+  const english = text.texts?.english && prepareIngress(text.texts.english, 120)
+  const arabic = text.texts?.arabic && prepareIngress(text.texts.arabic, 95)
   const theme = useTheme()
 
   const styles = StyleSheet.create({
@@ -50,6 +50,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     cardTitle: {
       color: theme.colors.onBackground,
       fontFamily: 'philosopher',
+      numberOfLines: 2,
       paddingVertical: 5
     },
     divider: {

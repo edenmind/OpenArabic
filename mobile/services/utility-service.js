@@ -16,6 +16,23 @@ export const generateRandomPositions = () => {
   return positions
 }
 
+// give me a function that capitalizes all letters in a title
+export const prepareTitle = (title) => {
+  const words = title.split(' ')
+
+  const capitalizedWords = words.map((word) => {
+    const firstLetter = word[0].toUpperCase()
+    const restOfWord = word.slice(1)
+
+    return `${firstLetter}${restOfWord}`
+  })
+
+  // remove all non alphanumeric characters
+  const cleanWords = capitalizedWords.map((word) => word.replace(/[^\dA-Za-z]/g, ''))
+
+  return cleanWords.join(' ')
+}
+
 const truncate = (stringToTruncate, truncateLength) => {
   const cleanString = stringToTruncate.replace(' \n', '')
 
