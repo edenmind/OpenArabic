@@ -207,7 +207,7 @@ function About() {
         </Text>
         <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
           Yūnus has been taking foundational Sarf and Nahw lessons from Shaykh Mujāhid ‘Abdul-Ba’eth, who is based in
-          Philadelphia, U.S. May Allah protect him.
+          Philadelphia, U.S. May Allah preserve him.
         </Text>
         <Button
           icon={'twitter'}

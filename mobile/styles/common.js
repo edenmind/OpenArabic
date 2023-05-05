@@ -12,7 +12,7 @@ export const useSharedStyles = (theme) => {
   const { arabicFontName } = useSelector(arabicFontNameSelector) || { arabicFontName: 'uthman' }
   const englishOpacity = 1
   const arabicOpacity = 1
-  const paddingBottom = 10
+  const paddingBottom = 5
   const horizontalMargin = 33
   const verticalMargin = 33
   const textColor = theme.colors.onBackground
@@ -53,7 +53,7 @@ export const useSharedStyles = (theme) => {
         color: theme.colors.tertiary,
         fontFamily: 'philosopher',
         fontSize: 15,
-        paddingBottom: 10,
+        paddingBottom,
         paddingLeft: 75,
         paddingRight: 75,
         textAlign: 'center'
@@ -62,7 +62,7 @@ export const useSharedStyles = (theme) => {
         color: theme.colors.secondary,
         fontFamily: 'amiri',
         fontSize: 19,
-        paddingBottom: 10,
+        paddingBottom,
         paddingLeft: 75,
         paddingRight: 75,
         paddingTop: 20,
@@ -70,12 +70,23 @@ export const useSharedStyles = (theme) => {
         writingDirection: 'rtl'
       },
       arabicHeading: {
-        color: theme.colors.onBackground,
+        color: theme.colors.secondary,
         fontFamily: arabicFontName,
         fontSize: arabicFontSizeWeighted() * 1.1,
         lineHeight: arabicFontSize * 2.9,
         opacity: arabicOpacity,
-        writingDirection: 'rtl'
+        paddingBottom
+      },
+      arabicTerm: {
+        backgroundColor: theme.colors.elevation.tertiaryContainer,
+        color: theme.colors.onTertiaryContainer,
+        direction: 'ltr',
+        fontFamily: 'philosopher',
+        fontSize: englishFontSize * 1.1,
+        lineHeight: englishFontSize * 1.5,
+        opacity: englishOpacity,
+        paddingBottom,
+        writingDirection: 'ltr'
       },
       button: {
         marginBottom: 10,
@@ -113,6 +124,15 @@ export const useSharedStyles = (theme) => {
         paddingBottom,
         writingDirection: 'ltr'
       },
+      englishHeading: {
+        color: theme.colors.onSurface,
+        direction: 'ltr',
+        fontSize: englishFontSize,
+        fontWeight: 'bold',
+        lineHeight: englishFontSize * 2,
+        opacity: englishOpacity,
+        writingDirection: 'ltr'
+      },
       headerContainer: {
         marginLeft: 10,
         marginRight: 10,
@@ -136,10 +156,10 @@ export const useSharedStyles = (theme) => {
     arabicFontSize,
     theme.colors.tertiary,
     theme.colors.secondary,
-    theme.colors.onBackground,
     theme.colors.elevation.level1,
     theme.colors.elevation.level5,
     theme.colors.onSurfaceVariant,
+    theme.colors.onSurface,
     englishFontSize
   ])
 }

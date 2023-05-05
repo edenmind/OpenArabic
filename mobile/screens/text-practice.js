@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
-
 import WordsContextHighLighted from '../components/context-highlighted.js'
 import TextPracticeArabicWords from './text-practice-arabic-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
@@ -170,8 +169,8 @@ const TextPractice = () => {
 
       <ModalScrollView
         visible={visible}
-        content=<View style={{ margin: 5, padding: 5 }}>
-          <Text variant="bodyLarge">{explanation ?? 'No explanation available'}</Text>
+        content=<View style={{ margin: 5, padding: 5, paddingTop: 15 }}>
+          {explanation ?? 'No explanation available'}
         </View>
         titleLanguage="english"
         title={'Great Job!'}
