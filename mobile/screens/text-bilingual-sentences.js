@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 import UI from '../constants/ui.js'
+import { formatGrammar } from '../services/ui-services.js'
 
 const filterFunction = (element) => element.english && element.arabic
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
@@ -22,6 +23,7 @@ function TextBilingualSentences(props) {
   const showTransliteration = isTransliterationOn === 'on'
   const [visible, setVisible] = React.useState(false)
   const [words, setWords] = React.useState([])
+  const [title, setTitle] = React.useState('')
 
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
@@ -38,17 +40,31 @@ function TextBilingualSentences(props) {
       <Text style={sharedStyle.englishBody} variant="bodyLarge">
         {sentence.english}
       </Text>
-      <PlaySound audioFileName={sentence.filename} buttonText={UI.play} />
+      <PlaySound audioFileName={sentence.filename} buttonText={UI.playSentence} />
       <Button
         mode="elevated"
         textColor={theme.colors.tertiary}
-        icon="eye-outline"
+        icon="card-text-outline"
         onPress={() => {
-          getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
+          setWords(formatGrammar(sentence.explanation, sharedStyle))
+          setTitle(sentence.arabic)
           showModal()
         }}
       >
-        {UI.study}
+        STUDY SENTENCE
+      </Button>
+      <Button
+        mode="elevated"
+        textColor={theme.colors.tertiary}
+        style={{ marginTop: 10 }}
+        icon="abjad-arabic"
+        onPress={() => {
+          getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
+          showModal()
+          setTitle('')
+        }}
+      >
+        STUDY WORDS
       </Button>
     </View>
   ))
@@ -56,7 +72,7 @@ function TextBilingualSentences(props) {
   return (
     <>
       {sentences}
-      <ModalScrollView visible={visible} content={words} title={''} hideModal={hideModal} />
+      <ModalScrollView visible={visible} content={words} title={title} hideModal={hideModal} />
     </>
   )
 }

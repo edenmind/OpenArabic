@@ -4,7 +4,8 @@ const UI = {
   texts: 'Texts',
   null: '',
   study: 'STUDY',
-  play: 'LISTEN'
+  play: 'PLAY',
+  playSentence: 'PLAY SENTENCE'
 }
 
 export default UI

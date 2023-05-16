@@ -18,7 +18,7 @@ const WordsSetup = (props) => {
   return (
     <ScrollView style={sharedStyle.scrollViewLTR}>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <Text variant="labelMedium">Select Number of Words</Text>
+      <Text variant="titleSmall">Select Number of Words</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
       <SegmentedButtons
@@ -43,7 +43,7 @@ const WordsSetup = (props) => {
       />
 
       <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 15 }} />
-      <Text variant="labelMedium">Select Difficulty Level</Text>
+      <Text variant="titleSmall">Select Difficulty Level</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
       <SegmentedButtons
