@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -2341,23 +2341,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/engine-loader@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@putout/engine-loader@npm:8.0.0"
-  dependencies:
-    "@babel/core": ^7.12.3
-    "@putout/engine-parser": ^5.0.0
-    diff-match-patch: ^1.0.4
-    nano-memoize: ^2.0.0
-    once: ^1.4.0
-    try-catch: ^3.0.0
-    try-to-catch: ^3.0.1
-  peerDependencies:
-    putout: "*"
-  checksum: 556690e2d826321a871f822150390b82fbbf8df535b87e5deff8eba0fe96183e3d5f54ae8a39e5d33725c13338d47f57c4edbbdaac11b1e2358a04776eb488f3
-  languageName: node
-  linkType: hard
-
 "@putout/engine-loader@npm:^8.1.0":
   version: 8.1.0
   resolution: "@putout/engine-loader@npm:8.1.0"
@@ -2372,6 +2355,23 @@ __metadata:
   peerDependencies:
     putout: "*"
   checksum: abfa596408aa40bb60101898bb2bc9611f2b257148f45e86aafe0220f68882af01313f5a27d02f37bb37ac4a6dab17d11ac6198fdea80381ae883c116fe724c6
+  languageName: node
+  linkType: hard
+
+"@putout/engine-loader@npm:^9.0.0":
+  version: 9.2.0
+  resolution: "@putout/engine-loader@npm:9.2.0"
+  dependencies:
+    "@babel/core": ^7.12.3
+    "@putout/engine-parser": ^6.1.0
+    diff-match-patch: ^1.0.4
+    nano-memoize: ^2.0.0
+    once: ^1.4.0
+    try-catch: ^3.0.0
+    try-to-catch: ^3.0.1
+  peerDependencies:
+    putout: "*"
+  checksum: d4bb5ae26db8a8924cabdbfb8f7c9f2679fad4b2377372bdeffe53545d51b93721bebfdee8de4bab79ee5ada4d7e93359cd1cc133033f98c2c662f0b0c2e8054
   languageName: node
   linkType: hard
 
@@ -2424,6 +2424,24 @@ __metadata:
     once: ^1.4.0
     try-catch: ^3.0.0
   checksum: 3037b9d8508987f9dedee01cf0d893400ceffe8b8482fa3e45336bbf4e768348542a8379009ebec2ce062d110e016aeae21ec8205ed5ff55a18c8e142b279d7d
+  languageName: node
+  linkType: hard
+
+"@putout/engine-parser@npm:^6.1.0":
+  version: 6.2.0
+  resolution: "@putout/engine-parser@npm:6.2.0"
+  dependencies:
+    "@babel/generator": ^7.19.0
+    "@babel/parser": ^7.19.0
+    "@babel/template": ^7.18.10
+    "@babel/types": ^7.19.0
+    "@putout/printer": ^1.20.0
+    "@putout/recast": ^1.12.1
+    estree-to-babel: ^5.0.0
+    nano-memoize: ^2.0.0
+    once: ^1.4.0
+    try-catch: ^3.0.0
+  checksum: 180ad024f89d973612419265cc4bc72aea6a3300b547c2635ea2bcedcfd18c56dd71d5b56eb21e4119997bb416f0515bf83102c2fd8937a4a14a264488032b0c
   languageName: node
   linkType: hard
 
@@ -2643,12 +2661,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-apply-destructuring@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@putout/plugin-apply-destructuring@npm:6.0.0"
+"@putout/plugin-apply-destructuring@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@putout/plugin-apply-destructuring@npm:7.0.0"
   peerDependencies:
-    putout: ">=28"
-  checksum: cc97f94b08e078f72f4bb802e735a9b8f584bca4cb791a507e2b247ce50c343f938df5918b94d220a9a2377c09e08f6d47068d1fa84eead48ddf0b81940896ec
+    putout: ">=29"
+  checksum: 759abbd90e9498d146ba0b5c47d38c4bad523ffdc7841ba7a9dc476c7c31dc0e67e4dcc8d92b74a71c533d8b51cf8382054ebf54770db88915edea3b96a9d91d
   languageName: node
   linkType: hard
 
@@ -3052,14 +3070,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-promises@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "@putout/plugin-promises@npm:9.0.0"
+"@putout/plugin-promises@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@putout/plugin-promises@npm:10.0.0"
   dependencies:
     fullstore: ^3.0.0
   peerDependencies:
-    putout: ">=28"
-  checksum: 0eaafdc063c47e140671e8f688806d3cd6b5e828dad0f75657929312c207e077df8bca88220280bec772dd6653a524c8f06398ae53bd6ab9c79ad97729a44fd8
+    putout: ">=29"
+  checksum: eed30ba010d8458cd5576c60414660ea5f484984eac9cf68fe626fa399ea17fffe29daa8d6ead797eb5faf0f0b071413c5304f10cb213521469af2ac5f700853
   languageName: node
   linkType: hard
 
@@ -3335,12 +3353,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-useless-return@npm:^4.0.0":
-  version: 4.2.0
-  resolution: "@putout/plugin-remove-useless-return@npm:4.2.0"
+"@putout/plugin-remove-useless-return@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/plugin-remove-useless-return@npm:5.0.0"
   peerDependencies:
-    putout: ">=22"
-  checksum: d9b5e35e35e16ae6a43fc614444f363bd436252dc7cbf071d04a4670d0c6132da3f97ee4f137d5d332f3f5f06f62ba1c739301a4e70052f42dc179f368f96f10
+    putout: ">=29"
+  checksum: 7beee30ada59b0b2552e10c68b7d4d19f7587874bdadd2f2188f85fbf7279d065a12726f4eadc2063138da0c8f9093edb52c950bfb6dcf07aaecdc3a03518359
   languageName: node
   linkType: hard
 
@@ -4195,7 +4213,7 @@ __metadata:
     moment: ^2.29.4
     mongodb: ^5.4.0
     prettier: ^2.8.8
-    putout: ^29.4.1
+    putout: ^29.7.1
     sinon: ^15.0.4
     tap: ^16.3.4
     try-to-catch: ^3.0.1
@@ -6453,7 +6471,7 @@ __metadata:
 
 "fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
   dependencies:
     node-gyp: latest
   conditions: os=darwin
@@ -9913,9 +9931,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.4.1":
-  version: 29.4.1
-  resolution: "putout@npm:29.4.1"
+"putout@npm:^29.7.1":
+  version: 29.7.1
+  resolution: "putout@npm:29.7.1"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -9926,7 +9944,7 @@ __metadata:
     "@putout/cli-ruler": ^2.0.0
     "@putout/cli-validate-args": ^1.0.0
     "@putout/compare": ^9.0.0
-    "@putout/engine-loader": ^8.0.0
+    "@putout/engine-loader": ^9.0.0
     "@putout/engine-parser": ^6.0.0
     "@putout/engine-processor": ^7.0.0
     "@putout/engine-runner": ^16.0.0
@@ -9945,7 +9963,7 @@ __metadata:
     "@putout/operator-declare": ^5.0.0
     "@putout/operator-regexp": ^1.0.0
     "@putout/plugin-apply-at": ^1.0.0
-    "@putout/plugin-apply-destructuring": ^6.0.0
+    "@putout/plugin-apply-destructuring": ^7.0.0
     "@putout/plugin-apply-early-return": ^2.0.0
     "@putout/plugin-apply-flat-map": ^2.0.0
     "@putout/plugin-apply-optional-chaining": ^3.0.0
@@ -9990,7 +10008,7 @@ __metadata:
     "@putout/plugin-nodejs": ^6.0.0
     "@putout/plugin-npmignore": ^2.0.0
     "@putout/plugin-package-json": ^5.0.0
-    "@putout/plugin-promises": ^9.0.0
+    "@putout/plugin-promises": ^10.0.0
     "@putout/plugin-putout": ^12.0.0
     "@putout/plugin-putout-config": ^2.0.0
     "@putout/plugin-regexp": ^6.0.0
@@ -10020,7 +10038,7 @@ __metadata:
     "@putout/plugin-remove-useless-map": ^1.0.0
     "@putout/plugin-remove-useless-operand": ^2.0.0
     "@putout/plugin-remove-useless-replace": ^1.0.1
-    "@putout/plugin-remove-useless-return": ^4.0.0
+    "@putout/plugin-remove-useless-return": ^5.0.0
     "@putout/plugin-remove-useless-spread": ^6.0.0
     "@putout/plugin-remove-useless-template-expressions": ^1.0.0
     "@putout/plugin-remove-useless-variables": ^8.0.0
@@ -10063,7 +10081,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 277dca26a55518ddb156f845dd71f8a108ca528154729db4e1659a39b7d7d484809850c65d44b84dbab10b1712e858a2e061d86b31574de067ec2ce903edb91b
+  checksum: c587ca05c7fcc36120d661bd804a74e4def29f68790243b100db58693718f6f36612e7fa00a511863145a15dec8786037c7e6608ddceb0435dc82407d496a613
   languageName: node
   linkType: hard
 
@@ -10592,7 +10610,7 @@ __metadata:
 
 "resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.1#~builtin<compat/resolve>":
   version: 1.22.0
-  resolution: "resolve@patch:resolve@npm%3A1.22.0#~builtin<compat/resolve>::version=1.22.0&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.22.0#~builtin<compat/resolve>::version=1.22.0&hash=c3c19d"
   dependencies:
     is-core-module: ^2.8.1
     path-parse: ^1.0.7
@@ -10605,7 +10623,7 @@ __metadata:
 
 "resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>":
   version: 1.22.1
-  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
@@ -10618,7 +10636,7 @@ __metadata:
 
 "resolve@patch:resolve@^2.0.0-next.4#~builtin<compat/resolve>":
   version: 2.0.0-next.4
-  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.4#~builtin<compat/resolve>::version=2.0.0-next.4&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.4#~builtin<compat/resolve>::version=2.0.0-next.4&hash=c3c19d"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
@@ -11897,11 +11915,11 @@ __metadata:
 
 "typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 6a1fe9a77bb9c5176ead919cc4a1499ee63e46b4e05bf667079f11bf3a8f7887f135aa72460a4c3b016e6e6bb65a822cb8689a6d86cbfe92d22cc9f501f09213
+  checksum: bb309d320c59a26565fb3793dba550576ab861018ff3fd1b7fccabbe46ae4a35546bc45f342c0a0b6f265c801ccdf64ffd68f548f117ceb7f0eac4b805cd52a9
   languageName: node
   linkType: hard
 
