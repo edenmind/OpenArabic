@@ -16,6 +16,11 @@ export const generateRandomPositions = () => {
   return positions
 }
 
+//function that capitalizes the first letter
+export const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 // give me a function that capitalizes all letters in a title
 export const prepareTitle = (title) => {
   const words = title.split(' ')

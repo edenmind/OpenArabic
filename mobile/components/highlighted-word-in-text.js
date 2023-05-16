@@ -30,7 +30,8 @@ const HighlightedWordInText = ({ word, text }) => {
           style={{
             ...sharedStyle.arabicBody,
             fontSize: 37,
-            lineHeight: 70
+            lineHeight: 70,
+            color: theme.colors.onSurfaceVariant
           }}
           key={index}
         >

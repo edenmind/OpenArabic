@@ -43,6 +43,7 @@ export default function Words() {
                 <Fragment>
                   <Button
                     icon="stop"
+                    textColor={theme.colors.error}
                     onPress={() => {
                       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
                       dispatch({

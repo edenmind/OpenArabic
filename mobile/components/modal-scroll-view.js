@@ -1,7 +1,7 @@
 import { Button, Divider, Modal, Portal, Text, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ScrollView, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 
 import * as Haptics from 'expo-haptics'
 import { useSharedStyles } from '../styles/common.js'
@@ -37,7 +37,8 @@ const ModalScrollView = ({
     titleStyle: {
       ...sharedStyled.arabicHeading,
       alignSelf: 'center',
-      marginHorizontal: 33,
+      marginHorizontal: 10,
+      marginVertical: 10,
       textAlign: 'center',
       writingDirection: 'rtl'
     },
@@ -66,7 +67,9 @@ const ModalScrollView = ({
             <Divider />
           </>
         )}
-        <ScrollView>{content}</ScrollView>
+        <ScrollView>
+          <View style={{ margin: 5, padding: 5, paddingTop: 15 }}>{content}</View>
+        </ScrollView>
         <Divider />
         <Button onPress={hideModalWithHaptic} style={styles.buttonPadding} mode="elevated" icon={icon}>
           {close}

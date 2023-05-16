@@ -332,7 +332,7 @@ ${englishSentence}
  
 Act as an experienced teacher in Classical Arabic (al-fusha) and explain the Arabic Original Sentence to a beginner student according to the following list:
 
-- Begin explaining the sentence (Now, let's study the sentence more closely to identify Arabic root words and grammatical elements:)
+- Begin explaining the sentence (Let's study the sentence more closely to identify Arabic root words and grammatical elements:)
 - Add a ⟶ before every Arabic Word in the Arabic Original Sentence that is explained and use Arabic letters
 - Add a ↠ before the translation of the Arabic Word in the Arabic Original Sentence on a new line below
 - Put the english explanation on a new line below
@@ -345,7 +345,7 @@ Act as an experienced teacher in Classical Arabic (al-fusha) and explain the Ara
 - Explain grammatical suffixes and prefixes that are added to root words on words such as but not limited to: bi-, al-, an-, wa-, fi-, li-, min-, ila-, il-, -tu, -na, -kum, -hum, -hum, -ha, -ha, etc.
 - Make the explanation of suffixes and prefixes pedagogical and engaging for a beginner that does not know arabic grammar (nahw)
 - End with a Summary of the Arabic Original Sentence and English Translation of Arabic Original Sentence that begins: "Now, let's combine all the words and examine the entire clause once more:"
-- And before the english translation: "Which in English could be translated as: " and "Alternative literal translation: "
+- And before the english translation: "Which in English could be translated as: "
 - When referencing the Arabic Original Sentence in the Summary, put it on its own line with a ⟶ before it and then the english translation and the explanation on a line below
 - Transliterate the Arabic clause in the Summary and put a ↠ before the transliteration
 ---
@@ -353,7 +353,7 @@ Act as an experienced teacher in Classical Arabic (al-fusha) and explain the Ara
 ${requirements}
 
 --- Example Output:
-Now, let's study the sentence more closely to identify Arabic root words and grammatical elements:
+Let's study the sentence more closely to identify Arabic root words and grammatical elements:
 
 ⟶ وَتُقِيمَ
 ↠ wa-tuqeema
@@ -375,9 +375,6 @@ Now, let's combine all the words and examine the entire clause once more:
 
 Which in English could be translated as:
 "and that you should perform salah (ritual prayer)"
-
-Alternative literal translation:
-"and you establish the prayer"
 ---
 
 `

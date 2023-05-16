@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    paddingHorizontal: 10,
     paddingVertical: 15
   }
 })
@@ -47,9 +46,7 @@ function TextBilingualSentencesWords({ word }) {
       </View>
       <ModalScrollView
         visible={visible}
-        content=<View style={{ margin: 5, padding: 5, paddingTop: 15 }}>
-          {explanation ?? 'No explanation available'}
-        </View>
+        content={explanation ?? 'No explanation available'}
         title={word.arabic}
         hideModal={hideModal}
         height="82%"

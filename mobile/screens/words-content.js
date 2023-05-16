@@ -2,7 +2,7 @@
 /* eslint-disable putout/destructuring-as-function-argument */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
-import React, { useState, useCallback, memo, useEffect } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
 import { Surface, Text, ProgressBar, Button, useTheme } from 'react-native-paper'
 import SnackButton from '../components/snack-button.js'
@@ -17,7 +17,7 @@ import { formatGrammar } from '../services/ui-services.js'
 
 const wordsSelector = (state) => state.words
 
-const DETAILS = 'Examine'
+const DETAILS = 'EXAMINE'
 
 const WordsContent = ({
   currentWord,
@@ -141,13 +141,7 @@ const WordsContent = ({
     { button: button3, position: buttonPositions[2] }
   ].sort((a, b) => a.position - b.position)
 
-  const details = (
-    <View style={{ margin: 3, padding: 3 }}>
-      <Text style={{ ...useSharedStyles(theme).englishBody }} variant="bodyLarge">
-        {formatGrammar(words[currentWord].grammar, sharedStyle) ?? 'No explanation available'}
-      </Text>
-    </View>
-  )
+  const details = <View>{formatGrammar(words[currentWord].grammar, sharedStyle) ?? 'No explanation available'}</View>
 
   const renderItem = ({ item }) => <View>{item.button}</View>
 
@@ -160,20 +154,20 @@ const WordsContent = ({
       ListHeaderComponent={
         <>
           <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} />
-          <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 300 }}>
-            <Text style={{ ...styles.arabicBody, width: '95%', padding: 10, textAlign: 'right' }}>
+          <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 350 }}>
+            <Text style={{ ...styles.arabicBody, width: '97%', padding: 10, textAlign: 'right' }}>
               {words[currentWord]?.arabicSentence && (
                 <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
               )}
             </Text>
 
-            <Text style={{ ...styles.footer, width: '95%', position: 'absolute', bottom: 20, padding: 10 }}>
+            <Text style={{ ...styles.footer, width: '97%', position: 'absolute', bottom: 10, padding: 10 }}>
               {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
             </Text>
 
             <Button
               mode="contained-tonal"
-              style={{ position: 'absolute', bottom: 20, right: 10, margin: 10 }}
+              style={{ position: 'absolute', bottom: 10, right: 10, margin: 10 }}
               onPress={() => showModal()}
               textColor={theme.colors.tertiary}
               icon="eye-outline"

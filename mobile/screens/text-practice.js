@@ -8,8 +8,6 @@ import WordsContextHighLighted from '../components/context-highlighted.js'
 import TextPracticeArabicWords from './text-practice-arabic-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
-import ModalScrollView from '../components/modal-scroll-view.js'
-import { formatGrammar } from '../services/ui-services.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -24,14 +22,6 @@ const TextPractice = () => {
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
   const [color, setColor] = useState(theme.colors.elevation.level1)
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
-  const [explanation, setExplanation] = useState('')
-
-  const hideModal = () => {
-    setVisible(false)
-    handleResetQuiz()
-  }
-  const showModal = () => setVisible(true)
-  const [visible, setVisible] = React.useState(false)
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
@@ -59,7 +49,6 @@ const TextPractice = () => {
           {
             text: 'Yes',
             onPress: () => {
-              setVisible(false)
               setCurrentSentence(0)
             }
           }
@@ -111,8 +100,7 @@ const TextPractice = () => {
 
       if (isLastWordInSentence) {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-        setExplanation(formatGrammar(sentencesInText[currentSentence].explanation, sharedStyle))
-        showModal()
+        handleResetQuiz()
 
         if (isLastSentence) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
@@ -135,9 +123,9 @@ const TextPractice = () => {
       sentencesInText,
       currentSentence,
       isLastWordInSentence,
-      isLastSentence,
-      sharedStyle,
-      theme
+      theme,
+      handleResetQuiz,
+      isLastSentence
     ]
   )
   return textLoading ? (
@@ -165,18 +153,6 @@ const TextPractice = () => {
         testID="textPracticeArabicWords"
         currentArabicWordsInSentence={currentArabicWordsInSentence}
         handlePress={handlePress}
-      />
-
-      <ModalScrollView
-        visible={visible}
-        content=<View style={{ margin: 5, padding: 5, paddingTop: 15 }}>
-          {explanation ?? 'No explanation available'}
-        </View>
-        titleLanguage="english"
-        title={'Great Job!'}
-        hideModal={hideModal}
-        icon="forward"
-        close="NEXT SENTENCE"
       />
     </ScrollView>
   ) : (

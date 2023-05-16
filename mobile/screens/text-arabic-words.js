@@ -42,14 +42,20 @@ export default function TextArabicWords({ text, setEnglishTranslation }) {
       return (
         <Button
           key={wordIndex}
-          mode="text"
           onPress={() => {
-            setEnglishTranslation(`${word.english} (${util.transliterateArabicToEnglish(word.arabic)})`)
+            setEnglishTranslation(
+              `${util.capitalizeFirstLetter(word.english)} (${util.transliterateArabicToEnglish(word.arabic)})`
+            )
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
             playSound(word.filename)
           }}
         >
-          <Text style={{ ...sharedStyle.arabicBody, lineHeight: Platform.OS === 'android' ? 90 : 50 }}>
+          <Text
+            style={{
+              ...sharedStyle.arabicBody,
+              lineHeight: Platform.OS === 'android' ? 90 : 50
+            }}
+          >
             {word.arabic}
           </Text>
         </Button>
