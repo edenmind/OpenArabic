@@ -4371,12 +4371,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-remove-unused-expressions@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@putout/plugin-remove-unused-expressions@npm:5.0.0"
+"@putout/plugin-remove-unused-expressions@npm:^6.0.0":
+  version: 6.0.1
+  resolution: "@putout/plugin-remove-unused-expressions@npm:6.0.1"
   peerDependencies:
-    putout: ">=25"
-  checksum: 5c4b7eed823e463d1b8576b7fa3a8a226a98fc3302ac00fcc5fe180d0d0267c137eeeddd61551b745b7efc94a2da5133c473c668b31304dea4972a85538324ac
+    putout: ">=29"
+  checksum: d4555959cf62650f94e00573be1e4a2f1e8edb77e33dbd0ee46241f24bd9d78fe3b0be7b52cb716cee17274933586189c5f01e363dd320568a08e1463d4683d1
   languageName: node
   linkType: hard
 
@@ -13688,10 +13688,10 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.8
     prop-types: ^15.8.1
-    putout: ^29.7.1
+    putout: ^29.8.0
     react: 18.2.0
     react-dom: 18.2.0
-    react-native: 0.71.7
+    react-native: 0.71.8
     react-native-error-boundary: ^1.1.16
     react-native-gesture-handler: ~2.9.0
     react-native-get-random-values: ~1.8.0
@@ -15017,9 +15017,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.7.1":
-  version: 29.7.1
-  resolution: "putout@npm:29.7.1"
+"putout@npm:^29.8.0":
+  version: 29.8.0
+  resolution: "putout@npm:29.8.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -15108,7 +15108,7 @@ __metadata:
     "@putout/plugin-remove-nested-blocks": ^6.0.0
     "@putout/plugin-remove-unreachable-code": ^1.0.0
     "@putout/plugin-remove-unreferenced-variables": ^2.0.0
-    "@putout/plugin-remove-unused-expressions": ^5.0.0
+    "@putout/plugin-remove-unused-expressions": ^6.0.0
     "@putout/plugin-remove-unused-for-of-variables": ^3.0.0
     "@putout/plugin-remove-unused-private-fields": ^2.0.0
     "@putout/plugin-remove-unused-variables": ^5.0.0
@@ -15167,7 +15167,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: c587ca05c7fcc36120d661bd804a74e4def29f68790243b100db58693718f6f36612e7fa00a511863145a15dec8786037c7e6608ddceb0435dc82407d496a613
+  checksum: 922288f83bc1d7964fd6a55cb4e37f36dbd084b171e7a4f1d1f76b9d35bb042d0999ff2b4df9c2fb98ca80ae5c13062845d9e576c3906482dcd03c2dc40102d2
   languageName: node
   linkType: hard
 
@@ -15384,10 +15384,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gradle-plugin@npm:^0.71.17":
-  version: 0.71.17
-  resolution: "react-native-gradle-plugin@npm:0.71.17"
-  checksum: 5ff996bafc3959a36551dc34d481cefb070ede4025b5eb2ce659f51adf74ba0e6845cc019ea1d547e0b4007f1c3c68146fa719688f09bde308f25320c6c6f834
+"react-native-gradle-plugin@npm:^0.71.18":
+  version: 0.71.18
+  resolution: "react-native-gradle-plugin@npm:0.71.18"
+  checksum: 19f0a41e29c9210ff495010aaa612f2c2f4f5f937b6c20266c8dc62f4ccedc65bb7576de59b2f3fd2bb8044ce9785e56673879f2eb452f948e6659a5e1fa5894
   languageName: node
   linkType: hard
 
@@ -15492,9 +15492,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.71.7":
-  version: 0.71.7
-  resolution: "react-native@npm:0.71.7"
+"react-native@npm:0.71.8":
+  version: 0.71.8
+  resolution: "react-native@npm:0.71.8"
   dependencies:
     "@jest/create-cache-key-function": ^29.2.1
     "@react-native-community/cli": 10.2.2
@@ -15521,7 +15521,7 @@ __metadata:
     promise: ^8.3.0
     react-devtools-core: ^4.26.1
     react-native-codegen: ^0.71.5
-    react-native-gradle-plugin: ^0.71.17
+    react-native-gradle-plugin: ^0.71.18
     react-refresh: ^0.4.0
     react-shallow-renderer: ^16.15.0
     regenerator-runtime: ^0.13.2
@@ -15534,7 +15534,7 @@ __metadata:
     react: 18.2.0
   bin:
     react-native: cli.js
-  checksum: efd91d5560290b883e0d3d3482cc4657268c2e480171b63a0c6b7dc8f6b1331298feac7d9966e1831d95d9fee893dfa831252052561232843e4982880238f09e
+  checksum: fe887c1b8bded23f9efea9dc10a8a8b2f32147e06418fc9a78294944874797abb0185ebcb0fdc5ce88046280bca72264ae8d119f4ca681a3e0bc502d0f75bfbe
   languageName: node
   linkType: hard
 

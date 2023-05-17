@@ -61,6 +61,8 @@ module.exports = {
     'putout/comma-dangle': 0,
     'space-before-function-paren': 0,
     'unicorn/prefer-module': 0,
+    'react-native/no-raw-text': 0,
+    'react/no-unescaped-entities': 0,
     'prettier/prettier': [
       'warn',
       {

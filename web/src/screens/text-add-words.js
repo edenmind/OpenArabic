@@ -20,7 +20,6 @@ const selectorText = (state) => state.text
 
 function addEmptyLineAfterSentences(str) {
   const sentences = str.split(/(?<!\n)(?<=[!.?]["']?(?=\s|$)) /) // split the string into sentences
-  // eslint-disable-next-line unicorn/no-array-reduce
   const result = sentences.reduce((acc, sentence) => {
     acc += sentence.trim() + (/[!.?]["']?$/.test(sentence) ? '\n\n' : '') // add the current sentence to the result string and add a new empty line if it ends with a period, exclamation mark, or question mark followed by an optional quote mark
     return acc

@@ -1,5 +1,4 @@
 /* eslint-disable putout/putout */
-/* eslint-disable unicorn/throw-new-error */
 
 'use strict'
 

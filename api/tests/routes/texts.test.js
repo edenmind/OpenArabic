@@ -1,6 +1,5 @@
 'use strict'
 
-/* eslint-disable unicorn/consistent-function-scoping */
 /* eslint-disable putout/objects-braces-inside-array */
 
 const { test } = require('tap')

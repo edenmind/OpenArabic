@@ -1,6 +1,5 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-
 import * as api from './api-service.js'
 
 describe('fetchUsers', () => {

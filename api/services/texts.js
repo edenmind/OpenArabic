@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/consistent-function-scoping */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable putout/putout */
 
