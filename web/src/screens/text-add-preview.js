@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/prefer-spread */
-/* eslint-disable unicorn/no-array-reduce */
 import { Chip, Container, Divider, TextField } from '@mui/material'
 import React, { Fragment } from 'react'
 import Footer from '../components/footer.js'

@@ -27,8 +27,6 @@ function TextListId() {
         const titleAndAuthor = `${res.title} by ${res.author}`
 
         document.title = titleAndAuthor
-
-        // todo: https://cards-dev.twitter.com/validator
       })
       .catch((error) => console.log(error))
   }, [id])

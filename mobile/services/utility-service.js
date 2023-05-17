@@ -33,7 +33,7 @@ export const prepareTitle = (title) => {
   })
 
   // remove all non alphanumeric characters
-  const cleanWords = capitalizedWords.map((word) => word.replace(/[^\dA-Za-z]/g, ''))
+  const cleanWords = capitalizedWords.map((word) => word.replaceAll(/[^\dA-Za-z]/g, ''))
 
   return cleanWords.join(' ')
 }
@@ -105,10 +105,10 @@ export const prepareIngress = (text, length) => {
   return truncate(spaceAfterDot, length)
 }
 
-export const removeLineBreak = (stringWithLineBreaks) => stringWithLineBreaks.replace(/(\r\n|\n|\r)/gm, '')
+export const removeLineBreak = (stringWithLineBreaks) => stringWithLineBreaks.replaceAll(/(\r\n|\n|\r)/gm, '')
 
 export const addSpaceAfterDot = (text) => {
-  return text.replace(/\s*([!,.:;?]+)(?!\s*$)\s*/g, '$1 ')
+  return text.replaceAll(/\s*([!,.:;?]+)(?!\s*$)\s*/g, '$1 ')
 }
 
 export const filterArrayFromEmptyElements = (arrayToFilter, filterFunction) =>
@@ -142,77 +142,77 @@ export const transliterateArabicToEnglish = (string) => {
   let transliteratedArabicToEnglish = ''
 
   // remove all ,.(){}[]!?:; from string
-  string = string.replace(/[!"(),-;?[\]{}]/g, '')
+  string = string.replaceAll(/[!"(),-;?[\]{}]/g, '')
 
   // replace لَا anywhere in a word with lâ
-  string = string.replace(/لَا/g, 'lâ')
+  string = string.replaceAll('لَا', 'lâ')
 
   //replace  tanwin with an
-  string = string.replace(/ً/g, 'an')
+  string = string.replaceAll('ً', 'an')
 
   // replace alif with a
-  string = string.replace(/َ/g, 'a')
+  string = string.replaceAll('َ', 'a')
 
   //replace إلَّا with "illa"
-  string = string.replace(/إلَّا/g, 'illa')
+  string = string.replaceAll('إلَّا', 'illa')
 
   //replace لًا with "la"
-  string = string.replace(/يلًا/g, 'lan')
+  string = string.replaceAll('يلًا', 'lan')
 
   // replace alif lam (definite article) with al- when no non-whitespace character is before 'ا'
-  string = string.replace(/(?<!\S)ال/g, 'al-')
+  string = string.replaceAll(/(?<!\S)ال/g, 'al-')
 
   // replace 'وَال' at the beginning of the string with 'wal-'
   string = string.replace(/^وَال/, 'wal-')
 
   // if a damma us followed by a waw, then i want to replace with û AND the next letter is not shadda or sukon or waw or damma or fatha or kesra
-  string = string.replace(/ُو(?!ّ|ْ|و|َ|ُ|ِ)/g, 'ū')
+  string = string.replaceAll(/ُو(?!ّ|ْ|و|َ|ُ|ِ)/g, 'ū')
 
   // if a kesra is followed by ya, then i want to replace with î AND the next letter is not shadda or sukon or alif or damma or fatha or kesra
-  string = string.replace(/ِي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ī')
+  string = string.replaceAll(/ِي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ī')
 
   // if a fatha is followed by a yam, then i want to replace with â AND ht next letter is not shadda or sukon or alif or damma or fatha or kesra
-  string = string.replace(/َي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ā')
+  string = string.replaceAll(/َي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ā')
 
   // replace bial wit bil- when no non-whitespace character is before 'ب'
-  string = string.replace(/(?<!\S)بِال/g, 'bil-')
+  string = string.replaceAll(/(?<!\S)بِال/g, 'bil-')
 
   // eslint-disable-next-line prettier/prettier
-  string = string.replace(/أَ/g, '`a')
+  string = string.replaceAll('أَ', '`a')
   //replace all ئٍ with ´i
-  string = string.replace(/ئ/g, 'ʾ')
+  string = string.replaceAll('ئ', 'ʾ')
   // replace all إِ with i
-  string = string.replace(/إِ/g, 'ʾi')
+  string = string.replaceAll('إِ', 'ʾi')
   //replace all hamza on wav with a
-  string = string.replace(/ؤْ/g, 'ʾ')
+  string = string.replaceAll('ؤْ', 'ʾ')
   // replace أ with a
-  string = string.replace(/أ/g, 'ʾ')
+  string = string.replaceAll('أ', 'ʾ')
 
   // replace all kasra with the letter i
-  string = string.replace(/ِ/g, 'i')
+  string = string.replaceAll('ِ', 'i')
 
   // replace all damma with the letter u
-  string = string.replace(/ُ/g, 'u')
+  string = string.replaceAll('ُ', 'u')
 
   //replace all sukun with nothing
-  string = string.replace(/ْ/g, '')
+  string = string.replaceAll('ْ', '')
 
   //replace all al-° with al-
-  string = string.replace(/° /g, ' ')
+  string = string.replaceAll('° ', ' ')
 
   // replace all fathatan (tanwiin) with the letters an
-  string = string.replace(/ً/g, 'an')
+  string = string.replaceAll('ً', 'an')
 
   // replace all kasratan (tanwiin) with the letters in
-  string = string.replace(/ٍ/g, 'in')
+  string = string.replaceAll('ٍ', 'in')
 
   // replace all dammatan (tanwiin) with the letters un
-  string = string.replace(/ٌ/g, 'un')
+  string = string.replaceAll('ٌ', 'un')
 
   // replace all alif madda with the letter a
-  string = string.replace(/آ/g, 'ʾā')
+  string = string.replaceAll('آ', 'ʾā')
 
-  string = string.replace(/َا/g, 'ā')
+  string = string.replaceAll('َا', 'ā')
   const letterMap = {
     ٱ: '`a',
     إ: '`i',

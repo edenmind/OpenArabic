@@ -95,7 +95,7 @@ const WordsContent = ({
 
   const handleWrongAnswer = useCallback(() => {
     vibrateBetweenTwoColors(setColor, theme)
-  }, [setColor])
+  }, [theme])
 
   // correct answer button
   const button1 = (

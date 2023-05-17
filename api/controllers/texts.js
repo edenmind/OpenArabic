@@ -1,5 +1,4 @@
 /* eslint-disable putout/nonblock-statement-body-newline */
-/* eslint-disable unicorn/prefer-ternary */
 /* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable operator-linebreak */
 /* eslint-disable putout/putout */

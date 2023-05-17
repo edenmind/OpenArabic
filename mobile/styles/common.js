@@ -156,8 +156,10 @@ export const useSharedStyles = (theme) => {
     arabicFontSize,
     theme.colors.tertiary,
     theme.colors.secondary,
+    theme.colors.elevation.tertiaryContainer,
     theme.colors.elevation.level1,
     theme.colors.elevation.level5,
+    theme.colors.onTertiaryContainer,
     theme.colors.onSurfaceVariant,
     theme.colors.onSurface,
     englishFontSize

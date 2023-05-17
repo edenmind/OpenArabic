@@ -2,7 +2,6 @@
 
 /* eslint-disable quote-props */
 /* eslint-disable prettier/prettier */
-/* eslint-disable unicorn/prefer-module */
 
 module.exports = {
   env: {
@@ -16,7 +15,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: 'module'
   },
-  plugins: ['import', 'prettier', 'unicorn', 'security', 'putout'],
+  plugins: ['import', 'prettier', 'security', 'putout'],
   rules: {
     'comma-dangle': 0,
     indent: 0,
@@ -38,7 +37,6 @@ module.exports = {
     'putout/semi': 0,
     'security/detect-possible-timing-attacks': 0,
     'space-before-function-paren': 0,
-    'unicorn/prefer-module': 0,
     quotes: [2, 'single', { avoidEscape: true }],
     'prettier/prettier': [
       'warn',
@@ -57,7 +55,6 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/recommended',
     'plugin:import/warnings',
-    'plugin:unicorn/recommended',
     'plugin:security/recommended'
   ]
 }
