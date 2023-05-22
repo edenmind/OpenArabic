@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@adobe/css-tools@npm:^4.0.1":
@@ -635,7 +635,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-private-property-in-object@npm:^7.21.0":
+"@babel/plugin-proposal-private-property-in-object@npm:^7.16.0, @babel/plugin-proposal-private-property-in-object@npm:^7.21.0":
   version: 7.21.0
   resolution: "@babel/plugin-proposal-private-property-in-object@npm:7.21.0"
   dependencies:
@@ -3518,12 +3518,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-to-arrow-function@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@putout/plugin-convert-to-arrow-function@npm:3.0.0"
+"@putout/plugin-convert-to-arrow-function@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@putout/plugin-convert-to-arrow-function@npm:4.0.0"
   peerDependencies:
-    putout: ">=10"
-  checksum: 5e357e13bd9aeff264402c93883b4adcf0cd1b506c58635742a1da1e0765982a45b0ab8938de23e24ccd479ae71a4b7794fa2d8cd0d27528746cadb5d99011b0
+    putout: ">=29"
+  checksum: a97abc9ea093198b7481fc8a3ac96db5e55f8339859518785c301d0ed67177a0a16f5f16af26fbceea8101ba36bdc6e54a8126fd5b8245546ce9bcfb64c8b2b2
   languageName: node
   linkType: hard
 
@@ -3691,12 +3691,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-new@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "@putout/plugin-new@npm:1.1.0"
+"@putout/plugin-new@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-new@npm:2.0.0"
   peerDependencies:
-    putout: ">=26"
-  checksum: 790f935a2e485c5d68b33ea5155a0282eb67e9da6cb07df028e1926dcc73995187e2be28d276e8a3506836d954dac8bd0ba9c6c19e3710add9211e51897fdee3
+    putout: ">=29"
+  checksum: 646eff78bab4b825f177199efca500b2f04d17715010d3413aaba164d51b4a88794d685db6e35485c9d66f5c1f20e23742c6c92c88e3c617e7d06602712c2eb7
   languageName: node
   linkType: hard
 
@@ -3760,15 +3760,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-regexp@npm:^6.0.0":
-  version: 6.3.0
-  resolution: "@putout/plugin-regexp@npm:6.3.0"
+"@putout/plugin-regexp@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@putout/plugin-regexp@npm:7.0.0"
   dependencies:
     regexp-tree: ^0.1.21
     try-catch: ^3.0.0
   peerDependencies:
-    putout: ">=28"
-  checksum: de16da87d82e5235e8b38b44b73b762e1f64228fe0ab921bea949635216ea2e57e6cc40fd93ccf326dfbbf1d5bb1551c1d1fbdccc6758ea8051be2d76ead1bf3
+    putout: ">=29"
+  checksum: 3a444b339c637e3739b12eb944ab71fc5b7bd30cb569a54cf5c14c966a18dfa4fa4b43f3533917b9a45537959c6373ca91c896297a78fed713c2f8fffff9f5c8
   languageName: node
   linkType: hard
 
@@ -9103,7 +9103,7 @@ __metadata:
 
 "fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
   dependencies:
     node-gyp: latest
   conditions: os=darwin
@@ -14080,9 +14080,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.8.0":
-  version: 29.8.0
-  resolution: "putout@npm:29.8.0"
+"putout@npm:^29.8.3":
+  version: 29.8.3
+  resolution: "putout@npm:29.8.3"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -14134,7 +14134,7 @@ __metadata:
     "@putout/plugin-convert-object-entries-to-array-entries": ^1.0.0
     "@putout/plugin-convert-quotes-to-backticks": ^2.0.0
     "@putout/plugin-convert-template-to-string": ^1.0.0
-    "@putout/plugin-convert-to-arrow-function": ^3.0.0
+    "@putout/plugin-convert-to-arrow-function": ^4.0.0
     "@putout/plugin-declare": ^1.0.1
     "@putout/plugin-declare-before-reference": ^2.0.0
     "@putout/plugin-declare-imports-first": ^2.0.0
@@ -14153,14 +14153,14 @@ __metadata:
     "@putout/plugin-merge-duplicate-imports": ^9.0.0
     "@putout/plugin-merge-if-statements": ^3.0.0
     "@putout/plugin-montag": ^2.0.0
-    "@putout/plugin-new": ^1.0.0
+    "@putout/plugin-new": ^2.0.0
     "@putout/plugin-nodejs": ^6.0.0
     "@putout/plugin-npmignore": ^2.0.0
     "@putout/plugin-package-json": ^5.0.0
     "@putout/plugin-promises": ^10.0.0
     "@putout/plugin-putout": ^12.0.0
     "@putout/plugin-putout-config": ^2.0.0
-    "@putout/plugin-regexp": ^6.0.0
+    "@putout/plugin-regexp": ^7.0.0
     "@putout/plugin-remove-console": ^6.0.0
     "@putout/plugin-remove-constant-conditions": ^4.0.0
     "@putout/plugin-remove-debugger": ^5.0.0
@@ -14230,7 +14230,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 922288f83bc1d7964fd6a55cb4e37f36dbd084b171e7a4f1d1f76b9d35bb042d0999ff2b4df9c2fb98ca80ae5c13062845d9e576c3906482dcd03c2dc40102d2
+  checksum: 15e0656cc93f861164f18a437c12e9123a447f3d56b217074bd884a260e296ec87e908ae5f728bb6525428e9f7078fbbd762189c1715a1f9371c2f5efb59cf4f
   languageName: node
   linkType: hard
 
@@ -15173,7 +15173,7 @@ __metadata:
 
 "resolve@patch:resolve@^1.1.7#~builtin<compat/resolve>":
   version: 1.22.2
-  resolution: "resolve@patch:resolve@npm%3A1.22.2#~builtin<compat/resolve>::version=1.22.2&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.22.2#~builtin<compat/resolve>::version=1.22.2&hash=c3c19d"
   dependencies:
     is-core-module: ^2.11.0
     path-parse: ^1.0.7
@@ -15186,7 +15186,7 @@ __metadata:
 
 "resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>":
   version: 1.22.1
-  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
@@ -15199,7 +15199,7 @@ __metadata:
 
 "resolve@patch:resolve@^2.0.0-next.4#~builtin<compat/resolve>":
   version: 2.0.0-next.4
-  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.4#~builtin<compat/resolve>::version=2.0.0-next.4&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.4#~builtin<compat/resolve>::version=2.0.0-next.4&hash=c3c19d"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
@@ -16781,11 +16781,11 @@ __metadata:
 
 "typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 6a1fe9a77bb9c5176ead919cc4a1499ee63e46b4e05bf667079f11bf3a8f7887f135aa72460a4c3b016e6e6bb65a822cb8689a6d86cbfe92d22cc9f501f09213
+  checksum: bb309d320c59a26565fb3793dba550576ab861018ff3fd1b7fccabbe46ae4a35546bc45f342c0a0b6f265c801ccdf64ffd68f548f117ceb7f0eac4b805cd52a9
   languageName: node
   linkType: hard
 
@@ -17306,7 +17306,7 @@ __metadata:
     moment-timezone: ^0.5.43
     node-notifier: ^10.0.1
     prettier: ^2.8.8
-    putout: ^29.8.0
+    putout: ^29.8.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-moment: ^1.1.3
