@@ -41,7 +41,7 @@
     "moment-timezone": "^0.5.43",
     "node-notifier": "^10.0.1",
     "prettier": "^2.8.8",
-    "putout": "^29.8.0",
+    "putout": "^29.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-moment": "^1.1.3",
