@@ -50,7 +50,7 @@
     "eslint-plugin-putout": "^17.6.0",
     "eslint-plugin-security": "^1.7.1",
     "prettier": "^2.8.8",
-    "putout": "^29.8.0",
+    "putout": "^29.8.3",
     "tap": "^16.3.4"
   }
 }
