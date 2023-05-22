@@ -39,7 +39,7 @@
     "fastify-plugin": "^4.5.0",
     "moment": "^2.29.4",
     "mongodb": "^5.5.0",
-    "sinon": "^15.0.4",
+    "sinon": "^15.1.0",
     "try-to-catch": "^3.0.1",
     "uuid": "^9.0.0"
   },
