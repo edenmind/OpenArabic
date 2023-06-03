@@ -56,7 +56,7 @@ const TextPractice = () => {
         { cancelable: false }
       )
     }
-  }, [currentSentence, sentencesInText.length])
+  }, [currentSentence, sentencesInText])
 
   // loop through all sentences in the text
   const sentencesInText = React.useMemo(() => {
