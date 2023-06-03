@@ -3,8 +3,9 @@ import { StyleSheet, Pressable, Animated } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
 import { prepareIngress } from '../services/utility-service.js'
 import SCREENS from '../constants/screens.js'
-import { Text, Card, Divider, useTheme } from 'react-native-paper'
+import { Text, Card, Divider, useTheme, IconButton } from 'react-native-paper'
 import PropTypes from 'prop-types'
+import { generateShare } from '../services/ui-services.js'
 
 const animatedStyle = StyleSheet.create({
   animatedView: {
@@ -59,7 +60,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
   })
 
   return (
-    <Card style={styles.card} testID="textCard" mode="elevated">
+    <Card style={styles.card} testID="textCard" mode="elevated" elevation={1}>
       <Pressable
         onPressIn={scaleCard}
         onPressOut={restoreCard}
@@ -79,6 +80,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
             titleStyle={styles.cardTitle}
             subtitleVariant="labelMedium"
             subtitleStyle={styles.cardSubTitle}
+            right={(props) => <IconButton {...props} icon="share-variant-outline" onPress={generateShare(text)} />}
           />
           <Card.Content>
             <Text style={useSharedStyles(theme).arabicBody}>{arabic}</Text>

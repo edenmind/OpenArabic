@@ -5,6 +5,7 @@ import { storeData, getData } from '../services/storage.js'
 import { useDispatch } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 import { ScrollView } from 'react-native-gesture-handler'
+import * as Haptics from 'expo-haptics'
 
 const style = StyleSheet.create({
   element: {
@@ -131,9 +132,11 @@ function TextSettings() {
       </Text>
       <SegmentedButtons
         value={arabicFontSizeValue}
+        density="medium"
         onValueChange={(value) => {
           storeArabicFontSize(value)
           setArabicSizeValue(value)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         }}
         buttons={[
           {
@@ -159,10 +162,11 @@ function TextSettings() {
       </Text>
       <SegmentedButtons
         value={englishFontSizeValue}
-        density="small"
+        density="medium"
         onValueChange={(value) => {
           storeEnglishFontSize(value)
           setEnglishSizeValue(value)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         }}
         buttons={[
           {
@@ -188,10 +192,11 @@ function TextSettings() {
       </Text>
       <SegmentedButtons
         value={arabicFontName}
-        density="small"
+        density="medium"
         onValueChange={(value) => {
           storeArabicFontName(value)
           setArabicFontName(value)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         }}
         buttons={[
           {

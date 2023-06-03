@@ -149,7 +149,7 @@ export default function TextDrawer() {
       options={{
         title: SCREENS.home,
         headerShown: true,
-        drawerLabel: 'Home'
+        drawerLabel: 'Latest ✨'
       }}
       key={'999'}
     />
@@ -162,7 +162,7 @@ export default function TextDrawer() {
         unmountOnBlur: true,
         backgroundColor: theme.colors.surface,
         drawerStyle: {
-          width: 225
+          width: 195
         },
         headerTintColor: theme.colors.secondary,
         headerStyle: {

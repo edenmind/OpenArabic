@@ -20,7 +20,7 @@ const TextPractice = () => {
   const [currentWord, setCurrentWord] = useState(0)
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
-  const [color, setColor] = useState(theme.colors.elevation.level1)
+  const [color, setColor] = useState(theme.colors.elevation.level3)
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
