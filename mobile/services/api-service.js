@@ -37,9 +37,12 @@ export const getTexts = (id) => async (dispatch) => {
 export const getCategories = () => async (dispatch) => {
   const res = await axios.get(url.categories())
 
+  //remove a category with the property name Quotes
+  const filteredCategories = res.data.filter((category) => category.name !== 'Quotes')
+
   dispatch({
     type: 'SET_CATEGORIES',
-    payload: res.data
+    payload: filteredCategories
   })
 }
 

@@ -47,7 +47,7 @@ function TextBilingualSentences(props) {
         icon="card-text-outline"
         onPress={() => {
           setWords(formatGrammar(sentence.explanation, sharedStyle))
-          setTitle(sentence.arabic)
+          setTitle('Sentence')
           showModal()
         }}
       >
@@ -61,7 +61,7 @@ function TextBilingualSentences(props) {
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()
-          setTitle('')
+          setTitle('Words')
         }}
       >
         STUDY WORDS
@@ -72,7 +72,7 @@ function TextBilingualSentences(props) {
   return (
     <>
       {sentences}
-      <ModalScrollView visible={visible} content={words} title={title} hideModal={hideModal} />
+      <ModalScrollView visible={visible} content={words} title={title} hideModal={hideModal} titleLanguage="english" />
     </>
   )
 }

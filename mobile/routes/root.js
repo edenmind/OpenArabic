@@ -51,15 +51,15 @@ function Root() {
 
               switch (route.name) {
                 case SCREENS.text: {
-                  iconName = 'home'
+                  iconName = 'text-long'
                   break
                 }
                 case SCREENS.words: {
-                  iconName = 'text-box-check'
+                  iconName = 'abjad-arabic'
                   break
                 }
                 case SCREENS.settings: {
-                  iconName = 'information'
+                  iconName = 'information-variant'
                   break
                 }
                 // No default

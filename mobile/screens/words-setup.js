@@ -18,13 +18,15 @@ const WordsSetup = (props) => {
   return (
     <ScrollView style={sharedStyle.scrollViewLTR}>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <Text variant="titleSmall">Select Number of Words</Text>
+      <Text variant="titleSmall">Number of Words</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
       <SegmentedButtons
         value={props.numberOfWordsToPractice}
+        density="medium"
         onValueChange={(value) => {
           props.setNumberOfWordsToPractice(value)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         }}
         buttons={[
           {
@@ -36,44 +38,45 @@ const WordsSetup = (props) => {
             label: '20'
           },
           {
-            value: 40,
-            label: '40'
+            value: 30,
+            label: '30'
           }
         ]}
       />
 
-      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 15 }} />
-      <Text variant="titleSmall">Select Difficulty Level</Text>
+      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <Text variant="titleSmall">Level</Text>
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
       <SegmentedButtons
         value={props.difficultyLevel}
+        density="medium"
         onValueChange={(value) => {
           props.handleSetDifficultyLevel(value)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         }}
         buttons={[
           {
             value: 10,
-            label: 'Easy'
+            label: 'Beginner'
           },
           {
             value: 20,
-            label: 'Medium'
+            label: 'Midlevel'
           },
           {
             value: 30,
-            label: 'Hard'
+            label: 'Advanced'
           }
         ]}
       />
 
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
       <WordsSetupDifficultyLevel difficultyLevel={props.difficultyLevel} />
-      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 15 }} />
+      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 5 }} />
 
       <Button
         mode="contained"
-        icon={'play'}
         onPress={() => {
           props.resetStateForNewWords()
           dispatch(getWords(props.difficultyLevel, props.numberOfWordsToPractice))

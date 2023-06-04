@@ -4,20 +4,21 @@
 /* eslint-disable react-native/no-color-literals */
 import React, { useState, useCallback, useEffect } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
-import { Surface, Text, ProgressBar, Button, useTheme } from 'react-native-paper'
+import { Surface, Text, ProgressBar, Button, useTheme, Chip } from 'react-native-paper'
 import SnackButton from '../components/snack-button.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import HighlightedWordInText from '../components/highlighted-word-in-text.js'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import { formatGrammar } from '../services/ui-services.js'
 
 const wordsSelector = (state) => state.words
 
-const DETAILS = 'EXAMINE'
+const ROOT = 'ROOT'
+const CONTEXT = 'CONTEXT'
+const PLAY = 'PLAY'
 
 const WordsContent = ({
   currentWord,
@@ -45,16 +46,18 @@ const WordsContent = ({
       flex: 1,
       margin: 10
     },
-    footer: {
-      color: theme.colors.secondary,
-      fontFamily: 'philosopher',
-      fontSize: 15
-    },
+    // footer: {
+    //   color: theme.colors.secondary,
+    //   fontFamily: 'philosopher',
+    //   fontSize: 15
+    // },
     surface: {
       alignItems: 'center',
+      backgroundColor: color,
       borderRadius: 10,
       justifyContent: 'center',
       marginBottom: 10,
+      marginVertical: 10,
       minHeight: 300
     },
     text: {
@@ -153,27 +156,83 @@ const WordsContent = ({
       keyExtractor={(item) => item.position.toString()}
       ListHeaderComponent={
         <>
-          <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} />
-          <Surface style={{ ...styles.surface, backgroundColor: color, marginVertical: 10, minHeight: 350 }}>
-            <Text style={{ ...styles.arabicBody, width: '97%', padding: 10, textAlign: 'right' }}>
-              {words[currentWord]?.arabicSentence && (
-                <HighlightedWordInText text={words[currentWord].arabicSentence} word={words[currentWord].arabic} />
-              )}
-            </Text>
-
-            <Text style={{ ...styles.footer, width: '97%', position: 'absolute', bottom: 10, padding: 10 }}>
-              {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
-            </Text>
-
-            <Button
-              mode="contained-tonal"
-              style={{ position: 'absolute', bottom: 10, right: 10, margin: 10 }}
-              onPress={() => showModal()}
-              textColor={theme.colors.tertiary}
-              icon="eye-outline"
+          <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} style={{ marginHorizontal: 2 }} />
+          <Surface style={styles.surface}>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', top: 15 }}>
+              <Chip
+                style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
+                compact={true}
+                selectedColor={theme.colors.onTertiary}
+              >
+                Attached
+              </Chip>
+              <Chip
+                style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
+                compact={true}
+                selectedColor={theme.colors.onTertiary}
+              >
+                Weak
+              </Chip>
+              <Chip
+                style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
+                compact={true}
+                selectedColor={theme.colors.onTertiary}
+              >
+                Passive
+              </Chip>
+              <Chip
+                style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
+                compact={true}
+                selectedColor={theme.colors.onTertiary}
+              >
+                Attached
+              </Chip>
+            </View>
+            <Text
+              style={{
+                ...styles.arabicBody,
+                width: '97%',
+                padding: 10,
+                fontSize: 75,
+                textAlign: 'center',
+                color: theme.colors.primary
+              }}
             >
-              {DETAILS}
-            </Button>
+              {words[currentWord].arabic}
+            </Text>
+
+            {/* <Text style={{ ...styles.footer, width: '97%', position: 'absolute', bottom: 5, padding: 10 }}>
+              {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
+            </Text> */}
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 5, margin: 5 }}>
+              <Button
+                mode="text"
+                style={{ margin: 3 }}
+                onPress={() => showModal()}
+                textColor={theme.colors.secondary}
+                icon="play"
+              >
+                {PLAY}
+              </Button>
+              <Button
+                mode="text"
+                style={{ margin: 3 }}
+                onPress={() => showModal()}
+                textColor={theme.colors.secondary}
+                icon="text"
+              >
+                {CONTEXT}
+              </Button>
+              <Button
+                mode="text"
+                style={{ margin: 3 }}
+                onPress={() => showModal()}
+                textColor={theme.colors.secondary}
+                icon="source-branch"
+              >
+                {ROOT}
+              </Button>
+            </View>
           </Surface>
 
           <SnackButton

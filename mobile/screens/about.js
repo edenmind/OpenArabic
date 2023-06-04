@@ -53,11 +53,73 @@ function About() {
           ﷽
         </Text>
         <Divider style={style.divider} />
+
         <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          OpenArabic offers resources to enhance Islamic vocabulary, aiming to improve understanding of the Quran, and
-          the Prophet's ﷺ sayings, in sha Allah.
+          OpenArabic specializes in teaching Islamic vocabulary through the context of original religious texts.
         </Text>
         <Divider style={style.divider} />
+
+        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
+          While we aren't a complete solution for learning Arabic, we complement our approach with guided access to a
+          curated list of additional resources.
+        </Text>
+        <Divider style={style.divider} />
+
+        <Text variant="titleLarge" style={style.english}>
+          The Alphabet
+        </Text>
+        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
+          The Arabic alphabet is crucial for understanding and accurately pronouncing Arabic, the language of the Quran
+          and over 420 million people worldwide.
+        </Text>
+        <Button
+          icon={'android'}
+          style={sharedStyle.button}
+          mode="elevated"
+          onPress={() => Linking.openURL(duoLingoAndroid)}
+        >
+          Dulingo Android
+        </Button>
+        <Button
+          icon={'apple'}
+          style={sharedStyle.button}
+          mode="elevated"
+          onPress={() => Linking.openURL(duoLingoIphone)}
+        >
+          Dulingo iPhone
+        </Button>
+        <Divider style={style.divider} />
+        <Text variant="titleLarge" style={style.english}>
+          Arabic Grammar
+        </Text>
+        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
+          Advanced Arabic grammar, encompassing Sarf (morphology) and Nahw (syntax), is vital for a nuanced
+          understanding of Arabic. Sarf deals with word formation and allows comprehension of complex structures, while
+          Nahw aids in sentence construction and interpretation.
+        </Text>
+        <Button icon={'youtube'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(arabic101)}>
+          Arabic 101 (Free)
+        </Button>
+
+        <Divider style={style.divider} />
+        <Text variant="titleLarge" style={style.english}>
+          Online Courses
+        </Text>
+        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
+          Arabic courses hosted online provide an accessible and flexible approach to language learning while often
+          practicing with a teacher.
+        </Text>
+        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(andalus)}>
+          Andalus Institute
+        </Button>
+        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(amau)}>
+          Arabic With AMAU
+        </Button>
+        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(ijaad)}>
+          Ijaada Institute
+        </Button>
+        <Divider style={style.divider} />
+
         <Text variant="titleLarge" style={style.english}>
           Contact Us
         </Text>
@@ -91,74 +153,7 @@ function About() {
         >
           Instagram
         </Button>
-        <Divider style={style.divider} />
-        <Text variant="titleLarge" style={style.english}>
-          Learn The Arabic Alphabet
-        </Text>
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          OpenArabic doesn't cover the Arabic alphabet, but we recommend using these apps to learn it, ideally with a
-          teacher or native speaker for pronunciation guidance.{' '}
-        </Text>
-        <Button
-          icon={'android'}
-          style={sharedStyle.button}
-          mode="elevated"
-          onPress={() => Linking.openURL(duoLingoAndroid)}
-        >
-          Dulingo Android
-        </Button>
-        <Button
-          icon={'apple'}
-          style={sharedStyle.button}
-          mode="elevated"
-          onPress={() => Linking.openURL(duoLingoIphone)}
-        >
-          Dulingo iPhone
-        </Button>
-        <Divider style={style.divider} />
-        <Text variant="titleLarge" style={style.english}>
-          Learn Arabic Grammar
-        </Text>
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          For a comprehensive Arabic learning experience, numerous online and in-person courses are available, covering
-          morphology (sarf) and grammar (nahw).
-        </Text>
-        <Button icon={'youtube'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(arabic101)}>
-          Arabic 101 (Free)
-        </Button>
-        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(andalus)}>
-          Andalus Institute
-        </Button>
-        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(amau)}>
-          Arabic With AMAU
-        </Button>
-        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(ijaad)}>
-          Ijaada Institute
-        </Button>
-        <Divider style={style.divider} />
-        <Text variant="titleLarge" style={style.english}>
-          Open Source Platform
-        </Text>
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          OpenArabic is developing a platform optimized for Arabic learning and teaching, using open-source tools like
-          Node.js® and Kubernetes since traditional social media platforms aren't ideal for this purpose.
-        </Text>
-        <Button
-          icon={'github'}
-          style={sharedStyle.button}
-          mode="elevated"
-          onPress={() => Linking.openURL(githubIssues)}
-        >
-          OpenArabic on GitHub
-        </Button>
-        <Button
-          icon={'github'}
-          style={sharedStyle.button}
-          mode="elevated"
-          onPress={() => Linking.openURL(gitHubFirstIssue)}
-        >
-          Good First Issues
-        </Button>
+
         <Divider style={style.divider} />
         <Text variant="titleLarge" style={style.english}>
           Islamic Foundation

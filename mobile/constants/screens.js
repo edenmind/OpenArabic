@@ -1,9 +1,9 @@
 const SCREENS = {
   about: 'About',
-  settings: 'Settings',
-  text: 'Text',
-  home: 'Home',
-  words: 'Practice Words',
+  settings: 'About',
+  text: 'Texts',
+  home: 'Texts',
+  words: 'Words',
   bilingual: 'Bilingual',
   arabic: 'Arabic',
   english: 'Eng',

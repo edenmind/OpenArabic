@@ -6,11 +6,11 @@ it('white should be correct', () => {
 })
 
 it('text should be correct', () => {
-  expect(SCREENS.text).toBe('Text')
+  expect(SCREENS.text).toBe('Texts')
 })
 
 it('shinyOlive should be correct', () => {
-  expect(SCREENS.home).toBe('Home')
+  expect(SCREENS.home).toBe('Texts')
 })
 
 it('bilingual should be correct', () => {

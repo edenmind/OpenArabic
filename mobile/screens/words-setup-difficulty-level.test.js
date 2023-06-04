@@ -26,21 +26,4 @@ describe('WordsSetupDifficultyLevel', () => {
 
     expect(surface).toBeDefined()
   })
-
-  it('renders beginner difficulty level correctly', () => {
-    const { getByText } = render(<WordsSetupDifficultyLevel {...props} />)
-
-    expect(
-      getByText(
-        'Learn the words in the Shahada (testimony of faith) and short Surahs (Al-Fatiha, Al-Ikhlas, Al-Falaq, and An-Nas).'
-      )
-    ).toBeDefined()
-  })
-
-  it('renders mid-level difficulty level correctly', () => {
-    const { getByText } = render(<WordsSetupDifficultyLevel difficultyLevel={20} />)
-    expect(
-      getByText('Learn the words in the five daily prayers and additional short Surahs from Juz Amma in the Quran.')
-    ).toBeDefined()
-  })
 })

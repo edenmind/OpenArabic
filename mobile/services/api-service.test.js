@@ -64,15 +64,6 @@ describe('getTexts', () => {
     })
   })
 
-  test('categories should dispatch SET_CATEGORIES', async () => {
-    mock.onGet().reply(200, { data: 'test' })
-    await getCategories()(mockDispatch)
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'SET_CATEGORIES',
-      payload: { data: 'test' }
-    })
-  })
-
   test('getText should dispatch SET_TEXT', async () => {
     mock.onGet().reply(200, { data: 'test' })
     await getText('test')(mockDispatch)

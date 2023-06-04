@@ -42,6 +42,7 @@ export default function TextArabicWords({ text, setEnglishTranslation }) {
       return (
         <Button
           key={wordIndex}
+          style={{ marginHorizontal: -9 }}
           onPress={() => {
             setEnglishTranslation(
               `${util.capitalizeFirstLetter(word.english)} (${util.transliterateArabicToEnglish(word.arabic)})`

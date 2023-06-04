@@ -6,9 +6,10 @@ const HighlightedWordInText = ({ word, text }) => {
   const sharedStyle = useSharedStyles(theme)
   const splitText = text.split(' ')
   const newText = []
+  let isHighlighted = false
 
   for (const [index, w] of splitText.entries()) {
-    if (w === word) {
+    if (w === word && !isHighlighted) {
       newText.push(
         <Text
           testID="highlighted"
@@ -17,20 +18,21 @@ const HighlightedWordInText = ({ word, text }) => {
             ...sharedStyle.arabicBody,
             backgroundColor: theme.colors.primary,
             color: theme.colors.onPrimary,
-            fontSize: 37,
-            lineHeight: 70
+            fontSize: 35,
+            lineHeight: 60
           }}
         >
           &nbsp;{w}&nbsp;
         </Text>
       )
+      isHighlighted = true
     } else {
       newText.push(
         <Text
           style={{
             ...sharedStyle.arabicBody,
-            fontSize: 37,
-            lineHeight: 70,
+            fontSize: 35,
+            lineHeight: 60,
             color: theme.colors.onSurfaceVariant
           }}
           key={index}
