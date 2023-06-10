@@ -11,7 +11,7 @@ const ModalScrollView = ({
   content,
   visible,
   hideModal,
-  height = '85%',
+  height = '93%',
   close = 'CLOSE',
   titleLanguage = 'arabic',
   icon
@@ -20,10 +20,8 @@ const ModalScrollView = ({
   const sharedStyled = useSharedStyles(theme)
   const styles = StyleSheet.create({
     buttonPadding: {
-      marginBottom: 15,
-      marginLeft: 25,
-      marginRight: 25,
-      marginTop: 15
+      marginBottom: 0,
+      marginTop: 10
     },
 
     containerStyle: {
@@ -38,7 +36,6 @@ const ModalScrollView = ({
       ...sharedStyled.arabicHeading,
       alignSelf: 'center',
       marginHorizontal: 10,
-      marginVertical: 10,
       textAlign: 'center',
       writingDirection: 'rtl'
     },

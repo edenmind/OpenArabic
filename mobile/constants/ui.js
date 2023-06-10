@@ -5,6 +5,8 @@ const UI = {
   null: '',
   study: 'STUDY',
   play: 'PLAY',
+  root: 'ROOT',
+  explain: 'EXPLAIN',
   playSentence: 'PLAY SENTENCE'
 }
 

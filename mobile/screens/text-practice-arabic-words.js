@@ -22,17 +22,14 @@ const TextPracticeArabicWords = (props) => {
           key={index}
           testID={word.arabic}
           onPress={() => {
-            //find the matching english word and and log it to the console
             props.handlePress(word.id, word.arabic)
           }}
-          mode="elevated"
           style={{ ...sharedStyle.buttonAnswer, height: 90 }}
         >
           <Text
             style={{
-              fontSize: 30,
-              fontWeight: '600',
-
+              fontSize: 40,
+              fontFamily: 'uthman',
               lineHeight: Platform.OS === 'android' ? 90 : 70,
               color: theme.colors.primary
             }}

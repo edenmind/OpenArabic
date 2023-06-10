@@ -4,7 +4,7 @@ add property for when the word was added
 */
 
 /* eslint-disable operator-linebreak */
-import { Button, Container, FormControl, Stack, TextField, Box } from '@mui/material'
+import { Button, Container, FormControl, Stack, TextField, Box, InputLabel, Select, MenuItem } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
 import * as api from '../services/api-service.js'
 import Footer from '../components/footer.js'
@@ -18,7 +18,9 @@ function addEmptyLineAfterSentences(str) {
   const sentences = str.split(/(?<!\n)(?<=[!.?]["']?(?=\s|$)) /) // split the string into sentences
   const result = sentences.reduce((acc, sentence) => {
     acc += sentence.trim() + (/[!.?]["']?$/.test(sentence) ? '\n\n' : '') // add the current sentence to the result string and add a new empty line if it ends with a period, exclamation mark, or question mark followed by an optional quote mark
-    return acc
+
+    //remove ""
+    return acc.replace(/"([\u0600-\u06FF\s]*)"/g, '$1')
   }, '')
 
   return result.trim() // remove trailing whitespace
@@ -34,6 +36,7 @@ const WordsUpdate = () => {
   const [englishSentence, setEnglishSentence] = React.useState('')
   const [arabicSentence, setArabicSentence] = React.useState('')
   const [arabicText, setArabicText] = React.useState('')
+  const [categoryLevel, setCategoryLevel] = React.useState('10')
   const [englishText, setEnglishText] = React.useState('')
   const [grammar, setGrammar] = React.useState('')
   const [filename, setFilename] = React.useState('')
@@ -77,8 +80,18 @@ const WordsUpdate = () => {
     api
       .getWordById(textId, sentenceId, wordId)
       .then((res) => {
-        const { english, arabic, englishSentence, arabicSentence, grammar, filename, quiz, englishText, arabicText } =
-          res
+        const {
+          english,
+          arabic,
+          englishSentence,
+          arabicSentence,
+          grammar,
+          filename,
+          quiz,
+          englishText,
+          arabicText,
+          categoryLevel
+        } = res
         setEnglish(english)
         setArabic(arabic)
         setEnglishSentence(englishSentence)
@@ -88,6 +101,7 @@ const WordsUpdate = () => {
         setArabicText(arabicText)
         setEnglishText(englishText)
         setQuiz(quiz)
+        setCategoryLevel(categoryLevel)
       })
       .catch((error) => console.log(error))
   }, [sentenceId, textId, wordId])
@@ -102,6 +116,7 @@ const WordsUpdate = () => {
       textId,
       sentenceId,
       wordId,
+      categoryLevel,
       filename,
       quiz
     }
@@ -134,6 +149,28 @@ const WordsUpdate = () => {
             <Button variant="contained" onClick={updateWord}>
               Update
             </Button>
+
+            <Button
+              onClick={() =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                handleOpen(
+                  'Generic Explanation',
+                  prompts.getSimpleGenericExplanation(
+                    english,
+                    arabic,
+                    arabicSentence,
+                    englishSentence,
+                    arabicText,
+                    englishText
+                  )
+                )
+              }
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '10px' }}
+            >
+              Generic
+            </Button>
             <Button
               onClick={() =>
                 // eslint-disable-next-line implicit-arrow-linebreak
@@ -153,7 +190,7 @@ const WordsUpdate = () => {
               color="primary"
               style={{ marginLeft: '10px' }}
             >
-              Explain Verb
+              Verb
             </Button>
             <Button
               onClick={() =>
@@ -174,7 +211,7 @@ const WordsUpdate = () => {
               color="primary"
               style={{ marginLeft: '10px' }}
             >
-              Explain Noun
+              Noun
             </Button>
             <Button
               onClick={() =>
@@ -195,7 +232,7 @@ const WordsUpdate = () => {
               color="primary"
               style={{ marginLeft: '10px' }}
             >
-              Explain Particle
+              Particle
             </Button>
             <Button
               onClick={() =>
@@ -298,6 +335,22 @@ const WordsUpdate = () => {
               value={englishSentence}
               onChange={(event) => setEnglishSentence(event.target.value)}
             />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <InputLabel id="level-label">Level</InputLabel>
+            <Select
+              fullWidth
+              labelId="level-label"
+              id="level"
+              value={categoryLevel}
+              onChange={(event) => setCategoryLevel(event.target.value)}
+              label="Level"
+            >
+              <MenuItem value={'10'}>Beginner</MenuItem>
+              <MenuItem value={'20'}>Intermediate</MenuItem>
+              <MenuItem value={'30'}>Advanced</MenuItem>
+            </Select>
           </FormControl>
 
           <FormControl fullWidth>

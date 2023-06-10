@@ -4,7 +4,7 @@
 /* eslint-disable react-native/no-color-literals */
 import React, { useState, useCallback, useEffect } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
-import { Surface, Text, ProgressBar, Button, useTheme, Chip } from 'react-native-paper'
+import { Surface, Text, ProgressBar, Button, useTheme } from 'react-native-paper'
 import SnackButton from '../components/snack-button.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
@@ -16,7 +16,7 @@ import { formatGrammar } from '../services/ui-services.js'
 
 const wordsSelector = (state) => state.words
 
-const ROOT = 'ROOT'
+const ROOT = 'EXPLAIN'
 const CONTEXT = 'CONTEXT'
 const PLAY = 'PLAY'
 
@@ -31,7 +31,7 @@ const WordsContent = ({
 }) => {
   const theme = useTheme()
   const { words } = useSelector(wordsSelector)
-  const [color, setColor] = useState(theme.colors.elevation.level3)
+  const [color, setColor] = useState(theme.colors.elevation.level2)
   const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
   const [timeoutId, setTimeoutId] = useState()
   const hideModal = () => setVisible(false)
@@ -46,11 +46,6 @@ const WordsContent = ({
       flex: 1,
       margin: 10
     },
-    // footer: {
-    //   color: theme.colors.secondary,
-    //   fontFamily: 'philosopher',
-    //   fontSize: 15
-    // },
     surface: {
       alignItems: 'center',
       backgroundColor: color,
@@ -103,10 +98,10 @@ const WordsContent = ({
   // correct answer button
   const button1 = (
     <Button
-      mode="elevated"
-      style={sharedStyle.buttonAnswer}
+      style={{ ...sharedStyle.buttonAnswer }}
       onPress={() => {
         if (currentWord === words.length - 1) {
+          handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
           handleSetCelebrationSnackBarVisibility(true)
 
@@ -117,7 +112,7 @@ const WordsContent = ({
               type: 'SET_PRACTICING_WORDS',
               payload: false
             })
-          }, 2500)
+          }, 1500)
           setTimeoutId(timeoutId)
 
           return
@@ -156,46 +151,21 @@ const WordsContent = ({
       keyExtractor={(item) => item.position.toString()}
       ListHeaderComponent={
         <>
-          <ProgressBar progress={currentWordIndex / (numberOfWordsToPractice - 1)} style={{ marginHorizontal: 2 }} />
+          <ProgressBar
+            color={theme.colors.primary}
+            progress={currentWordIndex / numberOfWordsToPractice}
+            style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
+          />
           <Surface style={styles.surface}>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', top: 15 }}>
-              <Chip
-                style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-                compact={true}
-                selectedColor={theme.colors.onTertiary}
-              >
-                Attached
-              </Chip>
-              <Chip
-                style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-                compact={true}
-                selectedColor={theme.colors.onTertiary}
-              >
-                Weak
-              </Chip>
-              <Chip
-                style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-                compact={true}
-                selectedColor={theme.colors.onTertiary}
-              >
-                Passive
-              </Chip>
-              <Chip
-                style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-                compact={true}
-                selectedColor={theme.colors.onTertiary}
-              >
-                Attached
-              </Chip>
-            </View>
             <Text
               style={{
-                ...styles.arabicBody,
+                fontFamily: 'uthman',
                 width: '97%',
                 padding: 10,
-                fontSize: 75,
+                fontSize: 95,
                 textAlign: 'center',
-                color: theme.colors.primary
+                color: theme.colors.tertiary,
+                marginBottom: 50
               }}
             >
               {words[currentWord].arabic}
@@ -204,31 +174,13 @@ const WordsContent = ({
             {/* <Text style={{ ...styles.footer, width: '97%', position: 'absolute', bottom: 5, padding: 10 }}>
               {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
             </Text> */}
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 5, margin: 5 }}>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 5, right: 5 }}>
               <Button
                 mode="text"
                 style={{ margin: 3 }}
                 onPress={() => showModal()}
                 textColor={theme.colors.secondary}
-                icon="play"
-              >
-                {PLAY}
-              </Button>
-              <Button
-                mode="text"
-                style={{ margin: 3 }}
-                onPress={() => showModal()}
-                textColor={theme.colors.secondary}
-                icon="text"
-              >
-                {CONTEXT}
-              </Button>
-              <Button
-                mode="text"
-                style={{ margin: 3 }}
-                onPress={() => showModal()}
-                textColor={theme.colors.secondary}
-                icon="source-branch"
+                icon="eye-outline"
               >
                 {ROOT}
               </Button>
@@ -239,7 +191,7 @@ const WordsContent = ({
             visible={celebrationSnackBarVisibility}
             onDismissSnackBar={onDismissSnackBar}
             duration={2500}
-            text="Congratulations! You've successfully completed the session!"
+            text="Session Completed Successfully! 🎉"
           />
           <ModalScrollView
             visible={visible}

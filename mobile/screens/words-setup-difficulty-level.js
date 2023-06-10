@@ -18,7 +18,8 @@ const WordsSetupDifficultyLevel = (props) => {
       goal = (
         <>
           <Text variant="titleSmall">
-            In this introductory level, we will explore the three types of words that shape the Arabic language.
+            In this stage, you'll be introduced to fundamental Arabic concepts that underpin Islamic texts. This journey
+            marks your first steps in understanding the structure of Arabic.
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
             <Chip
@@ -40,10 +41,16 @@ const WordsSetupDifficultyLevel = (props) => {
               compact={true}
               selectedColor={theme.colors.onTertiary}
             >
-              Particle
+              Singular
+            </Chip>
+            <Chip
+              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
+              compact={true}
+              selectedColor={theme.colors.onTertiary}
+            >
+              Past Tense
             </Chip>
           </View>
-          <Text variant="labelSmall">Press the labels for explanations</Text>
         </>
       )
 
@@ -54,7 +61,8 @@ const WordsSetupDifficultyLevel = (props) => {
       goal = (
         <>
           <Text variant="titleSmall">
-            Building upon the beginner level, we will now introduce new forms of nouns and verbs.
+            Here, you'll delve deeper into the complexities of Arabic vocabulary. Building on your beginner knowledge,
+            you'll explore more intricate grammatical concepts.
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
             <Chip
@@ -77,17 +85,17 @@ const WordsSetupDifficultyLevel = (props) => {
               compact={true}
               selectedColor={theme.colors.onTertiary}
             >
-              Plural
+              Particle
             </Chip>
+
             <Chip
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
             >
-              Pronoun
+              Plural
             </Chip>
           </View>
-          <Text variant="labelSmall">Press the labels for explanations</Text>
         </>
       )
 
@@ -99,7 +107,8 @@ const WordsSetupDifficultyLevel = (props) => {
       goal = (
         <>
           <Text variant="titleSmall">
-            You will now encounter more advanced vocabulary accompanied by attached particles and pronouns.
+            This final stage will solidify your understanding. By the end, you'll have the skills necessary to
+            comprehend and engage with basic Islamic texts, In sha'Allah.
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
             <Chip
@@ -107,7 +116,7 @@ const WordsSetupDifficultyLevel = (props) => {
               compact={true}
               selectedColor={theme.colors.onTertiary}
             >
-              Passive
+              Present
             </Chip>
             <Chip
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
@@ -121,17 +130,16 @@ const WordsSetupDifficultyLevel = (props) => {
               compact={true}
               selectedColor={theme.colors.onTertiary}
             >
-              Possessive
+              Dual
             </Chip>
             <Chip
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
             >
-              Person
+              Pronoun
             </Chip>
           </View>
-          <Text variant="labelSmall">Press the labels for explanations</Text>
         </>
       )
 

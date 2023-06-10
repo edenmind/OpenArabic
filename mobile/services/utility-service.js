@@ -32,10 +32,7 @@ export const prepareTitle = (title) => {
     return `${firstLetter}${restOfWord}`
   })
 
-  // remove all non alphanumeric characters
-  const cleanWords = capitalizedWords.map((word) => word.replaceAll(/[^\dA-Za-z]/g, ''))
-
-  return cleanWords.join(' ')
+  return capitalizedWords.join(' ')
 }
 
 const truncate = (stringToTruncate, truncateLength) => {
@@ -63,7 +60,7 @@ export const vibrateBetweenTwoColors = (setColor, theme) => {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 
   setTimeout(() => {
-    setColor(theme.colors.elevation.level3)
+    setColor(theme.colors.elevation.level2)
   }, 150)
 }
 

@@ -132,7 +132,6 @@ function TextSettings() {
       </Text>
       <SegmentedButtons
         value={arabicFontSizeValue}
-        density="medium"
         onValueChange={(value) => {
           storeArabicFontSize(value)
           setArabicSizeValue(value)
@@ -162,7 +161,6 @@ function TextSettings() {
       </Text>
       <SegmentedButtons
         value={englishFontSizeValue}
-        density="medium"
         onValueChange={(value) => {
           storeEnglishFontSize(value)
           setEnglishSizeValue(value)
@@ -192,7 +190,6 @@ function TextSettings() {
       </Text>
       <SegmentedButtons
         value={arabicFontName}
-        density="medium"
         onValueChange={(value) => {
           storeArabicFontName(value)
           setArabicFontName(value)

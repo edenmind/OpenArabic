@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 import UI from '../constants/ui.js'
-import { formatGrammar } from '../services/ui-services.js'
 
 const filterFunction = (element) => element.english && element.arabic
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
@@ -30,10 +29,10 @@ function TextBilingualSentences(props) {
 
   const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
   const sentences = props.sentences.map((sentence, index) => (
-    <View key={index} style={{ ...sharedStyle.container, marginTop: 25, marginBottom: 25 }}>
+    <View key={index} style={{ ...sharedStyle.container, marginTop: 10, marginBottom: 25 }}>
       <Text style={sharedStyle.arabicBody}>{sentence.arabic}</Text>
       {showTransliteration && (
-        <Text style={{ ...sharedStyle.englishBody, direction: 'rtl' }} variant="bodyLarge">
+        <Text style={{ ...sharedStyle.englishBody, direction: 'rtl', color: theme.colors.outline }} variant="bodyLarge">
           {util.transliterateArabicToEnglish(sentence.arabic)}
         </Text>
       )}
@@ -44,19 +43,6 @@ function TextBilingualSentences(props) {
       <Button
         mode="elevated"
         textColor={theme.colors.tertiary}
-        icon="card-text-outline"
-        onPress={() => {
-          setWords(formatGrammar(sentence.explanation, sharedStyle))
-          setTitle('Sentence')
-          showModal()
-        }}
-      >
-        STUDY SENTENCE
-      </Button>
-      <Button
-        mode="elevated"
-        textColor={theme.colors.tertiary}
-        style={{ marginTop: 10 }}
         icon="abjad-arabic"
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
@@ -64,7 +50,7 @@ function TextBilingualSentences(props) {
           setTitle('Words')
         }}
       >
-        STUDY WORDS
+        EXPLAIN WORDS
       </Button>
     </View>
   ))
