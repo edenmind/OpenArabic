@@ -92,6 +92,7 @@ const updateWordOptions = {
           arabic: { type: 'string', minLength: 1 },
           english: { type: 'string', minLength: 1 },
           sentence: { type: 'string', minLength: 5 },
+          categoryLevel: { type: 'string' },
           grammar: { type: 'string' },
           quiz: { type: 'boolean' },
           filename: { type: 'string' }

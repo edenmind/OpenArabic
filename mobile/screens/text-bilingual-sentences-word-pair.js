@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
-import { Divider, Text, Button, useTheme } from 'react-native-paper'
+import { Text, Button, useTheme } from 'react-native-paper'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    paddingVertical: 15
+    paddingBottom: 20,
+    paddingTop: 10
   }
 })
 
@@ -40,7 +41,7 @@ function TextBilingualSentencesWords({ word }) {
         <View style={styles.flexOne}>
           <PlaySound audioFileName={word.filename} buttonText={UI.play} />
           <Button mode="elevated" textColor={theme.colors.tertiary} onPress={showModal} icon="eye-outline">
-            {UI.study}
+            {UI.explain}
           </Button>
         </View>
       </View>
@@ -49,9 +50,8 @@ function TextBilingualSentencesWords({ word }) {
         content={explanation ?? 'No explanation available'}
         title={word.arabic}
         hideModal={hideModal}
-        height="82%"
+        height="90%"
       />
-      <Divider />
     </Fragment>
   )
 }

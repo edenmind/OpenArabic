@@ -23,7 +23,6 @@ const WordsSetup = (props) => {
 
       <SegmentedButtons
         value={props.numberOfWordsToPractice}
-        density="medium"
         onValueChange={(value) => {
           props.setNumberOfWordsToPractice(value)
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
@@ -50,7 +49,6 @@ const WordsSetup = (props) => {
 
       <SegmentedButtons
         value={props.difficultyLevel}
-        density="medium"
         onValueChange={(value) => {
           props.handleSetDifficultyLevel(value)
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
@@ -62,7 +60,7 @@ const WordsSetup = (props) => {
           },
           {
             value: 20,
-            label: 'Midlevel'
+            label: 'Intermediate'
           },
           {
             value: 30,

@@ -84,7 +84,7 @@ export const getWords = async () => {
   return result.data
 }
 
-export const updateWord = async (word, textId, sentenceId, wordId) => {
+export const updateWord = async (word) => {
   const result = await axios({
     method: 'put',
     url: `${process.env.REACT_APP_API_URL}/words/id/`,

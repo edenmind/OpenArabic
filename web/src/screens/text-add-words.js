@@ -143,19 +143,6 @@ function TextAddWords() {
               onClick={() =>
                 handleOpen(
                   'Explain Sentence',
-                  prompts.getExplainSentence(sentence.english, sentence.arabic, text.texts.arabic, text.texts.english)
-                )
-              }
-              variant="contained"
-              color="primary"
-              style={{ marginLeft: '10px', width: '250px' }}
-            >
-              Explain Sentence
-            </Button>
-            <Button
-              onClick={() =>
-                handleOpen(
-                  'Explain Sentence',
                   prompts.verifyExplanation(sentence.explanation, sentence.arabic, sentence.english)
                 )
               }

@@ -77,6 +77,14 @@ export const useSharedStyles = (theme) => {
         opacity: arabicOpacity,
         paddingBottom
       },
+      arabicHeadingRemove: {
+        color: theme.colors.error,
+        fontFamily: arabicFontName,
+        fontSize: arabicFontSizeWeighted() * 1.1,
+        lineHeight: arabicFontSize * 2.9,
+        opacity: arabicOpacity,
+        paddingBottom
+      },
       arabicTerm: {
         backgroundColor: theme.colors.elevation.tertiaryContainer,
         color: theme.colors.onTertiaryContainer,
@@ -115,7 +123,7 @@ export const useSharedStyles = (theme) => {
         opacity: 0
       },
       englishBody: {
-        color: theme.colors.onSurfaceVariant,
+        color: theme.colors.onSurface,
         direction: 'ltr',
         fontFamily: 'philosopher',
         fontSize: englishFontSize * 1.1,
@@ -129,7 +137,7 @@ export const useSharedStyles = (theme) => {
         direction: 'ltr',
         fontSize: englishFontSize,
         fontWeight: 'bold',
-        lineHeight: englishFontSize * 2,
+        lineHeight: englishFontSize * 1.5,
         opacity: englishOpacity,
         writingDirection: 'ltr'
       },

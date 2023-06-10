@@ -238,17 +238,6 @@ function countNumberOfWords(text) {
   return numberOfWords
 }
 
-function getNumberFromString(string) {
-  const map = {
-    // eslint-disable-next-line quote-props
-    Foundations: 10,
-    'The Daily Prayer': 20,
-    'Juz Amma': 20,
-    'Forty Hadith': 30
-  }
-  return map[string] || 0
-}
-
 function getWordsPairedWithId(word) {
   const wordId = uuidv4()
 
@@ -283,7 +272,7 @@ async function getAllWordsFromTexts(textsCollection) {
           wordId: word.id,
           arabicSentence: sentence.arabic,
           englishSentence: sentence.english,
-          categoryLevel: getNumberFromString(text.category),
+          categoryLevel: word.categoryLevel,
           author: text.author,
           source: text.source
         }
@@ -304,6 +293,5 @@ module.exports = {
   slugifyWithAuthor,
   mp3Filename,
   capitalizeFirstLetter,
-  convertToLowerCase,
-  getNumberFromString
+  convertToLowerCase
 }

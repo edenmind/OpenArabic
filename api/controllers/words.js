@@ -69,11 +69,11 @@ async function getWords(request, reply) {
   if (!numberOfWordsToPractice && !difficultyLevel) {
     return reply.code(200).send(allWords)
   }
+
   //set difficultyLevel to number
   const difficultyLevelNumber = Number(difficultyLevel)
 
   //get all words where categoryLevel is equal to the difficultyLevel and quiz is true
-
   const wordsFilteredByDifficultyLevel = allWords.filter(
     (word) => word.categoryLevel === difficultyLevelNumber && word.quiz
   )
@@ -129,6 +129,7 @@ async function getWords(request, reply) {
       alternative1 = convertToLowerCase(alternative1[0])
       alternative2 = convertToLowerCase(alternative2[0])
       word.english = convertToLowerCase(word.english[0])
+
       // make sure the alternatives are not the same
       alternative1IsSame = alternative1 === word.english || alternative1 === alternative2
       alternative2IsSame = alternative2 === word.english || alternative2 === alternative1
@@ -163,6 +164,7 @@ async function updateWord(request, reply) {
     english: word.english,
     grammar: word.grammar,
     filename: word.filename,
+    categoryLevel: word.categoryLevel,
     quiz: word.quiz
   }
 

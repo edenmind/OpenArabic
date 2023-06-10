@@ -26,19 +26,19 @@ export default function Words() {
     {
       field: 'sentenceId',
       headerName: 'Sentence',
-      width: 250,
+      width: 170,
       editable: false
     },
     {
       field: 'wordId',
       headerName: 'Word',
-      width: 250,
+      width: 150,
       editable: false
     },
     {
       field: 'date',
       headerName: 'Date',
-      width: 350,
+      width: 300,
       editable: false,
       valueGetter: (params) => {
         const date = new Date(params.row.date)
@@ -64,7 +64,7 @@ export default function Words() {
     {
       field: 'english',
       headerName: 'English',
-      width: 450,
+      width: 350,
       editable: false
     },
     {

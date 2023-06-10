@@ -55,6 +55,14 @@ export function formatGrammar(gram, sharedStyle) {
           )
         }
 
+        if (line.startsWith('←')) {
+          return (
+            <Text key={index} style={sharedStyle.arabicHeadingRemove}>
+              {`${line.slice(2)}`}
+            </Text>
+          )
+        }
+
         if (line.startsWith('↠')) {
           return (
             <Text key={index} style={sharedStyle.arabicTerm}>
