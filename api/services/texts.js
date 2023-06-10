@@ -272,7 +272,6 @@ async function getAllWordsFromTexts(textsCollection) {
           wordId: word.id,
           arabicSentence: sentence.arabic,
           englishSentence: sentence.english,
-          categoryLevel: word.categoryLevel,
           author: text.author,
           source: text.source
         }
