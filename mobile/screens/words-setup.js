@@ -55,15 +55,15 @@ const WordsSetup = (props) => {
         }}
         buttons={[
           {
-            value: 10,
+            value: '10',
             label: 'Beginner'
           },
           {
-            value: 20,
+            value: '20',
             label: 'Intermediate'
           },
           {
-            value: 30,
+            value: '30',
             label: 'Advanced'
           }
         ]}
@@ -96,7 +96,7 @@ export default WordsSetup
 WordsSetup.propTypes = {
   numberOfWordsToPractice: PropTypes.number.isRequired,
   setNumberOfWordsToPractice: PropTypes.func.isRequired,
-  difficultyLevel: PropTypes.number.isRequired,
+  difficultyLevel: PropTypes.string.isRequired,
   resetStateForNewWords: PropTypes.func.isRequired,
   handleSetDifficultyLevel: PropTypes.func.isRequired
 }

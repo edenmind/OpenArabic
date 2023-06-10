@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.294",
+  "version": "1444.4.295",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -52,7 +52,7 @@
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.71.8",
+    "react-native": "0.71.10",
     "react-native-error-boundary": "^1.1.16",
     "react-native-gesture-handler": "~2.9.0",
     "react-native-get-random-values": "~1.8.0",
