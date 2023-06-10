@@ -36,9 +36,15 @@ export default function Words() {
       editable: false
     },
     {
+      field: 'categoryLevel',
+      headerName: 'Level',
+      width: 70,
+      editable: false
+    },
+    {
       field: 'date',
       headerName: 'Date',
-      width: 300,
+      width: 250,
       editable: false,
       valueGetter: (params) => {
         const date = new Date(params.row.date)

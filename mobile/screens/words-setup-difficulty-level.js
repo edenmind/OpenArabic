@@ -18,8 +18,8 @@ const WordsSetupDifficultyLevel = (props) => {
       goal = (
         <>
           <Text variant="titleSmall">
-            In this stage, you'll be introduced to fundamental Arabic concepts that underpin Islamic texts. This journey
-            marks your first steps in understanding the structure of Arabic.
+            In this first stage, you'll be introduced to fundamental Arabic concepts that underpin Islamic texts. This
+            journey marks your first steps in understanding Arabic.
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
             <Chip
@@ -50,6 +50,9 @@ const WordsSetupDifficultyLevel = (props) => {
             >
               Past Tense
             </Chip>
+            <Text variant="labelSmall" style={{ paddingTop: 10 }}>
+              Press the label for more information.
+            </Text>
           </View>
         </>
       )
@@ -95,6 +98,9 @@ const WordsSetupDifficultyLevel = (props) => {
             >
               Plural
             </Chip>
+            <Text variant="labelSmall" style={{ paddingTop: 10 }}>
+              Press the label for more information.
+            </Text>
           </View>
         </>
       )
@@ -139,6 +145,9 @@ const WordsSetupDifficultyLevel = (props) => {
             >
               Pronoun
             </Chip>
+            <Text variant="labelSmall" style={{ paddingTop: 10 }}>
+              Press the label for more information.
+            </Text>
           </View>
         </>
       )

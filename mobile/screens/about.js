@@ -13,9 +13,7 @@ function About() {
       textAlign: 'center'
     },
     divider: { margin: 10, opacity: 0 },
-    english: {
-      fontFamily: 'philosopher'
-    },
+
     scrollView: {
       padding: 15
     }
@@ -54,75 +52,7 @@ function About() {
         </Text>
         <Divider style={style.divider} />
 
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          OpenArabic specializes in teaching Islamic vocabulary through the context of original religious texts.
-        </Text>
-        <Divider style={style.divider} />
-
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          While we aren't a complete solution for learning Arabic, we complement our approach with guided access to a
-          curated list of additional resources.
-        </Text>
-        <Divider style={style.divider} />
-
-        <Text variant="titleLarge" style={style.english}>
-          The Alphabet
-        </Text>
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          The Arabic alphabet is crucial for understanding and accurately pronouncing Arabic, the language of the Quran
-          and over 420 million people worldwide.
-        </Text>
-        <Button
-          icon={'android'}
-          style={sharedStyle.button}
-          mode="elevated"
-          onPress={() => Linking.openURL(duoLingoAndroid)}
-        >
-          Dulingo Android
-        </Button>
-        <Button
-          icon={'apple'}
-          style={sharedStyle.button}
-          mode="elevated"
-          onPress={() => Linking.openURL(duoLingoIphone)}
-        >
-          Dulingo iPhone
-        </Button>
-        <Divider style={style.divider} />
-        <Text variant="titleLarge" style={style.english}>
-          Arabic Grammar
-        </Text>
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          Advanced Arabic grammar, encompassing Sarf (morphology) and Nahw (syntax), is vital for a nuanced
-          understanding of Arabic. Sarf deals with word formation and allows comprehension of complex structures, while
-          Nahw aids in sentence construction and interpretation.
-        </Text>
-        <Button icon={'youtube'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(arabic101)}>
-          Arabic 101 (Free)
-        </Button>
-
-        <Divider style={style.divider} />
-        <Text variant="titleLarge" style={style.english}>
-          Online Courses
-        </Text>
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          Arabic courses hosted online provide an accessible and flexible approach to language learning while often
-          practicing with a teacher.
-        </Text>
-        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(andalus)}>
-          Andalus Institute
-        </Button>
-        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(amau)}>
-          Arabic With AMAU
-        </Button>
-        <Button icon={'web'} style={sharedStyle.button} mode="elevated" onPress={() => Linking.openURL(ijaad)}>
-          Ijaada Institute
-        </Button>
-        <Divider style={style.divider} />
-
-        <Text variant="titleLarge" style={style.english}>
-          Contact Us
-        </Text>
+        <Text variant="titleLarge">Contact Us</Text>
         <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
           We would love to receive your suggestions and feedback to help us improve OpenArabic.
         </Text>
@@ -155,9 +85,7 @@ function About() {
         </Button>
 
         <Divider style={style.divider} />
-        <Text variant="titleLarge" style={style.english}>
-          Islamic Foundation
-        </Text>
+        <Text variant="titleLarge">Islamic Foundation</Text>
         <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
           The theological basis of OpenArabic is built upon the Qurʼān, the Prophetic ﷺ Sunnah, and the interpretations
           of the first generations of Muslims, as well as texts from Islamic Scholars such as:
@@ -179,9 +107,7 @@ function About() {
         <List.Item title="al-Fuḍayl ibn ʻIyāḍ, d. 803 AH" />
         <List.Item title="Ibn Ḥajar al-ʿAsqalānī, d. 852 AH" />
         <Divider style={style.divider} />
-        <Text variant="titleLarge" style={style.english}>
-          Sources
-        </Text>
+        <Text variant="titleLarge">Sources</Text>
         <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
           English translations rely on prior translations from trusted sources. Word-for-word translations also utilize
           AI technology to ensure greater alignment with the original Arabic text.
@@ -194,16 +120,11 @@ function About() {
         jurisprudence."
         />
         <Divider style={style.divider} />
-        <Text variant="titleLarge" style={style.english}>
-          Founder
-        </Text>
+        <Text variant="titleLarge">Founder</Text>
         <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
           Yūnus Andréasson, a convert to Islam for two decades, founded OpenArabic in 2020 AD (1442 AH).
         </Text>
-        <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-          Yūnus has been taking foundational Sarf and Nahw lessons from Shaykh Mujāhid ‘Abdul-Ba’eth, who is based in
-          Philadelphia, U.S. May Allah preserve him.
-        </Text>
+
         <Button
           icon={'twitter'}
           style={sharedStyle.button}
