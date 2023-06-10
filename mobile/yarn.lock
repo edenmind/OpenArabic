@@ -13740,7 +13740,7 @@ __metadata:
     putout: ^29.12.7
     react: 18.2.0
     react-dom: 18.2.0
-    react-native: 0.71.8
+    react-native: 0.71.10
     react-native-error-boundary: ^1.1.16
     react-native-gesture-handler: ~2.9.0
     react-native-get-random-values: ~1.8.0
@@ -15447,7 +15447,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gradle-plugin@npm:^0.71.18":
+"react-native-gradle-plugin@npm:^0.71.19":
   version: 0.71.19
   resolution: "react-native-gradle-plugin@npm:0.71.19"
   checksum: 2e3ab679f0b81edd81b9fb88a73a16c8b9b6dbef4e7158fd894c42e6dff04ba8d11f1b9663ffa2c30d0d9deee3cd44b033cd280322c010be3c290e4422088a7a
@@ -15555,9 +15555,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.71.8":
-  version: 0.71.8
-  resolution: "react-native@npm:0.71.8"
+"react-native@npm:0.71.10":
+  version: 0.71.10
+  resolution: "react-native@npm:0.71.10"
   dependencies:
     "@jest/create-cache-key-function": ^29.2.1
     "@react-native-community/cli": 10.2.2
@@ -15584,7 +15584,7 @@ __metadata:
     promise: ^8.3.0
     react-devtools-core: ^4.26.1
     react-native-codegen: ^0.71.5
-    react-native-gradle-plugin: ^0.71.18
+    react-native-gradle-plugin: ^0.71.19
     react-refresh: ^0.4.0
     react-shallow-renderer: ^16.15.0
     regenerator-runtime: ^0.13.2
@@ -15597,7 +15597,7 @@ __metadata:
     react: 18.2.0
   bin:
     react-native: cli.js
-  checksum: fe887c1b8bded23f9efea9dc10a8a8b2f32147e06418fc9a78294944874797abb0185ebcb0fdc5ce88046280bca72264ae8d119f4ca681a3e0bc502d0f75bfbe
+  checksum: 08780690cdbdb15798bb59666ab7deabb4555904e78bcade60be42a35ea75365a668c2b5da1f3b431a66d0f1614e143344024ed8be49c219cd034a17fabb1ae9
   languageName: node
   linkType: hard
 

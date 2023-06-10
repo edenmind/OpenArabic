@@ -12,7 +12,7 @@ const Words = () => {
   const dispatch = useDispatch()
 
   const [currentWord, setCurrentWord] = useState(0)
-  const [difficultyLevel, setDifficultyLevel] = useState(10)
+  const [difficultyLevel, setDifficultyLevel] = useState('10')
   const [numberOfWordsToPractice, setNumberOfWordsToPractice] = useState(10)
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const { practicingWords } = useSelector(practicingWordsSelector)

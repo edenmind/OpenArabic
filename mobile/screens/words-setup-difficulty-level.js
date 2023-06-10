@@ -13,7 +13,7 @@ const WordsSetupDifficultyLevel = (props) => {
   let goal
 
   switch (props.difficultyLevel) {
-    case 10: {
+    case '10': {
       source = require('../assets/beginner.jpeg')
       goal = (
         <>
@@ -59,7 +59,7 @@ const WordsSetupDifficultyLevel = (props) => {
 
       break
     }
-    case 20: {
+    case '20': {
       source = require('../assets/mid-level.jpeg')
       goal = (
         <>
@@ -107,8 +107,7 @@ const WordsSetupDifficultyLevel = (props) => {
 
       break
     }
-    case 30: {
-      //Not in use yet.
+    case '30': {
       source = require('../assets/advanced.jpeg')
       goal = (
         <>
@@ -173,5 +172,5 @@ const WordsSetupDifficultyLevel = (props) => {
 export default WordsSetupDifficultyLevel
 
 WordsSetupDifficultyLevel.propTypes = {
-  difficultyLevel: PropTypes.number.isRequired
+  difficultyLevel: PropTypes.string.isRequired
 }
