@@ -55,8 +55,8 @@ const truncate = (stringToTruncate, truncateLength) => {
   return cleanString
 }
 
-export const vibrateBetweenTwoColors = (setColor, theme) => {
-  setColor(theme.colors.errorContainer)
+export const vibrateBetweenTwoColors = (setColor, theme, color) => {
+  setColor(color)
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 
   setTimeout(() => {

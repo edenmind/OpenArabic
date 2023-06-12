@@ -13,6 +13,7 @@ import PropTypes from 'prop-types'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import { formatGrammar } from '../services/ui-services.js'
+import FadeInView from '../components/fade-in-view.js'
 
 const wordsSelector = (state) => state.words
 
@@ -144,64 +145,66 @@ const WordsContent = ({
   const renderItem = ({ item }) => <View>{item.button}</View>
 
   return (
-    <FlatList
-      style={styles.container}
-      data={buttons}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.position.toString()}
-      ListHeaderComponent={
-        <>
-          <ProgressBar
-            color={theme.colors.primary}
-            progress={currentWordIndex / numberOfWordsToPractice}
-            style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
-          />
-          <Surface style={styles.surface}>
-            <Text
-              style={{
-                fontFamily: 'uthman',
-                width: '97%',
-                padding: 10,
-                fontSize: 95,
-                textAlign: 'center',
-                color: theme.colors.tertiary,
-                marginBottom: 50
-              }}
-            >
-              {words[currentWord].arabic}
-            </Text>
+    <FadeInView style={{ flex: 1 }}>
+      <FlatList
+        style={styles.container}
+        data={buttons}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.position.toString()}
+        ListHeaderComponent={
+          <>
+            <ProgressBar
+              color={theme.colors.primary}
+              progress={currentWordIndex / numberOfWordsToPractice}
+              style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
+            />
+            <Surface style={styles.surface}>
+              <Text
+                style={{
+                  fontFamily: 'uthman',
+                  width: '97%',
+                  padding: 10,
+                  fontSize: 95,
+                  textAlign: 'center',
+                  color: theme.colors.tertiary,
+                  marginBottom: 50
+                }}
+              >
+                {words[currentWord].arabic}
+              </Text>
 
-            {/* <Text style={{ ...styles.footer, width: '97%', position: 'absolute', bottom: 5, padding: 10 }}>
+              {/* <Text style={{ ...styles.footer, width: '97%', position: 'absolute', bottom: 5, padding: 10 }}>
               {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
             </Text> */}
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 5, right: 5 }}>
-              <Button
-                mode="text"
-                style={{ margin: 3 }}
-                onPress={() => showModal()}
-                textColor={theme.colors.secondary}
-                icon="eye-outline"
-              >
-                {ROOT}
-              </Button>
-            </View>
-          </Surface>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 5, right: 5 }}>
+                <Button
+                  mode="text"
+                  style={{ margin: 3 }}
+                  onPress={() => showModal()}
+                  textColor={theme.colors.secondary}
+                  icon="eye-outline"
+                >
+                  {ROOT}
+                </Button>
+              </View>
+            </Surface>
 
-          <SnackButton
-            visible={celebrationSnackBarVisibility}
-            onDismissSnackBar={onDismissSnackBar}
-            duration={2500}
-            text="Session Completed Successfully! 🎉"
-          />
-          <ModalScrollView
-            visible={visible}
-            content={details}
-            title={words[currentWord].arabic}
-            hideModal={hideModal}
-          />
-        </>
-      }
-    />
+            <SnackButton
+              visible={celebrationSnackBarVisibility}
+              onDismissSnackBar={onDismissSnackBar}
+              duration={3500}
+              text="Session Completed Successfully!"
+            />
+            <ModalScrollView
+              visible={visible}
+              content={details}
+              title={words[currentWord].arabic}
+              hideModal={hideModal}
+            />
+          </>
+        }
+      />
+    </FadeInView>
   )
 }
 

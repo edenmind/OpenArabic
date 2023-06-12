@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Animated, View } from 'react-native'
+import { Animated } from 'react-native'
 import PropTypes from 'prop-types'
 
 const FadeInView = (props) => {

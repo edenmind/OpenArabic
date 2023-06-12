@@ -2,7 +2,7 @@ const requirements = `
 --- Requirements:
 - Use the Arabic terms for grammar (transliterated into latin) in addition to the English terms.
 - Only use the following grammatical terms: Noun (Ism), Verb (Fi'l), Preposition (Harf), Pronoun (Dameer),  Past Tense (Maadi), Present Tense (Mudari'), Future Tense (Mustaqbil), Singular (Mufrad), Dual (Muthanna), Plural (Jam'), Definite (Ma'arifa), Indefinite (Nakira)
-- Always give a brief explanation suitable for a beginner of the grammatical term.
+- Always give a brief explanation suitable for a beginner of the grammatical term using analogies and examples.
 - Do not explain irab (case) or (inflection).
 - Refer to the Arabic Original Sentence as "sentence" and the Full Arabic Text for Reference as "text"
 - Always add a ﷺ after the name of the Prophet Muhammad (peace and blessings be upon him).
@@ -108,16 +108,17 @@ ${english}
 --- Instruction:
 Act as a teacher in Classical Arabic and explain the Arabic Word to a beginner student according to the following criteria:
 
-HEADING: Root System
-- If the word has tags added to the root, then explain how they are removed in simple terms.
-- Put the tag or tags to remove on a new line with a ← before it.
-- Explain the function of the tag removed from the word to find the root.
+HEADING: Uncovering the Root
+- If the word has parts added to the root, then explain how they are removed in simple terms.
+- Put the part to remove on a new line with a ← before it.
+- Explain the function of the part removed from the word to find the root.
+- If there are more than one part to remove, then repeat the above steps for each tag.
 - Add a text explaining: "The part that now remains is the original root of the word:"
 - Add a ⟶ before the Arabic Word (the root) that remains after pruning on a new line below.
 - Add a ↠ before the Transliteration on a new line below.
 - Explain the meaning of the root that remains after removing the tag or tags.
 
-HEADING: Words From The Same Root
+HEADING: Exploring Words from the Same Root
 - Provide easy examples of other derived words from the root for different persons such as I, You, He, She, We, They, etc.
 - Add the Arabic Word, a Transliteration and the English Translation on separate lines below each other.
 - Add a ⟶ before every example of a derived Arabic Word from the Root.
@@ -125,10 +126,11 @@ HEADING: Words From The Same Root
 - Add a ↠ before every Transliteration of the Arabic Word on a new line below.
 - Add the English Translation of the Arabic Word on a new line below the Transliteration.
 
-HEADING: Meaning of the Word
+HEADING: Making the Words Meaning Clear
 - Add a ⟶ before the Arabic Word when referencing it before explaining its meaning.
 - Add a ↠ before the Transliteration of the Arabic Word on a new line below.
 - Briefly and concisely explain the meaning of the word; its general meaning, alternative translations and usage in the current context.
+- If the word is conjugated together with another word in the sentence, then explain that in very simple terms.
 - Keep it simple with focus on the word and avoid technical theological discussions.
 - Add a ⟶ before the Arabic Original Sentence when referencing it.
 - Add the English Translation of the Arabic Original Sentence on a new line below.
@@ -139,31 +141,33 @@ ${requirements}
 
 -- Example Output
 
-⇉ Root System
-The word "sami'tu" has extra parts added to it. To find the original or root word, we need to take away the part that doesn't belong to the root. Let's do that now:
+⇉ Uncovering the Root
+The Arabic word سَمِعْتُ (sami'tu) contains more than just its root. Think of the root as the core of the word, with extra parts or 'tags' attached to it. To identify the root, we first need to remove these tags:
 ← ْتُ
-The ْتُ at the end of the word express that "I" did something in the past. This is like a little tag that you attach to the root to show who did the action and when it happened. So if you have a root like "hear", you put "تُ" at the end to say "I heard".
+This tag ْتُ is a kind of label that tells us that "I" performed an action in the past.
 
-The part that now remains is the root of the word:
-⟶ سَ مِ ع
+It's similar to how in English we say "I listened", where the "-ed" at the end tells us that the action happened in the past.
+
+The part that now remains is the original root of the word:
+⟶ سَمِع
 ↠ Sami'a
+This root, سَمِع (Sami'a), translates to "to hear" in Arabic.
 
-The root سَمِع (Sami'a) means "to hear" in Arabic.
+⇉ Exploring Words from the Same Root
+Using the same root, we can create different words to refer to different people or actions.
 
-⇉ Words From The Same Root
-Let's take a look at some simple examples of other words that come from the same original root "سَمِع", but are used to talk about different people.
-
+Let's check out some other words from the same root:
 ⟶ سَمِعَ 
 ↠ Sami'a
 He heard
 
 ⟶ سَمِعْتَ
 ↠ Sami'ta
-You (singular, male) heard
+You (male, singular) heard
 
 ⟶ سَمِعْتِ
 ↠ Sami'ti
-You (singular, female) heard
+You (female, singular) heard
 
 ⟶ سَمِعْنَا
 ↠ Sami'na
@@ -173,15 +177,15 @@ We heard
 ↠ Sami'u
 They heard
 
-⇉ Meaning of the Word
-"Sami'tu" is an Arabic word which means "I heard". It's a type of word called a verb, which tells you about an action. In this case, the action happened in the past. So "sami'tu" is like saying "I did the action of hearing in the past".
+⇉ Making the Words Meaning Clear
+When we look at the word سَمِعْتُ (sami'tu), it translates to "I heard". It's a kind of word called a verb (or in Arabic, Fi'l), which describes an action. In this case, the action happened in the past.
 
-In the current sentence:
-
+In the original sentence:
 ⟶ سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ
 ↠ I heard the Messenger of Allah (ﷺ) say...
+Here, "sami'tu" signifies that the speaker personally heard the Prophet Muhammad (ﷺ) say something.
 
-The word "sami'tu" is used to indicate that the speaker personally heard the Prophet Muhammad (ﷺ) say something.
+The context here is crucial to understanding the exact meaning of the word.
 ---
 
 `
@@ -214,27 +218,29 @@ ${english}
 --- Instruction:
 Act as a teacher in Classical Arabic and explain the Arabic Noun to a beginner student according to the following criteria:
 
-HEADING: Root System
+HEADING: Uncovering the Root
 - When revealing the root and placing it in al-madi (past tense), begin with: "First, let's remove the part that doesn't constitute the root:"
-- Put the part or parts to remove on a new line with a ← before it.
-- Explain the function of the part or parts removed from the word to find the root.
+- Put the part to remove on a new line with a ← before it.
+- Explain the function of the part removed from the word to find the root.
+- If there are more than one part to remove, then repeat the above steps for each tag.
 - Add a text explaining: "The part that now remains is the root of the word:"
 - Add a ⟶ before the Arabic Word (the root in al-madi) that remains after pruning on a new line below.
 - The root should consist of three letters and nothing else in the al-madi (past tense) form.
 - Add a ↠ before the Transliteration on a new line below.
-- Explain the meaning of the root that remains after pruning.
+- Explain the meaning of the root that remains.
 
-HEADING: Words From The Same Root
-- Provide easy examples of other derived words from the root for different cases such as Definite (Ma'arifa), Indefinite (Nakira), Singular (Mufrad), Dual (Muthanna), and Plural (Jam').
+HEADING: Exploring Words from the Same Root
+- Provide easy examples of other derived words from the root for different cases such as Definite (Ma'arifa), Indefinite (Nakira), Singular (Mufrad), Plural (Jam') and some past tense verb forms.
 - Add the Arabic Word, a Transliteration, and the English Translation on separate lines below each other.
 - Add a ⟶ before every example of a derived Arabic Word from the Root.
 - Add a ↠ before every Transliteration of the Arabic Word on a new line below.
 - Add the English Translation of the Arabic Word on a new line below the Transliteration.
 
-HEADING: Meaning of the Word
+HEADING: Making the Words Meaning Clear
 - Add a ⟶ before the Arabic Word when referencing it before explaining its meaning.
 - Add a ↠ before the Transliteration of the Arabic Word on a new line below.
 - Briefly and concisely explain the meaning of the word; its general meaning, alternative translations and usage in the current context.
+- If the word is conjugated together with another word in the sentence, then explain that in very simple terms.
 - Keep it simple with focus on the word and avoid technical theological discussions.
 - Add a ⟶ before the Arabic Original Sentence when referencing it.
 - Add the English Translation of the Arabic Original Sentence on a new line below.
@@ -242,49 +248,45 @@ HEADING: Meaning of the Word
 ---
 
 --- Example Output
+⇉ Uncovering the Root
+The word "بِالنِّيَّاتِ" (bi-nniyyāt) has additional elements attached to its root form. To discover the root, we must remove these additional parts:
+← بِ
+This part at the beginning of the word is a preposition (Harf) that means "with" or "by" in English.
 
-⇉ Root System
-The word "hijratuhu" is not in its root form.
+← ال
+This is the definite article, similar to "the" in English.
 
-So, let's remove the part that doesn't constitute the root:
-← هِجْرَ
-← ُهُ
-n Arabic, if you see "هِجْرَ" at the beginning of a word, it's a noun, or a thing rather than an action. The "ُهُ" at the end of the word is a way to say "his", like it belongs to him. So you use these parts to change the meaning of the word.
+← يَّاتِ 
+This part at the end of the word is a morphological device to indicate the plural form.
 
 The part that now remains is the root of the word:
-⟶ ه ج ر
-↠ Hajara
+⟶ نوى
+↠ Nawa
 
-The root هجر (Hajara) means "to migrate" or "to abandon" in Arabic.
+The root نوى (Nawa) in the past tense (Maadi) means "he intended" in Arabic.
 
-⇉ Words From The Same Root
-Let's check out some simple examples of other words that are made from the original Arabic word هجر:
+⇉ Exploring Words from the Same Root
+Let's check out some other words from the same root:
+⟶ نِيَّة
+↠ Niyyah
+Intention (Definite, Singular)
 
-⟶ هِجْرَة
-↠ Hijrah
-Migration (Definite, Singular)
+⟶ أَنْوِيَة
+↠ Anwiyyah
+Intentions (Indefinite, Plural)
 
-⟶ هجرتين
-↠ Hijratayn
-Two migrations (Definite, Dual)
+⟶ الأَنْوِيَة
+↠ Al-Anwiyyah
+The intentions (Definite, Plural)
 
-⟶ هِجَر
-↠ Hijar
-Migrations (Indefinite, Plural)
+⇉ Making the Words Meaning Clear
+The noun "بِالنِّيَّاتِ" (bi-nniyyāt) generally means "with the intentions" or "by the intentions". In other words, it refers to the motivation behind an action.
 
-⟶ الهِجَر
-↠ Al-Hijar
-The migrations (Definite, Plural)
+In the sentence:
+⟶ إنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ 
+↠ Verily, actions are (judged) by intentions.
 
-⇉ Meaning of the Word
-The noun "hijratuhu" generally means "his migration".
-
-In the way the sentence is being used right now:
-
-⟶ وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا
-↠ But he whose migration was for some worldly thing he might gain
-
-The word "hijratuhu" is used to refer to a person's motive for migration, in this case, for worldly gains. The usage of the word underscores the concept that the intent behind actions, such as migration, significantly impacts their moral and spiritual value in Islam.
+The word "بِالنِّيَّاتِ" is used to express that actions are judged based on the intentions behind them. It reflects the principle in Islam that the merit or sin of an action is determined not only by its outward form, but also by the intention of the person performing it.
 
 ---
 
@@ -294,7 +296,7 @@ ${requirements}
   return result.trimStart()
 }
 
-export const getExplanationOfParticle = (english, arabic, arabicSentence, englishSentence, arabicText, englishText) => {
+export const getExplanationOfParticle = (english, arabic, arabicSentence, englishSentence, arabicText) => {
   const result = `
 
 --- Full Arabic Text for Reference:
@@ -320,14 +322,16 @@ ${english}
 --- Instruction:
 Act as a teacher in Classical Arabic and explain the Arabic Noun to a beginner student according to the following criteria:
 
-HEADING: Function
+HEADING: Role in a Sentence
 - Briefly and concisely identify the function of the particle in a sentence.
 - Avoid using complicated grammatical terms and when using terms, explain them in simple terms.
 
-HEADING: Compound Particle
+HEADING: Single or Compound Particle?
 - Briefly and concisely identify if the particle is a compound particle and explain how it is formed.
+- If it is a compound then add a ⟶ before the Arabic Word and on a new line below ↠ before the Transliteration of the Arabic Word.
+- Do this for both or the part of the compound particle.
 
-HEADING: Relation to Other Words
+HEADING: Interaction with Other Words
 - Briefly and concisely explain how the particle relates to other words in the sentence (Arabic Original Sentence) and the whole text (Full Arabic Text for Reference), such as the verb, the object, and the subject, using story telling to make the explanation and relevant to the Full Arabic Text.
 - Add a ⟶ before the Arabic Original Sentence when referring to it under the heading "Relation to Other Words".
 - Add the English Translation of the Arabic Original Sentence on a new line below.
@@ -335,47 +339,48 @@ HEADING: Relation to Other Words
 - Refer to the Arabic word as "the particle" in the explanation.
 - Transliterate the Arabic Words in the explanation.
 
-HEADING: Common Alternate Usages
+HEADING: Various Usages
 - Give examples in sentences of how the particle is used in other contexts with Arabic Sentence, Transliteration, and English Translation on separate lines below each other.
 - Add a ⟶ before the Arabic Sentence
 - Add a ↠ before the Transliteration of the Arabic Sentence.
 ---
 
 --- Example of Output:
-⇉ Function
-In a sentence, the word "ila" is used to show where something is going or the direction it's moving in. Think of it like the word "to" or "towards" in English. It's a type of word that helps connect other words in the sentence.
+⇉ Role in a Sentence
+The Arabic particle "innama" is a type of emphasizing word used to add stress or importance to the sentence. Think of it as the word "only" or "indeed" in English. Its role is to give a sense of exclusivity to what comes after it in the sentence, like saying "it is only this and nothing else". 
 
-It's used to show the direction or target of an action or movement.
+⇉ Single or Compound Particle?
+The particle "innama" is actually a compound particle, formed from the joining of two smaller particles "inna" and "ma". Here are the two parts of "innama":
+⟶ إنَّ 
+↠ inna 
+This means "indeed" or "verily".
 
-⇉ Compound Particle
-"Ila" is just one word by itself. It isn't two words that have been joined together.
+⟶ مَا 
+↠ ma 
+This is usually used to mean "what" or "that which".
 
-In Arabic, "ila" is a word that stands on its own. It doesn't mix with other words to make a new one.
+Together as "innama", they bring an emphasis that can be translated as "indeed only".
 
-⇉ Relation to Other Words
-⟶ فَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ
-↠ So whoever's migration was to Allah and His Messenger,
+⇉ Interaction with Other Words
+⟶ إنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ 
+↠ Verily, actions are (judged) by intentions.
 
-In the sentence, the word "ila" is used to show the direction of the migration (hijratuhu), signifying that it is towards Allah and His Messenger.
+In the sentence, the particle "innama" gives emphasis to the statement that follows it. It connects to the word "actions" (a'mal), emphasizing that these actions are solely or exclusively judged by their intentions (niyyat). In other words, it gives the sense that it is only the intention that truly matters when it comes to actions.
 
-It connects the action "was" (kaanat) with its complement, "Allah and His Messenger".
+In the context of the full text, Prophet Muhammad ﷺ is emphasizing the central importance of intentions in Islam. The particle "innama" here helps to underline this principle, making it clear that it's not just one of many factors, but the decisive factor in judging actions.
 
-This indicates the destination or the intended goal of the action of migration.
+⇉ Various Usages
+The particle "innama" is often used in Arabic to add emphasis or restriction to statements. Here are a couple examples:
 
-In the context of the full text, the word "ila" is used to differentiate the motivations for migration (hijra).
+⟶ إنَّمَا الْمُؤْمِنُونَ إخْوَةٌ
+↠ Innama al-mu'minoona ikhwa
+Indeed, the believers are brothers.
 
-It indicates the destination or intention of the migration, whether it be towards Allah and His Messenger, or towards worldly gain or marriage.
+⟶ إنَّمَا الْعِلْمُ بِالتَّعَلُّمِ
+↠ Innama al-'ilmu bi-ta'allum
+Indeed, knowledge is [attained] by learning.
 
-⇉ Common Alternate Usages
-⟶ أنا أذهب إلى المدرسة
-↠ Ana adhhab ila al-madrasa
-I am going to the school.
-
-⟶ القط يركض إلى الفأر
-↠ Al-qittu yar'kudu ila al-fa'ir
-The cat is running towards the mouse.
-
-In these examples, the word "ila" is used to show the direction of the actions (going, running) towards their respective destinations (school, mouse).
+In these examples, "innama" is used to emphasize the exclusive nature of the relationships and the process of gaining knowledge. It highlights the fact that these are the only ways these things can be truly understood or achieved.
 ---
 
 ${requirements}

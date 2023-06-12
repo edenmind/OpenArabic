@@ -3,7 +3,7 @@ const SCREENS = {
   settings: 'About',
   text: 'Texts',
   home: 'Texts',
-  words: 'Words',
+  words: 'Vocabulary',
   bilingual: 'Bilingual',
   arabic: 'Arabic',
   english: 'Eng',
