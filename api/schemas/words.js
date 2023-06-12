@@ -16,9 +16,9 @@ const getWordIdOptions = {
           arabicSentence: { type: 'string' },
           englishSentence: { type: 'string' },
           grammar: { type: 'string' },
+          categoryLevel: { type: 'string' },
           id: { type: 'string' },
           filename: { type: 'string' },
-          quiz: { type: 'boolean' },
           englishText: { type: 'string' },
           arabicText: { type: 'string' }
         }
@@ -68,7 +68,6 @@ const getWordsOptions = {
             textId: { type: 'string' },
             sentenceId: { type: 'string' },
             wordId: { type: 'string' },
-            quiz: { type: 'boolean' },
             grammar: { type: 'string' },
             filename: { type: 'string' },
             date: { type: 'string' }
@@ -94,7 +93,6 @@ const updateWordOptions = {
           sentence: { type: 'string', minLength: 5 },
           categoryLevel: { type: 'string' },
           grammar: { type: 'string' },
-          quiz: { type: 'boolean' },
           filename: { type: 'string' }
         }
       }

@@ -85,7 +85,7 @@ const TextPractice = () => {
       if (id !== currentWord) {
         // wrong answer
         // call vibrateBetweenTwoColors and pass setColor as an argument
-        vibrateBetweenTwoColors(setColor, theme)
+        vibrateBetweenTwoColors(setColor, theme, theme.colors.errorContainer)
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 
         return
@@ -99,11 +99,13 @@ const TextPractice = () => {
       setCurrentArabicWordsInSentence(() => updatedArabicWords)
 
       if (isLastWordInSentence) {
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+        vibrateBetweenTwoColors(setColor, theme, theme.colors.primaryContainer)
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         handleResetQuiz()
 
         if (isLastSentence) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         } else {
           setCurrentSentence((prev) => prev + 1)
         }

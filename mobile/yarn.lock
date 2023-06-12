@@ -4652,21 +4652,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-split-variable-declarations@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "@putout/plugin-split-variable-declarations@npm:2.1.1"
+"@putout/plugin-split-variable-declarations@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-split-variable-declarations@npm:3.0.0"
   peerDependencies:
-    putout: ">=7.17"
-  checksum: ba0a37087d0f004c66e43c0ee00dc74dd762e5db4e06a22f15e445ab7df2c0c4c52ee49101f0bccdfd7cac995c1745b76f192974876c1e21099894e78d973282
+    putout: ">=29"
+  checksum: 50883fa409b82a79e42e0c5f19c6211be91c586ab493d913b16aa9ff4e014a88a765d4d92bdc2d663bd97d06b484169d1d203ba0aa6c8286fd983305ce61ed87
   languageName: node
   linkType: hard
 
-"@putout/plugin-strict-mode@npm:^5.0.0":
-  version: 5.2.0
-  resolution: "@putout/plugin-strict-mode@npm:5.2.0"
+"@putout/plugin-strict-mode@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@putout/plugin-strict-mode@npm:6.0.0"
   peerDependencies:
-    putout: ">=26"
-  checksum: 8769d7999c2a176fecca14b80613b635f0f33ff7e905b320911a8fadbe33d75def1f10c3d6b398ad34d8cd19d1a545ad80b7a778628a8d215b1e3000279fc3c7
+    putout: ">=29"
+  checksum: f0cab330c0523ce77fb227ed7950fd98a72b9b63a709463c9fc3db27f10d6d5f3485c855acb2ff45e535aafa7ac772775d17123fc6def77a2008e362447f018e
   languageName: node
   linkType: hard
 
@@ -4706,12 +4706,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-webpack@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@putout/plugin-webpack@npm:2.0.0"
+"@putout/plugin-webpack@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-webpack@npm:3.0.0"
   peerDependencies:
-    putout: ">=28"
-  checksum: 6aa64ae5eb7de4bee92455f2209e5ff3e45ebd21a0a469438690cf8b157d20d32e85e415f8212c39f0e4decf3ce5f52f10372c90ec8aa8a6e4940aa115e10aee
+    putout: ">=29"
+  checksum: 3f92e7b4bbfb661b59bff20d7f52de88b9abd159090772fdfbfb02b2ab6a694b24e39bbe0d2fda776052bf4d660358656468b59a1cb92460c9fd76e29f77838d
   languageName: node
   linkType: hard
 
@@ -4752,12 +4752,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/processor-javascript@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "@putout/processor-javascript@npm:4.1.0"
+"@putout/processor-javascript@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@putout/processor-javascript@npm:5.0.0"
   peerDependencies:
-    putout: ">=26"
-  checksum: 44ddb815eb4b9c9dd060cc7e7145ee8e730fb7104385a8e11b17fd3adcb60f38052582adb9bcb659bb76bfa93bdb7c4f5fab1d4dfd351101cca88a1dcd595492
+    putout: ">=29"
+  checksum: 08a4df879e9bf76a87c8f75b4f760f4488a52b5398e7144d1b986e2fb6788edfe4f69c48e34e90eca03df400497299c5cdb115d125c71e50120261f42f27226b
   languageName: node
   linkType: hard
 
@@ -13737,7 +13737,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.8
     prop-types: ^15.8.1
-    putout: ^29.12.7
+    putout: ^29.12.11
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.10
@@ -15080,9 +15080,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.12.7":
-  version: 29.12.7
-  resolution: "putout@npm:29.12.7"
+"putout@npm:^29.12.11":
+  version: 29.12.11
+  resolution: "putout@npm:29.12.11"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -15195,16 +15195,16 @@ __metadata:
     "@putout/plugin-simplify-assignment": ^3.0.0
     "@putout/plugin-simplify-ternary": ^5.0.1
     "@putout/plugin-split-nested-destructuring": ^2.0.0
-    "@putout/plugin-split-variable-declarations": ^2.0.0
-    "@putout/plugin-strict-mode": ^5.0.0
+    "@putout/plugin-split-variable-declarations": ^3.0.0
+    "@putout/plugin-strict-mode": ^6.0.0
     "@putout/plugin-tape": ^11.0.0
     "@putout/plugin-try-catch": ^2.0.0
     "@putout/plugin-types": ^1.1.0
     "@putout/plugin-typescript": ^3.0.0
-    "@putout/plugin-webpack": ^2.0.0
+    "@putout/plugin-webpack": ^3.0.0
     "@putout/processor-css": ^7.0.0
     "@putout/processor-ignore": ^4.0.0
-    "@putout/processor-javascript": ^4.0.0
+    "@putout/processor-javascript": ^5.0.0
     "@putout/processor-json": ^6.0.0
     "@putout/processor-markdown": ^9.0.0
     "@putout/processor-yaml": ^5.0.0
@@ -15230,7 +15230,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 64d6eb8c77939332a2218cbebe5f2ba3dcc9a100f0497b46af866cb8a2d731a5786e0ba04138183489cd68375ed29aa913f848482fddc425b9e97e8842e63d90
+  checksum: 37d9a4ba4c58ac9422606304c6f030159a0839d035f137fc50091d115e98db96879a964e2306eb7e44cd03f92e66ba4474d7d3aebd23999a22f45593f42daec7
   languageName: node
   linkType: hard
 

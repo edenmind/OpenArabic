@@ -83,17 +83,6 @@ function TextAddWords() {
     [currentPage, dispatch]
   )
 
-  //handle change for switch that should set quiz in the text to true or false in the redux store
-  const handleChangeQuiz = (indexSentence, indexArabicWord, quiz) => {
-    const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
-    const currentQuiz = quiz === undefined ? false : quiz
-
-    dispatch({
-      type: 'UPDATE_SENTENCE_QUIZ',
-      value: { indexSentence: sentenceIndex, indexArabicWord, quiz: currentQuiz }
-    })
-  }
-
   const handleCloseSnackbar = (reason) => {
     if (reason === 'clickaway') {
       return
@@ -175,18 +164,6 @@ function TextAddWords() {
                 label={`${(currentPage - 1) * PAGE_SIZE + indexSentence}:${indexArabicWord}`}
                 color="secondary"
                 style={{ marginLeft: '130px' }}
-              />
-              <FormControlLabel
-                sx={{ margin: 1 }}
-                value="Quiz"
-                control={
-                  <Switch
-                    checked={word.quiz || false}
-                    onChange={(event) => handleChangeQuiz(indexSentence, indexArabicWord, event.target.checked)}
-                  />
-                }
-                label="Quiz"
-                labelPlacement="left"
               />
               <Button
                 onClick={async () => {
@@ -304,8 +281,7 @@ function TextAddWords() {
     postMessage,
     handleChangeEnglishSentence,
     handleChangeExplanationSentence,
-    handleChangeArabic,
-    handleChangeQuiz
+    handleChangeArabic
   ])
 
   const numPages = Math.ceil(text.sentences.length / PAGE_SIZE)

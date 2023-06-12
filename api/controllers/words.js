@@ -70,8 +70,8 @@ async function getWords(request, reply) {
     return reply.code(200).send(allWords)
   }
 
-  //get all words where categoryLevel is equal to the difficultyLevel and quiz is true
-  const wordsFilteredByDifficultyLevel = allWords.filter((word) => word.categoryLevel === difficultyLevel && word.quiz)
+  //get all words where categoryLevel is equal to the difficultyLevel
+  const wordsFilteredByDifficultyLevel = allWords.filter((word) => word.categoryLevel === difficultyLevel)
 
   //get random words because we do not want to practice in the same order
   const randomWords = wordsFilteredByDifficultyLevel.sort(() => Math.random() - 0.5).slice(0, numberOfWordsToPractice)
@@ -159,8 +159,7 @@ async function updateWord(request, reply) {
     english: word.english,
     grammar: word.grammar,
     filename: word.filename,
-    categoryLevel: word.categoryLevel,
-    quiz: word.quiz
+    categoryLevel: word.categoryLevel
   }
 
   // Update the word in the database

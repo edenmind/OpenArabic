@@ -15,6 +15,7 @@ jest.mock('../components/modal-scroll-view.js', () => {
   const ModalScrollView = () => {}
   return ModalScrollView
 })
+
 jest.useFakeTimers()
 
 describe('WordsContent', () => {

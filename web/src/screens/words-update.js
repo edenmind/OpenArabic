@@ -36,11 +36,10 @@ const WordsUpdate = () => {
   const [englishSentence, setEnglishSentence] = React.useState('')
   const [arabicSentence, setArabicSentence] = React.useState('')
   const [arabicText, setArabicText] = React.useState('')
-  const [categoryLevel, setCategoryLevel] = React.useState('10')
+  const [categoryLevel, setCategoryLevel] = React.useState('')
   const [englishText, setEnglishText] = React.useState('')
   const [grammar, setGrammar] = React.useState('')
   const [filename, setFilename] = React.useState('')
-  const [quiz, setQuiz] = React.useState('')
   const [open, setOpen] = React.useState(false)
   const [status, setStatus] = React.useState('')
   const [promptTitle, setPromptTitle] = React.useState('')
@@ -87,7 +86,6 @@ const WordsUpdate = () => {
           arabicSentence,
           grammar,
           filename,
-          quiz,
           englishText,
           arabicText,
           categoryLevel
@@ -100,7 +98,6 @@ const WordsUpdate = () => {
         setFilename(filename)
         setArabicText(arabicText)
         setEnglishText(englishText)
-        setQuiz(quiz)
         setCategoryLevel(categoryLevel)
       })
       .catch((error) => console.log(error))
@@ -117,8 +114,7 @@ const WordsUpdate = () => {
       sentenceId,
       wordId,
       categoryLevel,
-      filename,
-      quiz
+      filename
     }
     api
       .updateWord(word)
@@ -337,19 +333,19 @@ const WordsUpdate = () => {
             />
           </FormControl>
 
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ m: 1 }}>
             <InputLabel id="level-label">Level</InputLabel>
             <Select
               fullWidth
               labelId="level-label"
-              id="level"
+              id="categoryLevel"
               value={categoryLevel}
               onChange={(event) => setCategoryLevel(event.target.value)}
               label="Level"
             >
-              <MenuItem value={'10'}>Beginner</MenuItem>
-              <MenuItem value={'20'}>Intermediate</MenuItem>
-              <MenuItem value={'30'}>Advanced</MenuItem>
+              <MenuItem value={10}>Beginner</MenuItem>
+              <MenuItem value={20}>Intermediate</MenuItem>
+              <MenuItem value={30}>Advanced</MenuItem>
             </Select>
           </FormControl>
 

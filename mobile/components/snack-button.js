@@ -9,12 +9,22 @@ const SnackButton = (props) => {
     <Snackbar
       visible={props.visible}
       onDismiss={props.onDismissSnackBar}
-      duration={1500}
+      duration={props.duration}
       style={{
         color: theme.colors.primary,
         backgroundColor: theme.colors.elevation.level5
       }}
     >
+      <Text
+        style={{
+          fontSize: 70,
+          paddingBottom: 10,
+          textAlign: 'center'
+        }}
+      >
+        🚀
+      </Text>
+
       <Text
         style={{
           color: theme.colors.primary,
@@ -32,6 +42,7 @@ const SnackButton = (props) => {
 export default SnackButton
 
 SnackButton.propTypes = {
+  duration: PropTypes.number.isRequired,
   visible: PropTypes.bool.isRequired,
   onDismissSnackBar: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired
