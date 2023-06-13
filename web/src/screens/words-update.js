@@ -150,27 +150,6 @@ const WordsUpdate = () => {
               onClick={() =>
                 // eslint-disable-next-line implicit-arrow-linebreak
                 handleOpen(
-                  'Generic Explanation',
-                  prompts.getSimpleGenericExplanation(
-                    english,
-                    arabic,
-                    arabicSentence,
-                    englishSentence,
-                    arabicText,
-                    englishText
-                  )
-                )
-              }
-              variant="outlined"
-              color="primary"
-              style={{ marginLeft: '10px' }}
-            >
-              Generic
-            </Button>
-            <Button
-              onClick={() =>
-                // eslint-disable-next-line implicit-arrow-linebreak
-                handleOpen(
                   'Explain Verb',
                   prompts.getExplanationOfVerb(
                     english,
@@ -258,15 +237,6 @@ const WordsUpdate = () => {
             <Link to="/words">
               <Button variant="outlined">Back</Button>
             </Link>
-            <Button color="primary" style={{ marginLeft: '10px' }} variant="outlined" onClick={() => handleCopy('⇉')}>
-              ⇉
-            </Button>
-            <Button color="primary" style={{ marginLeft: '10px' }} variant="outlined" onClick={() => handleCopy('⟶')}>
-              ⟶
-            </Button>
-            <Button color="primary" style={{ marginLeft: '10px' }} variant="outlined" onClick={() => handleCopy('↠')}>
-              ↠
-            </Button>
           </Stack>
         </div>
 

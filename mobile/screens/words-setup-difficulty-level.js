@@ -43,20 +43,6 @@ const WordsSetupDifficultyLevel = (props) => {
             >
               Particle
             </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-            >
-              Past
-            </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-            >
-              Singular
-            </Chip>
             <Text variant="labelSmall" style={{ paddingTop: 10 }}>
               Press the label for more information.
             </Text>

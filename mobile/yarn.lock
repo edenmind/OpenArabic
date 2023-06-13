@@ -3987,12 +3987,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-convert-assignment-to-comparison@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@putout/plugin-convert-assignment-to-comparison@npm:1.0.0"
+"@putout/plugin-convert-assignment-to-comparison@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@putout/plugin-convert-assignment-to-comparison@npm:2.0.0"
   peerDependencies:
-    putout: ">=15"
-  checksum: 4e3eec175dc657b3b371b9fb33c62550054dfb6cadd0834d8a646d2fadf4c0d9120ccdd0aeeeed725cfba153bf22ad3904b2bd877221ac0a6e7ca1730817f6cc
+    putout: ">=29"
+  checksum: 0a25023958511292204e72aa3cb017dcf997c3aedc9e0339302e31d2ac7a88fe333f187f2812a291bdb55b44ab97d117060b57b73441d12d0348df46c856236b
   languageName: node
   linkType: hard
 
@@ -4634,6 +4634,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@putout/plugin-simplify-boolean-return@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "@putout/plugin-simplify-boolean-return@npm:1.0.1"
+  peerDependencies:
+    putout: ">=29"
+  checksum: 0a744c51a8ed30e8c045202046c372ce1a22f555dde93c3675ddf5fac06cd0ad2187b395b693fae9a40495762a1e8ac56d4fbd25e2206c0daf81026625b64496
+  languageName: node
+  linkType: hard
+
 "@putout/plugin-simplify-ternary@npm:^5.0.1":
   version: 5.0.1
   resolution: "@putout/plugin-simplify-ternary@npm:5.0.1"
@@ -4643,12 +4652,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-split-nested-destructuring@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@putout/plugin-split-nested-destructuring@npm:2.0.0"
+"@putout/plugin-split-nested-destructuring@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@putout/plugin-split-nested-destructuring@npm:3.0.0"
   peerDependencies:
-    putout: ">=28"
-  checksum: a17183ba9073cfb357cbd57c02ce60580653eb13ae838aab28518f09ea6ae040db9014b1b886ee674beeb9c852e261da8ea0b019a7a033bff0d596a46d3420ce
+    putout: ">=29"
+  checksum: 5e59efabfb7472bc045bf65de76376971f74311a2d480d6630a41d3f637cb783a6058b941810029ccd130baf7b75c12910d85f1b94274064bc101990f9cf5dcc
   languageName: node
   linkType: hard
 
@@ -13737,7 +13746,7 @@ __metadata:
     node-notifier: ^10.0.1
     prettier: ^2.8.8
     prop-types: ^15.8.1
-    putout: ^29.12.11
+    putout: ^29.13.1
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.71.10
@@ -13752,7 +13761,7 @@ __metadata:
     react-native-share: ^8.2.2
     react-native-tab-view: ^3.5.1
     react-native-vector-icons: ^9.2.0
-    react-redux: ^8.0.7
+    react-redux: ^8.1.0
     react-test-renderer: ^18.2.0
     redux: ^4.2.1
     redux-mock-store: ^1.5.4
@@ -15080,9 +15089,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^29.12.11":
-  version: 29.12.11
-  resolution: "putout@npm:29.12.11"
+"putout@npm:^29.13.1":
+  version: 29.13.1
+  resolution: "putout@npm:29.13.1"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/traverse": ^7.12.5
@@ -15123,7 +15132,7 @@ __metadata:
     "@putout/plugin-convert-arguments-to-rest": ^2.0.0
     "@putout/plugin-convert-array-copy-to-slice": ^3.0.0
     "@putout/plugin-convert-assignment-to-arrow-function": ^1.0.0
-    "@putout/plugin-convert-assignment-to-comparison": ^1.0.0
+    "@putout/plugin-convert-assignment-to-comparison": ^2.0.0
     "@putout/plugin-convert-commonjs-to-esm": ^9.0.0
     "@putout/plugin-convert-concat-to-flat": ^1.0.0
     "@putout/plugin-convert-const-to-let": ^1.0.0
@@ -15193,8 +15202,9 @@ __metadata:
     "@putout/plugin-remove-useless-variables": ^8.0.0
     "@putout/plugin-reuse-duplicate-init": ^4.0.0
     "@putout/plugin-simplify-assignment": ^3.0.0
+    "@putout/plugin-simplify-boolean-return": ^1.0.0
     "@putout/plugin-simplify-ternary": ^5.0.1
-    "@putout/plugin-split-nested-destructuring": ^2.0.0
+    "@putout/plugin-split-nested-destructuring": ^3.0.0
     "@putout/plugin-split-variable-declarations": ^3.0.0
     "@putout/plugin-strict-mode": ^6.0.0
     "@putout/plugin-tape": ^11.0.0
@@ -15230,7 +15240,7 @@ __metadata:
     yargs-parser: ^21.0.0
   bin:
     putout: bin/putout.mjs
-  checksum: 37d9a4ba4c58ac9422606304c6f030159a0839d035f137fc50091d115e98db96879a964e2306eb7e44cd03f92e66ba4474d7d3aebd23999a22f45593f42daec7
+  checksum: 0cca84e61a8e5343bc5e7b620027d7b872516fa9d7d8f3e3448d5c91639f7d8799106623bd84f5ed5ed997ac54d3e24bd8f97227f53738d29afbf82201b1e370
   languageName: node
   linkType: hard
 
@@ -15601,9 +15611,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-redux@npm:^8.0.7":
-  version: 8.0.7
-  resolution: "react-redux@npm:8.0.7"
+"react-redux@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "react-redux@npm:8.1.0"
   dependencies:
     "@babel/runtime": ^7.12.1
     "@types/hoist-non-react-statics": ^3.3.1
@@ -15632,7 +15642,7 @@ __metadata:
       optional: true
     redux:
       optional: true
-  checksum: d903aa79b12154258fd76b8e61fcf56f72123f69c31033b262805646371e23822cd0cd11d24194cda1e03569a7b1bf86e935cd57a9bab4523186804ed2742fac
+  checksum: a6b9a07b056677b75596f3eeb56816c1cd611fc52e09ff03e9538cd050223c4f0187f9572b703c1b1d648ad115c5753894f8c709d0f58278e5652026963bf9d6
   languageName: node
   linkType: hard
 
