@@ -33,7 +33,7 @@ function TextBilingualSentencesWords({ word }) {
     <Fragment>
       <View style={styles.row}>
         <View style={styles.flexOne}>
-          <Text style={sharedStyle.arabicHeading}>{word.arabic}</Text>
+          <Text style={{ ...sharedStyle.arabicHeading, fontSize: 35 }}>{word.arabic}</Text>
           <Text style={{ marginRight: 30, color: theme.colors.onSurfaceVariant }}>
             {word.english.charAt(0).toUpperCase() + word.english.slice(1)}
           </Text>

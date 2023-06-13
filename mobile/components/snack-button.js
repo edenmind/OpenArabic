@@ -22,7 +22,7 @@ const SnackButton = (props) => {
           textAlign: 'center'
         }}
       >
-        🚀
+        ✨
       </Text>
 
       <Text
