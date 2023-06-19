@@ -11,6 +11,7 @@ const initialStateText = {
     english: ['e1', 'e2', 'e3'],
     status: 'Draft',
     title: '',
+    introduction: 'abc',
     publishAt: '2021-01-01T00:00:00.000Z',
     wordByWord: [['']],
     image: 'No Data',

@@ -35,6 +35,7 @@ function handleCopy(text) {
 const WordsUpdate = () => {
   const [english, setEnglish] = React.useState('')
   const [arabic, setArabic] = React.useState('')
+  const [lastLetter, setLastLetter] = React.useState(false)
   const [englishSentence, setEnglishSentence] = React.useState('')
   const [arabicSentence, setArabicSentence] = React.useState('')
   const [arabicText, setArabicText] = React.useState('')
@@ -90,10 +91,12 @@ const WordsUpdate = () => {
           filename,
           englishText,
           arabicText,
-          categoryLevel
+          categoryLevel,
+          lastLetter
         } = res
         setEnglish(english)
         setArabic(arabic)
+        setLastLetter(lastLetter)
         setEnglishSentence(englishSentence)
         setArabicSentence(arabicSentence)
         setGrammar(grammar)
@@ -109,6 +112,7 @@ const WordsUpdate = () => {
     const word = {
       english,
       arabic,
+      lastLetter,
       arabicSentence,
       englishSentence,
       grammar,
@@ -290,7 +294,6 @@ const WordsUpdate = () => {
               onChange={(event) => setEnglish(event.target.value)}
             />
           </FormControl>
-
           <FormControl fullWidth>
             <TextField
               fullWidth
@@ -305,6 +308,20 @@ const WordsUpdate = () => {
                 }
               }}
             />
+          </FormControl>
+
+          <FormControl fullWidth sx={{ m: 1 }}>
+            <InputLabel id="last-letter-label">Last Letter</InputLabel>
+            <Select
+              labelId="last-letter-label"
+              id="lastLetter"
+              value={lastLetter}
+              label="Last Letter"
+              onChange={(event) => setLastLetter(event.target.value)}
+            >
+              <MenuItem value={true}>Remove last letter</MenuItem>
+              <MenuItem value={false}>Keep last letter</MenuItem>
+            </Select>
           </FormControl>
 
           <FormControl fullWidth>
@@ -322,7 +339,6 @@ const WordsUpdate = () => {
               }}
             />
           </FormControl>
-
           <FormControl fullWidth>
             <TextField
               fullWidth
@@ -333,7 +349,6 @@ const WordsUpdate = () => {
               onChange={(event) => setEnglishSentence(event.target.value)}
             />
           </FormControl>
-
           <FormControl fullWidth sx={{ m: 1 }}>
             <InputLabel id="level-label">Level</InputLabel>
             <Select
@@ -349,7 +364,6 @@ const WordsUpdate = () => {
               <MenuItem value={30}>Advanced</MenuItem>
             </Select>
           </FormControl>
-
           <FormControl fullWidth>
             <TextField
               fullWidth

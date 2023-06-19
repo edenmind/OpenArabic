@@ -20,6 +20,7 @@ const TextAddHeading = () => {
   const setCategory = (event) => dispatch({ type: 'SET_CATEGORY', category: event.target.value })
   const setAuthor = (event) => dispatch({ type: 'SET_AUTHOR', author: event.target.value })
   const setSource = (event) => dispatch({ type: 'SET_SOURCE', source: event.target.value })
+  const setIntroduction = (event) => dispatch({ type: 'SET_INTRODUCTION', introduction: event.target.value })
 
   const [categories, setCategories] = React.useState([])
   const [authors, setAuthors] = React.useState([])
@@ -60,13 +61,21 @@ const TextAddHeading = () => {
         value={text.source}
         onChange={setSource}
       />
-
+      <TextField
+        fullWidth
+        id="outlined-multiline-static"
+        label="Introduction"
+        multiline
+        rows={4}
+        variant="outlined"
+        value={text.introduction}
+        onChange={setIntroduction}
+      />
       <MenuSelect Heading="Author" Values={authors} value={text.author} onChangeFunc={setAuthor} />
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <MenuSelect Heading="Category" Values={categories} value={text.category} onChangeFunc={setCategory} />
         <FormHelperText>The category affects the generation of vocabularies. </FormHelperText>
       </FormControl>
-
       <img src={text.image} alt={text.title} width={700} />
       <StandardImageList images={images} />
     </Stack>

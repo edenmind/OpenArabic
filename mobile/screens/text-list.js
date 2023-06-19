@@ -56,7 +56,7 @@ export default function TextList({ route, navigation }) {
         ListHeaderComponent={
           categoryDescription.length > 0 ? (
             <Surface style={{ padding: 15, borderRadius: 10, margin: 10 }} elevation={1}>
-              <Text style={sharedStyle.englishBody}>{categoryDescription}</Text>
+              <Text variant="labelLarge">{categoryDescription}</Text>
             </Surface>
           ) : (
             <>

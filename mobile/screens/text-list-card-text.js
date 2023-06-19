@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react'
 import { StyleSheet, Pressable, Animated } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
-import { prepareIngress } from '../services/utility-service.js'
+import { prepareIngress, checkIfTodayIsCreatedAt } from '../services/utility-service.js'
 import SCREENS from '../constants/screens.js'
-import { Text, Card, Divider, useTheme, IconButton } from 'react-native-paper'
+import { Text, Card, Divider, useTheme, IconButton, Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import { generateShare } from '../services/ui-services.js'
 
@@ -42,7 +42,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     },
     cardAction: {
       marginRight: 10,
-      paddingBottom: 15,
+      paddingBottom: 17,
       paddingTop: 5
     },
     cardSubTitle: {
@@ -90,6 +90,21 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
             <Divider style={styles.divider} />
           </Card.Content>
           <Card.Actions style={styles.cardAction}>
+            {checkIfTodayIsCreatedAt(text.createdAt) && (
+              <Chip
+                selectedColor={theme.colors.onTertiaryContainer}
+                mode={'flat'}
+                compact={true}
+                style={{
+                  position: 'absolute',
+                  left: 13,
+                  bottom: 10,
+                  backgroundColor: theme.colors.tertiaryContainer
+                }}
+              >
+                New ☀️
+              </Chip>
+            )}
             <Text variant="labelSmall" style={{ color: theme.colors.outline }}>
               {footer}
             </Text>
@@ -117,6 +132,7 @@ TextListCardText.propTypes = {
     category: PropTypes.string,
     sentences: PropTypes.array,
     english: PropTypes.string,
-    arabic: PropTypes.string
+    arabic: PropTypes.string,
+    createdAt: PropTypes.string
   })
 }

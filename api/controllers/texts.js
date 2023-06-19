@@ -81,6 +81,7 @@ async function addText(request, reply) {
     author: body.author,
     image: body.image,
     createdAt,
+    introduction: body.introduction,
     publishAt: body.publishAt,
     category: body.category,
     source: body.source,

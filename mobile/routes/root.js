@@ -51,11 +51,11 @@ function Root() {
 
               switch (route.name) {
                 case SCREENS.text: {
-                  iconName = 'text-long'
+                  iconName = 'home'
                   break
                 }
                 case SCREENS.words: {
-                  iconName = 'abjad-arabic'
+                  iconName = 'play'
                   break
                 }
                 case SCREENS.settings: {

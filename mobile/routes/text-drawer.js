@@ -149,7 +149,7 @@ export default function TextDrawer() {
       options={{
         title: SCREENS.home,
         headerShown: true,
-        drawerLabel: 'Latest ✨'
+        drawerLabel: 'Home'
       }}
       key={'999'}
     />

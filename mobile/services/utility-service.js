@@ -15,6 +15,29 @@ export const generateRandomPositions = () => {
 
   return positions
 }
+// check if today is the same as the createdAt date
+export const checkIfTodayIsCreatedAt = (createdAt) => {
+  // Get current date
+  const currentDate = new Date()
+
+  // Extract year, month, and day from the current date
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = currentDate.getMonth() + 1 // Months are zero-indexed, so we add 1
+  const currentDay = currentDate.getDate()
+
+  // Extract year, month, and day from the "createdAt" value
+  const createdAtDate = new Date(createdAt)
+  const createdAtYear = createdAtDate.getFullYear()
+  const createdAtMonth = createdAtDate.getMonth() + 1 // Months are zero-indexed, so we add 1
+  const createdAtDay = createdAtDate.getDate()
+
+  // Compare the date components
+  if (currentYear === createdAtYear && currentMonth === createdAtMonth && currentDay === createdAtDay) {
+    return true
+  }
+
+  return false
+}
 
 //function that removes anything between [] in a string
 export const removeAnythingBetweenBrackets = (text) => text.replaceAll(/\[.*?]/g, '')
