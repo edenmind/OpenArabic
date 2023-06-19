@@ -165,6 +165,7 @@ async function updateWord(request, reply) {
     arabic: word.arabic,
     english: word.english,
     grammar: word.grammar,
+    lastLetter: word.lastLetter,
     filename: word.filename,
     categoryLevel: word.categoryLevel
   }
@@ -196,4 +197,3 @@ module.exports = {
   updateWord,
   getWordId
 }
-
