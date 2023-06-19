@@ -450,10 +450,24 @@ ${sentence.arabic}
 ${sentence.english}
 ---
 
+--- Author of the text:
+${text.author}
+---
+
+--- Source of the text:
+${text.source}
+---
+
+--- Type of text:
+${text.category}
+---
+
+
 --- INSTRUCTIONS:
 Act as a Translator of Classic Arabic to Modern English and do a Word-for-Word Translation of the Arabic Sentence to English
 
 - The text that you are translating is a Sunni Islamic text.
+- The Word-for-Word translation will be used in an app that teaches Classical Arabic to English speakers using quiz games and other interactive methods.
 - Begin each translation line with the Arabic word, followed by the English equivalent.
 - Start a new line for each translated word.
 - Maintain the original word order from the Arabic sentence in your translation.
@@ -465,13 +479,14 @@ Act as a Translator of Classic Arabic to Modern English and do a Word-for-Word T
 - Ensure that names of Prophets and Sahaba are accompanied by respectful annotations such as Alayhis Salam (Peace be upon him) for Prophets and Radhi Allahu Anhu/Anha (May Allah be pleased with him/her) for Sahaba.
 - Feel free to add alternative translations in comments for context or nuance, as long as they respect Sunni Islam's interpretations and teachings.
 - The English Example Translation of the Arabic Sentence is provided as a guide that you can use it as a reference.
-- You can use it as a starting point for your translation, but you are not required to follow it exactly.
+- You can use the English Example Translation it as a starting point for your translation, but you are not required to follow it exactly.
+- Add an asterix * after every translation that is linguistic since we are going to use these translations to teach Arabic vocabulary and we only want to inlcude linguistic translations.
 ---
 
 --- Example output of the above task and requirements:
 إنَّمَا - Indeed
 الْأَعْمَالُ - the actions [are judged]
-بِالنِّيَّاتِ - by the intentions
+بِالنِّيَّاتِ - by the intentions*
 
 The word X is translated as Y because Z... It is not translated as W because Q...
 
