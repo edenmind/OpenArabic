@@ -50,7 +50,7 @@ function TextBilingualSentences(props) {
           setTitle('Words')
         }}
       >
-        EXPLAIN WORDS
+        {UI.explainWords}
       </Button>
     </View>
   ))

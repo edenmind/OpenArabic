@@ -10,16 +10,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
+import {
+  vibrateBetweenTwoColors,
+  generateRandomPositions,
+  transliterateArabicToEnglish,
+  removeAnythingBetweenBrackets
+} from '../services/utility-service.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import { formatGrammar } from '../services/ui-services.js'
-import FadeInView from '../components/fade-in-view.js'
+import UI from '../constants/ui.js'
 
 const wordsSelector = (state) => state.words
-
-const ROOT = 'EXPLAIN'
-const CONTEXT = 'CONTEXT'
-const PLAY = 'PLAY'
 
 const WordsContent = ({
   currentWord,
@@ -93,7 +94,8 @@ const WordsContent = ({
   }, [handleSetCurrentWord, handleSetCurrentWordIndex])
 
   const handleWrongAnswer = useCallback(() => {
-    vibrateBetweenTwoColors(setColor, theme)
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
+    vibrateBetweenTwoColors(setColor, theme, theme.colors.errorContainer)
   }, [theme])
 
   // correct answer button
@@ -122,13 +124,13 @@ const WordsContent = ({
         correctAnswer()
       }}
     >
-      <Text style={styles.text}>{words.length > 1 && words[currentWord].english}</Text>
+      <Text style={styles.text}>{words.length > 1 && removeAnythingBetweenBrackets(words[currentWord].english)}</Text>
     </Button>
   )
 
   const wrongAnswerButton = (text) => (
     <Button mode="elevated" style={sharedStyle.buttonAnswer} onPress={handleWrongAnswer}>
-      <Text style={styles.text}>{words.length > 1 && text}</Text>
+      <Text style={styles.text}>{words.length > 1 && removeAnythingBetweenBrackets(text)}</Text>
     </Button>
   )
 
@@ -145,66 +147,53 @@ const WordsContent = ({
   const renderItem = ({ item }) => <View>{item.button}</View>
 
   return (
-    <FadeInView style={{ flex: 1 }}>
-      <FlatList
-        style={styles.container}
-        data={buttons}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.position.toString()}
-        ListHeaderComponent={
-          <>
-            <ProgressBar
-              color={theme.colors.primary}
-              progress={currentWordIndex / numberOfWordsToPractice}
-              style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
-            />
-            <Surface style={styles.surface}>
-              <Text
-                style={{
-                  fontFamily: 'uthman',
-                  width: '97%',
-                  padding: 10,
-                  fontSize: 95,
-                  textAlign: 'center',
-                  color: theme.colors.tertiary,
-                  marginBottom: 50
-                }}
-              >
-                {words[currentWord].arabic}
-              </Text>
+    <FlatList
+      style={styles.container}
+      data={buttons}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.position.toString()}
+      ListHeaderComponent={
+        <>
+          <ProgressBar
+            color={theme.colors.primary}
+            progress={currentWordIndex / numberOfWordsToPractice}
+            style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
+          />
+          <Surface style={styles.surface}>
+            <Text
+              style={{
+                fontFamily: 'uthman',
+                width: '97%',
 
-              {/* <Text style={{ ...styles.footer, width: '97%', position: 'absolute', bottom: 5, padding: 10 }}>
-              {words[currentWord]?.arabicSentence && `${words[currentWord].source}\n${words[currentWord].author}`}
-            </Text> */}
-              <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 5, right: 5 }}>
-                <Button
-                  mode="text"
-                  style={{ margin: 3 }}
-                  onPress={() => showModal()}
-                  textColor={theme.colors.secondary}
-                  icon="eye-outline"
-                >
-                  {ROOT}
-                </Button>
-              </View>
-            </Surface>
+                fontSize: 100,
+                textAlign: 'center',
+                color: theme.colors.tertiary
+              }}
+            >
+              {words[currentWord].arabic}
+            </Text>
 
-            <SnackButton
-              visible={celebrationSnackBarVisibility}
-              onDismissSnackBar={onDismissSnackBar}
-              duration={3500}
-              text="Session Completed Successfully!"
-            />
-            <ModalScrollView
-              visible={visible}
-              content={details}
-              title={words[currentWord].arabic}
-              hideModal={hideModal}
-            />
-          </>
-        }
-      />
-    </FadeInView>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 10, right: 10 }}>
+              <Button mode="text" onPress={() => showModal()} textColor={theme.colors.secondary} icon="eye-outline">
+                {UI.explain}
+              </Button>
+            </View>
+          </Surface>
+          <SnackButton
+            visible={celebrationSnackBarVisibility}
+            onDismissSnackBar={onDismissSnackBar}
+            duration={3500}
+            text="Session Completed Successfully!"
+          />
+          <ModalScrollView
+            visible={visible}
+            content={details}
+            title={words[currentWord].arabic}
+            hideModal={hideModal}
+          />
+        </>
+      }
+    />
   )
 }
 

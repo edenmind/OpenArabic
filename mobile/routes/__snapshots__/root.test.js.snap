@@ -5,6 +5,8 @@ exports[`<Root /> screen with name "Texts" should match snapshot 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],

@@ -48,15 +48,17 @@ const Words = () => {
   }
 
   return practicingWords ? (
-    <WordsContent
-      numberOfWordsToPractice={numberOfWordsToPractice}
-      currentWord={currentWord}
-      handleSetCurrentWord={handleSetCurrentWord}
-      currentWordIndex={currentWordIndex}
-      handleSetCurrentWordIndex={handleSetCurrentWordIndex}
-      celebrationSnackBarVisibility={celebrationSnackBarVisibility}
-      handleSetCelebrationSnackBarVisibility={handleSetCelebrationSnackBarVisibility}
-    />
+    <FadeInView style={{ flex: 1 }}>
+      <WordsContent
+        numberOfWordsToPractice={numberOfWordsToPractice}
+        currentWord={currentWord}
+        handleSetCurrentWord={handleSetCurrentWord}
+        currentWordIndex={currentWordIndex}
+        handleSetCurrentWordIndex={handleSetCurrentWordIndex}
+        celebrationSnackBarVisibility={celebrationSnackBarVisibility}
+        handleSetCelebrationSnackBarVisibility={handleSetCelebrationSnackBarVisibility}
+      />
+    </FadeInView>
   ) : (
     <FadeInView style={{ flex: 1 }}>
       <WordsSetup

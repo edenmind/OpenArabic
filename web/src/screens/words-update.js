@@ -15,11 +15,13 @@ import * as prompts from '../services/prompts.js'
 import BasicModal from '../components/basic-modal.js'
 
 function addEmptyLineAfterSentences(str) {
-  const sentences = str.split(/(?<!\n)(?<=[!.?]["']?(?=\s|$)) /) // split the string into sentences
-  const result = sentences.reduce((acc, sentence) => {
-    acc += sentence.trim() + (/[!.?]["']?$/.test(sentence) ? '\n\n' : '') // add the current sentence to the result string and add a new empty line if it ends with a period, exclamation mark, or question mark followed by an optional quote mark
+  const noempty = str.replace(/^\s*[\r\n]+/gm, '') // remove empty lines
+  const sentences = noempty.split(/(?<=[.!?]["']?\s+)/) // split the string into sentences
 
-    //remove ""
+  const result = sentences.reduce((acc, sentence) => {
+    acc += sentence.trim() + '\n\n' // add the current sentence to the result string and add a new empty line
+
+    // remove ""
     return acc.replace(/"([\u0600-\u06FF\s]*)"/g, '$1')
   }, '')
 
@@ -151,6 +153,27 @@ const WordsUpdate = () => {
                 // eslint-disable-next-line implicit-arrow-linebreak
                 handleOpen(
                   'Explain Verb',
+                  prompts.getExplanationOfVerbWithoutRoot(
+                    english,
+                    arabic,
+                    arabicSentence,
+                    englishSentence,
+                    arabicText,
+                    englishText
+                  )
+                )
+              }
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '10px' }}
+            >
+              Verb (Only root)
+            </Button>
+            <Button
+              onClick={() =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                handleOpen(
+                  'Explain Verb',
                   prompts.getExplanationOfVerb(
                     english,
                     arabic,
@@ -192,6 +215,27 @@ const WordsUpdate = () => {
               onClick={() =>
                 // eslint-disable-next-line implicit-arrow-linebreak
                 handleOpen(
+                  'Explain Noun',
+                  prompts.getExplanationOfNounWithoutRoot(
+                    english,
+                    arabic,
+                    arabicSentence,
+                    englishSentence,
+                    arabicText,
+                    englishText
+                  )
+                )
+              }
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '10px' }}
+            >
+              Noun (Only root)
+            </Button>
+            <Button
+              onClick={() =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                handleOpen(
                   'Explain Particle',
                   prompts.getExplanationOfParticle(
                     english,
@@ -209,20 +253,7 @@ const WordsUpdate = () => {
             >
               Particle
             </Button>
-            <Button
-              onClick={() =>
-                // eslint-disable-next-line implicit-arrow-linebreak
-                handleOpen(
-                  'Verify Grammar',
-                  prompts.verifyGrammar(english, arabic, arabicSentence, englishSentence, grammar)
-                )
-              }
-              variant="outlined"
-              color="primary"
-              style={{ marginLeft: '10px' }}
-            >
-              Verify Grammar
-            </Button>
+
             <Button
               onClick={() =>
                 // eslint-disable-next-line implicit-arrow-linebreak

@@ -5,6 +5,8 @@ exports[`<Category /> renders correctly 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],

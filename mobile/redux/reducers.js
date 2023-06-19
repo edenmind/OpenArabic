@@ -65,9 +65,9 @@ const initialStateTexts = {
 
 const initialStateWords = {
   words: [
-    { arabic: 'سلام', english: 'peace', alternative1: 'upon', alternative2: 'you' },
-    { arabic: 'ماء', english: 'water', alternative1: 'wind', alternative2: 'fire' },
-    { arabic: 'شمس', english: 'sun', alternative1: 'moon', alternative2: 'stars' }
+    { arabic: ' ', english: ' ', alternative1: ' ', alternative2: ' ' },
+    { arabic: ' ', english: ' ', alternative1: ' ', alternative2: ' ' },
+    { arabic: ' ', english: ' ', alternative1: ' ', alternative2: ' ' }
   ]
 }
 

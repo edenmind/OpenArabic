@@ -33,8 +33,8 @@ function TextBilingualSentencesWords({ word }) {
     <Fragment>
       <View style={styles.row}>
         <View style={styles.flexOne}>
-          <Text style={{ ...sharedStyle.arabicHeading, fontSize: 35 }}>{word.arabic}</Text>
-          <Text style={{ marginRight: 30, color: theme.colors.onSurfaceVariant }}>
+          <Text style={{ ...sharedStyle.arabicHeading, fontSize: 35, direction: 'rtl' }}>{word.arabic}</Text>
+          <Text style={{ marginRight: 30, color: theme.colors.onSurface, fontSize: 17 }}>
             {word.english.charAt(0).toUpperCase() + word.english.slice(1)}
           </Text>
         </View>
@@ -47,10 +47,10 @@ function TextBilingualSentencesWords({ word }) {
       </View>
       <ModalScrollView
         visible={visible}
-        content={explanation ?? 'No explanation available'}
+        content={explanation ?? <Text>'No explanation available'</Text>}
         title={word.arabic}
         hideModal={hideModal}
-        height="90%"
+        height="87%"
       />
     </Fragment>
   )

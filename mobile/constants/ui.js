@@ -3,11 +3,13 @@ const UI = {
   openArabic: 'OpenArabic',
   texts: 'Texts',
   null: '',
-  study: 'STUDY',
-  play: 'PLAY',
+  study: 'Study',
+  play: 'Play',
   root: 'ROOT',
-  explain: 'EXPLAIN',
-  playSentence: 'PLAY SENTENCE'
+  explain: 'Explain',
+  playSentence: 'Play Sentence',
+  explainWords: 'Explain Words',
+  report: 'Report Error'
 }
 
 export default UI

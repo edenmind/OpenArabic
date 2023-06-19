@@ -13,6 +13,8 @@ const HighlightedWord = ({ word }) => {
         ...sharedStyle.englishBody,
         color: theme.colors.onPrimary,
         backgroundColor: theme.colors.secondary,
+        borderBottomColor: theme.colors.secondary,
+        borderBottomWidth: 1,
         marginHorizontal: 3,
         paddingHorizontal: 5,
         paddingBottom: 0,

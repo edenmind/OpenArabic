@@ -127,21 +127,6 @@ function TextAddWords() {
             variant="outlined"
           />
           <br />
-          <Stack spacing={5} direction="row" style={{ marginBottom: -25 }}>
-            <Button
-              onClick={() =>
-                handleOpen(
-                  'Explain Sentence',
-                  prompts.verifyExplanation(sentence.explanation, sentence.arabic, sentence.english)
-                )
-              }
-              variant="contained"
-              color="primary"
-              style={{ marginLeft: '10px', width: '250px' }}
-            >
-              Verify Explanation
-            </Button>
-          </Stack>
           <br />
           <h3>Words: </h3>
           {sentence.words.map((word, indexArabicWord) => (

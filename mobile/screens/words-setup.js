@@ -48,6 +48,7 @@ const WordsSetup = (props) => {
       <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
 
       <SegmentedButtons
+        checkedColor={theme.colors.primary}
         value={props.difficultyLevel}
         onValueChange={(value) => {
           props.handleSetDifficultyLevel(value)
@@ -75,6 +76,7 @@ const WordsSetup = (props) => {
 
       <Button
         mode="contained"
+        icon={'play'}
         onPress={() => {
           props.resetStateForNewWords()
           dispatch(getWords(props.difficultyLevel, props.numberOfWordsToPractice))
@@ -85,7 +87,7 @@ const WordsSetup = (props) => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }}
       >
-        <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>START SESSION</Text>
+        <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>START LEARNING</Text>
       </Button>
     </ScrollView>
   )
