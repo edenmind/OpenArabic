@@ -31,8 +31,6 @@ const CategoriesUpdate = () => {
     api
       .getCategory(id)
       .then((res) => {
-        console.log('res:', res)
-
         const { name, level, description } = res
 
         setName(name)

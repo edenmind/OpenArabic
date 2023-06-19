@@ -7,7 +7,6 @@ axiosRetry(axios, {
   retries: 5,
   retryDelay: axiosRetry.exponentialDelay,
   retryCondition: (error) => {
-    // Retry on network errors, timeouts, and 5xx status codes
     return axiosRetry.isNetworkOrIdempotentRequestError(error) || error.response.status >= 500
   }
 })
@@ -37,7 +36,6 @@ export const getTexts = (id) => async (dispatch) => {
 export const getCategories = () => async (dispatch) => {
   const res = await axios.get(url.categories())
 
-  //remove a category with the property name Quotes
   const filteredCategories = res.data.filter((category) => category.name !== 'Quotes')
 
   dispatch({

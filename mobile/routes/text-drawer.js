@@ -9,8 +9,8 @@ import { getCategories } from '../services/api-service.js'
 import icon from '../assets/logo.png'
 import packageJson from '../package.json'
 import { useFocusEffect } from '@react-navigation/core'
-
 import { storeData, getData } from '../services/storage.js'
+
 const selector = (state) => state.categories
 
 export default function TextDrawer() {

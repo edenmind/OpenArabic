@@ -3,7 +3,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.210",
+  "version": "1444.4.212",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -44,13 +44,13 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.42.0",
+    "eslint": "^8.43.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-putout": "^17.7.0",
     "eslint-plugin-security": "^1.7.1",
     "prettier": "^2.8.8",
-    "putout": "^29.12.7",
+    "putout": "^29.15.0",
     "tap": "^16.3.6"
   }
 }

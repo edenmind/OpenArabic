@@ -286,8 +286,6 @@ export const transliterateArabicToEnglish = (string) => {
 
     return acc + (letterMap[letter] || letter)
   }, '')
-  //if iy is followed by a consonant, replace iy with i
-  // transliteratedArabicToEnglish = transliteratedArabicToEnglish.replace(/iy(?=[^aeiou])/g, 'ī')
 
   // Apply replacement rules
   transliteratedArabicToEnglish = transliteratedArabicToEnglish
@@ -337,5 +335,3 @@ export const transliterateArabicToEnglish = (string) => {
     })
     .join('')
 }
-
-// biāllahi should be transliterad to bilāhi

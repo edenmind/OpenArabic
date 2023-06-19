@@ -5,7 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import defaultExport from '../screens/about.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import { useTheme } from 'react-native-paper'
-
 import { useSelector } from 'react-redux'
 
 const Stack = createNativeStackNavigator()

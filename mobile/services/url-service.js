@@ -13,6 +13,6 @@ export const words = () => {
 
 export const categoryWithId = (category = '') => {
   return category === ''
-    ? `${HOST.backend}/${ENDPOINT.texts}` // if category is empty get texts in all categories
+    ? `${HOST.backend}/${ENDPOINT.texts}`
     : `${HOST.backend}/${ENDPOINT.texts}/${ENDPOINT.categories}/${category}`
 }
