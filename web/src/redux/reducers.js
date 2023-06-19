@@ -45,6 +45,9 @@ const textReducer = createReducer(initialState, (builder) => {
     .addCase(actions.SET_CATEGORY, (state, action) => {
       state.text.category = action.category
     })
+    .addCase(actions.SET_INTRODUCTION, (state, action) => {
+      state.text.introduction = action.introduction
+    })
     .addCase(actions.SET_STATUS, (state, action) => {
       state.text.status = action.status
     })

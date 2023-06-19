@@ -65,6 +65,13 @@ async function getWords(request, reply) {
   const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
   const allWords = await getAllWordsFromTexts(texts)
 
+  // in the array allWords, if the property lastLetter is set on an entity to true then remove that last letter from the property arabic
+  for (const word of allWords) {
+    if (word.lastLetter) {
+      word.arabic = word.arabic.slice(0, -1)
+    }
+  }
+
   // if numberOfWordsToPractice and difficultyLevel are not provided then return all words
   if (!numberOfWordsToPractice && !difficultyLevel) {
     return reply.code(200).send(allWords)
@@ -189,3 +196,4 @@ module.exports = {
   updateWord,
   getWordId
 }
+

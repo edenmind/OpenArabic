@@ -12,6 +12,7 @@ const getWordIdOptions = {
         properties: {
           arabic: { type: 'string' },
           english: { type: 'string' },
+          lastLetter: { type: 'boolean' },
           sentence: { type: 'string' },
           arabicSentence: { type: 'string' },
           englishSentence: { type: 'string' },
@@ -36,6 +37,7 @@ const getWordTranslationOptions = {
         properties: {
           arabic: { type: 'string' },
           english: { type: 'string' },
+          lastLetter: { type: 'boolean' },
           sentence: { type: 'string' },
           id: { type: 'string' }
         }
@@ -56,6 +58,7 @@ const getWordsOptions = {
           properties: {
             arabic: { type: 'string' },
             english: { type: 'string' },
+            lastLetter: { type: 'boolean' },
             sentence: { type: 'string' },
             alternative1: { type: 'string' },
             alternative2: { type: 'string' },
@@ -90,6 +93,7 @@ const updateWordOptions = {
         properties: {
           arabic: { type: 'string', minLength: 1 },
           english: { type: 'string', minLength: 1 },
+          lastLetter: { type: 'boolean' },
           sentence: { type: 'string', minLength: 5 },
           categoryLevel: { type: 'string' },
           grammar: { type: 'string' },

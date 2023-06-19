@@ -264,7 +264,7 @@ export const updateCategory = async (data, id) => {
 }
 
 export const addText = async (text) => {
-  const { title, author, image, category, sentences, source, texts, status, publishAt } = text
+  const { title, author, image, category, sentences, source, introduction, texts, status, publishAt } = text
   const { arabic, english } = texts
 
   const response = await axios({
@@ -278,6 +278,7 @@ export const addText = async (text) => {
       category,
       publishAt,
       status,
+      introduction,
       image,
       texts: {
         arabic,
@@ -323,7 +324,20 @@ export const getTextToRedux = (id) => async (dispatch) => {
 }
 
 export const updateText = async (text, id) => {
-  const { title, author, image, category, sentences, source, texts, status, publishAt, generateAudio, textGuid } = text
+  const {
+    title,
+    author,
+    image,
+    category,
+    sentences,
+    source,
+    introduction,
+    texts,
+    status,
+    publishAt,
+    generateAudio,
+    textGuid
+  } = text
   const { arabic, english } = texts
 
   const response = await axios({
@@ -336,6 +350,7 @@ export const updateText = async (text, id) => {
       title,
       category,
       publishAt,
+      introduction,
       generateAudio,
       textGuid,
       image: removeHost(image),

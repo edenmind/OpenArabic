@@ -79,6 +79,7 @@ const getTextOptions = {
           status: { type: 'string' },
           slug: { type: 'string' },
           image: { type: 'string' },
+          introduction: { type: 'string' },
           views: { type: 'string' },
           timeAgo: { type: 'string' },
           readingTime: { type: 'string' },
@@ -118,6 +119,7 @@ const updateTextOptions = {
       properties: {
         title: { type: 'string', minLength: 5, maxLength: 25 },
         status: { type: 'string', minLength: 5, maxLength: 10 },
+        introduction: { type: 'string', minLength: 15, maxLength: 1500 },
         image: { type: 'string', minLength: 5, maxLength: 70 },
         createdAt: { type: 'string', minLength: 5, maxLength: 40 },
         updatedAt: { type: 'string', minLength: 5, maxLength: 40 },
@@ -183,6 +185,7 @@ const postTextOptions = {
         status: { type: 'string', minLength: 5, maxLength: 10 },
         image: { type: 'string', minLength: 5, maxLength: 70 },
         createdAt: { type: 'string', minLength: 5, maxLength: 40 },
+        introduction: { type: 'string', minLength: 15, maxLength: 1500 },
         publishAt: { type: 'string', minLength: 5, maxLength: 40 },
         author: { type: 'string', minLength: 5, maxLength: 30 },
         category: { type: 'string', minLength: 5, maxLength: 20 },

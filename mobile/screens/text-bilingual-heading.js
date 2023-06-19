@@ -1,10 +1,10 @@
-import { Text, Divider, useTheme } from 'react-native-paper'
+import { Text, Divider, useTheme, Surface } from 'react-native-paper'
 import { Image, StyleSheet } from 'react-native'
 import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function TextBilingualHeading({ heading }) {
-  const { author, source, readingTime, views, timeAgo, image, title } = heading
+  const { author, source, readingTime, views, timeAgo, image, title, introduction } = heading
   const caption = `${readingTime} · ${views} views · ${timeAgo}`
   const theme = useTheme()
   const style = StyleSheet.create({
@@ -57,6 +57,12 @@ export default function TextBilingualHeading({ heading }) {
         {caption}
       </Text>
       <Divider style={style.divider} />
+
+      {introduction && (
+        <Surface style={{ padding: 15, borderRadius: 10, margin: 12 }} elevation={1}>
+          <Text variant="labelLarge">{introduction}</Text>
+        </Surface>
+      )}
     </>
   )
 }
@@ -69,6 +75,7 @@ TextBilingualHeading.propTypes = {
     readingTime: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    source: PropTypes.string.isRequired
+    source: PropTypes.string.isRequired,
+    introduction: PropTypes.string.isOptional
   })
 }
