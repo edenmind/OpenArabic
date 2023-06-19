@@ -19,7 +19,7 @@ function addEmptyLineAfterSentences(str) {
   const sentences = noempty.split(/(?<=[.!?]["']?\s+)/) // split the string into sentences
 
   const result = sentences.reduce((acc, sentence) => {
-    acc += sentence.trim() + '\n\n' // add the current sentence to the result string and add a new empty line
+    acc += `${sentence.trim()}\n\n`
 
     // remove ""
     return acc.replace(/"([\u0600-\u06FF\s]*)"/g, '$1')

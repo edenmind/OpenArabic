@@ -68,6 +68,6 @@ TextBilingualSentences.propTypes = {
     PropTypes.shape({
       word: PropTypes.string
     })
-  ).isRequired // Add validation
+  ).isRequired
 }
 export default React.memo(TextBilingualSentences)

@@ -84,7 +84,6 @@ const TextPractice = () => {
     async (id, word) => {
       if (id !== currentWord) {
         // wrong answer
-        // call vibrateBetweenTwoColors and pass setColor as an argument
         vibrateBetweenTwoColors(setColor, theme, theme.colors.errorContainer)
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 

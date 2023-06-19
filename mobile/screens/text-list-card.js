@@ -2,7 +2,6 @@
 /* eslint-disable putout/long-properties-destructuring */
 import PropTypes from 'prop-types'
 import React from 'react'
-
 import TextListCardQuote from './text-list-card-quote.js'
 import TextListCardText from './text-list-card-text.js'
 

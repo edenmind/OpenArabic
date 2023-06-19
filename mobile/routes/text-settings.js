@@ -7,7 +7,6 @@ import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-them
 import { useSelector } from 'react-redux'
 
 const Stack = createNativeStackNavigator()
-
 const darkModeSelector = (state) => state.isDarkMode
 
 export default function TextSettings() {
