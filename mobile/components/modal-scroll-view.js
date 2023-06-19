@@ -2,9 +2,8 @@ import { Button, Divider, Modal, Portal, Text, useTheme } from 'react-native-pap
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
-
-import * as Haptics from 'expo-haptics'
 import { useSharedStyles } from '../styles/common.js'
+
 // eslint-disable-next-line putout/destructuring-as-function-argument
 const ModalScrollView = ({
   title,
@@ -12,7 +11,7 @@ const ModalScrollView = ({
   visible,
   hideModal,
   height = '93%',
-  close = 'CLOSE',
+  close = 'CLOSE ',
   titleLanguage = 'arabic',
   icon
 }) => {
@@ -23,15 +22,13 @@ const ModalScrollView = ({
       marginBottom: 0,
       marginTop: 10
     },
-
     containerStyle: {
       backgroundColor: theme.colors.background,
       borderRadius: 15,
       height,
       margin: 10,
-      padding: 10
+      padding: 5
     },
-
     titleStyle: {
       ...sharedStyled.arabicHeading,
       alignSelf: 'center',
@@ -39,6 +36,7 @@ const ModalScrollView = ({
       textAlign: 'center',
       writingDirection: 'rtl'
     },
+
     titleStyleEnglish: {
       alignSelf: 'center',
       fontFamily: 'philosopher',
@@ -49,26 +47,21 @@ const ModalScrollView = ({
     }
   })
 
-  //a function that triggers a haptic feedback and then runs hideModal
-  const hideModalWithHaptic = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-    hideModal()
-  }
-
   return (
     <Portal>
       <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.containerStyle}>
         {title && (
           <>
             <Text style={titleLanguage === 'english' ? styles.titleStyleEnglish : styles.titleStyle}>{title}</Text>
+         
             <Divider />
           </>
         )}
         <ScrollView>
-          <View style={{ margin: 5, padding: 5, paddingTop: 15 }}>{content}</View>
+          <View style={{ margin: 5, padding: 5 }}>{content}</View>
         </ScrollView>
         <Divider />
-        <Button onPress={hideModalWithHaptic} style={styles.buttonPadding} mode="elevated" icon={icon}>
+        <Button onPress={hideModal} style={styles.buttonPadding} mode="elevated" icon={icon}>
           {close}
         </Button>
       </Modal>

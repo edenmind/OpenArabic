@@ -12,12 +12,12 @@ import FadeInView from '../components/fade-in-view.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
+import UI from '../constants/ui.js'
 
 export default function TextBilingual() {
   const { text } = useSelector(selector)
   const { textLoading } = useSelector(textLoadSelector)
-  const share = 'SHARE'
-  const report = 'REPORT ERROR'
+
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -31,11 +31,11 @@ export default function TextBilingual() {
           <Sentences sentences={text.sentences} />
           <View style={sharedStyle.container}>
             <Button onPress={generateShare(text)} icon={'share-variant-outline'}>
-              {share}
+              {UI.share}
             </Button>
             <Divider style={{ opacity: 0 }} />
             <Button onPress={generateError(text)} icon={'alert-circle-outline'} textColor={theme.colors.error}>
-              <Text style={{ color: theme.colors.error }}>{report}</Text>
+              <Text style={{ color: theme.colors.error }}>{UI.report}</Text>
             </Button>
           </View>
         </ScrollView>

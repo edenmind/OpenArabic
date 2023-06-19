@@ -1,6 +1,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { Snackbar, Text, useTheme } from 'react-native-paper'
+import { View } from 'react-native'
 
 const SnackButton = (props) => {
   const theme = useTheme()
@@ -12,7 +13,7 @@ const SnackButton = (props) => {
       duration={props.duration}
       style={{
         color: theme.colors.primary,
-        backgroundColor: theme.colors.elevation.level5
+        backgroundColor: theme.colors.tertiaryContainer
       }}
     >
       <Text
@@ -22,13 +23,14 @@ const SnackButton = (props) => {
           textAlign: 'center'
         }}
       >
-        ✨
+        🏆
       </Text>
 
       <Text
         style={{
-          color: theme.colors.primary,
+          color: theme.colors.tertiary,
           textAlign: 'center',
+          fontSize: 20,
           fontWeight: '700'
         }}
         variant="titleMedium"

@@ -16,6 +16,7 @@ export const useSharedStyles = (theme) => {
   const horizontalMargin = 33
   const verticalMargin = 33
   const textColor = theme.colors.onBackground
+  const textColorArabic = theme.colors.secondary
 
   return useMemo(() => {
     const FONT_WEIGHTS = {
@@ -31,7 +32,7 @@ export const useSharedStyles = (theme) => {
 
     return StyleSheet.create({
       arabicBody: {
-        color: textColor,
+        color: textColorArabic,
         fontFamily: arabicFontName,
         fontSize: arabicFontSizeWeighted() * 1.1,
         lineHeight: arabicFontSize * 2.9,
@@ -59,7 +60,7 @@ export const useSharedStyles = (theme) => {
         textAlign: 'center'
       },
       arabicFooter: {
-        color: theme.colors.secondary,
+        color: textColorArabic,
         fontFamily: 'amiri',
         fontSize: 19,
         paddingBottom,
@@ -70,12 +71,14 @@ export const useSharedStyles = (theme) => {
         writingDirection: 'rtl'
       },
       arabicHeading: {
-        color: theme.colors.secondary,
+        color: textColorArabic,
+        direction: 'rtl',
         fontFamily: arabicFontName,
-        fontSize: arabicFontSizeWeighted() * 1.1,
+        fontSize: arabicFontSizeWeighted() * 1.3,
         lineHeight: arabicFontSize * 2.9,
         opacity: arabicOpacity,
-        paddingBottom
+        paddingTop: 10,
+        textAlign: 'right'
       },
       arabicHeadingRemove: {
         color: theme.colors.error,
@@ -93,7 +96,7 @@ export const useSharedStyles = (theme) => {
         fontSize: englishFontSize * 1.1,
         lineHeight: englishFontSize * 1.5,
         opacity: englishOpacity,
-        paddingBottom,
+        paddingBottom: 15,
         writingDirection: 'ltr'
       },
       button: {
@@ -135,10 +138,11 @@ export const useSharedStyles = (theme) => {
       englishHeading: {
         color: theme.colors.onSurface,
         direction: 'ltr',
-        fontSize: englishFontSize,
+        fontSize: englishFontSize * 1.1,
         fontWeight: 'bold',
-        lineHeight: englishFontSize * 1.5,
+        lineHeight: englishFontSize * 1.7,
         opacity: englishOpacity,
+        paddingTop: 10,
         writingDirection: 'ltr'
       },
       headerContainer: {
@@ -159,16 +163,15 @@ export const useSharedStyles = (theme) => {
       }
     })
   }, [
-    textColor,
+    textColorArabic,
     arabicFontName,
     arabicFontSize,
     theme.colors.tertiary,
-    theme.colors.secondary,
+    theme.colors.error,
     theme.colors.elevation.tertiaryContainer,
     theme.colors.elevation.level1,
     theme.colors.elevation.level5,
     theme.colors.onTertiaryContainer,
-    theme.colors.onSurfaceVariant,
     theme.colors.onSurface,
     englishFontSize
   ])

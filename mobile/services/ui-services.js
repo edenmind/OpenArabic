@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 import 'react-native-gesture-handler'
 import { Share } from 'react-native'
 import { ENDPOINT, HOST } from '../constants/urls.js'
@@ -29,9 +30,29 @@ export function generateError(text) {
   return composeError
 }
 
+export function moonPhaseEmoji(day) {
+  if (day < 1 || day > 30) {
+    throw new Error('Day must be between 1 and 30.')
+  }
+
+  if (day === 1) {
+    return '🌑' // New moon
+  } else if (day > 1 && day < 7) {
+    return '🌒' // Waxing crescent
+  } else if (day >= 7 && day < 14) {
+    return '🌓' // First quarter
+  } else if (day >= 14 && day < 22) {
+    return '🌕' // Full moon
+  } else if (day >= 22 && day < 29) {
+    return '🌗' // Last quarter
+  }
+
+  return '🌘' // Waning crescent
+}
+
 export function formatGrammar(gram, sharedStyle) {
   if (!gram) {
-    return 'No explanation available'
+    return <Text style={sharedStyle.englishHeading}>No explanation available</Text>
   }
 
   const lines = gram.split('\n')
@@ -49,7 +70,7 @@ export function formatGrammar(gram, sharedStyle) {
 
         if (line.startsWith('⟶')) {
           return (
-            <Text key={index} style={sharedStyle.arabicHeading}>
+            <Text key={index} style={{ ...sharedStyle.arabicHeading }}>
               {`${line.slice(2)}`}
             </Text>
           )

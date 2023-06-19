@@ -28,9 +28,9 @@ const TextPracticeArabicWords = (props) => {
         >
           <Text
             style={{
-              fontSize: 40,
+              fontSize: 45,
               fontFamily: 'uthman',
-              lineHeight: Platform.OS === 'android' ? 90 : 70,
+              lineHeight: Platform.OS === 'android' ? 115 : 73,
               color: theme.colors.primary
             }}
           >

@@ -32,8 +32,8 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
 
   const subtitle = `${text.author} in #${text.category}`
   const footer = `${text.views} views · ${text.timeAgo} · ${text.readingTime}  `
-  const english = text.texts?.english && prepareIngress(text.texts.english, 120)
-  const arabic = text.texts?.arabic && prepareIngress(text.texts.arabic, 95)
+  const english = text.texts?.english && prepareIngress(text.texts.english, 110)
+  const arabic = text.texts?.arabic && prepareIngress(text.texts.arabic, 90)
   const theme = useTheme()
 
   const styles = StyleSheet.create({
@@ -60,7 +60,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
   })
 
   return (
-    <Card style={styles.card} testID="textCard" mode="elevated" elevation={1}>
+    <Card style={styles.card} testID="textCard" elevation={1}>
       <Pressable
         onPressIn={scaleCard}
         onPressOut={restoreCard}

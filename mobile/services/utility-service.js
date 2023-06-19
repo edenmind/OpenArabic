@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/number-literal-case */
 /* eslint-disable quote-props */
-import * as Haptics from 'expo-haptics'
+import { moonPhaseEmoji } from './ui-services.js'
 
 export const generateRandomPositions = () => {
   const positions = []
@@ -15,6 +15,9 @@ export const generateRandomPositions = () => {
 
   return positions
 }
+
+//function that removes anything between [] in a string
+export const removeAnythingBetweenBrackets = (text) => text.replaceAll(/\[.*?]/g, '')
 
 //function that capitalizes the first letter
 export const capitalizeFirstLetter = (string) => {
@@ -57,7 +60,6 @@ const truncate = (stringToTruncate, truncateLength) => {
 
 export const vibrateBetweenTwoColors = (setColor, theme, color) => {
   setColor(color)
-  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 
   setTimeout(() => {
     setColor(theme.colors.elevation.level2)
@@ -130,7 +132,7 @@ export const getHijriDateLatin = () => {
 
   const [day, month, year] = hijriDate.split(' ')
 
-  return `${year} ${day} ${month}`.replace(/,$/, '').trim()
+  return `${year} ${day} ${month} ${moonPhaseEmoji(day)}`.replace(/,$/, '').trim()
 }
 //replace every letter in a string based on a map defined in the function
 //the service is kept in the mobile codebase to lower the load on the backend

@@ -70,6 +70,7 @@ export default function TextList({ route, navigation }) {
             <Text style={sharedStyle.arabicFooter}>
               سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك
             </Text>
+
             <Text style={sharedStyle.arabicFooter} />
           </>
         }

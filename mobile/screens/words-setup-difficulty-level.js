@@ -17,9 +17,9 @@ const WordsSetupDifficultyLevel = (props) => {
       source = require('../assets/beginner.jpeg')
       goal = (
         <>
-          <Text variant="titleSmall">
+          <Text variant="bodyMedium">
             Beginning with an introduction to the three basic types of Arabic words, this phase kick-starts your
-            exploration of fundamental Arabic grammar as it applies to Islamic texts.
+            exploration of fundamental Arabic vocabulary as it applies to Islamic texts.
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
             <Chip
@@ -43,9 +43,6 @@ const WordsSetupDifficultyLevel = (props) => {
             >
               Particle
             </Chip>
-            <Text variant="labelSmall" style={{ paddingTop: 10 }}>
-              Press the label for more information.
-            </Text>
           </View>
         </>
       )
@@ -56,9 +53,9 @@ const WordsSetupDifficultyLevel = (props) => {
       source = require('../assets/mid-level.jpeg')
       goal = (
         <>
-          <Text variant="titleSmall">
-            Advancing further, you'll explore Arabic's complexities, now incorporating definite forms and the present
-            tense to deepen your grammar knowledge.
+          <Text variant="bodyMedium">
+            Advancing further, you will explore Arabic's complexities, now incorporating definite forms and the present
+            tense to deepen your vocabulary knowledge.
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
             <Chip
@@ -84,9 +81,13 @@ const WordsSetupDifficultyLevel = (props) => {
               Plural
             </Chip>
 
-            <Text variant="labelSmall" style={{ paddingTop: 10 }}>
-              Press the label for more information.
-            </Text>
+            <Chip
+              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
+              compact={true}
+              selectedColor={theme.colors.onTertiary}
+            >
+              Pronoun
+            </Chip>
           </View>
         </>
       )
@@ -97,7 +98,7 @@ const WordsSetupDifficultyLevel = (props) => {
       source = require('../assets/advanced.jpeg')
       goal = (
         <>
-          <Text variant="titleSmall">
+          <Text variant="bodyMedium">
             In our final stage, we'll dissect Arabic phrases that translate to multiple English words, consolidating
             your ability to engage with basic Islamic texts, In sha'Allah.
           </Text>
@@ -121,18 +122,8 @@ const WordsSetupDifficultyLevel = (props) => {
               compact={true}
               selectedColor={theme.colors.onTertiary}
             >
-              Pronoun
-            </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-            >
               Compound
             </Chip>
-            <Text variant="labelSmall" style={{ paddingTop: 10 }}>
-              Press the label for more information.
-            </Text>
           </View>
         </>
       )

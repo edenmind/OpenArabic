@@ -5,6 +5,8 @@ exports[`<CategoryCard /> renders correctly 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],
@@ -49,6 +51,8 @@ exports[`<CategoryCard /> renders correctly with no arabic text 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],
@@ -92,6 +96,8 @@ exports[`<CategoryCard /> renders correctly with no author 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],
@@ -136,6 +142,8 @@ exports[`<CategoryCard /> renders correctly with no category 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],
@@ -180,6 +188,8 @@ exports[`<CategoryCard /> renders correctly with no english text 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],
@@ -223,6 +233,8 @@ exports[`<CategoryCard /> renders correctly with no image 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],
@@ -268,6 +280,8 @@ exports[`<CategoryCard /> renders correctly with no source 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],
@@ -313,6 +327,8 @@ exports[`<CategoryCard /> renders correctly with no texts 1`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],
@@ -354,6 +370,8 @@ exports[`<CategoryCard /> renders correctly with no texts 2`] = `
   value={
     {
       "getServerState": undefined,
+      "noopCheck": "once",
+      "stabilityCheck": "once",
       "store": {
         "@@observable": [Function],
         "dispatch": [Function],

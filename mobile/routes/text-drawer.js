@@ -18,7 +18,7 @@ export default function TextDrawer() {
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
   const hijriYear = `${packageJson.version} ١٤٤٤ هـ`
-  const [isDarkModeOn, setIsDarkModeOn] = React.useState(false)
+  const [isDarkModeOn, setIsDarkModeOn] = React.useState(true)
   const theme = useTheme()
 
   const style = StyleSheet.create({
