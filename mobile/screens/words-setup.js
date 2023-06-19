@@ -86,7 +86,7 @@ const WordsSetup = (props) => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }}
       >
-        <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>START PRACTICE</Text>
+        <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>START PRACTICE 🚀</Text>
       </Button>
     </ScrollView>
   )

@@ -16,23 +16,18 @@ export const generateRandomPositions = () => {
   return positions
 }
 // check if today is the same as the createdAt date
-export const checkIfTodayIsCreatedAt = (createdAt) => {
+export const checkIfWithinLastThreeDays = (createdAt) => {
   // Get current date
   const currentDate = new Date()
 
-  // Extract year, month, and day from the current date
-  const currentYear = currentDate.getFullYear()
-  const currentMonth = currentDate.getMonth() + 1 // Months are zero-indexed, so we add 1
-  const currentDay = currentDate.getDate()
+  // Subtract three days from the current date
+  const threeDaysAgo = new Date(currentDate.getTime() - 3 * 24 * 60 * 60 * 1000)
 
-  // Extract year, month, and day from the "createdAt" value
+  // Convert createdAt to a Date object
   const createdAtDate = new Date(createdAt)
-  const createdAtYear = createdAtDate.getFullYear()
-  const createdAtMonth = createdAtDate.getMonth() + 1 // Months are zero-indexed, so we add 1
-  const createdAtDay = createdAtDate.getDate()
 
-  // Compare the date components
-  if (currentYear === createdAtYear && currentMonth === createdAtMonth && currentDay === createdAtDay) {
+  // Check if createdAt is after three days ago and before or equal to the current date
+  if (createdAtDate >= threeDaysAgo && createdAtDate <= currentDate) {
     return true
   }
 
