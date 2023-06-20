@@ -24,7 +24,7 @@ function TextArabic() {
   const sharedStyle = useSharedStyles(theme)
   const [englishTranslation, setEnglishTranslation] = React.useState('Tap to Translate! 👇🏽')
   const [explanation, setExplanation] = React.useState(<Text>Choose a Word first...</Text>)
-  const [arabicWord, setArabicWord] = React.useState(false)
+  const [arabicWord, setArabicWord] = React.useState('')
   const [visible, setVisible] = React.useState(false)
   const [explainIsVisible, setExplainIsVisible] = React.useState(false)
   const hideModal = () => setVisible(false)

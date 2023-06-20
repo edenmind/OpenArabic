@@ -5,7 +5,6 @@ import { ENDPOINT, HOST } from '../constants/urls.js'
 import * as MailComposer from 'expo-mail-composer'
 import React from 'react'
 import { Text } from 'react-native-paper'
-import { prepareTitle } from '../services/utility-service.js'
 export function generateShare(text) {
   async function shareText() {
     await Share.share({
@@ -16,6 +15,20 @@ export function generateShare(text) {
   }
 
   return shareText
+}
+
+// give me a function that capitalizes all letters in a title
+export const prepareTitle = (title) => {
+  const words = title.trim().split(' ')
+
+  const capitalizedWords = words.map((word) => {
+    const firstLetter = word[0].toUpperCase()
+    const restOfWord = word.slice(1)
+
+    return `${firstLetter}${restOfWord}`
+  })
+
+  return capitalizedWords.join(' ')
 }
 
 export function generateError(text) {

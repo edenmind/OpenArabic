@@ -51,7 +51,6 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     cardTitle: {
       color: theme.colors.onBackground,
       fontFamily: 'philosopher',
-      numberOfLines: 2,
       paddingVertical: 5
     },
     divider: {

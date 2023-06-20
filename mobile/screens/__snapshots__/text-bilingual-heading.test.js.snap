@@ -32,19 +32,13 @@ exports[`<TextBilingualHeading /> renders correctly 1`] = `
           "color": "rgba(28, 27, 31, 1)",
           "writingDirection": "ltr",
         },
-        [
-          {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontFamily": "philosopher",
-            "numberOfLines": 2,
-            "paddingHorizontal": 25,
-            "paddingTop": 25,
-            "textAlign": "center",
-          },
-          {
-            "numberOfLines": 2,
-          },
-        ],
+        {
+          "color": "rgba(28, 27, 31, 1)",
+          "fontFamily": "philosopher",
+          "paddingHorizontal": 25,
+          "paddingTop": 25,
+          "textAlign": "center",
+        },
       ]
     }
   >

@@ -97,7 +97,7 @@ export default WordsSetup
 WordsSetup.propTypes = {
   numberOfWordsToPractice: PropTypes.number.isRequired,
   setNumberOfWordsToPractice: PropTypes.func.isRequired,
-  difficultyLevel: PropTypes.string.isRequired,
+  difficultyLevel: PropTypes.number.isRequired,
   resetStateForNewWords: PropTypes.func.isRequired,
   handleSetDifficultyLevel: PropTypes.func.isRequired
 }

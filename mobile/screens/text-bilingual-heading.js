@@ -33,7 +33,6 @@ export default function TextBilingualHeading({ heading }) {
     title: {
       color: theme.colors.onBackground,
       fontFamily: 'philosopher',
-      numberOfLines: 2,
       paddingHorizontal: 25,
       paddingTop: 25,
       textAlign: 'center'
@@ -43,7 +42,7 @@ export default function TextBilingualHeading({ heading }) {
   return (
     <>
       <Image source={{ uri: image }} style={style.image} />
-      <Text variant="headlineMedium" style={[style.title, { numberOfLines: 2 }]}>
+      <Text variant="headlineMedium" style={style.title}>
         {title}
       </Text>
 
@@ -75,7 +74,6 @@ TextBilingualHeading.propTypes = {
     readingTime: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    source: PropTypes.string.isRequired,
-    introduction: PropTypes.string.isOptional
+    source: PropTypes.string.isRequired
   })
 }

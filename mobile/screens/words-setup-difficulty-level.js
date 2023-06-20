@@ -149,5 +149,5 @@ const WordsSetupDifficultyLevel = (props) => {
 export default WordsSetupDifficultyLevel
 
 WordsSetupDifficultyLevel.propTypes = {
-  difficultyLevel: PropTypes.string.isRequired
+  difficultyLevel: PropTypes.number.isRequired
 }
