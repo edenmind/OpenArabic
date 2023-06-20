@@ -13,13 +13,13 @@ const WordsSetupDifficultyLevel = (props) => {
   let goal
 
   switch (props.difficultyLevel) {
-    case '10': {
+    case 10: {
       source = require('../assets/beginner.jpeg')
       goal = (
         <>
           <Text variant="bodyMedium">
-            Beginning with an introduction to the three basic types of Arabic words, this phase kick-starts your
-            exploration of fundamental Arabic vocabulary as it applies to Islamic texts.
+            Beginning with an introduction to the three types words, this phase kick-starts your exploration of
+            fundamental Arabic vocabulary as it applies to Islamic texts.
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
             <Chip
@@ -49,7 +49,7 @@ const WordsSetupDifficultyLevel = (props) => {
 
       break
     }
-    case '20': {
+    case 20: {
       source = require('../assets/mid-level.jpeg')
       goal = (
         <>
@@ -94,7 +94,7 @@ const WordsSetupDifficultyLevel = (props) => {
 
       break
     }
-    case '30': {
+    case 30: {
       source = require('../assets/advanced.jpeg')
       goal = (
         <>
