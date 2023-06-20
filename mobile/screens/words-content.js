@@ -142,7 +142,13 @@ const WordsContent = ({
     { button: button3, position: buttonPositions[2] }
   ].sort((a, b) => a.position - b.position)
 
-  const details = <View>{formatGrammar(words[currentWord].grammar, sharedStyle) ?? 'No explanation available'}</View>
+  const details = (
+    <View>
+      {words[currentWord]?.grammar
+        ? formatGrammar(words[currentWord].grammar, sharedStyle)
+        : 'No explanation available'}
+    </View>
+  )
 
   const renderItem = ({ item }) => <View>{item.button}</View>
 
@@ -170,7 +176,7 @@ const WordsContent = ({
                 color: theme.colors.tertiary
               }}
             >
-              {words[currentWord].arabic}
+              {words[currentWord]?.arabic}
             </Text>
 
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 10, right: 10 }}>
@@ -188,7 +194,7 @@ const WordsContent = ({
           <ModalScrollView
             visible={visible}
             content={details}
-            title={words[currentWord].arabic}
+            title={words[currentWord]?.arabic}
             hideModal={hideModal}
           />
         </>

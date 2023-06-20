@@ -56,15 +56,15 @@ const WordsSetup = (props) => {
         }}
         buttons={[
           {
-            value: '10',
+            value: 10,
             label: 'Beginner'
           },
           {
-            value: '20',
+            value: 20,
             label: 'Intermediate'
           },
           {
-            value: '30',
+            value: 30,
             label: 'Advanced'
           }
         ]}
@@ -86,7 +86,7 @@ const WordsSetup = (props) => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }}
       >
-        <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>START PRACTICE 🚀</Text>
+        <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>START PRACTICE</Text>
       </Button>
     </ScrollView>
   )

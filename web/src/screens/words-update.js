@@ -35,11 +35,12 @@ function handleCopy(text) {
 const WordsUpdate = () => {
   const [english, setEnglish] = React.useState('')
   const [arabic, setArabic] = React.useState('')
+  const [root, setRoot] = React.useState('')
   const [lastLetter, setLastLetter] = React.useState(false)
   const [englishSentence, setEnglishSentence] = React.useState('')
   const [arabicSentence, setArabicSentence] = React.useState('')
   const [arabicText, setArabicText] = React.useState('')
-  const [categoryLevel, setCategoryLevel] = React.useState('')
+  const [categoryLevel, setCategoryLevel] = React.useState(10)
   const [englishText, setEnglishText] = React.useState('')
   const [grammar, setGrammar] = React.useState('')
   const [filename, setFilename] = React.useState('')
@@ -302,6 +303,22 @@ const WordsUpdate = () => {
               variant="outlined"
               value={arabic}
               onChange={(event) => setArabic(event.target.value)}
+              InputProps={{
+                style: {
+                  fontSize: '40px'
+                }
+              }}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="root"
+              label="Root"
+              variant="outlined"
+              value={root}
+              onChange={(event) => setRoot(event.target.value)}
               InputProps={{
                 style: {
                   fontSize: '40px'
