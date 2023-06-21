@@ -180,7 +180,13 @@ const WordsContent = ({
             </Text>
 
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 10, right: 10 }}>
-              <Button mode="text" onPress={() => showModal()} textColor={theme.colors.secondary} icon="eye-outline">
+              <Button
+                mode="text"
+                onPress={() => showModal()}
+                textColor={theme.colors.secondary}
+                icon="eye-outline"
+                disabled={!words[currentWord]?.grammar}
+              >
                 {UI.explain}
               </Button>
             </View>

@@ -1,7 +1,7 @@
 import * as api from '../services/api-service.js'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FlatList } from 'react-native'
+import { FlatList, Image } from 'react-native'
 import PropTypes from 'prop-types'
 import Spinner from '../components/spinner.js'
 import TextListCard from './text-list-card.js'
@@ -71,7 +71,10 @@ export default function TextList({ route, navigation }) {
               سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك
             </Text>
 
-            <Text style={sharedStyle.arabicFooter} />
+            <Image
+              source={require('../assets/logo.png')}
+              style={{ width: 70, height: 70, alignSelf: 'center', marginBottom: 30, opacity: 0.5 }}
+            />
           </>
         }
       />

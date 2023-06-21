@@ -18,7 +18,7 @@ const WordsSetupDifficultyLevel = (props) => {
       goal = (
         <>
           <Text variant="bodyMedium">
-            Beginning with an introduction to the three types words, this phase kick-starts your exploration of
+            Beginning with an introduction to the three types of words, this phase kick-starts your exploration of
             fundamental Arabic vocabulary as it applies to Islamic texts.
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>

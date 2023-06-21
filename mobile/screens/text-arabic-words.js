@@ -46,73 +46,78 @@ export default function TextArabicWords({
         }
       : undefined
   }, [sound])
-  return text.sentences.map((sentence, sentenceIndex) => {
-    return (
-      <View
-        key={sentenceIndex}
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap'
-        }}
-      >
-        {sentence.words.map((word, wordIndex) => {
-          const isSelected = selectedWordIndex === wordIndex && selectedSentenceIndex === sentenceIndex
-          const backgroundColor = isSelected ? theme.colors.tertiary : theme.colors.elevation.level0
-          const backgroundColorText = isSelected ? theme.colors.tertiary : theme.colors.onBackground
 
-          return (
-            <Button
-              key={wordIndex}
-              textColor={theme.colors.tertiary}
-              style={{
-                marginHorizontal: -8,
-                marginBottom: -10
-              }}
-              onPress={() => {
-                const transliterated = util.transliterateArabicToEnglish(word.arabic)
-                const english = `${util.capitalizeFirstLetter(word.english)} (${transliterated})`
+  return (
+    <View style={{ flex: 1 }}>
+      {text.sentences.map((sentence, sentenceIndex) => (
+        <View
+          key={sentenceIndex}
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            marginBottom: 10
+          }}
+        >
+          {sentence.words.map((word, wordIndex) => {
+            const isSelected = selectedWordIndex === wordIndex && selectedSentenceIndex === sentenceIndex
+            const backgroundColor = isSelected ? theme.colors.tertiary : theme.colors.elevation.level0
+            const backgroundColorText = isSelected ? theme.colors.tertiary : theme.colors.onBackground
 
-                if (english.length <= 30) {
-                  setEnglishTranslation(english)
-                } else {
-                  setEnglishTranslation(`${util.capitalizeFirstLetter(word.english)}`)
-                }
-
-                setArabicWord(word.arabic)
-                setExplanation(formatGrammar(word.grammar, sharedStyle))
-                setSelectedWordIndex(wordIndex)
-                setSelectedSentenceIndex(sentenceIndex)
-                setExplainIsVisible(true)
-                playSound(word.filename)
-              }}
-            >
-              <View
+            return (
+              <Button
+                key={wordIndex}
+                textColor={theme.colors.tertiary}
                 style={{
-                  borderBottomColor: backgroundColor,
-                  borderBottomWidth: 3
+                  marginHorizontal: -8,
+                  marginBottom: -10
+                }}
+                onPress={() => {
+                  const transliterated = util.transliterateArabicToEnglish(word.arabic)
+                  const english = `${util.capitalizeFirstLetter(word.english)} (${transliterated})`
+
+                  if (english.length <= 30) {
+                    setEnglishTranslation(english)
+                  } else {
+                    setEnglishTranslation(`${util.capitalizeFirstLetter(word.english)}`)
+                  }
+
+                  setArabicWord(word.arabic)
+                  setExplanation(formatGrammar(word.grammar, sharedStyle))
+                  setSelectedWordIndex(wordIndex)
+                  setSelectedSentenceIndex(sentenceIndex)
+                  setExplainIsVisible(true)
+                  playSound(word.filename)
                 }}
               >
-                <Text
+                <View
                   style={{
-                    ...sharedStyle.arabicBody,
-                    color: backgroundColorText,
-                    lineHeight: Platform.OS === 'android' ? 90 : 50
+                    borderBottomColor: backgroundColor,
+                    borderBottomWidth: 3
                   }}
                 >
-                  {word.arabic}
-                </Text>
-              </View>
-            </Button>
-          )
-        })}
-      </View>
-    )
-  })
+                  <Text
+                    style={{
+                      ...sharedStyle.arabicBody,
+                      color: backgroundColorText,
+                      lineHeight: Platform.OS === 'android' ? 90 : 50
+                    }}
+                  >
+                    {word.arabic}
+                  </Text>
+                </View>
+              </Button>
+            )
+          })}
+        </View>
+      ))}
+    </View>
+  )
 }
 
 TextArabicWords.propTypes = {
   text: PropTypes.object.isRequired,
   setEnglishTranslation: PropTypes.func.isRequired,
   setExplanation: PropTypes.func.isRequired,
-  setArabicWord: PropTypes.func.isRequired
+  setArabicWord: PropTypes.func.isRequired,
+  setExplainIsVisible: PropTypes.func.isRequired
 }

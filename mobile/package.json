@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.4.306",
+  "version": "1444.12.307",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -64,7 +64,7 @@
     "react-native-share": "^8.2.2",
     "react-native-tab-view": "^3.5.1",
     "react-native-vector-icons": "^9.2.0",
-    "react-redux": "^8.1.0",
+    "react-redux": "^8.1.1",
     "redux": "^4.2.1"
   },
   "devDependencies": {
