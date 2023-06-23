@@ -40,9 +40,6 @@ function TextBilingualSentencesWords({ word }) {
         </View>
         <View style={styles.flexOne}>
           <PlaySound audioFileName={word.filename} buttonText={UI.play} />
-          <Button mode="elevated" textColor={theme.colors.tertiary} onPress={showModal} icon="eye-outline">
-            {UI.explain}
-          </Button>
         </View>
       </View>
       <ModalScrollView

@@ -16,18 +16,18 @@ export const generateRandomPositions = () => {
   return positions
 }
 // check if today is the same as the createdAt date
-export const checkIfWithinLastThreeDays = (createdAt) => {
+export const checkIfWithinLast36Hours = (createdAt) => {
   // Get current date
   const currentDate = new Date()
 
-  // Subtract three days from the current date
-  const threeDaysAgo = new Date(currentDate.getTime() - 3 * 24 * 60 * 60 * 1000)
+  // Subtract 36 hours from the current date
+  const thirtySixHoursAgo = new Date(currentDate.getTime() - 36 * 60 * 60 * 1000)
 
   // Convert createdAt to a Date object
   const createdAtDate = new Date(createdAt)
 
-  // Check if createdAt is after three days ago and before or equal to the current date
-  if (createdAtDate >= threeDaysAgo && createdAtDate <= currentDate) {
+  // Check if createdAt is after 36 hours ago and before or equal to the current date
+  if (createdAtDate >= thirtySixHoursAgo && createdAtDate <= currentDate) {
     return true
   }
 

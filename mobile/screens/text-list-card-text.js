@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { StyleSheet, Pressable, Animated } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
-import { prepareIngress, checkIfWithinLastThreeDays } from '../services/utility-service.js'
+import { prepareIngress, checkIfWithinLast36Hours } from '../services/utility-service.js'
 import SCREENS from '../constants/screens.js'
 import { Text, Card, Divider, useTheme, IconButton, Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
@@ -89,7 +89,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
             <Divider style={styles.divider} />
           </Card.Content>
           <Card.Actions style={styles.cardAction}>
-            {checkIfWithinLastThreeDays(text.createdAt) && (
+            {checkIfWithinLast36Hours(text.createdAt) && (
               <Chip
                 selectedColor={theme.colors.onTertiaryContainer}
                 mode={'flat'}

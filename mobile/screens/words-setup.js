@@ -2,7 +2,7 @@
 /* eslint-disable unicorn/no-nested-ternary */
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Button, Divider, Text, SegmentedButtons, useTheme } from 'react-native-paper'
+import { Button, Divider, Text, SegmentedButtons, useTheme, Surface } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { getWords } from '../services/api-service.js'

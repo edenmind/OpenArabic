@@ -40,10 +40,9 @@ const WordsContextHighLighted = (props) => {
         <HighlightedWord word={word} key={index} />
       ) : (
         <Text
+          variant="bodyLarge"
           style={{
-            ...sharedStyle.englishBody,
             marginHorizontal: 2,
-            fontSize: 20,
             lineHeight: 30,
             paddingBottom: 0
           }}

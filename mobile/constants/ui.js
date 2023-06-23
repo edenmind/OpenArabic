@@ -9,7 +9,8 @@ const UI = {
   explain: 'Explain',
   playSentence: 'Play Sentence',
   explainWords: 'Explain Words',
-  report: 'Report Error'
+  report: 'Report Error',
+  inSentence: 'Sentence'
 }
 
 export default UI

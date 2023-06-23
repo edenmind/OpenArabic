@@ -9,13 +9,7 @@ import { Audio } from 'expo-av'
 import { formatGrammar } from '../services/ui-services.js'
 
 // eslint-disable-next-line putout/destructuring-as-function-argument
-export default function TextArabicWords({
-  text,
-  setEnglishTranslation,
-  setExplanation,
-  setArabicWord,
-  setExplainIsVisible
-}) {
+export default function TextArabicWords({ text, setEnglishTranslation, setExplanation, setArabicWord }) {
   const [sound, setSound] = React.useState()
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
@@ -75,17 +69,12 @@ export default function TextArabicWords({
                   const transliterated = util.transliterateArabicToEnglish(word.arabic)
                   const english = `${util.capitalizeFirstLetter(word.english)} (${transliterated})`
 
-                  if (english.length <= 30) {
-                    setEnglishTranslation(english)
-                  } else {
-                    setEnglishTranslation(`${util.capitalizeFirstLetter(word.english)}`)
-                  }
+                  setEnglishTranslation(english)
 
                   setArabicWord(word.arabic)
                   setExplanation(formatGrammar(word.grammar, sharedStyle))
                   setSelectedWordIndex(wordIndex)
                   setSelectedSentenceIndex(sentenceIndex)
-                  setExplainIsVisible(true)
                   playSound(word.filename)
                 }}
               >
@@ -118,6 +107,5 @@ TextArabicWords.propTypes = {
   text: PropTypes.object.isRequired,
   setEnglishTranslation: PropTypes.func.isRequired,
   setExplanation: PropTypes.func.isRequired,
-  setArabicWord: PropTypes.func.isRequired,
-  setExplainIsVisible: PropTypes.func.isRequired
+  setArabicWord: PropTypes.func.isRequired
 }

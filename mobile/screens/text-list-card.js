@@ -4,15 +4,20 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import TextListCardQuote from './text-list-card-quote.js'
 import TextListCardText from './text-list-card-text.js'
+import TextListCardGrammar from './text-list-card-grammar.js'
 
 export default function TextListCard({ setShouldReload, navigation, text }) {
-  const isQuote = text.category === 'Quotes'
-
-  return isQuote ? (
-    <TextListCardQuote text={text} />
-  ) : (
-    <TextListCardText text={text} setShouldReload={setShouldReload} navigation={navigation} />
-  )
+  switch (text.category) {
+    case 'Quotes': {
+      return <TextListCardQuote text={text} />
+    }
+    case 'Grammar': {
+      return <TextListCardGrammar text={text} />
+    }
+    default: {
+      return <TextListCardText text={text} setShouldReload={setShouldReload} navigation={navigation} />
+    }
+  }
 }
 TextListCard.propTypes = {
   setShouldReload: PropTypes.func.isRequired,

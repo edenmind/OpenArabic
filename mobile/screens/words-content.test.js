@@ -98,6 +98,6 @@ describe('WordsContent', () => {
     )
 
     const buttons = getAllByRole('button')
-    expect(buttons.length).toBe(4)
+    expect(buttons.length).toBe(3)
   })
 })

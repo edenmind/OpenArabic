@@ -26,7 +26,6 @@ function TextArabic() {
   const [explanation, setExplanation] = React.useState(<Text>Choose a Word first...</Text>)
   const [arabicWord, setArabicWord] = React.useState('')
   const [visible, setVisible] = React.useState(false)
-  const [explainIsVisible, setExplainIsVisible] = React.useState(false)
   const hideModal = () => setVisible(false)
 
   const { text } = useSelector(textSelector)
@@ -41,19 +40,6 @@ function TextArabic() {
               {englishTranslation}
             </Text>
           </Chip>
-          {explainIsVisible && (
-            <Button
-              icon="eye-outline"
-              mode="text"
-              style={{ margin: 5, position: 'absolute', right: 0 }}
-              textColor={theme.colors.tertiary}
-              onPress={() => {
-                setVisible(true)
-              }}
-            >
-              {UI.explain}
-            </Button>
-          )}
         </View>
       </Surface>
       <ScrollView style={{ ...sharedStyle.scrollView, marginLeft: 10 }}>
@@ -64,11 +50,16 @@ function TextArabic() {
               setEnglishTranslation={setEnglishTranslation}
               setExplanation={setExplanation}
               setArabicWord={setArabicWord}
-              setExplainIsVisible={setExplainIsVisible}
             />
           }
         </View>
+        <Surface style={{ padding: 15, borderRadius: 10, margin: 10, direction: 'ltr' }} elevation={1}>
+          <Text variant="labelLarge">
+            NOTE: This audio is computer-generated. Please do not use it as a memorization aid.
+          </Text>
+        </Surface>
       </ScrollView>
+
       <ModalScrollView visible={visible} hideModal={hideModal} title={arabicWord} content={explanation} />
     </>
   ) : (

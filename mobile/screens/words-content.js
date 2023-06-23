@@ -37,7 +37,6 @@ const WordsContent = ({
   const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
   const [timeoutId, setTimeoutId] = useState()
   const hideModal = () => setVisible(false)
-  const showModal = () => setVisible(true)
   const [visible, setVisible] = React.useState(false)
   const sharedStyle = useSharedStyles(theme)
 
@@ -88,10 +87,11 @@ const WordsContent = ({
     })
   }, [dispatch, handleSetCelebrationSnackBarVisibility, handleSetCurrentWord, handleSetCurrentWordIndex])
   const correctAnswer = useCallback(() => {
+    vibrateBetweenTwoColors(setColor, theme, theme.colors.primaryContainer)
     setButtonPositions(generateRandomPositions())
     handleSetCurrentWord((currentWord) => currentWord + 1)
     handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
-  }, [handleSetCurrentWord, handleSetCurrentWordIndex])
+  }, [handleSetCurrentWord, handleSetCurrentWordIndex, theme])
 
   const handleWrongAnswer = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
@@ -161,7 +161,7 @@ const WordsContent = ({
       ListHeaderComponent={
         <>
           <ProgressBar
-            color={theme.colors.primary}
+            color={theme.colors.tertiary}
             progress={currentWordIndex / numberOfWordsToPractice}
             style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
           />
@@ -170,26 +170,17 @@ const WordsContent = ({
               style={{
                 fontFamily: 'uthman',
                 width: '97%',
-
                 fontSize: 100,
                 textAlign: 'center',
-                color: theme.colors.tertiary
+                color: theme.colors.secondary
               }}
             >
               {words[currentWord]?.arabic}
             </Text>
 
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 10, right: 10 }}>
-              <Button
-                mode="text"
-                onPress={() => showModal()}
-                textColor={theme.colors.secondary}
-                icon="eye-outline"
-                disabled={!words[currentWord]?.grammar}
-              >
-                {UI.explain}
-              </Button>
-            </View>
+            <Text style={{ ...sharedStyle.arabicBody }}>{words[currentWord]?.arabicSentence} </Text>
+
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 10, right: 10 }} />
           </Surface>
           <SnackButton
             visible={celebrationSnackBarVisibility}

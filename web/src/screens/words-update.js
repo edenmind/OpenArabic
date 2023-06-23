@@ -376,6 +376,7 @@ const WordsUpdate = () => {
               onChange={(event) => setCategoryLevel(event.target.value)}
               label="Level"
             >
+              <MenuItem value={0}>No available</MenuItem>
               <MenuItem value={10}>Beginner</MenuItem>
               <MenuItem value={20}>Intermediate</MenuItem>
               <MenuItem value={30}>Advanced</MenuItem>

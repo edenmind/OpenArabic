@@ -5,12 +5,11 @@ import { useSharedStyles } from '../styles/common.js'
 
 const HighlightedWord = ({ word }) => {
   const theme = useTheme()
-  const sharedStyle = useSharedStyles(theme)
 
   return (
     <Text
+      variant="bodyLarge"
       style={{
-        ...sharedStyle.englishBody,
         color: theme.colors.onPrimary,
         backgroundColor: theme.colors.secondary,
         borderBottomColor: theme.colors.secondary,
@@ -20,7 +19,6 @@ const HighlightedWord = ({ word }) => {
         paddingBottom: 0,
         lineHeight: 30
       }}
-      variant="bodyLarge"
     >
       {word.english}
     </Text>
