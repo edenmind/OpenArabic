@@ -21,6 +21,13 @@ export const getTexts = (id) => async (dispatch) => {
 
     const combinedData = [...textRes.data, ...wordsRes.data]
 
+    combinedData.sort((a, b) => {
+      const dateA = new Date(a.publishDate || a.publishAt)
+      const dateB = new Date(b.publishDate || b.publishAt)
+
+      return dateB - dateA
+    })
+
     dispatch({
       type: 'SET_TEXTS',
       payload: combinedData
