@@ -9,7 +9,6 @@ import TextArabicWords from './text-arabic-words.js'
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
 import ModalScrollView from '../components/modal-scroll-view.js'
-import UI from '../constants/ui.js'
 
 const styles = StyleSheet.create({
   rowWrapper: {
@@ -53,7 +52,10 @@ function TextArabic() {
             />
           }
         </View>
-        <Surface style={{ padding: 15, borderRadius: 10, margin: 10, direction: 'ltr' }} elevation={1}>
+        <Surface
+          style={{ padding: 15, borderRadius: 10, margin: 10, direction: 'ltr', marginBottom: 35 }}
+          elevation={1}
+        >
           <Text variant="labelLarge">
             NOTE: This audio is computer-generated. Please do not use it as a memorization aid.
           </Text>

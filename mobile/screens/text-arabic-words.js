@@ -91,7 +91,7 @@ export default function TextArabicWords({ text, setEnglishTranslation, setExplan
                       lineHeight: Platform.OS === 'android' ? 90 : 50
                     }}
                   >
-                    {word.arabic}
+                    {word.arabic.trim()}
                   </Text>
                 </View>
               </Button>

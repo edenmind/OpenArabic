@@ -8,6 +8,7 @@ import TextSettings from './text-settings.js'
 import defaultExport from './text-tabs.js'
 import { getData } from '../services/storage.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
+import TextGrammar from '../screens/text-grammar.js'
 
 const Stack = createNativeStackNavigator()
 const selector = (state) => state.text
@@ -41,6 +42,24 @@ function Text() {
   return (
     <Stack.Navigator initialRouteName={SCREENS.home}>
       <Stack.Screen name={SCREENS.home} component={TextDrawer} options={{ headerShown: false }} />
+      <Stack.Screen
+        name={SCREENS.textGrammar}
+        component={TextGrammar}
+        options={{
+          headerTitle: 'Grammar Lesson',
+          headerTitleStyle: {
+            fontFamily: 'philosopher',
+            fontSize: 25,
+            color: theme.colors.onSurface
+          },
+
+          headerStyle: {
+            backgroundColor: isDarkModeOn.isDarkMode
+              ? CombinedDefaultTheme.colors.background
+              : CombinedDarkTheme.colors.background
+          }
+        }}
+      />
       <Stack.Screen
         name={SCREENS.textSettings}
         component={TextSettings}

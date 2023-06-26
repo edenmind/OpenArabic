@@ -25,7 +25,6 @@ const WordsSetup = (props) => {
         value={props.numberOfWordsToPractice}
         onValueChange={(value) => {
           props.setNumberOfWordsToPractice(value)
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         }}
         buttons={[
           {
@@ -52,7 +51,6 @@ const WordsSetup = (props) => {
         value={props.difficultyLevel}
         onValueChange={(value) => {
           props.handleSetDifficultyLevel(value)
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
         }}
         buttons={[
           {

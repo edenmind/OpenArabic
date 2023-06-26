@@ -30,6 +30,45 @@ const requirements = `
 
 ---`
 
+export const generateTitleAndSummary = (text) => {
+  return `
+
+--- Author of the text:
+${text.author}
+---
+
+--- Source of the text:
+${text.source}
+---
+
+--- Type of text:
+${text.category}
+---
+
+--- Full English Text:
+${text.texts.english}
+---
+
+--- INSTRUCTIONS:
+As an Islamic scholar, summarize the Full English Text considering the following criteria:
+
+- The summary should be brief and concise.
+- Remain faithful to the original text.
+- Make the summary easily comprehensible.
+- Maintain the beauty and grace of the original text.
+- Adhere to Sunni Islam interpretations.
+- Limit the summary to a maximum of 50 words.
+- Provide 5 suggestions of a maximum 25 character title for the summary.
+- Ensure the title's character count, including spaces, does not exceed 25.
+---
+
+--- EXAMPLE OUTPUT:
+Decree and Human Actions
+
+This Hadith conveys that our creation, lifespan, sustenance, deeds, and destiny are ordained by Allah. Regardless of our earthly deeds appearing righteous or sinful, our ultimate fate aligns with this divine decree, demonstrating the intertwining of human actions and divine will.
+`.trimStart()
+}
+
 // Suggest a better translation
 export const getArabicAndEnglishText = (sentence) => {
   const result = `

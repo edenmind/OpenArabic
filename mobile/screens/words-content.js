@@ -175,10 +175,10 @@ const WordsContent = ({
                 color: theme.colors.secondary
               }}
             >
-              {words[currentWord]?.arabic}
+              {words[currentWord]?.arabic.trim()}
             </Text>
 
-            <Text style={{ ...sharedStyle.arabicBody }}>{words[currentWord]?.arabicSentence} </Text>
+            <Text style={{ ...sharedStyle.arabicBody, fontSize: 35 }}>{words[currentWord]?.arabicSentence} </Text>
 
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 10, right: 10 }} />
           </Surface>

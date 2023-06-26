@@ -11,8 +11,8 @@ export default function TextListCard({ setShouldReload, navigation, text }) {
     case 'Quotes': {
       return <TextListCardQuote text={text} />
     }
-    case 'Grammar': {
-      return <TextListCardGrammar text={text} />
+    case 'Word': {
+      return <TextListCardGrammar text={text} setShouldReload={setShouldReload} navigation={navigation} />
     }
     default: {
       return <TextListCardText text={text} setShouldReload={setShouldReload} navigation={navigation} />

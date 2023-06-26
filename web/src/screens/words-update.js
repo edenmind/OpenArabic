@@ -14,6 +14,11 @@ import SnackBar from '../components/snack-bar.js'
 import * as prompts from '../services/prompts.js'
 import BasicModal from '../components/basic-modal.js'
 
+import dayjs from 'dayjs'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { DesktopDateTimePicker } from '@mui/x-date-pickers/DesktopDateTimePicker'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+
 function addEmptyLineAfterSentences(str) {
   const noempty = str.replace(/^\s*[\r\n]+/gm, '') // remove empty lines
   const sentences = noempty.split(/(?<=[.!?]["']?\s+)/) // split the string into sentences
@@ -26,10 +31,6 @@ function addEmptyLineAfterSentences(str) {
   }, '')
 
   return result.trim() // remove trailing whitespace
-}
-
-function handleCopy(text) {
-  navigator.clipboard.writeText(text)
 }
 
 const WordsUpdate = () => {
@@ -48,9 +49,10 @@ const WordsUpdate = () => {
   const [status, setStatus] = React.useState('')
   const [promptTitle, setPromptTitle] = React.useState('')
   const [promptText, setPromptText] = React.useState('')
-  const [postState, setPostState] = React.useState('')
+  const [publishDate, setPublishDate] = React.useState(new Date().toUTCString())
   const [openPrompt, setOpenPrompt] = React.useState(false)
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
+  const [postState, setPostState] = React.useState('')
   const handleOpen = (promptTitle, promptText) => {
     setOpenPrompt(true)
     setPromptText(promptText)
@@ -93,7 +95,8 @@ const WordsUpdate = () => {
           englishText,
           arabicText,
           categoryLevel,
-          lastLetter
+          lastLetter,
+          publishDate
         } = res
         setEnglish(english)
         setArabic(arabic)
@@ -105,6 +108,7 @@ const WordsUpdate = () => {
         setArabicText(arabicText)
         setEnglishText(englishText)
         setCategoryLevel(categoryLevel)
+        setPublishDate(publishDate)
       })
       .catch((error) => console.log(error))
   }, [sentenceId, textId, wordId])
@@ -116,6 +120,7 @@ const WordsUpdate = () => {
       lastLetter,
       arabicSentence,
       englishSentence,
+      publishDate,
       grammar,
       textId,
       sentenceId,
@@ -376,11 +381,20 @@ const WordsUpdate = () => {
               onChange={(event) => setCategoryLevel(event.target.value)}
               label="Level"
             >
-              <MenuItem value={0}>No available</MenuItem>
+              <MenuItem value={0}>Not available</MenuItem>
               <MenuItem value={10}>Beginner</MenuItem>
               <MenuItem value={20}>Intermediate</MenuItem>
               <MenuItem value={30}>Advanced</MenuItem>
             </Select>
+          </FormControl>
+          <FormControl fullWidth>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DesktopDateTimePicker
+                label="Publish Date"
+                value={dayjs(publishDate)}
+                onChange={(newValue) => setPublishDate(newValue)}
+              />
+            </LocalizationProvider>
           </FormControl>
           <FormControl fullWidth>
             <TextField

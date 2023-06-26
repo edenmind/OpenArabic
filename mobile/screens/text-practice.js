@@ -132,7 +132,7 @@ const TextPractice = () => {
   return textLoading ? (
     <ScrollView style={sharedStyle.headerContainer}>
       <Surface
-        style={{ ...sharedStyle.surface, backgroundColor: color, marginVertical: 5, minHeight: 250, borderRadius: 10 }}
+        style={{ ...sharedStyle.surface, backgroundColor: color, marginVertical: 5, minHeight: 280, borderRadius: 10 }}
       >
         <View style={sharedStyle.headerContainer}>
           <Text variant="labelLarge" style={{ color: theme.colors.tertiary }}>

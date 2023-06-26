@@ -15,12 +15,6 @@ function TextBilingualSentencesWordPairs({ words }) {
       {distinctValues.map((word, index) => (
         <TextBilingualSentencesWords key={index} word={word} />
       ))}
-      <Surface style={{ padding: 15, borderRadius: 10 }} elevation={1}>
-        <Text variant="labelMedium" style={{ color: theme.colors.secondary }}>
-          Note: The provided translation is a word-for-word translation to provide a literal understanding of the Arabic
-          sentence.
-        </Text>
-      </Surface>
     </>
   )
 }

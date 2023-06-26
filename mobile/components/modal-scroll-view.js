@@ -53,7 +53,7 @@ const ModalScrollView = ({
         {title && (
           <>
             <Text style={titleLanguage === 'english' ? styles.titleStyleEnglish : styles.titleStyle}>{title}</Text>
-         
+
             <Divider />
           </>
         )}

@@ -14,10 +14,10 @@ const HighlightedWord = ({ word }) => {
         backgroundColor: theme.colors.secondary,
         borderBottomColor: theme.colors.secondary,
         borderBottomWidth: 1,
-        marginHorizontal: 3,
-        paddingHorizontal: 5,
+        marginHorizontal: 2,
+        paddingHorizontal: 2,
         paddingBottom: 0,
-        lineHeight: 30
+        lineHeight: 25
       }}
     >
       {word.english}

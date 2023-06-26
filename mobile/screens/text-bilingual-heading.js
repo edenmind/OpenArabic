@@ -74,6 +74,7 @@ TextBilingualHeading.propTypes = {
     readingTime: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    source: PropTypes.string.isRequired
+    source: PropTypes.string.isRequired,
+    introduction: PropTypes.string.isOptional
   })
 }

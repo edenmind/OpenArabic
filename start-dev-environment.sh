@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-MONGO_VERSION=mongo:5-focal
+MONGO_VERSION=mongo:6-jammy
 MONGO_CONTAINER_NAME=mongo
 MONGO_MOCK_DIR=./database/mock/
 
@@ -81,6 +81,7 @@ if [[ ${MONGO} ]]; then
       exit 0
     fi
     echo "Starting MongoDB using $MONGO_VERSION..."
+    # docker run --name $MONGO_CONTAINER_NAME -d -p 27017:27017 $MONGO_VERSION
     docker run --name $MONGO_CONTAINER_NAME -d -p 27017:27017 --mount source=v1,target=/data/db --mount source=v2,target=/data/configdb $MONGO_VERSION
     exit 0
   fi

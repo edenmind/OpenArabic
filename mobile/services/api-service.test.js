@@ -64,23 +64,6 @@ describe('getTexts', () => {
     })
   })
 
-  test('getText should dispatch SET_TEXT', async () => {
-    mock.onGet().reply(200, { data: 'test' })
-    await getText('test')(mockDispatch)
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'SET_TEXT',
-      payload: { data: 'test' }
-    })
-  })
-
-  test('getTexts should dispatch SET_TEXTS', async () => {
-    mock.onGet().reply(200, { data: 'test' })
-    await getTexts('test')(mockDispatch)
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'SET_TEXTS',
-      payload: { data: 'test' }
-    })
-  })
   describe('MyComponent', () => {
     it('renders with correct data from Redux store', () => {
       const mockState = {

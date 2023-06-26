@@ -42,13 +42,13 @@ const WordsContextHighLighted = (props) => {
         <Text
           variant="bodyLarge"
           style={{
-            marginHorizontal: 2,
-            lineHeight: 30,
+            marginHorizontal: 1,
+            lineHeight: 25,
             paddingBottom: 0
           }}
           key={index}
         >
-          {word.english}
+          {word.english.trim()}
         </Text>
       )
     })

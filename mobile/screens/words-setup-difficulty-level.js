@@ -124,6 +124,13 @@ const WordsSetupDifficultyLevel = (props) => {
             >
               Compound
             </Chip>
+            <Chip
+              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
+              compact={true}
+              selectedColor={theme.colors.onTertiary}
+            >
+              Passive
+            </Chip>
           </View>
         </>
       )

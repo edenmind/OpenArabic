@@ -11,6 +11,10 @@ export const words = () => {
   return `${HOST.backend}/${ENDPOINT.words}`
 }
 
+export const wordsHome = () => {
+  return `${HOST.backend}/${ENDPOINT.wordsHome}`
+}
+
 export const categoryWithId = (category = '') => {
   return category === ''
     ? `${HOST.backend}/${ENDPOINT.texts}`

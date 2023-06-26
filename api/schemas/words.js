@@ -2,7 +2,7 @@
 
 /* eslint-disable putout/long-properties-destructuring */
 
-const { getWordId, getWords, updateWord, getWordTranslation } = require('../controllers/words')
+const { getWordId, getWords, updateWord, getWordTranslation, getWordsHome } = require('../controllers/words')
 
 const getWordIdOptions = {
   schema: {
@@ -21,7 +21,8 @@ const getWordIdOptions = {
           id: { type: 'string' },
           filename: { type: 'string' },
           englishText: { type: 'string' },
-          arabicText: { type: 'string' }
+          arabicText: { type: 'string' },
+          publishDate: { type: 'string' }
         }
       }
     }
@@ -45,6 +46,31 @@ const getWordTranslationOptions = {
     }
   },
   handler: getWordTranslation
+}
+
+const getWordsHomeOptions = {
+  schema: {
+    response: {
+      200: {
+        type: 'array',
+
+        items: {
+          type: 'object',
+          properties: {
+            id: { type: 'string' },
+            arabic: { type: 'string' },
+            english: { type: 'string' },
+            wordId: { type: 'string' },
+            category: { type: 'string' },
+            publishDate: { type: 'string' },
+            timeAgo: { type: 'string' },
+            grammar: { type: 'string' }
+          }
+        }
+      }
+    }
+  },
+  handler: getWordsHome
 }
 
 const getWordsOptions = {
@@ -73,7 +99,8 @@ const getWordsOptions = {
             wordId: { type: 'string' },
             grammar: { type: 'string' },
             filename: { type: 'string' },
-            date: { type: 'string' }
+            date: { type: 'string' },
+            publishDate: { type: 'string' }
           }
         }
       }
@@ -97,7 +124,8 @@ const updateWordOptions = {
           sentence: { type: 'string', minLength: 5 },
           categoryLevel: { type: 'number' },
           grammar: { type: 'string' },
-          filename: { type: 'string' }
+          filename: { type: 'string' },
+          publishDate: { type: 'string' }
         }
       }
     }
@@ -116,5 +144,6 @@ module.exports = {
   getWordsOptions,
   updateWordOptions,
   getWordTranslationOptions,
-  getWordIdOptions
+  getWordIdOptions,
+  getWordsHomeOptions
 }

@@ -17,14 +17,13 @@ export const getTexts = (id) => async (dispatch) => {
       payload: false
     })
 
-    const textRes = await axios.get(url.categoryWithId(id))
-    const wordsRes = await axios.get(url.words())
+    const [textRes, wordsRes] = await Promise.all([axios.get(url.categoryWithId(id)), axios.get(url.wordsHome())])
 
-    // also get words here
+    const combinedData = [...textRes.data, ...wordsRes.data]
 
     dispatch({
       type: 'SET_TEXTS',
-      payload: textRes.data
+      payload: combinedData
     })
   } catch (error) {
     console.log(error)

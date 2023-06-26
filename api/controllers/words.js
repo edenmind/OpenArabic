@@ -6,6 +6,7 @@
 
 const COLLECTIONS = require('../constants/collections.js')
 const { capitalizeFirstLetter, shuffleArray, convertToLowerCase, getAllWordsFromTexts } = require('../services/texts')
+const { timeAgo } = require('../services/utils')
 const { ObjectId } = require('mongodb')
 
 async function getWordId(request, reply) {
@@ -57,6 +58,31 @@ async function getWordTranslation(request, reply) {
   }
 
   return reply.code(404).send({ message: 'Word not found!', state: 'error' })
+}
+
+async function getWordsHome(request, reply) {
+  const texts = this.mongo.db.collection(COLLECTIONS.TEXTS)
+  const allWords = await getAllWordsFromTexts(texts)
+
+  // remove all entries in which the "publishDate" property is null
+  const wordsWithPublishDate = allWords.filter((word) => word.publishDate !== undefined)
+
+  // add a category property to each word that is set to "word"
+  const wordsWithCategory = wordsWithPublishDate.map((word) => ({
+    ...word,
+    category: 'Word'
+  }))
+
+  // add timeAgo property to each word using the timeAgo function
+  const wordsWithTimeAgo = wordsWithCategory.map((word) => ({
+    ...word,
+    timeAgo: timeAgo(word.publishDate)
+  }))
+
+  // remove all entries in which the "grammar" property is null
+  const wordsWithGrammar = wordsWithTimeAgo.filter((word) => word.grammar !== undefined)
+
+  return reply.code(200).send(wordsWithGrammar)
 }
 
 async function getWords(request, reply) {
@@ -167,7 +193,8 @@ async function updateWord(request, reply) {
     grammar: word.grammar,
     lastLetter: word.lastLetter,
     filename: word.filename,
-    categoryLevel: word.categoryLevel
+    categoryLevel: word.categoryLevel,
+    publishDate: word.publishDate
   }
 
   // Update the word in the database
@@ -195,5 +222,6 @@ module.exports = {
   getWordTranslation,
   getWords,
   updateWord,
-  getWordId
+  getWordId,
+  getWordsHome
 }

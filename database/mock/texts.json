@@ -1,0 +1,457 @@
+{
+  "_id": {
+    "$oid": "64372ea2f323ad2f94b64113"
+  },
+  "title": "Actions and Intentions",
+  "slug": "actions-and-intentions-imam-nawaw-38f3",
+  "author": "Imam Nawawī",
+  "image": "247.jpg",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1681338018428"
+    }
+  },
+  "publishAt": "Wed, 12 Apr 2023 21:27:53 GMT",
+  "category": "Hadith",
+  "source": "Hadith 1, 40 Hadith an-Nawawi",
+  "id": {
+    "$oid": "64372ea2f323ad2f94b64112"
+  },
+  "sentences": [
+    {
+      "english": "I heard the Messenger of Allah (ﷺ) say:",
+      "googleTranslation": "I heard the Messenger of God, may God bless him and grant him peace, say",
+      "arabic": "سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ  ",
+      "words": [
+        {
+          "id": "a5f49146",
+          "arabic": "سَمِعْتُ",
+          "english": "I heard",
+          "grammar": "⇉ Meaning\nThe Arabic word سَمِعْتُ translates to \"I heard\" in English.\n\nIt is a verb (Fi'l in Arabic), used to describe the action of hearing.\n\nBeing in the past tense (Maadi), it suggests that the action is already completed.\n\nSimilar to how in English you'd say \"I ran\" to indicate a past action, in Arabic, سَمِعْتُ indicates the past action of hearing.\n\n⇉ Identifying the Root\nThe Arabic language is like a beautiful garden and its words are like various plants.\n\nJust like each plant grows from a seed, every word in Arabic grows from a root.\n\nThese roots, usually consisting of three letters, are the base from which words bloom, with a variety of meanings but around the same central concept.\n\nIn the verb سَمِعْتُ, there is a part we need to remove to find its root:\n← تُ\nThis part تُ at the end is a suffix which works as a pronoun (Dameer), denoting the first person singular, similar to \"I\" in English.\n\nThis addition to the verb indicates who is performing the action.\n\nWhen we remove this part, what remains is the root of the word:\n⟶ سمع\n↠ Sama'a\nThe root \"Sama'a\" conveys the basic concept of \"hearing\".\n\nThis root also imparts meanings related to the act of listening, perceiving sounds or obeying.\n\n⇉ From the Same Root\nLet's explore some past tense (Maadi) verbs derived from the root سمع, resembling how different flowers can grow from the same seed:\n⟶ سمع\n↠ He heard\n⟶ سمعت\n↠ You (singular, male/female) heard\n⟶ سمعت\n↠ I heard\n⟶ سمعنا\n↠ We heard\n⟶ سمعتم\n↠ You (plural) heard\n⟶ سمعوا\n↠ They heard\nThis shows how the same root can give rise to various words, like different plants growing from the same seed, each having a distinct shape and size, yet all sharing a common essence.\n\n⇉ In a Sentence\nNow, let's see how سَمِعْتُ is employed in a sentence:\n⟶ سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ  \n↠ I heard the Messenger of Allah (ﷺ) say:\nIn this sentence, سَمِعْتُ is used to express a direct hearing experience of the speaker.\n\nThe verb here aligns with the first person singular pronoun, indicating that the speaker, him or herself, is the one who heard these words directly from the Messenger of Allah (ﷺ).\n\nThis alignment of verb and pronoun makes the sentence more engaging and personal.",
+          "filename": "5e587341-017d0ed8-ar-a5f49146.mp3",
+          "categoryLevel": {
+            "$numberInt": "20"
+          }
+        },
+        {
+          "id": "ddfdc97b",
+          "arabic": "رَسُولَ",
+          "english": "the Messenger [of]",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of رَسُولَ.\n\nThis word is a noun, or 'Ism' in Arabic.\n\nIt translates to \"the Messenger\" in English, and is used to denote someone who has been given a significant message to deliver.\n\nThis noun, رَسُولَ, is definite, or 'Ma'arifa' in Arabic, meaning it's specific and well-known.\n\nWhen we say 'the cat', for instance, we're talking about a specific cat that we know or have mentioned before.\n\nThis is similar to رَسُولَ, where the use of the definite article \"the\" in English signifies a specific messenger, not any messenger.\n\nرَسُولَ is singular, or 'Mufrad'.\n\nIn English, we distinguish between one thing (singular) and more than one thing (plural).\n\nIf we were talking about multiple messengers, the Arabic word would change.\n\n⇉ In a Sentence\nLet us look at how رَسُولَ can be used in a sentence:\n⟶ سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ  \n↠ I heard the Messenger of Allah (ﷺ) say:\nIn this sentence, رَسُولَ is being used with اللَّهِ (Allah) to form the phrase رَسُولَ اللَّهِ, meaning \"the Messenger of Allah\".",
+          "lastLetter": true,
+          "filename": "5e587341-017d0ed8-ar-ddfdc97b.mp3",
+          "categoryLevel": {
+            "$numberInt": "10"
+          }
+        },
+        {
+          "id": "90fc48f5",
+          "arabic": "اللَّهِ",
+          "english": "Allah",
+          "grammar": "",
+          "filename": "5e587341-017d0ed8-ar-90fc48f5.mp3",
+          "categoryLevel": null,
+          "quiz": false
+        },
+        {
+          "id": "05522de8",
+          "arabic": "ﷺ",
+          "english": "Peace be upon him",
+          "grammar": "",
+          "filename": "5e587341-017d0ed8-ar-05522de8.mp3",
+          "categoryLevel": null,
+          "quiz": false
+        },
+        {
+          "id": "2591fe14",
+          "arabic": "يَقُولُ",
+          "english": "say",
+          "grammar": "⇉ Meaning\nThe Arabic word يَقُولُ translates to \"he says\" or \"he is saying\" in English.\n\nThis is a verb (Fi'l in Arabic) that refers to the action of expressing something verbally.\n\nIt is in the present tense (Mudari'), which indicates that the action is currently taking place or habitually happens.\n\n⇉ Identifying the Root\nTo understand Arabic roots, let's think of them as building blocks.\n\nJust like you can use a set of blocks to build various structures, you can use Arabic roots to build various words.\n\nIn the word يَقُولُ, there are additional elements that we need to remove to reach the root:\n← يَ\nThe prefix يَ indicates the subject of the verb is in third person singular masculine form, which is like \"he\" in English.\n\nAfter removing the prefix, we arrive at the root of the word:\n⟶ قول\n↠ Qawl\nThe root \"Qawl\" carries the essential meaning of \"to say\" or \"to speak\".\n\nAlternate translations can be \"to express\", \"to tell\" or \"to articulate\".\n\n⇉ From the Same Root\nUsing the root قول, let's see how we can express \"I said, You said, He said, She said, We said, You (plural) said, They said\" in the past tense (Maadi).\n\nRemember, we are keeping it simple by not using any diacritics (tashkeel).\n\n⟶ قلت\n↠ I said\n⟶ قلت\n↠ You (singular, male/female) said\n⟶ قال\n↠ He said\n⟶ قالت\n↠ She said\n⟶ قلنا\n↠ We said\n⟶ قلتم\n↠ You (plural) said\n⟶ قالوا\n↠ They said\n⇉ In a Sentence\nLet us look at how يَقُولُ can be used in a sentence:\n⟶ سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ\n↠ I heard the Messenger of Allah (ﷺ) say:\nIn this sentence, يَقُولُ is used to express what the Messenger of Allah (ﷺ) is saying.\n\nNotice how the verb يَقُولُ refers to the third person, aligning with the referred noun \"رَسُولَ اللَّهِ ﷺ\" (the Messenger of Allah), indicating that it is He who is speaking.\n\nThis is an example of how Arabic verbs can agree with their subjects in person, number, and gender.",
+          "filename": "5e587341-017d0ed8-ar-2591fe14.mp3",
+          "categoryLevel": {
+            "$numberInt": "20"
+          }
+        }
+      ],
+      "id": "017d0ed8",
+      "filename": "5e587341-sentence-ar-017d0ed8.mp3",
+      "explanation": "Let's study the sentence more closely to identify Arabic root words and grammatical elements:\n\n⟶ سَمِعْتُ\n↠ sami'tu\nThe verb (fil) \"sami'tu\" means \"I heard\".\n\nIt is derived from the root word س م ع (s-m-' ), which generally conveys the meaning of hearing, listening, or obeying.\n\nIn this sentence, the speaker (the Prophet's companion) is expressing that he heard a message directly from the Prophet ﷺ.\n\nThis is important because it establishes the authenticity of the message in the text.\n\nIt's a personal experience and testimony, making it highly valuable and authentic in Islamic tradition.\n\nThe suffix \"-tu\" indicates the first person singular, meaning \"I\".\n\nIn Arabic, the verb itself can indicate the subject, which in this case is the speaker.\n\n⟶ رَسُولَ\n↠ rasoola\nThe noun (ism) \"rasoola\" means \"messenger.\"\n\nIt is derived from the root word ر س ل (r-s-l), which means to send or to dispatch.\n\nIn the context of the text, this term refers to Prophet Muhammad ﷺ, who is considered the Messenger of God in Islam.\n\nHe is the one conveying God's message to mankind, hence, he is the one \"sent\" or \"dispatched\".\n\n⟶ اللَّهِ\n↠ Allah\nThe noun (ism) \"Allah\" is the Arabic name for God in Islam.\n\nIt's derived from the root word اله (a-l-h), meaning deity or god.\n\nHere, the \"al-\" prefix is not the definite article \"the\", but a part of the word itself.\n\nAllah is the one who sent the Messenger ﷺ with the divine message.\n\n⟶ ﷺ\n↠ ﷺ\nThis is an Arabic ligature which stands for \"Sallallahu Alaihi Wasallam\".\n\nIt's an invocation Muslims use after the name of Prophet Muhammad ﷺ, meaning \"Peace be upon him.\"\n\n⟶ يَقُولُ\n↠ yaqoolu\nThe verb (fil) \"yaqoolu\" means \"he says\".\n\nIt is derived from the root word ق و ل (q-w-l), which means to speak or to say.\n\nThis verb refers to the action of Prophet Muhammad ﷺ.\n\nIn the context of the sentence, it indicates that the Prophet ﷺ is the one speaking the message heard by the companion.\n\nNow, let's combine all the words and examine the entire clause once more:\n\n⟶ سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ\n↠ sami'tu rasoola Allah ﷺ yaqoolu\n\nWhich in English could be translated as:\n\"I heard the Messenger of Allah (ﷺ) say\""
+    },
+    {
+      "english": "Verily, actions are (judged) by intentions.",
+      "googleTranslation": "acts are judged by what we meant to accomplish through them",
+      "arabic": "إنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ ",
+      "words": [
+        {
+          "id": "9f4138e9",
+          "arabic": "إنَّمَا",
+          "english": "Indeed",
+          "grammar": "⇉ General Role\nThe Arabic particle إنَّمَا plays a special role in the language, much like a director of a play.\n\nIt's known as a Harf in Arabic, which is similar to a preposition in English.\n\nThis particle is an indication of restriction and emphasis in the sentence, essentially guiding or pointing the sentence towards its intended meaning.\n\nImagine a sentence is a train.\n\nThe particle إنَّمَا is like the train conductor, making sure the sentence only goes down the specific track it's meant to, and that every part of the sentence knows its role.\n\n⇉ One, Two or Three Words\nإنَّمَا is a compound particle in Arabic.\n\nThis means it's made up of two parts that come together to work as one.\n\nIt's a bit like a sandwich.\n\nEach part of the sandwich is good on its own, but when they come together, they create something special.\n\nHere's how إنَّمَا is formed:\n⟶ إِنَّ\n↠ \"inna\" means \"indeed\"\n⟶ مَا\n↠ \"ma\" which means \"what\" or \"that which\"\nSo, when these two words are combined, they form إنَّمَا and it translates to \"indeed only\" or \"only\".\n\n⇉ In a Sentence\nTo understand how إنَّمَا works in a sentence, let's look at our example:\n⟶ إنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ \n↠ Verily, actions are (judged) by intentions.\n\nIn this sentence, إنَّمَا precedes the phrase الْأَعْمَالُ بِالنِّيَّاتِ.\n\nThe particle helps to put a spotlight on the fact that it's not just actions, but intentions that are important.\n\nIt's like the particle is saying \"Look here, it's not just about what you do, but why you do it that really matters\".\n\nIn the context of the full text, the Prophet Muhammad ﷺ is teaching us a valuable lesson about intentions.\n\nBy using إنَّمَا, he is emphasizing that in Islam, our intentions play a crucial role.\n\nIt's not just about doing good deeds, but doing them for the right reasons.\n\nThis is one of the many beauties of the Arabic language.\n\nEven a small particle like إنَّمَا can help to guide the meaning of a whole sentence, and in turn, impart a profound life lesson.\n\nIt's a reminder that in our actions, just as in our words, our intentions are what truly count.",
+          "filename": "5e587341-2b2e6b95-ar-9f4138e9.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        },
+        {
+          "id": "fb1acc03",
+          "arabic": "الْأَعْمَالُ",
+          "english": "the actions [are judged]",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of الْأَعْمَالُ.\n\nThis noun translates into English as \"the actions\".\n\nHowever, it carries a broader context in Arabic, encompassing actions, deeds, works, or tasks performed by an individual.\n\nSo, الْأَعْمَالُ embodies not just the physical act, but also the moral and spiritual aspects of an action.\n\n⇉ Identifying the Root\nLet us look at the root of الْأَعْمَالُ.\n\nTo understand the essence of an Arabic word, we need to find its root.\n\nJust as a seed determines the kind of plant that will grow, an Arabic root determines the core meaning of a word.\n\nIn the case of الْأَعْمَالُ, we start by removing non-root parts:\n← الْ\nThis is the definite article in Arabic, similar to 'the' in English.\n\nIt's used to make a noun definite (Ma'arifa), indicating specific objects or concepts.\n\nWhat now remains is:\n⟶ أَعْمَالُ\nFrom this, we extract the three-letter root:\n⟶ عمل\n↠ 'Amala\nThe root 'Amala primarily carries the meaning of working, performing, or acting.\n\nThis root is the seed that grows into various words related to work, action, or performance.\n\n⇉ In a Sentence\nLet us look at how الْأَعْمَالُ can be used in a sentence:\n⟶ إنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ \n↠ Verily, the actions are (judged) by intentions.\n\nIn this sentence, the noun الْأَعْمَالُ is the subject.\n\nIt's paired with بِالنِّيَّاتِ which is a preposition (Harf) combined with a noun, meaning \"with intentions\".\n\nThis pairing shows a direct relationship between actions and intentions, emphasizing that the value of actions in Islam is determined by the intention behind them.\n\nIt beautifully illustrates the depth of moral and spiritual responsibility in Islam, where not just the action, but the intention behind the action is of paramount importance.",
+          "lastLetter": true,
+          "filename": "5e587341-2b2e6b95-ar-fb1acc03.mp3",
+          "categoryLevel": {
+            "$numberInt": "20"
+          }
+        },
+        {
+          "id": "2373e7d1",
+          "arabic": "بِالنِّيَّاتِ",
+          "english": "by the intentions",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of بِالنِّيَّاتِ.\n\nThis is a noun, or 'Ism' in Arabic.\n\nIt is translated into English as \"by the intentions\".\n\nبِالنِّيَّاتِ is definite, which in Arabic is known as 'Ma'arifa'.\n\nIn simple terms, when we refer to a specific thing or group of things, we are using a definite noun.\n\nFor instance, 'the book' refers to a specific book, while 'a book' could be any book.\n\nIn this case, بِالنِّيَّاتِ is referring to specific 'intentions'.\n\nIt is also a plural noun, known as 'Jam'' in Arabic.\n\nLike 'books' is to 'book' in English, بِالنِّيَّاتِ is the plural form of the word for 'intention'.\n\nThe word بِالنِّيَّاتِ has a preposition attached to it.\n\nIn Arabic, a preposition is called a 'Harf'.\n\nHere, بِ is the preposition which means 'by' or 'with'.\n\nIt modifies the meaning of the noun it is attached to, much like how 'on' in 'on the table' modifies the meaning of 'table'.\n\nThere is no pronoun directly attached to بِالنِّيَّاتِ.\n\nA pronoun or 'Dameer' in Arabic, would be like 'his', 'hers' etc.\n\nthat replaces a noun.\n\nIn بِالنِّيَّاتِ, no such element is present.\n\n⇉ In a Sentence\nLet us look at how بِالنِّيَّاتِ can be used in a sentence:\n⟶ إنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ \n↠ Verily, actions are (judged) by intentions.\n\nIn this sentence, بِالنِّيَّاتِ is the noun that determines how actions are judged.\n\nIt is the standard or the criterion by which actions are assessed.\n\nHence, the preposition بِ meaning 'by' is crucial to understand the deep meaning of the sentence – it tells us that actions are evaluated by their underlying intentions.\n\nArabic is a rich and precise language, playing an essential role in understanding the texts of Islam.\n\nEvery single word and even the smallest prepositions carry significant meanings.\n\nUnderstanding these intricacies help us better appreciate the wisdom and depth of the Quran, Hadith, and other Islamic texts.",
+          "filename": "5e587341-2b2e6b95-ar-2373e7d1.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        }
+      ],
+      "id": "2b2e6b95",
+      "filename": "5e587341-sentence-ar-2b2e6b95.mp3",
+      "explanation": "Now, let's analyze the sentence more closely to identify Arabic root words and grammatical elements:\n\n⟶ إنَّمَا\ninnamā is an Arabic particle used for emphasis and restriction.\n\nIt can be translated as \"verily\" or \"only.\"\n\nIt doesn't come from a three-letter root word and doesn't have a grammatical function like a verb or noun, but it sets the tone for the sentence.\n\n⟶ الْأَعْمَالُ\nal-aʿmālu is a combination of two parts: الـ (al-), which means \"the,\" and أعمال (aʿmāl), which means \"actions\" or \"deeds.\"\n\nIt comes from the root word ع-م-ل (ʿ-m-l), which means \"to work\" or \"to do.\"\n\nThe ending ـُ (u) indicates that it is the subject of the sentence.\n\n⟶ بِالنِّيَّاتِ\nbi-al-niyyāti is a combination of three parts: بـ (bi-), which means \"with\" or \"by\"; الـ (al-), which means \"the\"; and نِيَّات (niyyāt), which means \"intentions\" or \"motives.\"\n\nThe word نِيَّات (niyyāt) comes from the root word ن-و-ي (n-w-y), which means \"to intend\" or \"to purpose.\"\n\nThe ending ـِ (i) indicates a possessive relationship between \"actions\" and \"intentions,\" making it \"actions by intentions.\"\n\nIn this sentence, \"verily\" or \"only\" (إنَّمَا) is used for emphasis, and \"the actions\" (الْأَعْمَالُ) is the subject.\n\nThe particle بـ (bi-) is used to show the relationship between \"actions\" and \"intentions\" (النِّيَّاتِ).\n\nThe entire sentence can be translated as \"Verily, actions are (judged) by intentions.\""
+    },
+    {
+      "english": "And indeed, each person will have what he intended.",
+      "googleTranslation": "And every person has what he intended",
+      "arabic": "وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى ",
+      "words": [
+        {
+          "id": "4c3e1527",
+          "arabic": "وَإِنَّمَا",
+          "english": "And indeed",
+          "grammar": "⇉ General Role\nThe particle وَإِنَّمَا in Arabic is like a direction arrow.\n\nIt guides the meaning of the sentence to highlight emphasis and exclusivity.\n\nImagine we are driving on a road.\n\nOur destination (the overall sentence meaning) is clear, but these particles act as signboards, emphasizing certain aspects and guiding us towards the depth of the message.\n\n⇉ One, Two or Three Words\nوَإِنَّمَا is a compound particle.\n\nJust like we combine ingredients to make a special dish, Arabic combines smaller words to create meaningful particles.\n\nThe compound وَإِنَّمَا is made up of three parts:\n⟶ وَ\n↠ \"wa\", meaning \"and\" in English.\n\nIt's like a bridge that connects thoughts or words together.\n\n⟶ إِنَّ\n↠ \"inna\", meaning \"indeed\" or \"verily\".\n\nIt's used to emphasize or affirm the certainty of a statement.\n\n⟶ مَا\n↠ \"ma\", a particle that can mean \"what\", \"that which\", or \"only\".\n\nHere, it adds the sense of exclusivity.\n\nWhen you put them all together, وَإِنَّمَا could be translated as \"and indeed, only\".\n\n⇉ In a Sentence\nNow, let's look at how this particle influences a sentence:\n⟶ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى\n↠ And indeed, each person will have what he intended.\n\nIn this sentence, وَإِنَّمَا starts the sentence and what follows is لِكُلِّ امْرِئٍ مَا نَوَى.\n\nThe particle highlights the significance of one's intention and connects it with the outcome - like saying 'only the intentions lead to the outcome.'",
+          "filename": "5e587341-f268e618-ar-4c3e1527.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        },
+        {
+          "id": "4badfd2b",
+          "arabic": "لِكُلِّ",
+          "english": "for every",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of لِكُلِّ.\n\nThis Arabic noun is translated as \"for every\" in English.\n\nThe word لِكُلِّ is made of two parts.\n\nلِ is a preposition that means \"for\" and كُلِّ means \"every\" or \"each\".\n\nSo, لِكُلِّ conveys the idea of inclusiveness and universality, meaning that something applies to every instance of a certain group or category.\n\n⇉ Identifying the Root\nLet us look at the root of لِكُلِّ.\n\nThink of Arabic roots as building blocks.\n\nJust like you can use a set of blocks to build various structures, you can use Arabic roots to build various words.\n\nOur word today is لِكُلِّ.\n\nFirst, we remove the non-root parts:\n← لِ\nThis is a preposition (Harf) which means \"for\" in English.\n\nIt is used to indicate the recipient or the beneficiary of an action.\n\nWhat now remains is:\n⟶ كُلِّ\nThis word is formed from the three-letter root:\n⟶ كل\n↠ Kul\nThe root \"Kul\" means every or all.\n\nArabic words derived from this root are associated with the concept of entirety or universality, emphasizing the inclusiveness of what is being referred to.\n\n⇉ In a Sentence\nLet us look at how لِكُلِّ can be used in a sentence:\n⟶ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى \n↠ And indeed, each person will have what he intended.\n\nThe noun لِكُلِّ here is used to express universality.\n\nIt implies that the statement applies to each and every person, without exception.\n\nThe sentence beautifully captures the idea that every individual will reap what they sow, emphasizing the importance of intentions in Islam.",
+          "filename": "5e587341-f268e618-ar-4badfd2b.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        },
+        {
+          "id": "7eaf0997",
+          "arabic": "امْرِئٍ",
+          "english": "person",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of امْرِئٍ.\n\nThis is a noun, or \"Ism\" in Arabic.\n\nIt is commonly translated as \"person\" in English.\n\nHowever, it can also be interpreted as \"individual\" or \"human being\" depending on the context.\n\nIt's a general term that can be used to refer to any man or woman.\n\nامْرِئٍ is in the indefinite form, known as \"Nakira\" in Arabic.\n\nThis means it's not referring to a specific person, but rather to any person or people in general.\n\nThink of it like the difference between saying \"a cat\" (any cat) and \"the cat\" (a specific cat) in English.\n\nThe word امْرِئٍ is singular, or \"Mufrad\".\n\nIt's referring to one person.\n\nIf it were referring to more than one person, it would be in the plural form, or \"Jam'\".\n\nThe particle لِ is attached to امْرِئٍ, which makes it لِكُلِّ امْرِئٍ.\n\nThis particle, known as a \"Harf\" in Arabic, typically implies possession or belonging.\n\nIn this case, it translates to \"for every\".\n\nThere is no pronoun directly attached to امْرِئٍ.\n\nPronouns or \"Dameer\" in Arabic, are often used to replace a noun.\n\nFor example, \"he\" or \"she\" can replace a person's name.\n\n⇉ In a Sentence\nLet us look at how امْرِئٍ can be used in a sentence:\n⟶ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى \n↠ And indeed, each person will have what he intended.\n\nIn this sentence, امْرِئٍ is used to refer to any person.\n\nIt is paired with the preposition لِ, which makes it لِكُلِّ امْرِئٍ, translating to \"for every person\".\n\nThe noun امْرِئٍ aligns with the verb نَوَى meaning \"intended\".\n\nThis gives the sentence a sense of universality, emphasizing that the rule applies to everyone.\n\nArabic is such a beautifully precise language, don't you think?",
+          "filename": "5e587341-f268e618-ar-7eaf0997.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "2f442f5f",
+          "arabic": "مَا",
+          "english": "what",
+          "grammar": "⇉ General Role\nThe particle مَا has a general role in the Arabic language of introducing a statement of fact or a question, depending on the context.\n\nYou can think of particles like مَا as the glue between bricks, where the bricks are the words in the sentence.\n\nThese particles give structure and coherence to the sentence, just like how glue keeps bricks together in a building.\n\n⇉ One, Two or Three Words\nThe particle مَا is not a compound particle.\n\nIt is a single word that stands on its own.\n\nIts usage and meaning can change depending on the context, but it always plays a crucial role in linking different parts of a sentence together.\n\n⇉ In a Sentence\nLet's see how مَا is used in the sentence:\n⟶ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى \n↠ And indeed, each person will have what he intended.\n\nHere, the particle مَا is used to link the verb نَوَى (he intended) to the noun امْرِئٍ (person).\n\nYou can think of it as the glue that binds the action (the verb) to the doer (the noun).\n\nIt gives us a complete idea: what a person will get is directly related to what he intended.\n\nThis profound message, conveyed with such elegance and precision, is a testament to the beauty and depth of the Arabic language, especially in its use in the Hadith of the Prophet Muhammad ﷺ.",
+          "filename": "5e587341-f268e618-ar-2f442f5f.mp3",
+          "categoryLevel": {
+            "$numberInt": "10"
+          }
+        },
+        {
+          "id": "3da51656",
+          "arabic": "نَوَى",
+          "english": "he intended",
+          "grammar": "⇉ Meaning\nEmbarking on the journey of understanding نَوَى, we realize it is a verb, also called Fi'l in Arabic.\n\nBeing in the past tense, or what we call Maadi in Arabic, it signifies an action that occurred in the past.\n\nThe verb is in the third person masculine singular form, implying it pertains to \"he\".\n\nنَوَى in English means \"he intended\", expressing the act of setting a purpose or planning something in one's mind.\n\nYou could also translate it as \"he purposed\" or \"he had in mind\".\n\n⇉ In a Sentence\nLet's explore the usage of نَوَى within a sentence:\n⟶ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى \n↠ And indeed, each person will have what he intended.\n\nIn the given sentence, نَوَى denotes the action of intending by the noun امْرِئٍ (each person).\n\nYou could visualize each person holding a map of their intentions with نَوَى depicting the act of crafting this map.\n\nThe beauty of the Arabic language is that it encapsulates profound thoughts in simple words, such as the emphasis on intention in the Islamic faith.",
+          "filename": "5e587341-f268e618-ar-3da51656.mp3",
+          "categoryLevel": {
+            "$numberInt": "10"
+          }
+        }
+      ],
+      "id": "f268e618",
+      "filename": "5e587341-sentence-ar-f268e618.mp3",
+      "explanation": "Now, let's analyze the sentence more closely to identify Arabic root words and grammatical elements:\n\n⟶ وَ\nwa is a conjunction that means \"and.\"\n\nIt connects two or more words, phrases, or sentences together.\n\n⟶ إِنَّمَا\ninnamā is an Arabic particle used for emphasis and restriction.\n\nIt can be translated as \"verily\" or \"only.\"\n\nIt doesn't come from a three-letter root word and doesn't have a grammatical function like a verb or noun, but it sets the tone for the sentence.\n\n⟶ لِكُلِّ\nlikulli is a combination of the preposition لـ (li-) meaning \"for\" or \"to\" and the word كُلِّ (kulli) meaning \"each\" or \"every.\"\n\nTogether, they mean \"for each\" or \"for every.\"\n\n⟶ امْرِئٍ\namri'in is a noun meaning \"man\" or \"person.\"\n\nIt is derived from the root word أ-م-ر (ʾ-m-r), which means \"to command\" or \"to order.\"\n\nThe ending ـٍ (in) indicates that it is in the genitive case, which is used to show possession or relationship between words.\n\n⟶ مَا\nmā is a particle that can mean \"what\" or \"that which\" and is used to introduce a relative clause.\n\n⟶ نَوَى\nnawā is an action (verb) that comes from the root word ن-و-ي (n-w-y), which means \"to intend\" or \"to purpose.\"\n\nIn this context, it means \"he intended\" or \"he purposed.\""
+    },
+    {
+      "english": "So whoever's migration was to Allah and His Messenger,",
+      "googleTranslation": "So whoever emigrated to God and His Messenger",
+      "arabic": "فَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ ",
+      "words": [
+        {
+          "id": "5158419a",
+          "arabic": "فَمَنْ",
+          "english": "So whoever",
+          "grammar": "⇉ General Role\nThe particle فَمَنْ in Arabic serves a significant role in constructing the meaning of a sentence.\n\nIt's a type of Harf, a term used to describe a category of words that function to connect or emphasize other words, similar to the thread in a necklace that links the beads together to create a beautiful, cohesive piece.\n\nTo give you an easy comparison, the particle فَمَنْ in English can be translated as \"So whoever\".\n\n⇉ One, Two or Three Words\nInterestingly, فَمَنْ is a compound particle, meaning it is formed from two separate words:\n⟶ فَ\n↠ \"Fa\" which functions as a consequential particle, indicating the result or outcome of something.\n\nIt's similar to \"So\" or \"Then\" in English.\n\n⟶ منْ\n↠ \"Man\" which is a relative pronoun, like \"who\" or \"whoever\" in English.\n\nTogether, فَمَنْ merges these two elements to express the meaning of \"So whoever\".\n\n⇉ In a Sentence\nNow, let's dive into its role within a sentence:\n⟶ فَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ\n↠ So whoever's migration was to Allah and His Messenger,\nIn this sentence, فَمَنْ is used to introduce a new segment of the story.\n\nIt sets up a condition, tying the subsequent action (هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ - \"his migration was to Allah and His Messenger\") to a previous idea or context in the text.\n\nIf we look at the larger text, the Prophet Muhammad ﷺ was teaching the importance of one's intention behind their actions.\n\nفَمَنْ is used here to introduce specific examples, stating that the outcome of each person's actions depends on what they initially intended.",
+          "filename": "5e587341-dd487f24-ar-5158419a.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        },
+        {
+          "id": "4b358d37",
+          "arabic": "كَانَتْ",
+          "english": "was",
+          "grammar": "⇉ Meaning\nThe Arabic word كَانَتْ translates to \"was\" in English.\n\nIt is a verb (Fi'l in Arabic) used to express existence or to describe a state or condition.\n\nThe verb كَانَتْ refers to a past tense (Maadi), implying that the state or condition has already happened.\n\n⇉ Identifying the Root\nNow, imagine Arabic roots as the essential ingredients in a cooking recipe.\n\nYou start with some basic ingredients (roots), and depending on how you combine and cook them, you can end up with a variety of different dishes (words).\n\nFor the verb كَانَتْ, we need to remove the non-root part:\n← تْ\nThe تْ is a suffix added to the verb.\n\nThis suffix is a pronoun (Dameer) that indicates the third person singular female, like \"she\" in English.\n\nAfter removing this suffix, what remains is the root of the word:\n⟶ كان\n↠ Kaana\nThe root \"Kaana\" carries the basic meaning of \"to be\" or \"to exist\".\n\nIt is used in different contexts to express existence, being, or the state of something.\n\n⇉ From the Same Root\nHere are some past tense (Maadi) verbs derived from the root كان:\n⟶ كنتُ\n↠ I was\n⟶ كنتَ\n↠ You (singular, male) were\n⟶ كنتِ\n↠ You (singular, female) were\n⟶ كان\n↠ He was\n⟶ كانت\n↠ She was\n⟶ كنا\n↠ We were\n⟶ كنتم\n↠ You (plural) were\n⟶ كانوا\n↠ They were\n⇉ In a Sentence\nLet us look at how كَانَتْ can be used in a sentence:\n⟶ فَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ \n↠ So whoever's migration was to Allah and His Messenger\nIn this sentence, the verb كَانَتْ is used to describe the state of someone's migration.",
+          "filename": "5e587341-dd487f24-ar-4b358d37.mp3",
+          "categoryLevel": {
+            "$numberInt": "20"
+          }
+        },
+        {
+          "id": "abb796a3",
+          "arabic": "هِجْرَتُهُ",
+          "english": "his migration",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of هِجْرَتُهُ.\n\nThis Arabic noun is translated as \"his migration\" in English.\n\nIt's a compound of two parts: هِجْرَة, meaning migration, and هُ, a possessive pronoun that translates to \"his\".\n\nTherefore, هِجْرَتُهُ refers to \"his migration\".\n\nThe word implies the action of moving or relocating, specifically tied to the person in question.\n\n⇉ In a Sentence\nLet us look at how هِجْرَتُهُ can be used in a sentence:\n⟶ فَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ\n↠ So whoever's migration was to Allah and His Messenger,\nThe noun هِجْرَتُهُ is in relation to \"his\", pointing to the individual who is migrating.\n\nThis sentence emphasizes that the merit of migration is dependent on the intention behind it.\n\nIf a person's intention for migration is for the sake of Allah and His Messenger, then it is considered as such.\n\n⇉ Identifying the Root\nLet us look at the root of هِجْرَتُهُ.\n\nThink of Arabic roots as a knitting pattern.\n\nDepending on how you follow the pattern, you can create different pieces, much like the derived words from Arabic roots.\n\nOur word today is هِجْرَتُهُ.\n\nTo find the root, we have to remove the non-root parts:\n← هُ\nThis is a possessive pronoun (Dameer), translating to \"his\" in English.\n\nIt's attached at the end of the word to indicate possession.\n\nWhat now remains is:\n⟶ هِجْرَة\nThis word is formed from the three-letter root:\n⟶ هجر\n↠ Hajara\nThe root \"Hajara\" implies to abandon or migrate.\n\nArabic words derived from this root carry the sense of departing, leaving or migrating from one location to another.\n\nThis is the beauty of the Arabic language - from a single root, a garden of words can bloom, each carrying a unique shade of meaning but all interconnected in their essence.",
+          "filename": "5e587341-dd487f24-ar-abb796a3.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        },
+        {
+          "id": "db54018e",
+          "arabic": "إلَى",
+          "english": "to",
+          "grammar": "⇉ General Role\nإلَى is an Arabic particle, or \"Harf\" as we call it in Arabic.\n\nParticles have the role of connecting words together, just like the thread in a necklace holds the beads (words) together, helping create a beautiful and meaningful necklace (sentence).\n\nإلَى is used in Arabic to indicate movement or direction from one place to another or from one state to another.\n\nIn English, it often translates to \"to\" or \"towards\".\n\n⇉ One, Two or Three Words\nإلَى is not a compound particle; it is a single word.\n\nIn Arabic, a compound particle is made up of two or more words combined together to serve a certain grammatical function.\n\nBut إلَى stands alone, serving the function of indicating direction or destination.\n\n⇉ In a Sentence\nNow, let's look at how the particle إلَى is used in the sentence.\n\n⟶ فَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ\n↠ So whoever's migration was to Allah and His Messenger,\nIn this sentence, إلَى is connecting the verb هِجْرَتُهُ, which means \"his migration\", with its destination, which is اللَّهِ وَرَسُولِهِ, translated as \"Allah and His Messenger\".\n\nIn the full text, this is part of a Hadith by the Prophet Muhammad ﷺ that emphasizes the importance of intentions in actions.\n\nThe particle إلَى is used to express the direction or aim of one's migration.\n\nIt adds depth to the statement by showing that it's not merely the action of migration that matters, but the intent and direction of the migration.\n\nJust as a thread guides a bead to its place in a necklace, إلَى is guiding the action of migration towards its goal.",
+          "filename": "5e587341-dd487f24-ar-db54018e.mp3",
+          "categoryLevel": {
+            "$numberInt": "10"
+          }
+        },
+        {
+          "id": "f12224e9",
+          "arabic": "اللَّهِ",
+          "english": "Allah",
+          "grammar": "",
+          "filename": "5e587341-dd487f24-ar-f12224e9.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "1f6c0ec9",
+          "arabic": "وَرَسُولِهِ",
+          "english": "and His Messenger",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of وَرَسُولِهِ.\n\nThis Arabic phrase is typically translated into English as \"and His Messenger\".\n\nThe word رَسُولِ (Rasool) means \"messenger\", and is often used to refer to the Prophet Muhammad ﷺ in Islamic literature.\n\nThe pronoun هِ (his) is attached at the end of the word to denote that the Messenger is of Allah.\n\nLastly, وَ is the Arabic conjunction \"and\".\n\nThus, وَرَسُولِهِ collectively translates as \"and His Messenger\".\n\nThis phrase recognizes and emphasizes the high status and importance of the Prophet Muhammad ﷺ as the Messenger of Allah in Islam.\n\n⇉ In a Sentence\nLet us look at how وَرَسُولِهِ can be used in a sentence:\n⟶ فَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ \n↠ So whoever's migration was to Allah and His Messenger,\nIn this sentence from the hadith, the phrase وَرَسُولِهِ is used to describe the destination or purpose of one's migration.\n\nThe pronoun \"his\" corresponds to Allah, referring to the Messenger as Allah's Messenger.\n\nIt expresses that the person's migration was not only towards Allah but also towards His Messenger, signifying his obedience and devotion to both.\n\n⇉ Identifying the Root\nLet us look at the root of وَرَسُولِهِ.\n\nLike a knitting pattern that can create different pieces depending on how you follow it, Arabic roots form the basis of different words depending on how they are used.\n\nHowever, we'll focus on three-letter roots as they are most common.\n\nFrom وَرَسُولِهِ, we first remove the non-root parts:\n← وَ\nThis is a conjunction (Harf), equivalent to \"and\" in English, connecting words and phrases.\n\n← ِهِ\nThis is a possessive pronoun (Dameer), \"his\" in English, which is added at the end of the word to indicate possession.\n\nWhat now remains is:\n⟶ رَسُول\nThis is a noun (Ism) derived from the three-letter root:\n⟶ رسل\n↠ Rasala\nThe root \"Rasala\" pertains to the act of sending, conveying or delivering a message.\n\nIn the context of Islamic teachings, it often relates to the divine message sent by Allah through His prophets.",
+          "filename": "5e587341-dd487f24-ar-1f6c0ec9.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        }
+      ],
+      "id": "dd487f24",
+      "filename": "5e587341-sentence-ar-dd487f24.mp3",
+      "explanation": "Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:\n\n→ فَ\nThis is a conjunction meaning \"so\" or \"then.\"\n\nIt is used to connect clauses and indicate a consequence or result.\n\n→ مَنْ\nThis word means \"whoever\" or \"whosoever.\"\n\nIt is used to introduce a conditional clause.\n\n→ كَانَتْ\nThis word is derived from the three-letter root ك-و-ن (k-w-n), which means \"to be\" or \"to become.\"\n\nIn this case, the word is in the past tense and has the feminine suffix -تْ (-t) added to the root to agree with the feminine noun هِجْرَتُهُ (hijratuhu) that follows.\n\n→ هِجْرَتُهُ\nThis word is derived from the three-letter root ه-ج-ر (h-j-r), which means \"to migrate\" or \"to emigrate.\"\n\nThe word هِجْرَة (hijrah) means \"migration\" or \"emigration.\"\n\nThe suffix ـتُهُ (-tuhu) is added to the root to indicate possession by a third person masculine singular (his), so it means \"his migration.\"\n\n→ إلَى\nThis is a preposition meaning \"to\" or \"toward.\"\n\nIt is used to indicate direction, destination, or purpose.\n\n→ اللَّهِ\nAs explained earlier, this word is the name of God in Arabic, \"Allah.\"\n\nThe prefix الـ (al-) is added to the word, which is used to denote \"the\" in English, making it \"the Allah\" or \"the God.\"\n\n→ وَ\nThis is the Arabic conjunction \"and.\"\n\nIt is used to connect words, phrases, or sentences.\n\n→ رَسُولِهِ\nAs explained earlier, this word comes from the three-letter root ر-س-ل (r-s-l), which means \"to send\" or \"to deliver a message.\"\n\nIn this context, it refers to a messenger, specifically the Messenger of Allah.\n\nThe suffix ـهِ (-hi) is added to the root to indicate possession by a third person masculine singular (his), so it means \"his Messenger.\"\n\nNow, let's see how the words relate to each other in the sentence:\n\n→ فَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ\nThe sentence starts with the conjunction فَ (fa), meaning \"so\" or \"then,\" followed by مَنْ (man), meaning \"whoever.\"\n\nThe verb كَانَتْ (kanat) means \"was\" and agrees with the feminine noun هِجْرَتُهُ (hijratuhu), which means \"his migration.\"\n\nThe preposition إلَى (ila) indicates direction or purpose, and it is followed by اللَّهِ (Allah) and وَرَسُولِهِ (wa rasoolihi), meaning \"to Allah and His Messenger.\"\n\nThe overall meaning is \"So whoever's migration was to Allah and His Messenger.\""
+    },
+    {
+      "english": "so his migration is to Allah and His Messenger.",
+      "googleTranslation": "I emigrated to God and His Messenger",
+      "arabic": "فَهِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ ",
+      "words": [
+        {
+          "id": "b6203d7b",
+          "arabic": "فَهِجْرَتُهُ",
+          "english": "So his migration",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of فَهِجْرَتُهُ.\n\nThis noun in Arabic is translated as \"So his migration\" in English.\n\nIt comes from the word هِجْرَتُهُ, meaning \"his migration\", and is prefixed by the letter فَ which typically means \"then\" or \"so\".\n\nHence, فَهِجْرَتُهُ indicates a consequence or result, translating as \"So his migration\".\n\n⇉ In a Sentence\nLet us look at how فَهِجْرَتُهُ can be used in a sentence:\n⟶ فَهِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ\n↠ So his migration is to Allah and His Messenger.\n\nIn this sentence, فَهِجْرَتُهُ corresponds to \"So his migration\", indicating a conclusion or result based on the previously mentioned context in the text.\n\nThe context explains that the destination or goal of a person's migration depends on their intentions.\n\n⇉ Identifying the Root\nLet us look at the root of فَهِجْرَتُهُ.\n\nJust like an artist starts with primary colors to create a palette, Arabic roots are the primary colors and the derived words are the variations you can create by mixing these colors.\n\nFirst, we have to remove the non-root parts from the word فَهِجْرَتُهُ.\n\n← فَ\nThe فَ is a preposition (Harf) in Arabic which usually means \"then\" or \"so\".\n\nIt connects the action described by the word to the preceding sentence or phrase.\n\n← هُ\nThe هُ is a pronoun (Dameer), which translates as \"his\".\n\nIt signifies possession or association and is attached to the end of the word.\n\nWhat now remains is:\n⟶ هِجْرَة\nThis is derived from the three-letter root:\n⟶ هجر\n↠ Hajara\nThe root \"Hajara\" conveys the meaning of abandoning, leaving or migrating.\n\nThis illustrates the beauty of the Arabic language, where numerous words can be derived from a single root, each carrying a shade of the original meaning.\n\nIt is this diversity and depth that makes learning Arabic a rewarding journey, especially for those seeking to deepen their understanding of the Quran, Hadith, and other classical Islamic texts.",
+          "filename": "5e587341-e2700566-ar-b6203d7b.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        },
+        {
+          "id": "80e1f560",
+          "arabic": "إلَى",
+          "english": "to",
+          "grammar": "⇉ General Role\nإلَى is an Arabic particle known as a Harf.\n\nIts main job is to indicate movement or direction, linking a verb of motion with its destination.\n\nIf we were to imagine our sentence as a road, then إلَى would be like the arrow signposts guiding our journey.\n\nIt helps us know where we are heading to.\n\nIt's like the glue that sticks the moving action to its final point, bringing clarity and structure to the sentence.\n\n⇉ One, Two or Three Words\nThe particle إلَى is not a compound particle; it is a single word.\n\nIt is not made up of smaller parts but stands on its own, acting as a preposition that indicates direction.\n\n⇉ In a Sentence\nLet's see how إلَى works in a sentence:\n⟶ فَهِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ\n↠ So his migration is to Allah and His Messenger.\n\nIn this sentence, إلَى is connecting the action of migration (hijra) with its destination.\n\nThe particle إلَى is directing the migration towards Allah and His Messenger ﷺ.\n\nThis shows that the person's migration is not for worldly gains, but rather for the sake of Allah and His Messenger ﷺ.\n\nIn the context of the whole text, the particle إلَى helps distinguish between the different types of migrations: one is for worldly gains or for a woman to marry, and the other is for Allah and His Messenger.\n\nThe particle إلَى is used to show that the aim and direction of the migration is crucial in determining its reward.\n\nThe beauty of the Arabic language lies in the ability of these small particles to convey such profound meanings.\n\nIt's like a compass pointing to the right direction, it's small but without it, we might lose our way.\n\nThe same way إلَى is a small particle but it guides the meaning of the sentence to its intended destination.",
+          "filename": "5e587341-e2700566-ar-80e1f560.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "79b06700",
+          "arabic": "اللَّهِ",
+          "english": "Allah",
+          "grammar": "",
+          "filename": "5e587341-e2700566-ar-79b06700.mp3",
+          "quiz": false
+        },
+        {
+          "id": "78075b68",
+          "arabic": "وَرَسُولِهِ",
+          "english": "and His Messenger",
+          "grammar": "⇉ Identifying the Root\nArabic words, just like an artist's palette, start with primary colors (or roots) and create variations by mixing these primary colors.\n\nIn order to identify the root, we'll remove any additional \"colors\" that are not part of the original palette:\n← وَ\nThis part at the beginning of the word is a conjunction (Harf) that translates to \"and\" in English.\n\n← ِهِ\nThis part at the end of the word is a possessive pronoun (Dameer) that translates to \"his\" in English.\n\nThe remaining part is the three-letter root of the word:\n⟶ رَسُول\n↠ Rasul\nThe three-letter root \"Rasul\" primarily conveys the meaning of \"messenger\" or \"envoy.\"\n\nIn its Verbal Noun (Masdar) form, it refers to the act of sending or delivering a message.\n\n⇉ Interaction with Other Words\nJust as a foundation stone supports an entire building, each Arabic word in a sentence carries weight and contributes to the overall meaning.\n\nLet's observe how \"warasoolihi\" operates within the sentence:\n⟶ فَهِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ\n↠ So his migration is to Allah and His Messenger.\n\nIn this sentence, \"warasoolihi\" is translated as \"and His Messenger,\" with the \"His\" referring to Allah.\n\nIt could also be translated as \"and to His Prophet.\"\n\nIn this context, \"warasoolihi\" signifies the Prophet Muhammad ﷺ, to whom the believer migrates in their heart, following his teachings and sunnah.\n\n↠ TL;DR\nThe word \"warasoolihi\" is derived from the root \"Rasul,\" meaning \"messenger.\"\n\nAfter removing the conjunction \"wa\" and the possessive pronoun \"hi,\" we are left with the root \"Rasul.\"\n\nIn the sentence, it translates as \"and His Messenger,\" emphasizing the believer's spiritual migration towards the teachings and path of the Prophet Muhammad ﷺ.",
+          "filename": "5e587341-e2700566-ar-78075b68.mp3",
+          "categoryLevel": ""
+        }
+      ],
+      "id": "e2700566",
+      "filename": "5e587341-sentence-ar-e2700566.mp3",
+      "explanation": "Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:\n\n→ فَ\nThis is a conjunction meaning \"so\" or \"then.\"\n\nIt is used to connect clauses and indicate a consequence or result.\n\n→ هِجْرَتُهُ\nAs explained earlier, this word is derived from the three-letter root ه-ج-ر (h-j-r), which means \"to migrate\" or \"to emigrate.\"\n\nThe word هِجْرَة (hijrah) means \"migration\" or \"emigration.\"\n\nThe suffix ـتُهُ (-tuhu) is added to the root to indicate possession by a third person masculine singular (his), so it means \"his migration.\"\n\n→ إلَى\nThis is a preposition meaning \"to\" or \"toward.\"\n\nIt is used to indicate direction, destination, or purpose.\n\n→ اللَّهِ\nAs explained earlier, this word is the name of God in Arabic, \"Allah.\"\n\nThe prefix الـ (al-) is added to the word, which is used to denote \"the\" in English, making it \"the Allah\" or \"the God.\"\n\n→ وَ\nThis is the Arabic conjunction \"and.\"\n\nIt is used to connect words, phrases, or sentences.\n\n→ رَسُولِهِ\nAs explained earlier, this word comes from the three-letter root ر-س-ل (r-s-l), which means \"to send\" or \"to deliver a message.\"\n\nIn this context, it refers to a messenger, specifically the Messenger of Allah.\n\nThe suffix ـهِ (-hi) is added to the root to indicate possession by a third person masculine singular (his), so it means \"his Messenger.\"\n\nNow, let's see how the words relate to each other in the sentence:\n\n→ فَهِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ\nThe sentence starts with the conjunction فَ (fa), meaning \"so\" or \"then,\" followed by the noun هِجْرَتُهُ (hijratuhu), which means \"his migration.\"\n\nThe preposition إلَى (ila) indicates direction or purpose, and it is followed by اللَّهِ (Allah) and وَرَسُولِهِ (wa rasoolihi), meaning \"to Allah and His Messenger.\"\n\nThe overall meaning is \"so his migration is to Allah and His Messenger.\""
+    },
+    {
+      "english": "But he whose migration was for some worldly thing he might gain, ",
+      "googleTranslation": "And whoever emigrated for a worldly benefit",
+      "arabic": "وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا ",
+      "words": [
+        {
+          "id": "ff6fc2e4",
+          "arabic": "وَمَنْ",
+          "english": "and whoever",
+          "grammar": "⇉ General Role\nThe Arabic particle وَمَنْ serves two purposes.\n\nFirst, وَ which translates to \"and\" is used to connect different parts of a sentence together, acting as a bridge between two ideas.\n\nThe second part, مَنْ, is an interrogative pronoun often used to ask \"who\" but can also mean \"whoever\" depending on context.\n\nPicture it as the mortar between the bricks of a wall, holding everything together.\n\nWithout it, our wall (or sentence) might not stand as strong or make as much sense.\n\n⇉ One, Two or Three Words\nThe particle وَمَنْ is a compound particle, meaning it's made up of two individual words:\n⟶ وَ\n↠ wa: This is the Arabic conjunction equivalent to the English \"and\".\n\nIt's like a glue that connects words or ideas together.\n\n⟶ مَنْ\n↠ man: This is an interrogative pronoun that translates to \"who\" or \"whoever\" in English.\n\nIt's used to refer to an unidentified person.\n\n⇉ In a Sentence\nNow let's look at how وَمَنْ fits into the bigger picture:\n⟶ وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا \n↠ And whoever's migration was for some worldly thing he might gain\nIn the sentence, the particle وَمَنْ is used to introduce a new subject, \"whoever's migration was for some worldly thing\".\n\nThis subject is then compared to the previous one in the text, creating a distinction between those who migrate for the sake of Allah and His messenger and those who migrate for worldly gains.\n\nThis demonstrates the precise and eloquent use of particles in Arabic, adding depth to the meaning and beauty to the structure.\n\nThe Arabic language, particularly in classical texts such as the Quran and Hadith, uses these particles to beautifully encapsulate profound truths about life and the nature of our actions.\n\nIn this case, وَمَنْ brings attention to the importance of intention behind our actions, reminding us of the teaching of Prophet Muhammad ﷺ that our rewards are based on our intentions.",
+          "filename": "5e587341-7e2e52fb-ar-ff6fc2e4.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        },
+        {
+          "id": "1882b334",
+          "arabic": "كَانَتْ",
+          "english": "was",
+          "grammar": "⇉ Meaning\nThe Arabic word كَانَتْ translates to \"was\" in English.\n\nIt is a verb (Fi'l in Arabic) used to describe a state of being or existence.\n\nThis particular form is past tense (Maadi), indicating a completed action or a past state of being.\n\n⇉ In a Sentence\nLet us look at how كَانَتْ can be used in a sentence:\n⟶ وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا\n↠ And he whose migration was for some worldly thing he might gain.\n\nIn this sentence, كَانَتْ is used to describe the past state of the person's intention or motivation behind their migration.\n\n⇉ Identifying the Root\nLet's think of the Arabic root system as a tree.\n\nThe roots give life to a tree, and from those roots grow branches which represent different words.\n\nThe branches might look different from the root, but they all come from the same source.\n\nIn the word كَانَتْ, we have some extra parts that we need to remove to reach the root:\n← َتْ\nThe part تْ is a suffix which functions as a feminine singular pronoun (Dameer).\n\nThis suffix indicates that the subject of the verb is feminine.\n\nAfter removing this suffix, what remains is the root of the word:\n⟶ كان\n↠ Kaana\nThe root \"Kaana\" holds the basic meaning of \"to be\" or \"was\", representing a state of existence or being.\n\n⇉ From the Same Root\nNow, let's look at some verbs derived from the same root كان in past tense (Maadi):\n⟶ كُنتُ\n↠ I was\n⟶ كُنتَ\n↠ You (singular, male) were\n⟶ كُنتِ\n↠ You (singular, female) were\n⟶ كَانَ\n↠ He was\n⟶ كَانَتْ\n↠ She was\n⟶ كُنَّا\n↠ We were\n⟶ كُنتُم\n↠ You (plural) were\n⟶ كَانُوا\n↠ They were\nThese derived words show the versatility of the Arabic language, where a single root can give rise to different words, each carrying a nuanced shade of the core meaning, much like a single seed sprouting into a tree with many branches.",
+          "filename": "5e587341-7e2e52fb-ar-1882b334.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "6b1a6838",
+          "arabic": "هِجْرَتُهُ",
+          "english": "his migration",
+          "grammar": "⇉ Meaning\nThe Arabic word هِجْرَتُهُ translates to \"his migration\" in English.\n\nThe term migration (hijra in Arabic) is used to denote the act of moving from one place to another, specifically in the Islamic context it refers to the act of leaving a place for the sake of Allah.\n\nThe هُ attached at the end of the word is a pronoun (Dameer in Arabic), and in this case, it translates to \"his\".\n\n⇉ In a Sentence\nLet us look at how هِجْرَتُهُ can be used in a sentence:\n⟶ وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا\n↠ But he whose migration was for some worldly thing he might gain\nIn this sentence, هِجْرَتُهُ refers to the migration of the individual being spoken about.\n\n⇉ Identifying the Root\nThink of Arabic roots like a seed.\n\nFrom one seed, you can grow different types of plants, flowers, or trees, much like how from one root, different words with related meanings are derived.\n\nTo find the root of هِجْرَتُهُ, we need to remove the non-root parts:\n← تُ\nThis part تُ is the feminine marker used here because the word \"hijra\" is considered feminine in Arabic.\n\n← هُ\nThis part هُ is a pronoun (Dameer) referring to \"his\".\n\nOnce these parts are removed, what remains is the root of the word:\n⟶ هجر\n↠ Hajara\nThe root \"Hajara\" carries the basic meaning of \"to migrate\" or \"to leave\".\n\nFrom this root, words related to migration, abandonment, or desertion are formed.\n\n⇉ From the Same Root\nFrom the root \"Hajara\", we can form verbs that refer to the act of migrating.\n\nLet's look at these words in the past tense (Maadi):\n⟶ هجرت\n↠ I migrated\n⟶ هجرت\n↠ You (singular, male/female) migrated\n⟶ هجر\n↠ He migrated\n⟶ هجرت\n↠ She migrated\n⟶ هجرنا\n↠ We migrated\n⟶ هجرتم\n↠ You (plural) migrated\n⟶ هاجروا\n↠ They migrated\nThese variations show the flexibility and depth of the Arabic language, and how one root can give rise to many words, each carrying a related but unique meaning.",
+          "filename": "5e587341-7e2e52fb-ar-6b1a6838.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "fa1e4e1d",
+          "arabic": "لِدُنْيَا",
+          "english": "for worldly [thing]",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of لِدُنْيَا.\n\nThis Arabic noun translates as \"for worldly [thing]\" or \"for the world\" in English.\n\nThe word دُنْيَا is derived from the root دنو (Dana), which means to be close or near.\n\nThe prefix لِ is a preposition (Harf), it adds the meaning of \"for\" or \"towards\".\n\nIn the context of our text, لِدُنْيَا symbolizes the earthly life, temporal possessions or worldly gains.\n\n⇉ In a Sentence\nLet us look at how لِدُنْيَا can be used in a sentence:\n⟶ وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا \n↠ But he whose migration was for some worldly thing he might gain,\nIn the sentence, لِدُنْيَا is used to denote the intention or goal behind the act of migration.\n\nIf the intention is to gain worldly benefits, then the migration is considered as such.\n\n⇉ Identifying the Root\nLet us look at the root of لِدُنْيَا.\n\nThe Arabic language is like an artist's palette, where the roots are the primary colors.\n\nWith these roots or 'colors', we can mix and match to create a variety of different words or 'paintings'.\n\nOur word today is لِدُنْيَا.\n\nFirst, we remove the non-root parts:\n← لِ\nThis is a preposition (Harf), \"for\" or \"towards\" in English, which is added before the word to indicate direction or purpose.\n\nWhat now remains is:\n⟶ دُنْيَا\nThis word is formed from the three-letter root:\n⟶ دنو\n↠ D-N-W (Dana)\nThe root \"Dana\" carries the concept of closeness or nearness.\n\nWords derived from this root often relate to proximity, nearness, or things being close.\n\nIn the context of دُنْيَا, it refers to the worldly life, which is closer and more immediate to us than the afterlife.",
+          "filename": "5e587341-7e2e52fb-ar-fa1e4e1d.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        },
+        {
+          "id": "0b75e408",
+          "arabic": "يُصِيبُهَا",
+          "english": "he might gain",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of يُصِيبُهَا.\n\nThis is a Fi'l, or a verb in Arabic, that portrays an action.\n\nWe find this verb in the present tense, known as Mudari' in Arabic.\n\nThe action that this verb conveys could be happening now or possibly in the future.\n\nIt's in the third person, which means that it is referring to 'he', 'she', or 'it'.\n\nThe verb يُصِيبُهَا is translated into English as \"he might gain\".\n\nThis implies the action of gaining something or achieving a goal.\n\nIt's like if someone was trying to catch a ball, the moment they successfully catch it can be described by this verb.\n\n⇉ In a Sentence\nLet us look at how يُصِيبُهَا can be used in a sentence:\n⟶ وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا\n↠ But he whose migration was for some worldly thing he might gain.\n\nIn this sentence, يُصِيبُهَا fits perfectly with the subject of the sentence, which is implied to be a person who is aiming for a worldly gain.\n\nIt's as if we are saying, \"He reaches for the fruit, and he grasps it.\"\n\nHere, the fruit is the worldly thing, \"reaching\" is his migration, and \"he\" is the person who both reaches and grasps the fruit.\n\nThis elegant use of language is one of the many things that makes Arabic a beautiful and expressive language, especially within the realm of Islamic texts.",
+          "lastLetter": null,
+          "filename": "5e587341-7e2e52fb-ar-0b75e408.mp3",
+          "categoryLevel": {
+            "$numberInt": "0"
+          }
+        }
+      ],
+      "id": "7e2e52fb",
+      "filename": "5e587341-sentence-ar-7e2e52fb.mp3",
+      "explanation": "Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:\n\n→ وَمَنْ\nThis word is a combination of the conjunction وَ (wa) meaning \"and\" and the particle مَنْ (man) meaning \"who\" or \"whoever.\"\n\nTogether, they mean \"and whoever\" or \"but whoever.\"\n\n→ كَانَتْ\nThis word is derived from the three-letter root ك-و-ن (k-w-n), which means \"to be\" or \"to exist.\"\n\nIn this case, the word is in the past tense and has the suffix -تْ (-t) added to the root to indicate the third person feminine singular (she), so it means \"she was\" or \"it was.\"\n\n→ هِجْرَتُهُ\nThis word comes from the three-letter root ه-ج-ر (h-j-r), which means \"to migrate\" or \"to move from one place to another.\"\n\nThe word هِجْرَة (hijrah) means \"migration.\"\n\nThe suffix -تُهُ (-tuhu) is added to the root word to indicate possession, so it means \"his migration.\"\n\n→ لِدُنْيَا\nThis phrase consists of the preposition لِ (li) meaning \"for\" or \"to\" and the noun دُنْيَا (dunya) meaning \"world\" or \"worldly life.\"\n\nTogether, they mean \"for the world\" or \"for worldly life.\"\n\n→ يُصِيبُهَا\nThis word is derived from the three-letter root ص-ي-ب (s-y-b), which means \"to attain\" or \"to achieve.\"\n\nIn this case, the word is in the present tense and has the suffix -هَا (-ha) added to the root to indicate the third person feminine singular object (it or her), so it means \"he attains it\" or \"he achieves it.\"\n\nNow, let's see how the words relate to each other in the sentence:\n\n→ وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا\nThe subject is an unspecified person, represented by the particle وَمَنْ (wa man) meaning \"and whoever\" or \"but whoever.\"\n\nThe verb كَانَتْ (kanat) is used to indicate the state or condition of the person, and the noun هِجْرَتُهُ (hijratuhu) represents the action or object of the person's intention, \"his migration.\"\n\nThe preposition لِدُنْيَا (lidunya) indicates the purpose of the migration, which is for worldly life or gains.\n\nFinally, the verb يُصِيبُهَا (yusibuha) describes the result of the person's actions, \"he attains it\" or \"he achieves it.\"\n\nThe overall meaning is \"But he whose migration was for some worldly thing he might gain.\""
+    },
+    {
+      "english": "or for a wife he might marry, ",
+      "googleTranslation": "or a woman he marries",
+      "arabic": "أَوْ امْرَأَةٍ يَنْكِحُهَا ",
+      "words": [
+        {
+          "id": "6783202b",
+          "arabic": "أَوْ",
+          "english": "or [for]",
+          "grammar": "⇉ General Role\nThe particle أَوْ in Arabic plays a straightforward but important role.\n\nIt is known as a conjunction in English grammar, and it works similarly to the word \"or\" in English, offering alternatives or options.\n\nRemember our analogy: Arabic particles are like the thread in a necklace, connecting the beads (words) together.\n\nJust like how a thread might allow you to add different colored beads on a necklace, giving you the choice of which color to look at, أَوْ connects different words or phrases, offering a choice between them.\n\n⇉ One, Two or Three Words\nأَوْ is not a compound particle.\n\nIt is a single, standalone particle.\n\nWe can think of it as a single, strong thread that is used to string together different options in a sentence.\n\n⇉ In a Sentence\nLet's now see how the particle أَوْ functions within a sentence.\n\n⟶ أَوْ امْرَأَةٍ يَنْكِحُهَا \n↠ or for a wife he might marry,\nIn this sentence, أَوْ is used to introduce an alternative or second option, after another option was mentioned in the previous part of the text.\n\nIt is like saying, you can do this, \"or\" you can do that.\n\nIt's giving the listener or reader a choice.\n\nIf we consider the full text: The Prophet Muhammad ﷺ is speaking about the reasons why a person might decide to migrate (make Hijrah).\n\nOne reason might be for the sake of Allah and His Messenger, and the other reason, introduced by our particle أَوْ, might be worldly gain, like acquiring wealth or getting married to a certain woman.\n\nThis use of أَوْ illustrates the power of choice in our actions, and it emphasizes how our intentions, the 'why' behind our actions, can change the very nature of these actions.\n\nIt's a simple particle, but it carries with it profound wisdom about life and decision-making, which is the beauty of the Arabic language, particularly in the Islamic texts.",
+          "filename": "5e587341-bb2646d0-ar-6783202b.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "07333c5b",
+          "arabic": "امْرَأَةٍ",
+          "english": "a woman",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of امْرَأَةٍ.\n\nThis Arabic word translates to \"a woman\" in English, and it is used in a general sense to refer to any female individual.\n\nThe word امْرَأَةٍ is a noun, or 'Ism' in Arabic, the basic form of words that describe entities, like 'girl' or 'tree' in English.\n\nIn this instance, it is indefinite (Nakira), which means it refers to 'a woman' rather than 'the woman', just like 'a' and 'an' work in English.\n\nThis is because there is no ال (Al) at the beginning, which is the Arabic definite article equivalent to 'the' in English.\n\nامْرَأَةٍ is singular (Mufrad), so it refers to one woman.\n\nThere are no attached particles or pronouns to this word in this case.\n\n⇉ In a Sentence\nLet us look at how امْرَأَةٍ can be used in a sentence:\n⟶ أَوْ امْرَأَةٍ يَنْكِحُهَا \n↠ or for a wife he might marry,\nIn this sentence, امْرَأَةٍ refers to a woman whom someone might marry.\n\nIt is an object to the verb يَنْكِحُهَا, which means \"he marries her\".\n\nIn the broader text, the word امْرَأَةٍ adds depth to the saying of the Prophet Muhammad ﷺ, illustrating the idea that our actions are shaped by our intentions, whether it's for migrating for the sake of Allah and His messenger, or for worldly gain, like marrying a woman.\n\nIt's these little pieces of the language puzzle that together bring the beauty and depth of the Arabic language to life.",
+          "lastLetter": true,
+          "filename": "5e587341-bb2646d0-ar-07333c5b.mp3",
+          "categoryLevel": {
+            "$numberInt": "10"
+          }
+        },
+        {
+          "id": "a7d6a08e",
+          "arabic": "يَنْكِحُهَا",
+          "english": "he [intends to] marry",
+          "grammar": "⇉ Meaning\nThe Arabic word يَنْكِحُهَا translates to \"he [intends to] marry her\" in English.\n\nThis word is a verb (Fi'l in Arabic), which denotes the action of getting married.\n\nJust like an action movie involves a lot of movement and change, verbs in Arabic, such as \"يَنْكِحُهَا,\" describe actions or states of being.\n\n⇉ In a Sentence\nLet us look at how يَنْكِحُهَا can be used in a sentence:\n⟶ أَوْ امْرَأَةٍ يَنْكِحُهَا\n↠ Or for a woman he intends to marry\nIn this sentence, the verb يَنْكِحُهَا describes the action that the man intends to take, which is to marry a woman.\n\nThe verb matches with its object, the woman, similar to how in English, we say \"he marries her\", the verb \"marries\" corresponds to \"he\" and \"her\".\n\n⇉ Identifying the Root\nThink of the root system in Arabic as a toolbox.\n\nEach tool (root letter) has its own function, but when combined, they can build something entirely new, similar to words in Arabic.\n\nTo find the root of يَنْكِحُهَا, we have to remove the non-root parts:\n←  يَ\nThe prefix يَ indicates the present tense (Mudari' in Arabic) and third person singular (he).\n\nThis prefix helps to identify who is performing the action and when.\n\n← ُهَا\nThe suffix ُهَا is a pronoun (Dameer) that translates to \"her\" in English.\n\nIt is attached to the verb to show who the action is being done to.\n\nOnce all non-root parts are removed, what remains is the root of the word:\n⟶ نكح\n↠ Nakaḥa\nThe root \"Nakaḥa\" carries the essential meaning of \"to marry\".\n\nIt can also be understood as \"to enter into a marital contract\".\n\n⇉ From the Same Root\nFrom the root نكح, we can form several verbs in the past tense (Maadi).\n\nLet's look at a few examples:\n⟶ نَكَحَ\n↠ He married\n⟶ نَكَحْتُ\n↠ I married\n⟶ نَكَحْتَ\n↠ You (singular, male/female) married\n⟶ نَكَحْنَا\n↠ We married\n⟶ نَكَحْتُم\n↠ You (plural) married\n⟶ نَكَحُوا\n↠ They married\nThese derived verbs show the flexibility of the Arabic language and how a single root can blossom into a variety of related words, similar to how a single seed can grow into a tree with many branches.",
+          "filename": "5e587341-bb2646d0-ar-a7d6a08e.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        }
+      ],
+      "id": "bb2646d0",
+      "filename": "5e587341-sentence-ar-bb2646d0.mp3",
+      "explanation": "Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:\n\n→ أَوْ\nThis word is a conjunction meaning \"or.\"\n\nIt is used to connect two or more alternatives or options.\n\n→ امْرَأَةٍ\nThis word is a noun that means \"woman\" or \"wife.\"\n\nIt is not derived from a three-letter root word.\n\n→ يَنْكِحُ\nThis word is derived from the three-letter root ن-ك-ح (n-k-h), which means \"to marry\" or \"to enter into a marriage contract.\"\n\nIn this case, the word is in the present tense and is used to indicate the third person masculine singular (he), so it means \"he marries.\"\n\n→ هَا\nThis is a suffix that means \"her\" or \"it.\"\n\nIt is used to indicate the third person feminine singular object (her or it).\n\nNow, let's see how the words relate to each other in the sentence:\n\n→ أَوْ امْرَأَةٍ يَنْكِحُهَا\nThe conjunction أَوْ (aw) connects this sentence to the previous one, indicating an alternative reason for migration.\n\nThe noun امْرَأَةٍ (imra'ah) means \"woman\" or \"wife\" and serves as the object of the person's intention.\n\nThe verb يَنْكِحُ (yankihu) represents the action or intention, \"he marries.\"\n\nThe suffix هَا (ha) is attached to the verb, referring to the woman or wife as the object of the action.\n\nThe overall meaning is \"or for a wife he might marry.\""
+    },
+    {
+      "english": "so his migration is to that for which he migrated.",
+      "googleTranslation": "I emigrated him for what he emigrated for.",
+      "arabic": "فَهِجْرَتُهُ إلَى مَا هَاجَرَ إلَيْهِ",
+      "words": [
+        {
+          "id": "cb254187",
+          "arabic": "فَهِجْرَتُهُ",
+          "english": "So his migration",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of فَهِجْرَتُهُ.\n\nIn English, فَهِجْرَتُهُ is translated as \"so his migration\".\n\nThe Arabic word comes from the root هجر (Hajara), which means to migrate or to abandon.\n\nThe prefix فَ is a conjunction that means \"so\" or \"then\", while the suffix هُ indicates possession, translating to \"his\".\n\nTherefore, فَهِجْرَتُهُ signifies the act of migration belonging to a certain person (his), and this migration is being introduced or emphasized in the sentence, as indicated by the prefix فَ.\n\n⇉ In a Sentence\nLet us look at how فَهِجْرَتُهُ can be used in a sentence:\n⟶ فَهِجْرَتُهُ إلَى مَا هَاجَرَ إلَيْهِ\n↠ So his migration is to that for which he migrated.\n\nThe noun فَهِجْرَتُهُ here corresponds to the pronoun \"his\", indicating the act of migration undertaken by the person being spoken about.\n\nThe sentence is stating that the person's migration will be accounted for according to what he intended for his migration.\n\n⇉ Identifying the Root\nLet us look at the root of فَهِجْرَتُهُ.\n\nPicture Arabic roots as building blocks.\n\nJust like you can use a set of blocks to construct different structures, you can use Arabic roots to create various words.\n\nNow, let's identify the root of فَهِجْرَتُهُ.\n\nTo start, we remove the non-root parts:\n← فَ\nThis is a conjunction (Harf) that means \"so\" or \"then\".\n\nIt's used to connect this word with the previous sentence or idea.\n\n← هُ\nThis is a possessive pronoun (Dameer), \"his\" in English, which is attached at the end of the word to show possession.\n\nWhat now remains is:\n⟶ هِجْرَة\nThis is a word that comes from the three-letter root:\n⟶ هجر\n↠ Hajara\nThe root \"Hajara\" means to abandon or migrate.\n\nWords derived from this root are typically related to the concept of leaving, abandoning, or moving from one place to another, which beautifully demonstrates how the Arabic language builds complex meanings from simple roots.",
+          "filename": "5e587341-a81233ce-ar-cb254187.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "5088e70b",
+          "arabic": "إلَى",
+          "english": "to",
+          "grammar": "⇉ General Role\nإلَى is an Arabic particle, or 'Harf' as we call it in Arabic.\n\nIt acts similarly to the English preposition \"to\" and is used to indicate direction, destination, or purpose.\n\nYou can think of it like arrows in a painting.\n\nArrows may not be the main object in the painting, but they guide your gaze, showing you where to look or where the objects are moving towards.\n\nThey help create the story the painter wants to tell.\n\n⟶ إلَى\n↠ \"ila\" \n⇉ In a Sentence\nNow, let's see how this particle works in a sentence:\n⟶ فَهِجْرَتُهُ إلَى مَا هَاجَرَ إلَيْهِ\n↠ so his migration is to that for which he migrated.\n\nIn the sentence, the particle إلَى shows the direction or destination of the verb هَاجَرَ (migrated).\n\nSo, the person in the sentence migrated إلَى (to) something or someplace.\n\nWhen we look at the text, the Prophet Muhammad ﷺ is speaking about the concept of \"hijrah\" or migration in Islam.\n\nIn this context, إلَى gives us an understanding of the reason or goal behind the migration.\n\nThe particle إلَى (to) directs us towards the purpose of this action.\n\nIt's like the arrow in the painting, guiding our understanding of the intention behind the action.\n\nJust as the arrow directs your gaze in a painting, إلَى guides us to understand where or for what reason an action is taken.\n\nThe beauty of the Arabic language lies in how these small particles can shape the meaning of the sentence.",
+          "filename": "5e587341-a81233ce-ar-5088e70b.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "e708b139",
+          "arabic": "مَا",
+          "english": "that [which]",
+          "grammar": "⇉ General Role\nThe Arabic particle مَا is known as a Harf in Arabic grammar.\n\nThis little particle can do a lot!\n\nIt helps to create meanings of negation, interrogation, or in our case, relativity, which can be roughly translated as \"that which\" or \"what\".\n\nJust like the strokes of a paintbrush that bring out the beauty and the intended image of a painting, the particle مَا plays a crucial role in bringing out the intended meaning in a sentence.\n\nIt might seem small, but without it, the picture wouldn't be complete!\n\n⇉ One, Two or Three Words\nمَا is not a compound particle, but a simple one.\n\nIt stands on its own.\n\nJust like a single, but strong, stroke of paint on a canvas that adds a depth to the whole painting.\n\n⇉ In a Sentence\nNow, let's see how our particle مَا interacts with other words in the sentence:\n⟶ فَهِجْرَتُهُ إلَى مَا هَاجَرَ إلَيْهِ.\n\n↠ So his migration is to that for which he migrated.\n\nIn this sentence, the particle مَا is used to refer back to the reason for the migration.\n\nIt is just like the pronoun \"that\" in English that we use to refer back to something we've already mentioned.\n\nIn the wider context of the text, Prophet Muhammad ﷺ is explaining the importance of our intentions (or what we aim for) in our actions.\n\nThe use of مَا in this sentence refers back to the intention behind one's migration.\n\nSo, if the person migrated for the sake of Allah and His messenger, then مَا refers to Allah and His messenger.\n\nBut if a person migrated for worldly gain or to marry someone, then مَا refers to these worldly intentions.\n\nJust as a painter uses different strokes to tell a story on a canvas, the particle مَا helps to tell the story of our actions and intentions in the beautiful language of Arabic.\n\nIt's the details like these that give depth to the language and allow it to accurately convey the teachings of Islam.",
+          "filename": "5e587341-a81233ce-ar-e708b139.mp3",
+          "categoryLevel": ""
+        },
+        {
+          "id": "761f5091",
+          "arabic": "هَاجَرَ",
+          "english": "he migrated",
+          "grammar": "⇉ Meaning\nLet us look at the meaning of هَاجَرَ, which in Arabic is a verb, known as a Fi'l.\n\nThis verb is in the past tense, which in Arabic is known as Maadi.\n\nIn simple words, past tense means it refers to an action that has already happened.\n\nThe verb هَاجَرَ is in the third person masculine singular, which means it refers to 'he'.\n\nThe verb هَاجَرَ is translated as \"he migrated\" in English.\n\nTo give you a clearer understanding, the term \"migrate\" in this context implies moving or traveling from one place to another.\n\nThis is typically done with an intent or purpose in mind.\n\nRemember, we're keeping it simple for now, without any discussion of root letters or advanced grammatical concepts.\n\n⇉ In a Sentence\nLet us look at how هَاجَرَ can be used in a sentence:\n⟶ فَهِجْرَتُهُ إلَى مَا هَاجَرَ إلَيْهِ\n↠ So his migration is to that for which he migrated.\n\nIn this sentence, هَاجَرَ fits perfectly with the subject of the action which is the person doing the migration.\n\nIt's as if we're saying \"He packed his bags and moved to the place he migrated to.\"\n\nHere, the bags represent his intent or purpose, the place is his destination, and \"he\" is the person who migrated.\n\nRemember, learning a new language, especially Arabic, can feel like embarking on a journey, just like migrating from one place to another.\n\nIt takes time and patience, but the reward is immense.\n\nEach new word you learn is like taking a step forward on this journey.\n\nKeep going, and you'll reach your destination, Insha'Allah!",
+          "filename": "5e587341-a81233ce-ar-761f5091.mp3",
+          "categoryLevel": {
+            "$numberInt": "10"
+          }
+        },
+        {
+          "id": "943ffdbd",
+          "arabic": "إلَيْهِ",
+          "english": "to it",
+          "grammar": "⇉ General Role\nThe particle إلَيْهِ in Arabic plays the role of a preposition (Harf), just like 'to' in English.\n\nPrepositions, like the thread in a necklace, join the words (beads) together in a sentence to give it meaning.\n\nإلَيْهِ specifically shows a direction or goal of an action.\n\n⇉ One, Two or Three Words\nإلَيْهِ is a compound word formed by combining a preposition and a pronoun.\n\nLet's break it down:\n⟶ إلَى\n↠ \"ila\" which means \"to\".\n\n⟶ هِ\n↠ \"hi\" which is a pronoun and translates to \"him\" or \"it\" in English.\n\nWhen combined, these two parts form إلَيْهِ, and it can be translated as \"to him\" or \"to it\".\n\n⇉ In a Sentence\nNow let's see how the particle إلَيْهِ works in the sentence:\n⟶ فَهِجْرَتُهُ إلَى مَا هَاجَرَ إلَيْهِ.\n\n↠ So his migration is to that for which he migrated.\n\nIn this sentence, the particle إلَيْهِ refers to the goal or destination of the subject's migration.\n\nThe subject in this case is the individual who is migrating, and the goal is whatever he has migrated for.\n\nIn the context of the full text, Prophet Muhammad ﷺ is teaching us that the intention behind our actions defines their outcome, using migration as an example.\n\nIf the intention is for worldly gains or marriage, the migration is for that.\n\nIf the intention is for Allah and His Messenger, then the migration is for that.\n\nThe particle إلَيْهِ links the action (migration) to its intention or goal.\n\nIt's like saying \"his migration is to wherever his intention was directed\".\n\nThat's the beauty of Arabic, every small word can have a deep meaning and a powerful impact on the overall message.",
+          "filename": "5e587341-a81233ce-ar-943ffdbd.mp3",
+          "categoryLevel": {
+            "$numberInt": "30"
+          }
+        }
+      ],
+      "id": "a81233ce",
+      "filename": "5e587341-sentence-ar-a81233ce.mp3",
+      "explanation": "Now, let's analyze the sentence more closely to identify some Arabic root words and grammatical elements:\n\n→ فَ\nThis word is a conjunction meaning \"so\" or \"then.\"\n\nIt is used to connect two sentences and show a logical consequence or conclusion.\n\n→ هِجْرَتُهُ\nThis word is derived from the three-letter root ه-ج-ر (h-j-r), which means \"to migrate\" or \"to leave one's home.\"\n\nIn this case, the word is in the form of a noun, هِجْرَة (hijrah), meaning \"migration.\"\n\nThe suffix -تُ (-tu) is added to the root to indicate possession, and the suffix هُ (hu) is added to refer to the third person masculine singular (his), so it means \"his migration.\"\n\n→ إلَى\nThis word is a preposition meaning \"to\" or \"towards.\"\n\nIt is used to show direction or the destination of an action.\n\n→ مَا\nThis word is a pronoun that can mean \"what\" or \"that which.\"\n\nIn this context, it is used to refer to the object or goal of the migration.\n\n→ هَاجَرَ\nThis word is derived from the same three-letter root ه-ج-ر (h-j-r) mentioned earlier.\n\nIn this case, the word is in the past tense and is used to indicate the third person masculine singular (he), so it means \"he migrated.\"\n\n→ إلَيْهِ\nThe preposition إلَى (ila) is repeated here, with the suffix هِ (hi) added to refer to the third person masculine singular (him or it), so it means \"to it\" or \"towards it.\"\n\nNow, let's see how the words relate to each other in the sentence:\n\n→ فَهِجْرَتُهُ إلَى مَا هَاجَرَ إلَيْهِ\nThe conjunction فَ (fa) connects this sentence to the previous ones, indicating a conclusion or consequence.\n\nThe subject is \"his migration,\" هِجْرَتُهُ (hijratuhu).\n\nThe destination or goal of the migration is expressed by the phrase إلَى مَا (ila ma), meaning \"to that which\" or \"towards what.\"\n\nThe verb هَاجَرَ (hajara) represents the action, \"he migrated.\"\n\nThe preposition إلَى (ila) with the suffix هِ (hi) refers to the goal or object of the migration.\n\nThe overall meaning is \"so his migration is to that for which he migrated.\""
+    }
+  ],
+  "texts": {
+    "arabic": "سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ:  \nإنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ \nوَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى \nفَمَنْ كَانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ \nفَهِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ \nوَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا \nأَوْ امْرَأَةٍ يَنْكِحُهَا \nفَهِجْرَتُهُ إلَى مَا هَاجَرَ إلَيْهِ.",
+    "english": "I heard the Messenger of Allah (ﷺ) say: \n\"Actions are (judged) by motives (niyyah), \nso each man will have what he intended. \nThus, he whose migration (hijrah) was to Allah and His Messenger, \nhis migration is to Allah and His Messenger; \nbut he whose migration was for some worldly thing he might gain, \nor for a wife he might marry, \nhis migration is to that for which he migrated.\""
+  },
+  "views": {
+    "$numberInt": "1128"
+  },
+  "status": "Published",
+  "textGuid": null,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1686940610987"
+    }
+  },
+  "generateAudio": "No"
+}

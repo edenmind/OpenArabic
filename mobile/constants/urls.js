@@ -7,5 +7,6 @@ export const HOST = {
 export const ENDPOINT = {
   texts: 'texts',
   categories: 'categories',
-  words: 'words'
+  words: 'words',
+  wordsHome: 'words/home'
 }

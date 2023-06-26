@@ -9,7 +9,7 @@ import * as api from '../services/api-service.js'
 import { styled } from '@mui/system'
 
 const ArabicCell = styled('div')({
-  fontSize: 40
+  fontSize: 35
 })
 
 export default function Words() {
@@ -38,16 +38,26 @@ export default function Words() {
     {
       field: 'categoryLevel',
       headerName: 'Level',
-      width: 70,
+      width: 130,
       editable: false
     },
     {
-      field: 'date',
-      headerName: 'Date',
+      field: 'wordCount',
+      headerName: 'Word Count',
+      width: 150,
+      editable: false,
+      valueGetter: (params) => {
+        const sentence = params.row.arabicSentence
+        return sentence ? sentence.trim().split(/\s+/).length : 0
+      }
+    },
+    {
+      field: 'publishDate',
+      headerName: 'Publish Date',
       width: 250,
       editable: false,
       valueGetter: (params) => {
-        const date = new Date(params.row.date)
+        const date = new Date(params.row.publishDate)
         const options = {
           year: 'numeric',
           month: '2-digit',
@@ -73,15 +83,7 @@ export default function Words() {
       width: 350,
       editable: false
     },
-    {
-      field: 'grammar',
-      headerName: 'Grammar',
-      width: 200,
-      editable: false,
-      valueGetter: (params) => {
-        return params.row.grammar ? params.row.grammar.length : ''
-      }
-    },
+
     {
       field: 'actions',
       type: 'actions',

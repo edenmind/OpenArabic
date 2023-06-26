@@ -10,7 +10,8 @@ const SCREENS = {
   quiz: 'Practice',
   related: 'More',
   textScreen: 'TextScreen',
-  textSettings: 'TextSettings'
+  textSettings: 'TextSettings',
+  textGrammar: 'TextGrammar'
 }
 
 export default SCREENS
