@@ -1,11 +1,9 @@
-import { Text, Card, Button, useTheme } from 'react-native-paper'
+import { Text, Card, Button, useTheme, Chip } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { StyleSheet, Animated } from 'react-native'
 import SCREENS from '../constants/screens.js'
-import PlaySound from '../components/play-sound.js'
-import UI from '../constants/ui.js'
-
+import { prepareIngress, checkIfWithinLast36Hours } from '../services/utility-service.js'
 export default function TextListCardGrammar({ text, navigation, setShouldReload }) {
   const [scaleValue] = useState(new Animated.Value(1))
   const theme = useTheme()
@@ -30,7 +28,7 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
     <Animated.View style={animatedStyle}>
       <Card style={styles.card} mode="elevated">
         <Card.Title
-          subtitle={'Grammar Lesson'}
+          subtitle={'Grammar'}
           titleVariant="headlineSmall"
           titleStyle={styles.cardTitle}
           subtitleVariant="labelMedium"
@@ -72,6 +70,21 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
           >
             View Lesson
           </Button>
+          {checkIfWithinLast36Hours(text.publishDate) && (
+            <Chip
+              selectedColor={theme.colors.onTertiaryContainer}
+              mode={'flat'}
+              compact={true}
+              style={{
+                position: 'absolute',
+                left: 0,
+                bottom: 10,
+                backgroundColor: theme.colors.tertiaryContainer
+              }}
+            >
+              New ☀️
+            </Chip>
+          )}
         </Card.Actions>
       </Card>
     </Animated.View>

@@ -96,7 +96,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
                 compact={true}
                 style={{
                   position: 'absolute',
-                  left: 13,
+                  left: 8,
                   bottom: 10,
                   backgroundColor: theme.colors.tertiaryContainer
                 }}

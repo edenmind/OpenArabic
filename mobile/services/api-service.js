@@ -17,21 +17,58 @@ export const getTexts = (id) => async (dispatch) => {
       payload: false
     })
 
-    const [textRes, wordsRes] = await Promise.all([axios.get(url.categoryWithId(id)), axios.get(url.wordsHome())])
+    let textRes
+    let wordsRes
 
-    const combinedData = [...textRes.data, ...wordsRes.data]
+    if (!id) {
+      // Home
+      wordsRes = await axios.get(url.wordsHome())
+      textRes = await axios.get(url.categoryWithId())
+    } else if (id === 'Grammar') {
+      // Grammar
+      wordsRes = await axios.get(url.wordsHome())
+    } else {
+      // Category
+      textRes = await axios.get(url.categoryWithId(id))
+    }
 
-    combinedData.sort((a, b) => {
-      const dateA = new Date(a.publishDate || a.publishAt)
-      const dateB = new Date(b.publishDate || b.publishAt)
+    if (textRes && wordsRes) {
+      // Home
+      const combinedData = [...textRes.data, ...wordsRes.data]
 
-      return dateB - dateA
-    })
+      combinedData.sort((a, b) => {
+        const dateA = new Date(a.publishDate || a.publishAt)
+        const dateB = new Date(b.publishDate || b.publishAt)
 
-    dispatch({
-      type: 'SET_TEXTS',
-      payload: combinedData
-    })
+        return dateB - dateA
+      })
+
+      dispatch({
+        type: 'SET_TEXTS',
+        payload: combinedData
+      })
+    } else if (textRes) {
+      // Category
+      const filteredData = textRes.data
+
+      filteredData.sort((a, b) => {
+        const dateA = new Date(a.publishDate || a.publishAt)
+        const dateB = new Date(b.publishDate || b.publishAt)
+
+        return dateB - dateA
+      })
+
+      dispatch({
+        type: 'SET_TEXTS',
+        payload: filteredData
+      })
+    } else if (wordsRes) {
+      // Grammar
+      dispatch({
+        type: 'SET_TEXTS',
+        payload: wordsRes.data
+      })
+    }
   } catch (error) {
     console.log(error)
   } finally {
