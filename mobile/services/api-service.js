@@ -32,6 +32,12 @@ export const getTexts = (id) => async (dispatch) => {
       textRes = await axios.get(url.categoryWithId(id))
     }
 
+    // remove all items from wordRes in which the grammar property is empty
+    // this should be done in the backend
+    if (wordsRes) {
+      wordsRes.data = wordsRes.data.filter((item) => item.grammar)
+    }
+
     if (textRes && wordsRes) {
       // Home
       const combinedData = [...textRes.data, ...wordsRes.data]

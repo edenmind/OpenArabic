@@ -1,15 +1,14 @@
-import { prepareIngress } from '../services/utility-service.js'
+import { prepareIngress, checkIfWithinLast36Hours } from '../services/utility-service.js'
 import { Text, Card, Divider, Button, Chip, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback } from 'react'
 import { StyleSheet, Animated, Share } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
-import PlaySound from '../components/play-sound.js'
 
 export default function TextListCardQuote({ text }) {
   const [scaleValue] = useState(new Animated.Value(1))
-  const hadithTitle = `${text.author} in ${text.source}`
-  const englishHadith = `"${text.texts.english}"`
+  const hadithTitle = `${text.author.trim()} in ${text.source.trim()}`
+  const englishHadith = `${text.texts.english}`
 
   const theme = useTheme()
   const styles = StyleSheet.create({
@@ -23,12 +22,11 @@ export default function TextListCardQuote({ text }) {
       paddingTop: 5
     },
     chip: {
-      backgroundColor: theme.colors.onPrimary,
       marginBottom: 5,
-      marginTop: 15,
       width: 67
     },
     labelSmall: {
+      color: theme.colors.outline,
       marginBottom: 10,
       marginRight: 10,
       marginTop: 10,
@@ -41,7 +39,7 @@ export default function TextListCardQuote({ text }) {
     const arabic = prepareIngress(text.texts.arabic, 100)
     await Share.share({
       title: 'Open Arabic',
-      message: `${arabic}\n\n"${englishHadith}"\n\n${hadithTitle} \n`,
+      message: `${arabic}\n\n${englishHadith}\n\n${hadithTitle} \n`,
       url: 'https://openarabic.app.link'
     })
   }, [englishHadith, hadithTitle, text.texts.arabic])
@@ -56,16 +54,16 @@ export default function TextListCardQuote({ text }) {
     <Animated.View style={animatedStyle}>
       <Card style={styles.card} testID="textCard" mode="elevated">
         <Card.Content>
-          <Chip compact={true} mode="outlined" style={styles.chip}>
-            <Text style={{ textAlign: 'left' }}>Quote</Text>
+          <Chip compact={true} style={styles.chip}>
+            <Text>Quote</Text>
           </Chip>
           <Divider style={{ ...sharedStyle.dividerHidden }} />
-          <Text variant="labelMedium" style={{ opacity: 0.7, paddingBottom: 10 }}>
+          <Text variant="labelMedium" style={{ color: theme.colors.outline, paddingBottom: 10 }}>
             {hadithTitle}
           </Text>
           <Divider style={{ ...sharedStyle.dividerHidden }} />
           <Text style={{ ...sharedStyle.arabicBody }}>{text.texts.arabic}</Text>
-          <Text variant="bodyLarge" style={sharedStyle.englishBody}>
+          <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
             {englishHadith}
           </Text>
           <Text variant="labelSmall" style={styles.labelSmall}>
@@ -74,10 +72,22 @@ export default function TextListCardQuote({ text }) {
           <Divider style={sharedStyle.divider} />
         </Card.Content>
         <Card.Actions style={{ ...styles.cardAction, opacity: 1 }}>
-          <PlaySound audioFileName={text.sentences[0].filename} buttonText={'LISTEN'} />
-          <Button onPress={onShare}>
-            <Text style={{ color: theme.colors.onPrimary }}>SHARE</Text>
-          </Button>
+          {checkIfWithinLast36Hours(text.publishAt) && (
+            <Chip
+              selectedColor={theme.colors.onTertiaryContainer}
+              mode={'flat'}
+              compact={true}
+              style={{
+                position: 'absolute',
+                left: 10,
+                bottom: 20,
+                backgroundColor: theme.colors.tertiaryContainer
+              }}
+            >
+              New ☀️
+            </Chip>
+          )}
+          <Button onPress={onShare}>Share</Button>
         </Card.Actions>
       </Card>
     </Animated.View>
@@ -99,6 +109,7 @@ TextListCardQuote.propTypes = {
     category: PropTypes.string,
     sentences: PropTypes.array,
     english: PropTypes.string,
-    arabic: PropTypes.string
+    arabic: PropTypes.string,
+    publishAt: PropTypes.string
   })
 }

@@ -1,9 +1,10 @@
-import { Text, Card, Button, useTheme, Chip } from 'react-native-paper'
+import { Text, Card, Button, useTheme, Chip, Divider } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { StyleSheet, Animated } from 'react-native'
 import SCREENS from '../constants/screens.js'
-import { prepareIngress, checkIfWithinLast36Hours } from '../services/utility-service.js'
+import { checkIfWithinLast36Hours } from '../services/utility-service.js'
+import { useSharedStyles } from '../styles/common.js'
 export default function TextListCardGrammar({ text, navigation, setShouldReload }) {
   const [scaleValue] = useState(new Animated.Value(1))
   const theme = useTheme()
@@ -15,8 +16,17 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
       justifyContent: 'space-between',
       margin: 10
     },
-    cardSubTitle: {
-      color: theme.colors.outline
+    chip: {
+      marginBottom: 5,
+      width: 91
+    },
+    labelSmall: {
+      color: theme.colors.outline,
+      marginBottom: 10,
+      marginRight: 10,
+      marginTop: 10,
+      opacity: 0.7,
+      textAlign: 'right'
     }
   })
 
@@ -24,17 +34,15 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
     transform: [{ scale: scaleValue }]
   }
 
+  const sharedStyle = useSharedStyles(theme)
+
   return (
     <Animated.View style={animatedStyle}>
       <Card style={styles.card} mode="elevated">
-        <Card.Title
-          subtitle={'Grammar'}
-          titleVariant="headlineSmall"
-          titleStyle={styles.cardTitle}
-          subtitleVariant="labelMedium"
-          subtitleStyle={styles.cardSubTitle}
-        />
         <Card.Content>
+          <Chip compact={true} style={styles.chip}>
+            <Text> Grammar</Text>
+          </Chip>
           <Text
             style={{
               fontFamily: 'uthman',
@@ -58,18 +66,12 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
           >
             {text.english}
           </Text>
+          <Text variant="labelSmall" style={styles.labelSmall}>
+            {text.timeAgo}
+          </Text>
+          <Divider style={sharedStyle.divider} />
         </Card.Content>
         <Card.Actions style={styles.cardAction}>
-          <Button
-            onPress={() => {
-              setShouldReload(false)
-              navigation.navigate(SCREENS.textGrammar, {
-                grammar: text.grammar
-              })
-            }}
-          >
-            View Lesson
-          </Button>
           {checkIfWithinLast36Hours(text.publishDate) && (
             <Chip
               selectedColor={theme.colors.onTertiaryContainer}
@@ -85,6 +87,16 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
               New ☀️
             </Chip>
           )}
+          <Button
+            onPress={() => {
+              setShouldReload(false)
+              navigation.navigate(SCREENS.textGrammar, {
+                grammar: text.grammar
+              })
+            }}
+          >
+            View Lesson
+          </Button>
         </Card.Actions>
       </Card>
     </Animated.View>

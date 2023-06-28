@@ -118,7 +118,7 @@ export const prepareIngress = (text, length) => {
   return truncate(spaceAfterDot, length)
 }
 
-export const removeLineBreak = (stringWithLineBreaks) => stringWithLineBreaks.replaceAll(/(\r\n|\n|\r)/gm, '')
+export const removeLineBreak = (stringWithLineBreaks) => stringWithLineBreaks.replaceAll(/(\r\n|\n|\r)/gm, ' ')
 
 export const addSpaceAfterDot = (text) => {
   return text.replaceAll(/\s*([!,.:;?]+)(?!\s*$)\s*/g, '$1 ')
