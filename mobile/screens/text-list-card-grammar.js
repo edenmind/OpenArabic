@@ -91,7 +91,9 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
             onPress={() => {
               setShouldReload(false)
               navigation.navigate(SCREENS.textGrammar, {
-                grammar: text.grammar
+                grammar: text.grammar,
+                arabic: text.arabic,
+                english: text.english
               })
             }}
           >

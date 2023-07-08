@@ -2,10 +2,8 @@
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import TextBilingualSentencesWords from './text-bilingual-sentences-word-pair.js'
-import { Surface, Text, useTheme } from 'react-native-paper'
 
 function TextBilingualSentencesWordPairs({ words }) {
-  const theme = useTheme()
   const distinctValues = useMemo(() => {
     return [...new Set(words.filter((word) => word.arabic && word.english))]
   }, [words])
