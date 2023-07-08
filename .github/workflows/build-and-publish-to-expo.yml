@@ -35,4 +35,4 @@ jobs:
 
       - name: 🚀  Publish App
         working-directory: ./mobile
-        run: expo publish --non-interactive
+        run: eas update --auto --non-interactive
