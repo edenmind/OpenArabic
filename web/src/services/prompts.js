@@ -58,14 +58,15 @@ As an Islamic scholar, summarize the Full English Text considering the following
 - Maintain the beauty and grace of the original text.
 - Adhere to Sunni Islam interpretations.
 - Limit the summary to a maximum of 50 words.
-- Provide 5 suggestions of a maximum 25 character title for the summary.
 - Ensure the title's character count, including spaces, does not exceed 25.
+- The output must be only in JSON format.
 ---
 
 --- EXAMPLE OUTPUT:
-Decree and Human Actions
-
-This Hadith conveys that our creation, lifespan, sustenance, deeds, and destiny are ordained by Allah. Regardless of our earthly deeds appearing righteous or sinful, our ultimate fate aligns with this divine decree, demonstrating the intertwining of human actions and divine will.
+{
+"title": "Decree and Human Actions",
+"summary": "This Hadith conveys that our creation, lifespan, sustenance, deeds, and destiny are ordained by Allah. Regardless of our earthly deeds appearing righteous or sinful, our ultimate fate aligns with this divine decree, demonstrating the intertwining of human actions and divine will."
+}
 `.trimStart()
 }
 
@@ -507,31 +508,43 @@ Act as a Translator of Classic Arabic to Modern English and do a Word-for-Word T
 
 - The text that you are translating is a Sunni Islamic text.
 - The Word-for-Word translation will be used in an app that teaches Classical Arabic to English speakers using quiz games and other interactive methods.
-- Begin each translation line with the Arabic word, followed by the English equivalent.
-- Start a new line for each translated word.
 - Maintain the original word order from the Arabic sentence in your translation.
-- Insert additional words as necessary for readability, enclosing them in square brackets [].
 - Aim for a smooth, complete sentence in English that doesn't read merely as a list of translated words.
+- The translated words must be possible to read as a sentence in English.
+- Insert additional words for readability, enclosing them in square brackets [].
 - Ensure the translation aligns with the principles of Sunni Islam. Avoid any interpretations that contradict established Sunni beliefs or the consensus of the major Sunni scholars.
 - Stay true to the meaning and context of the original Arabic sentence.
 - Be respectful when translating words related to Allah, Prophet Muhammad ﷺ, the Prophets, the Companions (Sahaba), and all Islamic religious terms.
 - Ensure that names of Prophets and Sahaba are accompanied by respectful annotations such as Alayhis Salam (Peace be upon him) for Prophets and Radhi Allahu Anhu/Anha (May Allah be pleased with him/her) for Sahaba.
-- Feel free to add alternative translations in comments for context or nuance, as long as they respect Sunni Islam's interpretations and teachings.
 - The English Example Translation of the Arabic Sentence is provided as a guide that you can use it as a reference.
-- You can use the English Example Translation it as a starting point for your translation, but you are not required to follow it exactly.
-- Add an asterix * after every translation that is linguistic since we are going to use these translations to teach Arabic vocabulary and we only want to inlcude linguistic translations.
+- Use the English Example Translation as a starting point for your translation.
+- Return the result in a JSON array with a property "arabic" that contains the arabic word and a property "english" that contains the english translation.
+- Add alternate translations if you see fit separated by a comma.
+- Give at least two examples for every translation and begin with the translation you think is the best.
+- Verify that the grammar is correct and change the translation if necessary.
+- Prefer simple words over complex.
+- Prefer short words over long.
 ---
 
---- Example output of the above task and requirements:
-إنَّمَا - Indeed
-الْأَعْمَالُ - the actions [are judged]
-بِالنِّيَّاتِ - by the intentions*
-
-The word X is translated as Y because Z... It is not translated as W because Q...
-
-Alternative translations:
-إنَّمَا - Only
-الْأَعْمَالُ - the actions [are by]
+--- EXAMPLE OUTPUT:
+[
+  {
+    "arabic": "احْفَظْ",
+    "english": "Be mindful, Preserve, Keep [in mind]"
+  },
+  {
+    "arabic": "اللَّهَ",
+    "english": "[of] Allah, God"
+  },
+  {
+    "arabic": "تَجِدْهُ",
+    "english": "you will find Him, you find Him, find Him"
+  },
+  {
+    "arabic": "تُجَاهَك",
+    "english": "in front of you, before you, towards you"
+  }
+]
 ---
 `
   return result.trimStart()
@@ -598,18 +611,4 @@ function getRandomParticleAnalogy() {
 
   const randomIndex = Math.floor(Math.random() * particleAnalogies.length)
   return particleAnalogies[randomIndex]
-}
-
-function getRandomWordSentenceAnalogy() {
-  const wordSentenceAnalogies = [
-    'Foundation Stone: An Arabic word in a sentence is like a foundation stone in a building. It may just be one part of the whole, but it carries weight and supports the entire structure.',
-    'Key to a Lock: A single Arabic word can be like a key to a lock, where the lock is the sentence. The right word can unlock the full meaning of the sentence.',
-    'Seed in a Garden: Consider an Arabic word as a seed in a garden. The garden is the sentence. Each seed has the potential to grow and contribute to the beauty of the entire garden.',
-    'Pillar in a Mosque: An Arabic word can be compared to a pillar in a mosque. Just like a pillar supports and gives strength to the mosque, a word provides structure and meaning to a sentence.',
-    'Thread in a Tapestry: An Arabic word in a sentence is like a single thread in a tapestry. It is integral to creating the complete picture, and without it, the whole tapestry might not come together.',
-    'Compass on a Journey: An Arabic word can act like a compass for a sentence. It helps guide the direction and the meaning the sentence will take.'
-  ]
-
-  const randomIndex = Math.floor(Math.random() * wordSentenceAnalogies.length)
-  return wordSentenceAnalogies[randomIndex]
 }

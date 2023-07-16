@@ -2,7 +2,7 @@
   "expo": {
     "name": "Open Arabic",
     "slug": "OpenArabic",
-    "version": "1444.12.312",
+    "version": "1444.12.316",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -28,7 +28,7 @@
         "backgroundColor": "#323200"
       },
       "package": "com.edenmind.OpenArabic",
-      "versionCode": 112
+      "versionCode": 113
     },
     "web": {
       "favicon": "./assets/favicon.png"

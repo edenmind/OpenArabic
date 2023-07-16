@@ -195,7 +195,7 @@ const postTextOptions = {
           type: 'array',
           items: {
             type: 'object',
-            required: ['arabic', 'english', 'words', 'explanation'],
+            required: ['arabic', 'english', 'words'],
             properties: {
               arabic: { type: 'string', maxLength: 5000 },
               english: { type: 'string', maxLength: 5000 },

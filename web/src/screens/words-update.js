@@ -13,11 +13,11 @@ import React, { Suspense } from 'react'
 import SnackBar from '../components/snack-bar.js'
 import * as prompts from '../services/prompts.js'
 import BasicModal from '../components/basic-modal.js'
-
 import dayjs from 'dayjs'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DesktopDateTimePicker } from '@mui/x-date-pickers/DesktopDateTimePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { getChatCompletionMessage } from '../services/ai-service.js'
 
 function addEmptyLineAfterSentences(str) {
   const noempty = str.replace(/^\s*[\r\n]+/gm, '') // remove empty lines
@@ -161,112 +161,6 @@ const WordsUpdate = () => {
             <Button
               onClick={() =>
                 // eslint-disable-next-line implicit-arrow-linebreak
-                handleOpen(
-                  'Explain Verb',
-                  prompts.getExplanationOfVerbWithoutRoot(
-                    english,
-                    arabic,
-                    arabicSentence,
-                    englishSentence,
-                    arabicText,
-                    englishText
-                  )
-                )
-              }
-              variant="outlined"
-              color="primary"
-              style={{ marginLeft: '10px' }}
-            >
-              Verb (Only root)
-            </Button>
-            <Button
-              onClick={() =>
-                // eslint-disable-next-line implicit-arrow-linebreak
-                handleOpen(
-                  'Explain Verb',
-                  prompts.getExplanationOfVerb(
-                    english,
-                    arabic,
-                    arabicSentence,
-                    englishSentence,
-                    arabicText,
-                    englishText
-                  )
-                )
-              }
-              variant="outlined"
-              color="primary"
-              style={{ marginLeft: '10px' }}
-            >
-              Verb
-            </Button>
-            <Button
-              onClick={() =>
-                // eslint-disable-next-line implicit-arrow-linebreak
-                handleOpen(
-                  'Explain Noun',
-                  prompts.getExplanationOfNoun(
-                    english,
-                    arabic,
-                    arabicSentence,
-                    englishSentence,
-                    arabicText,
-                    englishText
-                  )
-                )
-              }
-              variant="outlined"
-              color="primary"
-              style={{ marginLeft: '10px' }}
-            >
-              Noun
-            </Button>
-            <Button
-              onClick={() =>
-                // eslint-disable-next-line implicit-arrow-linebreak
-                handleOpen(
-                  'Explain Noun',
-                  prompts.getExplanationOfNounWithoutRoot(
-                    english,
-                    arabic,
-                    arabicSentence,
-                    englishSentence,
-                    arabicText,
-                    englishText
-                  )
-                )
-              }
-              variant="outlined"
-              color="primary"
-              style={{ marginLeft: '10px' }}
-            >
-              Noun (Only root)
-            </Button>
-            <Button
-              onClick={() =>
-                // eslint-disable-next-line implicit-arrow-linebreak
-                handleOpen(
-                  'Explain Particle',
-                  prompts.getExplanationOfParticle(
-                    english,
-                    arabic,
-                    arabicSentence,
-                    englishSentence,
-                    arabicText,
-                    englishText
-                  )
-                )
-              }
-              variant="outlined"
-              color="primary"
-              style={{ marginLeft: '10px' }}
-            >
-              Particle
-            </Button>
-
-            <Button
-              onClick={() =>
-                // eslint-disable-next-line implicit-arrow-linebreak
                 handleOpen('Preview', <span style={{ whiteSpace: 'pre-wrap', fontSize: 33 }}>{grammar}</span>)
               }
               variant="outlined"
@@ -396,6 +290,116 @@ const WordsUpdate = () => {
               />
             </LocalizationProvider>
           </FormControl>
+
+          <div style={divStyle}>
+            <Stack spacing={2} direction="row">
+              <Button
+                onClick={async () => {
+                  const result = await getChatCompletionMessage(
+                    prompts.getExplanationOfVerbWithoutRoot(
+                      english,
+                      arabic,
+                      arabicSentence,
+                      englishSentence,
+                      arabicText,
+                      englishText
+                    )
+                  )
+
+                  setGrammar(result)
+                }}
+                variant="outlined"
+                color="primary"
+                style={{ marginLeft: '10px' }}
+              >
+                Verb (Only root)
+              </Button>
+              <Button
+                onClick={async () => {
+                  const result = await getChatCompletionMessage(
+                    prompts.getExplanationOfVerb(
+                      english,
+                      arabic,
+                      arabicSentence,
+                      englishSentence,
+                      arabicText,
+                      englishText
+                    )
+                  )
+
+                  setGrammar(result)
+                }}
+                variant="outlined"
+                color="primary"
+                style={{ marginLeft: '10px' }}
+              >
+                Verb
+              </Button>
+              <Button
+                onClick={async () => {
+                  const result = await getChatCompletionMessage(
+                    prompts.getExplanationOfNoun(
+                      english,
+                      arabic,
+                      arabicSentence,
+                      englishSentence,
+                      arabicText,
+                      englishText
+                    )
+                  )
+
+                  setGrammar(result)
+                }}
+                variant="outlined"
+                color="primary"
+                style={{ marginLeft: '10px' }}
+              >
+                Noun
+              </Button>
+              <Button
+                onClick={async () => {
+                  const result = await getChatCompletionMessage(
+                    prompts.getExplanationOfNounWithoutRoot(
+                      english,
+                      arabic,
+                      arabicSentence,
+                      englishSentence,
+                      arabicText,
+                      englishText
+                    )
+                  )
+
+                  setGrammar(result)
+                }}
+                variant="outlined"
+                color="primary"
+                style={{ marginLeft: '10px' }}
+              >
+                Noun (Only root)
+              </Button>
+              <Button
+                onClick={async () => {
+                  const result = await getChatCompletionMessage(
+                    prompts.getExplanationOfParticle(
+                      english,
+                      arabic,
+                      arabicSentence,
+                      englishSentence,
+                      arabicText,
+                      englishText
+                    )
+                  )
+
+                  setGrammar(result)
+                }}
+                variant="outlined"
+                color="primary"
+                style={{ marginLeft: '10px' }}
+              >
+                Particle
+              </Button>
+            </Stack>
+          </div>
           <FormControl fullWidth>
             <TextField
               fullWidth

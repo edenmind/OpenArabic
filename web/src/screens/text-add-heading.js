@@ -7,9 +7,8 @@ import * as api from '../services/api-service.js'
 import { capitalizeTitle } from '../services/word-processing.js'
 import FormHelperText from '@mui/material/FormHelperText'
 import FormControl from '@mui/material/FormControl'
-import BasicModal from '../components/basic-modal.js'
-import { Suspense } from 'react'
 import * as prompts from '../services/prompts.js'
+import { getChatCompletionMessage } from '../services/ai-service.js'
 
 const selector = (state) => state.text
 
@@ -24,27 +23,10 @@ const TextAddHeading = () => {
   const setAuthor = (event) => dispatch({ type: 'SET_AUTHOR', author: event.target.value })
   const setSource = (event) => dispatch({ type: 'SET_SOURCE', source: event.target.value })
   const setIntroduction = (event) => dispatch({ type: 'SET_INTRODUCTION', introduction: event.target.value })
-  const [promptTitle, setPromptTitle] = React.useState('')
-  const [promptText, setPromptText] = React.useState('')
-  const [openPrompt, setOpenPrompt] = React.useState(false)
 
   const [categories, setCategories] = React.useState([])
   const [authors, setAuthors] = React.useState([])
   const [images, setImages] = React.useState([])
-
-  const handleOpen = (promptTitle, promptText) => {
-    setOpenPrompt(true)
-    setPromptText(promptText)
-    setPromptTitle(promptTitle)
-  }
-
-  const handleClose = (reason) => {
-    if (reason === 'clickaway') {
-      return
-    }
-
-    setOpenPrompt(false)
-  }
 
   const { text } = useSelector(selector)
 
@@ -85,10 +67,13 @@ const TextAddHeading = () => {
         onChange={setIntroduction}
       />
       <Button
-        onClick={() =>
-          // eslint-disable-next-line implicit-arrow-linebreak
-          handleOpen('Explain Particle', prompts.generateTitleAndSummary(text))
-        }
+        onClick={async () => {
+          const jsonString = await getChatCompletionMessage(prompts.generateTitleAndSummary(text))
+          const result = JSON.parse(jsonString)
+
+          dispatch({ type: 'SET_TITLE', title: result.title })
+          dispatch({ type: 'SET_INTRODUCTION', introduction: result.summary })
+        }}
         variant="outlined"
         color="primary"
         style={{ marginLeft: '10px' }}
@@ -110,16 +95,6 @@ const TextAddHeading = () => {
       </FormControl>
       <img src={text.image} alt={text.title} width={700} />
       <StandardImageList images={images} />
-
-      <Suspense fallback={<div>Loading...</div>}>
-        <BasicModal
-          key={`${promptTitle}${promptText}`}
-          open={openPrompt}
-          handleClose={handleClose}
-          title={promptTitle}
-          text={promptText}
-        />
-      </Suspense>
     </Stack>
   )
 }

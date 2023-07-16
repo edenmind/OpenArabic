@@ -26,7 +26,7 @@ const Home = () => {
     <Fragment />
   ) : (
     <Fragment>
-      Let us start learning classical arabic, <em>inshāʾAllāh</em> 🚀`
+      Let us commence our journey of learning classical Arabic, <em>inshāʾAllāh</em> 🚀`
       <br />
       <br />
     </Fragment>

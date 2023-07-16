@@ -19,9 +19,10 @@ export const TextListHeadingHome = (properties) => {
           </Typography>
           <Typography variant="body1">
             <p>
-              OpenArabic is a free and open-source Arabic language learning platform with a focus on classic Islamic
-              texts. The target audience is primarily non-native speakers of Arabic who are interested in learning the
-              language for the purpose of reading the Quran and other Islamic texts.
+              OpenArabic is a complimentary and open-source platform dedicated to the learning of the Arabic language,
+              with a special emphasis on classic Islamic texts. It primarily caters to non-native speakers of Arabic who
+              are keen to acquire the language skills necessary for comprehending the Quran and other Islamic
+              literature.
             </p>
           </Typography>
           <Typography sx={{ mb: 1.5 }}>
