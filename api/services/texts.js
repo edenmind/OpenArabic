@@ -254,7 +254,7 @@ function getWordsPairedWithId(word) {
   return { arabicWord, englishWord }
 }
 
-export const removeAnythingBetweenBrackets = (text) => {
+const removeAnythingBetweenBrackets = (text) => {
   // remove anything between brackets
   let updatedText = text.replaceAll(/\[.*?]/g, '')
 
@@ -299,6 +299,7 @@ module.exports = {
   getAllWordsFromTexts,
   batchGenerateAudio,
   generateGuidForSentencesAndWords,
+  removeAnythingBetweenBrackets,
   addGuidToArray,
   addGuidToInnerArray,
   produceVocabularyCollection,
