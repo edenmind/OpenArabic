@@ -5,9 +5,10 @@ import PropTypes from 'prop-types'
 import { formatGrammar } from '../services/ui-services.js'
 import { transliterateArabicToEnglish } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
+import PlaySound from '../components/play-sound.js'
 
 export default function TextGrammar({ route }) {
-  const { grammar, arabic, english } = route.params
+  const { grammar, arabic, english, filename } = route.params
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -46,6 +47,11 @@ export default function TextGrammar({ route }) {
         {english} - {transliteratedArabic}
       </Text>
 
+      <PlaySound
+        audioFileName={`https://openarabic.ams3.digitaloceanspaces.com/audio/${filename}`}
+        buttonText={'Play'}
+      />
+      <Divider style={{ marginBottom: 20, opacity: 0 }} />
       {formatGrammar(grammar, sharedStyle)}
       <Divider style={{ marginBottom: 50, opacity: 0 }} />
     </ScrollView>
@@ -57,7 +63,8 @@ TextGrammar.propTypes = {
     params: PropTypes.shape({
       grammar: PropTypes.string.isRequired,
       arabic: PropTypes.string.isRequired,
-      english: PropTypes.string.isRequired
+      english: PropTypes.string.isRequired,
+      filename: PropTypes.string.isRequired
     })
   })
 }
