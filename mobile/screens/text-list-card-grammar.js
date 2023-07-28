@@ -88,7 +88,7 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
               })
             }}
           >
-            View Grammar Lesson
+            View Lesson
           </Button>
         </Card.Actions>
       </Card>
