@@ -129,7 +129,6 @@ const wordsReducer = createReducer(initialStateWords, (builder) => {
     })
 })
 
-
 const textReducer = createReducer(initialStateText, (builder) => {
   builder
     .addCase(actions.SET_TEXT, (state, action) => {
