@@ -21,7 +21,7 @@ export default function PlaySound({ audioFileName, buttonText }) {
       {
         shouldPlay: true,
         rate: 1,
-        shouldCorrectPitch: false,
+        shouldCorrectPitch: true,
         volume: 1,
         isMuted: false,
         isLooping: false,

@@ -51,7 +51,9 @@ export default function TextGrammar({ route }) {
 TextGrammar.propTypes = {
   route: PropTypes.shape({
     params: PropTypes.shape({
-      grammar: PropTypes.string.isRequired
+      grammar: PropTypes.string.isRequired,
+      arabic: PropTypes.string.isRequired,
+      english: PropTypes.string.isRequired
     })
   })
 }

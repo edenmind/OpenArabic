@@ -64,7 +64,8 @@ const getWordsHomeOptions = {
             category: { type: 'string' },
             publishDate: { type: 'string' },
             timeAgo: { type: 'string' },
-            grammar: { type: 'string' }
+            grammar: { type: 'string' },
+            filename: { type: 'string' }
           }
         }
       }

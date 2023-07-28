@@ -1,3 +1,4 @@
+/* eslint-disable newline-per-chained-call */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable putout/putout */
 
@@ -253,9 +254,22 @@ function getWordsPairedWithId(word) {
   return { arabicWord, englishWord }
 }
 
+export const removeAnythingBetweenBrackets = (text) => {
+  // remove anything between brackets
+  let updatedText = text.replaceAll(/\[.*?]/g, '')
+
+  // remove leading blank space if it exists
+  if (updatedText.startsWith(' ')) {
+    updatedText = updatedText.slice(1)
+  }
+
+  // ensure first character is uppercase
+  return updatedText.charAt(0).toUpperCase() + updatedText.slice(1)
+}
+
 //capitalize the first letter of a string
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+  return string.trim().charAt(0).toUpperCase() + string.slice(1)
 }
 
 async function getAllWordsFromTexts(textsCollection) {
@@ -272,6 +286,7 @@ async function getAllWordsFromTexts(textsCollection) {
           wordId: word.id,
           arabicSentence: sentence.arabic,
           englishSentence: sentence.english,
+          audioSentence: sentence.filename,
           author: text.author,
           source: text.source
         }

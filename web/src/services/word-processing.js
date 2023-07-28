@@ -4,10 +4,10 @@ import { getDictionary } from './dictionary.js'
 import { getDictionaryOfLowerCaseWords } from './dictionary-lowercase-words.js'
 
 export const splitTextToSentences = (text) => text.split('\n')
-export const removeEmptyAndNull = (words) => words.filter((word) => word !== '').filter((word) => word != undefined)
+export const removeEmptyAndNull = (words) => words.filter((word) => word && word.trim() !== '')
 export const splitSentencesToWords = (sentence) => sentence.split(' ')
 export const cleanWordFromInvalidCharacters = (wordToClean) => {
-  return wordToClean.replace(/[\d!"#$%&()*+,./:;<>?@[\]|،؛؟“]/g, '')
+  return wordToClean.replace(/[\d!"#$%&()*+,-./:;<>?@[\]|،؛؟“]/g, '')
 }
 export const removeLastVowel = (word) => {
   const lastChar = word[word.length - 1]

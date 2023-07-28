@@ -34,19 +34,6 @@ export const checkIfWithinLast36Hours = (createdAt) => {
   return false
 }
 
-export const removeAnythingBetweenBrackets = (text) => {
-  // remove anything between brackets
-  let updatedText = text.replaceAll(/\[.*?]/g, '')
-
-  // remove leading blank space if it exists
-  if (updatedText.startsWith(' ')) {
-    updatedText = updatedText.slice(1)
-  }
-
-  // ensure first character is uppercase
-  return updatedText.charAt(0).toUpperCase() + updatedText.slice(1)
-}
-
 //function that capitalizes the first letter
 export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1)

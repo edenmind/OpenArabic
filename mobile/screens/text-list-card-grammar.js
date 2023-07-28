@@ -16,16 +16,10 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
       justifyContent: 'space-between',
       margin: 10
     },
-    chip: {
-      marginBottom: 5,
-      width: 91
-    },
     labelSmall: {
       color: theme.colors.outline,
       marginBottom: 10,
-      marginRight: 10,
       marginTop: 10,
-      opacity: 0.7,
       textAlign: 'right'
     }
   })
@@ -40,9 +34,6 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
     <Animated.View style={animatedStyle}>
       <Card style={styles.card} mode="elevated">
         <Card.Content>
-          <Chip compact={true} style={styles.chip}>
-            <Text> Grammar</Text>
-          </Chip>
           <Text
             style={{
               fontFamily: 'uthman',
@@ -67,7 +58,7 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
             {text.english}
           </Text>
           <Text variant="labelSmall" style={styles.labelSmall}>
-            {text.timeAgo}
+            {`${text.timeAgo} · 2 mins read`}
           </Text>
           <Divider style={sharedStyle.divider} />
         </Card.Content>
@@ -97,7 +88,7 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
               })
             }}
           >
-            View Lesson
+            View Grammar Lesson
           </Button>
         </Card.Actions>
       </Card>

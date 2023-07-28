@@ -80,7 +80,7 @@ describe('WordsContent', () => {
     )
   })
 
-  it('displays three buttons for multiple choice', () => {
+  it('displays buttons for multiple choice', () => {
     const { getAllByRole } = render(
       <Provider store={store}>
         <WordsContent
@@ -98,6 +98,6 @@ describe('WordsContent', () => {
     )
 
     const buttons = getAllByRole('button')
-    expect(buttons.length).toBe(3)
+    expect(buttons.length).toBe(4)
   })
 })

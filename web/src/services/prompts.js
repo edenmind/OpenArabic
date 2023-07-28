@@ -9,6 +9,7 @@ const requirements = `
 - Refer to the individual Arabic Original Sentence as "sentence" and the Full Arabic Text for Reference as "text"
 - Always add a ﷺ after the name of the Prophet Muhammad (peace and blessings be upon him).
 - Always add a Alayhis Salam after a Prophet or an Angel; add Radhi Allahu Anhu after a male companion; add Rahimahullah after a scholar; add Radhi Allahu Anhum after the companions; add Radhi Allahu Anha after a female companion or wife of the Prophet ﷺ.
+- Translate ﷺ as "peace and blessings be upon him".
 - Use words that are easy to understand since the target audience does not have English as the first language.
 - Add a ⇉ before every English heading.
 - Do not mix arabic letters with latin letters in sentences.
@@ -474,20 +475,12 @@ Remember, just as the spice in a dish brings out the flavor, the particle "وَ�
 
 export const getArabicAndEnglishSentence = (sentence, text) => {
   const result = `
---- Full Arabic Text for context
+--- Full Arabic Text
 ${text.texts.arabic}
----
-
---- Full English Text for context
-${text.texts.english}
 ---
 
 --- Arabic Sentence from Full Arabic Text to Translate:
 ${sentence.arabic}
----
-
---- English Example Translation of the Arabic Sentence:
-${sentence.english}
 ---
 
 --- Author of the text:
@@ -504,49 +497,96 @@ ${text.category}
 
 
 --- INSTRUCTIONS:
-Act as a Translator of Classic Arabic to Modern English and do a Word-for-Word Translation of the Arabic Sentence to English
+Act as a Translator of Classic Arabic to English and do a Word-for-Word Translation of the Arabic Sentence to English according to the following criteria:
 
 - The text that you are translating is a Sunni Islamic text.
-- The Word-for-Word translation will be used in an app that teaches Classical Arabic to English speakers using quiz games and other interactive methods.
 - Maintain the original word order from the Arabic sentence in your translation.
-- Aim for a smooth, complete sentence in English that doesn't read merely as a list of translated words.
-- The translated words must be possible to read as a sentence in English.
-- Insert additional words for readability, enclosing them in square brackets [].
-- Ensure the translation aligns with the principles of Sunni Islam. Avoid any interpretations that contradict established Sunni beliefs or the consensus of the major Sunni scholars.
+- Insert additional words that gives better readability of the word-for-word translation, enclosing them in square brackets [].
+- Insert additional words so that the english translation is as close to the original Arabic Sentence as possible, enclosing them in square brackets [].
+- Always use the definite article "the" in the english translation when the Arabic word is in the definite form.
 - Stay true to the meaning and context of the original Arabic sentence.
-- Be respectful when translating words related to Allah, Prophet Muhammad ﷺ, the Prophets, the Companions (Sahaba), and all Islamic religious terms.
 - Ensure that names of Prophets and Sahaba are accompanied by respectful annotations such as Alayhis Salam (Peace be upon him) for Prophets and Radhi Allahu Anhu/Anha (May Allah be pleased with him/her) for Sahaba.
-- The English Example Translation of the Arabic Sentence is provided as a guide that you can use it as a reference.
-- Use the English Example Translation as a starting point for your translation.
-- Return the result in a JSON array with a property "arabic" that contains the arabic word and a property "english" that contains the english translation.
-- Add alternate translations if you see fit separated by a comma.
-- Give at least two examples for every translation and begin with the translation you think is the best.
-- Verify that the grammar is correct and change the translation if necessary.
-- Prefer simple words over complex.
-- Prefer short words over long.
+- Return the result in a valid JSON array with the property "arabic" that contains the arabic word and the property "english "that contains the english translation.
+- Give at least three examples for every translation separated by a comma and begin with the one that best connects with the english translation before and after.
+- When an Arabic word starts with "وَ" then do not treat it as a separate word but as a prefix that joins with the next word.
+- Translate ﷺ as "peace and blessings be upon him" without [].
 ---
 
 --- EXAMPLE OUTPUT:
 [
   {
-    "arabic": "احْفَظْ",
-    "english": "Be mindful, Preserve, Keep [in mind]"
+    "arabic": "إنَّ",
+    "english": "Indeed, Verily"
   },
   {
-    "arabic": "اللَّهَ",
-    "english": "[of] Allah, God"
+    "arabic": "الْحَلَالَ",
+    "english": "the lawful, the permissible"
   },
   {
-    "arabic": "تَجِدْهُ",
-    "english": "you will find Him, you find Him, find Him"
+    "arabic": "بَيِّنٌ",
+    "english": "[is] clear, [is] manifest"
   },
   {
-    "arabic": "تُجَاهَك",
-    "english": "in front of you, before you, towards you"
-  }
+    "arabic": "وَإِنَّ",
+    "english": "and indeed, and verily"
+  }, 
+  { 
+    "arabic":" الْحَرَامَ", 
+    "english": "[that which is] the unlawful, [that which is] the prohibited"
+  }, 
+  { 
+   	"arabic": "بَيِّنٌ",	  
+   	"english": "[is] clear, [is] manifest"
+	}
 ]
 ---
 `
+  return result.trimStart()
+}
+
+export const verifyTranslation = (arabic, translation) => {
+  const result = `
+
+--- Arabic Sentence:
+${arabic}
+---
+
+--- Translation to Verify:
+${translation}
+---
+
+--- INSTRUCTIONS:
+Act as a critical expert in Arabic and English and verify the English Word-for-Word Translation of the Arabic Sentence according to the following criteria:
+
+- The text you are verifying is a Sunni Islamic text.
+- The English Translation is a Word-for-Word Translation of the Arabic Sentence.
+- If the English Translation does not match good English, then it is becasue it is a Word-for-Word Translation of the Arabic Sentence and that is expected.
+- Ensure that the Word-for-Word Translation of the Arabic Sentence is correct.
+- Words betheen [] are added to make the Word-for-Word translation readable.
+- It is much more important that you find misstakes than that you confirm that the translation is correct.
+- Be extremly critical and be sure to find as many misstakes as possible.
+- Confirm that the English Word-for-Word translation accurately represents the original Arabic Sentence.
+- Ensure that the English Translation does not include any characters outside the Latin alphabet (A-Z, a-z), with the exception of square brackets ([]).
+- Ensure that all English words are completely correctly spelled.
+- Ensure that all English words are completely actual English words.
+- Ensure that the English words are conjugated correctly.
+- Ensure that the English words are in the correct order.
+- Ensure that the translation is strictly correct according to Sunni Islam.
+- Suggest an improved Word-for-Word translation of the Arabic sentence that is as close to the original Arabic Sentence as possible.
+- Add as many words as necessary between [] to make the Word-for-Word translation readable.
+- Compare the improved Word-for-Word translation with the English Translation and try to fins as many misstakes as possible.
+- Make your answer very brief while including all misstakes.
+---
+
+--- EXAMPLE OUTPUT:
+The word-for-word translation is correct. However, "feared" could be replaced with "avoided" to better match the provided English translation and to convey the meaning more accurately in this context.
+
+Improved Word-for-Word Translation:
+"So [whoever] avoided [the] doubts"
+---
+`
+  console.log(result.trimStart())
+
   return result.trimStart()
 }
 

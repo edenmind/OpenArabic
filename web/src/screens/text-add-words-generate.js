@@ -32,8 +32,6 @@ const TextAddWordsGenerate = React.memo((props) => {
       const arabicWordsInSentence = wordProcessing.splitSentencesToWords(arabicSentence)
       //remove all null and empty words
       const cleanFromNullAndEmpty = wordProcessing.removeEmptyAndNull(arabicWordsInSentence)
-      //remove all words from our dictionary that contains words that should not be translated
-      //const wordsInDictionaryRemoved = wordProcessing.removeWordsFromDictionary(cleanFromNullAndEmpty)
 
       //loop through the words in the sentence and add them to the words array
       for (const cleanWord of cleanFromNullAndEmpty) {
@@ -44,8 +42,6 @@ const TextAddWordsGenerate = React.memo((props) => {
         if (illegalCharactersRemoved === '' || illegalCharactersRemoved === null) {
           continue
         }
-
-        //const lastVowelRemoved = wordProcessing.removeLastVowel(nonArabicCharactersRemoved)
 
         //prepare the words with its translation
         const wordPair = {

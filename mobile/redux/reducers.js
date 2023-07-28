@@ -121,10 +121,14 @@ const wordsReducer = createReducer(initialStateWords, (builder) => {
     .addCase(actions.SET_WORDS, (state, action) => {
       return { ...state, words: action.payload }
     })
+    .addCase(actions.ADD_WORD, (state, action) => {
+      return { ...state, words: [...state.words, action.payload] }
+    })
     .addCase(actions.RESET_WORDS, () => {
       return { ...initialStateWords }
     })
 })
+
 
 const textReducer = createReducer(initialStateText, (builder) => {
   builder

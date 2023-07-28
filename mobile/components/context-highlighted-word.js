@@ -8,16 +8,18 @@ const HighlightedWord = ({ word }) => {
 
   return (
     <Text
-      variant="bodyLarge"
+      variant="labelLarge"
       style={{
         color: theme.colors.onPrimary,
         backgroundColor: theme.colors.secondary,
         borderBottomColor: theme.colors.secondary,
         borderBottomWidth: 1,
-        marginHorizontal: 2,
-        paddingHorizontal: 2,
+        marginHorizontal: 5,
+        paddingHorizontal: 4,
         paddingBottom: 0,
-        lineHeight: 25
+        lineHeight: 35,
+        fontSize: 21,
+        fontWeight: 'bold'
       }}
     >
       {word.english}

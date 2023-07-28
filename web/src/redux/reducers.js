@@ -81,7 +81,6 @@ const textReducer = createReducer(initialState, (builder) => {
     })
     .addCase(actions.UPDATE_FULL_SENTENCE, (state, action) => {
       const { indexSentence, englishWords } = action.value
-      //loop through state.text.sentences[indexSentence].words and match the english property with the english property of the element in englishWords
       state.text.sentences[indexSentence].words.forEach((word, index) => {
         word.english = englishWords[index].english
       })

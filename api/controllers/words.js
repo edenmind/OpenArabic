@@ -8,6 +8,7 @@ const COLLECTIONS = require('../constants/collections.js')
 const { capitalizeFirstLetter, shuffleArray, convertToLowerCase, getAllWordsFromTexts } = require('../services/texts')
 const { timeAgo } = require('../services/utils')
 const { ObjectId } = require('mongodb')
+const { removeAnythingBetweenBrackets } = require('../services/utils')
 
 async function getWordId(request, reply) {
   try {
@@ -162,6 +163,11 @@ async function getWords(request, reply) {
       alternative1IsSame = alternative1 === word.english || alternative1 === alternative2
       alternative2IsSame = alternative2 === word.english || alternative2 === alternative1
     }
+
+    //remove anything between brackets
+    alternative1 = removeAnythingBetweenBrackets(alternative1)
+    alternative2 = removeAnythingBetweenBrackets(alternative2)
+    word.english = removeAnythingBetweenBrackets(word.english)
 
     //uppercase the first letter using capitalizeFirstLetter function
     alternative1 = capitalizeFirstLetter(alternative1)

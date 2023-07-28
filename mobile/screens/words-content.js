@@ -10,15 +10,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import {
-  vibrateBetweenTwoColors,
-  generateRandomPositions,
-  transliterateArabicToEnglish,
-  removeAnythingBetweenBrackets
-} from '../services/utility-service.js'
+import PlaySound from '../components/play-sound.js'
+import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import { formatGrammar } from '../services/ui-services.js'
-import UI from '../constants/ui.js'
 
 const wordsSelector = (state) => state.words
 
@@ -39,6 +34,8 @@ const WordsContent = ({
   const hideModal = () => setVisible(false)
   const [visible, setVisible] = React.useState(false)
   const sharedStyle = useSharedStyles(theme)
+  const [wrongAnswers, setWrongAnswers] = useState(0)
+  const [wrongAnswerAlreadyAdded, setWrongAnswerAlreadyAdded] = useState([])
 
   const dispatch = useDispatch()
 
@@ -51,10 +48,10 @@ const WordsContent = ({
       alignItems: 'center',
       backgroundColor: color,
       borderRadius: 10,
-      justifyContent: 'center',
+
       marginBottom: 10,
       marginVertical: 10,
-      minHeight: 300
+      minHeight: 350
     },
     text: {
       color: theme.colors.primary,
@@ -96,7 +93,25 @@ const WordsContent = ({
   const handleWrongAnswer = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
     vibrateBetweenTwoColors(setColor, theme, theme.colors.errorContainer)
-  }, [theme])
+
+    const currentWordArabic = words[currentWord].arabic
+
+    if (wrongAnswerAlreadyAdded.includes(currentWordArabic)) {
+      return
+    }
+
+    //add the word to the wrongAnswerAlreadyAdded array so that we don't add it again
+    setWrongAnswerAlreadyAdded((prevWrongAnswerAlreadyAdded) => [...prevWrongAnswerAlreadyAdded, currentWordArabic])
+
+    // add the wrong answer so that we can practice it again
+    dispatch({
+      type: 'ADD_WORD',
+      payload: words[currentWord]
+    })
+
+    // add one to the wrong answers
+    setWrongAnswers((prevWrongAnswers) => prevWrongAnswers + 1)
+  }, [currentWord, dispatch, theme, words, wrongAnswerAlreadyAdded])
 
   // correct answer button
   const button1 = (
@@ -124,13 +139,13 @@ const WordsContent = ({
         correctAnswer()
       }}
     >
-      <Text style={styles.text}>{words.length > 1 && removeAnythingBetweenBrackets(words[currentWord].english)}</Text>
+      <Text style={styles.text}>{words.length > 1 && words[currentWord].english}</Text>
     </Button>
   )
 
   const wrongAnswerButton = (text) => (
     <Button mode="elevated" style={sharedStyle.buttonAnswer} onPress={handleWrongAnswer}>
-      <Text style={styles.text}>{words.length > 1 && removeAnythingBetweenBrackets(text)}</Text>
+      <Text style={styles.text}>{words.length > 1 && text}</Text>
     </Button>
   )
 
@@ -162,12 +177,13 @@ const WordsContent = ({
         <>
           <ProgressBar
             color={theme.colors.tertiary}
-            progress={currentWordIndex / numberOfWordsToPractice}
+            progress={currentWordIndex / (numberOfWordsToPractice + wrongAnswers)}
             style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
           />
           <Surface style={styles.surface}>
             <Text
               style={{
+                paddingTop: 15,
                 fontFamily: 'uthman',
                 width: '97%',
                 fontSize: 100,
@@ -177,23 +193,18 @@ const WordsContent = ({
             >
               {words[currentWord]?.arabic.trim()}
             </Text>
-            <Text
-              style={{
-                ...sharedStyle.englishBody,
-                textAlign: 'center',
-                color: theme.colors.outline,
 
-                paddingBottom: 25
-              }}
-            >
-              {transliterateArabicToEnglish(words[currentWord]?.arabic)}
-            </Text>
-
-            <Text style={{ ...sharedStyle.arabicBody, fontSize: 35, textAlign: 'center' }}>
+            <Text style={{ ...sharedStyle.arabicBody, fontSize: 30, textAlign: 'center', paddingHorizontal: 30 }}>
               {words[currentWord]?.arabicSentence}
             </Text>
 
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', position: 'absolute', bottom: 10, right: 10 }} />
+            <View style={{ position: 'absolute', bottom: 5, right: 10 }}>
+              <PlaySound
+                audioFileName={`https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`}
+                buttonText={'Play'}
+                style={{}}
+              />
+            </View>
           </Surface>
           <SnackButton
             visible={celebrationSnackBarVisibility}

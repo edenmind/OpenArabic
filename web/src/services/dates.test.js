@@ -3,7 +3,7 @@ import * as dates from './dates.js'
 describe('test dates', () => {
   it('should return the current hijri year', () => {
     // Arrange
-    const expectedHijriYear = '١٤٤٤ هـ'
+    const expectedHijriYear = '١٤٤٥ هـ'
 
     // Act
     const hijriYear = dates.getHijriYear()

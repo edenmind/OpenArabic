@@ -68,7 +68,7 @@ describe('prepareIngress', () => {
   describe('removeLineBreak', () => {
     it('should remove line breaks from a given string', () => {
       const stringWithLineBreaks = 'This\nis\na\ntest.'
-      const expectedOutput = 'Thisisatest.'
+      const expectedOutput = 'This is a test.'
 
       expect(removeLineBreak(stringWithLineBreaks)).toEqual(expectedOutput)
     })
@@ -88,7 +88,7 @@ describe('remove linebreaks', () => {
     // Arrange
     // eslint-disable-next-line operator-linebreak
     const stringWithLineBreaks =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' +
       '\r\n' +
       'Suspendisse rutrum bibendum lacus, ut semper neque mattis ut.'
 

@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
-import { Text, Button, useTheme } from 'react-native-paper'
+import { Text, useTheme } from 'react-native-paper'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
@@ -24,7 +24,6 @@ function TextBilingualSentencesWords({ word }) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const [visible, setVisible] = React.useState(false)
-  const showModal = () => setVisible(true)
   const hideModal = () => setVisible(false)
 
   const explanation = formatGrammar(word.grammar, sharedStyle)

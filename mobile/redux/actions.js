@@ -1,5 +1,6 @@
 import { createAction } from '@reduxjs/toolkit'
 
+export const ADD_WORD = createAction('ADD_WORD')
 export const RESET_TEXT = createAction('RESET_TEXT')
 export const RESET_WORDS = createAction('RESET_WORDS')
 export const SET_ARABIC_FONT_NAME = createAction('SET_ARABIC_FONT_NAME')

@@ -1,4 +1,4 @@
-import { generateShare, generateError } from './ui-services.js'
+import { generateShare, generateTextError } from './ui-services.js'
 
 //jest fake timers
 jest.useFakeTimers()
@@ -10,9 +10,9 @@ describe('generateShare', () => {
   })
 })
 
-describe('generateError', () => {
+describe('generateTextError', () => {
   it('returns a function', () => {
-    const result = generateError({})
+    const result = generateTextError({})
     expect(typeof result).toBe('function')
   })
 })

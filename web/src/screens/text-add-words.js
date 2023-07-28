@@ -16,9 +16,11 @@ const selectorText = (state) => state.text
 function TextAddWords() {
   const PAGE_SIZE = 5
 
-  const [currentPage, setCurrentPage] = React.useState(1)
   const { text } = useSelector(selectorText)
   const dispatch = useDispatch()
+
+  const [currentPage, setCurrentPage] = React.useState(1)
+  const [suggestions, setSuggestions] = React.useState(Array(text.sentences.length).fill(''))
 
   const handleChangeArabic = useCallback(
     (indexSentence, indexArabicWord, englishWord) => {
@@ -99,7 +101,22 @@ function TextAddWords() {
                   handleChangeArabic(indexSentence, indexArabicWord, arabicWord)
                 }}
               >
-                Fetch
+                Fetch from Google
+              </Button>
+
+              <Button
+                onClick={async () => {
+                  handleChangeArabic(indexSentence, indexArabicWord, `the ${word.english}`)
+                }}
+              >
+                Add the
+              </Button>
+              <Button
+                onClick={async () => {
+                  handleChangeArabic(indexSentence, indexArabicWord, `[the] ${word.english}`)
+                }}
+              >
+                Add [the]
               </Button>
 
               <Button
@@ -142,11 +159,42 @@ function TextAddWords() {
         >
           Translate
         </Button>
+        <Button
+          onClick={async () => {
+            const words = sentence.words.map((word) => {
+              return {
+                arabic: word.arabic,
+                english: word.english
+              }
+            })
+
+            const wordsIntoString = words.map((word) => `${word.arabic} ${word.english}`).join(' ')
+
+            const result = await getChatCompletionMessage(prompts.verifyTranslation(sentence.arabic, wordsIntoString))
+
+            const newSuggestions = Array.from(suggestions)
+            newSuggestions[(currentPage - 1) * PAGE_SIZE + indexSentence] = result
+            setSuggestions(newSuggestions)
+          }}
+          variant="contained"
+          color="primary"
+          style={{ marginLeft: '10px' }}
+        >
+          Verify
+        </Button>
+
+        <Box>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: suggestions[(currentPage - 1) * PAGE_SIZE + indexSentence]?.replace(/\n/g, '<br>')
+            }}
+          />
+        </Box>
 
         <Divider style={{ marginTop: 75, marginBottom: 75, height: 15 }} />
       </Fragment>
     ))
-  }, [currentPage, text, handleChangeEnglishSentence, handleChangeArabic, handleChangeArabicFullSentence])
+  }, [currentPage, text, suggestions, handleChangeEnglishSentence, handleChangeArabic, handleChangeArabicFullSentence])
 
   const numPages = Math.ceil(text.sentences.length / PAGE_SIZE)
   const pageButtons = []

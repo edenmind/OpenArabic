@@ -7,7 +7,7 @@ import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 import { Button, Divider, Text, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
-import { generateError, generateShare } from '../services/ui-services.js'
+import { generateTextError, generateShare } from '../services/ui-services.js'
 import FadeInView from '../components/fade-in-view.js'
 
 const selector = (state) => state.text
@@ -34,7 +34,7 @@ export default function TextBilingual() {
               {UI.share}
             </Button>
             <Divider style={{ opacity: 0 }} />
-            <Button onPress={generateError(text)} icon={'alert-circle-outline'} textColor={theme.colors.error}>
+            <Button onPress={generateTextError(text)} icon={'alert-circle-outline'} textColor={theme.colors.error}>
               <Text style={{ color: theme.colors.error }}>{UI.report}</Text>
             </Button>
           </View>

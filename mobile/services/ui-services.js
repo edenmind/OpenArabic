@@ -31,10 +31,22 @@ export const prepareTitle = (title) => {
   return capitalizedWords.join(' ')
 }
 
-export function generateError(text) {
+export function generateTextError(text) {
   async function composeError() {
     await MailComposer.composeAsync({
-      recipients: ['salam@edenmin.com'],
+      recipients: ['salam@edenmind.com'],
+      subject: `Found an error in the text: ${text.title}`,
+      body: `Please describe the error you found in the text: ${text.id}...`
+    })
+  }
+
+  return composeError
+}
+
+export function generateWordError(text) {
+  async function composeError() {
+    await MailComposer.composeAsync({
+      recipients: ['salam@edenmind.com'],
       subject: `Found an error in the text: ${text.title}`,
       body: `Please describe the error you found in the text: ${text.id}...`
     })
