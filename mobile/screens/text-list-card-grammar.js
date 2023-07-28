@@ -84,7 +84,8 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
               navigation.navigate(SCREENS.textGrammar, {
                 grammar: text.grammar,
                 arabic: text.arabic,
-                english: text.english
+                english: text.english,
+                filename: text.filename
               })
             }}
           >
