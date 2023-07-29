@@ -288,7 +288,8 @@ async function getAllWordsFromTexts(textsCollection) {
           englishSentence: sentence.english,
           audioSentence: sentence.filename,
           author: text.author,
-          source: text.source
+          source: text.source,
+          arabicSentenceFilename: sentence.filename
         }
       })
     })

@@ -102,7 +102,8 @@ const getWordsOptions = {
             grammar: { type: 'string' },
             filename: { type: 'string' },
             date: { type: 'string' },
-            publishDate: { type: 'string' }
+            publishDate: { type: 'string' },
+            arabicSentenceFilename: { type: 'string' }
           }
         }
       }
