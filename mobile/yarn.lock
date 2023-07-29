@@ -12694,7 +12694,7 @@ __metadata:
     react-dom: 18.2.0
     react-native: 0.72.3
     react-native-error-boundary: ^1.2.3
-    react-native-gesture-handler: ~2.12.0
+    react-native-gesture-handler: ~2.9.0
     react-native-get-random-values: ~1.8.0
     react-native-pager-view: 6.2.0
     react-native-paper: 5.9.1
@@ -14264,9 +14264,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gesture-handler@npm:~2.12.0":
-  version: 2.12.0
-  resolution: "react-native-gesture-handler@npm:2.12.0"
+"react-native-gesture-handler@npm:~2.9.0":
+  version: 2.9.0
+  resolution: "react-native-gesture-handler@npm:2.9.0"
   dependencies:
     "@egjs/hammerjs": ^2.0.17
     hoist-non-react-statics: ^3.3.0
@@ -14276,7 +14276,7 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 5147357b3212e269d0b8003e1be9e0993d0770f4880f1a8f52d2d61512c4569c48ec7b866d0a9ee44038785c29e0f84fbb99fd18a8e09552a25910c71602d788
+  checksum: 6bfdd9d23486193424dcfb0073dd821a216c2783dde746d73a3441e920602343f09efa10261c6f09fcbcb645d029a95305c86f61997053c01ad89751c8c6d236
   languageName: node
   linkType: hard
 

@@ -76,6 +76,6 @@ export default function PlaySound({ audioFileNames, buttonText }) {
 }
 
 PlaySound.propTypes = {
-  audioFileNames: PropTypes.array.isRequired,
+  audioFileNames: PropTypes.any.isRequired,
   buttonText: PropTypes.string.isRequired
 }
