@@ -7,7 +7,8 @@
 const COLLECTIONS = require('../constants/collections.js')
 const { capitalizeFirstLetter, shuffleArray, convertToLowerCase, getAllWordsFromTexts } = require('../services/texts')
 const { ObjectId } = require('mongodb')
-const { removeAnythingBetweenBrackets, timeAgo } = require('../services/utils')
+const { timeAgo } = require('../services/utils')
+const { removeAnythingBetweenBrackets } = require('../services/texts')
 
 async function getWordId(request, reply) {
   try {
