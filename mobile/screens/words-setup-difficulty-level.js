@@ -5,12 +5,31 @@ import { View, Image } from 'react-native'
 import { Divider, Surface, Text, useTheme, Chip } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
+import ModalScrollView from '../components/modal-scroll-view.js'
+import {
+  getNoun,
+  getVerb,
+  getParticle,
+  getDefinite,
+  getPresent,
+  getPlural,
+  getPronouns,
+  getFuture,
+  getDual,
+  getPassive,
+  getCompound
+} from '../services/grammar-service.js'
+import { formatGrammar } from '../services/ui-services.js'
 
 const WordsSetupDifficultyLevel = (props) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   let source
   let goal
+  const [visible, setVisible] = React.useState(false)
+  const hideModal = () => setVisible(false)
+  const [title, setTitle] = React.useState('')
+  const [explanation, setExplanation] = React.useState('')
 
   switch (props.difficultyLevel) {
     case 10: {
@@ -26,6 +45,11 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Noun')
+                setExplanation(formatGrammar(getNoun(), sharedStyle))
+              }}
             >
               Noun
             </Chip>
@@ -33,6 +57,11 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Verb')
+                setExplanation(formatGrammar(getVerb(), sharedStyle))
+              }}
             >
               Verb
             </Chip>
@@ -40,10 +69,16 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Particle')
+                setExplanation(formatGrammar(getParticle(), sharedStyle))
+              }}
             >
               Particle
             </Chip>
           </View>
+          <Text variant="labelSmall">Press label for explanation</Text>
         </>
       )
 
@@ -62,6 +97,11 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Definite')
+                setExplanation(formatGrammar(getDefinite(), sharedStyle))
+              }}
             >
               Definite
             </Chip>
@@ -69,6 +109,11 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Present')
+                setExplanation(formatGrammar(getPresent(), sharedStyle))
+              }}
             >
               Present
             </Chip>
@@ -77,6 +122,11 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Plural')
+                setExplanation(formatGrammar(getPlural(), sharedStyle))
+              }}
             >
               Plural
             </Chip>
@@ -85,10 +135,16 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Pronoun')
+                setExplanation(formatGrammar(getPronouns(), sharedStyle))
+              }}
             >
               Pronoun
             </Chip>
           </View>
+          <Text variant="labelSmall">Press label for explanation</Text>
         </>
       )
 
@@ -107,6 +163,11 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Future')
+                setExplanation(formatGrammar(getFuture(), sharedStyle))
+              }}
             >
               Future
             </Chip>
@@ -114,6 +175,11 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Dual')
+                setExplanation(formatGrammar(getDual(), sharedStyle))
+              }}
             >
               Dual
             </Chip>
@@ -121,6 +187,11 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Compound')
+                setExplanation(formatGrammar(getCompound(), sharedStyle))
+              }}
             >
               Compound
             </Chip>
@@ -128,10 +199,16 @@ const WordsSetupDifficultyLevel = (props) => {
               style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
               compact={true}
               selectedColor={theme.colors.onTertiary}
+              onPress={() => {
+                setVisible(true)
+                setTitle('Passive')
+                setExplanation(formatGrammar(getPassive(), sharedStyle))
+              }}
             >
               Passive
             </Chip>
           </View>
+          <Text variant="labelSmall">Press label for explanation</Text>
         </>
       )
 
@@ -149,6 +226,14 @@ const WordsSetupDifficultyLevel = (props) => {
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
         {goal}
       </View>
+      <ModalScrollView
+        visible={visible}
+        content={<View>{explanation}</View>}
+        title={title}
+        hideModal={hideModal}
+        height="87%"
+        titleLanguage="english"
+      />
     </Surface>
   )
 }

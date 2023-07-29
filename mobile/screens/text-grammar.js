@@ -48,7 +48,7 @@ export default function TextGrammar({ route }) {
       </Text>
 
       <PlaySound
-        audioFileNames={`https://openarabic.ams3.digitaloceanspaces.com/audio/${filename}`}
+        audioFileName={`https://openarabic.ams3.digitaloceanspaces.com/audio/${filename}`}
         buttonText={'Play'}
       />
       <Divider style={{ marginBottom: 20, opacity: 0 }} />
