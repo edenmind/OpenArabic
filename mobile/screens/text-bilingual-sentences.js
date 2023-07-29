@@ -39,7 +39,7 @@ function TextBilingualSentences(props) {
       <Text style={sharedStyle.englishBody} variant="bodyLarge">
         {sentence.english}
       </Text>
-      <PlaySound audioFileName={sentence.filename} buttonText={UI.playSentence} />
+      <PlaySound audioFileNames={sentence.filename} buttonText={UI.playSentence} />
       <Button
         mode="elevated"
         textColor={theme.colors.tertiary}

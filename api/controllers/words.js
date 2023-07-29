@@ -5,10 +5,15 @@
 /* eslint-disable operator-linebreak */
 
 const COLLECTIONS = require('../constants/collections.js')
-const { capitalizeFirstLetter, shuffleArray, convertToLowerCase, getAllWordsFromTexts } = require('../services/texts')
+const {
+  capitalizeFirstLetter,
+  shuffleArray,
+  convertToLowerCase,
+  getAllWordsFromTexts,
+  removeAnythingBetweenBrackets
+} = require('../services/texts')
 const { ObjectId } = require('mongodb')
 const { timeAgo } = require('../services/utils')
-const { removeAnythingBetweenBrackets } = require('../services/texts')
 
 async function getWordId(request, reply) {
   try {
@@ -32,7 +37,8 @@ async function getWordId(request, reply) {
             englishText: textDocument.texts.english,
             arabicText: textDocument.texts.arabic,
             englishSentence: sentence.english,
-            arabicSentence: sentence.arabic
+            arabicSentence: sentence.arabic,
+            arabicSentenceFilename: sentence.filename
           }
 
           return reply.code(200).send(updatedWord)

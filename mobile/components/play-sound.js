@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { StyleSheet } from 'react-native'
 
 // This is more of a component than a server and might be better placed in the components folder
-export default function PlaySound({ audioFileName, buttonText }) {
+export default function PlaySound({ audioFileNames, buttonText }) {
   const [sound, setSound] = React.useState()
 
   const styles = StyleSheet.create({
@@ -15,7 +15,18 @@ export default function PlaySound({ audioFileName, buttonText }) {
     }
   })
 
-  const playSound = React.useCallback(async () => {
+  // function that loops over audioFileName that is an array and calls playSound with the should that should be played
+  const playAllSounds = async () => {
+    if (Array.isArray(audioFileNames)) {
+      for (const audioFileName of audioFileNames) {
+        await playSound(audioFileName)
+      }
+    } else {
+      await playSound(audioFileNames)
+    }
+  }
+
+  const playSound = async (audioFileName) => {
     const { sound } = await Audio.Sound.createAsync(
       { uri: audioFileName },
       {
@@ -28,12 +39,26 @@ export default function PlaySound({ audioFileName, buttonText }) {
         isPlaybackAllowed: true,
         isLoopingIOS: false,
         isMutedIOS: false
+      },
+      (status) => {
+        if (status.didJustFinish) {
+          sound.unloadAsync()
+        }
       }
     )
 
     setSound(sound)
-    await sound.playAsync()
-  }, [audioFileName])
+
+    return new Promise((resolve) => {
+      sound.setOnPlaybackStatusUpdate((status) => {
+        if (status.didJustFinish) {
+          resolve()
+        }
+      })
+
+      sound.playAsync()
+    })
+  }
 
   React.useEffect(() => {
     return sound
@@ -44,13 +69,13 @@ export default function PlaySound({ audioFileName, buttonText }) {
   }, [sound])
 
   return (
-    <Button onPress={playSound} mode="elevated" style={styles.button} icon={'play'}>
+    <Button onPress={playAllSounds} mode="elevated" style={styles.button} icon={'play'}>
       {buttonText}
     </Button>
   )
 }
 
 PlaySound.propTypes = {
-  audioFileName: PropTypes.string.isRequired,
+  audioFileNames: PropTypes.array.isRequired,
   buttonText: PropTypes.string.isRequired
 }

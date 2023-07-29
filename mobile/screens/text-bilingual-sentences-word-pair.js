@@ -38,7 +38,7 @@ function TextBilingualSentencesWords({ word }) {
           </Text>
         </View>
         <View style={styles.flexOne}>
-          <PlaySound audioFileName={word.filename} buttonText={UI.play} />
+          <PlaySound audioFileNames={word.filename} buttonText={UI.play} />
         </View>
       </View>
       <ModalScrollView
