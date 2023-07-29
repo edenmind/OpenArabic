@@ -32,7 +32,8 @@ async function getWordId(request, reply) {
             englishText: textDocument.texts.english,
             arabicText: textDocument.texts.arabic,
             englishSentence: sentence.english,
-            arabicSentence: sentence.arabic
+            arabicSentence: sentence.arabic,
+            arabicSentenceFilename: sentence.filename
           }
 
           return reply.code(200).send(updatedWord)

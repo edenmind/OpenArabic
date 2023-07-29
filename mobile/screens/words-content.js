@@ -198,9 +198,19 @@ const WordsContent = ({
               {words[currentWord]?.arabicSentence}
             </Text>
 
+            <View style={{ position: 'absolute', bottom: 25, left: 10 }}>
+              <Text variant="labelSmall" style={{ color: theme.colors.outline }}>
+                {words[currentWord]?.source}
+              </Text>
+            </View>
+
             <View style={{ position: 'absolute', bottom: 5, right: 10 }}>
               <PlaySound
-                audioFileName={`https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`}
+                audioFileNames={[
+                  `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`,
+                  `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`,
+                  `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].arabicSentenceFilename}`
+                ]}
                 buttonText={'Play'}
                 style={{}}
               />

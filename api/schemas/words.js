@@ -22,7 +22,8 @@ const getWordIdOptions = {
           filename: { type: 'string' },
           englishText: { type: 'string' },
           arabicText: { type: 'string' },
-          publishDate: { type: 'string' }
+          publishDate: { type: 'string' },
+          arabicSentenceFilename: { type: 'string' }
         }
       }
     }
