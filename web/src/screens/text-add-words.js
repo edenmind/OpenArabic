@@ -22,10 +22,25 @@ function TextAddWords() {
   const [currentPage, setCurrentPage] = React.useState(1)
   const [suggestions, setSuggestions] = React.useState(Array(text.sentences.length).fill(''))
 
+  const handleChangeExplanation = useCallback(
+    (indexSentence, indexArabicWord, explanation) => {
+      const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
+      dispatch({ type: 'UPDATE_EXPLANATION', value: { indexSentence: sentenceIndex, indexArabicWord, explanation } })
+    },
+    [currentPage, dispatch, PAGE_SIZE]
+  )
+
+  const handleChangeExplanationSentence = useCallback(
+    (indexSentence, explanations) => {
+      const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
+      dispatch({ type: 'UPDATE_EXPLANATION_SENTENCE', value: { indexSentence: sentenceIndex, explanations } })
+    },
+    [currentPage, dispatch, PAGE_SIZE]
+  )
+
   const handleChangeArabic = useCallback(
     (indexSentence, indexArabicWord, englishWord) => {
       const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
-
       dispatch({ type: 'UPDATE_SENTENCE', value: { indexSentence: sentenceIndex, indexArabicWord, englishWord } })
     },
     [currentPage, dispatch, PAGE_SIZE]
@@ -34,7 +49,6 @@ function TextAddWords() {
   const handleChangeArabicFullSentence = useCallback(
     (indexSentence, englishWords) => {
       const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
-
       dispatch({ type: 'UPDATE_FULL_SENTENCE', value: { indexSentence: sentenceIndex, englishWords } })
     },
     [currentPage, dispatch, PAGE_SIZE]
@@ -55,7 +69,7 @@ function TextAddWords() {
 
     return sentencesToShow.map((sentence, indexSentence) => (
       <Fragment key={indexSentence + currentPage}>
-        <Stack spacing={0} style={{ paddingBottom: '10px', width: '900px' }}>
+        <Stack spacing={0} style={{ paddingBottom: '30px', width: '900px' }}>
           <h2>
             Sentence <Chip label={(currentPage - 1) * PAGE_SIZE + indexSentence} color="secondary" />
           </h2>
@@ -72,7 +86,6 @@ function TextAddWords() {
             variant="outlined"
           />
 
-          <br />
           <h3>Words: </h3>
           {sentence.words.map((word, indexArabicWord) => (
             <Box sx={{ fontSize: 'h4.fontSize', fontWeight: 'bold' }} key={indexArabicWord + currentPage}>
@@ -88,6 +101,20 @@ function TextAddWords() {
                   onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
                   rows={1}
                   fullWidth
+                />
+              </Stack>
+              <Stack spacing={5} direction="row" style={{ marginBottom: 0 }}>
+                <Box sx={{ minWidth: '90px' }}>
+                  <h6 style={{ direction: 'rtl', fontSize: 15, marginTop: 5 }}>Explanation</h6>
+                </Box>
+
+                <TextField
+                  InputProps={{ style: { fontSize: 15 } }}
+                  value={word.explanation || ''}
+                  onChange={(event) => handleChangeExplanation(indexSentence, indexArabicWord, event.target.value)}
+                  fullWidth
+                  multiline
+                  rows={5}
                 />
               </Stack>
               <Chip
@@ -161,6 +188,21 @@ function TextAddWords() {
         </Button>
         <Button
           onClick={async () => {
+            const wordsPairs = sentence.words.map((word) => `${word.arabic} ${word.english}`).join('\n')
+
+            const jsonString = await getChatCompletionMessage(prompts.getExplanation(wordsPairs, text))
+            const result = JSON.parse(jsonString)
+
+            handleChangeExplanationSentence(indexSentence, result)
+          }}
+          variant="contained"
+          color="primary"
+          style={{ marginLeft: '10px' }}
+        >
+          Explain
+        </Button>
+        <Button
+          onClick={async () => {
             const words = sentence.words.map((word) => {
               return {
                 arabic: word.arabic,
@@ -194,7 +236,16 @@ function TextAddWords() {
         <Divider style={{ marginTop: 75, marginBottom: 75, height: 15 }} />
       </Fragment>
     ))
-  }, [currentPage, text, suggestions, handleChangeEnglishSentence, handleChangeArabic, handleChangeArabicFullSentence])
+  }, [
+    currentPage,
+    text,
+    suggestions,
+    handleChangeEnglishSentence,
+    handleChangeArabic,
+    handleChangeExplanation,
+    handleChangeArabicFullSentence,
+    handleChangeExplanationSentence
+  ])
 
   const numPages = Math.ceil(text.sentences.length / PAGE_SIZE)
   const pageButtons = []

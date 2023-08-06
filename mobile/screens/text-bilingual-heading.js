@@ -75,6 +75,6 @@ TextBilingualHeading.propTypes = {
     image: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     source: PropTypes.string.isRequired,
-    introduction: PropTypes.string.isOptional
+    introduction: PropTypes.string
   })
 }

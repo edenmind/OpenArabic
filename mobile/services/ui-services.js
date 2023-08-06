@@ -56,19 +56,21 @@ export function generateWordError(text) {
 }
 
 export function moonPhaseEmoji(day) {
-  if (day < 1 || day > 30) {
+  const dayInt = Number.parseInt(day, 10)
+
+  if (dayInt < 1 || dayInt > 30) {
     throw new Error('Day must be between 1 and 30.')
   }
 
-  if (day === 1) {
+  if (dayInt === 1) {
     return '🌑' // New moon
-  } else if (day > 1 && day < 7) {
+  } else if (dayInt > 1 && dayInt < 7) {
     return '🌒' // Waxing crescent
-  } else if (day >= 7 && day < 14) {
+  } else if (dayInt >= 7 && dayInt < 14) {
     return '🌓' // First quarter
-  } else if (day >= 14 && day < 22) {
+  } else if (dayInt >= 14 && dayInt < 22) {
     return '🌕' // Full moon
-  } else if (day >= 22 && day < 29) {
+  } else if (dayInt >= 22 && dayInt < 29) {
     return '🌗' // Last quarter
   }
 

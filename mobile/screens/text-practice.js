@@ -1,5 +1,5 @@
 import { View, ScrollView, Alert } from 'react-native'
-import { Text, Surface, Divider, useTheme } from 'react-native-paper'
+import { Text, Surface, Divider, useTheme, Button } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSharedStyles } from '../styles/common.js'
@@ -8,6 +8,9 @@ import WordsContextHighLighted from '../components/context-highlighted.js'
 import TextPracticeArabicWords from './text-practice-arabic-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
+import ModalScrollView from '../components/modal-scroll-view.js'
+import { formatGrammar } from '../services/ui-services.js'
+import PlaySound from '../components/play-sound.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -22,6 +25,9 @@ const TextPractice = () => {
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
   const [color, setColor] = useState(theme.colors.elevation.level2)
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
+  const hideModal = () => setVisible(false)
+  const [visible, setVisible] = React.useState(false)
+  const [explanation, setExplanation] = useState('')
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
@@ -64,16 +70,17 @@ const TextPractice = () => {
       const wordsInSentence = sentence.words.map((word, wordIndex) => {
         return {
           arabicWord: { arabic: word.arabic, id: wordIndex },
-          englishWord: { english: word.english, id: wordIndex }
+          englishWord: { english: word.english, id: wordIndex },
+          explanation: word.explanation
         }
       })
 
       const arabicWords = wordsInSentence.map((word) => word.arabicWord).sort(() => Math.random() - 0.5)
       const englishWords = wordsInSentence.map((word) => word.englishWord)
+      const explanations = wordsInSentence.map((word) => word.explanation)
+      const filename = sentence.filename
 
-      const explanation = sentence.explanation
-
-      return { arabicWords, englishWords, explanation }
+      return { arabicWords, englishWords, explanations, filename }
     })
   }, [text])
 
@@ -147,9 +154,48 @@ const TextPractice = () => {
             englishWord={currentEnglishWord}
           />
         </View>
+        <View style={{ position: 'absolute', right: 10, bottom: 20, flexDirection: 'row' }}>
+          <Button
+            mode="contained-tonal"
+            style={{ marginHorizontal: 5 }}
+            icon="eye-outline"
+            onPress={() => {
+              let combinedExplanations = ''
+
+              for (const [index, word] of sentencesInText[currentSentence].englishWords.entries()) {
+                const currentEnglishWord = word.english.charAt(0).toUpperCase() + word.english.slice(1)
+                const currentArabicWord = sentencesInText[currentSentence].arabicWords[index].arabic
+                const currentExplanation = sentencesInText[currentSentence].explanations[index]
+
+                combinedExplanations += `⟶ ${currentArabicWord}\n↠ ${currentEnglishWord}\n${currentExplanation}\n\n`
+              }
+
+              setExplanation(formatGrammar(combinedExplanations, sharedStyle))
+              setVisible(true)
+            }}
+          >
+            Explain
+          </Button>
+          <PlaySound
+            audioFileNames={sentencesInText[currentSentence].filename}
+            buttonText="Play"
+            margin={0}
+            mode="contained-tonal"
+          />
+          <Button mode="contained" style={{ marginHorizontal: 5 }}>
+            Next
+          </Button>
+        </View>
       </Surface>
 
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <ModalScrollView
+        visible={visible}
+        titleLanguage="english"
+        content={<View>{explanation}</View>}
+        title={'Explain'}
+        hideModal={hideModal}
+      />
+
       <TextPracticeArabicWords
         testID="textPracticeArabicWords"
         currentArabicWordsInSentence={currentArabicWordsInSentence}

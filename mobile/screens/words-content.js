@@ -12,9 +12,6 @@ import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import PlaySound from '../components/play-sound.js'
 import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
-import ModalScrollView from '../components/modal-scroll-view.js'
-import { formatGrammar } from '../services/ui-services.js'
-
 const wordsSelector = (state) => state.words
 
 const WordsContent = ({
@@ -31,8 +28,6 @@ const WordsContent = ({
   const [color, setColor] = useState(theme.colors.elevation.level2)
   const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
   const [timeoutId, setTimeoutId] = useState()
-  const hideModal = () => setVisible(false)
-  const [visible, setVisible] = React.useState(false)
   const sharedStyle = useSharedStyles(theme)
   const [wrongAnswers, setWrongAnswers] = useState(0)
   const [wrongAnswerAlreadyAdded, setWrongAnswerAlreadyAdded] = useState([])
@@ -51,7 +46,7 @@ const WordsContent = ({
 
       marginBottom: 10,
       marginVertical: 10,
-      minHeight: 350
+      minHeight: 320
     },
     text: {
       color: theme.colors.primary,
@@ -157,14 +152,6 @@ const WordsContent = ({
     { button: button3, position: buttonPositions[2] }
   ].sort((a, b) => a.position - b.position)
 
-  const details = (
-    <View>
-      {words[currentWord]?.grammar
-        ? formatGrammar(words[currentWord].grammar, sharedStyle)
-        : 'No explanation available'}
-    </View>
-  )
-
   const renderItem = ({ item }) => <View>{item.button}</View>
 
   return (
@@ -181,35 +168,45 @@ const WordsContent = ({
             style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
           />
           <Surface style={styles.surface}>
-            <Text
-              style={{
-                paddingTop: 15,
-                fontFamily: 'uthman',
-                width: '97%',
-                fontSize: 100,
-                textAlign: 'center',
-                color: theme.colors.secondary
-              }}
-            >
-              {words[currentWord]?.arabic.trim()}
-            </Text>
-
-            <Text style={{ ...sharedStyle.arabicBody, fontSize: 30, textAlign: 'center', paddingHorizontal: 30 }}>
-              {words[currentWord]?.arabicSentence}
-            </Text>
-
-            <View style={{ position: 'absolute', bottom: 25, left: 10 }}>
-              <Text variant="labelSmall" style={{ color: theme.colors.outline }}>
-                {words[currentWord]?.source}
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Text
+                style={{
+                  fontFamily: 'uthman',
+                  width: '97%',
+                  fontSize: 120,
+                  textAlign: 'center',
+                  color: theme.colors.secondary,
+                  paddingBottom: 50
+                }}
+              >
+                {words[currentWord]?.arabic.trim()}
               </Text>
             </View>
 
-            <View style={{ position: 'absolute', bottom: 5, right: 10 }}>
+            {/* <Text
+              style={{
+                ...sharedStyle.arabicBody,
+                fontSize: 30,
+                textAlign: 'center',
+                paddingHorizontal: 10,
+                lineHeight: 45
+              }}
+            >
+              {words[currentWord]?.arabicSentence}
+            </Text> */}
+
+            {/* <View style={{ position: 'absolute', bottom: 15, left: 15, width: 130 }}>
+              <Text variant="labelSmall" style={{ color: theme.colors.outline }}>
+                {words[currentWord]?.source}
+              </Text>
+            </View> */}
+
+            <View style={{ flexDirection: 'row', position: 'absolute', bottom: 5, right: 10 }}>
               <PlaySound
+                mode="text"
                 audioFileNames={[
                   `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`,
-                  `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`,
-                  `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].arabicSentenceFilename}`
+                  `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`
                 ]}
                 buttonText={'Play'}
                 style={{}}
@@ -221,12 +218,6 @@ const WordsContent = ({
             onDismissSnackBar={onDismissSnackBar}
             duration={3500}
             text="Session Completed Successfully!"
-          />
-          <ModalScrollView
-            visible={visible}
-            content={details}
-            title={words[currentWord]?.arabic}
-            hideModal={hideModal}
           />
         </>
       }

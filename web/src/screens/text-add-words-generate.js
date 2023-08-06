@@ -46,7 +46,8 @@ const TextAddWordsGenerate = React.memo((props) => {
         //prepare the words with its translation
         const wordPair = {
           arabic: illegalCharactersRemoved,
-          english: ''
+          english: '',
+          explanation: ''
         }
         //add the word to the words array
         words.push(wordPair)

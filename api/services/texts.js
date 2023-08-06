@@ -287,6 +287,7 @@ async function getAllWordsFromTexts(textsCollection) {
           arabicSentence: sentence.arabic,
           englishSentence: sentence.english,
           audioSentence: sentence.filename,
+          explanation: sentence.explanation,
           author: text.author,
           source: text.source,
           arabicSentenceFilename: sentence.filename
