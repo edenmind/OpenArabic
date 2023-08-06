@@ -91,8 +91,11 @@ export default function TextListCardQuote({ text }) {
           <PlaySound
             audioFileNames={`https://openarabic.ams3.digitaloceanspaces.com/audio/${text.sentences[0].filename}`}
             buttonText={'Play'}
+            mode={'contained-tonal'}
           />
-          <Button onPress={onShare}>Share</Button>
+          <Button onPress={onShare} icon={'share'}>
+            Share
+          </Button>
         </Card.Actions>
       </Card>
     </Animated.View>
