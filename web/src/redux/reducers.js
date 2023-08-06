@@ -79,6 +79,10 @@ const textReducer = createReducer(initialState, (builder) => {
       const { indexSentence, indexArabicWord, englishWord } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].english = englishWord
     })
+    .addCase(actions.UPDATE_EXPLANATION, (state, action) => {
+      const { indexSentence, indexArabicWord, explanation } = action.value
+      state.text.sentences[indexSentence].words[indexArabicWord].explanation = explanation
+    })
     .addCase(actions.UPDATE_FULL_SENTENCE, (state, action) => {
       const { indexSentence, englishWords } = action.value
       state.text.sentences[indexSentence].words.forEach((word, index) => {
@@ -86,8 +90,10 @@ const textReducer = createReducer(initialState, (builder) => {
       })
     })
     .addCase(actions.UPDATE_EXPLANATION_SENTENCE, (state, action) => {
-      const { indexSentence, explanation } = action.value
-      state.text.sentences[indexSentence].explanation = explanation
+      const { indexSentence, explanations } = action.value
+      state.text.sentences[indexSentence].words.forEach((word, index) => {
+        word.explanation = explanations[index].explanation
+      })
     })
     .addCase(actions.UPDATE_SENTENCE_QUIZ, (state, action) => {
       const { indexSentence, indexArabicWord, quiz } = action.value

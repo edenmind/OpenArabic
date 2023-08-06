@@ -133,7 +133,7 @@ export const getHijriDateLatin = () => {
 
   const [day, month, year] = hijriDate.split(' ')
 
-  return `${year} ${day} ${month} ${moonPhaseEmoji(day)}`.replace(/,$/, '').trim()
+  return `${year} ${day} ${month} ${moonPhaseEmoji(month)}`.replace(/,$/, '').trim()
 }
 //replace every letter in a string based on a map defined in the function
 //the service is kept in the mobile codebase to lower the load on the backend

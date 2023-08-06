@@ -544,6 +544,71 @@ Act as a Translator of Classic Arabic to English and do a Word-for-Word Translat
   return result.trimStart()
 }
 
+export const getExplanation = (translation, text) => {
+  const result = `
+
+--- Author of the text:
+${text.author}
+---
+
+--- Source of the text:
+${text.source}
+---
+
+--- Type of text:
+${text.category}
+---
+
+--- Full Arabic Text for Reference:
+${text.texts.arabic}
+---
+
+--- English Word for Word Translation of Sentence:
+${translation}
+---
+
+--- INSTRUCTIONS:
+Act as a Teacher in Classical Arabic and explain the English Word for Word Translation to a beginner student according to the following criteria:
+- The text is a sunni islamic text.
+- Return a JSON object containg properties for arabic, english and explanation.
+- Then explain the word in simple terms according to:
+- Is it a verb, noun, particle?
+- Is it singular, dual, plural?
+- Is it definite or indefinite?
+- Is it past, present, future?
+- Is it masculine or feminine?
+- Is it a pronoun?
+- Does the word consists of more than one word?
+- Only use the following grammatical terms: Noun (Ism), Verb (Fi'l), Preposition (Harf), Pronoun (Dameer), Past Tense (Maadi), Present Tense (Mudari'), Future Tense (Mustaqbil), Singular (Mufrad), Dual (Muthanna), Plural (Jam'), Definite (Ma'arifa), Indefinite (Nakira), Verbal Noun (Masdar).
+- If some grammatical concepts are not applicable, then do not mention them.
+- Do not derive the root of the word.
+- Make the text engaging to read and easy to understand by using story telling and analogies.
+- Explain how the word is related to other words in the sentence.
+- Explain the function of the word in the sentence.
+- Provide alternate translations of the word.
+- If an Arabic word translates to more than one English word, then explain why, how and what the different parts of the word means.
+- Always add a Alayhis Salam after a Prophet or an Angel; add Radhi Allahu Anhu after a male companion; add Rahimahullah after a scholar; add Radhi Allahu Anhum after the companions; add Radhi Allahu Anha after a female companion or wife of the Prophet ﷺ.
+---
+
+--- EXAMPLE OUTPUT:
+[
+  {
+    "arabic": "فَمَنْ",
+    "english": "So whoever",
+    "explanation": "A particle (Harf) combined with a relative pronoun (Dameer). The particle 'فَ' is a conjunction meaning 'so' or 'then', and 'مَنْ' is a relative pronoun meaning 'whoever'. This combination is used to introduce a conditional clause in the sentence, setting the condition for what follows."
+  },
+  {
+    "arabic": "اتَّقَى",
+    "english": "[he] avoids",
+    "explanation": "A verb (Fi'l) in the past tense (Maadi). It is singular (Mufrad) and masculine. The verb 'اتَّقَى' means 'he avoided' or 'he was cautious of'. In this context, it refers to the action of avoiding or staying away from something."
+  }
+]
+---
+---
+`
+  return result.trimStart()
+}
+
 export const verifyTranslation = (arabic, translation) => {
   const result = `
 

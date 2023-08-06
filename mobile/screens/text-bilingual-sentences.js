@@ -43,7 +43,7 @@ function TextBilingualSentences(props) {
       <Button
         mode="elevated"
         textColor={theme.colors.tertiary}
-        icon="abjad-arabic"
+        icon="eye-outline"
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()

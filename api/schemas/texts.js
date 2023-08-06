@@ -36,6 +36,7 @@ const getTextsOptions = {
   handler: listTexts
 }
 
+// used for categories
 const getTextsWithIdOptions = {
   schema: {
     response: {
@@ -80,6 +81,7 @@ const getTextOptions = {
           slug: { type: 'string' },
           image: { type: 'string' },
           introduction: { type: 'string' },
+          explanation: { type: 'string' },
           views: { type: 'string' },
           timeAgo: { type: 'string' },
           readingTime: { type: 'string' },
@@ -147,7 +149,8 @@ const updateTextOptions = {
                   properties: {
                     quiz: { type: 'boolean' },
                     arabic: { type: 'string', minLength: 1, maxLength: 50 },
-                    english: { type: 'string', minLength: 1, maxLength: 50 }
+                    english: { type: 'string', minLength: 1, maxLength: 50 },
+                    explanation: { type: 'string' }
                   }
                 }
               }
@@ -208,7 +211,8 @@ const postTextOptions = {
                   properties: {
                     quiz: { type: 'boolean' },
                     arabic: { type: 'string', maxLength: 50 },
-                    english: { type: 'string', maxLength: 50 }
+                    english: { type: 'string', maxLength: 50 },
+                    explanation: { type: 'string' }
                   }
                 }
               }

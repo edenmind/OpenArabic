@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useCallback } from 'react'
 import { StyleSheet, Animated, Share } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
+import PlaySound from '../components/play-sound.js'
 
 export default function TextListCardQuote({ text }) {
   const [scaleValue] = useState(new Animated.Value(1))
@@ -87,6 +88,10 @@ export default function TextListCardQuote({ text }) {
               New ☀️
             </Chip>
           )}
+          <PlaySound
+            audioFileNames={`https://openarabic.ams3.digitaloceanspaces.com/audio/${text.sentences[0].filename}`}
+            buttonText={'Play'}
+          />
           <Button onPress={onShare}>Share</Button>
         </Card.Actions>
       </Card>

@@ -33,6 +33,7 @@ const ModalScrollView = ({
       ...sharedStyled.arabicHeading,
       alignSelf: 'center',
       marginHorizontal: 10,
+      paddingBottom: 15,
       textAlign: 'center',
       writingDirection: 'rtl'
     },
