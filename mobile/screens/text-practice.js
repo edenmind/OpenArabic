@@ -28,6 +28,7 @@ const TextPractice = () => {
   const hideModal = () => setVisible(false)
   const [visible, setVisible] = React.useState(false)
   const [explanation, setExplanation] = useState('')
+  const [sentenceIsComplete, setSentenceIsComplete] = useState(false)
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
@@ -85,6 +86,7 @@ const TextPractice = () => {
   }, [text])
 
   const isLastWordInSentence = currentWord === sentencesInText[currentSentence].englishWords.length - 1
+
   const isLastSentence = currentSentence === sentencesInText.length - 1
 
   const handlePress = React.useCallback(
@@ -105,19 +107,14 @@ const TextPractice = () => {
       setCurrentArabicWordsInSentence(() => updatedArabicWords)
 
       if (isLastWordInSentence) {
+        setSentenceIsComplete(true)
         vibrateBetweenTwoColors(setColor, theme, theme.colors.primaryContainer)
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-        handleResetQuiz()
 
         if (isLastSentence) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
-        } else {
-          setCurrentSentence((prev) => prev + 1)
         }
-
-        setCurrentArabicSentenceFromCorrectAnswers('')
-        setCurrentWord(0)
 
         return
       }
@@ -132,10 +129,60 @@ const TextPractice = () => {
       currentSentence,
       isLastWordInSentence,
       theme,
-      handleResetQuiz,
       isLastSentence
     ]
   )
+
+  const sentenceControl = (
+    <View
+      style={{ justifyContent: 'flex-end', paddingRight: 10, flexDirection: 'row', marginTop: 33, marginBottom: 33 }}
+    >
+      <Button
+        mode="contained-tonal"
+        style={{ marginHorizontal: 5 }}
+        icon="eye-outline"
+        onPress={() => {
+          let combinedExplanations = ''
+
+          for (const [index, word] of sentencesInText[currentSentence].englishWords.entries()) {
+            const currentEnglishWord = word.english.charAt(0).toUpperCase() + word.english.slice(1)
+            const currentArabicWord = sentencesInText[currentSentence].arabicWords[index].arabic
+            const currentExplanation = sentencesInText[currentSentence].explanations[index]
+
+            combinedExplanations += `⟶ ${currentArabicWord}\n↠ ${currentEnglishWord}\n${currentExplanation}\n\n`
+          }
+
+          setExplanation(formatGrammar(combinedExplanations, sharedStyle))
+          setVisible(true)
+        }}
+      >
+        Explain
+      </Button>
+      <PlaySound
+        audioFileNames={sentencesInText[currentSentence].filename}
+        buttonText="Play"
+        margin={0}
+        mode="contained-tonal"
+      />
+      <Button
+        mode="contained"
+        style={{ marginHorizontal: 5 }}
+        onPress={() => {
+          setSentenceIsComplete(false)
+
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+          handleResetQuiz()
+
+          setCurrentArabicSentenceFromCorrectAnswers('')
+          setCurrentSentence((prev) => prev + 1)
+          setCurrentWord(0)
+        }}
+      >
+        Next
+      </Button>
+    </View>
+  )
+
   return textLoading ? (
     <ScrollView style={sharedStyle.headerContainer}>
       <Surface
@@ -154,38 +201,7 @@ const TextPractice = () => {
             englishWord={currentEnglishWord}
           />
         </View>
-        <View style={{ position: 'absolute', right: 10, bottom: 20, flexDirection: 'row' }}>
-          <Button
-            mode="contained-tonal"
-            style={{ marginHorizontal: 5 }}
-            icon="eye-outline"
-            onPress={() => {
-              let combinedExplanations = ''
-
-              for (const [index, word] of sentencesInText[currentSentence].englishWords.entries()) {
-                const currentEnglishWord = word.english.charAt(0).toUpperCase() + word.english.slice(1)
-                const currentArabicWord = sentencesInText[currentSentence].arabicWords[index].arabic
-                const currentExplanation = sentencesInText[currentSentence].explanations[index]
-
-                combinedExplanations += `⟶ ${currentArabicWord}\n↠ ${currentEnglishWord}\n${currentExplanation}\n\n`
-              }
-
-              setExplanation(formatGrammar(combinedExplanations, sharedStyle))
-              setVisible(true)
-            }}
-          >
-            Explain
-          </Button>
-          <PlaySound
-            audioFileNames={sentencesInText[currentSentence].filename}
-            buttonText="Play"
-            margin={0}
-            mode="contained-tonal"
-          />
-          <Button mode="contained" style={{ marginHorizontal: 5 }}>
-            Next
-          </Button>
-        </View>
+        {sentenceIsComplete && sentenceControl}
       </Surface>
 
       <ModalScrollView
@@ -196,11 +212,13 @@ const TextPractice = () => {
         hideModal={hideModal}
       />
 
-      <TextPracticeArabicWords
-        testID="textPracticeArabicWords"
-        currentArabicWordsInSentence={currentArabicWordsInSentence}
-        handlePress={handlePress}
-      />
+      {!sentenceIsComplete && (
+        <TextPracticeArabicWords
+          testID="textPracticeArabicWords"
+          currentArabicWordsInSentence={currentArabicWordsInSentence}
+          handlePress={handlePress}
+        />
+      )}
     </ScrollView>
   ) : (
     <Spinner />
