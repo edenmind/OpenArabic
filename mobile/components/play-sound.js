@@ -17,8 +17,6 @@ export default function PlaySound({ audioFileNames, buttonText, mode = 'elevated
 
   // function that loops over audioFileName that is an array and calls playSound with the should that should be played
   const playAllSounds = async () => {
-    console.log(audioFileNames)
-
     if (Array.isArray(audioFileNames)) {
       for (const audioFileName of audioFileNames) {
         await playSound(audioFileName)

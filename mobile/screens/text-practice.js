@@ -44,26 +44,24 @@ const TextPractice = () => {
   }, [currentSentence, currentWord, sentencesInText, textLoading])
 
   const handleResetQuiz = useCallback(() => {
-    if (currentSentence === sentencesInText.length - 1) {
-      Alert.alert(
-        'Practice Complete!',
-        'Do you want to try again?',
-        [
-          {
-            text: 'No',
-            style: 'cancel'
-          },
-          {
-            text: 'Yes',
-            onPress: () => {
-              setCurrentSentence(0)
-            }
+    Alert.alert(
+      'Practice Complete!',
+      'Do you want to try again?',
+      [
+        {
+          text: 'No',
+          style: 'cancel'
+        },
+        {
+          text: 'Yes',
+          onPress: () => {
+            setCurrentSentence(0)
           }
-        ],
-        { cancelable: false }
-      )
-    }
-  }, [currentSentence, sentencesInText])
+        }
+      ],
+      { cancelable: false }
+    )
+  }, [])
 
   // loop through all sentences in the text
   const sentencesInText = React.useMemo(() => {
@@ -134,12 +132,9 @@ const TextPractice = () => {
   )
 
   const sentenceControl = (
-    <View
-      style={{ justifyContent: 'flex-end', paddingRight: 10, flexDirection: 'row', marginTop: 33, marginBottom: 33 }}
-    >
+    <View style={{ marginTop: 10, marginBottom: 33 }}>
       <Button
         mode="contained-tonal"
-        style={{ marginHorizontal: 5 }}
         icon="eye-outline"
         onPress={() => {
           let combinedExplanations = ''
@@ -161,25 +156,34 @@ const TextPractice = () => {
       <PlaySound
         audioFileNames={sentencesInText[currentSentence].filename}
         buttonText="Play"
-        margin={0}
+        margin={15}
         mode="contained-tonal"
       />
-      <Button
-        mode="contained"
-        style={{ marginHorizontal: 5 }}
-        onPress={() => {
-          setSentenceIsComplete(false)
+      {!isLastSentence && (
+        <Button
+          mode="contained"
+          onPress={() => {
+            setSentenceIsComplete(false)
 
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-          handleResetQuiz()
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
-          setCurrentArabicSentenceFromCorrectAnswers('')
-          setCurrentSentence((prev) => prev + 1)
-          setCurrentWord(0)
-        }}
-      >
-        Next
-      </Button>
+            if (currentSentence === sentencesInText.length - 1) {
+              handleResetQuiz()
+              return
+            }
+
+            setCurrentArabicSentenceFromCorrectAnswers('')
+            setCurrentSentence((prev) => prev + 1)
+            setCurrentWord(0)
+          }}
+          style={{ fontSize: 33 }}
+        >
+          Next Sentence
+        </Button>
+      )}
+      <View style={{ alignItems: 'center', marginTop: 15 }}>
+        <Text style={{ fontSize: 20 }}>{isLastSentence && <Text>Alhamdulillah, you are doing great!</Text>}</Text>
+      </View>
     </View>
   )
 
@@ -199,10 +203,11 @@ const TextPractice = () => {
             currentWord={currentWord}
             arabicWord=""
             englishWord={currentEnglishWord}
+            sentenceIsComplete={sentenceIsComplete}
           />
         </View>
-        {sentenceIsComplete && sentenceControl}
       </Surface>
+      {sentenceIsComplete && sentenceControl}
 
       <ModalScrollView
         visible={visible}

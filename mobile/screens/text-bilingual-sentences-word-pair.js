@@ -27,7 +27,7 @@ function TextBilingualSentencesWords({ word }) {
   const hideModal = () => setVisible(false)
   const showModal = () => setVisible(true)
 
-  const explanation = formatGrammar(word.grammar, sharedStyle)
+  const explanation = formatGrammar(word.explanation, sharedStyle)
 
   return (
     <Fragment>

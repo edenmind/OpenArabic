@@ -36,7 +36,7 @@ const WordsContextHighLighted = (props) => {
 
   const highlightWords = (sentence, words) => {
     return sentence.map((word, index) => {
-      return word.id === words.id ? (
+      return word.id === words.id && !props.sentenceIsComplete ? (
         <HighlightedWord word={word} key={index} />
       ) : (
         <Text
@@ -60,9 +60,11 @@ const WordsContextHighLighted = (props) => {
       <View style={rowWrapper}>{highlightWords(props.englishSentence, props.englishWord)}</View>
       <Text style={{ ...sharedStyle.arabicBody, paddingBottom: 10 }}>
         {props.arabicSentence}
-        <Animated.View style={{ opacity: fadeAnim }}>
-          <Text style={{ ...sharedStyle.arabicBody, color: theme.colors.tertiary }}>...</Text>
-        </Animated.View>
+        {!props.sentenceIsComplete && (
+          <Animated.View style={{ opacity: fadeAnim }}>
+            <Text style={{ ...sharedStyle.arabicBody, color: theme.colors.tertiary }}>...</Text>
+          </Animated.View>
+        )}
       </Text>
     </View>
   )
@@ -71,7 +73,8 @@ const WordsContextHighLighted = (props) => {
 WordsContextHighLighted.propTypes = {
   englishSentence: PropTypes.array.isRequired,
   arabicSentence: PropTypes.string.isRequired,
-  englishWord: PropTypes.any.isRequired
+  englishWord: PropTypes.any.isRequired,
+  sentenceIsComplete: PropTypes.bool
 }
 
 export default WordsContextHighLighted
