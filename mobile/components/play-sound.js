@@ -80,5 +80,6 @@ export default function PlaySound({ audioFileNames, buttonText, mode = 'elevated
 PlaySound.propTypes = {
   mode: PropTypes.string,
   audioFileNames: PropTypes.any.isRequired,
-  buttonText: PropTypes.string.isRequired
+  buttonText: PropTypes.string.isRequired,
+  margin: PropTypes.number
 }
