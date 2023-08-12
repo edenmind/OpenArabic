@@ -47,7 +47,7 @@ function TextBilingualSentences(props) {
         onPress={() => {
           getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
           showModal()
-          setTitle('Words')
+          setTitle('Explanation')
         }}
       >
         {UI.explainWords}

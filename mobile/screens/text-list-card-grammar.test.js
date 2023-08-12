@@ -24,7 +24,7 @@ describe('TextListCardGrammar', () => {
       </Provider>
     )
 
-    expect(getByText('some english text')).toBeDefined()
+    expect(getByText('Some english text')).toBeDefined()
     expect(getByText('some arabic text')).toBeDefined()
   })
 })

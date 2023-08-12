@@ -7,8 +7,8 @@ const UI = {
   play: 'Play',
   root: 'ROOT',
   explain: 'Explain',
-  playSentence: 'Play Sentence',
-  explainWords: 'Explain Words',
+  playSentence: 'Play',
+  explainWords: 'Explain',
   report: 'Report Error',
   inSentence: 'Sentence'
 }

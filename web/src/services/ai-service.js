@@ -8,7 +8,7 @@ const openai = new OpenAIApi(configuration)
 export async function getChatCompletionMessage(message) {
   const chatCompletion = await openai.createChatCompletion({
     messages: [{ role: 'user', content: message }],
-    model: 'gpt-4',
+    model: 'gpt-4', //gpt-4
     temperature: 0,
     max_tokens: 1024,
     top_p: 0.3,

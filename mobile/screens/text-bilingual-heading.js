@@ -55,12 +55,13 @@ export default function TextBilingualHeading({ heading }) {
       <Text variant="labelMedium" style={style.reading}>
         {caption}
       </Text>
-      <Divider style={style.divider} />
 
-      {introduction && (
+      {introduction ? (
         <Surface style={{ padding: 15, borderRadius: 10, margin: 12 }} elevation={1}>
           <Text variant="labelLarge">{introduction}</Text>
         </Surface>
+      ) : (
+        <Divider style={style.divider} />
       )}
     </>
   )

@@ -29,7 +29,8 @@ export default function TextGrammar({ route }) {
           width: '97%',
           fontSize: 100,
           textAlign: 'center',
-          color: theme.colors.secondary
+          color: theme.colors.secondary,
+          paddingBottom: 15
         }}
       >
         {arabic}
@@ -41,14 +42,14 @@ export default function TextGrammar({ route }) {
           fontSize: 25,
           textAlign: 'center',
           color: theme.colors.tertiary,
-          paddingBottom: 50
+          paddingBottom: 25
         }}
       >
-        {english} - {transliteratedArabic}
+        {english.charAt(0).toUpperCase() + english.slice(1)} - {transliteratedArabic}
       </Text>
 
       <PlaySound
-        audioFileName={`https://openarabic.ams3.digitaloceanspaces.com/audio/${filename}`}
+        audioFileNames={[`https://openarabic.ams3.digitaloceanspaces.com/audio/${filename}`]}
         buttonText={'Play'}
       />
       <Divider style={{ marginBottom: 20, opacity: 0 }} />

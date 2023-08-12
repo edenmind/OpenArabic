@@ -17,8 +17,8 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
   const scaleCard = useCallback(() => {
     Animated.timing(animatedStyle.animatedView.transform[0].scale, {
       useNativeDriver: true,
-      toValue: 0.98,
-      duration: 300
+      toValue: 0.99,
+      duration: 50
     }).start()
   }, [])
 
@@ -26,7 +26,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     Animated.timing(animatedStyle.animatedView.transform[0].scale, {
       useNativeDriver: true,
       toValue: 1,
-      duration: 300
+      duration: 0
     }).start()
   }, [])
 

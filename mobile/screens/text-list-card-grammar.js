@@ -16,6 +16,10 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
       justifyContent: 'space-between',
       margin: 10
     },
+    chip: {
+      marginBottom: 5,
+      width: 84
+    },
     labelSmall: {
       color: theme.colors.outline,
       marginBottom: 10,
@@ -34,13 +38,17 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
     <Animated.View style={animatedStyle}>
       <Card style={styles.card} mode="elevated">
         <Card.Content>
+          <Chip compact={true} style={styles.chip}>
+            <Text>Grammar</Text>
+          </Chip>
           <Text
             style={{
               fontFamily: 'uthman',
               width: '97%',
               fontSize: 100,
               textAlign: 'center',
-              color: theme.colors.secondary
+              color: theme.colors.secondary,
+              paddingBottom: 15
             }}
           >
             {text.arabic}
@@ -55,7 +63,7 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
               paddingBottom: 50
             }}
           >
-            {text.english}
+            {text.english.charAt(0).toUpperCase() + text.english.slice(1)}
           </Text>
           <Text variant="labelSmall" style={styles.labelSmall}>
             {`${text.timeAgo} · 2 mins read`}

@@ -23,7 +23,7 @@ const TextPractice = () => {
   const [currentWord, setCurrentWord] = useState(0)
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
   const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
-  const [color, setColor] = useState(theme.colors.elevation.level2)
+  const [color, setColor] = useState(theme.colors.elevation.level1)
   const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
   const hideModal = () => setVisible(false)
   const [visible, setVisible] = React.useState(false)
@@ -134,15 +134,17 @@ const TextPractice = () => {
   const sentenceControl = (
     <View style={{ marginTop: 10, marginBottom: 33 }}>
       <Button
-        mode="contained-tonal"
         icon="eye-outline"
+        mode="elevated"
         onPress={() => {
           let combinedExplanations = ''
 
-          for (const [index, word] of sentencesInText[currentSentence].englishWords.entries()) {
-            const currentEnglishWord = word.english.charAt(0).toUpperCase() + word.english.slice(1)
-            const currentArabicWord = sentencesInText[currentSentence].arabicWords[index].arabic
-            const currentExplanation = sentencesInText[currentSentence].explanations[index]
+          for (let i = 0; i < sentencesInText[currentSentence].englishWords.length; i++) {
+            const currentEnglishWord =
+              sentencesInText[currentSentence].englishWords[i].english.charAt(0).toUpperCase() +
+              sentencesInText[currentSentence].englishWords[i].english.slice(1)
+            const currentArabicWord = sentencesInText[currentSentence].arabicWords[i].arabic
+            const currentExplanation = sentencesInText[currentSentence].explanations[i]
 
             combinedExplanations += `⟶ ${currentArabicWord}\n↠ ${currentEnglishWord}\n${currentExplanation}\n\n`
           }
@@ -153,12 +155,7 @@ const TextPractice = () => {
       >
         Explain
       </Button>
-      <PlaySound
-        audioFileNames={sentencesInText[currentSentence].filename}
-        buttonText="Play"
-        margin={15}
-        mode="contained-tonal"
-      />
+      <PlaySound audioFileNames={sentencesInText[currentSentence].filename} buttonText="Play" margin={15} />
       {!isLastSentence && (
         <Button
           mode="contained"
@@ -176,9 +173,8 @@ const TextPractice = () => {
             setCurrentSentence((prev) => prev + 1)
             setCurrentWord(0)
           }}
-          style={{ fontSize: 33 }}
         >
-          Next Sentence
+          <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>CONTINUE</Text>
         </Button>
       )}
       <View style={{ alignItems: 'center', marginTop: 15 }}>

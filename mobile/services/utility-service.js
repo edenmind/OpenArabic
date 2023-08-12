@@ -63,7 +63,7 @@ export const vibrateBetweenTwoColors = (setColor, theme, color) => {
   setColor(color)
 
   setTimeout(() => {
-    setColor(theme.colors.elevation.level2)
+    setColor(theme.colors.elevation.level1)
   }, 150)
 }
 

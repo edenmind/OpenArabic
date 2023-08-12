@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Button } from 'react-native-paper'
 import { Audio } from 'expo-av'
 import PropTypes from 'prop-types'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 
 // This is more of a component than a server and might be better placed in the components folder
 export default function PlaySound({ audioFileNames, buttonText, mode = 'elevated', margin = 10 }) {
@@ -38,7 +38,9 @@ export default function PlaySound({ audioFileNames, buttonText, mode = 'elevated
         isLooping: false,
         isPlaybackAllowed: true,
         isLoopingIOS: false,
-        isMutedIOS: false
+        isMutedIOS: false,
+        playsInSilentModeIOS: true,
+        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX
       },
       (status) => {
         if (status.didJustFinish) {
@@ -49,15 +51,12 @@ export default function PlaySound({ audioFileNames, buttonText, mode = 'elevated
 
     setSound(sound)
 
-    return new Promise((resolve) => {
-      sound.setOnPlaybackStatusUpdate((status) => {
-        if (status.didJustFinish) {
-          resolve()
-        }
-      })
-
-      sound.playAsync()
+    // This will override the silent switch on iOS
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true
     })
+
+    await sound.playAsync()
   }
 
   React.useEffect(() => {
