@@ -41,6 +41,7 @@
     "mongodb": "^5.7.0",
     "sinon": "^15.2.0",
     "try-to-catch": "^3.0.1",
+    "twitter-api-v2": "^1.15.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

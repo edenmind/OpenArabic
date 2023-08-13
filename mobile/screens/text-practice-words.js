@@ -11,30 +11,29 @@ const styles = StyleSheet.create({
 })
 
 // create a component for each word in the arabicWords array in the sentencesInText array for the currentSentence and wrap them with a button
-const TextPracticeArabicWords = (props) => {
+const TextPracticeWords = (props) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
+  const capitalizeFirstLetter = (string) => {
+    const removedPlaceHolder = string.replaceAll(/\[.*?]/g, '').trim()
+
+    return removedPlaceHolder.charAt(0).toUpperCase() + removedPlaceHolder.slice(1)
+  }
+
   return (
     <View style={styles.rowWrapper}>
-      {props.currentArabicWordsInSentence.map((word, index) => (
+      {props.currentWordsInSentence.map((word, index) => (
         <Button
           key={index}
-          testID={word.arabic}
+          testID={word.english}
           onPress={() => {
-            props.handlePress(word.id, word.arabic)
+            props.handlePress(word.id, word.english)
           }}
-          style={{ ...sharedStyle.buttonAnswer, height: 90 }}
+          style={{ ...sharedStyle.buttonAnswer }}
         >
-          <Text
-            style={{
-              fontSize: 40,
-              fontFamily: 'uthman',
-              lineHeight: Platform.OS === 'android' ? 75 : 69,
-              color: theme.colors.primary
-            }}
-          >
-            {word.arabic}
+          <Text style={{ ...sharedStyle.answerText, fontSize: word.english.length > 25 ? 20 : 23 }}>
+            {capitalizeFirstLetter(word.english)}
           </Text>
         </Button>
       ))}
@@ -42,9 +41,9 @@ const TextPracticeArabicWords = (props) => {
   )
 }
 
-export default TextPracticeArabicWords
+export default TextPracticeWords
 
-TextPracticeArabicWords.propTypes = {
-  currentArabicWordsInSentence: PropTypes.array.isRequired,
+TextPracticeWords.propTypes = {
+  currentWordsInSentence: PropTypes.array.isRequired,
   handlePress: PropTypes.func.isRequired
 }

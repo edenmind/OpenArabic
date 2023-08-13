@@ -5,7 +5,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import WordsContextHighLighted from '../components/context-highlighted.js'
-import TextPracticeArabicWords from './text-practice-arabic-words.js'
+import TextPracticeWords from './text-practice-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
@@ -22,9 +22,9 @@ const TextPractice = () => {
   const [currentSentence, setCurrentSentence] = useState(0)
   const [currentWord, setCurrentWord] = useState(0)
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
-  const [currentArabicWordsInSentence, setCurrentArabicWordsInSentence] = useState([])
+  const [currentEnglishWordsInSentence, setCurrentEnglishWordsInSentence] = useState([])
   const [color, setColor] = useState(theme.colors.elevation.level1)
-  const [currentEnglishWord, setCurrentEnglishWord] = useState(0)
+  const [currentArabicWord, setCurrentArabicWord] = useState(0)
   const hideModal = () => setVisible(false)
   const [visible, setVisible] = React.useState(false)
   const [explanation, setExplanation] = useState('')
@@ -36,11 +36,11 @@ const TextPractice = () => {
       return
     }
 
-    const arabicWords = sentencesInText[currentSentence].arabicWords
-    const englishWordId = sentencesInText[currentSentence].englishWords[currentWord].id
+    const englishWords = sentencesInText[currentSentence].englishWords
+    const arabicWordId = sentencesInText[currentSentence].arabicWords[currentWord].id
 
-    setCurrentArabicWordsInSentence(getThreeRandomWords(arabicWords, englishWordId, sentencesInText))
-    setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
+    setCurrentEnglishWordsInSentence(getThreeRandomWords(englishWords, arabicWordId, sentencesInText))
+    setCurrentArabicWord(sentencesInText[currentSentence].arabicWords[currentWord])
   }, [currentSentence, currentWord, sentencesInText, textLoading])
 
   const handleResetQuiz = useCallback(() => {
@@ -74,8 +74,8 @@ const TextPractice = () => {
         }
       })
 
-      const arabicWords = wordsInSentence.map((word) => word.arabicWord).sort(() => Math.random() - 0.5)
-      const englishWords = wordsInSentence.map((word) => word.englishWord)
+      const arabicWords = wordsInSentence.map((word) => word.arabicWord)
+      const englishWords = wordsInSentence.map((word) => word.englishWord).sort(() => Math.random() - 0.5)
       const explanations = wordsInSentence.map((word) => word.explanation)
       const filename = sentence.filename
 
@@ -84,7 +84,6 @@ const TextPractice = () => {
   }, [text])
 
   const isLastWordInSentence = currentWord === sentencesInText[currentSentence].englishWords.length - 1
-
   const isLastSentence = currentSentence === sentencesInText.length - 1
 
   const handlePress = React.useCallback(
@@ -98,11 +97,11 @@ const TextPractice = () => {
       }
 
       const updatedArabicSentence = `${currentArabicSentenceFromCorrectAnswers} ${word}`
-      const updatedArabicWords = currentArabicWordsInSentence.filter((w) => w.id !== id)
+      const updatedEnglishWords = currentEnglishWordsInSentence.filter((w) => w.id !== id)
 
-      setCurrentEnglishWord(sentencesInText[currentSentence].englishWords[currentWord])
+      setCurrentArabicWord(sentencesInText[currentSentence].arabicWords[currentWord])
       setCurrentArabicSentenceFromCorrectAnswers(() => updatedArabicSentence)
-      setCurrentArabicWordsInSentence(() => updatedArabicWords)
+      setCurrentEnglishWordsInSentence(() => updatedEnglishWords)
 
       if (isLastWordInSentence) {
         setSentenceIsComplete(true)
@@ -122,7 +121,7 @@ const TextPractice = () => {
     [
       currentWord,
       currentArabicSentenceFromCorrectAnswers,
-      currentArabicWordsInSentence,
+      currentEnglishWordsInSentence,
       sentencesInText,
       currentSentence,
       isLastWordInSentence,
@@ -194,11 +193,9 @@ const TextPractice = () => {
           </Text>
           <Divider style={sharedStyle.divider} />
           <WordsContextHighLighted
-            arabicSentence={`${currentArabicSentenceFromCorrectAnswers} `}
-            englishSentence={sentencesInText[currentSentence].englishWords}
+            arabicSentence={sentencesInText[currentSentence].arabicWords}
             currentWord={currentWord}
-            arabicWord=""
-            englishWord={currentEnglishWord}
+            arabicWord={currentArabicWord}
             sentenceIsComplete={sentenceIsComplete}
           />
         </View>
@@ -214,9 +211,9 @@ const TextPractice = () => {
       />
 
       {!sentenceIsComplete && (
-        <TextPracticeArabicWords
+        <TextPracticeWords
           testID="textPracticeArabicWords"
-          currentArabicWordsInSentence={currentArabicWordsInSentence}
+          currentWordsInSentence={currentEnglishWordsInSentence}
           handlePress={handlePress}
         />
       )}

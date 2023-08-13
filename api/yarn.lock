@@ -4301,6 +4301,7 @@ __metadata:
     sinon: ^15.2.0
     tap: ^16.3.7
     try-to-catch: ^3.0.1
+    twitter-api-v2: ^1.15.1
     uuid: ^9.0.0
   languageName: unknown
   linkType: soft
@@ -12179,6 +12180,13 @@ __metadata:
   version: 2.6.0
   resolution: "tslib@npm:2.6.0"
   checksum: c01066038f950016a18106ddeca4649b4d76caa76ec5a31e2a26e10586a59fceb4ee45e96719bf6c715648e7c14085a81fee5c62f7e9ebee68e77a5396e5538f
+  languageName: node
+  linkType: hard
+
+"twitter-api-v2@npm:^1.15.1":
+  version: 1.15.1
+  resolution: "twitter-api-v2@npm:1.15.1"
+  checksum: de4a59e335d966b7d8eb66fc8f1c6357afb59583a3737fac118248c0698dc94138ae08d7c4df9014150f6ca15f3be0325e3a1cf28e93ba73f4d27ca5bb29127d
   languageName: node
   linkType: hard
 

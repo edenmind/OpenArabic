@@ -30,6 +30,12 @@ export default function TextArabicWords({ text, setEnglishTranslation, setExplan
     )
 
     setSound(sound)
+
+    // This will override the silent switch on iOS
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true
+    })
+
     await sound.playAsync()
   }
 

@@ -5,24 +5,21 @@ import { useSharedStyles } from '../styles/common.js'
 
 const HighlightedWord = ({ word }) => {
   const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
 
   return (
     <Text
-      variant="labelLarge"
       style={{
+        ...sharedStyle.arabicBody,
         color: theme.colors.onPrimary,
         backgroundColor: theme.colors.secondary,
-        borderBottomColor: theme.colors.secondary,
-        borderBottomWidth: 1,
-        marginHorizontal: 5,
-        paddingHorizontal: 4,
-        paddingBottom: 0,
-        lineHeight: 35,
-        fontSize: 21,
-        fontWeight: 'bold'
+        paddingHorizontal: 5,
+
+        fontSize: 43,
+        lineHeight: 75
       }}
     >
-      {word.english}
+      {word.arabic}
     </Text>
   )
 }
@@ -31,6 +28,6 @@ export default HighlightedWord
 
 HighlightedWord.propTypes = {
   word: PropTypes.shape({
-    english: PropTypes.string.isRequired
+    arabic: PropTypes.string.isRequired
   }).isRequired
 }

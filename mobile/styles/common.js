@@ -31,6 +31,13 @@ export const useSharedStyles = (theme) => {
     }
 
     return StyleSheet.create({
+      answerText: {
+        color: theme.colors.primary,
+        fontSize: 23,
+        fontWeight: 'bold',
+        lineHeight: 55,
+        textAlign: 'center'
+      },
       arabicBody: {
         color: textColorArabic,
         fontFamily: arabicFontName,

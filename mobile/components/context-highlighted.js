@@ -7,31 +7,13 @@ import HighlightedWord from './context-highlighted-word.js'
 const WordsContextHighLighted = (props) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
-  const fadeAnim = useRef(new Animated.Value(0)).current
-
-  useEffect(() => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 1000,
-          useNativeDriver: true
-        }),
-        Animated.timing(fadeAnim, {
-          toValue: 0,
-          duration: 1000,
-          useNativeDriver: true
-        })
-      ])
-    ).start()
-  }, [fadeAnim])
-
   const rowWrapper = {
     flexDirection: 'row',
     flexWrap: 'wrap',
     paddingBottom: 10,
     margin: 0,
-    padding: 0
+    padding: 0,
+    direction: 'rtl'
   }
 
   const highlightWords = (sentence, words) => {
@@ -40,16 +22,15 @@ const WordsContextHighLighted = (props) => {
         <HighlightedWord word={word} key={index} />
       ) : (
         <Text
-          variant="labelLarge"
           style={{
-            marginHorizontal: 3,
-            lineHeight: 35,
-            paddingBottom: 0,
-            fontSize: 21
+            ...sharedStyle.arabicBody,
+            paddingHorizontal: 5,
+            fontSize: 43,
+            lineHeight: 75
           }}
           key={index}
         >
-          {word.english.trim()}
+          {word.arabic.trim()}
         </Text>
       )
     })
@@ -57,23 +38,14 @@ const WordsContextHighLighted = (props) => {
 
   return (
     <View>
-      <View style={rowWrapper}>{highlightWords(props.englishSentence, props.englishWord)}</View>
-      <Text style={{ ...sharedStyle.arabicBody, paddingBottom: 10 }}>
-        {props.arabicSentence}
-        {!props.sentenceIsComplete && (
-          <Animated.View style={{ opacity: fadeAnim }}>
-            <Text style={{ ...sharedStyle.arabicBody, color: theme.colors.tertiary }}>...</Text>
-          </Animated.View>
-        )}
-      </Text>
+      <View style={rowWrapper}>{highlightWords(props.arabicSentence, props.arabicWord)}</View>
     </View>
   )
 }
 
 WordsContextHighLighted.propTypes = {
-  englishSentence: PropTypes.array.isRequired,
-  arabicSentence: PropTypes.string.isRequired,
-  englishWord: PropTypes.any.isRequired,
+  arabicSentence: PropTypes.array.isRequired,
+  arabicWord: PropTypes.any.isRequired,
   sentenceIsComplete: PropTypes.bool
 }
 

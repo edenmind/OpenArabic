@@ -67,13 +67,13 @@ export const vibrateBetweenTwoColors = (setColor, theme, color) => {
   }, 150)
 }
 
-export const getThreeRandomWords = (arabicWords, currentEnglishWordId, sentencesInText) => {
+export const getThreeRandomWords = (englishWords, currentArabicWordId, sentencesInText) => {
   const randomWords = new Set()
 
   // Find the matching Arabic word based on the currentWord and add it to the randomWords set
-  const matchingArabicWord = arabicWords.find((arabicWord) => arabicWord.id === currentEnglishWordId)
+  const matchingEnglishWord = englishWords.find((englishWord) => englishWord.id === currentArabicWordId)
 
-  randomWords.add(matchingArabicWord)
+  randomWords.add(matchingEnglishWord)
 
   // Helper function to get a random element from an array
   const getRandomElement = (array) => array[Math.floor(Math.random() * array.length)]
@@ -81,11 +81,11 @@ export const getThreeRandomWords = (arabicWords, currentEnglishWordId, sentences
   // Keep generating random words until we have exactly three unique ones
   while (randomWords.size < 3) {
     const randomSentence = getRandomElement(sentencesInText)
-    const randomWordFromSentence = getRandomElement(randomSentence.arabicWords)
+    const randomWordFromSentence = getRandomElement(randomSentence.englishWords)
 
     // Check if the random word is already in the randomWords set based on id and spelling
     const alreadyExists = [...randomWords].some(
-      (word) => word.id === randomWordFromSentence.id || word.arabic === randomWordFromSentence.arabic
+      (word) => word.id === randomWordFromSentence.id || word.english === randomWordFromSentence.english
     )
 
     // Add the random word to the set only if it doesn't have the same id or spelling as the words already in the set
