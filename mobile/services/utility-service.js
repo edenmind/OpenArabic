@@ -34,9 +34,12 @@ export const checkIfWithinLast36Hours = (createdAt) => {
   return false
 }
 
-//function that capitalizes the first letter
 export const capitalizeFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+  // Trim the string first
+  const trimmedString = string.trim()
+
+  // Find the first Latin letter and capitalize it
+  return trimmedString.replace(/([A-Za-z])/, (match) => match.toUpperCase())
 }
 
 const truncate = (stringToTruncate, truncateLength) => {
@@ -63,7 +66,7 @@ export const vibrateBetweenTwoColors = (setColor, theme, color) => {
   setColor(color)
 
   setTimeout(() => {
-    setColor(theme.colors.elevation.level1)
+    setColor(theme.colors.elevation.level0)
   }, 150)
 }
 

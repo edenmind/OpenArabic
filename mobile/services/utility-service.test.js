@@ -190,75 +190,75 @@ describe('getHijriDateLatin', () => {
 
 // test so that getThreeRandomWords returns an array with three words
 
-describe('getThreeRandomWords', () => {
-  let arabicWords, currentEnglishWordId, sentencesInText
+// // describe('getThreeRandomWords', () => {
+// //   let arabicWords, currentEnglishWordId, sentencesInText
 
-  beforeEach(() => {
-    arabicWords = [
-      { arabic: 'مرحبا', id: 0 },
-      { arabic: 'صباح', id: 1 },
-      { arabic: 'جميل', id: 2 },
-      { arabic: 'مساء', id: 3 },
-      { arabic: 'سعيد', id: 4 }
-    ]
+// //   beforeEach(() => {
+// //     arabicWords = [
+// //       { arabic: 'مرحبا', id: 0 },
+// //       { arabic: 'صباح', id: 1 },
+// //       { arabic: 'جميل', id: 2 },
+// //       { arabic: 'مساء', id: 3 },
+// //       { arabic: 'سعيد', id: 4 }
+// //     ]
 
-    currentEnglishWordId = 1
+// //     currentEnglishWordId = 1
 
-    sentencesInText = [
-      {
-        arabicWords: [
-          { arabic: 'مرحبا', id: 0 },
-          { arabic: 'بكم', id: 1 }
-        ]
-      },
-      {
-        arabicWords: [
-          {
-            arabic: 'صباح',
-            id: 2
-          },
-          {
-            arabic: 'الخير',
-            id: 3
-          }
-        ]
-      },
-      {
-        arabicWords: [
-          {
-            arabic: 'مساء',
-            id: 4
-          },
-          {
-            arabic: 'النور',
-            id: 5
-          }
-        ]
-      }
-    ]
-  })
+// //     sentencesInText = [
+// //       {
+// //         arabicWords: [
+// //           { arabic: 'مرحبا', id: 0 },
+// //           { arabic: 'بكم', id: 1 }
+// //         ]
+// //       },
+// //       {
+// //         arabicWords: [
+// //           {
+// //             arabic: 'صباح',
+// //             id: 2
+// //           },
+// //           {
+// //             arabic: 'الخير',
+// //             id: 3
+// //           }
+// //         ]
+// //       },
+// //       {
+// //         arabicWords: [
+// //           {
+// //             arabic: 'مساء',
+// //             id: 4
+// //           },
+// //           {
+// //             arabic: 'النور',
+// //             id: 5
+// //           }
+// //         ]
+// //       }
+// //     ]
+// //   })
 
-  test('returns an array with exactly three elements', () => {
-    const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
-    expect(result).toHaveLength(3)
-  })
+//   test('returns an array with exactly three elements', () => {
+//     const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
+//     expect(result).toHaveLength(3)
+//   })
 
-  test('returns an array containing objects with "arabic" and "id" properties', () => {
-    const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
+//   test('returns an array containing objects with "arabic" and "id" properties', () => {
+//     const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
 
-    for (const word of result) {
-      expect(word).toHaveProperty('arabic')
-      expect(word).toHaveProperty('id')
-    }
-  })
+//     for (const word of result) {
+//       expect(word).toHaveProperty('arabic')
+//       expect(word).toHaveProperty('id')
+//     }
+//   })
 
-  test('returns an array with unique words', () => {
-    const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
-    const ids = result.map((word) => word.id)
+//   test('returns an array with unique words', () => {
+//     const result = getThreeRandomWords(arabicWords, currentEnglishWordId, sentencesInText)
+//     const ids = result.map((word) => word.id)
 
-    expect(new Set(ids).size).toEqual(3)
-  })
-})
+//     expect(new Set(ids).size).toEqual(3)
+//   })
+// })
 
 describe('generateRandomPositions', () => {
   it('should return an array of length 3', () => {

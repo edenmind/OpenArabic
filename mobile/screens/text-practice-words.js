@@ -1,8 +1,9 @@
-import { View, Platform, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Text, Button, useTheme } from 'react-native-paper'
 import React from 'react'
 import { useSharedStyles } from '../styles/common.js'
 import PropTypes from 'prop-types'
+import { capitalizeFirstLetter } from '../services/utility-service.js'
 
 const styles = StyleSheet.create({
   rowWrapper: {
@@ -14,12 +15,6 @@ const styles = StyleSheet.create({
 const TextPracticeWords = (props) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
-
-  const capitalizeFirstLetter = (string) => {
-    const removedPlaceHolder = string.replaceAll(/\[.*?]/g, '').trim()
-
-    return removedPlaceHolder.charAt(0).toUpperCase() + removedPlaceHolder.slice(1)
-  }
 
   return (
     <View style={styles.rowWrapper}>

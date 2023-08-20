@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
-import TextBilingualSentencesWords from './text-bilingual-sentences-word-pair.js'
+import WordPairs from './word-pairs.js'
 
-function TextBilingualSentencesWordPairs({ words }) {
+function WordPairsList({ words }) {
   const distinctValues = useMemo(() => {
     return [...new Set(words.filter((word) => word.arabic && word.english))]
   }, [words])
@@ -11,13 +11,13 @@ function TextBilingualSentencesWordPairs({ words }) {
   return (
     <>
       {distinctValues.map((word, index) => (
-        <TextBilingualSentencesWords key={index} word={word} />
+        <WordPairs key={index} word={word} />
       ))}
     </>
   )
 }
 
-TextBilingualSentencesWordPairs.propTypes = {
+WordPairsList.propTypes = {
   words: PropTypes.arrayOf(
     PropTypes.shape({
       arabic: PropTypes.string.isRequired,
@@ -26,4 +26,4 @@ TextBilingualSentencesWordPairs.propTypes = {
   ).isRequired
 }
 
-export default TextBilingualSentencesWordPairs
+export default WordPairsList

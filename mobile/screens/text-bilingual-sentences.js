@@ -4,7 +4,7 @@ import React from 'react'
 import { View } from 'react-native'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import PropTypes from 'prop-types'
-import WordPairs from './text-bilingual-sentences-word-pairs-list.js'
+import WordPairsList from '../components/word-pairs-list.js'
 import { useSelector } from 'react-redux'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
@@ -39,19 +39,20 @@ function TextBilingualSentences(props) {
       <Text style={sharedStyle.englishBody} variant="bodyLarge">
         {sentence.english}
       </Text>
-      <PlaySound audioFileNames={sentence.filename} buttonText={UI.playSentence} />
       <Button
-        mode="elevated"
+        style={{ ...sharedStyle.buttonAnswer }}
         textColor={theme.colors.tertiary}
-        icon="eye-outline"
         onPress={() => {
-          getListOfWordPairs(<WordPairs words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />)
+          getListOfWordPairs(
+            <WordPairsList words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />
+          )
           showModal()
           setTitle('Explanation')
         }}
       >
-        {UI.explainWords}
+        <Text style={{ ...sharedStyle.answerText, fontSize: 20, lineHeight: undefined }}>{UI.explainWords}</Text>
       </Button>
+      <PlaySound audioFileNames={sentence.filename} buttonText={UI.playSentence} />
     </View>
   ))
 

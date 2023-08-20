@@ -14,7 +14,8 @@ export default function TextListCardQuote({ text }) {
   const theme = useTheme()
   const styles = StyleSheet.create({
     card: {
-      margin: 10
+      marginHorizontal: 5,
+      marginVertical: 10
     },
     cardAction: {
       marginRight: 10,
@@ -23,7 +24,12 @@ export default function TextListCardQuote({ text }) {
       paddingTop: 5
     },
     chip: {
+      backgroundColor: theme.colors.elevation.transparent,
+      borderBottomWidth: 4,
+      borderColor: theme.colors.elevation.level5,
+      borderWidth: 2,
       marginBottom: 5,
+      marginTop: 5,
       width: 67
     },
     labelSmall: {
@@ -56,7 +62,13 @@ export default function TextListCardQuote({ text }) {
       <Card style={styles.card} testID="textCard" mode="elevated">
         <Card.Content>
           <Chip compact={true} style={styles.chip}>
-            <Text>Quote</Text>
+            <Text
+              style={{
+                ...sharedStyle.labelText
+              }}
+            >
+              QUOTE
+            </Text>
           </Chip>
           <Divider style={{ ...sharedStyle.dividerHidden }} />
           <Text variant="labelMedium" style={{ color: theme.colors.outline, paddingBottom: 10 }}>
@@ -91,10 +103,9 @@ export default function TextListCardQuote({ text }) {
           <PlaySound
             audioFileNames={`https://openarabic.ams3.digitaloceanspaces.com/audio/${text.sentences[0].filename}`}
             buttonText={'Play'}
-            mode={'contained-tonal'}
           />
-          <Button onPress={onShare} icon={'share'}>
-            Share
+          <Button style={{ ...sharedStyle.buttonAnswer }} textColor={theme.colors.tertiary} onPress={onShare}>
+            <Text style={{ ...sharedStyle.answerText, fontSize: 20, lineHeight: undefined }}>Share</Text>
           </Button>
         </Card.Actions>
       </Card>

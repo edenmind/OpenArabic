@@ -11,17 +11,13 @@ const ModalScrollView = ({
   visible,
   hideModal,
   height = '93%',
-  close = 'CLOSE ',
+  close = 'Close',
   titleLanguage = 'arabic',
   icon
 }) => {
   const theme = useTheme()
   const sharedStyled = useSharedStyles(theme)
   const styles = StyleSheet.create({
-    buttonPadding: {
-      marginBottom: 0,
-      marginTop: 10
-    },
     containerStyle: {
       backgroundColor: theme.colors.background,
       borderRadius: 15,
@@ -62,9 +58,11 @@ const ModalScrollView = ({
           <View style={{ margin: 5, padding: 5 }}>{content}</View>
         </ScrollView>
         <Divider />
-        <Button onPress={hideModal} style={styles.buttonPadding} mode="elevated" icon={icon}>
-          {close}
-        </Button>
+        <View style={{ margin: 10 }}>
+          <Button onPress={hideModal} style={{ ...sharedStyled.buttonAnswer, margin: 100 }}>
+            <Text style={{ ...sharedStyled.answerText, fontSize: 20, lineHeight: undefined }}>{close}</Text>
+          </Button>
+        </View>
       </Modal>
     </Portal>
   )

@@ -1,107 +1,133 @@
-import { Text, Card, Button, useTheme, Chip, Divider } from 'react-native-paper'
+import { Text, Card, useTheme, Chip, Divider } from 'react-native-paper'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
-import { StyleSheet, Animated } from 'react-native'
+import React, { useCallback } from 'react'
+import { StyleSheet, Pressable, Animated } from 'react-native'
 import SCREENS from '../constants/screens.js'
 import { checkIfWithinLast36Hours } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
+
+const animatedStyle = StyleSheet.create({
+  animatedView: {
+    transform: [{ scale: new Animated.Value(1) }]
+  }
+})
+
 export default function TextListCardGrammar({ text, navigation, setShouldReload }) {
-  const [scaleValue] = useState(new Animated.Value(1))
+  const scaleCard = useCallback(() => {
+    Animated.timing(animatedStyle.animatedView.transform[0].scale, {
+      useNativeDriver: true,
+      toValue: 0.99,
+      duration: 100
+    }).start()
+  }, [])
+
+  const restoreCard = useCallback(() => {
+    Animated.timing(animatedStyle.animatedView.transform[0].scale, {
+      useNativeDriver: true,
+      toValue: 1,
+      duration: 0
+    }).start()
+  }, [])
   const theme = useTheme()
   const styles = StyleSheet.create({
     card: {
-      margin: 10
-    },
-    cardAction: {
-      justifyContent: 'space-between',
-      margin: 10
+      marginHorizontal: 5,
+      marginVertical: 10
     },
     chip: {
+      backgroundColor: theme.colors.elevation.transparent,
+      borderBottomWidth: 4,
+      borderColor: theme.colors.elevation.level5,
+      borderWidth: 2,
       marginBottom: 5,
-      width: 84
+      marginTop: 15,
+
+      width: 87
     },
     labelSmall: {
       color: theme.colors.outline,
-      marginBottom: 10,
+      marginBottom: 15,
       marginTop: 10,
+      paddingRight: 15,
       textAlign: 'right'
     }
   })
 
-  const animatedStyle = {
-    transform: [{ scale: scaleValue }]
-  }
-
   const sharedStyle = useSharedStyles(theme)
 
   return (
-    <Animated.View style={animatedStyle}>
-      <Card style={styles.card} mode="elevated">
-        <Card.Content>
-          <Chip compact={true} style={styles.chip}>
-            <Text>Grammar</Text>
-          </Chip>
-          <Text
-            style={{
-              fontFamily: 'uthman',
-              width: '97%',
-              fontSize: 100,
-              textAlign: 'center',
-              color: theme.colors.secondary,
-              paddingBottom: 15
-            }}
-          >
-            {text.arabic}
-          </Text>
-          <Text
-            style={{
-              width: '97%',
-              fontFamily: 'philosopher',
-              fontSize: 25,
-              textAlign: 'center',
-              color: theme.colors.tertiary,
-              paddingBottom: 50
-            }}
-          >
-            {text.english.charAt(0).toUpperCase() + text.english.slice(1)}
-          </Text>
-          <Text variant="labelSmall" style={styles.labelSmall}>
-            {`${text.timeAgo} · 2 mins read`}
-          </Text>
-          <Divider style={sharedStyle.divider} />
-        </Card.Content>
-        <Card.Actions style={styles.cardAction}>
-          {checkIfWithinLast36Hours(text.publishDate) && (
-            <Chip
-              selectedColor={theme.colors.onTertiaryContainer}
-              mode={'flat'}
-              compact={true}
+    <Card style={styles.card}>
+      <Pressable
+        onPressIn={scaleCard}
+        onPressOut={restoreCard}
+        onPress={() => {
+          setShouldReload(false)
+          navigation.navigate(SCREENS.textGrammar, {
+            grammar: text.grammar,
+            arabic: text.arabic,
+            english: text.english,
+            filename: text.filename
+          })
+        }}
+      >
+        <Animated.View style={animatedStyle.animatedView}>
+          <Card.Content>
+            <Chip compact={true} style={styles.chip}>
+              <Text
+                style={{
+                  ...sharedStyle.labelText
+                }}
+              >
+                GRAMMAR
+              </Text>
+            </Chip>
+            <Text
               style={{
-                position: 'absolute',
-                left: 0,
-                bottom: 10,
-                backgroundColor: theme.colors.tertiaryContainer
+                fontFamily: 'uthman',
+                width: '97%',
+                fontSize: 100,
+                textAlign: 'center',
+                color: theme.colors.secondary,
+                paddingBottom: 15
               }}
             >
-              New ☀️
-            </Chip>
-          )}
-          <Button
-            onPress={() => {
-              setShouldReload(false)
-              navigation.navigate(SCREENS.textGrammar, {
-                grammar: text.grammar,
-                arabic: text.arabic,
-                english: text.english,
-                filename: text.filename
-              })
-            }}
-          >
-            View Lesson
-          </Button>
-        </Card.Actions>
-      </Card>
-    </Animated.View>
+              {text.arabic}
+            </Text>
+            <Text
+              style={{
+                width: '97%',
+                fontFamily: 'philosopher',
+                fontSize: 25,
+                textAlign: 'center',
+                color: theme.colors.tertiary,
+                paddingBottom: 50
+              }}
+            >
+              {text.english.charAt(0).toUpperCase() + text.english.slice(1)}
+            </Text>
+            <Divider style={sharedStyle.divider} />
+            {
+              <Chip
+                selectedColor={theme.colors.onTertiaryContainer}
+                mode={'flat'}
+                compact={true}
+                style={{
+                  position: 'absolute',
+                  left: 25,
+                  bottom: 8,
+                  backgroundColor: theme.colors.tertiaryContainer
+                }}
+              >
+                New ☀️
+              </Chip>
+            }
+            <Text variant="labelSmall" style={styles.labelSmall}>
+              {`${text.timeAgo} · 2 mins read`}
+            </Text>
+          </Card.Content>
+        </Animated.View>
+      </Pressable>
+    </Card>
   )
 }
 

@@ -5,7 +5,7 @@ import { FlatList, Image } from 'react-native'
 import PropTypes from 'prop-types'
 import Spinner from '../components/spinner.js'
 import TextListCard from './text-list-card.js'
-import { useFocusEffect } from '@react-navigation/native'
+import { useFocusEffect, useScrollToTop } from '@react-navigation/native'
 import { getHijriDate, getHijriDateLatin } from '../services/utility-service.js'
 import { Text, Surface, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
@@ -24,12 +24,25 @@ export default function TextList({ route, navigation }) {
   const { textsLoading } = useSelector(textsLoadSelector)
   const dispatch = useDispatch()
   const sharedStyle = useSharedStyles(theme)
+  const ref = React.useRef(null)
+
+  useScrollToTop(ref)
 
   useFocusEffect(
     React.useCallback(() => {
-      if (shouldReload) {
-        dispatch(api.getTexts(category === 'All' ? '' : category))
+      if (!shouldReload) {
+        return
       }
+
+      dispatch(api.getTexts(category === 'All' ? '' : category))
+
+      const intervalId = setInterval(
+        () => {
+          dispatch(api.getTexts(category === 'All' ? '' : category))
+        },
+        60 * 60 * 1000 // 1 hour in milliseconds
+      )
+      return () => clearInterval(intervalId)
     }, [category, dispatch, shouldReload])
   )
 
@@ -77,6 +90,11 @@ export default function TextList({ route, navigation }) {
             />
           </>
         }
+        ref={ref}
+        onRefresh={() => {
+          dispatch(api.getTexts(category === 'All' ? '' : category))
+        }}
+        refreshing={false}
       />
     </FadeInView>
   ) : (

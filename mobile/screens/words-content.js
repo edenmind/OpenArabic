@@ -25,7 +25,7 @@ const WordsContent = ({
 }) => {
   const theme = useTheme()
   const { words } = useSelector(wordsSelector)
-  const [color, setColor] = useState(theme.colors.elevation.level2)
+  const [color, setColor] = useState(theme.colors.elevation.level0)
   const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
   const [timeoutId, setTimeoutId] = useState()
   const sharedStyle = useSharedStyles(theme)
@@ -139,7 +139,7 @@ const WordsContent = ({
   )
 
   const wrongAnswerButton = (text) => (
-    <Button mode="elevated" style={sharedStyle.buttonAnswer} onPress={handleWrongAnswer}>
+    <Button style={sharedStyle.buttonAnswer} onPress={handleWrongAnswer}>
       <Text style={styles.text}>{words.length > 1 && text}</Text>
     </Button>
   )
@@ -183,31 +183,10 @@ const WordsContent = ({
               </Text>
             </View>
 
-            {/* <Text
-              style={{
-                ...sharedStyle.arabicBody,
-                fontSize: 30,
-                textAlign: 'center',
-                paddingHorizontal: 10,
-                lineHeight: 45
-              }}
-            >
-              {words[currentWord]?.arabicSentence}
-            </Text> */}
-
-            {/* <View style={{ position: 'absolute', bottom: 15, left: 15, width: 130 }}>
-              <Text variant="labelSmall" style={{ color: theme.colors.outline }}>
-                {words[currentWord]?.source}
-              </Text>
-            </View> */}
-
             <View style={{ flexDirection: 'row', position: 'absolute', bottom: 5, right: 10 }}>
               <PlaySound
                 mode="text"
-                audioFileNames={[
-                  `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`,
-                  `https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`
-                ]}
+                audioFileNames={[`https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`]}
                 buttonText={'Play'}
                 style={{}}
               />

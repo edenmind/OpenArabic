@@ -18,7 +18,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     Animated.timing(animatedStyle.animatedView.transform[0].scale, {
       useNativeDriver: true,
       toValue: 0.99,
-      duration: 50
+      duration: 100
     }).start()
   }, [])
 
@@ -38,7 +38,8 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
 
   const styles = StyleSheet.create({
     card: {
-      margin: 10
+      marginHorizontal: 5,
+      marginVertical: 10
     },
     cardAction: {
       marginRight: 10,
@@ -59,7 +60,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
   })
 
   return (
-    <Card style={styles.card} testID="textCard" elevation={1}>
+    <Card style={styles.card} testID="textCard">
       <Pressable
         onPressIn={scaleCard}
         onPressOut={restoreCard}

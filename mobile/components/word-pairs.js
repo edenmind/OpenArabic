@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
-import PlaySound from '../components/play-sound.js'
+import PlaySound from './play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 import UI from '../constants/ui.js'
 import { transliterateArabicToEnglish } from '../services/utility-service.js'
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   }
 })
 
-function TextBilingualSentencesWords({ word }) {
+function WordParis({ word }) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -45,13 +45,13 @@ function TextBilingualSentencesWords({ word }) {
   )
 }
 
-TextBilingualSentencesWords.propTypes = {
+WordParis.propTypes = {
   word: PropTypes.shape({
     arabic: PropTypes.string.isRequired,
     english: PropTypes.string.isRequired,
     filename: PropTypes.string.isRequired,
-    grammar: PropTypes.string
+    explanation: PropTypes.string
   }).isRequired
 }
 
-export default TextBilingualSentencesWords
+export default WordParis

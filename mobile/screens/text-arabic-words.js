@@ -61,7 +61,7 @@ export default function TextArabicWords({ text, setEnglishTranslation, setExplan
           {sentence.words.map((word, wordIndex) => {
             const isSelected = selectedWordIndex === wordIndex && selectedSentenceIndex === sentenceIndex
             const backgroundColor = isSelected ? theme.colors.tertiary : theme.colors.elevation.level0
-            const backgroundColorText = isSelected ? theme.colors.tertiary : theme.colors.onBackground
+            const backgroundColorText = isSelected ? theme.colors.tertiary : theme.colors.secondary
 
             return (
               <Button

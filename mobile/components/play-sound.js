@@ -1,19 +1,23 @@
 import * as React from 'react'
-import { Button } from 'react-native-paper'
+import { Button, Text, useTheme } from 'react-native-paper'
 import { Audio } from 'expo-av'
 import PropTypes from 'prop-types'
-import { StyleSheet, Platform } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { useSharedStyles } from '../styles/common.js'
 
 // This is more of a component than a server and might be better placed in the components folder
-export default function PlaySound({ audioFileNames, buttonText, mode = 'elevated', margin = 10 }) {
+// eslint-disable-next-line putout/destructuring-as-function-argument
+export default function PlaySound({
+  audioFileNames,
+  buttonText,
+  mode = 'elevated',
+  margin = 10,
+  answerButton = false
+}) {
   const [sound, setSound] = React.useState()
 
-  const styles = StyleSheet.create({
-    button: {
-      marginBottom: margin,
-      marginTop: margin
-    }
-  })
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
 
   // function that loops over audioFileName that is an array and calls playSound with the should that should be played
   const playAllSounds = async () => {
@@ -68,13 +72,37 @@ export default function PlaySound({ audioFileNames, buttonText, mode = 'elevated
   }, [sound])
 
   return (
-    <Button onPress={playAllSounds} mode={mode} style={styles.button} icon={'play'}>
-      {buttonText}
-    </Button>
+    <>
+      {answerButton ? (
+        <Button onPress={playAllSounds} style={{ ...sharedStyle.buttonAnswer }}>
+          <Text
+            style={{
+              ...sharedStyle.answerText,
+              fontSize: 20
+            }}
+          >
+            {buttonText}
+          </Text>
+        </Button>
+      ) : (
+        <Button onPress={playAllSounds} style={{ ...sharedStyle.buttonAnswer }}>
+          <Text
+            style={{
+              ...sharedStyle.answerText,
+              fontSize: 20,
+              lineHeight: undefined
+            }}
+          >
+            {buttonText}
+          </Text>
+        </Button>
+      )}
+    </>
   )
 }
 
 PlaySound.propTypes = {
+  answerButton: PropTypes.bool,
   mode: PropTypes.string,
   audioFileNames: PropTypes.any.isRequired,
   buttonText: PropTypes.string.isRequired,

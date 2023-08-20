@@ -29,13 +29,14 @@ function Root() {
       <NavigationContainer theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
         <Tab.Navigator
           activeColor={
-            isDarkModeOn.isDarkMode ? CombinedDefaultTheme.colors.secondary : CombinedDarkTheme.colors.secondary
+            isDarkModeOn.isDarkMode ? CombinedDefaultTheme.colors.primary : CombinedDarkTheme.colors.secondary
           }
           inactiveColor={
             isDarkModeOn.isDarkMode ? CombinedDefaultTheme.colors.secondary : CombinedDarkTheme.colors.secondary
           }
           barStyle={{
             height: 75,
+
             backgroundColor: isDarkModeOn.isDarkMode
               ? CombinedDefaultTheme.colors.background
               : CombinedDarkTheme.colors.background,
@@ -46,16 +47,17 @@ function Root() {
           }}
           screenOptions={({ route }) => ({
             tabBarLabel: '',
+
             tabBarIcon: ({ color }) => {
               let iconName
 
               switch (route.name) {
                 case SCREENS.text: {
-                  iconName = 'home'
+                  iconName = 'text'
                   break
                 }
                 case SCREENS.words: {
-                  iconName = 'play'
+                  iconName = 'abjad-arabic'
                   break
                 }
                 case SCREENS.settings: {

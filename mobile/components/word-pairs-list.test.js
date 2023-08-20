@@ -1,11 +1,10 @@
 import { describe, it, jest } from '@jest/globals'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 import React from 'react'
-import TextBilingualSentencesWordPairs from './text-bilingual-sentences-word-pairs-list.js'
-import renderer from 'react-test-renderer'
+import WordPairsList from './word-pairs-list.js'
 
 jest.useFakeTimers()
-describe('<TextBilingualSentencesWordPairs /> renders without crashing', () => {
+describe('<WordPairsList /> renders without crashing', () => {
   // eslint-disable-next-line putout/objects-braces-inside-array
   const words = [
     {
@@ -26,6 +25,6 @@ describe('<TextBilingualSentencesWordPairs /> renders without crashing', () => {
     // @ts-ignore
     const renderer = new ShallowRenderer()
 
-    renderer.render(<TextBilingualSentencesWordPairs words={words} />)
+    renderer.render(<WordPairsList words={words} />)
   })
 })

@@ -1,5 +1,5 @@
 import { View, ScrollView, Alert } from 'react-native'
-import { Text, Surface, Divider, useTheme, Button } from 'react-native-paper'
+import { Text, Surface, useTheme, Button, ProgressBar } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSharedStyles } from '../styles/common.js'
@@ -9,8 +9,8 @@ import TextPracticeWords from './text-practice-words.js'
 import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
-import { formatGrammar } from '../services/ui-services.js'
 import PlaySound from '../components/play-sound.js'
+import WordPairsList from '../components/word-pairs-list.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -23,7 +23,7 @@ const TextPractice = () => {
   const [currentWord, setCurrentWord] = useState(0)
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
   const [currentEnglishWordsInSentence, setCurrentEnglishWordsInSentence] = useState([])
-  const [color, setColor] = useState(theme.colors.elevation.level1)
+  const [color, setColor] = useState(theme.colors.elevation.level0)
   const [currentArabicWord, setCurrentArabicWord] = useState(0)
   const hideModal = () => setVisible(false)
   const [visible, setVisible] = React.useState(false)
@@ -75,11 +75,12 @@ const TextPractice = () => {
       })
 
       const arabicWords = wordsInSentence.map((word) => word.arabicWord)
+      const englishWordsUnsorted = wordsInSentence.map((word) => word.englishWord)
       const englishWords = wordsInSentence.map((word) => word.englishWord).sort(() => Math.random() - 0.5)
       const explanations = wordsInSentence.map((word) => word.explanation)
       const filename = sentence.filename
 
-      return { arabicWords, englishWords, explanations, filename }
+      return { arabicWords, englishWords, englishWordsUnsorted, explanations, filename }
     })
   }, [text])
 
@@ -99,6 +100,8 @@ const TextPractice = () => {
       const updatedArabicSentence = `${currentArabicSentenceFromCorrectAnswers} ${word}`
       const updatedEnglishWords = currentEnglishWordsInSentence.filter((w) => w.id !== id)
 
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+
       setCurrentArabicWord(sentencesInText[currentSentence].arabicWords[currentWord])
       setCurrentArabicSentenceFromCorrectAnswers(() => updatedArabicSentence)
       setCurrentEnglishWordsInSentence(() => updatedEnglishWords)
@@ -106,10 +109,9 @@ const TextPractice = () => {
       if (isLastWordInSentence) {
         setSentenceIsComplete(true)
         vibrateBetweenTwoColors(setColor, theme, theme.colors.primaryContainer)
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
 
         if (isLastSentence) {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }
 
@@ -131,37 +133,23 @@ const TextPractice = () => {
   )
 
   const sentenceControl = (
-    <View style={{ marginTop: 10, marginBottom: 33 }}>
+    <View>
       <Button
-        icon="eye-outline"
-        mode="elevated"
+        style={{ ...sharedStyle.buttonAnswer }}
         onPress={() => {
-          let combinedExplanations = ''
-
-          for (let i = 0; i < sentencesInText[currentSentence].englishWords.length; i++) {
-            const currentEnglishWord =
-              sentencesInText[currentSentence].englishWords[i].english.charAt(0).toUpperCase() +
-              sentencesInText[currentSentence].englishWords[i].english.slice(1)
-            const currentArabicWord = sentencesInText[currentSentence].arabicWords[i].arabic
-            const currentExplanation = sentencesInText[currentSentence].explanations[i]
-
-            combinedExplanations += `⟶ ${currentArabicWord}\n↠ ${currentEnglishWord}\n${currentExplanation}\n\n`
-          }
-
-          setExplanation(formatGrammar(combinedExplanations, sharedStyle))
+          setExplanation(<WordPairsList words={text.sentences[currentSentence].words} />)
           setVisible(true)
         }}
       >
-        Explain
+        <Text style={{ ...sharedStyle.answerText, fontSize: 20 }}>Explain</Text>
       </Button>
-      <PlaySound audioFileNames={sentencesInText[currentSentence].filename} buttonText="Play" margin={15} />
+      <PlaySound audioFileNames={sentencesInText[currentSentence].filename} buttonText="Play" answerButton={true} />
       {!isLastSentence && (
         <Button
+          style={{ marginTop: 5 }}
           mode="contained"
           onPress={() => {
             setSentenceIsComplete(false)
-
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
             if (currentSentence === sentencesInText.length - 1) {
               handleResetQuiz()
@@ -173,7 +161,17 @@ const TextPractice = () => {
             setCurrentWord(0)
           }}
         >
-          <Text style={{ color: theme.colors.onPrimary, fontWeight: 700, fontSize: 17 }}>CONTINUE</Text>
+          <Text
+            style={{
+              ...sharedStyle.answerText,
+              color: theme.colors.onPrimary,
+              fontSize: 18,
+              fontWeight: '800',
+              letterSpacing: 3
+            }}
+          >
+            CONTINUE
+          </Text>
         </Button>
       )}
       <View style={{ alignItems: 'center', marginTop: 15 }}>
@@ -184,14 +182,20 @@ const TextPractice = () => {
 
   return textLoading ? (
     <ScrollView style={sharedStyle.headerContainer}>
+      <ProgressBar
+        progress={currentSentence / sentencesInText.length}
+        color={theme.colors.tertiary}
+        style={{
+          height: 7,
+          borderRadius: 10,
+          marginVertical: 5,
+          backgroundColor: theme.colors.elevation.level2
+        }}
+      />
       <Surface
         style={{ ...sharedStyle.surface, backgroundColor: color, marginVertical: 5, minHeight: 280, borderRadius: 10 }}
       >
         <View style={sharedStyle.headerContainer}>
-          <Text variant="labelLarge" style={{ color: theme.colors.tertiary }}>
-            Sentence: {currentSentence + 1} of {sentencesInText.length}
-          </Text>
-          <Divider style={sharedStyle.divider} />
           <WordsContextHighLighted
             arabicSentence={sentencesInText[currentSentence].arabicWords}
             currentWord={currentWord}
@@ -205,7 +209,7 @@ const TextPractice = () => {
       <ModalScrollView
         visible={visible}
         titleLanguage="english"
-        content={<View>{explanation}</View>}
+        content={explanation}
         title={'Explain'}
         hideModal={hideModal}
       />

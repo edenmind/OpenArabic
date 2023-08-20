@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
+import { Animated } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import { useSharedStyles } from '../styles/common.js'
@@ -7,20 +8,47 @@ const HighlightedWord = ({ word }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
-  return (
-    <Text
-      style={{
-        ...sharedStyle.arabicBody,
-        color: theme.colors.onPrimary,
-        backgroundColor: theme.colors.secondary,
-        paddingHorizontal: 5,
+  // Create a new animated value for border opacity
+  const borderOpacity = useRef(new Animated.Value(1)).current
 
-        fontSize: 43,
-        lineHeight: 75
+  const [isBorderVisible, setIsBorderVisible] = useState(true)
+
+  const animateBorderOpacity = () => {
+    // Determine the target opacity based on the current state
+    const toValue = isBorderVisible ? 0.5 : 1
+
+    Animated.timing(borderOpacity, {
+      toValue,
+      duration: 1000,
+      useNativeDriver: false
+    }).start(() => {
+      setIsBorderVisible(!isBorderVisible)
+    })
+  }
+
+  useEffect(() => {
+    animateBorderOpacity()
+  }, [animateBorderOpacity])
+
+  return (
+    <Animated.View
+      style={{
+        opacity: borderOpacity
       }}
     >
-      {word.arabic}
-    </Text>
+      <Text
+        style={{
+          ...sharedStyle.arabicBody,
+          color: theme.colors.primary,
+          paddingHorizontal: 5,
+          fontSize: 43,
+          lineHeight: 75
+        }}
+        onPress={animateBorderOpacity}
+      >
+        {word.arabic}
+      </Text>
+    </Animated.View>
   )
 }
 

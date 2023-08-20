@@ -15,7 +15,6 @@ export const useSharedStyles = (theme) => {
   const paddingBottom = 5
   const horizontalMargin = 33
   const verticalMargin = 33
-  const textColor = theme.colors.onBackground
   const textColorArabic = theme.colors.secondary
 
   return useMemo(() => {
@@ -31,11 +30,24 @@ export const useSharedStyles = (theme) => {
     }
 
     return StyleSheet.create({
+      actionButton: {
+        color: theme.colors.primary,
+        marginBottom: 5,
+        marginTop: 5
+      },
+      actionText: {
+        color: theme.colors.onPrimary,
+        fontSize: 18,
+        fontWeight: '700',
+        letterSpacing: 1,
+        lineHeight: 30,
+        textAlign: 'center'
+      },
       answerText: {
         color: theme.colors.primary,
         fontSize: 23,
-        fontWeight: 'bold',
-        lineHeight: 55,
+        fontWeight: '600',
+        lineHeight: 40,
         textAlign: 'center'
       },
       arabicBody: {
@@ -111,9 +123,10 @@ export const useSharedStyles = (theme) => {
         marginTop: 10
       },
       buttonAnswer: {
-        backgroundColor: theme.colors.elevation.level1,
-        borderBottomColor: theme.colors.elevation.level5,
-        borderBottomWidth: 5,
+        backgroundColor: theme.colors.elevation.transparent,
+        borderBottomWidth: 4,
+        borderColor: theme.colors.elevation.level5,
+        borderWidth: 2,
         marginBottom: 5,
         marginTop: 5
       },
@@ -157,6 +170,13 @@ export const useSharedStyles = (theme) => {
         marginRight: 10,
         paddingTop: 10
       },
+      labelText: {
+        color: theme.colors.secondary,
+        fontSize: 10,
+        fontWeight: '700',
+        letterSpacing: 0.5,
+        textAlign: 'center'
+      },
       scrollView: {
         direction: 'rtl',
         marginLeft: horizontalMargin,
@@ -170,16 +190,19 @@ export const useSharedStyles = (theme) => {
       }
     })
   }, [
-    textColorArabic,
-    arabicFontName,
-    arabicFontSize,
+    theme.colors.primary,
+    theme.colors.onPrimary,
     theme.colors.tertiary,
     theme.colors.error,
     theme.colors.elevation.tertiaryContainer,
-    theme.colors.elevation.level1,
+    theme.colors.elevation.transparent,
     theme.colors.elevation.level5,
     theme.colors.onTertiaryContainer,
     theme.colors.onSurface,
+    theme.colors.secondary,
+    textColorArabic,
+    arabicFontName,
+    arabicFontSize,
     englishFontSize
   ])
 }
