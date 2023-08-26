@@ -1,8 +1,9 @@
-import OpenAI from 'openai';
- 
+import OpenAI from 'openai'
+
 const openai = new OpenAI({
-   apiKey: process.env.REACT_APP_OPENAI_API_KEY, dangerouslyAllowBrowser: true
-});
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true
+})
 
 export async function getChatCompletionMessage(message) {
   const chatCompletion = await openai.createChatCompletion({

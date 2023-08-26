@@ -8,7 +8,7 @@ import * as api from '../services/api-service.js'
 
 const selector = (state) => state.text
 
-const TextAddWordsGenerate = React.memo((props) => {
+const TextAddWordsGenerate = React.memo(() => {
   const { text } = useSelector(selector)
   const [open, setOpen] = React.useState(false)
   const [statusMessage, setStatusMessage] = React.useState('')
