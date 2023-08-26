@@ -28,9 +28,9 @@ export const removeLastVowel = (word) => {
 
   const sukoon = 'ْ'
 
-  const ya = 'ي'
+  // const ya = 'ي'
   const ta = 'ت'
-  const na = 'ن'
+  // const na = 'ن'
   const ha = 'ه'
 
   //remove sukon

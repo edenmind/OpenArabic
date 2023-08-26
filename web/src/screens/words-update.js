@@ -52,7 +52,7 @@ const WordsUpdate = () => {
   const [publishDate, setPublishDate] = React.useState(new Date().toUTCString())
   const [openPrompt, setOpenPrompt] = React.useState(false)
   const [openSnackBar, setOpenSnackbar] = React.useState(false)
-  const [postState, setPostState] = React.useState('')
+  const [postState] = React.useState('')
   const handleOpen = (promptTitle, promptText) => {
     setOpenPrompt(true)
     setPromptText(promptText)

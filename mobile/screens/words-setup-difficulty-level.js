@@ -1,6 +1,4 @@
-/* eslint-disable react-native/no-color-literals */
-/* eslint-disable unicorn/no-nested-ternary */
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Image } from 'react-native'
 import { Divider, Surface, Text, useTheme, Chip } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
@@ -21,216 +19,81 @@ import {
 } from '../services/grammar-service.js'
 import { formatGrammar } from '../services/ui-services.js'
 
-const WordsSetupDifficultyLevel = (props) => {
+const difficultyConfig = {
+  10: {
+    description:
+      'Beginning with an introduction to the three types of words, this phase kick-starts your exploration of fundamental Arabic vocabulary as it applies to Islamic texts.',
+    image: require('../assets/beginner.jpeg'),
+    chips: ['Noun', 'Verb', 'Particle']
+  },
+  20: {
+    description:
+      'Advancing further, you will explore Arabics complexities, now incorporating definite forms and the present tense to deepen your vocabulary knowledge.',
+    image: require('../assets/mid-level.jpeg'),
+    chips: ['Definite', 'Present', 'Plural', 'Pronoun']
+  },
+  30: {
+    description:
+      'Advancing further, you will explore Arabics complexities, now incorporating definite forms and the present tense to deepen your vocabulary knowledge.',
+    image: require('../assets/advanced.jpeg'),
+    chips: ['Future', 'Dual', 'Compound', 'Passive']
+  }
+}
+
+const grammarFunctionsMap = {
+  Noun: getNoun,
+  Verb: getVerb,
+  Particle: getParticle,
+  Definite: getDefinite,
+  Present: getPresent,
+  Plural: getPlural,
+  Pronoun: getPronouns,
+  Future: getFuture,
+  Dual: getDual,
+  Compound: getCompound,
+  Passive: getPassive
+}
+
+const WordsSetupDifficultyLevel = ({ difficultyLevel }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
-  let source
-  let goal
-  const [visible, setVisible] = React.useState(false)
-  const hideModal = () => setVisible(false)
-  const [title, setTitle] = React.useState('')
-  const [explanation, setExplanation] = React.useState('')
+  const [visible, setVisible] = useState(false)
+  const [title, setTitle] = useState('')
+  const [explanation, setExplanation] = useState('')
 
-  switch (props.difficultyLevel) {
-    case 10: {
-      source = require('../assets/beginner.jpeg')
-      goal = (
-        <>
-          <Text variant="bodyMedium">
-            Beginning with an introduction to the three types of words, this phase kick-starts your exploration of
-            fundamental Arabic vocabulary as it applies to Islamic texts.
-          </Text>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Noun')
-                setExplanation(formatGrammar(getNoun(), sharedStyle))
-              }}
-            >
-              Noun
-            </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Verb')
-                setExplanation(formatGrammar(getVerb(), sharedStyle))
-              }}
-            >
-              Verb
-            </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Particle')
-                setExplanation(formatGrammar(getParticle(), sharedStyle))
-              }}
-            >
-              Particle
-            </Chip>
-          </View>
-          <Text variant="labelSmall">Press label for explanation</Text>
-        </>
-      )
-
-      break
-    }
-    case 20: {
-      source = require('../assets/mid-level.jpeg')
-      goal = (
-        <>
-          <Text variant="bodyMedium">
-            Advancing further, you will explore Arabic's complexities, now incorporating definite forms and the present
-            tense to deepen your vocabulary knowledge.
-          </Text>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Definite')
-                setExplanation(formatGrammar(getDefinite(), sharedStyle))
-              }}
-            >
-              Definite
-            </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Present')
-                setExplanation(formatGrammar(getPresent(), sharedStyle))
-              }}
-            >
-              Present
-            </Chip>
-
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Plural')
-                setExplanation(formatGrammar(getPlural(), sharedStyle))
-              }}
-            >
-              Plural
-            </Chip>
-
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Pronoun')
-                setExplanation(formatGrammar(getPronouns(), sharedStyle))
-              }}
-            >
-              Pronoun
-            </Chip>
-          </View>
-          <Text variant="labelSmall">Press label for explanation</Text>
-        </>
-      )
-
-      break
-    }
-    case 30: {
-      source = require('../assets/advanced.jpeg')
-      goal = (
-        <>
-          <Text variant="bodyMedium">
-            In our final stage, we'll dissect Arabic phrases that translate to multiple English words, consolidating
-            your ability to engage with basic Islamic texts, In sha'Allah.
-          </Text>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Future')
-                setExplanation(formatGrammar(getFuture(), sharedStyle))
-              }}
-            >
-              Future
-            </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Dual')
-                setExplanation(formatGrammar(getDual(), sharedStyle))
-              }}
-            >
-              Dual
-            </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Compound')
-                setExplanation(formatGrammar(getCompound(), sharedStyle))
-              }}
-            >
-              Compound
-            </Chip>
-            <Chip
-              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
-              compact={true}
-              selectedColor={theme.colors.onTertiary}
-              onPress={() => {
-                setVisible(true)
-                setTitle('Passive')
-                setExplanation(formatGrammar(getPassive(), sharedStyle))
-              }}
-            >
-              Passive
-            </Chip>
-          </View>
-          <Text variant="labelSmall">Press label for explanation</Text>
-        </>
-      )
-
-      break
-    }
-    default: {
-      return
-    }
+  const handleChipPress = (label) => {
+    setVisible(true)
+    setTitle(label)
+    setExplanation(formatGrammar(grammarFunctionsMap[label](), sharedStyle))
   }
+
+  const currentConfig = difficultyConfig[difficultyLevel] || {}
 
   return (
     <Surface style={{ borderRadius: 10, minHeight: 350 }} testID="surface">
-      <Image source={source} style={{ width: '100%', height: 190 }} />
+      <Image source={currentConfig.image} style={{ width: '100%', height: 190 }} />
       <View style={{ padding: 10 }}>
         <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-        {goal}
+        <Text variant="bodyMedium">{currentConfig.description}</Text>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingTop: 10, paddingBottom: 10 }}>
+          {currentConfig.chips?.map((label) => (
+            <Chip
+              key={label}
+              style={{ margin: 3, backgroundColor: theme.colors.tertiary }}
+              compact={true}
+              selectedColor={theme.colors.onTertiary}
+              onPress={() => handleChipPress(label)}
+            >
+              {label}
+            </Chip>
+          ))}
+        </View>
       </View>
       <ModalScrollView
         visible={visible}
         content={<View>{explanation}</View>}
         title={title}
-        hideModal={hideModal}
+        hideModal={() => setVisible(false)}
         height="87%"
         titleLanguage="english"
       />
@@ -238,8 +101,8 @@ const WordsSetupDifficultyLevel = (props) => {
   )
 }
 
-export default WordsSetupDifficultyLevel
-
 WordsSetupDifficultyLevel.propTypes = {
   difficultyLevel: PropTypes.number.isRequired
 }
+
+export default WordsSetupDifficultyLevel

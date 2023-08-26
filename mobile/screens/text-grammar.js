@@ -1,5 +1,5 @@
 import { Divider, useTheme, Text } from 'react-native-paper'
-import { StyleSheet, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 import React from 'react'
 import PropTypes from 'prop-types'
 import { formatGrammar } from '../services/ui-services.js'
@@ -12,17 +12,10 @@ export default function TextGrammar({ route }) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
-  const style = StyleSheet.create({
-    scrollView: {
-      padding: 15,
-      paddingBottom: 55
-    }
-  })
-
   const transliteratedArabic = transliterateArabicToEnglish(arabic)
 
   return (
-    <ScrollView style={style.scrollView}>
+    <ScrollView style={sharedStyle.scrollView}>
       <Text
         style={{
           fontFamily: 'uthman',
@@ -65,7 +58,7 @@ TextGrammar.propTypes = {
       grammar: PropTypes.string.isRequired,
       arabic: PropTypes.string.isRequired,
       english: PropTypes.string.isRequired,
-      filename: PropTypes.string.isRequired
+      filename: PropTypes.string
     })
   })
 }

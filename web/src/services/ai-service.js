@@ -1,9 +1,9 @@
-const { Configuration, OpenAIApi } = require('openai')
+import OpenAI from 'openai'
 
-const configuration = new Configuration({
-  apiKey: process.env.REACT_APP_OPENAI_API_KEY
+const openai = new OpenAI({
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY || '123',
+  dangerouslyAllowBrowser: true
 })
-const openai = new OpenAIApi(configuration)
 
 export async function getChatCompletionMessage(message) {
   const chatCompletion = await openai.createChatCompletion({

@@ -9,7 +9,7 @@ const selector = (state) => state.text
 
 function TextAddPreview() {
   const { text } = useSelector(selector)
-  const [englishWordsAggregated, setEnglishWordsAggregated] = React.useState('')
+  const [englishWordsAggregated] = React.useState('')
 
   return text.sentences.length > 1 ? (
     <React.Fragment>

@@ -1,16 +1,21 @@
-import { View, ScrollView, Alert } from 'react-native'
-import { Text, Surface, useTheme, Button, ProgressBar } from 'react-native-paper'
-import { useSelector } from 'react-redux'
 import React, { useState, useEffect, useCallback } from 'react'
-import { useSharedStyles } from '../styles/common.js'
+import { View, ScrollView } from 'react-native'
+import { Surface, useTheme } from 'react-native-paper'
+import { useSelector } from 'react-redux'
 import * as Haptics from 'expo-haptics'
+
+import { useSharedStyles } from '../styles/common.js'
 import WordsContextHighLighted from '../components/context-highlighted.js'
 import TextPracticeWords from './text-practice-words.js'
-import { getThreeRandomWords, vibrateBetweenTwoColors } from '../services/utility-service.js'
 import Spinner from '../components/spinner.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import PlaySound from '../components/play-sound.js'
 import WordPairsList from '../components/word-pairs-list.js'
+import { Progress } from '../components/progress.js'
+import { AnswerButton } from '../components/answer-button.js'
+import { ActionButton } from '../components/action-button.js'
+import TakbirCelebrate from '../components/takbir-celebrate.js'
+import { getThreeRandomWords } from '../services/utility-service.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -29,10 +34,13 @@ const TextPractice = () => {
   const [visible, setVisible] = React.useState(false)
   const [explanation, setExplanation] = useState('')
   const [sentenceIsComplete, setSentenceIsComplete] = useState(false)
+  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = useState(false)
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
-    if (!textLoading || !sentencesInText[currentSentence]) {
+    if (
+      !(textLoading && sentencesInText[currentSentence] && sentencesInText[currentSentence].arabicWords[currentWord])
+    ) {
       return
     }
 
@@ -42,26 +50,6 @@ const TextPractice = () => {
     setCurrentEnglishWordsInSentence(getThreeRandomWords(englishWords, arabicWordId, sentencesInText))
     setCurrentArabicWord(sentencesInText[currentSentence].arabicWords[currentWord])
   }, [currentSentence, currentWord, sentencesInText, textLoading])
-
-  const handleResetQuiz = useCallback(() => {
-    Alert.alert(
-      'Practice Complete!',
-      'Do you want to try again?',
-      [
-        {
-          text: 'No',
-          style: 'cancel'
-        },
-        {
-          text: 'Yes',
-          onPress: () => {
-            setCurrentSentence(0)
-          }
-        }
-      ],
-      { cancelable: false }
-    )
-  }, [])
 
   // loop through all sentences in the text
   const sentencesInText = React.useMemo(() => {
@@ -87,11 +75,33 @@ const TextPractice = () => {
   const isLastWordInSentence = currentWord === sentencesInText[currentSentence].englishWords.length - 1
   const isLastSentence = currentSentence === sentencesInText.length - 1
 
+  const handleReset = () => {
+    setCurrentSentence(0)
+    setCurrentWord(0)
+    setSentenceIsComplete(false)
+  }
+
+  const handleContinue = () => {
+    setSentenceIsComplete(false)
+
+    if (currentSentence === sentencesInText.length) {
+      setCelebrationSnackBarVisibility(true)
+
+      return
+    }
+
+    setCurrentArabicSentenceFromCorrectAnswers('')
+    setCurrentSentence((prev) => prev + 1)
+    setCurrentWord(0)
+  }
+
+  const onDismissSnackBar = useCallback(() => {
+    setCelebrationSnackBarVisibility(false)
+  }, [setCelebrationSnackBarVisibility])
+
   const handlePress = React.useCallback(
     async (id, word) => {
       if (id !== currentWord) {
-        // wrong answer
-        vibrateBetweenTwoColors(setColor, theme, theme.colors.errorContainer)
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
 
         return
@@ -100,18 +110,17 @@ const TextPractice = () => {
       const updatedArabicSentence = `${currentArabicSentenceFromCorrectAnswers} ${word}`
       const updatedEnglishWords = currentEnglishWordsInSentence.filter((w) => w.id !== id)
 
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-
       setCurrentArabicWord(sentencesInText[currentSentence].arabicWords[currentWord])
       setCurrentArabicSentenceFromCorrectAnswers(() => updatedArabicSentence)
       setCurrentEnglishWordsInSentence(() => updatedEnglishWords)
 
       if (isLastWordInSentence) {
         setSentenceIsComplete(true)
-        vibrateBetweenTwoColors(setColor, theme, theme.colors.primaryContainer)
+
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
 
         if (isLastSentence) {
+          setCelebrationSnackBarVisibility(true)
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }
 
@@ -127,101 +136,69 @@ const TextPractice = () => {
       sentencesInText,
       currentSentence,
       isLastWordInSentence,
-      theme,
       isLastSentence
     ]
   )
 
   const sentenceControl = (
     <View>
-      <Button
-        style={{ ...sharedStyle.buttonAnswer }}
+      <AnswerButton
         onPress={() => {
           setExplanation(<WordPairsList words={text.sentences[currentSentence].words} />)
           setVisible(true)
         }}
-      >
-        <Text style={{ ...sharedStyle.answerText, fontSize: 20 }}>Explain</Text>
-      </Button>
-      <PlaySound audioFileNames={sentencesInText[currentSentence].filename} buttonText="Play" answerButton={true} />
-      {!isLastSentence && (
-        <Button
-          style={{ marginTop: 5 }}
-          mode="contained"
-          onPress={() => {
-            setSentenceIsComplete(false)
-
-            if (currentSentence === sentencesInText.length - 1) {
-              handleResetQuiz()
-              return
-            }
-
-            setCurrentArabicSentenceFromCorrectAnswers('')
-            setCurrentSentence((prev) => prev + 1)
-            setCurrentWord(0)
-          }}
-        >
-          <Text
-            style={{
-              ...sharedStyle.answerText,
-              color: theme.colors.onPrimary,
-              fontSize: 18,
-              fontWeight: '800',
-              letterSpacing: 3
-            }}
-          >
-            CONTINUE
-          </Text>
-        </Button>
+        text="Explain"
+      />
+      <PlaySound audioFileNames={sentencesInText[currentSentence].filename} buttonText="Play" />
+      {isLastSentence ? (
+        <ActionButton onPress={handleReset} text="PRACTICE AGAIN" />
+      ) : (
+        <ActionButton onPress={handleContinue} text="CONTINUE" />
       )}
-      <View style={{ alignItems: 'center', marginTop: 15 }}>
-        <Text style={{ fontSize: 20 }}>{isLastSentence && <Text>Alhamdulillah, you are doing great!</Text>}</Text>
-      </View>
     </View>
   )
 
   return textLoading ? (
-    <ScrollView style={sharedStyle.headerContainer}>
-      <ProgressBar
-        progress={currentSentence / sentencesInText.length}
-        color={theme.colors.tertiary}
-        style={{
-          height: 7,
-          borderRadius: 10,
-          marginVertical: 5,
-          backgroundColor: theme.colors.elevation.level2
-        }}
-      />
-      <Surface
-        style={{ ...sharedStyle.surface, backgroundColor: color, marginVertical: 5, minHeight: 280, borderRadius: 10 }}
-      >
-        <View style={sharedStyle.headerContainer}>
+    <>
+      <ScrollView style={sharedStyle.container}>
+        <TakbirCelebrate
+          visible={celebrationSnackBarVisibility}
+          onDismissSnackBar={onDismissSnackBar}
+          text="Session Completed Successfully!"
+        />
+        <Progress progress={currentSentence / (sentencesInText.length - 1)} />
+        <Surface style={{ backgroundColor: color, minHeight: 250 }}>
           <WordsContextHighLighted
             arabicSentence={sentencesInText[currentSentence].arabicWords}
             currentWord={currentWord}
             arabicWord={currentArabicWord}
             sentenceIsComplete={sentenceIsComplete}
           />
-        </View>
-      </Surface>
-      {sentenceIsComplete && sentenceControl}
+        </Surface>
+        {sentenceIsComplete && sentenceControl}
 
-      <ModalScrollView
-        visible={visible}
-        titleLanguage="english"
-        content={explanation}
-        title={'Explain'}
-        hideModal={hideModal}
-      />
-
-      {!sentenceIsComplete && (
-        <TextPracticeWords
-          testID="textPracticeArabicWords"
-          currentWordsInSentence={currentEnglishWordsInSentence}
-          handlePress={handlePress}
+        <ModalScrollView
+          visible={visible}
+          titleLanguage="english"
+          content={explanation}
+          title={'Explain'}
+          hideModal={hideModal}
         />
-      )}
-    </ScrollView>
+
+        {!sentenceIsComplete && (
+          <TextPracticeWords
+            testID="textPracticeArabicWords"
+            currentWordsInSentence={currentEnglishWordsInSentence}
+            handlePress={handlePress}
+          />
+        )}
+      </ScrollView>
+      <TakbirCelebrate
+        visible={celebrationSnackBarVisibility}
+        onDismissSnackBar={onDismissSnackBar}
+        text="Session Completed Successfully!"
+      />
+    </>
   ) : (
     <Spinner />
   )

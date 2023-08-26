@@ -162,7 +162,7 @@ export default function TextDrawer() {
         unmountOnBlur: true,
         backgroundColor: theme.colors.surface,
         drawerStyle: {
-          width: 195
+          width: 210
         },
         headerTintColor: theme.colors.secondary,
         headerStyle: {
@@ -170,7 +170,7 @@ export default function TextDrawer() {
         },
         headerTitleStyle: {
           fontFamily: 'philosopher',
-          fontSize: 25,
+          fontSize: 23,
           color: theme.colors.onSurface
         }
       }}

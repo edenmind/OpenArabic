@@ -76,7 +76,6 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react/recommended',
     'plugin:security/recommended',
-    'plugin:putout/recommended',
     'plugin:sonarjs/recommended',
     'plugin:array-func/recommended'
   ],

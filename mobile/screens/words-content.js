@@ -4,14 +4,16 @@
 /* eslint-disable react-native/no-color-literals */
 import React, { useState, useCallback, useEffect } from 'react'
 import { View, StyleSheet, FlatList } from 'react-native'
-import { Surface, Text, ProgressBar, Button, useTheme } from 'react-native-paper'
-import SnackButton from '../components/snack-button.js'
+import { Surface, Text, useTheme } from 'react-native-paper'
+import TakbirCelebrate from '../components/takbir-celebrate.js'
 import { useDispatch, useSelector } from 'react-redux'
-import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import PlaySound from '../components/play-sound.js'
-import { vibrateBetweenTwoColors, generateRandomPositions } from '../services/utility-service.js'
+import { generateRandomPositions } from '../services/utility-service.js'
+import { Progress } from '../components/progress.js'
+import { AnswerButton } from '../components/answer-button.js'
+
 const wordsSelector = (state) => state.words
 
 const WordsContent = ({
@@ -25,10 +27,8 @@ const WordsContent = ({
 }) => {
   const theme = useTheme()
   const { words } = useSelector(wordsSelector)
-  const [color, setColor] = useState(theme.colors.elevation.level0)
   const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
   const [timeoutId, setTimeoutId] = useState()
-  const sharedStyle = useSharedStyles(theme)
   const [wrongAnswers, setWrongAnswers] = useState(0)
   const [wrongAnswerAlreadyAdded, setWrongAnswerAlreadyAdded] = useState([])
 
@@ -41,19 +41,8 @@ const WordsContent = ({
     },
     surface: {
       alignItems: 'center',
-      backgroundColor: color,
-      borderRadius: 10,
-
-      marginBottom: 10,
-      marginVertical: 10,
+      backgroundColor: theme.colors.elevation.level0,
       minHeight: 320
-    },
-    text: {
-      color: theme.colors.primary,
-      fontSize: 23,
-      fontWeight: 'bold',
-      lineHeight: 55,
-      textAlign: 'center'
     }
   })
 
@@ -79,15 +68,35 @@ const WordsContent = ({
     })
   }, [dispatch, handleSetCelebrationSnackBarVisibility, handleSetCurrentWord, handleSetCurrentWordIndex])
   const correctAnswer = useCallback(() => {
-    vibrateBetweenTwoColors(setColor, theme, theme.colors.primaryContainer)
     setButtonPositions(generateRandomPositions())
     handleSetCurrentWord((currentWord) => currentWord + 1)
     handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
-  }, [handleSetCurrentWord, handleSetCurrentWordIndex, theme])
+  }, [handleSetCurrentWord, handleSetCurrentWordIndex])
+
+  const handleCorrectAnswer = () => {
+    if (currentWord === words.length - 1) {
+      handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+      handleSetCelebrationSnackBarVisibility(true)
+
+      // Using arrow function to ensure 'timeoutId' is captured correctly
+      const newTimeoutId = setTimeout(() => {
+        resetStateForNewWords()
+        dispatch({
+          type: 'SET_PRACTICING_WORDS',
+          payload: false
+        })
+      }, 1500)
+
+      setTimeoutId(newTimeoutId)
+      return
+    }
+
+    correctAnswer()
+  }
 
   const handleWrongAnswer = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
-    vibrateBetweenTwoColors(setColor, theme, theme.colors.errorContainer)
 
     const currentWordArabic = words[currentWord].arabic
 
@@ -106,43 +115,15 @@ const WordsContent = ({
 
     // add one to the wrong answers
     setWrongAnswers((prevWrongAnswers) => prevWrongAnswers + 1)
-  }, [currentWord, dispatch, theme, words, wrongAnswerAlreadyAdded])
+  }, [currentWord, dispatch, words, wrongAnswerAlreadyAdded])
 
   // correct answer button
   const button1 = (
-    <Button
-      style={{ ...sharedStyle.buttonAnswer }}
-      onPress={() => {
-        if (currentWord === words.length - 1) {
-          handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-          handleSetCelebrationSnackBarVisibility(true)
-
-          // reset state for new words when we are done practicing
-          setTimeout(() => {
-            resetStateForNewWords()
-            dispatch({
-              type: 'SET_PRACTICING_WORDS',
-              payload: false
-            })
-          }, 1500)
-          setTimeoutId(timeoutId)
-
-          return
-        }
-
-        correctAnswer()
-      }}
-    >
-      <Text style={styles.text}>{words.length > 1 && words[currentWord].english}</Text>
-    </Button>
+    <AnswerButton text={words.length > 1 && words[currentWord].english} onPress={handleCorrectAnswer} correct={true} />
   )
 
-  const wrongAnswerButton = (text) => (
-    <Button style={sharedStyle.buttonAnswer} onPress={handleWrongAnswer}>
-      <Text style={styles.text}>{words.length > 1 && text}</Text>
-    </Button>
-  )
+  // wrong answer buttons
+  const wrongAnswerButton = (text) => <AnswerButton text={text} onPress={() => handleWrongAnswer} incorrect={true} />
 
   const button2 = wrongAnswerButton(words[currentWord]?.alternative1)
   const button3 = wrongAnswerButton(words[currentWord]?.alternative2)
@@ -162,11 +143,7 @@ const WordsContent = ({
       keyExtractor={(item) => item.position.toString()}
       ListHeaderComponent={
         <>
-          <ProgressBar
-            color={theme.colors.tertiary}
-            progress={currentWordIndex / (numberOfWordsToPractice + wrongAnswers)}
-            style={{ height: 7, borderRadius: 10, backgroundColor: theme.colors.elevation.level2 }}
-          />
+          <Progress progress={currentWordIndex / (numberOfWordsToPractice + wrongAnswers)} />
           <Surface style={styles.surface}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
               <Text
@@ -176,14 +153,14 @@ const WordsContent = ({
                   fontSize: 120,
                   textAlign: 'center',
                   color: theme.colors.secondary,
-                  paddingBottom: 50
+                  paddingBottom: 60
                 }}
               >
                 {words[currentWord]?.arabic.trim()}
               </Text>
             </View>
 
-            <View style={{ flexDirection: 'row', position: 'absolute', bottom: 5, right: 10 }}>
+            <View style={{ flexDirection: 'row', position: 'absolute', bottom: 10, right: 0 }}>
               <PlaySound
                 mode="text"
                 audioFileNames={[`https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`]}
@@ -192,10 +169,9 @@ const WordsContent = ({
               />
             </View>
           </Surface>
-          <SnackButton
+          <TakbirCelebrate
             visible={celebrationSnackBarVisibility}
             onDismissSnackBar={onDismissSnackBar}
-            duration={3500}
             text="Session Completed Successfully!"
           />
         </>

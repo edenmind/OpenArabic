@@ -62,12 +62,12 @@ const truncate = (stringToTruncate, truncateLength) => {
   return cleanString
 }
 
-export const vibrateBetweenTwoColors = (setColor, theme, color) => {
+export const vibrateBetweenTwoColors = (setColor, color, baseColor) => {
   setColor(color)
 
   setTimeout(() => {
-    setColor(theme.colors.elevation.level0)
-  }, 150)
+    setColor(baseColor)
+  }, 500)
 }
 
 export const getThreeRandomWords = (englishWords, currentArabicWordId, sentencesInText) => {

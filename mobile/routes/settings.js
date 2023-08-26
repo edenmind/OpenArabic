@@ -6,6 +6,7 @@ import defaultExport from '../screens/about.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import { useTheme } from 'react-native-paper'
 import { useSelector } from 'react-redux'
+import { UIElements } from '../constants/ui.js'
 
 const Stack = createNativeStackNavigator()
 const darkModeSelector = (state) => state.isDarkMode
@@ -25,7 +26,7 @@ export default function Settings() {
             title: SCREENS.about,
             headerTitleStyle: {
               fontFamily: 'philosopher',
-              fontSize: 25,
+              fontSize: UIElements.UIFontSize,
               color: theme.colors.onSurface
             },
             headerStyle: {

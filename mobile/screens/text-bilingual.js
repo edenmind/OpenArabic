@@ -9,10 +9,10 @@ import { Button, Divider, Text, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import { generateTextError, generateShare } from '../services/ui-services.js'
 import FadeInView from '../components/fade-in-view.js'
+import { UI } from '../constants/ui.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
-import UI from '../constants/ui.js'
 
 export default function TextBilingual() {
   const { text } = useSelector(selector)

@@ -7,9 +7,9 @@ import { NavigationContainer } from '@react-navigation/native'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 import { render, fireEvent, waitFor, debug } from '@testing-library/react-native'
 
-jest.mock('../components/snack-button.js', () => {
-  const SnackButton = () => {}
-  return SnackButton
+jest.mock('../components/takbir-celebrate.js', () => {
+  const TakbirCelebrate = () => {}
+  return TakbirCelebrate
 })
 
 jest.mock('react-redux', () => ({

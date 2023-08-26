@@ -7,9 +7,10 @@ import Spinner from '../components/spinner.js'
 import TextListCard from './text-list-card.js'
 import { useFocusEffect, useScrollToTop } from '@react-navigation/native'
 import { getHijriDate, getHijriDateLatin } from '../services/utility-service.js'
-import { Text, Surface, useTheme } from 'react-native-paper'
+import { Text, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import FadeInView from '../components/fade-in-view.js'
+import TextCategoryIntro from '../components/text-category-intro.js'
 
 const selector = (state) => state.texts
 const categoriesSelector = (state) => state.categories
@@ -68,9 +69,7 @@ export default function TextList({ route, navigation }) {
         ListEmptyComponent={<Spinner />}
         ListHeaderComponent={
           categoryDescription.length > 0 ? (
-            <Surface style={{ padding: 15, borderRadius: 10, margin: 10 }} elevation={1}>
-              <Text variant="labelLarge">{categoryDescription}</Text>
-            </Surface>
+            <TextCategoryIntro text={categoryDescription} />
           ) : (
             <>
               <Text style={sharedStyle.arabicDateArabic}>{getHijriDate()}</Text>
