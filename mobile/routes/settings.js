@@ -26,7 +26,7 @@ export default function Settings() {
             title: SCREENS.about,
             headerTitleStyle: {
               fontFamily: 'philosopher',
-              fontSize: UIElements.UIFontSize,
+              fontSize: UIElements.TitleFont,
               color: theme.colors.onSurface
             },
             headerStyle: {

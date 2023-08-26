@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { View, ScrollView } from 'react-native'
 import { Surface, useTheme } from 'react-native-paper'
 import { useSelector } from 'react-redux'
@@ -99,24 +99,21 @@ const TextPractice = () => {
     setCelebrationSnackBarVisibility(false)
   }, [setCelebrationSnackBarVisibility])
 
-  const handlePress = React.useCallback(
+  const handlePress = useCallback(
     async (id, word) => {
       if (id !== currentWord) {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
-
         return
       }
 
       const updatedArabicSentence = `${currentArabicSentenceFromCorrectAnswers} ${word}`
       const updatedEnglishWords = currentEnglishWordsInSentence.filter((w) => w.id !== id)
 
-      setCurrentArabicWord(sentencesInText[currentSentence].arabicWords[currentWord])
-      setCurrentArabicSentenceFromCorrectAnswers(() => updatedArabicSentence)
-      setCurrentEnglishWordsInSentence(() => updatedEnglishWords)
+      setCurrentArabicSentenceFromCorrectAnswers(updatedArabicSentence)
+      setCurrentEnglishWordsInSentence(updatedEnglishWords)
 
       if (isLastWordInSentence) {
         setSentenceIsComplete(true)
-
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
 
         if (isLastSentence) {
@@ -133,29 +130,30 @@ const TextPractice = () => {
       currentWord,
       currentArabicSentenceFromCorrectAnswers,
       currentEnglishWordsInSentence,
-      sentencesInText,
-      currentSentence,
       isLastWordInSentence,
       isLastSentence
     ]
   )
 
-  const sentenceControl = (
-    <View>
-      <AnswerButton
-        onPress={() => {
-          setExplanation(<WordPairsList words={text.sentences[currentSentence].words} />)
-          setVisible(true)
-        }}
-        text="Explain"
-      />
-      <PlaySound audioFileNames={sentencesInText[currentSentence].filename} buttonText="Play" />
-      {isLastSentence ? (
-        <ActionButton onPress={handleReset} text="PRACTICE AGAIN" />
-      ) : (
-        <ActionButton onPress={handleContinue} text="CONTINUE" />
-      )}
-    </View>
+  const sentenceControl = useMemo(
+    () => (
+      <View>
+        <AnswerButton
+          onPress={() => {
+            setExplanation(<WordPairsList words={text.sentences[currentSentence].words} />)
+            setVisible(true)
+          }}
+          text="Explain"
+        />
+        <PlaySound audioFileNames={sentencesInText[currentSentence].filename} buttonText="Play" />
+        {isLastSentence ? (
+          <ActionButton onPress={handleReset} text="PRACTICE AGAIN" />
+        ) : (
+          <ActionButton onPress={handleContinue} text="CONTINUE" />
+        )}
+      </View>
+    ),
+    [sentencesInText, currentSentence, isLastSentence, handleContinue, text.sentences]
   )
 
   return textLoading ? (
@@ -176,7 +174,6 @@ const TextPractice = () => {
           />
         </Surface>
         {sentenceIsComplete && sentenceControl}
-
         <ModalScrollView
           visible={visible}
           titleLanguage="english"
@@ -184,7 +181,6 @@ const TextPractice = () => {
           title={'Explain'}
           hideModal={hideModal}
         />
-
         {!sentenceIsComplete && (
           <TextPracticeWords
             testID="textPracticeArabicWords"

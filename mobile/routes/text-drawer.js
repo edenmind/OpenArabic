@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Caption, Divider, Switch, Text, useTheme } from 'react-native-paper'
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import SCREENS from '../constants/screens.js'
@@ -10,6 +11,7 @@ import icon from '../assets/logo.png'
 import packageJson from '../package.json'
 import { useFocusEffect } from '@react-navigation/core'
 import { storeData, getData } from '../services/storage.js'
+import PropTypes from 'prop-types'
 
 const selector = (state) => state.categories
 
@@ -74,16 +76,13 @@ export default function TextDrawer() {
     getDarkMode()
   }, [])
 
-  // store a value using storeData
   const storeDarkMode = async (value) => {
-    // we need to convert the value to a string before storing it
     const boolValuesForDarkMode = value === true ? 'on' : 'off'
 
     await storeData('isDarkModeOn', boolValuesForDarkMode)
     dispatch({ type: 'SET_DARK_MODE', payload: !value })
   }
 
-  // get a value using getData
   const getDarkMode = async () => {
     const value = await getData('isDarkModeOn')
 
@@ -111,6 +110,8 @@ export default function TextDrawer() {
   )
 
   function CustomDrawerContent(props) {
+    const { navigation } = props // Destructure the navigation prop
+
     return (
       <View style={style.container}>
         <DrawerContentScrollView {...props}>
@@ -120,6 +121,14 @@ export default function TextDrawer() {
           </Text>
           <DrawerItemList {...props} />
           <Divider style={style.divider} />
+          <TouchableOpacity onPress={() => navigation.navigate('About')}>
+            <Text
+              style={{ marginLeft: 10, marginTop: 10, paddingLeft: 9, color: theme.colors.outline }}
+              variant="labelLarge"
+            >
+              About
+            </Text>
+          </TouchableOpacity>
         </DrawerContentScrollView>
         <View style={{ backgroundColor: theme.colors.surface }}>
           <Text style={style.darkModeLabel}>Dark Mode</Text>

@@ -2,15 +2,18 @@ import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 import SCREENS from '../constants/screens.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import TextSettingsScreen from '../screens/text-settings.js'
+import TextSettingsScreen from '../screens/settings.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import { useSelector } from 'react-redux'
+import { UIElements } from '../constants/ui.js'
+import { useTheme } from 'react-native-paper'
 
 const Stack = createNativeStackNavigator()
 const darkModeSelector = (state) => state.isDarkMode
 
 export default function TextSettings() {
   const isDarkModeOn = useSelector(darkModeSelector)
+  const theme = useTheme()
 
   return (
     <NavigationContainer independent theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
@@ -19,7 +22,18 @@ export default function TextSettings() {
           name={SCREENS.textSettings}
           component={TextSettingsScreen}
           options={{
-            headerShown: false
+            headerLargeTitle: false,
+            title: SCREENS.settings,
+            headerTitleStyle: {
+              fontFamily: 'philosopher',
+              fontSize: UIElements.TitleFont,
+              color: theme.colors.onSurface
+            },
+            headerStyle: {
+              backgroundColor: isDarkModeOn.isDarkMode
+                ? CombinedDefaultTheme.colors.background
+                : CombinedDarkTheme.colors.background
+            }
           }}
         />
       </Stack.Navigator>
