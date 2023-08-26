@@ -51,7 +51,6 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:putout/recommended',
     'plugin:import/errors',
     'plugin:import/recommended',
     'plugin:import/warnings',

@@ -20,7 +20,7 @@
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.379.1",
+    "@aws-sdk/client-s3": "^3.400.0",
     "@fastify/autoload": "^5.7.1",
     "@fastify/cors": "^8.3.0",
     "@fastify/env": "^4.2.0",
@@ -29,9 +29,9 @@
     "@fastify/rate-limit": "^8.0.3",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.10.2",
-    "@fastify/swagger": "^8.8.0",
+    "@fastify/swagger": "^8.9.0",
     "@google-cloud/text-to-speech": "^4.2.3",
-    "axios": "^1.4.0",
+    "axios": "^1.5.0",
     "dotenv": "^16.3.1",
     "fastify": "^4.21.0",
     "fastify-cli": "^5.8.0",
@@ -46,12 +46,15 @@
   },
   "devDependencies": {
     "eslint": "^8.46.0",
-    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-import": "^2.28.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-putout": "^18.2.0",
+    "eslint-plugin-putout": "^19.3.0",
     "eslint-plugin-security": "^1.7.1",
-    "prettier": "^3.0.0",
-    "putout": "^30.7.0",
-    "tap": "^16.3.7"
-  }
+    "prettier": "^3.0.2",
+    "putout": "^31.5.0",
+    "tap": "^16.3.7",
+    "typescript-eslint": "^0.0.1-alpha.0"
+  },
+  "packageManager": "yarn@3.6.3"
 }
