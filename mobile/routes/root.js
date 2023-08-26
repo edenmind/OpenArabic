@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import SCREENS from '../constants/screens.js'
 import Text from './text.js'
 import Words from './words.js'
-import Settings from './settings.js'
+import TextSettings from './text-settings.js'
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import { Provider as PaperProvider } from 'react-native-paper'
@@ -56,10 +56,9 @@ function Root() {
                   break
                 }
                 case SCREENS.settings: {
-                  iconName = 'information-variant'
+                  iconName = 'cog'
                   break
                 }
-                // No default
               }
 
               return <MaterialCommunityIcons name={iconName} color={color} size={UIElements.TitleFont} />
@@ -68,7 +67,7 @@ function Root() {
         >
           <Tab.Screen name={SCREENS.text} component={Text} />
           <Tab.Screen name={SCREENS.words} component={Words} />
-          <Tab.Screen name={SCREENS.settings} component={Settings} />
+          <Tab.Screen name={SCREENS.settings} component={TextSettings} />
         </Tab.Navigator>
       </NavigationContainer>
     </PaperProvider>

@@ -31,19 +31,10 @@ export default function TextList({ route, navigation }) {
 
   useFocusEffect(
     React.useCallback(() => {
-      if (!shouldReload) {
-        return
+      if (shouldReload) {
+        dispatch(api.getTexts(category === 'All' ? '' : category))
+        setShouldReload(false)
       }
-
-      dispatch(api.getTexts(category === 'All' ? '' : category))
-
-      const intervalId = setInterval(
-        () => {
-          dispatch(api.getTexts(category === 'All' ? '' : category))
-        },
-        60 * 60 * 1000 // 1 hour in milliseconds
-      )
-      return () => clearInterval(intervalId)
     }, [category, dispatch, shouldReload])
   )
 

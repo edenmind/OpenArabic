@@ -1,14 +1,14 @@
-import { Button, useTheme } from 'react-native-paper'
+import { useTheme } from 'react-native-paper'
 import React, { useEffect } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useSelector, useDispatch } from 'react-redux'
 import SCREENS from '../constants/screens.js'
 import TextDrawer from './text-drawer.js'
-import TextSettings from './text-settings.js'
 import defaultExport from './text-tabs.js'
 import { getData } from '../services/storage.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import TextGrammar from '../screens/text-grammar.js'
+import About from '../screens/about.js'
 
 const Stack = createNativeStackNavigator()
 const selector = (state) => state.text
@@ -19,7 +19,6 @@ function Text() {
   const { text } = useSelector(selector)
   const theme = useTheme()
   const isDarkModeOn = useSelector(darkModeSelector)
-  const FONT = 'Font'
 
   useEffect(() => {
     const initSettings = async () => {
@@ -61,10 +60,10 @@ function Text() {
         }}
       />
       <Stack.Screen
-        name={SCREENS.textSettings}
-        component={TextSettings}
+        name={SCREENS.about}
+        component={About}
         options={{
-          headerTitle: 'Font Settings',
+          headerTitle: 'About',
           headerTitleStyle: {
             fontFamily: 'philosopher',
             fontSize: 23,
@@ -81,25 +80,15 @@ function Text() {
       <Stack.Screen
         name={SCREENS.textScreen}
         component={defaultExport}
-        options={({ navigation }) => ({
+        options={() => ({
           headerShown: true,
+          headerBackTitle: 'Back',
           title: text.title,
           headerTitle: '',
           headerStyle: {
             backgroundColor: theme.colors.background,
             color: theme.colors.onSurface
-          },
-          headerRight: () => (
-            <Button
-              style={{ marginRight: -5 }}
-              textColor={theme.colors.tertiary}
-              onPress={() => {
-                navigation.navigate('TextSettings')
-              }}
-            >
-              {FONT}
-            </Button>
-          )
+          }
         })}
       />
     </Stack.Navigator>

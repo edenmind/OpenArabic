@@ -33,6 +33,6 @@ export const SegmentButtonWithHeader = (props) => {
 SegmentButtonWithHeader.propTypes = {
   title: PropTypes.string.isRequired,
   buttons: PropTypes.array.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.any.isRequired,
   onValueChange: PropTypes.func.isRequired
 }
