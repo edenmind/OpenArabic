@@ -1,74 +1,36 @@
-import * as util from '../services/utility-service.js'
-import { Button, Text, useTheme } from 'react-native-paper'
 import React from 'react'
 import { View } from 'react-native'
-import ModalScrollView from '../components/modal-scroll-view.js'
+import { Divider, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
-import WordPairsList from '../components/word-pairs-list.js'
-import { useSelector } from 'react-redux'
 import PlaySound from '../components/play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
-import UI from '../constants/ui.js'
+import { UI } from '../constants/ui.js'
+import { EnglishArabic } from '../components/english-arabic.js'
 
-const filterFunction = (element) => element.english && element.arabic
-const isTransliterationOnSelector = (state) => state.isTransliterationOn
-
-function TextBilingualSentences(props) {
+function TextBilingualSentences({ sentences }) {
   const theme = useTheme()
-  const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
   const sharedStyle = useSharedStyles(theme)
 
-  //if isTransliterationOn is a string with value on then set showTransliteration to true
-  const showTransliteration = isTransliterationOn === 'on'
-  const [visible, setVisible] = React.useState(false)
-  const [words, setWords] = React.useState([])
-  const [title, setTitle] = React.useState('')
-
-  const hideModal = () => setVisible(false)
-  const showModal = () => setVisible(true)
-
-  const getListOfWordPairs = React.useCallback((index) => setWords(index), [])
-  const sentences = props.sentences.map((sentence, index) => (
-    <View key={index} style={{ ...sharedStyle.container, marginTop: 10, marginBottom: 25 }}>
-      <Text style={sharedStyle.arabicBody}>{sentence.arabic}</Text>
-      {showTransliteration && (
-        <Text style={{ ...sharedStyle.englishBody, direction: 'rtl', color: theme.colors.outline }} variant="bodyLarge">
-          {util.transliterateArabicToEnglish(sentence.arabic)}
-        </Text>
-      )}
-      <Text style={sharedStyle.englishBody} variant="bodyLarge">
-        {sentence.english}
-      </Text>
-      <Button
-        style={{ ...sharedStyle.buttonAnswer }}
-        textColor={theme.colors.tertiary}
-        onPress={() => {
-          getListOfWordPairs(
-            <WordPairsList words={util.filterArrayFromEmptyElements(sentence.words, filterFunction)} />
-          )
-          showModal()
-          setTitle('Explanation')
-        }}
-      >
-        <Text style={{ ...sharedStyle.answerText, fontSize: 20, lineHeight: undefined }}>{UI.explainWords}</Text>
-      </Button>
+  const renderedSentences = sentences.map((sentence, index) => (
+    <View key={index} style={[sharedStyle.container, { marginTop: 10, marginBottom: 10 }]}>
+      <EnglishArabic arabic={sentence.arabic} english={sentence.english} />
       <PlaySound audioFileNames={sentence.filename} buttonText={UI.playSentence} />
+      <Divider style={{ ...sharedStyle.dividerHidden }} />
     </View>
   ))
 
-  return (
-    <>
-      {sentences}
-      <ModalScrollView visible={visible} content={words} title={title} hideModal={hideModal} titleLanguage="english" />
-    </>
-  )
+  return <>{renderedSentences}</>
 }
 
 TextBilingualSentences.propTypes = {
   sentences: PropTypes.arrayOf(
     PropTypes.shape({
-      word: PropTypes.string
+      arabic: PropTypes.string.isRequired,
+      english: PropTypes.string.isRequired,
+      filename: PropTypes.string.isRequired,
+      words: PropTypes.array.isRequired
     })
   ).isRequired
 }
+
 export default React.memo(TextBilingualSentences)

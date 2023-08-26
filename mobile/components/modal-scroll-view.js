@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { useSharedStyles } from '../styles/common.js'
+import { AnswerButton } from '../components/answer-button.js'
 
 // eslint-disable-next-line putout/destructuring-as-function-argument
 const ModalScrollView = ({
@@ -55,13 +56,11 @@ const ModalScrollView = ({
           </>
         )}
         <ScrollView>
-          <View style={{ margin: 5, padding: 5 }}>{content}</View>
+          <View style={{ marginHorizontal: 5, paddingHorizontal: 5 }}>{content}</View>
         </ScrollView>
-        <Divider />
-        <View style={{ margin: 10 }}>
-          <Button onPress={hideModal} style={{ ...sharedStyled.buttonAnswer, margin: 100 }}>
-            <Text style={{ ...sharedStyled.answerText, fontSize: 20, lineHeight: undefined }}>{close}</Text>
-          </Button>
+
+        <View>
+          <AnswerButton onPress={hideModal} text={close} icon={icon} />
         </View>
       </Modal>
     </Portal>

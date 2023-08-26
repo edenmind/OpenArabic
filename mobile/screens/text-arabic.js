@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import { ScrollView, View, StyleSheet, Platform } from 'react-native'
-import { Text, Chip, Divider, useTheme, Button, Surface } from 'react-native-paper'
+import { Text, Chip, useTheme, Surface } from 'react-native-paper'
 import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'

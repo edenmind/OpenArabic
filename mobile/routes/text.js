@@ -67,7 +67,7 @@ function Text() {
           headerTitle: 'Font Settings',
           headerTitleStyle: {
             fontFamily: 'philosopher',
-            fontSize: 25,
+            fontSize: 23,
             color: theme.colors.onSurface
           },
 
@@ -91,7 +91,8 @@ function Text() {
           },
           headerRight: () => (
             <Button
-              icon="format-size"
+              style={{ marginRight: -5 }}
+              textColor={theme.colors.tertiary}
               onPress={() => {
                 navigation.navigate('TextSettings')
               }}

@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
 import PlaySound from './play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
-import UI from '../constants/ui.js'
+import { UI } from '../constants/ui.js'
 import { transliterateArabicToEnglish } from '../services/utility-service.js'
 
 const styles = StyleSheet.create({

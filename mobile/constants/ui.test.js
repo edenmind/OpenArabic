@@ -1,4 +1,4 @@
-import UI from './ui.js'
+import { UI } from './ui.js'
 import { expect, it } from '@jest/globals'
 
 it('share should be correct', () => {

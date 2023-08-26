@@ -23,19 +23,14 @@ describe('TextPracticeArabicWords component', () => {
     //     />
     //   </Provider>
     // )
-
     // const arabicWord1 = getByTestId('a1')
     // expect(arabicWord1).toBeDefined()
-
     // const arabicWord2 = getByTestId('a2')
     // expect(arabicWord2).toBeDefined()
-
     // //press arabic word 1
     // fireEvent(arabicWord1, 'press', { nativeEvent: {} })
-
     // expect(mockHandlePress).toHaveBeenCalledWith('1', 'a1')
     // expect(mockHandlePress).not.toHaveBeenCalledWith('2', 'a2')
-
     // //press arabic word 2
     // fireEvent(arabicWord2, 'press', { nativeEvent: {} })
     // expect(mockHandlePress).toHaveBeenCalledTimes(2)

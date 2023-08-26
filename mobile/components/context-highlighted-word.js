@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useCallback } from 'react'
 import { Animated } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
@@ -13,7 +13,8 @@ const HighlightedWord = ({ word }) => {
 
   const [isBorderVisible, setIsBorderVisible] = useState(true)
 
-  const animateBorderOpacity = () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const animateBorderOpacity = useCallback(() => {
     // Determine the target opacity based on the current state
     const toValue = isBorderVisible ? 0.5 : 1
 
@@ -24,7 +25,7 @@ const HighlightedWord = ({ word }) => {
     }).start(() => {
       setIsBorderVisible(!isBorderVisible)
     })
-  }
+  })
 
   useEffect(() => {
     animateBorderOpacity()

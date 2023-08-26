@@ -1,118 +1,52 @@
-import React, { useCallback } from 'react'
-import { StyleSheet, Pressable, Animated } from 'react-native'
+import React from 'react'
 import { useSharedStyles } from '../styles/common.js'
-import { prepareIngress, checkIfWithinLast36Hours } from '../services/utility-service.js'
+import { prepareIngress } from '../services/utility-service.js'
 import SCREENS from '../constants/screens.js'
-import { Text, Card, Divider, useTheme, IconButton, Chip } from 'react-native-paper'
+import { Card, Divider, useTheme, IconButton } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import { generateShare } from '../services/ui-services.js'
-
-const animatedStyle = StyleSheet.create({
-  animatedView: {
-    transform: [{ scale: new Animated.Value(1) }]
-  }
-})
+import { CardFooter } from '../components/card-footer.js'
+import { PressableCard } from '../components/pressable-card.js'
+import { EnglishArabic } from '../components/english-arabic.js'
 
 export default function TextListCardText({ setShouldReload, navigation, text }) {
-  const scaleCard = useCallback(() => {
-    Animated.timing(animatedStyle.animatedView.transform[0].scale, {
-      useNativeDriver: true,
-      toValue: 0.99,
-      duration: 100
-    }).start()
-  }, [])
-
-  const restoreCard = useCallback(() => {
-    Animated.timing(animatedStyle.animatedView.transform[0].scale, {
-      useNativeDriver: true,
-      toValue: 1,
-      duration: 0
-    }).start()
-  }, [])
+  const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
 
   const subtitle = `${text.author} in #${text.category}`
-  const footer = `${text.views} views · ${text.timeAgo} · ${text.readingTime}  `
   const english = text.texts?.english && prepareIngress(text.texts.english, 110)
   const arabic = text.texts?.arabic && prepareIngress(text.texts.arabic, 90)
-  const theme = useTheme()
 
-  const styles = StyleSheet.create({
-    card: {
-      marginHorizontal: 5,
-      marginVertical: 10
-    },
-    cardAction: {
-      marginRight: 10,
-      paddingBottom: 17,
-      paddingTop: 5
-    },
-    cardSubTitle: {
-      color: theme.colors.outline
-    },
-    cardTitle: {
-      color: theme.colors.onBackground,
-      fontFamily: 'philosopher',
-      paddingVertical: 5
-    },
-    divider: {
-      marginVertical: 10
-    }
-  })
+  const onPress = () => {
+    setShouldReload(false)
+    navigation.navigate(SCREENS.textScreen, {
+      id: text.id
+    })
+  }
 
-  return (
-    <Card style={styles.card} testID="textCard">
-      <Pressable
-        onPressIn={scaleCard}
-        onPressOut={restoreCard}
-        onPress={() => {
-          setShouldReload(false)
-          navigation.navigate(SCREENS.textScreen, {
-            id: text.id
-          })
-        }}
-      >
-        <Animated.View style={animatedStyle.animatedView}>
-          <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: text.image }} />
-          <Card.Title
-            title={text.title}
-            subtitle={subtitle}
-            titleVariant="headlineSmall"
-            titleStyle={styles.cardTitle}
-            subtitleVariant="labelMedium"
-            subtitleStyle={styles.cardSubTitle}
-            right={(props) => <IconButton {...props} icon="share-variant-outline" onPress={generateShare(text)} />}
-          />
-          <Card.Content>
-            <Text style={useSharedStyles(theme).arabicBody}>{arabic}</Text>
-            <Text variant="bodyLarge" style={useSharedStyles(theme).englishBody}>
-              {english}
-            </Text>
-            <Divider style={styles.divider} />
-          </Card.Content>
-          <Card.Actions style={styles.cardAction}>
-            {checkIfWithinLast36Hours(text.createdAt) && (
-              <Chip
-                selectedColor={theme.colors.onTertiaryContainer}
-                mode={'flat'}
-                compact={true}
-                style={{
-                  position: 'absolute',
-                  left: 8,
-                  bottom: 10,
-                  backgroundColor: theme.colors.tertiaryContainer
-                }}
-              >
-                New ☀️
-              </Chip>
-            )}
-            <Text variant="labelSmall" style={{ color: theme.colors.outline }}>
-              {footer}
-            </Text>
-          </Card.Actions>
-        </Animated.View>
-      </Pressable>
-    </Card>
+  const content = (
+    <>
+      <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: text.image }} />
+      <Card.Title
+        title={text.title}
+        subtitle={subtitle}
+        titleVariant="headlineSmall"
+        titleStyle={{ ...sharedStyle.cardTitle }}
+        subtitleVariant="labelMedium"
+        subtitleStyle={{ ...sharedStyle.cardSubTitle }}
+        right={(props) => <IconButton {...props} icon="share-variant-outline" onPress={generateShare(text)} />}
+      />
+      <Card.Content>
+        <EnglishArabic arabic={arabic} english={english} />
+        <Divider style={{ ...sharedStyle.divider }} />
+      </Card.Content>
+      <Card.Actions style={{ ...sharedStyle.cardAction }}>
+        <CardFooter text={text} />
+      </Card.Actions>
+    </>
   )
+
+  return <PressableCard onPress={onPress} content={content} />
 }
 
 TextListCardText.propTypes = {

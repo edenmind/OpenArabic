@@ -1,7 +1,8 @@
-import { Text, Divider, useTheme, Surface } from 'react-native-paper'
+import { Text, Divider, useTheme } from 'react-native-paper'
 import { Image, StyleSheet } from 'react-native'
 import React from 'react'
 import PropTypes from 'prop-types'
+import TextCategoryIntro from '../components/text-category-intro.js'
 
 export default function TextBilingualHeading({ heading }) {
   const { author, source, readingTime, views, timeAgo, image, title, introduction } = heading
@@ -10,8 +11,6 @@ export default function TextBilingualHeading({ heading }) {
   const style = StyleSheet.create({
     author: {
       color: theme.colors.onSurfaceVariant,
-      marginLeft: 35,
-      marginRight: 35,
       paddingTop: 15,
       textAlign: 'center'
     },
@@ -21,8 +20,7 @@ export default function TextBilingualHeading({ heading }) {
       marginTop: 25
     },
     image: {
-      height: 250,
-      width: '100%'
+      height: 200
     },
     reading: {
       color: theme.colors.outline,
@@ -56,13 +54,7 @@ export default function TextBilingualHeading({ heading }) {
         {caption}
       </Text>
 
-      {introduction ? (
-        <Surface style={{ padding: 15, borderRadius: 10, margin: 12 }} elevation={0}>
-          <Text variant="labelLarge">{introduction}</Text>
-        </Surface>
-      ) : (
-        <Divider style={style.divider} />
-      )}
+      {introduction ? <TextCategoryIntro text={introduction} /> : <Divider style={style.divider} />}
     </>
   )
 }

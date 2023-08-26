@@ -1,25 +1,12 @@
 import * as React from 'react'
-import { Button, Text, useTheme } from 'react-native-paper'
 import { Audio } from 'expo-av'
 import PropTypes from 'prop-types'
-import { StyleSheet } from 'react-native'
-import { useSharedStyles } from '../styles/common.js'
+import { AnswerButton } from './answer-button.js'
 
-// This is more of a component than a server and might be better placed in the components folder
 // eslint-disable-next-line putout/destructuring-as-function-argument
-export default function PlaySound({
-  audioFileNames,
-  buttonText,
-  mode = 'elevated',
-  margin = 10,
-  answerButton = false
-}) {
+export default function PlaySound({ audioFileNames, buttonText }) {
   const [sound, setSound] = React.useState()
 
-  const theme = useTheme()
-  const sharedStyle = useSharedStyles(theme)
-
-  // function that loops over audioFileName that is an array and calls playSound with the should that should be played
   const playAllSounds = async () => {
     if (Array.isArray(audioFileNames)) {
       for (const audioFileName of audioFileNames) {
@@ -71,40 +58,10 @@ export default function PlaySound({
       : undefined
   }, [sound])
 
-  return (
-    <>
-      {answerButton ? (
-        <Button onPress={playAllSounds} style={{ ...sharedStyle.buttonAnswer }}>
-          <Text
-            style={{
-              ...sharedStyle.answerText,
-              fontSize: 20
-            }}
-          >
-            {buttonText}
-          </Text>
-        </Button>
-      ) : (
-        <Button onPress={playAllSounds} style={{ ...sharedStyle.buttonAnswer }}>
-          <Text
-            style={{
-              ...sharedStyle.answerText,
-              fontSize: 20,
-              lineHeight: undefined
-            }}
-          >
-            {buttonText}
-          </Text>
-        </Button>
-      )}
-    </>
-  )
+  return <AnswerButton onPress={playAllSounds} text={buttonText} haptic={true} />
 }
 
 PlaySound.propTypes = {
-  answerButton: PropTypes.bool,
-  mode: PropTypes.string,
   audioFileNames: PropTypes.any.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  margin: PropTypes.number
+  buttonText: PropTypes.string.isRequired
 }

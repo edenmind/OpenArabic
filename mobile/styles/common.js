@@ -2,207 +2,182 @@ import { useMemo } from 'react'
 import { StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
 
+const FONT_WEIGHTS = {
+  amiri: 1.2,
+  uthman: 1.5,
+  indopak: 1.75,
+  noto: 1.2
+}
+
+const BASE_MARGIN = 5
+const EXTRA_MARGIN = 33
+const BASE_PADDING = 10
+const EXTRA_PADDING = 75
+
+const getTextStyle = (color, fontSize, fontWeight, lineHeight, textAlign = 'center', letterSpacing = 0) => ({
+  color,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  textAlign,
+  letterSpacing
+})
+
 const arabicSelector = (state) => state.arabicFontSize
 const englishSelector = (state) => state.englishFontSize
 const arabicFontNameSelector = (state) => state.arabicFontName
 
 export const useSharedStyles = (theme) => {
+  const { primary, tertiary, error, elevation, outline, onSurface, secondary, onPrimary } = theme.colors
+
   const { arabicFontSize } = useSelector(arabicSelector) || { arabicFontSize: 19 }
   const { englishFontSize } = useSelector(englishSelector) || { englishFontSize: 17 }
   const { arabicFontName } = useSelector(arabicFontNameSelector) || { arabicFontName: 'uthman' }
-  const englishOpacity = 1
-  const arabicOpacity = 1
-  const paddingBottom = 5
-  const horizontalMargin = 33
-  const verticalMargin = 33
-  const textColorArabic = theme.colors.secondary
+
+  const arabicFontSizeWeighted = arabicFontSize * (FONT_WEIGHTS[arabicFontName] || 1)
 
   return useMemo(() => {
-    const FONT_WEIGHTS = {
-      amiri: 1.2,
-      uthman: 1.5,
-      indopak: 1.75,
-      noto: 1.2
-    }
-
-    const arabicFontSizeWeighted = () => {
-      return arabicFontSize * (FONT_WEIGHTS[arabicFontName] || 1)
-    }
-
     return StyleSheet.create({
       actionButton: {
-        color: theme.colors.primary,
-        marginBottom: 5,
-        marginTop: 5
+        marginVertical: BASE_MARGIN
       },
-      actionText: {
-        color: theme.colors.onPrimary,
-        fontSize: 18,
-        fontWeight: '700',
-        letterSpacing: 1,
-        lineHeight: 30,
-        textAlign: 'center'
-      },
-      answerText: {
-        color: theme.colors.primary,
-        fontSize: 23,
-        fontWeight: '600',
-        lineHeight: 40,
-        textAlign: 'center'
-      },
+      actionText: getTextStyle(onPrimary, 21, '700', 40, 'center', 0.75),
+      answerText: getTextStyle(primary, 23, '600', 40),
       arabicBody: {
-        color: textColorArabic,
+        ...getTextStyle(secondary, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9, 'right'),
         fontFamily: arabicFontName,
-        fontSize: arabicFontSizeWeighted() * 1.1,
-        lineHeight: arabicFontSize * 2.9,
-        opacity: arabicOpacity,
-        paddingBottom,
-        textAlign: 'right',
+        paddingBottom: BASE_PADDING,
         writingDirection: 'rtl'
       },
       arabicDateArabic: {
-        color: theme.colors.tertiary,
+        ...getTextStyle(tertiary, 21, 'normal', undefined, 'center'),
         fontFamily: 'amiri',
-        fontSize: 21,
-        paddingLeft: 75,
-        paddingRight: 75,
-        paddingTop: 10,
-        textAlign: 'center'
+        paddingHorizontal: EXTRA_PADDING,
+        paddingTop: BASE_PADDING
       },
       arabicDateLatin: {
-        color: theme.colors.tertiary,
+        ...getTextStyle(tertiary, 15, 'normal', undefined, 'center'),
         fontFamily: 'philosopher',
-        fontSize: 15,
-        paddingBottom,
-        paddingLeft: 75,
-        paddingRight: 75,
-        textAlign: 'center'
+        paddingBottom: BASE_PADDING,
+        paddingHorizontal: EXTRA_PADDING
       },
       arabicFooter: {
-        color: textColorArabic,
+        ...getTextStyle(secondary, 19, 'normal', undefined, 'center'),
         fontFamily: 'amiri',
-        fontSize: 19,
-        paddingBottom,
-        paddingLeft: 75,
-        paddingRight: 75,
-        paddingTop: 20,
-        textAlign: 'center',
+        paddingHorizontal: EXTRA_PADDING,
+        paddingTop: BASE_PADDING * 2,
         writingDirection: 'rtl'
       },
       arabicHeading: {
-        color: textColorArabic,
-        direction: 'rtl',
+        ...getTextStyle(secondary, arabicFontSizeWeighted * 1.3, 'normal', arabicFontSize * 2.9, 'right'),
         fontFamily: arabicFontName,
-        fontSize: arabicFontSizeWeighted() * 1.3,
-        lineHeight: arabicFontSize * 2.9,
-        opacity: arabicOpacity,
-        paddingTop: 10,
-        textAlign: 'right'
+        paddingVertical: BASE_PADDING,
+        writingDirection: 'rtl'
       },
       arabicHeadingRemove: {
-        color: theme.colors.error,
+        ...getTextStyle(error, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9),
         fontFamily: arabicFontName,
-        fontSize: arabicFontSizeWeighted() * 1.1,
-        lineHeight: arabicFontSize * 2.9,
-        opacity: arabicOpacity,
-        paddingBottom
+        paddingVertical: BASE_PADDING,
+        textAlign: 'right'
       },
       arabicTerm: {
-        backgroundColor: theme.colors.elevation.tertiaryContainer,
-        color: theme.colors.onTertiaryContainer,
+        ...getTextStyle(tertiary, englishFontSize * 1.1, 'normal', englishFontSize * 1.5),
+        backgroundColor: elevation.tertiaryContainer,
         direction: 'ltr',
         fontFamily: 'philosopher',
-        fontSize: englishFontSize * 1.1,
-        lineHeight: englishFontSize * 1.5,
-        opacity: englishOpacity,
-        paddingBottom: 15,
+        paddingBottom: BASE_PADDING * 2,
+        textAlign: 'left',
         writingDirection: 'ltr'
       },
       button: {
-        marginBottom: 10,
-        marginTop: 10
+        marginBottom: BASE_MARGIN,
+        marginTop: BASE_MARGIN
       },
       buttonAnswer: {
-        backgroundColor: theme.colors.elevation.transparent,
+        backgroundColor: elevation.transparent,
         borderBottomWidth: 4,
-        borderColor: theme.colors.elevation.level5,
+        borderColor: elevation.level5,
         borderWidth: 2,
-        marginBottom: 5,
-        marginTop: 5
+        marginVertical: BASE_MARGIN
+      },
+      card: {
+        marginHorizontal: BASE_MARGIN,
+        marginVertical: 2 * BASE_MARGIN
+      },
+      cardAction: {
+        marginRight: BASE_MARGIN,
+        paddingBottom: BASE_PADDING * 2,
+        paddingTop: BASE_PADDING
+      },
+      cardSubTitle: {
+        color: outline
+      },
+      cardTitle: {
+        fontFamily: 'philosopher',
+        paddingVertical: BASE_PADDING
       },
       container: {
-        marginBottom: verticalMargin,
-        marginLeft: horizontalMargin,
-        marginRight: horizontalMargin,
-        marginTop: verticalMargin
+        margin: BASE_MARGIN * 3
       },
       divider: {
-        marginBottom: 5,
-        marginTop: 5
+        marginBottom: BASE_MARGIN,
+        marginTop: BASE_MARGIN
       },
       dividerHidden: {
-        marginBottom: 5,
-        marginTop: 5,
+        marginBottom: EXTRA_MARGIN,
+        marginTop: BASE_MARGIN,
         opacity: 0
       },
       englishBody: {
-        color: theme.colors.onSurface,
+        ...getTextStyle(onSurface, englishFontSize * 1.1, 'normal', englishFontSize * 1.5),
         direction: 'ltr',
         fontFamily: 'philosopher',
-        fontSize: englishFontSize * 1.1,
-        lineHeight: englishFontSize * 1.5,
-        opacity: englishOpacity,
-        paddingBottom,
+        paddingBottom: BASE_PADDING,
+        textAlign: 'left',
         writingDirection: 'ltr'
       },
       englishHeading: {
-        color: theme.colors.onSurface,
+        ...getTextStyle(onSurface, englishFontSize * 1.1, 'bold', englishFontSize * 1.7),
         direction: 'ltr',
-        fontSize: englishFontSize * 1.1,
-        fontWeight: 'bold',
-        lineHeight: englishFontSize * 1.7,
-        opacity: englishOpacity,
-        paddingTop: 10,
+        paddingTop: BASE_PADDING,
+        textAlign: 'left',
         writingDirection: 'ltr'
       },
       headerContainer: {
-        marginLeft: 10,
-        marginRight: 10,
-        paddingTop: 10
+        marginLeft: BASE_MARGIN,
+        marginRight: BASE_MARGIN,
+        paddingTop: BASE_PADDING
       },
       labelText: {
-        color: theme.colors.secondary,
-        fontSize: 10,
-        fontWeight: '700',
-        letterSpacing: 0.5,
-        textAlign: 'center'
+        ...getTextStyle(secondary, 10, '700'),
+        letterSpacing: 0.5
       },
       scrollView: {
         direction: 'rtl',
-        marginLeft: horizontalMargin,
-        padding: 10,
+        marginLeft: EXTRA_MARGIN,
+        padding: BASE_PADDING,
         writingDirection: 'ltr'
       },
       scrollViewLTR: {
         direction: 'ltr',
-        padding: 10,
+        padding: BASE_PADDING,
         writingDirection: 'ltr'
       }
     })
   }, [
-    theme.colors.primary,
-    theme.colors.onPrimary,
-    theme.colors.tertiary,
-    theme.colors.error,
-    theme.colors.elevation.tertiaryContainer,
-    theme.colors.elevation.transparent,
-    theme.colors.elevation.level5,
-    theme.colors.onTertiaryContainer,
-    theme.colors.onSurface,
-    theme.colors.secondary,
-    textColorArabic,
-    arabicFontName,
+    primary,
+    onPrimary,
+    secondary,
+    arabicFontSizeWeighted,
     arabicFontSize,
-    englishFontSize
+    arabicFontName,
+    tertiary,
+    error,
+    elevation.tertiaryContainer,
+    elevation.transparent,
+    elevation.level5,
+    englishFontSize,
+    outline,
+    onSurface
   ])
 }

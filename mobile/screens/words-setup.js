@@ -1,97 +1,75 @@
-/* eslint-disable react-native/no-color-literals */
-/* eslint-disable unicorn/no-nested-ternary */
-import React from 'react'
+import React, { useCallback } from 'react'
 import { ScrollView } from 'react-native'
-import { Button, Divider, Text, SegmentedButtons, useTheme, Surface } from 'react-native-paper'
+import { useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 import { getWords } from '../services/api-service.js'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import WordsSetupDifficultyLevel from './words-setup-difficulty-level.js'
+import { ActionButton } from '../components/action-button.js'
+import { SegmentButtonWithHeader } from '../components/segemented-button.js'
 
-const WordsSetup = (props) => {
+const WORDS_CONFIG = [
+  {
+    title: 'Number of Words',
+    value: 'numberOfWordsToPractice',
+    buttons: [
+      { value: 10, label: '10' },
+      { value: 20, label: '20' },
+      { value: 30, label: '30' }
+    ]
+  },
+  {
+    title: 'Difficulty Level',
+    value: 'difficultyLevel',
+    buttons: [
+      { value: 10, label: 'Beginner' },
+      { value: 20, label: 'Intermediate' },
+      { value: 30, label: 'Advanced' }
+    ]
+  }
+]
+
+// eslint-disable-next-line putout/destructuring-as-function-argument
+const WordsSetup = ({
+  numberOfWordsToPractice,
+  setNumberOfWordsToPractice,
+  difficultyLevel,
+  resetStateForNewWords,
+  handleSetDifficultyLevel
+}) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const dispatch = useDispatch()
 
+  const handlePress = useCallback(() => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+    resetStateForNewWords()
+    dispatch(getWords(difficultyLevel, numberOfWordsToPractice))
+    dispatch({
+      type: 'SET_PRACTICING_WORDS',
+      payload: true
+    })
+  }, [difficultyLevel, numberOfWordsToPractice, resetStateForNewWords, dispatch])
+
   return (
     <ScrollView style={sharedStyle.scrollViewLTR}>
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <Text variant="titleSmall">Words in Session</Text>
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-
-      <SegmentedButtons
-        value={props.numberOfWordsToPractice}
-        onValueChange={(value) => {
-          props.setNumberOfWordsToPractice(value)
-        }}
-        buttons={[
-          {
-            value: 10,
-            label: '10'
-          },
-          {
-            value: 20,
-            label: '20'
-          },
-          {
-            value: 30,
-            label: '30'
+      {WORDS_CONFIG.map((config) => (
+        <SegmentButtonWithHeader
+          key={config.title}
+          title={config.title}
+          value={config.value === 'numberOfWordsToPractice' ? numberOfWordsToPractice : difficultyLevel}
+          onValueChange={
+            config.value === 'numberOfWordsToPractice' ? setNumberOfWordsToPractice : handleSetDifficultyLevel
           }
-        ]}
-      />
+          buttons={config.buttons}
+        />
+      ))}
 
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <Text variant="titleSmall">Difficulty Level</Text>
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
+      <WordsSetupDifficultyLevel difficultyLevel={difficultyLevel} />
 
-      <SegmentedButtons
-        checkedColor={theme.colors.primary}
-        value={props.difficultyLevel}
-        onValueChange={(value) => {
-          props.handleSetDifficultyLevel(value)
-        }}
-        buttons={[
-          {
-            value: 10,
-            label: 'Beginner'
-          },
-          {
-            value: 20,
-            label: 'Intermediate'
-          },
-          {
-            value: 30,
-            label: 'Advanced'
-          }
-        ]}
-      />
-
-      <Divider style={{ ...sharedStyle.divider, opacity: 0 }} />
-      <WordsSetupDifficultyLevel difficultyLevel={props.difficultyLevel} />
-      <Divider style={{ ...sharedStyle.divider, opacity: 0, paddingBottom: 5 }} />
-
-      <Button
-        mode="contained"
-        onPress={() => {
-          props.resetStateForNewWords()
-          dispatch(getWords(props.difficultyLevel, props.numberOfWordsToPractice))
-          dispatch({
-            type: 'SET_PRACTICING_WORDS',
-            payload: true
-          })
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
-        }}
-      >
-        <Text
-          style={{
-            ...sharedStyle.actionText
-          }}
-        >
-          START PRACTICE
-        </Text>
-      </Button>
+      <ActionButton onPress={handlePress} text="START LEARNING" />
     </ScrollView>
   )
 }

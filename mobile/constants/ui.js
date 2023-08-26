@@ -1,4 +1,4 @@
-const UI = {
+export const UI = {
   share: 'Share',
   openArabic: 'OpenArabic',
   texts: 'Texts',
@@ -10,7 +10,12 @@ const UI = {
   playSentence: 'Play',
   explainWords: 'Explain',
   report: 'Report Error',
-  inSentence: 'Sentence'
+  inSentence: 'Sentence',
+  explanation: 'Explanation'
 }
 
-export default UI
+export const UIElements = {
+  TitleFont: 23,
+  AnimationDuration: 100,
+  AnimationScaleTo: 0.97
+}

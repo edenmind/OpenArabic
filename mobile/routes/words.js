@@ -26,11 +26,10 @@ export default function Words() {
           name={SCREENS.words}
           component={defaultExport}
           options={{
-            headerLargeTitle: false,
             title: SCREENS.words,
             headerTitleStyle: {
               fontFamily: 'philosopher',
-              fontSize: 25,
+              fontSize: 23,
               color: theme.colors.onSurface
             },
             headerStyle: {
@@ -43,7 +42,7 @@ export default function Words() {
                 <Fragment>
                   <Button
                     textColor={theme.colors.error}
-                    icon={'stop'}
+                    style={{ marginRight: -5 }}
                     onPress={() => {
                       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
                       dispatch({
