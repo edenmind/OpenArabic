@@ -107,7 +107,7 @@ export const useSharedStyles = (theme) => {
       cardAction: {
         marginRight: BASE_MARGIN,
         paddingBottom: BASE_PADDING * 2,
-        paddingTop: BASE_PADDING
+        paddingTop: BASE_PADDING * 2.5
       },
       cardSubTitle: {
         color: outline
@@ -124,7 +124,7 @@ export const useSharedStyles = (theme) => {
         marginTop: BASE_MARGIN
       },
       dividerHidden: {
-        marginBottom: EXTRA_MARGIN,
+        marginBottom: BASE_MARGIN,
         marginTop: BASE_MARGIN,
         opacity: 0
       },

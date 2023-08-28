@@ -28,25 +28,23 @@ export default function TextListCardQuote({ text }) {
   }, [englishHadith, hadithTitle, text.texts.arabic])
 
   const content = (
-    <Card style={{ ...sharedStyle.card }} testID="textCard" mode="elevated">
+    <>
       <Card.Content>
         <CategoryChip category="QUOTE" />
         <Divider style={{ ...sharedStyle.dividerHidden }} />
+
+        <EnglishArabic arabic={text.texts.arabic} english={englishHadith} />
         <Text variant="labelMedium" style={{ color: theme.colors.outline, paddingBottom: 10 }}>
           {hadithTitle}
         </Text>
-        <Divider style={{ ...sharedStyle.dividerHidden }} />
-        <EnglishArabic arabic={text.texts.arabic} english={englishHadith} />
-        <Divider style={{ ...sharedStyle.divider }} />
       </Card.Content>
-      <Card.Actions style={{ ...sharedStyle.cardAction }}>
+      <Card.Actions>
         <PlaySound
           audioFileNames={`https://openarabic.ams3.digitaloceanspaces.com/audio/${text.sentences[0].filename}`}
           buttonText={UI.play}
         />
-        <AnswerButton onPress={() => onShare} text={UI.explainWords} />
       </Card.Actions>
-    </Card>
+    </>
   )
 
   return <PressableCard content={content} />

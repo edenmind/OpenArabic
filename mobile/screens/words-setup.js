@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import { useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
@@ -69,7 +69,9 @@ const WordsSetup = ({
 
       <WordsSetupDifficultyLevel difficultyLevel={difficultyLevel} />
 
-      <ActionButton onPress={handlePress} text="START LEARNING" />
+      <View style={{ marginTop: 10 }}>
+        <ActionButton onPress={handlePress} text="START LEARNING" />
+      </View>
     </ScrollView>
   )
 }
