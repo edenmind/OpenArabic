@@ -7,28 +7,43 @@ export const CardFooter = ({ text }) => {
   const theme = useTheme()
 
   const isWithinLast36Hours = checkIfWithinLast36Hours(text.createdAt)
-  const footer = `${text.views} views · ${text.timeAgo} · ${text.readingTime}  `
+
+  function appendIfDefined(value, label, resultArray) {
+    if (value) {
+      resultArray.push(`${value} ${label}`)
+    }
+  }
+
+  function constructFooter(text) {
+    const footerItems = []
+
+    appendIfDefined(text.views, 'views', footerItems)
+    appendIfDefined(text.timeAgo, '', footerItems) // No label for timeAgo
+    appendIfDefined(text.readingTime, '', footerItems, '3 mins read') // No label for readingTime
+
+    return footerItems.join(' · ')
+  }
+
+  const footer = constructFooter(text)
 
   return (
     <>
       {isWithinLast36Hours && (
         <Chip
-          selectedColor={theme.colors.onTertiaryContainer}
           mode={'flat'}
           compact={true}
           style={{
             position: 'absolute',
-            left: 'auto',
-            right: 10,
-            bottom: 10,
-            backgroundColor: theme.colors.tertiaryContainer
+            left: 15,
+            bottom: 14,
+            backgroundColor: theme.colors.elevation.level0
           }}
         >
           New ☀️
         </Chip>
       )}
 
-      <Text variant="labelSmall" style={{ color: theme.colors.outline }}>
+      <Text variant="labelSmall" style={{ color: theme.colors.outline, position: 'absolute', right: 15, bottom: 20 }}>
         {footer}
       </Text>
     </>

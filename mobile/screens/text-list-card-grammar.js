@@ -22,36 +22,38 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
   }
 
   const content = (
-    <Card.Content>
-      <CategoryChip category="GRAMMAR" />
-      <Text
-        style={{
-          fontFamily: 'uthman',
-          width: '97%',
-          fontSize: 100,
-          textAlign: 'center',
-          color: theme.colors.secondary,
-          paddingBottom: 15
-        }}
-      >
-        {text.arabic}
-      </Text>
-      <Text
-        style={{
-          width: '97%',
-          fontFamily: 'philosopher',
-          fontSize: 25,
-          textAlign: 'center',
-          color: theme.colors.tertiary,
-          paddingBottom: 50
-        }}
-      >
-        {text.english.charAt(0).toUpperCase() + text.english.slice(1)}
-      </Text>
-      <Card.Actions style={{ ...sharedStyle.card }}>
+    <>
+      <Card.Content>
+        <CategoryChip category="GRAMMAR" />
+        <Text
+          style={{
+            fontFamily: 'uthman',
+            width: '97%',
+            fontSize: 100,
+            textAlign: 'center',
+            color: theme.colors.secondary,
+            paddingBottom: 15
+          }}
+        >
+          {text.arabic}
+        </Text>
+        <Text
+          style={{
+            width: '97%',
+            fontFamily: 'philosopher',
+            fontSize: 25,
+            textAlign: 'center',
+            color: theme.colors.tertiary,
+            paddingBottom: 50
+          }}
+        >
+          {text.english.charAt(0).toUpperCase() + text.english.slice(1)}
+        </Text>
+      </Card.Content>
+      <Card.Actions style={{ ...sharedStyle.cardAction }}>
         <CardFooter text={text} />
       </Card.Actions>
-    </Card.Content>
+    </>
   )
 
   return <PressableCard content={content} onPress={onPress} />
