@@ -23,7 +23,11 @@ const AnimatedButton = ({ word, handlePress }) => {
 
   return (
     <Animated.View style={{ opacity: fadeInValue }}>
-      <AnswerButton text={word.english} onPress={() => handlePress(word.id, word.arabic)} />
+      <AnswerButton
+        text={word.english}
+        onPress={() => handlePress(word.id, word.arabic)}
+        {...(word.correct ? { correct: true } : { incorrect: true })}
+      />
     </Animated.View>
   )
 }
@@ -44,7 +48,8 @@ AnimatedButton.propTypes = {
   word: PropTypes.shape({
     english: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
-    arabic: PropTypes.string.isRequired
+    arabic: PropTypes.string.isRequired,
+    correct: PropTypes.bool.isRequired
   }).isRequired,
   handlePress: PropTypes.func.isRequired
 }
@@ -55,7 +60,8 @@ TextPracticeWords.propTypes = {
     PropTypes.shape({
       english: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
-      arabic: PropTypes.string.isRequired
+      arabic: PropTypes.string.isRequired,
+      correct: PropTypes.bool.isRequired
     })
   ).isRequired
 }
