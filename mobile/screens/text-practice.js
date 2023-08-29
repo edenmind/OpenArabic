@@ -47,7 +47,14 @@ const TextPractice = () => {
     const englishWords = sentencesInText[currentSentence].englishWords
     const arabicWordId = sentencesInText[currentSentence].arabicWords[currentWord].id
 
-    setCurrentEnglishWordsInSentence(getThreeRandomWords(englishWords, arabicWordId, sentencesInText))
+    const randomWords = getThreeRandomWords(englishWords, arabicWordId, sentencesInText)
+
+    const enhancedEnglishWords = randomWords.map((word) => ({
+      ...word,
+      correct: word.id === currentWord
+    }))
+
+    setCurrentEnglishWordsInSentence(enhancedEnglishWords)
     setCurrentArabicWord(sentencesInText[currentSentence].arabicWords[currentWord])
   }, [currentSentence, currentWord, sentencesInText, textLoading])
 
