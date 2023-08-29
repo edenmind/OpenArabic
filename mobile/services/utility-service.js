@@ -126,6 +126,12 @@ export const getHijriDate = () => {
   })
 }
 
+export const getHijriYear = () => {
+  return new Date().toLocaleDateString('ar-SA-u-ca-islamic', {
+    year: 'numeric'
+  })
+}
+
 export const getHijriDateLatin = () => {
   const hijriDate = new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
@@ -290,6 +296,7 @@ export const transliterateArabicToEnglish = (string) => {
     .replaceAll('ʾiy', 'ī')
     .replaceAll('ʾu', 'ū')
     .replaceAll('ʾa', 'ā')
+    .replaceAll('ūa', 'ū')
     .replaceAll('al-tt', 'at-t')
     .replaceAll('al-ṯṯ', 'aṯ-ṯ')
     .replaceAll('al-dd', 'ad-d')

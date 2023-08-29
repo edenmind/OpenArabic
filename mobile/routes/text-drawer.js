@@ -11,7 +11,7 @@ import icon from '../assets/logo.png'
 import packageJson from '../package.json'
 import { useFocusEffect } from '@react-navigation/core'
 import { storeData, getData } from '../services/storage.js'
-import PropTypes from 'prop-types'
+import { getHijriYear } from '../services/utility-service.js'
 
 const selector = (state) => state.categories
 
@@ -19,7 +19,7 @@ export default function TextDrawer() {
   const Drawer = createDrawerNavigator()
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
-  const hijriYear = `${packageJson.version} ١٤٤٤ هـ`
+  const versionAndHijriYear = `${packageJson.version} ` + getHijriYear()
   const [isDarkModeOn, setIsDarkModeOn] = React.useState(true)
   const theme = useTheme()
 
@@ -144,7 +144,7 @@ export default function TextDrawer() {
         <Text style={style.version} variant="labelMedium">
           Version
         </Text>
-        <Caption style={style.semver}>{hijriYear}</Caption>
+        <Caption style={style.semver}>{versionAndHijriYear}</Caption>
       </View>
     )
   }

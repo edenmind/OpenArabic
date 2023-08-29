@@ -81,6 +81,7 @@ const TextPractice = () => {
     setSentenceIsComplete(false)
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleContinue = () => {
     setSentenceIsComplete(false)
 
