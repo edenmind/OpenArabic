@@ -44,7 +44,7 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
             fontSize: 25,
             textAlign: 'center',
             color: theme.colors.tertiary,
-            paddingBottom: 50
+            paddingBottom: 15
           }}
         >
           {text.english.charAt(0).toUpperCase() + text.english.slice(1)}

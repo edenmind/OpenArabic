@@ -83,7 +83,6 @@ function Text() {
         options={() => ({
           headerShown: true,
           headerBackTitle: 'Back',
-          title: text.title,
           headerTitle: '',
           headerStyle: {
             backgroundColor: theme.colors.background,

@@ -25,6 +25,8 @@ export default function TextGrammar() {
           options={{
             headerLargeTitle: false,
             title: SCREENS.textGrammar,
+            headerShown: true,
+            headerBackTitle: 'Back',
             headerTitleStyle: {
               fontFamily: 'philosopher',
               fontSize: UIElements.UIFontSize,

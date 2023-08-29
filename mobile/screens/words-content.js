@@ -34,7 +34,27 @@ const WordsContent = ({
 
   const dispatch = useDispatch()
 
+  // Destructure currentWord for cleaner referencing
+  const { arabic, filename } = words[currentWord] || {}
+
+  // Create the URL outside the JSX
+  const audioURL = `https://openarabic.ams3.digitaloceanspaces.com/audio/${filename}`
+
+  // Decide on the font size outside the JSX
+  const fontSize = arabic?.trim().length > 15 ? 95 : 120
+
   const styles = StyleSheet.create({
+    bottomRow: {
+      bottom: 10,
+      flexDirection: 'row',
+      position: 'absolute',
+      right: 0
+    },
+    centeredView: {
+      alignItems: 'center',
+      flex: 1,
+      justifyContent: 'center'
+    },
     container: {
       flex: 1,
       margin: 10
@@ -42,7 +62,14 @@ const WordsContent = ({
     surface: {
       alignItems: 'center',
       backgroundColor: theme.colors.elevation.level0,
+      flex: 1,
       minHeight: 320
+    },
+    text: {
+      fontFamily: 'uthman',
+      paddingBottom: 60,
+      textAlign: 'center',
+      width: '97%'
     }
   })
 
@@ -145,28 +172,11 @@ const WordsContent = ({
         <>
           <Progress progress={currentWordIndex / (numberOfWordsToPractice + wrongAnswers)} />
           <Surface style={styles.surface}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-              <Text
-                style={{
-                  fontFamily: 'uthman',
-                  width: '97%',
-                  fontSize: 120,
-                  textAlign: 'center',
-                  color: theme.colors.secondary,
-                  paddingBottom: 60
-                }}
-              >
-                {words[currentWord]?.arabic.trim()}
-              </Text>
+            <View style={styles.centeredView}>
+              <Text style={[styles.text, { fontSize, color: theme.colors.secondary }]}>{arabic?.trim()}</Text>
             </View>
-
-            <View style={{ flexDirection: 'row', position: 'absolute', bottom: 10, right: 0 }}>
-              <PlaySound
-                mode="text"
-                audioFileNames={[`https://openarabic.ams3.digitaloceanspaces.com/audio/${words[currentWord].filename}`]}
-                buttonText={'Play'}
-                style={{}}
-              />
+            <View style={styles.bottomRow}>
+              <PlaySound mode="text" audioFileNames={[audioURL]} buttonText={'Play'} style={{}} />
             </View>
           </Surface>
           <TakbirCelebrate
