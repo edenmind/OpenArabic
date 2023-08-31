@@ -4,7 +4,6 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { useDispatch } from 'react-redux'
 import SCREENS from '../constants/screens.js'
 import Spinner from '../components/spinner.js'
-import TextArabic from '../screens/text-arabic.js'
 import TextBilingual from '../screens/text-bilingual.js'
 import OrderingWordsInASentence from '../screens/text-practice.js'
 import { getText } from '../services/api-service.js'
