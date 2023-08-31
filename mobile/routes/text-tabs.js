@@ -4,7 +4,6 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { useDispatch } from 'react-redux'
 import SCREENS from '../constants/screens.js'
 import Spinner from '../components/spinner.js'
-import TextArabic from '../screens/text-arabic.js'
 import TextBilingual from '../screens/text-bilingual.js'
 import OrderingWordsInASentence from '../screens/text-practice.js'
 import { getText } from '../services/api-service.js'
@@ -27,8 +26,8 @@ export default function TextTabs({ route }) {
 
   const tabs = [
     { name: SCREENS.bilingual, component: TextBilingual },
-    { name: SCREENS.quiz, component: OrderingWordsInASentence },
-    { name: SCREENS.arabic, component: TextArabic }
+    { name: SCREENS.quiz, component: OrderingWordsInASentence }
+    // { name: SCREENS.arabic, component: TextArabic }
   ]
 
   return (

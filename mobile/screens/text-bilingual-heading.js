@@ -54,7 +54,7 @@ export default function TextBilingualHeading({ heading }) {
         {caption}
       </Text>
 
-      {introduction ? <TextCategoryIntro text={introduction} /> : <Divider style={style.divider} />}
+      <Divider style={style.divider} />
     </>
   )
 }

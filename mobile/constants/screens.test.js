@@ -14,7 +14,7 @@ it('shinyOlive should be correct', () => {
 })
 
 it('bilingual should be correct', () => {
-  expect(SCREENS.bilingual).toBe('Explore')
+  expect(SCREENS.bilingual).toBe('Read')
 })
 
 it('bilingual should be correct', () => {

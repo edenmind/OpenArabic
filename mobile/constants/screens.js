@@ -4,7 +4,7 @@ const SCREENS = {
   text: 'Text',
   home: 'Texts',
   words: 'Words',
-  bilingual: 'Explore',
+  bilingual: 'Read',
   arabic: 'Read',
   english: 'Eng',
   quiz: 'Practice',
