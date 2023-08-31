@@ -8,6 +8,7 @@ import { generateShare } from '../services/ui-services.js'
 import { CardFooter } from '../components/card-footer.js'
 import { PressableCard } from '../components/pressable-card.js'
 import { EnglishArabic } from '../components/english-arabic.js'
+import TextCategoryIntro from '../components/text-category-intro.js'
 
 export default function TextListCardText({ setShouldReload, navigation, text }) {
   const theme = useTheme()
@@ -37,7 +38,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
         right={(props) => <IconButton {...props} icon="share-variant-outline" onPress={generateShare(text)} />}
       />
       <Card.Content>
-        <EnglishArabic arabic={arabic} english={english} />
+        <TextCategoryIntro text={text.introduction} />
         <Divider style={{ ...sharedStyle.divider }} />
       </Card.Content>
       <Card.Actions style={{ ...sharedStyle.cardAction }}>
@@ -67,6 +68,7 @@ TextListCardText.propTypes = {
     sentences: PropTypes.array,
     english: PropTypes.string,
     arabic: PropTypes.string,
-    createdAt: PropTypes.string
+    createdAt: PropTypes.string,
+    introduction: PropTypes.string
   })
 }

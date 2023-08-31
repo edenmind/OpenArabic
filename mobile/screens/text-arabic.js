@@ -5,7 +5,7 @@ import React from 'react'
 import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
 import { useSharedStyles } from '../styles/common.js'
-import TextArabicWords from './text-arabic-words.js'
+import TextArabicWords from '../components/arabic-words.js'
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
 import ModalScrollView from '../components/modal-scroll-view.js'

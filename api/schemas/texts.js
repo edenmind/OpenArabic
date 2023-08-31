@@ -12,6 +12,7 @@ const getTextsOptions = {
           properties: {
             id: { type: 'string' },
             title: { type: 'string' },
+            introduction: { type: 'string' },
             status: { type: 'string' },
             slug: { type: 'string' },
             image: { type: 'string' },

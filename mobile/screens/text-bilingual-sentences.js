@@ -13,7 +13,7 @@ function TextBilingualSentences({ sentences }) {
 
   const renderedSentences = sentences.map((sentence, index) => (
     <View key={index} style={[sharedStyle.container, { marginTop: 10, marginBottom: 10 }]}>
-      <EnglishArabic arabic={sentence.arabic} english={sentence.english} />
+      <EnglishArabic sentence={sentence} />
       <PlaySound audioFileNames={sentence.filename} buttonText={UI.playSentence} />
       <Divider style={{ ...sharedStyle.dividerHidden }} />
     </View>
