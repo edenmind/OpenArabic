@@ -7,6 +7,7 @@ import { useSharedStyles } from '../styles/common.js'
 import { capitalizeFirstLetter } from '../services/utility-service.js'
 import * as Haptics from 'expo-haptics'
 import { Audio } from 'expo-av'
+import { UIElements } from '../constants/ui.js'
 
 export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
   const theme = useTheme()
@@ -15,6 +16,7 @@ export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
   const [textColor, setTextColor] = useState(theme.colors.primary)
   const sound = useRef(new Audio.Sound()).current
   const shakeAnim = useRef(new Animated.Value(0)).current
+  const scaleAnim = useRef(new Animated.Value(1)).current
 
   useEffect(() => {
     async function loadSound() {
@@ -31,6 +33,12 @@ export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
       Animated.timing(shakeAnim, { toValue: -1, duration: 50, useNativeDriver: true }),
       Animated.timing(shakeAnim, { toValue: 1, duration: 50, useNativeDriver: true }),
       Animated.timing(shakeAnim, { toValue: 0, duration: 50, useNativeDriver: true })
+    ]).start()
+  }
+
+  const pushButton = () => {
+    Animated.sequence([
+      Animated.timing(scaleAnim, { toValue: UIElements.AnimationScaleTo, duration: 100, useNativeDriver: true }) // Push in
     ]).start()
   }
 
@@ -51,6 +59,7 @@ export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
   }
 
   const handleCorrectFeedback = () => {
+    pushButton()
     setColor(theme.colors.primary)
     setTextColor(theme.colors.primary)
   }
@@ -64,7 +73,7 @@ export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
   }
 
   return (
-    <Animated.View style={{ transform: [{ translateX: shakeAnim }] }}>
+    <Animated.View style={{ transform: [{ translateX: shakeAnim }, { scale: scaleAnim }] }}>
       <Button onPress={onPress} style={{ ...sharedStyle.buttonAnswer, borderColor: color }} onPressIn={handlePressIn}>
         <Text style={{ ...sharedStyle.answerText, color: textColor, fontSize: text.length > 25 ? 20 : 23 }}>
           {capitalizeFirstLetter(text)}

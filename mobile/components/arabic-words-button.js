@@ -12,11 +12,11 @@ export function ArabicWordButton({ word, isSelected, theme, sharedStyle, onSelec
     if (isSelected) {
       const textColorTimer = setTimeout(() => {
         setIsFading(true)
-      }, 1500)
+      }, 2500)
 
       const lineFadeTimer = setTimeout(() => {
         setLineFading(true)
-      }, 1500)
+      }, 2500)
 
       return () => {
         clearTimeout(textColorTimer)
