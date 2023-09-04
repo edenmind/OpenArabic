@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Snackbar, Text, useTheme } from 'react-native-paper'
 import { StyleSheet, Animated } from 'react-native'
 import * as Haptics from 'expo-haptics'
+import { Audio } from 'expo-av'
 
 const styles = StyleSheet.create({
   emoji: {
@@ -20,10 +21,33 @@ const styles = StyleSheet.create({
 const TakbirCelebrate = ({ visible, onDismissSnackBar, text }) => {
   const theme = useTheme()
   const scaleAnim = useRef(new Animated.Value(0.9)).current
+  const soundPlayedRef = useRef(false)
+
+  const [sound, setSound] = useState()
+
+  async function playSound() {
+    const { sound } = await Audio.Sound.createAsync(require('../assets/takbir.mp3'))
+    setSound(sound)
+    await sound.playAsync()
+  }
+
+  useEffect(() => {
+    if (visible && !soundPlayedRef.current) {
+      playSound()
+      soundPlayedRef.current = true
+    } else if (!visible) {
+      soundPlayedRef.current = false
+    }
+
+    return () => {
+      if (sound) {
+        sound.unloadAsync()
+      }
+    }
+  }, [sound, visible])
 
   useEffect(() => {
     if (visible) {
-      // Trigger a haptic feedback with delay
       setTimeout(() => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
       }, 100)
@@ -64,14 +88,12 @@ const TakbirCelebrate = ({ visible, onDismissSnackBar, text }) => {
   }
 
   return (
-    <>
-      <Animated.View style={snackbarStyle}>
-        <Snackbar visible={visible} onDismiss={onDismissSnackBar} style={snackbarStyle} duration={3300}>
-          <Text style={styles.emoji}>🏆</Text>
-          <Text style={textStyle}>{text}</Text>
-        </Snackbar>
-      </Animated.View>
-    </>
+    <Animated.View style={snackbarStyle}>
+      <Snackbar visible={visible} onDismiss={onDismissSnackBar} style={snackbarStyle} duration={3300}>
+        <Text style={styles.emoji}>☝🏼</Text>
+        <Text style={textStyle}>{text}</Text>
+      </Snackbar>
+    </Animated.View>
   )
 }
 
