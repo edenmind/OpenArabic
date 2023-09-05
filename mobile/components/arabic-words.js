@@ -8,7 +8,7 @@ import { ArabicWordButton } from './arabic-words-button.js'
 import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
 
-export default function TextArabicWords({ sentence: { words } }) {
+export default function ArabicWords({ sentence: { words }, currentPlayingWordIndex }) {
   const [sound, setSound] = useState()
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
@@ -48,7 +48,7 @@ export default function TextArabicWords({ sentence: { words } }) {
         <ArabicWordButton
           key={wordIndex}
           word={word}
-          isSelected={selectedWordIndex === wordIndex}
+          isSelected={currentPlayingWordIndex === wordIndex || selectedWordIndex === wordIndex}
           theme={theme}
           sharedStyle={sharedStyle}
           onSelect={() => {
@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
   }
 })
 
-TextArabicWords.propTypes = {
+ArabicWords.propTypes = {
+  currentPlayingWordIndex: PropTypes.number,
   sentence: PropTypes.shape({
     arabic: PropTypes.string.isRequired,
     english: PropTypes.string.isRequired,

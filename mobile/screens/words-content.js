@@ -9,7 +9,6 @@ import TakbirCelebrate from '../components/takbir-celebrate.js'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import PlaySound from '../components/play-sound.js'
 import { generateRandomPositions } from '../services/utility-service.js'
 import { Progress } from '../components/progress.js'
 import { AnswerButton } from '../components/answer-button.js'
@@ -35,21 +34,12 @@ const WordsContent = ({
   const dispatch = useDispatch()
 
   // Destructure currentWord for cleaner referencing
-  const { arabic, filename } = words[currentWord] || {}
-
-  // Create the URL outside the JSX
-  const audioURL = `https://openarabic.ams3.digitaloceanspaces.com/audio/${filename}`
+  const { arabic } = words[currentWord] || {}
 
   // Decide on the font size outside the JSX
   const fontSize = arabic?.trim().length > 15 ? 95 : 120
 
   const styles = StyleSheet.create({
-    bottomRow: {
-      bottom: 10,
-      flexDirection: 'row',
-      position: 'absolute',
-      right: 0
-    },
     centeredView: {
       alignItems: 'center',
       flex: 1,
@@ -174,9 +164,6 @@ const WordsContent = ({
           <Surface style={styles.surface}>
             <View style={styles.centeredView}>
               <Text style={[styles.text, { fontSize, color: theme.colors.secondary }]}>{arabic?.trim()}</Text>
-            </View>
-            <View style={styles.bottomRow}>
-              <PlaySound mode="text" audioFileNames={[audioURL]} buttonText={'Play'} style={{}} />
             </View>
           </Surface>
           <TakbirCelebrate
