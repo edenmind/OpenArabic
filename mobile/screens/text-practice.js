@@ -9,10 +9,8 @@ import WordsContextHighLighted from '../components/context-highlighted.js'
 import TextPracticeWords from './text-practice-words.js'
 import Spinner from '../components/spinner.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
-import PlaySound from '../components/play-sound.js'
-import WordPairsList from '../components/word-pairs-list.js'
+import { EnglishArabic } from '../components/english-arabic.js'
 import { Progress } from '../components/progress.js'
-import { AnswerButton } from '../components/answer-button.js'
 import { ActionButton } from '../components/action-button.js'
 import TakbirCelebrate from '../components/takbir-celebrate.js'
 import { getThreeRandomWords } from '../services/utility-service.js'
@@ -146,14 +144,7 @@ const TextPractice = () => {
   const sentenceControl = useMemo(
     () => (
       <View>
-        <AnswerButton
-          onPress={() => {
-            setExplanation(<WordPairsList words={text.sentences[currentSentence].words} />)
-            setVisible(true)
-          }}
-          text="Explain"
-        />
-        <PlaySound audioFileNames={sentencesInText[currentSentence].filename} buttonText="Play" />
+        <EnglishArabic sentence={text.sentences[currentSentence]} />
         {isLastSentence ? (
           <ActionButton onPress={handleReset} text="PRACTICE AGAIN" />
         ) : (
@@ -161,7 +152,7 @@ const TextPractice = () => {
         )}
       </View>
     ),
-    [sentencesInText, currentSentence, isLastSentence, handleContinue, text.sentences]
+    [text, currentSentence, isLastSentence, handleContinue]
   )
 
   return textLoading ? (
@@ -173,14 +164,16 @@ const TextPractice = () => {
           text="Session Completed Successfully!"
         />
         <Progress progress={currentSentence / (sentencesInText.length - 1)} />
-        <Surface style={{ backgroundColor: color, minHeight: 250 }}>
-          <WordsContextHighLighted
-            arabicSentence={sentencesInText[currentSentence].arabicWords}
-            currentWord={currentWord}
-            arabicWord={currentArabicWord}
-            sentenceIsComplete={sentenceIsComplete}
-          />
-        </Surface>
+        {!sentenceIsComplete && (
+          <Surface style={{ backgroundColor: color, minHeight: 250 }}>
+            <WordsContextHighLighted
+              arabicSentence={sentencesInText[currentSentence].arabicWords}
+              currentWord={currentWord}
+              arabicWord={currentArabicWord}
+              sentenceIsComplete={sentenceIsComplete}
+            />
+          </Surface>
+        )}
         {sentenceIsComplete && sentenceControl}
         <ModalScrollView
           visible={visible}

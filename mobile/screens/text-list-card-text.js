@@ -1,13 +1,11 @@
 import React from 'react'
 import { useSharedStyles } from '../styles/common.js'
-import { prepareIngress } from '../services/utility-service.js'
 import SCREENS from '../constants/screens.js'
 import { Card, Divider, useTheme, IconButton } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import { generateShare } from '../services/ui-services.js'
 import { CardFooter } from '../components/card-footer.js'
 import { PressableCard } from '../components/pressable-card.js'
-import { EnglishArabic } from '../components/english-arabic.js'
 import TextCategoryIntro from '../components/text-category-intro.js'
 
 export default function TextListCardText({ setShouldReload, navigation, text }) {
@@ -15,8 +13,6 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
   const sharedStyle = useSharedStyles(theme)
 
   const subtitle = `${text.author} in #${text.category}`
-  const english = text.texts?.english && prepareIngress(text.texts.english, 110)
-  const arabic = text.texts?.arabic && prepareIngress(text.texts.arabic, 90)
 
   const onPress = () => {
     setShouldReload(false)
