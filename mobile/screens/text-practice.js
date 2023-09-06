@@ -8,12 +8,12 @@ import { useSharedStyles } from '../styles/common.js'
 import WordsContextHighLighted from '../components/context-highlighted.js'
 import TextPracticeWords from './text-practice-words.js'
 import Spinner from '../components/spinner.js'
-import ModalScrollView from '../components/modal-scroll-view.js'
 import { EnglishArabic } from '../components/english-arabic.js'
 import { Progress } from '../components/progress.js'
 import { ActionButton } from '../components/action-button.js'
 import TakbirCelebrate from '../components/takbir-celebrate.js'
 import { getThreeRandomWords } from '../services/utility-service.js'
+import { useAudioPlayer } from '../hooks/use-audio-player.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -28,11 +28,9 @@ const TextPractice = () => {
   const [currentEnglishWordsInSentence, setCurrentEnglishWordsInSentence] = useState([])
   const [color, setColor] = useState(theme.colors.elevation.level0)
   const [currentArabicWord, setCurrentArabicWord] = useState(0)
-  const hideModal = () => setVisible(false)
-  const [visible, setVisible] = React.useState(false)
-  const [explanation, setExplanation] = useState('')
   const [sentenceIsComplete, setSentenceIsComplete] = useState(false)
   const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = useState(false)
+  const { playSound } = useAudioPlayer()
 
   // update the state for currentArabicWordsInSentence with the arabic words in the current sentence (sentencesInText[currentSentence].arabicWords) when the component loads
   useEffect(() => {
@@ -56,6 +54,13 @@ const TextPractice = () => {
     setCurrentArabicWord(sentencesInText[currentSentence].arabicWords[currentWord])
   }, [currentSentence, currentWord, sentencesInText, textLoading])
 
+  useEffect(() => {
+    if (sentencesInText[currentSentence] && sentencesInText[currentSentence].wordFilename[currentWord]) {
+      const audioURL = `https://openarabic.ams3.digitaloceanspaces.com/audio/${sentencesInText[currentSentence].wordFilename[currentWord]}`
+      playSound(audioURL)
+    }
+  }, [currentWord, sentencesInText, playSound, currentSentence])
+
   // loop through all sentences in the text
   const sentencesInText = React.useMemo(() => {
     return text.sentences.map((sentence) => {
@@ -63,7 +68,8 @@ const TextPractice = () => {
         return {
           arabicWord: { arabic: word.arabic, id: wordIndex },
           englishWord: { english: word.english, id: wordIndex },
-          explanation: word.explanation
+          explanation: word.explanation,
+          filename: word.filename
         }
       })
 
@@ -71,9 +77,10 @@ const TextPractice = () => {
       const englishWordsUnsorted = wordsInSentence.map((word) => word.englishWord)
       const englishWords = wordsInSentence.map((word) => word.englishWord).sort(() => Math.random() - 0.5)
       const explanations = wordsInSentence.map((word) => word.explanation)
+      const wordFilename = wordsInSentence.map((word) => word.filename)
       const filename = sentence.filename
 
-      return { arabicWords, englishWords, englishWordsUnsorted, explanations, filename }
+      return { arabicWords, englishWords, englishWordsUnsorted, explanations, filename, wordFilename }
     })
   }, [text])
 
@@ -165,7 +172,7 @@ const TextPractice = () => {
         />
         <Progress progress={currentSentence / (sentencesInText.length - 1)} />
         {!sentenceIsComplete && (
-          <Surface style={{ backgroundColor: color, minHeight: 250 }}>
+          <Surface style={{ backgroundColor: color, minHeight: 250, paddingTop: 10 }}>
             <WordsContextHighLighted
               arabicSentence={sentencesInText[currentSentence].arabicWords}
               currentWord={currentWord}
@@ -175,13 +182,7 @@ const TextPractice = () => {
           </Surface>
         )}
         {sentenceIsComplete && sentenceControl}
-        <ModalScrollView
-          visible={visible}
-          titleLanguage="english"
-          content={explanation}
-          title={'Explain'}
-          hideModal={hideModal}
-        />
+
         {!sentenceIsComplete && (
           <TextPracticeWords
             testID="textPracticeArabicWords"

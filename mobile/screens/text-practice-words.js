@@ -16,7 +16,7 @@ const AnimatedButton = ({ word, handlePress }) => {
     fadeInValue.setValue(0)
     Animated.timing(fadeInValue, {
       toValue: 1,
-      duration: 500,
+      duration: 150,
       useNativeDriver: true
     }).start()
   }, [fadeInValue, word])
