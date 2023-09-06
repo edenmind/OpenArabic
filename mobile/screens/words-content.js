@@ -12,6 +12,7 @@ import PropTypes from 'prop-types'
 import { generateRandomPositions } from '../services/utility-service.js'
 import { Progress } from '../components/progress.js'
 import { AnswerButton } from '../components/answer-button.js'
+import { useAudioPlayer } from '../hooks/use-audio-player.js'
 
 const wordsSelector = (state) => state.words
 
@@ -30,11 +31,14 @@ const WordsContent = ({
   const [timeoutId, setTimeoutId] = useState()
   const [wrongAnswers, setWrongAnswers] = useState(0)
   const [wrongAnswerAlreadyAdded, setWrongAnswerAlreadyAdded] = useState([])
+  const { playSound } = useAudioPlayer()
 
   const dispatch = useDispatch()
 
   // Destructure currentWord for cleaner referencing
-  const { arabic } = words[currentWord] || {}
+  const { arabic, filename } = words[currentWord] || {}
+
+  const baseURL = 'https://openarabic.ams3.digitaloceanspaces.com/audio/'
 
   // Decide on the font size outside the JSX
   const fontSize = arabic?.trim().length > 15 ? 95 : 120
@@ -70,6 +74,14 @@ const WordsContent = ({
       }
     }
   }, [timeoutId])
+
+  useEffect(() => {
+    if (filename) {
+      const audioURL = `${baseURL}${filename}`
+      playSound(audioURL)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filename])
 
   const onDismissSnackBar = useCallback(() => {
     handleSetCelebrationSnackBarVisibility(false)
