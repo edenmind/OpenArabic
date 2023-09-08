@@ -1,13 +1,14 @@
 /* eslint-disable nonblock-statement-body-position */
+import { Audio } from 'expo-av'
+import * as Haptics from 'expo-haptics'
+import PropTypes from 'prop-types'
 import React, { useRef, useState, useEffect } from 'react'
 import { Animated } from 'react-native'
 import { Button, Text, useTheme } from 'react-native-paper'
-import PropTypes from 'prop-types'
-import { useSharedStyles } from '../styles/common.js'
-import { capitalizeFirstLetter } from '../services/utility-service.js'
-import * as Haptics from 'expo-haptics'
-import { Audio } from 'expo-av'
+
 import { UIElements } from '../constants/ui.js'
+import { capitalizeFirstLetter } from '../services/utility-service.js'
+import { useSharedStyles } from '../styles/common.js'
 
 export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
   const theme = useTheme()

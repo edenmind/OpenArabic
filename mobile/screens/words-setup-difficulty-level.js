@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { View, Image } from 'react-native'
 import { Divider, Surface, Text, useTheme, Chip } from 'react-native-paper'
-import { useSharedStyles } from '../styles/common.js'
-import PropTypes from 'prop-types'
+
 import ModalScrollView from '../components/modal-scroll-view.js'
 import {
   getNoun,
@@ -18,6 +18,7 @@ import {
   getCompound
 } from '../services/grammar-service.js'
 import { formatGrammar } from '../services/ui-services.js'
+import { useSharedStyles } from '../styles/common.js'
 
 const difficultyConfig = {
   10: {

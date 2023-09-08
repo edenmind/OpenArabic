@@ -1,14 +1,15 @@
-import 'react-native-gesture-handler'
+import React from 'react'
 import { ScrollView, View, StyleSheet, Platform } from 'react-native'
 import { Text, Chip, useTheme, Surface } from 'react-native-paper'
-import React from 'react'
-import Spinner from '../components/spinner.js'
 import { useSelector } from 'react-redux'
-import { useSharedStyles } from '../styles/common.js'
+
 import TextArabicWords from '../components/arabic-words.js'
+import ModalScrollView from '../components/modal-scroll-view.js'
+import Spinner from '../components/spinner.js'
+import { useSharedStyles } from '../styles/common.js'
+
 const textSelector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
-import ModalScrollView from '../components/modal-scroll-view.js'
 
 const styles = StyleSheet.create({
   rowWrapper: {

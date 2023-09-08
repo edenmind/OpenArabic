@@ -1,17 +1,40 @@
-import React from 'react'
+/* eslint-disable nonblock-statement-body-position */
 import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { Button, Text, useTheme } from 'react-native-paper'
-import { useSharedStyles } from '../styles/common.js'
-import { capitalizeFirstLetter } from '../services/utility-service.js'
-import { useAudioPlayer } from '../hooks/use-audio-player.js'
 
-export default function PlaySound({ audioFileNames, buttonText, onPlayingWord, onFinish }) {
-  const { isPlaying, playSound: playSingleSound, stopSound } = useAudioPlayer()
+import { useAudioPlayer } from '../hooks/use-audio-player.js'
+import { useSharedStyles } from '../styles/common.js'
+
+export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
-  const playAllSounds = async () => {
-    // If a sound is playing, stop it
+  const { playSound, stopSound } = useAudioPlayer()
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const silentBorderColor = theme.colors.elevation.level5
+  const playingBorderColor = theme.colors.primary
+
+  const handleSoundFinish = (status) => {
+    if (status.didJustFinish && !Array.isArray(audioFileNames)) {
+      stopSound()
+    }
+  }
+
+  const handleSequenceFinish = () => {
+    if (!onFinish) {
+      return
+    }
+
+    setIsPlaying(false)
+    stopSound()
+    onFinish()
+  }
+
+  const playSounds = async () => {
+    setIsPlaying(!isPlaying)
+
     if (isPlaying) {
       stopSound()
       return
@@ -22,16 +45,12 @@ export default function PlaySound({ audioFileNames, buttonText, onPlayingWord, o
 
       const playNextSound = async () => {
         if (currentIndex >= audioFileNames.length) {
-          if (onFinish) {
-            onFinish()
-          }
-
+          handleSequenceFinish()
           return
         }
 
         const audioFileName = audioFileNames[currentIndex]
-
-        await playSingleSound(audioFileName, (status) => {
+        await playSound(audioFileName, (status) => {
           if (status.didJustFinish) {
             currentIndex++
             playNextSound()
@@ -47,31 +66,24 @@ export default function PlaySound({ audioFileNames, buttonText, onPlayingWord, o
       return
     }
 
-    await playSingleSound(audioFileNames, (status) => {
-      if (status.didJustFinish) {
-        stopSound()
-      }
-    })
+    await playSound(audioFileNames, handleSoundFinish)
   }
 
   return (
     <Button
-      onPress={playAllSounds}
+      onPress={playSounds}
       style={{
         ...sharedStyle.buttonAnswer,
-        borderColor: isPlaying ? theme.colors.primary : theme.colors.elevation.level5
+        borderColor: isPlaying ? playingBorderColor : silentBorderColor
       }}
     >
-      <Text style={{ ...sharedStyle.answerText, fontSize: buttonText.length > 25 ? 20 : 23 }}>
-        {isPlaying ? 'Stop' : capitalizeFirstLetter(buttonText)}
-      </Text>
+      <Text style={{ ...sharedStyle.answerText }}>{isPlaying ? 'Stop' : 'Play'}</Text>
     </Button>
   )
 }
 
 PlaySound.propTypes = {
-  audioFileNames: PropTypes.any.isRequired,
-  buttonText: PropTypes.string.isRequired,
+  audioFileNames: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
   onPlayingWord: PropTypes.func,
   onFinish: PropTypes.func
 }

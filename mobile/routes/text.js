@@ -1,22 +1,21 @@
-import { useTheme } from 'react-native-paper'
-import React, { useEffect } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import React, { useEffect } from 'react'
+import { useTheme } from 'react-native-paper'
 import { useSelector, useDispatch } from 'react-redux'
-import SCREENS from '../constants/screens.js'
+
 import TextDrawer from './text-drawer.js'
 import defaultExport from './text-tabs.js'
-import { getData } from '../services/storage.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
-import TextGrammar from '../screens/text-grammar.js'
+import SCREENS from '../constants/screens.js'
 import About from '../screens/about.js'
+import TextGrammar from '../screens/text-grammar.js'
+import { getData } from '../services/storage.js'
 
 const Stack = createNativeStackNavigator()
-const selector = (state) => state.text
 const darkModeSelector = (state) => state.isDarkMode
 
 function Text() {
   const dispatch = useDispatch()
-  const { text } = useSelector(selector)
   const theme = useTheme()
   const isDarkModeOn = useSelector(darkModeSelector)
 

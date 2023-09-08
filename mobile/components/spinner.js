@@ -1,6 +1,6 @@
-import { ActivityIndicator, Text, useTheme } from 'react-native-paper'
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, View } from 'react-native'
+import { ActivityIndicator, Text, useTheme } from 'react-native-paper'
 
 const dhikrWords = [
   'SubhanAllah',

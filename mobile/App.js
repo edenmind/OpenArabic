@@ -1,13 +1,13 @@
 /* eslint-disable unicorn/filename-case */
 import Bugsnag from '@bugsnag/expo'
-import ErrorBoundary from 'react-native-error-boundary'
-
-import { Provider } from 'react-redux'
-import React, { useCallback } from 'react'
-import Root from './routes/root.js'
-import { store } from './redux/store.js'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
+import React, { useCallback } from 'react'
+import ErrorBoundary from 'react-native-error-boundary'
+import { Provider } from 'react-redux'
+
+import { store } from './redux/store.js'
+import Root from './routes/root.js'
 
 Bugsnag.start({
   apiKey: '77c30e82c802aed265d4d31617059924'

@@ -1,5 +1,6 @@
-import { HOST, ENDPOINT } from './urls.development.js'
 import { expect, it } from '@jest/globals'
+
+import { HOST, ENDPOINT } from './urls.development.js'
 
 describe('urls', () => {
   it('backend should be correct', () => {

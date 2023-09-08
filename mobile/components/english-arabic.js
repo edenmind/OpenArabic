@@ -1,24 +1,29 @@
 /* eslint-disable unicorn/no-null */
-import React, { useMemo, useState } from 'react'
-import { useSharedStyles } from '../styles/common.js'
-import { Text, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
-import { transliterateArabicToEnglish } from '../services/utility-service.js'
+import React, { useMemo, useState } from 'react'
+import { Text, useTheme, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
+
 import ArabicWords from './arabic-words.js'
 import PlaySound from './play-sound.js'
-import { UI } from '../constants/ui.js'
+import { transliterateArabicToEnglish } from '../services/utility-service.js'
+import { useSharedStyles } from '../styles/common.js'
 
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
 
-export const EnglishArabic = ({ sentence }) => {
+export const EnglishArabic = ({ sentence, paddingTop = 0 }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
+  const [currentPlayingWordIndex, setCurrentPlayingWordIndex] = useState(null)
   const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
   const showTransliteration = isTransliterationOn === 'on'
 
-  const [currentPlayingWordIndex, setCurrentPlayingWordIndex] = useState(null)
+  const transliteratedText = useMemo(() => {
+    return transliterateArabicToEnglish(sentence.arabic)
+  }, [sentence.arabic])
+
+  const fileNames = sentence.words.map((word) => word.filename)
 
   const handlePlayingWord = (index) => {
     setCurrentPlayingWordIndex(index)
@@ -27,13 +32,6 @@ export const EnglishArabic = ({ sentence }) => {
   const handlePlaybackFinished = () => {
     setCurrentPlayingWordIndex(null)
   }
-
-  const transliteratedText = useMemo(() => {
-    return transliterateArabicToEnglish(sentence.arabic)
-  }, [sentence.arabic])
-
-  //loop over all words in sentence that contains a property filename and add all filenames to an array
-  const fileNames = sentence.words.map((word) => word.filename)
 
   return (
     <>
@@ -44,15 +42,14 @@ export const EnglishArabic = ({ sentence }) => {
           {transliteratedText}
         </Text>
       )}
+
       <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
         {sentence.english}
       </Text>
-      <PlaySound
-        audioFileNames={fileNames}
-        buttonText={UI.playSentence}
-        onPlayingWord={handlePlayingWord}
-        onFinish={handlePlaybackFinished}
-      />
+
+      <Divider style={{ paddingTop, opacity: 0 }} />
+
+      <PlaySound audioFileNames={fileNames} onPlayingWord={handlePlayingWord} onFinish={handlePlaybackFinished} />
     </>
   )
 }
@@ -60,6 +57,7 @@ export const EnglishArabic = ({ sentence }) => {
 EnglishArabic.propTypes = {
   arabic: PropTypes.string.isRequired,
   english: PropTypes.string.isRequired,
+  paddingTop: PropTypes.number,
   sentence: PropTypes.shape({
     arabic: PropTypes.string.isRequired,
     english: PropTypes.string.isRequired,

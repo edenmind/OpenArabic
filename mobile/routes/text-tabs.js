@@ -1,13 +1,14 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import PropTypes from 'prop-types'
+import React, { Fragment, useEffect, useState } from 'react'
+import { useTheme } from 'react-native-paper'
 import { useDispatch } from 'react-redux'
-import SCREENS from '../constants/screens.js'
+
 import Spinner from '../components/spinner.js'
+import SCREENS from '../constants/screens.js'
 import TextBilingual from '../screens/text-bilingual.js'
 import OrderingWordsInASentence from '../screens/text-practice.js'
 import { getText } from '../services/api-service.js'
-import { useTheme } from 'react-native-paper'
 const Tab = createMaterialTopTabNavigator()
 
 export default function TextTabs({ route }) {
@@ -27,7 +28,6 @@ export default function TextTabs({ route }) {
   const tabs = [
     { name: SCREENS.bilingual, component: TextBilingual },
     { name: SCREENS.quiz, component: OrderingWordsInASentence }
-    // { name: SCREENS.arabic, component: TextArabic }
   ]
 
   return (

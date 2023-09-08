@@ -1,5 +1,6 @@
-import { HOST, ENDPOINT } from './urls.js'
 import { expect, it } from '@jest/globals'
+
+import { HOST, ENDPOINT } from './urls.js'
 
 describe('urls', () => {
   it('texts should be correct', () => {

@@ -1,5 +1,6 @@
-import * as actions from './actions.js'
+// eslint-disable-next-line import/order
 import { createReducer } from '@reduxjs/toolkit'
+import * as actions from './actions.js'
 
 const initialStateCategories = {
   categories: [{ name: 'No categories', id: '123' }]

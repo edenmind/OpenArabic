@@ -1,8 +1,8 @@
+import * as Haptics from 'expo-haptics'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { View } from 'react-native'
 import { SegmentedButtons, Text } from 'react-native-paper'
-import PropTypes from 'prop-types'
-import * as Haptics from 'expo-haptics'
 
 export const SegmentButtonWithHeader = (props) => {
   const { title, value, onValueChange, buttons } = props

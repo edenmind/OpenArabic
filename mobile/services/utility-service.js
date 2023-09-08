@@ -62,14 +62,6 @@ const truncate = (stringToTruncate, truncateLength) => {
   return cleanString
 }
 
-export const vibrateBetweenTwoColors = (setColor, color, baseColor) => {
-  setColor(color)
-
-  setTimeout(() => {
-    setColor(baseColor)
-  }, 500)
-}
-
 export const getThreeRandomWords = (englishWords, currentArabicWordId, sentencesInText) => {
   const randomWords = new Set()
 
@@ -113,9 +105,6 @@ export const removeLineBreak = (stringWithLineBreaks) => stringWithLineBreaks.re
 export const addSpaceAfterDot = (text) => {
   return text.replaceAll(/\s*([!,.:;?]+)(?!\s*$)\s*/g, '$1 ')
 }
-
-export const filterArrayFromEmptyElements = (arrayToFilter, filterFunction) =>
-  arrayToFilter.filter((element) => filterFunction(element))
 
 // return arabic date with year in numbers and month in text and day in text using moment.js using arabic location
 export const getHijriDate = () => {

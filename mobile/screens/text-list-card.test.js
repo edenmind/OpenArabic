@@ -1,10 +1,11 @@
 import { describe, expect, jest } from '@jest/globals'
-import CategoryCard from './text-list-card.js'
-import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow' // ES6
-import { Provider } from 'react-redux'
-import { store } from '../redux/store.js'
 import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
+import { Provider } from 'react-redux'
+import ShallowRenderer from 'react-test-renderer/shallow' // ES6
+
+import CategoryCard from './text-list-card.js'
+import { store } from '../redux/store.js'
 
 jest.useFakeTimers()
 

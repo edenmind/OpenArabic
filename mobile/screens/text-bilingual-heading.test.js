@@ -1,8 +1,9 @@
 import { describe, it, jest } from '@jest/globals'
-import ShallowRenderer from 'react-test-renderer/shallow' // ES6
 import React from 'react'
-import TextBilingualHeading from './text-bilingual-heading.js'
 import renderer from 'react-test-renderer'
+import ShallowRenderer from 'react-test-renderer/shallow' // ES6
+
+import TextBilingualHeading from './text-bilingual-heading.js'
 
 jest.useFakeTimers()
 describe('<TextBilingualHeading />', () => {

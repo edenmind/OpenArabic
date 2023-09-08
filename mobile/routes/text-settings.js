@@ -1,12 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
-import SCREENS from '../constants/screens.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import TextSettingsScreen from '../screens/settings.js'
-import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
-import { useSelector } from 'react-redux'
-import { UIElements } from '../constants/ui.js'
+import React from 'react'
 import { useTheme } from 'react-native-paper'
+import { useSelector } from 'react-redux'
+
+import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
+import SCREENS from '../constants/screens.js'
+import { UIElements } from '../constants/ui.js'
+import TextSettingsScreen from '../screens/settings.js'
 
 const Stack = createNativeStackNavigator()
 const darkModeSelector = (state) => state.isDarkMode

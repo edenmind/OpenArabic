@@ -1,9 +1,10 @@
-import { Button, Divider, Modal, Portal, Text, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
-import { useSharedStyles } from '../styles/common.js'
+import { Divider, Modal, Portal, Text, useTheme } from 'react-native-paper'
+
 import { AnswerButton } from '../components/answer-button.js'
+import { useSharedStyles } from '../styles/common.js'
 
 // eslint-disable-next-line putout/destructuring-as-function-argument
 const ModalScrollView = ({
@@ -51,10 +52,10 @@ const ModalScrollView = ({
         {title && (
           <>
             <Text style={titleLanguage === 'english' ? styles.titleStyleEnglish : styles.titleStyle}>{title}</Text>
-
             <Divider />
           </>
         )}
+
         <ScrollView>
           <View style={{ marginHorizontal: 5, paddingHorizontal: 5 }}>{content}</View>
         </ScrollView>

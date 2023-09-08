@@ -1,6 +1,7 @@
 /* eslint-disable putout/objects-braces-inside-array */
-import { categoriesReducer, textReducer, textsReducer, UIStateReducer } from './reducers.js'
 import { expect, it, jest } from '@jest/globals'
+
+import { categoriesReducer, textReducer, textsReducer, UIStateReducer } from './reducers.js'
 // jest should mock new Date
 jest.useFakeTimers().setSystemTime(new Date('2021-01-01T00:00:00.000Z'))
 

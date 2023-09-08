@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types'
 import React, { useCallback, useRef } from 'react'
 import { Pressable, Animated, StyleSheet } from 'react-native'
 import { Card, useTheme } from 'react-native-paper'
-import { useSharedStyles } from '../styles/common.js'
-import PropTypes from 'prop-types'
+
 import { UIElements } from '../constants/ui.js'
+import { useSharedStyles } from '../styles/common.js'
 
 const styles = StyleSheet.create({
   animatedView: {

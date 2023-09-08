@@ -1,9 +1,11 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { View } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
-import PropTypes from 'prop-types'
-import { useSharedStyles } from '../styles/common.js'
+
 import HighlightedWord from './context-highlighted-word.js'
+import { useSharedStyles } from '../styles/common.js'
+
 const WordsContextHighLighted = (props) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)

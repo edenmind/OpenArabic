@@ -1,8 +1,7 @@
-import { Text, Divider, useTheme } from 'react-native-paper'
-import { Image, StyleSheet } from 'react-native'
-import React from 'react'
 import PropTypes from 'prop-types'
-import TextCategoryIntro from '../components/text-category-intro.js'
+import React from 'react'
+import { Image, StyleSheet } from 'react-native'
+import { Text, Divider, useTheme } from 'react-native-paper'
 
 export default function TextBilingualHeading({ heading }) {
   const { author, source, readingTime, views, timeAgo, image, title, introduction } = heading

@@ -1,16 +1,17 @@
-import * as api from '../services/api-service.js'
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { FlatList, Image } from 'react-native'
-import PropTypes from 'prop-types'
-import Spinner from '../components/spinner.js'
-import TextListCard from './text-list-card.js'
 import { useFocusEffect, useScrollToTop } from '@react-navigation/native'
-import { getHijriDate, getHijriDateLatin } from '../services/utility-service.js'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { FlatList, Image } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
-import { useSharedStyles } from '../styles/common.js'
+import { useDispatch, useSelector } from 'react-redux'
+
+import TextListCard from './text-list-card.js'
 import FadeInView from '../components/fade-in-view.js'
+import Spinner from '../components/spinner.js'
 import TextCategoryIntro from '../components/text-category-intro.js'
+import * as api from '../services/api-service.js'
+import { getHijriDate, getHijriDateLatin } from '../services/utility-service.js'
+import { useSharedStyles } from '../styles/common.js'
 
 const selector = (state) => state.texts
 const categoriesSelector = (state) => state.categories

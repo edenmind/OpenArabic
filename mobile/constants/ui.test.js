@@ -1,5 +1,6 @@
-import { UI } from './ui.js'
 import { expect, it } from '@jest/globals'
+
+import { UI } from './ui.js'
 
 it('share should be correct', () => {
   expect(UI.share).toBe('Share')

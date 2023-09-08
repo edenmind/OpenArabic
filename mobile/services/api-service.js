@@ -1,7 +1,7 @@
-/* eslint-disable import/no-named-as-default-member */
-import * as url from './url-service.js'
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
+
+import * as url from './url-service.js'
 
 axiosRetry(axios, {
   retries: 5,
