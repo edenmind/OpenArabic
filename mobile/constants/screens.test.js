@@ -1,5 +1,6 @@
-import SCREENS from './screens.js'
 import { expect, it } from '@jest/globals'
+
+import SCREENS from './screens.js'
 
 it('white should be correct', () => {
   expect(SCREENS.about).toBe('About')

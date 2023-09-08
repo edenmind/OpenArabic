@@ -2,6 +2,7 @@
 /* eslint-disable react-native/no-color-literals */
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import WordsContent from './words-content.js'
 import WordsSetup from './words-setup.js'
 import FadeInView from '../components/fade-in-view.js'

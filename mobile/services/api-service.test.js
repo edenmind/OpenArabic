@@ -1,8 +1,9 @@
-import axios from 'axios'
 import { expect, describe, jest } from '@jest/globals'
-import { getCategories, getText, getTexts } from './api-service.js'
+import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import { useSelector } from 'react-redux'
+
+import { getCategories, getText, getTexts } from './api-service.js'
 const mockDispatch = jest.fn()
 
 jest.mock('react-redux', () => ({

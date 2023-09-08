@@ -1,15 +1,16 @@
 import 'react-native-gesture-handler'
-import Heading from './text-bilingual-heading.js'
 import React from 'react'
 import { ScrollView, View } from 'react-native'
-import Sentences from './text-bilingual-sentences.js'
-import Spinner from '../components/spinner.js'
-import { useSelector } from 'react-redux'
 import { Button, Divider, Text, useTheme } from 'react-native-paper'
-import { useSharedStyles } from '../styles/common.js'
-import { generateTextError, generateShare } from '../services/ui-services.js'
+import { useSelector } from 'react-redux'
+
+import Heading from './text-bilingual-heading.js'
+import Sentences from './text-bilingual-sentences.js'
 import FadeInView from '../components/fade-in-view.js'
+import Spinner from '../components/spinner.js'
 import { UI } from '../constants/ui.js'
+import { generateTextError, generateShare } from '../services/ui-services.js'
+import { useSharedStyles } from '../styles/common.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading

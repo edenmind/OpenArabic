@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { View } from 'react-native'
 import { Divider, useTheme } from 'react-native-paper'
-import PropTypes from 'prop-types'
-import { useSharedStyles } from '../styles/common.js'
+
 import { EnglishArabic } from '../components/english-arabic.js'
+import { useSharedStyles } from '../styles/common.js'
 
 function TextBilingualSentences({ sentences }) {
   const theme = useTheme()

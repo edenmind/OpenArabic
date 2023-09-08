@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types'
 import React, { useRef, useState, useEffect, useCallback } from 'react'
 import { Animated } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
-import PropTypes from 'prop-types'
+
 import { useSharedStyles } from '../styles/common.js'
 
 const HighlightedWord = ({ word }) => {

@@ -1,11 +1,12 @@
-import { Text, Card, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Text, Card, useTheme } from 'react-native-paper'
+
 import { CardFooter } from '../components/card-footer.js'
-import { useSharedStyles } from '../styles/common.js'
 import { CategoryChip } from '../components/category-chip.js'
 import { PressableCard } from '../components/pressable-card.js'
 import SCREENS from '../constants/screens.js'
+import { useSharedStyles } from '../styles/common.js'
 
 export default function TextListCardGrammar({ text, navigation, setShouldReload }) {
   const theme = useTheme()

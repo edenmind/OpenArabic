@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import { View, StyleSheet, Animated } from 'react-native'
-import PropTypes from 'prop-types'
+
 import { AnswerButton } from '../components/answer-button.js'
 
 const styles = StyleSheet.create({

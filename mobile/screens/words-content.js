@@ -2,17 +2,18 @@
 /* eslint-disable putout/destructuring-as-function-argument */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
-import React, { useState, useCallback, useEffect } from 'react'
-import { View, StyleSheet, FlatList } from 'react-native'
-import { Surface, Text, useTheme } from 'react-native-paper'
-import TakbirCelebrate from '../components/takbir-celebrate.js'
-import { useDispatch, useSelector } from 'react-redux'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import { generateRandomPositions } from '../services/utility-service.js'
-import { Progress } from '../components/progress.js'
+import React, { useState, useCallback, useEffect } from 'react'
+import { View, StyleSheet, FlatList, Pressable } from 'react-native'
+import { Surface, Text, useTheme } from 'react-native-paper'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { AnswerButton } from '../components/answer-button.js'
+import { Progress } from '../components/progress.js'
+import TakbirCelebrate from '../components/takbir-celebrate.js'
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
+import { generateRandomPositions } from '../services/utility-service.js'
 
 const wordsSelector = (state) => state.words
 
@@ -31,6 +32,7 @@ const WordsContent = ({
   const [timeoutId, setTimeoutId] = useState()
   const [wrongAnswers, setWrongAnswers] = useState(0)
   const [wrongAnswerAlreadyAdded, setWrongAnswerAlreadyAdded] = useState([])
+  const [soundShouldPlay, setSoundShouldPlay] = useState(true)
   const { playSound } = useAudioPlayer()
 
   const dispatch = useDispatch()
@@ -76,7 +78,7 @@ const WordsContent = ({
   }, [timeoutId])
 
   useEffect(() => {
-    if (filename) {
+    if (filename && soundShouldPlay) {
       const audioURL = `${baseURL}${filename}`
       playSound(audioURL)
     }
@@ -95,6 +97,7 @@ const WordsContent = ({
     dispatch({
       type: 'RESET_WORDS'
     })
+    setSoundShouldPlay(true)
   }, [dispatch, handleSetCelebrationSnackBarVisibility, handleSetCurrentWord, handleSetCurrentWordIndex])
   const correctAnswer = useCallback(() => {
     setButtonPositions(generateRandomPositions())
@@ -104,6 +107,7 @@ const WordsContent = ({
 
   const handleCorrectAnswer = () => {
     if (currentWord === words.length - 1) {
+      setSoundShouldPlay(false)
       handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
       handleSetCelebrationSnackBarVisibility(true)
@@ -115,7 +119,7 @@ const WordsContent = ({
           type: 'SET_PRACTICING_WORDS',
           payload: false
         })
-      }, 1500)
+      }, 3000)
 
       setTimeoutId(newTimeoutId)
       return
@@ -175,7 +179,16 @@ const WordsContent = ({
           <Progress progress={currentWordIndex / (numberOfWordsToPractice + wrongAnswers)} />
           <Surface style={styles.surface}>
             <View style={styles.centeredView}>
-              <Text style={[styles.text, { fontSize, color: theme.colors.secondary }]}>{arabic?.trim()}</Text>
+              <Pressable
+                onPress={() => {
+                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+
+                  const audioURL = `${baseURL}${filename}`
+                  playSound(audioURL)
+                }}
+              >
+                <Text style={[styles.text, { fontSize, color: theme.colors.secondary }]}>{arabic?.trim()}</Text>
+              </Pressable>
             </View>
           </Surface>
           <TakbirCelebrate

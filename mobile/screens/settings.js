@@ -1,11 +1,12 @@
-import { Text, Surface, Switch, useTheme } from 'react-native-paper'
-import { View, ScrollView } from 'react-native'
-import React from 'react'
-import { storeData, getData } from '../services/storage.js'
-import { useDispatch } from 'react-redux'
-import { useSharedStyles } from '../styles/common.js'
 import * as Haptics from 'expo-haptics'
+import React from 'react'
+import { View, ScrollView } from 'react-native'
+import { Text, Surface, Switch, useTheme } from 'react-native-paper'
+import { useDispatch } from 'react-redux'
+
 import { SegmentButtonWithHeader } from '../components/segemented-button.js'
+import { storeData, getData } from '../services/storage.js'
+import { useSharedStyles } from '../styles/common.js'
 
 const DEFAULT_ENGLISH_FONT_SIZE = '17'
 const DEFAULT_ARABIC_FONT_SIZE = '19'

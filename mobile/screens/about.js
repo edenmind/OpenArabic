@@ -1,8 +1,9 @@
-import { Button, Divider, List, Text, useTheme } from 'react-native-paper'
-import { Linking, ScrollView, StyleSheet, Image } from 'react-native'
 import React from 'react'
-import { useSharedStyles } from '../styles/common.js'
+import { Linking, ScrollView, StyleSheet, Image } from 'react-native'
+import { Button, Divider, List, Text, useTheme } from 'react-native-paper'
+
 import FadeInView from '../components/fade-in-view.js'
+import { useSharedStyles } from '../styles/common.js'
 
 function About() {
   const style = StyleSheet.create({

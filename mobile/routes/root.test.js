@@ -1,10 +1,11 @@
 import { describe, it, jest } from '@jest/globals'
-import ShallowRenderer from 'react-test-renderer/shallow' // ES6
-import React from 'react'
-import Root from './root.js'
-import { Provider } from 'react-redux'
-import { store } from '../redux/store.js'
 import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
+import { Provider } from 'react-redux'
+import ShallowRenderer from 'react-test-renderer/shallow' // ES6
+
+import Root from './root.js'
+import { store } from '../redux/store.js'
 
 jest.useFakeTimers()
 describe('<Root />', () => {

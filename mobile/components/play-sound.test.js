@@ -1,6 +1,7 @@
-import React from 'react'
 import { render, fireEvent, act } from '@testing-library/react-native'
 import { Audio } from 'expo-av'
+import React from 'react'
+
 import PlaySound from './play-sound.js'
 
 jest.mock('expo-av')

@@ -1,6 +1,6 @@
-import * as util from './utility-service.js'
 import { expect, describe, it } from '@jest/globals'
-import { paperDarkTheme } from '../constants/paper-theme.js'
+
+import * as util from './utility-service.js'
 import {
   getHijriDateLatin,
   prepareIngress,
@@ -10,6 +10,7 @@ import {
   vibrateBetweenTwoColors,
   generateRandomPositions
 } from './utility-service.js'
+import { paperDarkTheme } from '../constants/paper-theme.js'
 
 // describe('vibrateBetweenTwoColors', () => {
 //   jest.mock('expo-haptics', () => ({

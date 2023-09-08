@@ -1,6 +1,7 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import { Text, Surface, useTheme } from 'react-native-paper'
+
 import { useSharedStyles } from '../styles/common.js'
 
 const TextCategoryIntro = ({ text }) => {

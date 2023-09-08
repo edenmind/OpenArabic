@@ -1,4 +1,5 @@
 import { expect, it, jest } from '@jest/globals'
+
 import * as actions from './actions.js'
 
 it('SET_CATEGORIES should return the correct action', () => {

@@ -1,15 +1,15 @@
-import { prepareIngress } from '../services/utility-service.js'
-import { Text, Card, Divider, useTheme } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
 import { Share } from 'react-native'
-import { useSharedStyles } from '../styles/common.js'
-import PlaySound from '../components/play-sound.js'
+import { Text, Card, Divider, useTheme } from 'react-native-paper'
+
 import { CategoryChip } from '../components/category-chip.js'
-import { PressableCard } from '../components/pressable-card.js'
 import { EnglishArabic } from '../components/english-arabic.js'
+import PlaySound from '../components/play-sound.js'
+import { PressableCard } from '../components/pressable-card.js'
 import { UI } from '../constants/ui.js'
-import { AnswerButton } from '../components/answer-button.js'
+import { prepareIngress } from '../services/utility-service.js'
+import { useSharedStyles } from '../styles/common.js'
 
 export default function TextListCardQuote({ text }) {
   const hadithTitle = `${text.author.trim()} in ${text.source.trim()}`

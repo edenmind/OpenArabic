@@ -1,10 +1,11 @@
 /* eslint-disable no-else-return */
 import 'react-native-gesture-handler'
-import { Share } from 'react-native'
-import { ENDPOINT, HOST } from '../constants/urls.js'
 import * as MailComposer from 'expo-mail-composer'
 import React from 'react'
+import { Share } from 'react-native'
 import { Text } from 'react-native-paper'
+
+import { ENDPOINT, HOST } from '../constants/urls.js'
 export function generateShare(text) {
   async function shareText() {
     await Share.share({

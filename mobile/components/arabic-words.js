@@ -1,12 +1,13 @@
 import 'react-native-gesture-handler'
+import { Audio } from 'expo-av'
+import * as Haptics from 'expo-haptics'
+import PropTypes from 'prop-types'
 import React, { useState, useEffect, useCallback } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { useTheme } from 'react-native-paper'
-import PropTypes from 'prop-types'
-import { Audio } from 'expo-av'
+
 import { ArabicWordButton } from './arabic-words-button.js'
 import { useSharedStyles } from '../styles/common.js'
-import * as Haptics from 'expo-haptics'
 
 export default function ArabicWords({ sentence: { words }, currentPlayingWordIndex }) {
   const [sound, setSound] = useState()

@@ -1,9 +1,10 @@
-import React from 'react'
-import { render } from '@testing-library/react-native'
-import { Provider } from 'react-redux'
-import { store } from '../redux/store.js'
 import { NavigationContainer } from '@react-navigation/native'
+import { render } from '@testing-library/react-native'
+import React from 'react'
+import { Provider } from 'react-redux'
+
 import TextListCardGrammar from './text-list-card-grammar.js'
+import { store } from '../redux/store.js'
 
 describe('TextListCardGrammar', () => {
   it('renders the required properties', () => {

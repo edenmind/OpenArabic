@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import { Animated } from 'react-native'
-import PropTypes from 'prop-types'
 
 const FadeInView = ({ children, style }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current

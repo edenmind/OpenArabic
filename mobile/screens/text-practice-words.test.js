@@ -1,7 +1,8 @@
-import React from 'react'
 import { render, fireEvent } from '@testing-library/react-native'
+import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+
 import TextPracticeArabicWords from './text-practice-words.js'
 
 const mockStore = configureMockStore([])

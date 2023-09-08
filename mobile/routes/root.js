@@ -1,15 +1,15 @@
-import React from 'react'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-// import { StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
+import { Provider as PaperProvider } from 'react-native-paper'
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useSelector } from 'react-redux'
-import SCREENS from '../constants/screens.js'
+
+import TextSettings from './text-settings.js'
 import Text from './text.js'
 import Words from './words.js'
-import TextSettings from './text-settings.js'
-import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
-import { Provider as PaperProvider } from 'react-native-paper'
+import SCREENS from '../constants/screens.js'
 import { UIElements } from '../constants/ui.js'
 
 const Tab = createMaterialBottomTabNavigator()
@@ -21,12 +21,6 @@ function Root() {
 
   return (
     <PaperProvider theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
-      {/* <StatusBar
-        backgroundColor={
-          isDarkModeOn.isDarkMode ? CombinedDefaultTheme.colors.background : CombinedDarkTheme.colors.background
-        }
-        barStyle={isDarkModeOn.isDarkMode ? 'dark-content' : 'light-content'}
-      /> */}
       <NavigationContainer theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
         <Tab.Navigator
           barStyle={{

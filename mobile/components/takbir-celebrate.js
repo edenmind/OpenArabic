@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
-import { Snackbar, Text, useTheme } from 'react-native-paper'
-import { StyleSheet, Animated } from 'react-native'
-import * as Haptics from 'expo-haptics'
 import { Audio } from 'expo-av'
+import * as Haptics from 'expo-haptics'
+import PropTypes from 'prop-types'
+import React, { useEffect, useRef, useState } from 'react'
+import { StyleSheet, Animated } from 'react-native'
+import { Snackbar, Text, useTheme } from 'react-native-paper'
 
 const styles = StyleSheet.create({
   emoji: {
@@ -22,7 +22,6 @@ const TakbirCelebrate = ({ visible, onDismissSnackBar, text }) => {
   const theme = useTheme()
   const scaleAnim = useRef(new Animated.Value(0.9)).current
   const soundPlayedRef = useRef(false)
-
   const [sound, setSound] = useState()
 
   async function playSound() {

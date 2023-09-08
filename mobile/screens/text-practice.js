@@ -1,19 +1,19 @@
+import * as Haptics from 'expo-haptics'
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { View, ScrollView } from 'react-native'
 import { Surface, useTheme } from 'react-native-paper'
 import { useSelector } from 'react-redux'
-import * as Haptics from 'expo-haptics'
 
-import { useSharedStyles } from '../styles/common.js'
-import WordsContextHighLighted from '../components/context-highlighted.js'
 import TextPracticeWords from './text-practice-words.js'
-import Spinner from '../components/spinner.js'
+import { ActionButton } from '../components/action-button.js'
+import WordsContextHighLighted from '../components/context-highlighted.js'
 import { EnglishArabic } from '../components/english-arabic.js'
 import { Progress } from '../components/progress.js'
-import { ActionButton } from '../components/action-button.js'
+import Spinner from '../components/spinner.js'
 import TakbirCelebrate from '../components/takbir-celebrate.js'
-import { getThreeRandomWords } from '../services/utility-service.js'
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
+import { getThreeRandomWords } from '../services/utility-service.js'
+import { useSharedStyles } from '../styles/common.js'
 
 const selector = (state) => state.text
 const textLoadSelector = (state) => state.textLoading
@@ -26,7 +26,7 @@ const TextPractice = () => {
   const [currentWord, setCurrentWord] = useState(0)
   const [currentArabicSentenceFromCorrectAnswers, setCurrentArabicSentenceFromCorrectAnswers] = useState('')
   const [currentEnglishWordsInSentence, setCurrentEnglishWordsInSentence] = useState([])
-  const [color, setColor] = useState(theme.colors.elevation.level0)
+
   const [currentArabicWord, setCurrentArabicWord] = useState(0)
   const [sentenceIsComplete, setSentenceIsComplete] = useState(false)
   const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = useState(false)
@@ -151,7 +151,7 @@ const TextPractice = () => {
   const sentenceControl = useMemo(
     () => (
       <View>
-        <EnglishArabic sentence={text.sentences[currentSentence]} />
+        <EnglishArabic sentence={text.sentences[currentSentence]} paddingTop={50} />
         {isLastSentence ? (
           <ActionButton onPress={handleReset} text="PRACTICE AGAIN" />
         ) : (
@@ -172,7 +172,7 @@ const TextPractice = () => {
         />
         <Progress progress={currentSentence / (sentencesInText.length - 1)} />
         {!sentenceIsComplete && (
-          <Surface style={{ backgroundColor: color, minHeight: 250, paddingTop: 10 }}>
+          <Surface style={{ backgroundColor: theme.colors.elevation.level0, minHeight: 250 }}>
             <WordsContextHighLighted
               arabicSentence={sentencesInText[currentSentence].arabicWords}
               currentWord={currentWord}

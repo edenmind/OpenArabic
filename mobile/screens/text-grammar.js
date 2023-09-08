@@ -1,11 +1,12 @@
-import { Divider, useTheme, Text } from 'react-native-paper'
-import { ScrollView } from 'react-native'
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
+import { ScrollView } from 'react-native'
+import { Divider, useTheme, Text } from 'react-native-paper'
+
+import PlaySound from '../components/play-sound.js'
 import { formatGrammar } from '../services/ui-services.js'
 import { transliterateArabicToEnglish } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
-import PlaySound from '../components/play-sound.js'
 
 export default function TextGrammar({ route }) {
   const { grammar, arabic, english, filename } = route.params

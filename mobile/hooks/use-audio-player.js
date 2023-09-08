@@ -1,31 +1,34 @@
+/* eslint-disable nonblock-statement-body-position */
 /* eslint-disable unicorn/no-null */
-import { useState, useEffect, useCallback } from 'react'
 import { Audio } from 'expo-av'
+import { useState, useEffect, useCallback } from 'react'
 
 export const useAudioPlayer = () => {
   const [sound, setSound] = useState(null)
-  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
-    const setAudioMode = async () => {
+    const cleanupSound = () => {
+      if (sound) {
+        sound.unloadAsync()
+      }
+    }
+
+    const initializeAudioMode = async () => {
       await Audio.setAudioModeAsync({
         playsInSilentModeIOS: true
       })
     }
 
-    setAudioMode()
+    initializeAudioMode()
 
-    return sound
-      ? () => {
-          sound.unloadAsync()
-        }
-      : undefined
+    return () => {
+      cleanupSound()
+    }
   }, [sound])
 
-  const playSound = useCallback(async (audioFileName, onDidFinish) => {
-    const { sound: audioSound } = await Audio.Sound.createAsync(
-      { uri: audioFileName },
-      {
+  const playSound = useCallback(async (audioFileName, onDidFinishCallback) => {
+    try {
+      const audioSettings = {
         shouldPlay: true,
         rate: 1,
         shouldCorrectPitch: true,
@@ -37,26 +40,32 @@ export const useAudioPlayer = () => {
         isMutedIOS: false,
         playsInSilentModeIOS: true,
         interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX
-      },
-      onDidFinish
-    )
+      }
 
-    setIsPlaying(true)
-    setSound(audioSound)
-    await audioSound.playAsync()
+      const { sound: audioSound } = await Audio.Sound.createAsync(
+        { uri: audioFileName },
+        audioSettings,
+        onDidFinishCallback
+      )
+
+      setSound(audioSound)
+
+      await audioSound.playAsync()
+    } catch (error) {
+      console.error('Error playing sound:', error)
+    }
   }, [])
 
   const stopSound = useCallback(async () => {
-    if (sound) {
-      await sound.stopAsync()
-      await sound.unloadAsync()
-      setSound(null)
-      setIsPlaying(false)
-    }
+    if (!sound) return
+
+    await sound.stopAsync()
+    await sound.unloadAsync()
+
+    setSound(null)
   }, [sound])
 
   return {
-    isPlaying,
     playSound,
     stopSound
   }

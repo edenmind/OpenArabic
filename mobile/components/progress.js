@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { ProgressBar, useTheme } from 'react-native-paper'
-import PropTypes from 'prop-types'
 
 export const Progress = ({ progress }) => {
   const theme = useTheme()

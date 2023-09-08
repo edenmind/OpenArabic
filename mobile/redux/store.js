@@ -1,5 +1,6 @@
-import { categoriesReducer, textReducer, textsReducer, UIStateReducer, wordsReducer } from './reducers.js'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
+
+import { categoriesReducer, textReducer, textsReducer, UIStateReducer, wordsReducer } from './reducers.js'
 
 const rootReducer = combineReducers({
   categories: categoriesReducer,

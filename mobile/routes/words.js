@@ -1,23 +1,23 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { Button, useTheme } from 'react-native-paper'
-import React, { Fragment } from 'react'
-import SCREENS from '../constants/screens.js'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import defaultExport from '../screens/words.js'
-import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
-import { useDispatch, useSelector } from 'react-redux'
 import * as Haptics from 'expo-haptics'
+import React, { Fragment } from 'react'
+import { Button, useTheme } from 'react-native-paper'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
+import SCREENS from '../constants/screens.js'
+import defaultExport from '../screens/words.js'
 
 const Stack = createNativeStackNavigator()
 const practicingWordsSelector = (state) => state.practicingWords
 const darkModeSelector = (state) => state.isDarkMode
 
 export default function Words() {
-  const dispatch = useDispatch()
-  const { practicingWords } = useSelector(practicingWordsSelector)
-  const theme = useTheme()
-
-  const isDarkModeOn = useSelector(darkModeSelector)
+  const dispatch = useDispatch(),
+    { practicingWords } = useSelector(practicingWordsSelector),
+    theme = useTheme(),
+    isDarkModeOn = useSelector(darkModeSelector)
 
   return (
     <NavigationContainer independent theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>

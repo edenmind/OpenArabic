@@ -1,8 +1,8 @@
 import 'react-native-gesture-handler'
+import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
 import { Text, Button } from 'react-native-paper'
-import PropTypes from 'prop-types'
 
 export function ArabicWordButton({ word, isSelected, theme, sharedStyle, onSelect }) {
   const [isFading, setIsFading] = useState(false)

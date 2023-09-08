@@ -1,11 +1,12 @@
 import { it } from '@jest/globals'
-import TextPractice from './text-practice.js'
+import { NavigationContainer } from '@react-navigation/native'
+import { render, fireEvent, waitFor, debug } from '@testing-library/react-native'
 import React from 'react'
 import { Provider, useSelector } from 'react-redux'
-import { store } from '../redux/store.js'
-import { NavigationContainer } from '@react-navigation/native'
 import ShallowRenderer from 'react-test-renderer/shallow' // ES6
-import { render, fireEvent, waitFor, debug } from '@testing-library/react-native'
+
+import TextPractice from './text-practice.js'
+import { store } from '../redux/store.js'
 
 jest.mock('../components/takbir-celebrate.js', () => {
   const TakbirCelebrate = () => {}

@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
-import { Caption, Divider, Switch, Text, useTheme } from 'react-native-paper'
+import { useFocusEffect } from '@react-navigation/core'
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
-import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Caption, Divider, Switch, Text, useTheme } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
+
+import icon from '../assets/logo.png'
 import SCREENS from '../constants/screens.js'
+import packageJson from '../package.json'
 import TextList from '../screens/text-list.js'
 import { getCategories } from '../services/api-service.js'
-import icon from '../assets/logo.png'
-import packageJson from '../package.json'
-import { useFocusEffect } from '@react-navigation/core'
 import { storeData, getData } from '../services/storage.js'
 import { getHijriYear } from '../services/utility-service.js'
 

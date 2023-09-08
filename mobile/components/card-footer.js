@@ -1,7 +1,8 @@
-import { checkIfWithinLast36Hours } from '../services/utility-service.js'
-import { Chip, Text, useTheme } from 'react-native-paper'
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
+import { Chip, Text, useTheme } from 'react-native-paper'
+
+import { checkIfWithinLast36Hours } from '../services/utility-service.js'
 
 export const CardFooter = ({ text }) => {
   const theme = useTheme()

@@ -1,12 +1,13 @@
-import React from 'react'
-import { useSharedStyles } from '../styles/common.js'
-import SCREENS from '../constants/screens.js'
-import { Card, Divider, useTheme, IconButton } from 'react-native-paper'
 import PropTypes from 'prop-types'
-import { generateShare } from '../services/ui-services.js'
+import React from 'react'
+import { Card, Divider, useTheme, IconButton } from 'react-native-paper'
+
 import { CardFooter } from '../components/card-footer.js'
 import { PressableCard } from '../components/pressable-card.js'
 import TextCategoryIntro from '../components/text-category-intro.js'
+import SCREENS from '../constants/screens.js'
+import { generateShare } from '../services/ui-services.js'
+import { useSharedStyles } from '../styles/common.js'
 
 export default function TextListCardText({ setShouldReload, navigation, text }) {
   const theme = useTheme()

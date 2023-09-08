@@ -1,8 +1,9 @@
-import { Chip, Text, useTheme } from 'react-native-paper'
-import React from 'react'
 import PropTypes from 'prop-types'
-import { useSharedStyles } from '../styles/common.js'
+import React from 'react'
 import { StyleSheet, View } from 'react-native'
+import { Chip, Text, useTheme } from 'react-native-paper'
+
+import { useSharedStyles } from '../styles/common.js'
 
 export const CategoryChip = ({ category }) => {
   const theme = useTheme()
