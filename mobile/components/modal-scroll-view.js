@@ -6,7 +6,6 @@ import { Divider, Modal, Portal, Text, useTheme } from 'react-native-paper'
 import { AnswerButton } from '../components/answer-button.js'
 import { useSharedStyles } from '../styles/common.js'
 
-// eslint-disable-next-line putout/destructuring-as-function-argument
 const ModalScrollView = ({
   title,
   content,
@@ -71,12 +70,12 @@ const ModalScrollView = ({
 export default ModalScrollView
 
 ModalScrollView.propTypes = {
+  close: PropTypes.string,
+  content: PropTypes.any.isRequired,
+  height: PropTypes.string,
+  hideModal: PropTypes.func.isRequired,
+  icon: PropTypes.string,
   title: PropTypes.string.isRequired,
   titleLanguage: PropTypes.string,
-  content: PropTypes.any.isRequired,
-  visible: PropTypes.bool.isRequired,
-  hideModal: PropTypes.func.isRequired,
-  height: PropTypes.string,
-  close: PropTypes.string,
-  icon: PropTypes.string
+  visible: PropTypes.bool.isRequired
 }

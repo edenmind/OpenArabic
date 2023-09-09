@@ -5,7 +5,7 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useSelector } from 'react-redux'
 
-import TextSettings from './text-settings.js'
+import TextSettings from './settings.js'
 import Text from './text.js'
 import Words from './words.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
@@ -24,19 +24,16 @@ function Root() {
       <NavigationContainer theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
         <Tab.Navigator
           barStyle={{
-            height: 75,
-
             backgroundColor: isDarkModeOn.isDarkMode
               ? CombinedDefaultTheme.colors.background
               : CombinedDarkTheme.colors.background,
-            borderTopWidth: 1,
             borderTopColor: isDarkModeOn.isDarkMode
               ? CombinedDefaultTheme.colors.inverseOnSurface
-              : CombinedDarkTheme.colors.inverseOnSurface
+              : CombinedDarkTheme.colors.inverseOnSurface,
+            borderTopWidth: 1,
+            height: 75
           }}
           screenOptions={({ route }) => ({
-            tabBarLabel: '',
-
             tabBarIcon: ({ color }) => {
               let iconName
 
@@ -56,7 +53,8 @@ function Root() {
               }
 
               return <MaterialCommunityIcons name={iconName} color={color} size={UIElements.TitleFont} />
-            }
+            },
+            tabBarLabel: ''
           })}
         >
           <Tab.Screen name={SCREENS.text} component={Text} />

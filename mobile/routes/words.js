@@ -14,10 +14,10 @@ const practicingWordsSelector = (state) => state.practicingWords
 const darkModeSelector = (state) => state.isDarkMode
 
 export default function Words() {
-  const dispatch = useDispatch(),
-    { practicingWords } = useSelector(practicingWordsSelector),
-    theme = useTheme(),
-    isDarkModeOn = useSelector(darkModeSelector)
+  const dispatch = useDispatch()
+  const { practicingWords } = useSelector(practicingWordsSelector)
+  const theme = useTheme()
+  const isDarkModeOn = useSelector(darkModeSelector)
 
   return (
     <NavigationContainer independent theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
@@ -26,17 +26,6 @@ export default function Words() {
           name={SCREENS.words}
           component={defaultExport}
           options={{
-            title: SCREENS.words,
-            headerTitleStyle: {
-              fontFamily: 'philosopher',
-              fontSize: 23,
-              color: theme.colors.onSurface
-            },
-            headerStyle: {
-              backgroundColor: isDarkModeOn.isDarkMode
-                ? CombinedDefaultTheme.colors.background
-                : CombinedDarkTheme.colors.background
-            },
             headerRight: () =>
               practicingWords && (
                 <Fragment>
@@ -46,15 +35,26 @@ export default function Words() {
                     onPress={() => {
                       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
                       dispatch({
-                        type: 'SET_PRACTICING_WORDS',
-                        payload: false
+                        payload: false,
+                        type: 'SET_PRACTICING_WORDS'
                       })
                     }}
                   >
                     Stop
                   </Button>
                 </Fragment>
-              )
+              ),
+            headerStyle: {
+              backgroundColor: isDarkModeOn.isDarkMode
+                ? CombinedDefaultTheme.colors.background
+                : CombinedDarkTheme.colors.background
+            },
+            headerTitleStyle: {
+              color: theme.colors.onSurface,
+              fontFamily: 'philosopher',
+              fontSize: 23
+            },
+            title: SCREENS.words
           }}
         />
       </Stack.Navigator>

@@ -20,7 +20,7 @@ export default function TextDrawer() {
   const Drawer = createDrawerNavigator()
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
-  const versionAndHijriYear = `${packageJson.version} ` + getHijriYear()
+  const versionAndHijriYear = `${packageJson.version} ${getHijriYear()}`
   const [isDarkModeOn, setIsDarkModeOn] = React.useState(true)
   const theme = useTheme()
 
@@ -81,7 +81,7 @@ export default function TextDrawer() {
     const boolValuesForDarkMode = value === true ? 'on' : 'off'
 
     await storeData('isDarkModeOn', boolValuesForDarkMode)
-    dispatch({ type: 'SET_DARK_MODE', payload: !value })
+    dispatch({ payload: !value, type: 'SET_DARK_MODE' })
   }
 
   const getDarkMode = async () => {
@@ -97,9 +97,9 @@ export default function TextDrawer() {
       component={TextList}
       initialParams={{ category: category.name }}
       options={{
-        title: category.name,
+        drawerLabel: category.name,
         headerShown: true,
-        drawerLabel: category.name
+        title: category.name
       }}
     />
   ))
@@ -124,7 +124,7 @@ export default function TextDrawer() {
           <Divider style={style.divider} />
           <TouchableOpacity onPress={() => navigation.navigate('About')}>
             <Text
-              style={{ marginLeft: 10, marginTop: 10, paddingLeft: 9, color: theme.colors.outline }}
+              style={{ color: theme.colors.outline, marginLeft: 10, marginTop: 10, paddingLeft: 9 }}
               variant="labelLarge"
             >
               About
@@ -157,9 +157,9 @@ export default function TextDrawer() {
       component={TextList}
       initialParams={{ category: 'All' }}
       options={{
-        title: SCREENS.home,
+        drawerLabel: 'All Texts',
         headerShown: true,
-        drawerLabel: 'All Texts'
+        title: SCREENS.home
       }}
       key={'999'}
     />
@@ -169,20 +169,20 @@ export default function TextDrawer() {
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
-        unmountOnBlur: true,
         backgroundColor: theme.colors.surface,
         drawerStyle: {
           width: 210
         },
-        headerTintColor: theme.colors.secondary,
         headerStyle: {
           backgroundColor: theme.colors.background
         },
+        headerTintColor: theme.colors.secondary,
         headerTitleStyle: {
+          color: theme.colors.onSurface,
           fontFamily: 'philosopher',
-          fontSize: 23,
-          color: theme.colors.onSurface
-        }
+          fontSize: 23
+        },
+        unmountOnBlur: true
       }}
     >
       {homeScreen}

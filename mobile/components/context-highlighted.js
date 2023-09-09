@@ -10,27 +10,27 @@ const WordsContextHighLighted = (props) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const rowWrapper = {
+    direction: 'rtl',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    paddingBottom: 10,
     margin: 0,
     padding: 0,
-    direction: 'rtl'
+    paddingBottom: 10
   }
 
   const highlightWords = (sentence, words) => {
-    return sentence.map((word, index) => {
+    return sentence.map((word) => {
       return word.id === words.id && !props.sentenceIsComplete ? (
-        <HighlightedWord word={word} key={index} />
+        <HighlightedWord word={word} key={word.id} />
       ) : (
         <Text
           style={{
             ...sharedStyle.arabicBody,
-            paddingHorizontal: 5,
             fontSize: 43,
-            lineHeight: 75
+            lineHeight: 75,
+            paddingHorizontal: 5
           }}
-          key={index}
+          key={word.id}
         >
           {word.arabic.trim()}
         </Text>

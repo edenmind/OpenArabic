@@ -19,12 +19,12 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
     const { sound: newSound } = await Audio.Sound.createAsync(
       { uri: filename },
       {
-        shouldPlay: true,
+        isLooping: false,
+        isMuted: false,
         rate: 1,
         shouldCorrectPitch: false,
-        volume: 1,
-        isMuted: false,
-        isLooping: false
+        shouldPlay: true,
+        volume: 1
       }
     )
 

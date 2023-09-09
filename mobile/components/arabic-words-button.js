@@ -44,7 +44,7 @@ export function ArabicWordButton({ word, isSelected, theme, sharedStyle, onSelec
             }
           ]}
         >
-          {word.arabic.trim()}
+          {word.arabic}
         </Text>
       </View>
     </Button>
@@ -60,12 +60,12 @@ const styles = StyleSheet.create({
 })
 
 ArabicWordButton.propTypes = {
+  isSelected: PropTypes.bool,
+  onSelect: PropTypes.func.isRequired,
+  sharedStyle: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
   word: PropTypes.shape({
     arabic: PropTypes.string,
     filename: PropTypes.string
-  }),
-  isSelected: PropTypes.bool,
-  theme: PropTypes.object.isRequired,
-  sharedStyle: PropTypes.object.isRequired,
-  onSelect: PropTypes.func.isRequired
+  })
 }

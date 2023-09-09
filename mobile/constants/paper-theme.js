@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import { DarkTheme as NavigationDarkTheme, DefaultTheme as NavigationDefaultTheme } from '@react-navigation/native'
 import merge from 'deepmerge'
 import { MD3DarkTheme, MD3LightTheme } from 'react-native-paper'

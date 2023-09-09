@@ -47,7 +47,7 @@ export const EnglishArabic = ({ sentence, paddingTop = 0 }) => {
         {sentence.english}
       </Text>
 
-      <Divider style={{ paddingTop, opacity: 0 }} />
+      <Divider style={{ opacity: 0, paddingTop }} />
 
       <PlaySound audioFileNames={fileNames} onPlayingWord={handlePlayingWord} onFinish={handlePlaybackFinished} />
     </>
@@ -55,13 +55,13 @@ export const EnglishArabic = ({ sentence, paddingTop = 0 }) => {
 }
 
 EnglishArabic.propTypes = {
-  arabic: PropTypes.string.isRequired,
-  english: PropTypes.string.isRequired,
+  arabic: PropTypes.string,
+  english: PropTypes.string,
   paddingTop: PropTypes.number,
   sentence: PropTypes.shape({
-    arabic: PropTypes.string.isRequired,
-    english: PropTypes.string.isRequired,
-    filename: PropTypes.string.isRequired,
-    words: PropTypes.array.isRequired
+    arabic: PropTypes.string,
+    english: PropTypes.string,
+    filename: PropTypes.string,
+    words: PropTypes.array
   })
 }

@@ -24,8 +24,8 @@ export const PressableCard = ({ onPress = () => {}, content }) => {
 
   const scaleCard = useCallback(() => {
     const animation = Animated.timing(scaleValue, {
-      useNativeDriver: true,
-      toValue: UIElements.AnimationScaleTo
+      toValue: UIElements.AnimationScaleTo,
+      useNativeDriver: true
     })
 
     animation.start()
@@ -36,9 +36,9 @@ export const PressableCard = ({ onPress = () => {}, content }) => {
 
   const restoreCard = useCallback(() => {
     const animation = Animated.timing(scaleValue, {
-      useNativeDriver: true,
+      duration: 0,
       toValue: 1,
-      duration: 0
+      useNativeDriver: true
     })
 
     animation.start()
@@ -57,6 +57,6 @@ export const PressableCard = ({ onPress = () => {}, content }) => {
 }
 
 PressableCard.propTypes = {
-  onPress: PropTypes.func,
-  content: PropTypes.element.isRequired
+  content: PropTypes.element.isRequired,
+  onPress: PropTypes.func
 }

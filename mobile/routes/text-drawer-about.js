@@ -7,12 +7,12 @@ import { useSelector } from 'react-redux'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import SCREENS from '../constants/screens.js'
 import { UIElements } from '../constants/ui.js'
-import TextSettingsScreen from '../screens/settings.js'
+import defaultExport from '../screens/about.js'
 
 const Stack = createNativeStackNavigator()
 const darkModeSelector = (state) => state.isDarkMode
 
-export default function Settings() {
+export default function TextDrawerAbout() {
   const isDarkModeOn = useSelector(darkModeSelector)
   const theme = useTheme()
 
@@ -20,8 +20,8 @@ export default function Settings() {
     <NavigationContainer independent theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
       <Stack.Navigator>
         <Stack.Screen
-          name={SCREENS.textSettings}
-          component={TextSettingsScreen}
+          name={SCREENS.settings}
+          component={defaultExport}
           options={{
             headerLargeTitle: false,
             headerStyle: {
@@ -34,7 +34,7 @@ export default function Settings() {
               fontFamily: 'philosopher',
               fontSize: UIElements.TitleFont
             },
-            title: SCREENS.settings
+            title: SCREENS.about
           }}
         />
       </Stack.Navigator>

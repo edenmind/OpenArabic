@@ -26,8 +26,8 @@ export default function TextTabs({ route }) {
   }, [dispatch, id])
 
   const tabs = [
-    { name: SCREENS.bilingual, component: TextBilingual },
-    { name: SCREENS.quiz, component: OrderingWordsInASentence }
+    { component: TextBilingual, name: SCREENS.bilingual },
+    { component: OrderingWordsInASentence, name: SCREENS.quiz }
   ]
 
   return (

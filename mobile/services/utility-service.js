@@ -1,20 +1,25 @@
+/* eslint-disable sort-keys */
 /* eslint-disable unicorn/number-literal-case */
 /* eslint-disable quote-props */
 import { moonPhaseEmoji } from './ui-services.js'
 
-export const generateRandomPositions = () => {
+export const generateUniqueRandomNumbers = (count = 3, max = 100) => {
+  if (count > max) {
+    throw new Error('The required count of unique numbers is greater than the maximum value.')
+  }
+
+  const numbers = Array.from({ length: max }, (_, i) => i + 1)
   const positions = []
 
-  while (positions.length < 3) {
-    const position = Math.floor(Math.random() * 100) + 1
-
-    if (!positions.includes(position)) {
-      positions.push(position)
-    }
+  for (let i = 0; i < count; i++) {
+    const randomIndex = Math.floor(Math.random() * numbers.length)
+    positions.push(numbers[randomIndex])
+    numbers.splice(randomIndex, 1)
   }
 
   return positions
 }
+
 // check if today is the same as the createdAt date
 export const checkIfWithinLast36Hours = (createdAt) => {
   // Get current date
@@ -109,9 +114,9 @@ export const addSpaceAfterDot = (text) => {
 // return arabic date with year in numbers and month in text and day in text using moment.js using arabic location
 export const getHijriDate = () => {
   return new Date().toLocaleDateString('ar-SA-u-ca-islamic', {
-    year: 'numeric',
+    day: 'numeric',
     month: 'long',
-    day: 'numeric'
+    year: 'numeric'
   })
 }
 
@@ -123,10 +128,10 @@ export const getHijriYear = () => {
 
 export const getHijriDateLatin = () => {
   const hijriDate = new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
+    calendar: 'islamic',
     day: 'numeric',
-    calendar: 'islamic'
+    month: 'long',
+    year: 'numeric'
   }).format(new Date())
 
   const [day, month, year] = hijriDate.split(' ')

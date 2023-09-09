@@ -34,17 +34,17 @@ export const CardFooter = ({ text }) => {
           mode={'flat'}
           compact={true}
           style={{
-            position: 'absolute',
-            left: 15,
+            backgroundColor: theme.colors.elevation.level0,
             bottom: 14,
-            backgroundColor: theme.colors.elevation.level0
+            left: 15,
+            position: 'absolute'
           }}
         >
           New ☀️
         </Chip>
       )}
 
-      <Text variant="labelSmall" style={{ color: theme.colors.outline, position: 'absolute', right: 15, bottom: 20 }}>
+      <Text variant="labelSmall" style={{ bottom: 20, color: theme.colors.outline, position: 'absolute', right: 15 }}>
         {footer}
       </Text>
     </>
@@ -55,8 +55,8 @@ CardFooter.propTypes = {
   text: PropTypes.shape({
     createdAt: PropTypes.string,
     publishAt: PropTypes.string,
-    views: PropTypes.string,
+    readingTime: PropTypes.string,
     timeAgo: PropTypes.string,
-    readingTime: PropTypes.string
+    views: PropTypes.string
   })
 }

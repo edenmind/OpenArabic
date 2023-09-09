@@ -15,10 +15,10 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
   const onPress = () => {
     setShouldReload(false)
     navigation.navigate(SCREENS.textGrammar, {
-      grammar: text.grammar,
       arabic: text.arabic,
       english: text.english,
-      filename: text.filename
+      filename: text.filename,
+      grammar: text.grammar
     })
   }
 
@@ -28,24 +28,24 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
         <CategoryChip category="GRAMMAR" />
         <Text
           style={{
-            fontFamily: 'uthman',
-            width: '97%',
-            fontSize: 100,
-            textAlign: 'center',
             color: theme.colors.secondary,
-            paddingBottom: 15
+            fontFamily: 'uthman',
+            fontSize: 100,
+            paddingBottom: 15,
+            textAlign: 'center',
+            width: '97%'
           }}
         >
           {text.arabic}
         </Text>
         <Text
           style={{
-            width: '97%',
+            color: theme.colors.tertiary,
             fontFamily: 'philosopher',
             fontSize: 25,
+            paddingBottom: 15,
             textAlign: 'center',
-            color: theme.colors.tertiary,
-            paddingBottom: 15
+            width: '97%'
           }}
         >
           {text.english.charAt(0).toUpperCase() + text.english.slice(1)}
@@ -64,13 +64,13 @@ TextListCardGrammar.propTypes = {
   navigation: PropTypes.object.isRequired,
   setShouldReload: PropTypes.func.isRequired,
   text: PropTypes.shape({
-    filename: PropTypes.string,
-    id: PropTypes.string,
-    timeAgo: PropTypes.string,
+    arabic: PropTypes.string,
     category: PropTypes.string,
     english: PropTypes.string,
-    arabic: PropTypes.string,
+    filename: PropTypes.string,
     grammar: PropTypes.string,
-    publishDate: PropTypes.string
+    id: PropTypes.string,
+    publishDate: PropTypes.string,
+    timeAgo: PropTypes.string
   })
 }

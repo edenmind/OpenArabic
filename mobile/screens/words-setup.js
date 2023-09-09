@@ -13,26 +13,25 @@ import { useSharedStyles } from '../styles/common.js'
 
 const WORDS_CONFIG = [
   {
-    title: 'Number of Words',
-    value: 'numberOfWordsToPractice',
     buttons: [
-      { value: 10, label: '10' },
-      { value: 20, label: '20' },
-      { value: 30, label: '30' }
-    ]
+      { label: '10', value: 10 },
+      { label: '20', value: 20 },
+      { label: '30', value: 30 }
+    ],
+    title: 'Number of Words',
+    value: 'numberOfWordsToPractice'
   },
   {
-    title: 'Difficulty Level',
-    value: 'difficultyLevel',
     buttons: [
-      { value: 10, label: 'Beginner' },
-      { value: 20, label: 'Intermediate' },
-      { value: 30, label: 'Advanced' }
-    ]
+      { label: 'Beginner', value: 10 },
+      { label: 'Intermediate', value: 20 },
+      { label: 'Advanced', value: 30 }
+    ],
+    title: 'Difficulty Level',
+    value: 'difficultyLevel'
   }
 ]
 
-// eslint-disable-next-line putout/destructuring-as-function-argument
 const WordsSetup = ({
   numberOfWordsToPractice,
   setNumberOfWordsToPractice,
@@ -49,8 +48,8 @@ const WordsSetup = ({
     resetStateForNewWords()
     dispatch(getWords(difficultyLevel, numberOfWordsToPractice))
     dispatch({
-      type: 'SET_PRACTICING_WORDS',
-      payload: true
+      payload: true,
+      type: 'SET_PRACTICING_WORDS'
     })
   }, [difficultyLevel, numberOfWordsToPractice, resetStateForNewWords, dispatch])
 
@@ -80,9 +79,9 @@ const WordsSetup = ({
 export default WordsSetup
 
 WordsSetup.propTypes = {
-  numberOfWordsToPractice: PropTypes.number.isRequired,
-  setNumberOfWordsToPractice: PropTypes.func.isRequired,
   difficultyLevel: PropTypes.number.isRequired,
+  handleSetDifficultyLevel: PropTypes.func.isRequired,
+  numberOfWordsToPractice: PropTypes.number.isRequired,
   resetStateForNewWords: PropTypes.func.isRequired,
-  handleSetDifficultyLevel: PropTypes.func.isRequired
+  setNumberOfWordsToPractice: PropTypes.func.isRequired
 }

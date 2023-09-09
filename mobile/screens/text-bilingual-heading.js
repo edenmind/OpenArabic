@@ -1,40 +1,15 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Image, StyleSheet } from 'react-native'
+import { Image } from 'react-native'
 import { Text, Divider, useTheme } from 'react-native-paper'
 
+import { useSharedStyles } from '../styles/common.js'
+
 export default function TextBilingualHeading({ heading }) {
-  const { author, source, readingTime, views, timeAgo, image, title, introduction } = heading
+  const { author, source, readingTime, views, timeAgo, image, title } = heading
   const caption = `${readingTime} · ${views} views · ${timeAgo}`
   const theme = useTheme()
-  const style = StyleSheet.create({
-    author: {
-      color: theme.colors.onSurfaceVariant,
-      paddingTop: 15,
-      textAlign: 'center'
-    },
-    divider: {
-      marginLeft: 15,
-      marginRight: 15,
-      marginTop: 25
-    },
-    image: {
-      height: 200
-    },
-    reading: {
-      color: theme.colors.outline,
-      paddingBottom: 10,
-      paddingTop: 20,
-      textAlign: 'center'
-    },
-    title: {
-      color: theme.colors.onBackground,
-      fontFamily: 'philosopher',
-      paddingHorizontal: 25,
-      paddingTop: 25,
-      textAlign: 'center'
-    }
-  })
+  const style = useSharedStyles(theme)
 
   return (
     <>
@@ -60,13 +35,13 @@ export default function TextBilingualHeading({ heading }) {
 
 TextBilingualHeading.propTypes = {
   heading: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    views: PropTypes.string.isRequired,
-    timeAgo: PropTypes.string.isRequired,
-    readingTime: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    introduction: PropTypes.string,
+    readingTime: PropTypes.string.isRequired,
     source: PropTypes.string.isRequired,
-    introduction: PropTypes.string
+    timeAgo: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    views: PropTypes.string.isRequired
   })
 }

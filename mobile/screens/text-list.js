@@ -1,18 +1,20 @@
 import { useFocusEffect, useScrollToTop } from '@react-navigation/native'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
-import { FlatList, Image } from 'react-native'
-import { Text, useTheme } from 'react-native-paper'
+import React, { useState, useCallback, useRef, useMemo } from 'react'
+import { FlatList, Text } from 'react-native'
+import { useTheme } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 
 import TextListCard from './text-list-card.js'
 import FadeInView from '../components/fade-in-view.js'
+import Footer from '../components/footer.js'
 import Spinner from '../components/spinner.js'
 import TextCategoryIntro from '../components/text-category-intro.js'
 import * as api from '../services/api-service.js'
 import { getHijriDate, getHijriDateLatin } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
+const ALL_CATEGORIES = 'All'
 const selector = (state) => state.texts
 const categoriesSelector = (state) => state.categories
 const textsLoadSelector = (state) => state.textsLoading
@@ -26,28 +28,41 @@ export default function TextList({ route, navigation }) {
   const { textsLoading } = useSelector(textsLoadSelector)
   const dispatch = useDispatch()
   const sharedStyle = useSharedStyles(theme)
-  const ref = React.useRef(null)
+  const ref = useRef(null)
 
   useScrollToTop(ref)
 
-  useFocusEffect(
-    React.useCallback(() => {
-      if (shouldReload) {
-        dispatch(api.getTexts(category === 'All' ? '' : category))
-        setShouldReload(false)
-      }
-    }, [category, dispatch, shouldReload])
-  )
+  const onRefresh = useCallback(() => {
+    dispatch(api.getTexts(category === ALL_CATEGORIES ? '' : category))
+  }, [dispatch, category])
 
-  const renderItem = React.useCallback(
+  const fetchData = useCallback(() => {
+    if (shouldReload) {
+      onRefresh()
+      setShouldReload(false)
+    }
+  }, [shouldReload, onRefresh])
+
+  useFocusEffect(fetchData)
+
+  const renderItem = useCallback(
     ({ item }) => <TextListCard text={item} navigation={navigation} setShouldReload={setShouldReload} />,
     [navigation]
   )
 
-  // loop through the categories and if the name matches the category passed in through route.params get the description
-  const categoryDescription = React.useMemo(() => {
-    return categories.filter((cat) => cat.name === category).map((cat) => cat.description)
-  }, [categories, category])
+  const categoryDescription = categories.filter((cat) => cat.name === category).map((cat) => cat.description)
+
+  const HeaderComponent = useMemo(() => {
+    if (categoryDescription && categoryDescription.length > 0) {
+      return <TextCategoryIntro text={categoryDescription} />
+    }
+    return (
+      <>
+        <Text style={sharedStyle.arabicDateArabic}>{getHijriDate()}</Text>
+        <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
+      </>
+    )
+  }, [categoryDescription, sharedStyle])
 
   return textsLoading ? (
     <FadeInView style={{ flex: 1 }}>
@@ -59,32 +74,10 @@ export default function TextList({ route, navigation }) {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ListEmptyComponent={<Spinner />}
-        ListHeaderComponent={
-          categoryDescription.length > 0 ? (
-            <TextCategoryIntro text={categoryDescription} />
-          ) : (
-            <>
-              <Text style={sharedStyle.arabicDateArabic}>{getHijriDate()}</Text>
-              <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
-            </>
-          )
-        }
-        ListFooterComponent={
-          <>
-            <Text style={sharedStyle.arabicFooter}>
-              سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك
-            </Text>
-
-            <Image
-              source={require('../assets/logo.png')}
-              style={{ width: 70, height: 70, alignSelf: 'center', marginBottom: 30, opacity: 0.5 }}
-            />
-          </>
-        }
+        ListHeaderComponent={HeaderComponent}
+        ListFooterComponent={Footer}
         ref={ref}
-        onRefresh={() => {
-          dispatch(api.getTexts(category === 'All' ? '' : category))
-        }}
+        onRefresh={onRefresh}
         refreshing={false}
       />
     </FadeInView>
@@ -94,6 +87,10 @@ export default function TextList({ route, navigation }) {
 }
 
 TextList.propTypes = {
-  route: PropTypes.any.isRequired,
-  navigation: PropTypes.any
+  navigation: PropTypes.object,
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      category: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
 }

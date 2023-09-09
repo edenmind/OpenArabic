@@ -20,8 +20,8 @@ const HighlightedWord = ({ word }) => {
     const toValue = isBorderVisible ? 0.5 : 1
 
     Animated.timing(borderOpacity, {
-      toValue,
       duration: 1000,
+      toValue,
       useNativeDriver: false
     }).start(() => {
       setIsBorderVisible(!isBorderVisible)
@@ -42,9 +42,9 @@ const HighlightedWord = ({ word }) => {
         style={{
           ...sharedStyle.arabicBody,
           color: theme.colors.primary,
-          paddingHorizontal: 5,
           fontSize: 43,
-          lineHeight: 75
+          lineHeight: 75,
+          paddingHorizontal: 5
         }}
         onPress={animateBorderOpacity}
       >

@@ -11,7 +11,7 @@ function TextBilingualSentences({ sentences }) {
   const sharedStyle = useSharedStyles(theme)
 
   const renderedSentences = sentences.map((sentence, index) => (
-    <View key={index} style={[sharedStyle.container, { marginTop: 10, marginBottom: 10 }]}>
+    <View key={index} style={[sharedStyle.container, { marginBottom: 10, marginTop: 10 }]}>
       <EnglishArabic sentence={sentence} />
 
       <Divider style={{ ...sharedStyle.dividerHidden }} />

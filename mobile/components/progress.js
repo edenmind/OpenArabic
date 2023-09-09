@@ -8,7 +8,7 @@ export const Progress = ({ progress }) => {
     <ProgressBar
       color={theme.colors.tertiary}
       progress={progress}
-      style={{ height: 10, borderRadius: 10, marginVertical: 10, backgroundColor: theme.colors.elevation.level5 }}
+      style={{ backgroundColor: theme.colors.elevation.level5, borderRadius: 10, height: 10, marginVertical: 10 }}
     />
   )
 }

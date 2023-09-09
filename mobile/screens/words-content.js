@@ -1,203 +1,82 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable putout/destructuring-as-function-argument */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react-native/no-color-literals */
-import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import React, { useState, useCallback, useEffect } from 'react'
-import { View, StyleSheet, FlatList, Pressable } from 'react-native'
+import React, { useMemo } from 'react'
+import { View, FlatList, Pressable } from 'react-native'
 import { Surface, Text, useTheme } from 'react-native-paper'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { AnswerButton } from '../components/answer-button.js'
 import { Progress } from '../components/progress.js'
+import Spinner from '../components/spinner.js'
 import TakbirCelebrate from '../components/takbir-celebrate.js'
-import { useAudioPlayer } from '../hooks/use-audio-player.js'
-import { generateRandomPositions } from '../services/utility-service.js'
+import { useWordsLogic } from '../hooks/use-words-logic.js'
+import { calculateFontSize } from '../services/ui-services.js'
+import { useSharedStyles } from '../styles/common.js'
 
-const wordsSelector = (state) => state.words
-
-const WordsContent = ({
-  currentWord,
-  numberOfWordsToPractice,
-  handleSetCurrentWord,
-  currentWordIndex,
-  handleSetCurrentWordIndex,
-  celebrationSnackBarVisibility,
-  handleSetCelebrationSnackBarVisibility
-}) => {
+const WordsContent = (props) => {
   const theme = useTheme()
-  const { words } = useSelector(wordsSelector)
-  const [buttonPositions, setButtonPositions] = useState(generateRandomPositions())
-  const [timeoutId, setTimeoutId] = useState()
-  const [wrongAnswers, setWrongAnswers] = useState(0)
-  const [wrongAnswerAlreadyAdded, setWrongAnswerAlreadyAdded] = useState([])
-  const [soundShouldPlay, setSoundShouldPlay] = useState(true)
-  const { playSound } = useAudioPlayer()
+  const sharedStyle = useSharedStyles(theme)
 
-  const dispatch = useDispatch()
-
-  // Destructure currentWord for cleaner referencing
-  const { arabic, filename } = words[currentWord] || {}
-
-  const baseURL = 'https://openarabic.ams3.digitaloceanspaces.com/audio/'
-
-  // Decide on the font size outside the JSX
-  const fontSize = arabic?.trim().length > 15 ? 95 : 120
-
-  const styles = StyleSheet.create({
-    centeredView: {
-      alignItems: 'center',
-      flex: 1,
-      justifyContent: 'center'
-    },
-    container: {
-      flex: 1,
-      margin: 10
-    },
-    surface: {
-      alignItems: 'center',
-      backgroundColor: theme.colors.elevation.level0,
-      flex: 1,
-      minHeight: 320
-    },
-    text: {
-      fontFamily: 'uthman',
-      paddingBottom: 60,
-      textAlign: 'center',
-      width: '97%'
-    }
-  })
-
-  useEffect(() => {
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId)
-      }
-    }
-  }, [timeoutId])
-
-  useEffect(() => {
-    if (filename && soundShouldPlay) {
-      const audioURL = `${baseURL}${filename}`
-      playSound(audioURL)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filename])
-
-  const onDismissSnackBar = useCallback(() => {
-    handleSetCelebrationSnackBarVisibility(false)
-  }, [handleSetCelebrationSnackBarVisibility])
-  const resetStateForNewWords = useCallback(() => {
-    handleSetCurrentWord(0)
-    handleSetCurrentWordIndex(0)
-    handleSetCelebrationSnackBarVisibility(false)
-    setButtonPositions(generateRandomPositions())
-
-    dispatch({
-      type: 'RESET_WORDS'
-    })
-    setSoundShouldPlay(true)
-  }, [dispatch, handleSetCelebrationSnackBarVisibility, handleSetCurrentWord, handleSetCurrentWordIndex])
-  const correctAnswer = useCallback(() => {
-    setButtonPositions(generateRandomPositions())
-    handleSetCurrentWord((currentWord) => currentWord + 1)
-    handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
-  }, [handleSetCurrentWord, handleSetCurrentWordIndex])
-
-  const handleCorrectAnswer = () => {
-    if (currentWord === words.length - 1) {
-      setSoundShouldPlay(false)
-      handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-      handleSetCelebrationSnackBarVisibility(true)
-
-      // Using arrow function to ensure 'timeoutId' is captured correctly
-      const newTimeoutId = setTimeout(() => {
-        resetStateForNewWords()
-        dispatch({
-          type: 'SET_PRACTICING_WORDS',
-          payload: false
-        })
-      }, 3000)
-
-      setTimeoutId(newTimeoutId)
-      return
-    }
-
-    correctAnswer()
-  }
-
-  const handleWrongAnswer = useCallback(() => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
-
-    const currentWordArabic = words[currentWord].arabic
-
-    if (wrongAnswerAlreadyAdded.includes(currentWordArabic)) {
-      return
-    }
-
-    //add the word to the wrongAnswerAlreadyAdded array so that we don't add it again
-    setWrongAnswerAlreadyAdded((prevWrongAnswerAlreadyAdded) => [...prevWrongAnswerAlreadyAdded, currentWordArabic])
-
-    // add the wrong answer so that we can practice it again
-    dispatch({
-      type: 'ADD_WORD',
-      payload: words[currentWord]
-    })
-
-    // add one to the wrong answers
-    setWrongAnswers((prevWrongAnswers) => prevWrongAnswers + 1)
-  }, [currentWord, dispatch, words, wrongAnswerAlreadyAdded])
-
-  // correct answer button
-  const button1 = (
-    <AnswerButton text={words.length > 1 && words[currentWord].english} onPress={handleCorrectAnswer} correct={true} />
+  const {
+    answeredWrongWords,
+    arabic,
+    buttonPositions,
+    handleCorrectAnswer,
+    handleWrongAnswer,
+    onDismissSnackBar,
+    handlePressOnWord,
+    words
+  } = useWordsLogic(
+    props.currentWord,
+    props.handleSetCurrentWord,
+    props.handleSetCurrentWordIndex,
+    props.handleSetCelebrationSnackBarVisibility
   )
 
-  // wrong answer buttons
-  const wrongAnswerButton = (text) => <AnswerButton text={text} onPress={() => handleWrongAnswer} incorrect={true} />
+  const fontSize = useMemo(() => calculateFontSize(arabic), [arabic])
 
-  const button2 = wrongAnswerButton(words[currentWord]?.alternative1)
-  const button3 = wrongAnswerButton(words[currentWord]?.alternative2)
-  const buttons = [
-    { button: button1, position: buttonPositions[0] },
-    { button: button2, position: buttonPositions[1] },
-    { button: button3, position: buttonPositions[2] }
-  ].sort((a, b) => a.position - b.position)
+  const renderItem = ({ item }) => <>{item.button}</>
 
-  const renderItem = ({ item }) => <View>{item.button}</View>
+  const generateAnswerButton = (text, onPress, isCorrect = false) => (
+    <AnswerButton text={text} onPress={onPress} correct={isCorrect} incorrect={!isCorrect} />
+  )
+
+  const buttons = useMemo(() => {
+    const mainButton = generateAnswerButton(words[props.currentWord]?.english, handleCorrectAnswer, true)
+    const altButton1 = generateAnswerButton(words[props.currentWord]?.alternative1, handleWrongAnswer)
+    const altButton2 = generateAnswerButton(words[props.currentWord]?.alternative2, handleWrongAnswer)
+
+    return [
+      { button: mainButton, position: buttonPositions[0] },
+      { button: altButton1, position: buttonPositions[1] },
+      { button: altButton2, position: buttonPositions[2] }
+    ].sort((a, b) => a.position - b.position)
+  }, [words, props.currentWord, handleCorrectAnswer, handleWrongAnswer, buttonPositions])
+
+  const listHeader = (
+    <>
+      <Progress progress={props.currentWordIndex / (props.numberOfWordsToPractice + answeredWrongWords.length)} />
+      <Surface style={sharedStyle.wordSurface}>
+        <View style={sharedStyle.wordCenteredView}>
+          <Pressable onPress={handlePressOnWord}>
+            <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
+          </Pressable>
+        </View>
+      </Surface>
+      <TakbirCelebrate
+        visible={props.celebrationSnackBarVisibility}
+        onDismissSnackBar={onDismissSnackBar}
+        text="Session Completed Successfully!"
+      />
+    </>
+  )
 
   return (
     <FlatList
-      style={styles.container}
+      style={sharedStyle.wordContainer}
       data={buttons}
       renderItem={renderItem}
+      ListEmptyComponent={<Spinner />}
       keyExtractor={(item) => item.position.toString()}
-      ListHeaderComponent={
-        <>
-          <Progress progress={currentWordIndex / (numberOfWordsToPractice + wrongAnswers)} />
-          <Surface style={styles.surface}>
-            <View style={styles.centeredView}>
-              <Pressable
-                onPress={() => {
-                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-
-                  const audioURL = `${baseURL}${filename}`
-                  playSound(audioURL)
-                }}
-              >
-                <Text style={[styles.text, { fontSize, color: theme.colors.secondary }]}>{arabic?.trim()}</Text>
-              </Pressable>
-            </View>
-          </Surface>
-          <TakbirCelebrate
-            visible={celebrationSnackBarVisibility}
-            onDismissSnackBar={onDismissSnackBar}
-            text="Session Completed Successfully!"
-          />
-        </>
-      }
+      ListHeaderComponent={listHeader}
     />
   )
 }
@@ -205,11 +84,11 @@ const WordsContent = ({
 export default WordsContent
 
 WordsContent.propTypes = {
-  currentWord: PropTypes.number.isRequired,
-  numberOfWordsToPractice: PropTypes.number.isRequired,
-  handleSetCurrentWord: PropTypes.func.isRequired,
-  currentWordIndex: PropTypes.number.isRequired,
-  handleSetCurrentWordIndex: PropTypes.func.isRequired,
   celebrationSnackBarVisibility: PropTypes.bool.isRequired,
-  handleSetCelebrationSnackBarVisibility: PropTypes.func.isRequired
+  currentWord: PropTypes.number.isRequired,
+  currentWordIndex: PropTypes.number.isRequired,
+  handleSetCelebrationSnackBarVisibility: PropTypes.func.isRequired,
+  handleSetCurrentWord: PropTypes.func.isRequired,
+  handleSetCurrentWordIndex: PropTypes.func.isRequired,
+  numberOfWordsToPractice: PropTypes.number.isRequired
 }

@@ -34,7 +34,7 @@ function About() {
   return (
     <FadeInView style={{ flex: 1 }}>
       <ScrollView style={style.scrollView}>
-        <Image source={require('../assets/1500x500.jpeg')} style={{ width: '100%', height: 150, borderRadius: 10 }} />
+        <Image source={require('../assets/1500x500.jpeg')} style={{ borderRadius: 10, height: 150, width: '100%' }} />
         <Divider style={style.divider} />
         <Text variant="displaySmall" style={style.arabic}>
           ﷽

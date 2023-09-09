@@ -14,7 +14,9 @@ const TextCategoryIntro = ({ text }) => {
     </Surface>
   )
 }
-TextCategoryIntro.propTypes = {
-  text: PropTypes.string.isRequired
-}
+
 export default TextCategoryIntro
+
+TextCategoryIntro.propTypes = {
+  text: PropTypes.string
+}

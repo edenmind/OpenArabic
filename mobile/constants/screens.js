@@ -1,17 +1,17 @@
 const SCREENS = {
   about: 'About',
-  settings: 'Settings',
-  text: 'Text',
-  home: 'Texts',
-  words: 'Words',
-  bilingual: 'Read',
   arabic: 'Read',
+  bilingual: 'Read',
   english: 'Eng',
+  home: 'Texts',
   quiz: 'Practice',
   related: 'More',
+  settings: 'Settings',
+  text: 'Text',
+  textGrammar: 'TextGrammar',
   textScreen: 'TextScreen',
   textSettings: 'TextSettings',
-  textGrammar: 'TextGrammar'
+  words: 'Words'
 }
 
 export default SCREENS

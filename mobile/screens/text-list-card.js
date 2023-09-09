@@ -1,5 +1,3 @@
-/* eslint-disable putout/newline-function-call-arguments */
-/* eslint-disable putout/long-properties-destructuring */
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -21,22 +19,22 @@ export default function TextListCard({ setShouldReload, navigation, text }) {
   }
 }
 TextListCard.propTypes = {
-  setShouldReload: PropTypes.func.isRequired,
   navigation: PropTypes.object,
+  setShouldReload: PropTypes.func.isRequired,
   text: PropTypes.shape({
-    id: PropTypes.string,
-    slug: PropTypes.string,
-    title: PropTypes.string,
-    views: PropTypes.string,
-    timeAgo: PropTypes.string,
-    readingTime: PropTypes.string,
-    image: PropTypes.string,
+    arabic: PropTypes.string,
     author: PropTypes.string,
+    category: PropTypes.string,
+    english: PropTypes.string,
+    id: PropTypes.string,
+    image: PropTypes.string,
+    readingTime: PropTypes.string,
+    sentences: PropTypes.array,
+    slug: PropTypes.string,
     source: PropTypes.string,
     texts: PropTypes.object,
-    category: PropTypes.string,
-    sentences: PropTypes.array,
-    english: PropTypes.string,
-    arabic: PropTypes.string
+    timeAgo: PropTypes.string,
+    title: PropTypes.string,
+    views: PropTypes.string
   })
 }

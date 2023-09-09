@@ -18,6 +18,10 @@ export function generateShare(text) {
   return shareText
 }
 
+export const calculateFontSize = (arabic) => {
+  return arabic?.trim().length > 15 ? 95 : 120
+}
+
 // give me a function that capitalizes all letters in a title
 export const prepareTitle = (title) => {
   const words = title.trim().split(' ')
@@ -35,9 +39,9 @@ export const prepareTitle = (title) => {
 export function generateTextError(text) {
   async function composeError() {
     await MailComposer.composeAsync({
+      body: `Please describe the error you found in the text: ${text.id}...`,
       recipients: ['salam@edenmind.com'],
-      subject: `Found an error in the text: ${text.title}`,
-      body: `Please describe the error you found in the text: ${text.id}...`
+      subject: `Found an error in the text: ${text.title}`
     })
   }
 
@@ -47,9 +51,9 @@ export function generateTextError(text) {
 export function generateWordError(text) {
   async function composeError() {
     await MailComposer.composeAsync({
+      body: `Please describe the error you found in the text: ${text.id}...`,
       recipients: ['salam@edenmind.com'],
-      subject: `Found an error in the text: ${text.title}`,
-      body: `Please describe the error you found in the text: ${text.id}...`
+      subject: `Found an error in the text: ${text.title}`
     })
   }
 

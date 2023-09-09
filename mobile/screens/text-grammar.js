@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native'
 import { Divider, useTheme, Text } from 'react-native-paper'
 
 import PlaySound from '../components/play-sound.js'
+import { HOST } from '../constants/urls.js'
 import { formatGrammar } from '../services/ui-services.js'
 import { transliterateArabicToEnglish } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
@@ -19,33 +20,30 @@ export default function TextGrammar({ route }) {
     <ScrollView style={sharedStyle.scrollView}>
       <Text
         style={{
-          fontFamily: 'uthman',
-          width: '97%',
-          fontSize: 100,
-          textAlign: 'center',
           color: theme.colors.secondary,
-          paddingBottom: 15
+          fontFamily: 'uthman',
+          fontSize: 100,
+          paddingBottom: 15,
+          textAlign: 'center',
+          width: '97%'
         }}
       >
         {arabic}
       </Text>
       <Text
         style={{
-          width: '97%',
+          color: theme.colors.tertiary,
           fontFamily: 'philosopher',
           fontSize: 25,
+          paddingBottom: 25,
           textAlign: 'center',
-          color: theme.colors.tertiary,
-          paddingBottom: 25
+          width: '97%'
         }}
       >
         {english.charAt(0).toUpperCase() + english.slice(1)} - {transliteratedArabic}
       </Text>
 
-      <PlaySound
-        audioFileNames={[`https://openarabic.ams3.digitaloceanspaces.com/audio/${filename}`]}
-        buttonText={'Play'}
-      />
+      <PlaySound audioFileNames={[HOST.audio + filename]} buttonText={'Play'} />
       <Divider style={{ marginBottom: 20, opacity: 0 }} />
       {formatGrammar(grammar, sharedStyle)}
       <Divider style={{ marginBottom: 50, opacity: 0 }} />
@@ -56,10 +54,10 @@ export default function TextGrammar({ route }) {
 TextGrammar.propTypes = {
   route: PropTypes.shape({
     params: PropTypes.shape({
-      grammar: PropTypes.string.isRequired,
       arabic: PropTypes.string.isRequired,
       english: PropTypes.string.isRequired,
-      filename: PropTypes.string
+      filename: PropTypes.string,
+      grammar: PropTypes.string.isRequired
     })
   })
 }

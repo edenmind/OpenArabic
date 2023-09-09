@@ -49,9 +49,9 @@ export const ActionButton = ({ text, onPress }) => {
 
   const handlePressOut = () => {
     Animated.spring(scaleValue, {
-      toValue: 1,
       friction: 3,
       tension: 40,
+      toValue: 1,
       useNativeDriver: true
     }).start()
     onPress()

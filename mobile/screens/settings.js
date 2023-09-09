@@ -22,26 +22,26 @@ export const TextSettings = () => {
   const dispatch = useDispatch()
 
   const storeArabicFontName = async (value) => {
-    dispatch({ type: 'SET_ARABIC_FONT_NAME', payload: value })
+    dispatch({ payload: value, type: 'SET_ARABIC_FONT_NAME' })
 
     await storeData('arabicFontName', value)
   }
 
   const storeTransliteration = async (value) => {
     const boolValuesForTransliteration = value === true ? 'on' : 'off'
-    dispatch({ type: 'SET_TRANSLITERATION', payload: boolValuesForTransliteration })
+    dispatch({ payload: boolValuesForTransliteration, type: 'SET_TRANSLITERATION' })
 
     await storeData('isTransliterationOn', boolValuesForTransliteration)
   }
 
   const storeEnglishFontSize = async (value) => {
-    dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: value })
+    dispatch({ payload: value, type: 'SET_ENGLISH_FONT_SIZE' })
 
     await storeData('englishFontSize', value)
   }
 
   const storeArabicFontSize = async (value) => {
-    dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: value })
+    dispatch({ payload: value, type: 'SET_ARABIC_FONT_SIZE' })
 
     await storeData('arabicFontSize', value)
   }
@@ -94,7 +94,7 @@ export const TextSettings = () => {
 
   return (
     <ScrollView style={{ ...sharedStyle.container }}>
-      <Surface style={{ padding: 10, borderRadius: 10, minHeight: 220, marginBottom: 10 }} elevation={1}>
+      <Surface style={{ borderRadius: 10, marginBottom: 10, minHeight: 220, padding: 10 }} elevation={1}>
         <Text style={{ ...sharedStyle.arabicBody }}>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</Text>
         {isTransliterationOn ? (
           <Text style={sharedStyle.englishBody}>bismi allāhi alraḥmāni alraḥīmi</Text>
@@ -112,20 +112,20 @@ export const TextSettings = () => {
         }}
         buttons={[
           {
-            value: '14',
-            label: 'Tiny'
+            label: 'Tiny',
+            value: '14'
           },
           {
-            value: '16',
-            label: 'Small'
+            label: 'Small',
+            value: '16'
           },
           {
-            value: '19',
-            label: 'Medium'
+            label: 'Medium',
+            value: '19'
           },
           {
-            value: '23',
-            label: 'Large'
+            label: 'Large',
+            value: '23'
           }
         ]}
       />
@@ -138,20 +138,20 @@ export const TextSettings = () => {
         }}
         buttons={[
           {
-            value: '15',
-            label: 'Tiny'
+            label: 'Tiny',
+            value: '15'
           },
           {
-            value: '16',
-            label: 'Small'
+            label: 'Small',
+            value: '16'
           },
           {
-            value: '17',
-            label: 'Medium'
+            label: 'Medium',
+            value: '17'
           },
           {
-            value: '18',
-            label: 'Large'
+            label: 'Large',
+            value: '18'
           }
         ]}
       />
@@ -165,20 +165,20 @@ export const TextSettings = () => {
         }}
         buttons={[
           {
-            value: 'uthman',
-            label: 'Uthman'
+            label: 'Uthman',
+            value: 'uthman'
           },
           {
-            value: 'indopak',
-            label: 'Indopak'
+            label: 'Indopak',
+            value: 'indopak'
           },
           {
-            value: 'amiri',
-            label: 'Amiri'
+            label: 'Amiri',
+            value: 'amiri'
           },
           {
-            value: 'noto',
-            label: 'Noto'
+            label: 'Noto',
+            value: 'noto'
           }
         ]}
       />
@@ -188,7 +188,7 @@ export const TextSettings = () => {
           Transliteration
         </Text>
         <Switch
-          style={{ paddingTop: 0, marginTop: 0 }}
+          style={{ marginTop: 0, paddingTop: 0 }}
           value={isTransliterationOn}
           onValueChange={(value) => {
             storeTransliteration(value)

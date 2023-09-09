@@ -3,18 +3,18 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { categoriesReducer, textReducer, textsReducer, UIStateReducer, wordsReducer } from './reducers.js'
 
 const rootReducer = combineReducers({
-  categories: categoriesReducer,
-  text: textReducer,
-  texts: textsReducer,
-  textLoading: UIStateReducer,
-  textsLoading: UIStateReducer,
-  arabicFontSize: UIStateReducer,
-  englishFontSize: UIStateReducer,
-  isTransliterationOn: UIStateReducer,
   arabicFontName: UIStateReducer,
+  arabicFontSize: UIStateReducer,
+  categories: categoriesReducer,
+  englishFontSize: UIStateReducer,
+  isDarkMode: UIStateReducer,
+  isTransliterationOn: UIStateReducer,
   practicingWords: UIStateReducer,
-  words: wordsReducer,
-  isDarkMode: UIStateReducer
+  text: textReducer,
+  textLoading: UIStateReducer,
+  texts: textsReducer,
+  textsLoading: UIStateReducer,
+  words: wordsReducer
 })
 
 const store = configureStore({

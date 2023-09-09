@@ -59,8 +59,8 @@ const TakbirCelebrate = ({ visible, onDismissSnackBar, text }) => {
 
       // Start animation
       Animated.spring(scaleAnim, {
-        toValue: 1,
         friction: 3,
+        toValue: 1,
         useNativeDriver: true
       }).start()
 
@@ -76,8 +76,8 @@ const TakbirCelebrate = ({ visible, onDismissSnackBar, text }) => {
   }, [scaleAnim, visible, onDismissSnackBar])
 
   const snackbarStyle = {
-    color: theme.colors.onTertiaryContainer,
     backgroundColor: theme.colors.tertiaryContainer,
+    color: theme.colors.onTertiaryContainer,
     transform: [{ scale: scaleAnim }]
   }
 
@@ -97,9 +97,9 @@ const TakbirCelebrate = ({ visible, onDismissSnackBar, text }) => {
 }
 
 TakbirCelebrate.propTypes = {
-  visible: PropTypes.bool.isRequired,
   onDismissSnackBar: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  visible: PropTypes.bool.isRequired
 }
 
 export default TakbirCelebrate

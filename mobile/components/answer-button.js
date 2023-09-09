@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable nonblock-statement-body-position */
 import { Audio } from 'expo-av'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useCallback } from 'react'
 import { Animated } from 'react-native'
 import { Button, Text, useTheme } from 'react-native-paper'
 
@@ -10,7 +11,7 @@ import { UIElements } from '../constants/ui.js'
 import { capitalizeFirstLetter } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
+export const AnswerButton = ({ text = '', onPress, haptic, correct, incorrect }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const [color, setColor] = useState(theme.colors.elevation.level5)
@@ -18,6 +19,7 @@ export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
   const sound = useRef(new Audio.Sound()).current
   const shakeAnim = useRef(new Animated.Value(0)).current
   const scaleAnim = useRef(new Animated.Value(1)).current
+  const resetColorTimeoutRef = useRef(null)
 
   useEffect(() => {
     async function loadSound() {
@@ -30,16 +32,16 @@ export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
 
   const shakeButton = () => {
     Animated.sequence([
-      Animated.timing(shakeAnim, { toValue: 1, duration: 50, useNativeDriver: true }),
-      Animated.timing(shakeAnim, { toValue: -1, duration: 50, useNativeDriver: true }),
-      Animated.timing(shakeAnim, { toValue: 1, duration: 50, useNativeDriver: true }),
-      Animated.timing(shakeAnim, { toValue: 0, duration: 50, useNativeDriver: true })
+      Animated.timing(shakeAnim, { duration: 50, toValue: 1, useNativeDriver: true }),
+      Animated.timing(shakeAnim, { duration: 50, toValue: -1, useNativeDriver: true }),
+      Animated.timing(shakeAnim, { duration: 50, toValue: 1, useNativeDriver: true }),
+      Animated.timing(shakeAnim, { duration: 50, toValue: 0, useNativeDriver: true })
     ]).start()
   }
 
   const pushButton = () => {
     Animated.sequence([
-      Animated.timing(scaleAnim, { toValue: UIElements.AnimationScaleTo, duration: 100, useNativeDriver: true }) // Push in
+      Animated.timing(scaleAnim, { duration: 100, toValue: UIElements.AnimationScaleTo, useNativeDriver: true }) // Push in
     ]).start()
   }
 
@@ -56,26 +58,44 @@ export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
     setTextColor(theme.colors.error)
 
     // Reset colors back to original after a short delay
-    setTimeout(resetColors, 1000)
+    setTimeout(resetColors, 500)
   }
 
-  const handleCorrectFeedback = () => {
-    pushButton()
+  const handlePressIn = useCallback(() => {
+    // Visual feedback for the press
+    if (!correct) {
+      return
+    }
     setColor(theme.colors.primary)
     setTextColor(theme.colors.primary)
-  }
+    pushButton() // You can also move push animation here for immediate feedback
+  }, [correct, theme.colors.primary])
 
-  const handlePressIn = () => {
-    if (correct) handleCorrectFeedback()
+  const handlePress = useCallback(async () => {
+    if (resetColorTimeoutRef.current) clearTimeout(resetColorTimeoutRef.current)
 
-    if (incorrect) handleIncorrectFeedback()
+    if (correct) {
+      resetColorTimeoutRef.current = setTimeout(resetColors, 1500)
+    }
 
-    if (haptic) Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-  }
+    if (incorrect) {
+      await handleIncorrectFeedback()
+    }
+
+    if (haptic) {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    }
+
+    onPress?.()
+  }, [correct, handleIncorrectFeedback, haptic, incorrect, onPress, resetColors])
 
   return (
     <Animated.View style={{ transform: [{ translateX: shakeAnim }, { scale: scaleAnim }] }}>
-      <Button onPress={onPress} style={{ ...sharedStyle.buttonAnswer, borderColor: color }} onPressIn={handlePressIn}>
+      <Button
+        onPressIn={handlePressIn}
+        onPress={handlePress}
+        style={{ ...sharedStyle.buttonAnswer, borderColor: color }}
+      >
         <Text style={{ ...sharedStyle.answerText, color: textColor, fontSize: text.length > 25 ? 20 : 23 }}>
           {capitalizeFirstLetter(text)}
         </Text>
@@ -85,9 +105,9 @@ export const AnswerButton = ({ text, onPress, haptic, correct, incorrect }) => {
 }
 
 AnswerButton.propTypes = {
-  text: PropTypes.string.isRequired,
-  onPress: PropTypes.func,
-  haptic: PropTypes.bool,
   correct: PropTypes.bool,
-  incorrect: PropTypes.bool
+  haptic: PropTypes.bool,
+  incorrect: PropTypes.bool,
+  onPress: PropTypes.func,
+  text: PropTypes.string
 }

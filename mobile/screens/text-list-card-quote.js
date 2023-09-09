@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useCallback } from 'react'
-import { Share } from 'react-native'
+import React from 'react'
 import { Text, Card, Divider, useTheme } from 'react-native-paper'
 
 import { CategoryChip } from '../components/category-chip.js'
@@ -8,7 +7,7 @@ import { EnglishArabic } from '../components/english-arabic.js'
 import PlaySound from '../components/play-sound.js'
 import { PressableCard } from '../components/pressable-card.js'
 import { UI } from '../constants/ui.js'
-import { prepareIngress } from '../services/utility-service.js'
+import { HOST } from '../constants/urls.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextListCardQuote({ text }) {
@@ -17,15 +16,6 @@ export default function TextListCardQuote({ text }) {
 
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
-
-  const onShare = useCallback(async () => {
-    const arabic = prepareIngress(text.texts.arabic, 100)
-    await Share.share({
-      title: 'Open Arabic',
-      message: `${arabic}\n\n${englishHadith}\n\n${hadithTitle} \n`,
-      url: 'https://openarabic.app.link'
-    })
-  }, [englishHadith, hadithTitle, text.texts.arabic])
 
   const content = (
     <>
@@ -39,10 +29,7 @@ export default function TextListCardQuote({ text }) {
         </Text>
       </Card.Content>
       <Card.Actions>
-        <PlaySound
-          audioFileNames={`https://openarabic.ams3.digitaloceanspaces.com/audio/${text.sentences[0].filename}`}
-          buttonText={UI.play}
-        />
+        <PlaySound audioFileNames={HOST + text.sentences[0].filename} buttonText={UI.play} />
       </Card.Actions>
     </>
   )
@@ -53,15 +40,15 @@ export default function TextListCardQuote({ text }) {
 TextListCardQuote.propTypes = {
   text: PropTypes.shape({
     author: PropTypes.string.isRequired,
-    source: PropTypes.string.isRequired,
-    texts: PropTypes.shape({
-      english: PropTypes.string.isRequired,
-      arabic: PropTypes.string.isRequired
-    }).isRequired,
     sentences: PropTypes.arrayOf(
       PropTypes.shape({
         filename: PropTypes.string.isRequired
       })
-    ).isRequired
+    ).isRequired,
+    source: PropTypes.string.isRequired,
+    texts: PropTypes.shape({
+      arabic: PropTypes.string.isRequired,
+      english: PropTypes.string.isRequired
+    }).isRequired
   }).isRequired
 }

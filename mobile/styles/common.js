@@ -1,12 +1,13 @@
+/* eslint-disable unicorn/consistent-destructuring */
 import { useMemo } from 'react'
 import { StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
 
 const FONT_WEIGHTS = {
   amiri: 1.2,
-  uthman: 1.5,
   indopak: 1.75,
-  noto: 1.2
+  noto: 1.2,
+  uthman: 1.5
 }
 
 const BASE_MARGIN = 5
@@ -18,9 +19,9 @@ const getTextStyle = (color, fontSize, fontWeight, lineHeight, textAlign = 'cent
   color,
   fontSize,
   fontWeight,
+  letterSpacing,
   lineHeight,
-  textAlign,
-  letterSpacing
+  textAlign
 })
 
 const arabicSelector = (state) => state.arabicFontSize
@@ -89,6 +90,11 @@ export const useSharedStyles = (theme) => {
         textAlign: 'left',
         writingDirection: 'ltr'
       },
+      author: {
+        color: theme.colors.onSurfaceVariant,
+        paddingTop: 15,
+        textAlign: 'center'
+      },
       button: {
         marginBottom: BASE_MARGIN,
         marginTop: BASE_MARGIN
@@ -148,9 +154,29 @@ export const useSharedStyles = (theme) => {
         marginRight: BASE_MARGIN,
         paddingTop: BASE_PADDING
       },
+      image: {
+        height: 200
+      },
       labelText: {
         ...getTextStyle(secondary, 10, '700'),
         letterSpacing: 0.5
+      },
+      logoStyle: {
+        alignSelf: 'center',
+        height: 70,
+        marginBottom: 30,
+        opacity: 0.5,
+        width: 70
+      },
+      practiceContainer: {
+        backgroundColor: theme.colors.elevation.level0,
+        minHeight: 250
+      },
+      reading: {
+        color: theme.colors.outline,
+        paddingBottom: 10,
+        paddingTop: 20,
+        textAlign: 'center'
       },
       scrollView: {
         direction: 'rtl',
@@ -158,25 +184,58 @@ export const useSharedStyles = (theme) => {
         padding: BASE_PADDING,
         writingDirection: 'ltr'
       },
+
       scrollViewLTR: {
         direction: 'ltr',
         padding: BASE_PADDING,
         writingDirection: 'ltr'
+      },
+      title: {
+        color: theme.colors.onBackground,
+        fontFamily: 'philosopher',
+        paddingHorizontal: 25,
+        paddingTop: 25,
+        textAlign: 'center'
+      },
+      wordCenteredView: {
+        alignItems: 'center',
+        flex: 1,
+        justifyContent: 'center'
+      },
+      wordContainer: {
+        flex: 1,
+        margin: 10
+      },
+      wordSurface: {
+        alignItems: 'center',
+        backgroundColor: theme.colors.elevation.level0,
+        flex: 1,
+        minHeight: 320
+      },
+      wordText: {
+        fontFamily: 'uthman',
+        paddingBottom: 60,
+        textAlign: 'center',
+        width: '97%'
       }
     })
   }, [
-    primary,
     onPrimary,
+    primary,
     secondary,
     arabicFontSizeWeighted,
     arabicFontSize,
     arabicFontName,
     tertiary,
     error,
+    englishFontSize,
     elevation.tertiaryContainer,
     elevation.transparent,
     elevation.level5,
-    englishFontSize,
+    theme.colors.onSurfaceVariant,
+    theme.colors.elevation.level0,
+    theme.colors.outline,
+    theme.colors.onBackground,
     outline,
     onSurface
   ])

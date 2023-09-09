@@ -27,11 +27,11 @@ function Text() {
       const arabicFontName = (await getData('arabicFontName')) ?? 'uthman'
       const isDarkModeOn = (await getData('isDarkModeOn')) ?? 'on'
 
-      dispatch({ type: 'SET_ARABIC_FONT_SIZE', payload: arabicFontSize })
-      dispatch({ type: 'SET_ENGLISH_FONT_SIZE', payload: englishFontSize })
-      dispatch({ type: 'SET_TRANSLITERATION', payload: isTransliterationOn })
-      dispatch({ type: 'SET_ARABIC_FONT_NAME', payload: arabicFontName })
-      dispatch({ type: 'SET_DARK_MODE', payload: isDarkModeOn === 'off' })
+      dispatch({ payload: arabicFontSize, type: 'SET_ARABIC_FONT_SIZE' })
+      dispatch({ payload: englishFontSize, type: 'SET_ENGLISH_FONT_SIZE' })
+      dispatch({ payload: isTransliterationOn, type: 'SET_TRANSLITERATION' })
+      dispatch({ payload: arabicFontName, type: 'SET_ARABIC_FONT_NAME' })
+      dispatch({ payload: isDarkModeOn === 'off', type: 'SET_DARK_MODE' })
     }
 
     initSettings()
@@ -44,17 +44,16 @@ function Text() {
         name={SCREENS.textGrammar}
         component={TextGrammar}
         options={{
-          headerTitle: 'Grammar Lesson',
-          headerTitleStyle: {
-            fontFamily: 'philosopher',
-            fontSize: 25,
-            color: theme.colors.onSurface
-          },
-
           headerStyle: {
             backgroundColor: isDarkModeOn.isDarkMode
               ? CombinedDefaultTheme.colors.background
               : CombinedDarkTheme.colors.background
+          },
+          headerTitle: 'Grammar Lesson',
+          headerTitleStyle: {
+            color: theme.colors.onSurface,
+            fontFamily: 'philosopher',
+            fontSize: 25
           }
         }}
       />
@@ -62,17 +61,16 @@ function Text() {
         name={SCREENS.about}
         component={About}
         options={{
-          headerTitle: 'About',
-          headerTitleStyle: {
-            fontFamily: 'philosopher',
-            fontSize: 23,
-            color: theme.colors.onSurface
-          },
-
           headerStyle: {
             backgroundColor: isDarkModeOn.isDarkMode
               ? CombinedDefaultTheme.colors.background
               : CombinedDarkTheme.colors.background
+          },
+          headerTitle: 'About',
+          headerTitleStyle: {
+            color: theme.colors.onSurface,
+            fontFamily: 'philosopher',
+            fontSize: 23
           }
         }}
       />
@@ -80,13 +78,13 @@ function Text() {
         name={SCREENS.textScreen}
         component={defaultExport}
         options={() => ({
-          headerShown: true,
           headerBackTitle: 'Back',
-          headerTitle: '',
+          headerShown: true,
           headerStyle: {
             backgroundColor: theme.colors.background,
             color: theme.colors.onSurface
-          }
+          },
+          headerTitle: ''
         })}
       />
     </Stack.Navigator>
