@@ -1,3 +1,4 @@
+import { Audio } from 'expo-av'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useRef, useEffect } from 'react'
