@@ -18,8 +18,8 @@ export default function App() {
     amiri: require('./assets/fonts/amiri.ttf'),
     indopak: require('./assets/fonts/indopak.ttf'),
     noto: require('./assets/fonts/noto.ttf'),
-    uthman: require('./assets/fonts/uthman.otf'),
-    philosopher: require('./assets/fonts/philosopher.ttf')
+    philosopher: require('./assets/fonts/philosopher.ttf'),
+    uthman: require('./assets/fonts/uthman.otf')
   })
 
   const onLayoutRootView = useCallback(async () => {

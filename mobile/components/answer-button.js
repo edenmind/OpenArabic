@@ -51,8 +51,15 @@ export const AnswerButton = ({ text = '', onPress, haptic, correct, incorrect })
   }
 
   const handleIncorrectFeedback = async () => {
-    await sound.replayAsync()
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
+
+    try {
+      await sound.stopAsync()
+      await sound.replayAsync()
+    } catch (error) {
+      console.error('Error playing sound', error)
+    }
+
     shakeButton()
     setColor(theme.colors.error)
     setTextColor(theme.colors.error)
@@ -68,7 +75,7 @@ export const AnswerButton = ({ text = '', onPress, haptic, correct, incorrect })
     }
     setColor(theme.colors.primary)
     setTextColor(theme.colors.primary)
-    pushButton() // You can also move push animation here for immediate feedback
+    pushButton()
   }, [correct, theme.colors.primary])
 
   const handlePress = useCallback(async () => {

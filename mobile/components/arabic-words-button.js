@@ -5,47 +5,41 @@ import { Platform, View, StyleSheet } from 'react-native'
 import { Text, Button } from 'react-native-paper'
 
 export function ArabicWordButton({ word, isSelected, theme, sharedStyle, onSelect }) {
-  const [isFading, setIsFading] = useState(false)
-  const [lineFading, setLineFading] = useState(false)
+  const [fadeTimeout, setFadeTimeout] = useState(false)
 
   useEffect(() => {
+    let timer
+
     if (isSelected) {
-      const textColorTimer = setTimeout(() => {
-        setIsFading(true)
+      timer = setTimeout(() => {
+        setFadeTimeout(true)
       }, 2500)
-
-      const lineFadeTimer = setTimeout(() => {
-        setLineFading(true)
-      }, 2500)
-
-      return () => {
-        clearTimeout(textColorTimer)
-        clearTimeout(lineFadeTimer)
-      }
+    } else {
+      setFadeTimeout(false)
     }
 
-    setIsFading(false)
-    setLineFading(false)
+    return () => {
+      clearTimeout(timer)
+    }
   }, [isSelected])
 
-  const backgroundColor = isSelected && !lineFading ? theme.colors.tertiary : theme.colors.elevation.level0
-  const backgroundColorText = isSelected && !isFading ? theme.colors.tertiary : theme.colors.secondary
+  const backgroundColor = isSelected && !fadeTimeout ? theme.colors.tertiary : theme.colors.elevation.level0
+  const textColor = isSelected && !fadeTimeout ? theme.colors.tertiary : theme.colors.secondary
+  const lineHeight = Platform.OS === 'android' ? 90 : 50
+
+  const textStyles = [
+    sharedStyle.arabicBody,
+    styles.text,
+    {
+      color: textColor,
+      lineHeight
+    }
+  ]
 
   return (
     <Button style={styles.button} onPress={onSelect}>
       <View style={{ borderBottomColor: backgroundColor, borderBottomWidth: 3 }}>
-        <Text
-          style={[
-            sharedStyle.arabicBody,
-            styles.text,
-            {
-              color: backgroundColorText,
-              lineHeight: Platform.OS === 'android' ? 90 : 50
-            }
-          ]}
-        >
-          {word.arabic}
-        </Text>
+        <Text style={textStyles}>{word.arabic}</Text>
       </View>
     </Button>
   )
@@ -55,8 +49,7 @@ const styles = StyleSheet.create({
   button: {
     marginBottom: -10,
     marginHorizontal: -8
-  },
-  text: {}
+  }
 })
 
 ArabicWordButton.propTypes = {

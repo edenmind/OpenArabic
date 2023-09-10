@@ -47,7 +47,7 @@ const TextPractice = () => {
           sentenceControlMemoized
         ) : (
           <>
-            <Surface style={{ backgroundColor: theme.colors.elevation.level0, minHeight: 250 }}>
+            <Surface style={{ backgroundColor: theme.colors.elevation.level0, minHeight: 250, paddingTop: 15 }}>
               <WordsContextHighLighted
                 arabicSentence={sentencesInText[currentSentence].arabicWords}
                 currentWord={currentWord}

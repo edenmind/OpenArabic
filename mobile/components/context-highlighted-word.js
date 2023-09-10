@@ -1,24 +1,30 @@
 import PropTypes from 'prop-types'
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-import { Animated } from 'react-native'
+import { Animated, StyleSheet } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
 
 import { useSharedStyles } from '../styles/common.js'
 
-const HighlightedWord = ({ word }) => {
+const HighlightedWord = ({ word: { arabic } }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
-  // Create a new animated value for border opacity
   const borderOpacity = useRef(new Animated.Value(1)).current
-
   const [isBorderVisible, setIsBorderVisible] = useState(true)
+
+  const textStyles = StyleSheet.create({
+    arabicText: {
+      ...sharedStyle.arabicBody,
+      color: theme.colors.primary,
+      fontSize: 43,
+      lineHeight: 75,
+      paddingHorizontal: 5
+    }
+  })
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const animateBorderOpacity = useCallback(() => {
-    // Determine the target opacity based on the current state
     const toValue = isBorderVisible ? 0.5 : 1
-
     Animated.timing(borderOpacity, {
       duration: 1000,
       toValue,
@@ -33,31 +39,18 @@ const HighlightedWord = ({ word }) => {
   }, [animateBorderOpacity])
 
   return (
-    <Animated.View
-      style={{
-        opacity: borderOpacity
-      }}
-    >
-      <Text
-        style={{
-          ...sharedStyle.arabicBody,
-          color: theme.colors.primary,
-          fontSize: 43,
-          lineHeight: 75,
-          paddingHorizontal: 5
-        }}
-        onPress={animateBorderOpacity}
-      >
-        {word.arabic}
+    <Animated.View style={{ opacity: borderOpacity }}>
+      <Text style={textStyles.arabicText} onPress={animateBorderOpacity}>
+        {arabic}
       </Text>
     </Animated.View>
   )
 }
-
-export default HighlightedWord
 
 HighlightedWord.propTypes = {
   word: PropTypes.shape({
     arabic: PropTypes.string.isRequired
   }).isRequired
 }
+
+export default HighlightedWord

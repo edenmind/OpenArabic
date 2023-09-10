@@ -3,12 +3,12 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import { useSelector } from 'react-redux'
 
-import { getCategories, getText, getTexts } from './api-service.js'
+import { getText, getTexts } from './api-service.js'
 const mockDispatch = jest.fn()
 
 jest.mock('react-redux', () => ({
-  useSelector: jest.fn(),
-  useDispatch: () => mockDispatch
+  useDispatch: () => mockDispatch,
+  useSelector: jest.fn()
 }))
 describe('getTexts', () => {
   let mock
@@ -25,8 +25,8 @@ describe('getTexts', () => {
     mock.onGet().reply(200, { data: 'test' })
     await getTexts('test')(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'SET_TEXTS_LOADED',
-      payload: false
+      payload: false,
+      type: 'SET_TEXTS_LOADED'
     })
   })
 
@@ -42,8 +42,8 @@ describe('getTexts', () => {
     mock.onGet().reply(200, { data: 'test' })
     await getText('test')(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'SET_TEXT_LOADED',
-      payload: false
+      payload: false,
+      type: 'SET_TEXT_LOADED'
     })
   })
 
@@ -51,8 +51,8 @@ describe('getTexts', () => {
     mock.onGet().reply(200, { data: 'test' })
     await getText('test')(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'SET_TEXT_LOADED',
-      payload: true
+      payload: true,
+      type: 'SET_TEXT_LOADED'
     })
   })
 
@@ -60,8 +60,8 @@ describe('getTexts', () => {
     mock.onGet().reply(200, { data: 'test' })
     await getTexts('test')(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'SET_TEXTS_LOADED',
-      payload: true
+      payload: true,
+      type: 'SET_TEXTS_LOADED'
     })
   })
 

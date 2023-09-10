@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, View } from 'react-native'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useRef } from 'react'
+import { Animated } from 'react-native'
 import { ActivityIndicator, Text, useTheme } from 'react-native-paper'
+
+import { useSharedStyles } from '../styles/common.js'
 
 const dhikrWords = [
   'SubhanAllah',
@@ -14,35 +17,29 @@ const dhikrWords = [
   'Rabbighfirli'
 ]
 
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 33
-  },
-  dhikrText: {
-    fontFamily: 'philosopher',
-    fontSize: 18,
-    marginTop: 33,
-    textAlign: 'center'
-  }
-})
-
 const Spinner = () => {
   const theme = useTheme()
+  const sharedStyle = useSharedStyles(theme)
   const [randomWord, setRandomWord] = useState('')
+
+  const opacityValue = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
     const word = dhikrWords[Math.floor(Math.random() * dhikrWords.length)]
     setRandomWord(word)
+
+    Animated.timing(opacityValue, {
+      duration: 500,
+      toValue: 1,
+      useNativeDriver: true
+    }).start()
   }, [])
 
   return (
-    <View style={styles.container}>
+    <Animated.View style={[sharedStyle.spinnerContainer, { opacity: opacityValue }]}>
       <ActivityIndicator animating size="large" />
-      <Text style={{ ...styles.dhikrText, color: theme.colors.secondary }}>{randomWord}</Text>
-    </View>
+      <Text style={sharedStyle.dhikrText}>{randomWord}</Text>
+    </Animated.View>
   )
 }
 

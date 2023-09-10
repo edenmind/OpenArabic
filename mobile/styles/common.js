@@ -125,6 +125,13 @@ export const useSharedStyles = (theme) => {
       container: {
         margin: BASE_MARGIN * 3
       },
+      dhikrText: {
+        color: theme.colors.secondary,
+        fontFamily: 'philosopher',
+        fontSize: 18,
+        marginTop: 33,
+        textAlign: 'center'
+      },
       divider: {
         marginBottom: BASE_MARGIN,
         marginTop: BASE_MARGIN
@@ -172,6 +179,12 @@ export const useSharedStyles = (theme) => {
         backgroundColor: theme.colors.elevation.level0,
         minHeight: 250
       },
+      progressBar: {
+        backgroundColor: theme.colors.elevation.level5,
+        borderRadius: 10,
+        height: 10,
+        marginVertical: 10
+      },
       reading: {
         color: theme.colors.outline,
         paddingBottom: 10,
@@ -189,6 +202,12 @@ export const useSharedStyles = (theme) => {
         direction: 'ltr',
         padding: BASE_PADDING,
         writingDirection: 'ltr'
+      },
+      spinnerContainer: {
+        ...StyleSheet.absoluteFillObject,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 33
       },
       title: {
         color: theme.colors.onBackground,
@@ -233,7 +252,9 @@ export const useSharedStyles = (theme) => {
     elevation.transparent,
     elevation.level5,
     theme.colors.onSurfaceVariant,
+    theme.colors.secondary,
     theme.colors.elevation.level0,
+    theme.colors.elevation.level5,
     theme.colors.outline,
     theme.colors.onBackground,
     outline,

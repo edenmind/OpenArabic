@@ -1,54 +1,44 @@
 import PropTypes from 'prop-types'
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useMemo } from 'react'
 import { Pressable, Animated, StyleSheet } from 'react-native'
 import { Card, useTheme } from 'react-native-paper'
 
 import { UIElements } from '../constants/ui.js'
 import { useSharedStyles } from '../styles/common.js'
 
-const styles = StyleSheet.create({
-  animatedView: {
-    transform: [{ scale: 1 }]
-  }
-})
+const ANIMATION_DURATION = 200
 
-export const PressableCard = ({ onPress = () => {}, content }) => {
+export const PressableCard = ({ onPress, content, animationDuration = ANIMATION_DURATION }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
   const scaleValue = useRef(new Animated.Value(1)).current
 
-  const animatedStyle = {
-    transform: [{ scale: scaleValue }]
-  }
+  const animatedStyle = useMemo(
+    () => ({
+      transform: [{ scale: scaleValue }]
+    }),
+    [scaleValue]
+  )
 
-  const scaleCard = useCallback(() => {
-    const animation = Animated.timing(scaleValue, {
+  const handlePressIn = useCallback(() => {
+    Animated.timing(scaleValue, {
+      duration: animationDuration,
       toValue: UIElements.AnimationScaleTo,
       useNativeDriver: true
-    })
+    }).start()
+  }, [scaleValue, animationDuration])
 
-    animation.start()
-
-    // Cleanup animation
-    return () => animation.stop()
-  }, [scaleValue])
-
-  const restoreCard = useCallback(() => {
-    const animation = Animated.timing(scaleValue, {
-      duration: 0,
+  const handlePressOut = useCallback(() => {
+    Animated.timing(scaleValue, {
+      duration: animationDuration,
       toValue: 1,
       useNativeDriver: true
-    })
-
-    animation.start()
-
-    // Cleanup animation
-    return () => animation.stop()
-  }, [scaleValue])
+    }).start()
+  }, [scaleValue, animationDuration])
 
   return (
-    <Pressable onPressIn={scaleCard} onPressOut={restoreCard} onPress={onPress}>
+    <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut} onPress={onPress}>
       <Card style={sharedStyle.card} testID="textCard">
         <Animated.View style={[styles.animatedView, animatedStyle]}>{content}</Animated.View>
       </Card>
@@ -57,6 +47,18 @@ export const PressableCard = ({ onPress = () => {}, content }) => {
 }
 
 PressableCard.propTypes = {
+  animationDuration: PropTypes.number,
   content: PropTypes.element.isRequired,
   onPress: PropTypes.func
 }
+
+PressableCard.defaultProps = {
+  animationDuration: ANIMATION_DURATION,
+  onPress: () => {}
+}
+
+const styles = StyleSheet.create({
+  animatedView: {
+    transform: [{ scale: 1 }]
+  }
+})

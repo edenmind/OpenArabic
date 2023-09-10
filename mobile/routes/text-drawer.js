@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useFocusEffect } from '@react-navigation/core'
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
 import { Caption, Divider, Switch, Text, useTheme } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
@@ -73,21 +72,21 @@ export default function TextDrawer() {
     }
   })
 
-  React.useEffect(() => {
-    getDarkMode()
-  }, [])
+  useEffect(() => {
+    const fetchCategoriesAndMode = async () => {
+      dispatch(getCategories())
+      const value = await getData('isDarkModeOn')
+      setIsDarkModeOn(value === 'on')
+    }
+
+    fetchCategoriesAndMode()
+  }, [dispatch])
 
   const storeDarkMode = async (value) => {
     const boolValuesForDarkMode = value === true ? 'on' : 'off'
 
     await storeData('isDarkModeOn', boolValuesForDarkMode)
     dispatch({ payload: !value, type: 'SET_DARK_MODE' })
-  }
-
-  const getDarkMode = async () => {
-    const value = await getData('isDarkModeOn')
-
-    setIsDarkModeOn(value === 'on')
   }
 
   const categoryItems = categories.map((category) => (
@@ -103,12 +102,6 @@ export default function TextDrawer() {
       }}
     />
   ))
-
-  useFocusEffect(
-    React.useCallback(() => {
-      dispatch(getCategories())
-    }, [dispatch])
-  )
 
   function CustomDrawerContent(props) {
     const { navigation } = props // Destructure the navigation prop

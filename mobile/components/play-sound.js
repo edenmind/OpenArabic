@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable nonblock-statement-body-position */
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useEffect } from 'react'
@@ -21,6 +22,7 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
   const handleSoundFinish = useCallback(
     (status) => {
       if (status.didJustFinish && !Array.isArray(audioFileNames)) {
+        setIsPlaying(false) // Ensure isPlaying is set to false for a single sound.
         stopSound()
       }
     },

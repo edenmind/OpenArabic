@@ -57,6 +57,7 @@ module.exports = {
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   maxWorkers: '50%',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
@@ -81,6 +82,7 @@ module.exports = {
 
   // Activates notifications for test results
   notify: true,
+  preset: 'jest-expo',
 
   // An enum that specifies notification mode. Requires { notify: true }
   // notifyMode: "failure-change",
@@ -128,6 +130,7 @@ module.exports = {
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
+  setupFiles: ['<rootDir>/mocks.js'],
 
   // The test environment that will be used for testing
   testEnvironment: 'node',
@@ -183,12 +186,10 @@ module.exports = {
   // watchPathIgnorePatterns: [],
 
   // Whether to use watchman for file crawling
-  watchman: true,
 
-  preset: 'jest-expo',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  setupFiles: ['<rootDir>/mocks.js'],
   transformIgnorePatterns: [
     'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|@sentry/.*|sentry-expo)'
-  ]
+  ],
+
+  watchman: true
 }

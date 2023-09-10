@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/no-null */
 import PropTypes from 'prop-types'
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useCallback } from 'react'
 import { Text, useTheme, Divider } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 
@@ -11,7 +11,7 @@ import { useSharedStyles } from '../styles/common.js'
 
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
 
-export const EnglishArabic = ({ sentence, paddingTop = 0 }) => {
+export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, paddingTop = 0 }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -19,23 +19,21 @@ export const EnglishArabic = ({ sentence, paddingTop = 0 }) => {
   const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
   const showTransliteration = isTransliterationOn === 'on'
 
-  const transliteratedText = useMemo(() => {
-    return transliterateArabicToEnglish(sentence.arabic)
-  }, [sentence.arabic])
+  const transliteratedText = useMemo(() => transliterateArabicToEnglish(arabic), [arabic])
 
-  const fileNames = sentence.words.map((word) => word.filename)
+  const fileNames = words.map((word) => word.filename)
 
-  const handlePlayingWord = (index) => {
+  const handlePlayingWord = useCallback((index) => {
     setCurrentPlayingWordIndex(index)
-  }
+  }, [])
 
-  const handlePlaybackFinished = () => {
+  const handlePlaybackFinished = useCallback(() => {
     setCurrentPlayingWordIndex(null)
-  }
+  }, [])
 
   return (
     <>
-      <ArabicWords sentence={sentence} currentPlayingWordIndex={currentPlayingWordIndex} />
+      <ArabicWords sentence={{ arabic, english, words }} currentPlayingWordIndex={currentPlayingWordIndex} />
 
       {showTransliteration && (
         <Text style={{ ...sharedStyle.englishBody, color: theme.colors.outline }} variant="bodyLarge">
@@ -44,7 +42,7 @@ export const EnglishArabic = ({ sentence, paddingTop = 0 }) => {
       )}
 
       <Text variant="bodyLarge" style={{ ...sharedStyle.englishBody }}>
-        {sentence.english}
+        {english}
       </Text>
 
       <Divider style={{ opacity: 0, paddingTop }} />
@@ -55,13 +53,17 @@ export const EnglishArabic = ({ sentence, paddingTop = 0 }) => {
 }
 
 EnglishArabic.propTypes = {
-  arabic: PropTypes.string,
-  english: PropTypes.string,
   paddingTop: PropTypes.number,
   sentence: PropTypes.shape({
-    arabic: PropTypes.string,
-    english: PropTypes.string,
+    arabic: PropTypes.string.isRequired,
+    english: PropTypes.string.isRequired,
     filename: PropTypes.string,
-    words: PropTypes.array
-  })
+    words: PropTypes.arrayOf(
+      PropTypes.shape({
+        filename: PropTypes.string
+      })
+    )
+  }).isRequired
 }
+
+export default EnglishArabic

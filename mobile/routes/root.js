@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Provider as PaperProvider } from 'react-native-paper'
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -19,39 +19,42 @@ const darkModeSelector = (state) => state.isDarkMode
 function Root() {
   const isDarkModeOn = useSelector(darkModeSelector)
 
+  // Using useMemo for better performance
+  const activeTheme = useMemo(() => {
+    return isDarkModeOn ? CombinedDarkTheme : CombinedDefaultTheme
+  }, [isDarkModeOn])
+
+  // Icon mapping
+  const getIconName = (routeName) => {
+    switch (routeName) {
+      case SCREENS.text: {
+        return 'text'
+      }
+      case SCREENS.words: {
+        return 'abjad-arabic'
+      }
+      case SCREENS.settings: {
+        return 'cog'
+      }
+      default: {
+        return 'question'
+      }
+    }
+  }
+
   return (
-    <PaperProvider theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
-      <NavigationContainer theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
+    <PaperProvider theme={activeTheme}>
+      <NavigationContainer theme={activeTheme}>
         <Tab.Navigator
           barStyle={{
-            backgroundColor: isDarkModeOn.isDarkMode
-              ? CombinedDefaultTheme.colors.background
-              : CombinedDarkTheme.colors.background,
-            borderTopColor: isDarkModeOn.isDarkMode
-              ? CombinedDefaultTheme.colors.inverseOnSurface
-              : CombinedDarkTheme.colors.inverseOnSurface,
+            backgroundColor: activeTheme.colors.background,
+            borderTopColor: activeTheme.colors.inverseOnSurface,
             borderTopWidth: 1,
             height: 75
           }}
           screenOptions={({ route }) => ({
             tabBarIcon: ({ color }) => {
-              let iconName
-
-              switch (route.name) {
-                case SCREENS.text: {
-                  iconName = 'text'
-                  break
-                }
-                case SCREENS.words: {
-                  iconName = 'abjad-arabic'
-                  break
-                }
-                case SCREENS.settings: {
-                  iconName = 'cog'
-                  break
-                }
-              }
-
+              const iconName = getIconName(route.name)
               return <MaterialCommunityIcons name={iconName} color={color} size={UIElements.TitleFont} />
             },
             tabBarLabel: ''

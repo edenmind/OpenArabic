@@ -43,7 +43,8 @@ export default function TextGrammar({ route }) {
         {english.charAt(0).toUpperCase() + english.slice(1)} - {transliteratedArabic}
       </Text>
 
-      <PlaySound audioFileNames={[HOST.audio + filename]} buttonText={'Play'} />
+      <PlaySound audioFileNames={HOST.audio + filename} />
+
       <Divider style={{ marginBottom: 20, opacity: 0 }} />
       {formatGrammar(grammar, sharedStyle)}
       <Divider style={{ marginBottom: 50, opacity: 0 }} />
