@@ -15,19 +15,34 @@ const WordsContextHighLighted = ({ arabicSentence, arabicWord, sentenceIsComplet
       fontSize: 43,
       lineHeight: 75,
       paddingHorizontal: 5
+    },
+    arabicTextInactive: {
+      ...sharedStyle.arabicBody,
+      color: theme.colors.outline,
+      fontSize: 43,
+      lineHeight: 75,
+      paddingHorizontal: 5
     }
   })
 
   const renderWords = () =>
-    arabicSentence.map((word) =>
-      word.id === arabicWord.id && !sentenceIsComplete ? (
-        <HighlightedWord word={word} key={word.id} />
-      ) : (
-        <Text style={textStyles.arabicText} key={word.id}>
-          {word.arabic}
-        </Text>
-      )
-    )
+    arabicSentence.map((word) => {
+      if (word.id === arabicWord.id && !sentenceIsComplete) {
+        return <HighlightedWord word={word} key={word.id} />
+      } else if (word.id > arabicWord.id) {
+        return (
+          <Text style={textStyles.arabicTextInactive} key={word.id}>
+            {word.arabic}
+          </Text>
+        )
+      } else {
+        return (
+          <Text style={textStyles.arabicText} key={word.id}>
+            {word.arabic}
+          </Text>
+        )
+      }
+    })
 
   return (
     <View style={{ direction: 'rtl', flexDirection: 'row', flexWrap: 'wrap', padding: 0, paddingBottom: 10 }}>

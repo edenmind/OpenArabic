@@ -11,9 +11,7 @@ export const CardFooter = ({ text }) => {
 
   const isWithinLast36Hours = checkIfWithinLast36Hours(createdAt)
 
-  const footerItems = [views && `${views} views`, timeAgo, readingTime && `${readingTime} mins read`]
-    .filter(Boolean)
-    .join(' · ')
+  const footerItems = [views && `${views} views`, timeAgo, readingTime && `${readingTime}`].filter(Boolean).join(' · ')
 
   return (
     <>

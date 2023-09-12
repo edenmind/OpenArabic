@@ -38,10 +38,12 @@ export default function TextTabs({ route }) {
         <Fragment>
           <Tab.Navigator
             screenOptions={{
+              tabBarIndicatorStyle: {
+                height: 0 // This hides the active tab indicator
+              },
               tabBarLabelStyle: {
                 fontSize: 15,
-                fontWeight: 'bold',
-                textTransform: 'none'
+                fontWeight: 'bold'
               },
               tabBarStyle: {
                 backgroundColor: theme.colors.background
