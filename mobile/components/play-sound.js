@@ -14,7 +14,7 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
 
   const { isLoaded, playSound, stopSound } = useAudioPlayer()
   const [isPlaying, setIsPlaying] = useState(false)
-  const buttonText = isPlaying ? 'Stop' : 'Play'
+  const buttonText = isPlaying ? 'STOP' : 'PLAY'
 
   const silentBorderColor = theme.colors.elevation.level5
   const playingBorderColor = theme.colors.primary
@@ -94,7 +94,7 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
         borderColor: isPlaying ? playingBorderColor : silentBorderColor
       }}
     >
-      <Text style={{ ...sharedStyle.answerText }}>{buttonText}</Text>
+      <Text style={{ ...sharedStyle.actionTextPrimary }}>{buttonText}</Text>
     </Button>
   )
 }

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { View, ScrollView } from 'react-native'
-import { Surface, useTheme } from 'react-native-paper'
+import { Surface, useTheme, Divider } from 'react-native-paper'
 
 import TextPracticeWords from './text-practice-words.js'
 import { ActionButton } from '../components/action-button.js'
@@ -42,25 +42,25 @@ const TextPractice = () => {
     <>
       <ScrollView style={sharedStyle.container}>
         <Progress progress={currentSentence / (sentencesInText.length - 1)} />
-
-        {sentenceIsComplete ? (
-          sentenceControlMemoized
-        ) : (
-          <>
-            <Surface style={{ backgroundColor: theme.colors.elevation.level0, minHeight: 250, paddingTop: 15 }}>
+        <Surface style={{ backgroundColor: theme.colors.elevation.level0, minHeight: 250, paddingTop: 25 }}>
+          {sentenceIsComplete ? (
+            sentenceControlMemoized
+          ) : (
+            <>
               <WordsContextHighLighted
                 arabicSentence={sentencesInText[currentSentence].arabicWords}
                 currentWord={currentWord}
                 arabicWord={currentArabicWord}
               />
-            </Surface>
-            <TextPracticeWords
-              testID="textPracticeArabicWords"
-              currentWordsInSentence={currentWordsInSentence}
-              handlePress={handlePress}
-            />
-          </>
-        )}
+              <Divider style={sharedStyle.dividerHidden} />
+              <TextPracticeWords
+                testID="textPracticeArabicWords"
+                currentWordsInSentence={currentWordsInSentence}
+                handlePress={handlePress}
+              />
+            </>
+          )}
+        </Surface>
       </ScrollView>
       <TakbirCelebrate
         visible={celebrationSnackBarVisibility}

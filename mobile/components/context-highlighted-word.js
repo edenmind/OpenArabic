@@ -15,7 +15,7 @@ const HighlightedWord = ({ word: { arabic } }) => {
   const textStyles = StyleSheet.create({
     arabicText: {
       ...sharedStyle.arabicBody,
-      color: theme.colors.primary,
+
       fontSize: 43,
       lineHeight: 75,
       paddingHorizontal: 5
@@ -24,9 +24,9 @@ const HighlightedWord = ({ word: { arabic } }) => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const animateBorderOpacity = useCallback(() => {
-    const toValue = isBorderVisible ? 0.5 : 1
+    const toValue = isBorderVisible ? 0.2 : 1
     Animated.timing(borderOpacity, {
-      duration: 1000,
+      duration: 750,
       toValue,
       useNativeDriver: false
     }).start(() => {

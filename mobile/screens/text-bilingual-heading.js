@@ -28,7 +28,7 @@ export default function TextBilingualHeading({ heading }) {
         {caption}
       </Text>
 
-      <Divider style={style.divider} />
+      <Divider style={style.dividerHidden} />
     </>
   )
 }

@@ -42,7 +42,8 @@ export const useSharedStyles = (theme) => {
       actionButton: {
         marginVertical: BASE_MARGIN
       },
-      actionText: getTextStyle(onPrimary, 21, '700', 40, 'center', 0.75),
+      actionText: getTextStyle(onPrimary, 18, '800', 40, 'center', 2.5),
+      actionTextPrimary: getTextStyle(primary, 18, '800', 40, 'center', 2.5),
       answerText: getTextStyle(primary, 23, '600', 40),
       arabicBody: {
         ...getTextStyle(secondary, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9, 'right'),
@@ -107,8 +108,8 @@ export const useSharedStyles = (theme) => {
         marginVertical: BASE_MARGIN
       },
       card: {
-        marginHorizontal: BASE_MARGIN,
-        marginVertical: 2 * BASE_MARGIN
+        marginHorizontal: 3 * BASE_MARGIN,
+        marginVertical: 1.5 * BASE_MARGIN
       },
       cardAction: {
         marginRight: BASE_MARGIN,
@@ -137,8 +138,8 @@ export const useSharedStyles = (theme) => {
         marginTop: BASE_MARGIN
       },
       dividerHidden: {
-        marginBottom: BASE_MARGIN,
-        marginTop: BASE_MARGIN,
+        marginBottom: BASE_MARGIN * 2,
+        marginTop: BASE_MARGIN * 2,
         opacity: 0
       },
       englishBody: {
@@ -182,7 +183,7 @@ export const useSharedStyles = (theme) => {
       progressBar: {
         backgroundColor: theme.colors.elevation.level5,
         borderRadius: 10,
-        height: 10,
+        height: 15,
         marginVertical: 10
       },
       reading: {
