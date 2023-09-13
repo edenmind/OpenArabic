@@ -37,7 +37,6 @@ TextBilingualHeading.propTypes = {
   heading: PropTypes.shape({
     author: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    introduction: PropTypes.string,
     readingTime: PropTypes.string.isRequired,
     source: PropTypes.string.isRequired,
     timeAgo: PropTypes.string.isRequired,

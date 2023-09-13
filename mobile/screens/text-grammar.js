@@ -57,7 +57,7 @@ TextGrammar.propTypes = {
     params: PropTypes.shape({
       arabic: PropTypes.string.isRequired,
       english: PropTypes.string.isRequired,
-      filename: PropTypes.string,
+      filename: PropTypes.string.isRequired,
       grammar: PropTypes.string.isRequired
     })
   })

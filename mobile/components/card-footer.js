@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
     position: 'absolute'
   }),
   footerText: (color) => ({
-    bottom: 20,
+    bottom: 15,
     color,
-    position: 'absolute',
-    right: 15
+    left: 15,
+    position: 'absolute'
   })
 })
 

@@ -15,15 +15,14 @@ export const CategoryChip = ({ category }) => {
       borderBottomWidth: 4,
       borderColor: theme.colors.elevation.level5,
       borderWidth: 2,
-      marginBottom: 5,
-      marginTop: 15
+      marginRight: 15
     }
   })
 
   return (
     <View style={{ alignSelf: 'flex-start' }}>
       <Chip compact={true} style={styles.chip}>
-        <Text style={sharedStyle.labelText}>{category}</Text>
+        <Text style={sharedStyle.labelText}>{category.toUpperCase()}</Text>
       </Chip>
     </View>
   )

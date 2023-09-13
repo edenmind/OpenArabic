@@ -18,5 +18,5 @@ const TextCategoryIntro = ({ text }) => {
 export default TextCategoryIntro
 
 TextCategoryIntro.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string.isRequired
 }

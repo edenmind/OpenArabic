@@ -57,10 +57,10 @@ EnglishArabic.propTypes = {
   sentence: PropTypes.shape({
     arabic: PropTypes.string.isRequired,
     english: PropTypes.string.isRequired,
-    filename: PropTypes.string,
+    filename: PropTypes.string.isRequired,
     words: PropTypes.arrayOf(
       PropTypes.shape({
-        filename: PropTypes.string
+        filename: PropTypes.string.isRequired
       })
     )
   }).isRequired

@@ -53,7 +53,7 @@ const WordsContextHighLighted = ({ arabicSentence, arabicWord, sentenceIsComplet
 
 WordsContextHighLighted.propTypes = {
   arabicSentence: PropTypes.arrayOf(PropTypes.object).isRequired,
-  arabicWord: PropTypes.object.isRequired,
+  arabicWord: PropTypes.number.isRequired,
   sentenceIsComplete: PropTypes.bool
 }
 

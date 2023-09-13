@@ -20,22 +20,7 @@ export default function TextListCard({ setShouldReload, navigation, text }) {
   }
 }
 TextListCard.propTypes = {
-  navigation: PropTypes.object,
+  navigation: PropTypes.object.isRequired,
   setShouldReload: PropTypes.func.isRequired,
-  text: PropTypes.shape({
-    arabic: PropTypes.string,
-    author: PropTypes.string,
-    category: PropTypes.string,
-    english: PropTypes.string,
-    id: PropTypes.string,
-    image: PropTypes.string,
-    readingTime: PropTypes.string,
-    sentences: PropTypes.array,
-    slug: PropTypes.string,
-    source: PropTypes.string,
-    texts: PropTypes.object,
-    timeAgo: PropTypes.string,
-    title: PropTypes.string,
-    views: PropTypes.string
-  })
+  text: PropTypes.object.isRequired
 }
