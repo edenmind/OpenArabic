@@ -58,7 +58,7 @@ export const useSharedStyles = (theme) => {
         paddingTop: BASE_PADDING
       },
       arabicDateLatin: {
-        ...getTextStyle(tertiary, 15, 'normal', undefined, 'center'),
+        ...getTextStyle(tertiary, 17, 'normal', undefined, 'center'),
         fontFamily: 'philosopher',
         paddingBottom: BASE_PADDING,
         paddingHorizontal: EXTRA_PADDING
@@ -113,15 +113,12 @@ export const useSharedStyles = (theme) => {
       },
       cardAction: {
         marginRight: BASE_MARGIN,
-        paddingBottom: BASE_PADDING * 2,
-        paddingTop: BASE_PADDING * 2.5
+        paddingBottom: BASE_PADDING * 4
       },
-      cardSubTitle: {
-        color: outline
-      },
+
       cardTitle: {
         fontFamily: 'philosopher',
-        paddingVertical: BASE_PADDING
+        fontSize: 23
       },
       container: {
         margin: BASE_MARGIN * 3

@@ -39,9 +39,9 @@ export const PressableCard = ({ onPress, content, animationDuration = ANIMATION_
 
   return (
     <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut} onPress={onPress}>
-      <Card style={sharedStyle.card} testID="textCard">
-        <Animated.View style={[styles.animatedView, animatedStyle]}>{content}</Animated.View>
-      </Card>
+      <Animated.View style={[styles.animatedView, animatedStyle]}>
+        <Card style={sharedStyle.card}>{content}</Card>
+      </Animated.View>
     </Pressable>
   )
 }
@@ -49,7 +49,7 @@ export const PressableCard = ({ onPress, content, animationDuration = ANIMATION_
 PressableCard.propTypes = {
   animationDuration: PropTypes.number,
   content: PropTypes.element.isRequired,
-  onPress: PropTypes.func
+  onPress: PropTypes.func.isRequired
 }
 
 PressableCard.defaultProps = {

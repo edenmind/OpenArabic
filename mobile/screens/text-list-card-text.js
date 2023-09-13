@@ -1,19 +1,15 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Card, Divider, useTheme, IconButton } from 'react-native-paper'
+import { Card, useTheme, Text, Divider } from 'react-native-paper'
 
-import { CardFooter } from '../components/card-footer.js'
+import { CategoryChip } from '../components/category-chip.js'
 import { PressableCard } from '../components/pressable-card.js'
-import TextCategoryIntro from '../components/text-category-intro.js'
 import SCREENS from '../constants/screens.js'
-import { generateShare } from '../services/ui-services.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextListCardText({ setShouldReload, navigation, text }) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
-
-  const subtitle = `${text.author} in #${text.category}`
 
   const onPress = () => {
     setShouldReload(false)
@@ -24,23 +20,19 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
 
   const content = (
     <>
-      <Card.Cover defaultSource={require('../assets/default.png')} source={{ uri: text.image }} />
+      <Card.Cover source={{ uri: text.image }} />
       <Card.Title
         title={text.title}
-        subtitle={subtitle}
-        titleVariant="headlineSmall"
+        subtitle={text.author}
         titleStyle={{ ...sharedStyle.cardTitle }}
-        subtitleVariant="labelMedium"
-        subtitleStyle={{ ...sharedStyle.cardSubTitle }}
-        right={(props) => <IconButton {...props} icon="share-variant-outline" onPress={generateShare(text)} />}
+        right={() => <CategoryChip category={text.category} />}
       />
       <Card.Content>
-        <TextCategoryIntro text={text.introduction} />
-        <Divider style={{ ...sharedStyle.divider }} />
+        <Text variant="labelLarge">
+          OpenArabic is a complimentary and open-source platform dedicated to the learning of the Arabic language.
+        </Text>
+        <Divider style={{ ...sharedStyle.dividerHidden, marginBottom: 5 }} />
       </Card.Content>
-      <Card.Actions style={{ ...sharedStyle.cardAction }}>
-        <CardFooter text={text} />
-      </Card.Actions>
     </>
   )
 

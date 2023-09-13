@@ -29,7 +29,7 @@ const Spinner = () => {
     setRandomWord(word)
 
     Animated.timing(opacityValue, {
-      duration: 500,
+      duration: 1000,
       toValue: 1,
       useNativeDriver: true
     }).start()

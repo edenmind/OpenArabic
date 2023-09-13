@@ -87,9 +87,9 @@ const SentenceControl = ({ text, currentSentence, isLastSentence, handleReset, h
 )
 
 SentenceControl.propTypes = {
-  currentSentence: PropTypes.number,
-  handleContinue: PropTypes.func,
-  handleReset: PropTypes.func,
-  isLastSentence: PropTypes.bool,
-  text: PropTypes.object
+  currentSentence: PropTypes.number.isRequired,
+  handleContinue: PropTypes.func.isRequired,
+  handleReset: PropTypes.func.isRequired,
+  isLastSentence: PropTypes.bool.isRequired,
+  text: PropTypes.object.isRequired
 }

@@ -1,8 +1,8 @@
 import { useFocusEffect, useScrollToTop } from '@react-navigation/native'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useRef, useMemo } from 'react'
-import { FlatList, Text } from 'react-native'
-import { useTheme } from 'react-native-paper'
+import { FlatList } from 'react-native'
+import { useTheme, Text } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 
 import TextListCard from './text-list-card.js'
@@ -50,7 +50,8 @@ export default function TextList({ route, navigation }) {
     [navigation]
   )
 
-  const categoryDescription = categories.filter((cat) => cat.name === category).map((cat) => cat.description)
+  const categoryDescriptions = categories.filter((cat) => cat.name === category).map((cat) => cat.description)
+  const categoryDescription = categoryDescriptions.length > 0 ? categoryDescriptions[0] : ''
 
   const HeaderComponent = useMemo(() => {
     if (categoryDescription && categoryDescription.length > 0) {
@@ -87,7 +88,7 @@ export default function TextList({ route, navigation }) {
 }
 
 TextList.propTypes = {
-  navigation: PropTypes.object,
+  navigation: PropTypes.object.isRequired,
   route: PropTypes.shape({
     params: PropTypes.shape({
       category: PropTypes.string.isRequired

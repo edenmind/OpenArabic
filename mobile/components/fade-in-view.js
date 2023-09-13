@@ -24,7 +24,7 @@ const FadeInView = ({ children, style }) => {
 
 FadeInView.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.object
+  style: PropTypes.object.isRequired
 }
 
 FadeInView.defaultProps = {

@@ -56,13 +56,6 @@ export default function TextDrawer() {
       margin: 15,
       position: 'absolute'
     },
-    title: {
-      color: theme.colors.onSurface,
-      fontFamily: 'philosopher',
-      marginBottom: 10,
-      marginLeft: 15,
-      marginTop: 10
-    },
     version: {
       bottom: 15,
       color: theme.colors.onSurfaceVariant,
@@ -110,9 +103,8 @@ export default function TextDrawer() {
       <View style={style.container}>
         <DrawerContentScrollView {...props}>
           <Image source={icon} style={style.icon} />
-          <Text style={style.title} variant="headlineSmall">
-            {packageJson.displayName}
-          </Text>
+          <Divider style={{ ...style.divider, margin: 5, opacity: 0 }} />
+
           <DrawerItemList {...props} />
           <Divider style={style.divider} />
           <TouchableOpacity onPress={() => navigation.navigate('About')}>
