@@ -14,7 +14,7 @@ export default function TextBilingualHeading({ heading }) {
   return (
     <>
       <Image source={{ uri: image }} style={style.image} />
-      <Text variant="headlineMedium" style={style.title}>
+      <Text variant="headlineLarge" style={style.title}>
         {title}
       </Text>
 

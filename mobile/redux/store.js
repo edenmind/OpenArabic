@@ -8,6 +8,8 @@ const rootReducer = combineReducers({
   categories: categoriesReducer,
   englishFontSize: UIStateReducer,
   isDarkMode: UIStateReducer,
+  isEngOn: UIStateReducer,
+  isPlayOn: UIStateReducer,
   isTransliterationOn: UIStateReducer,
   practicingWords: UIStateReducer,
   text: textReducer,

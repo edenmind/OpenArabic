@@ -118,7 +118,7 @@ export const useSharedStyles = (theme) => {
 
       cardTitle: {
         fontFamily: 'philosopher',
-        fontSize: 23
+        fontSize: 21
       },
       container: {
         margin: BASE_MARGIN * 3
@@ -140,7 +140,7 @@ export const useSharedStyles = (theme) => {
         opacity: 0
       },
       englishBody: {
-        ...getTextStyle(onSurface, englishFontSize * 1.1, 'normal', englishFontSize * 1.5),
+        ...getTextStyle(outline, englishFontSize * 1.1, 'normal', englishFontSize * 1.5),
         direction: 'ltr',
         fontFamily: 'philosopher',
         paddingBottom: BASE_PADDING,

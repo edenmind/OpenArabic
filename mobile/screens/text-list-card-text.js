@@ -18,6 +18,8 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     })
   }
 
+  const numberOfWordsInText = text?.sentences?.reduce((acc, sentence) => acc + sentence?.words?.length, 0) ?? 0
+
   const content = (
     <>
       <Card.Cover source={{ uri: text.image }} />
@@ -25,7 +27,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
         title={text.title}
         subtitle={text.author}
         titleStyle={{ ...sharedStyle.cardTitle }}
-        right={() => <CategoryChip category={text.category} />}
+        right={() => <CategoryChip category={`${numberOfWordsInText} words`} />}
       />
       <Card.Content>
         <Text variant="labelLarge">

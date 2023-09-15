@@ -11,6 +11,8 @@ const initialStateUI = {
   arabicFontSize: 19,
   englishFontSize: 17,
   isDarkMode: true,
+  isEngOn: 'on',
+  isPlayOn: 'on',
   isTransliterationOn: 'on',
   practicingWords: false,
   textLoading: false,
@@ -21,6 +23,12 @@ const UIStateReducer = createReducer(initialStateUI, (builder) => {
   builder
     .addCase(actions.SET_ARABIC_FONT_NAME, (state, action) => {
       state.arabicFontName = action.payload
+    })
+    .addCase(actions.SET_ENG, (state, action) => {
+      state.isEngOn = action.payload
+    })
+    .addCase(actions.SET_PLAY, (state, action) => {
+      state.isPlayOn = action.payload
     })
     .addCase(actions.SET_TRANSLITERATION, (state, action) => {
       state.isTransliterationOn = action.payload

@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row-reverse',
     flexWrap: 'wrap',
-    marginBottom: 10
+    paddingTop: 15
   }
 })
 
@@ -76,7 +76,7 @@ ArabicWords.propTypes = {
   sentence: PropTypes.shape({
     arabic: PropTypes.string.isRequired,
     english: PropTypes.string.isRequired,
-    filename: PropTypes.string.isRequired,
+    filename: PropTypes.string,
     words: PropTypes.arrayOf(
       PropTypes.shape({
         arabic: PropTypes.string,

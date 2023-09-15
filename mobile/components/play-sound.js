@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable nonblock-statement-body-position */
+import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useEffect } from 'react'
 import { Button, Text, useTheme } from 'react-native-paper'
@@ -38,6 +39,7 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
   }, [IS_PLAYING, onFinish, stopSound])
 
   const playSounds = useCallback(async () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
     setIsPlaying((prevIsPlaying) => !prevIsPlaying)
 
     if (isPlaying) {

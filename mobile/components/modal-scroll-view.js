@@ -1,62 +1,28 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ScrollView, StyleSheet, View } from 'react-native'
-import { Divider, Modal, Portal, Text, useTheme } from 'react-native-paper'
+import { ScrollView, StyleSheet, View, Dimensions } from 'react-native'
+import { Modal, Portal, useTheme } from 'react-native-paper'
 
 import { AnswerButton } from '../components/answer-button.js'
-import { useSharedStyles } from '../styles/common.js'
 
-const ModalScrollView = ({
-  title,
-  content,
-  visible,
-  hideModal,
-  height = '93%',
-  close = 'Close',
-  titleLanguage = 'arabic',
-  icon
-}) => {
+const ModalScrollView = ({ content, visible, hideModal, close = 'Close', icon }) => {
   const theme = useTheme()
-  const sharedStyled = useSharedStyles(theme)
+
   const styles = StyleSheet.create({
     containerStyle: {
       backgroundColor: theme.colors.background,
-      borderRadius: 15,
-      height,
-      margin: 10,
-      padding: 5
-    },
-    titleStyle: {
-      ...sharedStyled.arabicHeading,
-      alignSelf: 'center',
-      marginHorizontal: 10,
-      paddingBottom: 15,
-      textAlign: 'center',
-      writingDirection: 'rtl'
-    },
-
-    titleStyleEnglish: {
-      alignSelf: 'center',
-      fontFamily: 'philosopher',
-      fontSize: 25,
-      marginHorizontal: 25,
-      marginVertical: 15,
-      textAlign: 'center'
+      flex: 1,
+      height: Dimensions.get('window').height,
+      justifyContent: 'space-between',
+      width: Dimensions.get('window').width
     }
   })
 
   return (
     <Portal>
       <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.containerStyle}>
-        {title && (
-          <>
-            <Text style={titleLanguage === 'english' ? styles.titleStyleEnglish : styles.titleStyle}>{title}</Text>
-            <Divider />
-          </>
-        )}
-
-        <ScrollView>
-          <View style={{ marginHorizontal: 5, paddingHorizontal: 5 }}>{content}</View>
+        <ScrollView style={{ flex: 1 }}>
+          <View>{content}</View>
         </ScrollView>
 
         <View>
@@ -72,10 +38,7 @@ export default ModalScrollView
 ModalScrollView.propTypes = {
   close: PropTypes.string,
   content: PropTypes.any.isRequired,
-  height: PropTypes.string,
   hideModal: PropTypes.func.isRequired,
   icon: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  titleLanguage: PropTypes.string,
   visible: PropTypes.bool.isRequired
 }

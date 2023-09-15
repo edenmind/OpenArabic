@@ -1,15 +1,17 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import * as Haptics from 'expo-haptics'
 import React, { useEffect } from 'react'
-import { useTheme } from 'react-native-paper'
+import { View } from 'react-native'
+import { useTheme, Button } from 'react-native-paper'
 import { useSelector, useDispatch } from 'react-redux'
 
+import SimpleText from './simple-text.js'
 import TextDrawer from './text-drawer.js'
-import defaultExport from './text-tabs.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import SCREENS from '../constants/screens.js'
 import About from '../screens/about.js'
 import TextGrammar from '../screens/text-grammar.js'
-import { getData } from '../services/storage.js'
+import { getData, storeData } from '../services/storage.js'
 
 const Stack = createNativeStackNavigator()
 const darkModeSelector = (state) => state.isDarkMode
@@ -19,23 +21,61 @@ function Text() {
   const theme = useTheme()
   const isDarkModeOn = useSelector(darkModeSelector)
 
+  const [isTransliterationOn, setIsTransliterationOn] = React.useState(false)
+  const [isEngOn, setIsEngOn] = React.useState(false)
+  const [isPlayOn, setIsPlayOn] = React.useState(false)
+
   useEffect(() => {
     const initSettings = async () => {
-      const englishFontSize = Number(await getData('englishFontSize')) || 17
-      const arabicFontSize = Number(await getData('arabicFontSize')) || 19
-      const isTransliterationOn = (await getData('isTransliterationOn')) ?? 'off'
-      const arabicFontName = (await getData('arabicFontName')) ?? 'uthman'
-      const isDarkModeOn = (await getData('isDarkModeOn')) ?? 'on'
+      const settings = {
+        arabicFontName: 'uthman',
+        arabicFontSize: 19,
+        englishFontSize: 17,
+        isDarkModeOn: 'on',
+        isEngOn: 'on',
+        isPlayOn: 'on',
+        isTransliterationOn: 'off'
+      }
 
-      dispatch({ payload: arabicFontSize, type: 'SET_ARABIC_FONT_SIZE' })
-      dispatch({ payload: englishFontSize, type: 'SET_ENGLISH_FONT_SIZE' })
-      dispatch({ payload: isTransliterationOn, type: 'SET_TRANSLITERATION' })
-      dispatch({ payload: arabicFontName, type: 'SET_ARABIC_FONT_NAME' })
-      dispatch({ payload: isDarkModeOn === 'off', type: 'SET_DARK_MODE' })
+      for (const key in settings) {
+        const value = await getData(key)
+        settings[key] = value || settings[key]
+      }
+
+      setIsTransliterationOn(settings.isTransliterationOn === 'on')
+      setIsEngOn(settings.isEngOn === 'on')
+      setIsPlayOn(settings.isPlayOn === 'on')
+
+      dispatch({ payload: Number(settings.arabicFontSize), type: 'SET_ARABIC_FONT_SIZE' })
+      dispatch({ payload: Number(settings.englishFontSize), type: 'SET_ENGLISH_FONT_SIZE' })
+      dispatch({ payload: settings.isTransliterationOn, type: 'SET_TRANSLITERATION' })
+      dispatch({ payload: settings.isEngOn, type: 'SET_ENG' })
+      dispatch({ payload: settings.isPlayOn, type: 'SET_PLAY' })
+      dispatch({ payload: settings.arabicFontName, type: 'SET_ARABIC_FONT_NAME' })
+      dispatch({ payload: settings.isDarkModeOn === 'off', type: 'SET_DARK_MODE' })
     }
 
     initSettings()
   }, [dispatch])
+
+  const toggleState = async (currentState, setStateFunc, dispatchType, storageKey) => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    const newValue = !currentState
+    setStateFunc(newValue)
+    const payloadValue = newValue ? 'on' : 'off'
+    dispatch({ payload: payloadValue, type: dispatchType })
+    await storeData(storageKey, payloadValue)
+  }
+
+  const renderButton = (label, state, toggleFunc) => (
+    <Button
+      style={{ marginRight: 5 }}
+      textColor={state ? theme.colors.tertiary : theme.colors.outline}
+      onPress={toggleFunc}
+    >
+      {label}
+    </Button>
+  )
 
   return (
     <Stack.Navigator initialRouteName={SCREENS.home}>
@@ -76,9 +116,18 @@ function Text() {
       />
       <Stack.Screen
         name={SCREENS.textScreen}
-        component={defaultExport}
+        component={SimpleText}
         options={() => ({
           headerBackTitle: 'Back',
+          headerRight: () => (
+            <View style={{ flexDirection: 'row', marginRight: 10 }}>
+              {renderButton('ENG', isEngOn, () => toggleState(isEngOn, setIsEngOn, 'SET_ENG', 'isEngOn'))}
+              {renderButton('LATIN', isTransliterationOn, () =>
+                toggleState(isTransliterationOn, setIsTransliterationOn, 'SET_TRANSLITERATION', 'isTransliterationOn')
+              )}
+              {renderButton('PLAY', isPlayOn, () => toggleState(isPlayOn, setIsPlayOn, 'SET_PLAY', 'isPlayOn'))}
+            </View>
+          ),
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.colors.background,

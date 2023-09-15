@@ -15,7 +15,8 @@ export const CategoryChip = ({ category }) => {
       borderBottomWidth: 4,
       borderColor: theme.colors.elevation.level5,
       borderWidth: 2,
-      marginRight: 15
+      marginRight: 15,
+      marginTop: -20
     }
   })
 

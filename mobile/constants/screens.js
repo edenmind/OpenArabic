@@ -8,6 +8,7 @@ const SCREENS = {
   related: 'More',
   settings: 'Settings',
   text: 'Text',
+  textBilingual: 'TextBilingual',
   textGrammar: 'TextGrammar',
   textScreen: 'TextScreen',
   textSettings: 'TextSettings',
