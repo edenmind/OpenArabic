@@ -12,15 +12,15 @@ const WordsContextHighLighted = ({ arabicSentence, arabicWord, sentenceIsComplet
   const textStyles = StyleSheet.create({
     arabicText: {
       ...sharedStyle.arabicBody,
-      fontSize: 43,
-      lineHeight: 75,
+      fontSize: 55,
+      lineHeight: 95,
       paddingHorizontal: 5
     },
     arabicTextInactive: {
       ...sharedStyle.arabicBody,
       color: theme.colors.outline,
-      fontSize: 43,
-      lineHeight: 75,
+      fontSize: 55,
+      lineHeight: 95,
       paddingHorizontal: 5
     }
   })

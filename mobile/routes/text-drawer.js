@@ -29,13 +29,13 @@ export default function TextDrawer() {
       flex: 1
     },
     darkLightMode: {
-      bottom: 75,
+      bottom: 65,
       left: 0,
       margin: 15,
       position: 'absolute'
     },
     darkModeLabel: {
-      bottom: 50,
+      bottom: 100,
       color: theme.colors.onSurfaceVariant,
       left: 0,
       margin: 15,
@@ -50,14 +50,21 @@ export default function TextDrawer() {
       width: 55
     },
     semver: {
-      bottom: 10,
+      bottom: 30,
       color: theme.colors.tertiary,
       left: 0,
       margin: 15,
       position: 'absolute'
     },
+    title: {
+      color: theme.colors.onSurface,
+      fontFamily: 'philosopher',
+      marginBottom: 10,
+      marginLeft: 15,
+      marginTop: 10
+    },
     version: {
-      bottom: 15,
+      bottom: 35,
       color: theme.colors.onSurfaceVariant,
       left: 0,
       margin: 15,
@@ -103,6 +110,9 @@ export default function TextDrawer() {
       <View style={style.container}>
         <DrawerContentScrollView {...props}>
           <Image source={icon} style={style.icon} />
+          <Text style={style.title} variant="headlineSmall">
+            {packageJson.displayName}
+          </Text>
           <Divider style={{ ...style.divider, margin: 5, opacity: 0 }} />
 
           <DrawerItemList {...props} />
@@ -117,7 +127,9 @@ export default function TextDrawer() {
           </TouchableOpacity>
         </DrawerContentScrollView>
         <View style={{ backgroundColor: theme.colors.surface }}>
-          <Text style={style.darkModeLabel}>Dark Mode</Text>
+          <Text style={style.darkModeLabel} variant="labelMedium">
+            Dark Mode
+          </Text>
           <Switch
             value={isDarkModeOn}
             style={style.darkLightMode}
@@ -142,7 +154,7 @@ export default function TextDrawer() {
       component={TextList}
       initialParams={{ category: 'All' }}
       options={{
-        drawerLabel: 'All Texts',
+        drawerLabel: SCREENS.home,
         headerShown: true,
         title: SCREENS.home
       }}

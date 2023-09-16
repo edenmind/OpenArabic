@@ -3,7 +3,7 @@ const SCREENS = {
   arabic: 'Read',
   bilingual: 'Read',
   english: 'Eng',
-  home: 'OpenArabic',
+  home: 'Home',
   quiz: 'Practice',
   related: 'More',
   settings: 'Settings',

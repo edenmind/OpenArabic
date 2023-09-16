@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ScrollView, StyleSheet, View, Dimensions } from 'react-native'
-import { Modal, Portal, useTheme } from 'react-native-paper'
+import { StyleSheet, View, Dimensions } from 'react-native'
+import { Modal, Portal, useTheme, Button } from 'react-native-paper'
 
-import { AnswerButton } from '../components/answer-button.js'
-
-const ModalScrollView = ({ content, visible, hideModal, close = 'Close', icon }) => {
+const ModalScrollView = ({ content, visible, hideModal }) => {
   const theme = useTheme()
 
   const styles = StyleSheet.create({
+    closeButton: {
+      alignSelf: 'flex-start'
+    },
     containerStyle: {
+      alignItems: 'center',
+      alignSelf: 'flex-start',
       backgroundColor: theme.colors.background,
-      flex: 1,
       height: Dimensions.get('window').height,
-      justifyContent: 'space-between',
+      padding: 10,
+      paddingTop: 50,
       width: Dimensions.get('window').width
     }
   })
@@ -21,13 +24,13 @@ const ModalScrollView = ({ content, visible, hideModal, close = 'Close', icon })
   return (
     <Portal>
       <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.containerStyle}>
-        <ScrollView style={{ flex: 1 }}>
-          <View>{content}</View>
-        </ScrollView>
-
-        <View>
-          <AnswerButton onPress={hideModal} text={close} icon={icon} />
+        <View style={styles.closeButton}>
+          <Button textColor={theme.colors.outline} onPress={hideModal}>
+            Close
+          </Button>
         </View>
+
+        {content}
       </Modal>
     </Portal>
   )
@@ -36,9 +39,7 @@ const ModalScrollView = ({ content, visible, hideModal, close = 'Close', icon })
 export default ModalScrollView
 
 ModalScrollView.propTypes = {
-  close: PropTypes.string,
   content: PropTypes.any.isRequired,
   hideModal: PropTypes.func.isRequired,
-  icon: PropTypes.string,
   visible: PropTypes.bool.isRequired
 }

@@ -13,7 +13,7 @@ const isTransliterationOnSelector = (state) => state.isTransliterationOn
 const isEngOnSelector = (state) => state.isEngOn
 const isPlayOnSelector = (state) => state.isPlayOn
 
-export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, paddingTop = 0 }) => {
+export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, showAll, paddingBottom = 45 }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -41,23 +41,23 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
     <>
       <ArabicWords sentence={{ arabic, english, words }} currentPlayingWordIndex={currentPlayingWordIndex} />
 
-      {showTransliteration && (
+      {(showTransliteration || showAll) && (
         <Text style={[sharedStyle.englishBody, { color: theme.colors.outline }]} variant="bodyLarge">
           {transliteratedText}
         </Text>
       )}
 
-      {showEng && (
+      {(showEng || showAll) && (
         <Text variant="bodyLarge" style={sharedStyle.englishBody}>
           {english}
         </Text>
       )}
 
-      {showPlay && (
+      {(showPlay || showAll) && (
         <>
-          <Divider style={{ opacity: 0, paddingTop }} />
+          <Divider style={{ opacity: 0 }} />
           <PlaySound audioFileNames={fileNames} onPlayingWord={handlePlayingWord} onFinish={handlePlaybackFinished} />
-          <Divider style={{ opacity: 0, paddingBottom: 45 }} />
+          <Divider style={{ opacity: 0, paddingBottom }} />
         </>
       )}
     </>
@@ -65,7 +65,7 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
 }
 
 EnglishArabic.propTypes = {
-  paddingTop: PropTypes.number,
+  paddingBottom: PropTypes.number,
   sentence: PropTypes.shape({
     arabic: PropTypes.string.isRequired,
     english: PropTypes.string.isRequired,
@@ -75,7 +75,8 @@ EnglishArabic.propTypes = {
         filename: PropTypes.string.isRequired
       })
     )
-  }).isRequired
+  }).isRequired,
+  showAll: PropTypes.bool
 }
 
 export default EnglishArabic

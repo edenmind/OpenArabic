@@ -68,11 +68,7 @@ function Text() {
   }
 
   const renderButton = (label, state, toggleFunc) => (
-    <Button
-      style={{ marginRight: 5 }}
-      textColor={state ? theme.colors.tertiary : theme.colors.outline}
-      onPress={toggleFunc}
-    >
+    <Button textColor={state ? theme.colors.tertiary : theme.colors.onSurfaceDisabled} onPress={toggleFunc}>
       {label}
     </Button>
   )
@@ -120,11 +116,11 @@ function Text() {
         options={() => ({
           headerBackTitle: 'Back',
           headerRight: () => (
-            <View style={{ flexDirection: 'row', marginRight: 10 }}>
-              {renderButton('ENG', isEngOn, () => toggleState(isEngOn, setIsEngOn, 'SET_ENG', 'isEngOn'))}
+            <View style={{ flexDirection: 'row' }}>
               {renderButton('LATIN', isTransliterationOn, () =>
                 toggleState(isTransliterationOn, setIsTransliterationOn, 'SET_TRANSLITERATION', 'isTransliterationOn')
               )}
+              {renderButton('ENG', isEngOn, () => toggleState(isEngOn, setIsEngOn, 'SET_ENG', 'isEngOn'))}
               {renderButton('PLAY', isPlayOn, () => toggleState(isPlayOn, setIsPlayOn, 'SET_PLAY', 'isPlayOn'))}
             </View>
           ),

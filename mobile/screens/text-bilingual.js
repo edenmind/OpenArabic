@@ -80,12 +80,14 @@ export default function TextBilingual({ visible, animateFrom, style }) {
             style={[styles.fabStyle, style, fabStyle]}
           />
         </FadeInView>
+
         <ModalScrollView
           visible={visiblePractice}
           content={<TextPractice />}
-          title={'title'}
-          hideModal={() => setVisiblePractice(false)}
-          titleLanguage="english"
+          hideModal={() => {
+            setVisiblePractice(false)
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+          }}
         />
       </>
     )
