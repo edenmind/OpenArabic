@@ -2,18 +2,19 @@ import 'react-native-gesture-handler'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { ScrollView, View, StyleSheet } from 'react-native'
-import { Button, Divider, Text, useTheme, AnimatedFAB } from 'react-native-paper'
+import { ScrollView, View, StyleSheet, RefreshControl, Share } from 'react-native'
+import { Button, Text, useTheme, AnimatedFAB } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 
 import Heading from './text-bilingual-heading.js'
-import Sentences from './text-bilingual-sentences.js'
 import TextPractice from './text-practice.js'
+import { EnglishArabic } from '../components/english-arabic.js'
 import FadeInView from '../components/fade-in-view.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import Spinner from '../components/spinner.js'
 import { UI } from '../constants/ui.js'
-import { generateTextError, generateShare } from '../services/ui-services.js'
+import { HOST, ENDPOINT } from '../constants/urls.js'
+import { generateTextError } from '../services/ui-services.js'
 import { useSharedStyles } from '../styles/common.js'
 
 const selector = (state) => state.text
@@ -35,6 +36,24 @@ export default function TextBilingual({ visible, animateFrom, style }) {
     }
   })
 
+  const [refreshing, setRefreshing] = useState(false)
+
+  const onRefresh = async () => {
+    setRefreshing(true)
+
+    try {
+      await Share.share({
+        message: `🔗 ${text.title} - ${text.author}`,
+        title: `🔗 ${text.title} - ${text.author}`,
+        url: `${HOST.frontend}/${ENDPOINT.texts}/${text.slug}`
+      })
+    } catch (error) {
+      console.warn('Share Error:', error)
+    }
+
+    setRefreshing(false)
+  }
+
   const [isExtended, setIsExtended] = React.useState(true)
 
   const onScroll = ({ nativeEvent }) => {
@@ -45,7 +64,11 @@ export default function TextBilingual({ visible, animateFrom, style }) {
 
   const fabStyle = { [animateFrom]: 1 }
 
-  const numberOfWordsInText = text?.sentences?.reduce((acc, sentence) => acc + sentence?.words?.length, 0) ?? 0
+  const renderedSentences = text.sentences?.map((sentence, index) => (
+    <View key={index} style={[sharedStyle.container, { marginBottom: 0, marginTop: 0 }]}>
+      <EnglishArabic sentence={sentence} />
+    </View>
+  ))
 
   return textLoading ? getContent() : <Spinner />
 
@@ -53,20 +76,22 @@ export default function TextBilingual({ visible, animateFrom, style }) {
     return (
       <>
         <FadeInView style={{ flex: 1 }}>
-          <ScrollView onScroll={onScroll}>
+          <ScrollView
+            onScroll={onScroll}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+          >
             <Heading heading={text} />
-            <Sentences sentences={text.sentences} />
-            <View style={sharedStyle.container}>
-              <Button onPress={generateShare(text)}>{UI.share}</Button>
-              <Divider style={{ opacity: 0 }} />
+            {renderedSentences}
+            <View style={{ ...sharedStyle.container, paddingBottom: 50, paddingTop: 15 }}>
               <Button onPress={generateTextError(text)} textColor={theme.colors.error}>
                 <Text style={{ color: theme.colors.error }}>{UI.report}</Text>
               </Button>
             </View>
           </ScrollView>
+
           <AnimatedFAB
             icon={'brain'}
-            label={`Practice ${numberOfWordsInText} words`}
+            label={'Practice'}
             extended={isExtended}
             variant="surface"
             onPress={() => {

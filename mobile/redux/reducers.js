@@ -5,7 +5,9 @@ import * as actions from './actions.js'
 const initialStateCategories = { categories: [] }
 const initialStateText = { text: {} }
 const initialStateTexts = { texts: [] }
-const initialStateWords = { words: [] }
+const initialStateWords = {
+  words: []
+}
 const initialStateUI = {
   arabicFontName: 'uthman',
   arabicFontSize: 19,

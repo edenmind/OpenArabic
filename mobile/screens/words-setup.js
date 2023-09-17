@@ -5,7 +5,6 @@ import { ScrollView, View } from 'react-native'
 import { useTheme } from 'react-native-paper'
 import { useDispatch } from 'react-redux'
 
-import WordsSetupDifficultyLevel from './words-setup-difficulty-level.js'
 import { ActionButton } from '../components/action-button.js'
 import { SegmentButtonWithHeader } from '../components/segemented-button.js'
 import { getWords } from '../services/api-service.js'

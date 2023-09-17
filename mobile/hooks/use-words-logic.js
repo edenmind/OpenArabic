@@ -9,20 +9,13 @@ import { generateUniqueRandomNumbers } from '../services/utility-service.js'
 
 const wordsSelector = (state) => state.words
 
-const useWordsLogic = (
-  currentWord,
-  handleSetCurrentWord,
-  handleSetCurrentWordIndex,
-  handleSetCelebrationSnackBarVisibility
-) => {
+const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIndex) => {
   const { words } = useSelector(wordsSelector)
   const { arabic = '', filename = '' } = words[currentWord] ?? {}
   const { playSound } = useAudioPlayer()
 
   const [buttonPositions, setButtonPositions] = useState(generateUniqueRandomNumbers())
-  const [timeoutId, setTimeoutId] = useState()
   const [answeredWrongWords, setAnsweredWrongWords] = useState([])
-  const [soundShouldPlay, setSoundShouldPlay] = useState(true) // Prevent sound from playing after finishing a session
 
   const dispatch = useDispatch()
 
@@ -38,27 +31,9 @@ const useWordsLogic = (
   }, [])
 
   useEffect(() => {
-    if (soundShouldPlay) {
-      const audioURL = `${HOST.audio}${filename}`
-      playSound(audioURL)
-    }
+    const audioURL = `${HOST.audio}${filename}`
+    playSound(audioURL)
   }, [filename])
-
-  const onDismissSnackBar = useCallback(() => {
-    handleSetCelebrationSnackBarVisibility(false)
-  }, [handleSetCelebrationSnackBarVisibility])
-
-  const resetStateForNewWords = useCallback(() => {
-    handleSetCurrentWord(0)
-    handleSetCurrentWordIndex(0)
-    handleSetCelebrationSnackBarVisibility(false)
-    setButtonPositions(generateUniqueRandomNumbers())
-
-    dispatch({
-      type: 'RESET_WORDS'
-    })
-    setSoundShouldPlay(true)
-  }, [dispatch, handleSetCelebrationSnackBarVisibility, handleSetCurrentWord, handleSetCurrentWordIndex])
 
   const correctAnswer = useCallback(() => {
     setButtonPositions(generateUniqueRandomNumbers())
@@ -66,38 +41,15 @@ const useWordsLogic = (
     handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
   }, [handleSetCurrentWord, handleSetCurrentWordIndex])
 
-  //  Use a timeout to keep the celebration snackbar visible for 3 seconds
-  const initiateCelebrationTimeout = useCallback(() => {
-    const id = setTimeout(() => {
-      resetStateForNewWords()
-      dispatch({
-        payload: false,
-        type: 'SET_PRACTICING_WORDS'
-      })
-    }, 3000)
-
-    setTimeoutId(id)
-  }, [dispatch, resetStateForNewWords])
-
   const handleCorrectAnswer = useCallback(() => {
     if (currentWord === words.length - 1) {
-      setSoundShouldPlay(false)
-      handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-      handleSetCelebrationSnackBarVisibility(true)
-      initiateCelebrationTimeout()
+
       return
     }
 
     correctAnswer()
-  }, [
-    correctAnswer,
-    currentWord,
-    handleSetCelebrationSnackBarVisibility,
-    handleSetCurrentWordIndex,
-    initiateCelebrationTimeout,
-    words
-  ])
+  }, [correctAnswer, currentWord, handleSetCurrentWordIndex, words])
 
   const handleWrongAnswer = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
@@ -131,10 +83,7 @@ const useWordsLogic = (
     handleCorrectAnswer,
     handlePressOnWord,
     handleWrongAnswer,
-    onDismissSnackBar,
     playSound,
-    soundShouldPlay,
-    timeoutId,
     words
   }
 }

@@ -22,10 +22,10 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
     <Card.Content>
       <Text
         style={{
-          color: theme.colors.secondary,
+          color: theme.colors.primary,
           fontFamily: 'uthman',
           fontSize: 100,
-          paddingBottom: 15,
+          paddingBottom: 10,
           textAlign: 'center'
         }}
       >
@@ -33,7 +33,7 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
       </Text>
       <Text
         style={{
-          color: theme.colors.tertiary,
+          color: theme.colors.secondary,
           fontFamily: 'philosopher',
           fontSize: 25,
           paddingBottom: 45,

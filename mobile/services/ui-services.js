@@ -2,21 +2,7 @@
 import 'react-native-gesture-handler'
 import * as MailComposer from 'expo-mail-composer'
 import React from 'react'
-import { Share } from 'react-native'
 import { Text } from 'react-native-paper'
-
-import { ENDPOINT, HOST } from '../constants/urls.js'
-export function generateShare(text) {
-  async function shareText() {
-    await Share.share({
-      message: `🔗 ${text.title} - ${text.author}`,
-      title: `🔗 ${text.title} - ${text.author}`,
-      url: `${HOST.frontend}/${ENDPOINT.texts}/${text.slug}`
-    })
-  }
-
-  return shareText
-}
 
 export const calculateFontSize = (arabic) => {
   return arabic?.trim().length > 15 ? 95 : 120

@@ -126,18 +126,60 @@ export const getHijriYear = () => {
   })
 }
 
+const arabicWeekdaysTransliteration = {
+  Sunday: 'al-Ahad',
+  Monday: 'al-Ithnayn',
+  Tuesday: 'al-Thulāthāʼ',
+  Wednesday: 'al-Arbaʻāʼ',
+  Thursday: 'al-Khamīs',
+  Friday: 'al-Jumʻah',
+  Saturday: 'al-Sabt'
+}
+
 export const getHijriDateLatin = () => {
   const hijriDate = new Intl.DateTimeFormat('en-US', {
     calendar: 'islamic',
     day: 'numeric',
     month: 'long',
-    year: 'numeric'
+    year: 'numeric',
+    weekday: 'long'
   }).format(new Date())
 
-  const [day, month, year] = hijriDate.split(' ')
+  // Split by both spaces and commas and filter out any empty results
+  const parts = hijriDate.split(/[\s,]+/).filter(Boolean)
 
-  return `${year} ${day} ${month} ${moonPhaseEmoji(month)}`.replace(/,$/, '').trim()
+  let weekday
+  let day
+  let month
+  let year
+  switch (parts.length) {
+    case 4: {
+      ;[weekday, day, month, year] = parts
+
+      break
+    }
+    case 5: {
+      ;[weekday, day, month, year] = [parts[0], parts[1], parts[3], parts[4]]
+
+      break
+    }
+    case 6: {
+      ;[weekday, day, month, year] = [parts[0], parts[1], `${parts[3]} ${parts[4]}`, parts[5]]
+
+      break
+    }
+    default: {
+      console.error('Unexpected date format:', hijriDate)
+      return ''
+    }
+  }
+
+  // Transliterate the weekday to its Latin equivalent
+  const transliteratedWeekday = arabicWeekdaysTransliteration[weekday] || weekday
+
+  return `${transliteratedWeekday}, ${year} ${day} ${month} ${moonPhaseEmoji(month)}`.replace(/,$/, '').trim()
 }
+
 //replace every letter in a string based on a map defined in the function
 //the service is kept in the mobile codebase to lower the load on the backend
 //the transliterations are not saved since they will regenerate if the code changes

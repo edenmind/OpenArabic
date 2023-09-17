@@ -11,7 +11,6 @@ import { useSharedStyles } from '../styles/common.js'
 
 const isTransliterationOnSelector = (state) => state.isTransliterationOn
 const isEngOnSelector = (state) => state.isEngOn
-const isPlayOnSelector = (state) => state.isPlayOn
 
 export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, showAll, paddingBottom = 45 }) => {
   const theme = useTheme()
@@ -23,11 +22,9 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
 
   const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
   const { isEngOn } = useSelector(isEngOnSelector)
-  const { isPlayOn } = useSelector(isPlayOnSelector)
 
   const showTransliteration = isTransliterationOn === 'on'
   const showEng = isEngOn === 'on'
-  const showPlay = isPlayOn === 'on'
 
   const handlePlayingWord = useCallback((index) => {
     setCurrentPlayingWordIndex(index)
@@ -41,7 +38,7 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
     <>
       <ArabicWords sentence={{ arabic, english, words }} currentPlayingWordIndex={currentPlayingWordIndex} />
 
-      {(showTransliteration || showAll) && (
+      {(showEng || showTransliteration || showAll) && (
         <Text style={[sharedStyle.englishBody, { color: theme.colors.outline }]} variant="bodyLarge">
           {transliteratedText}
         </Text>
@@ -53,7 +50,7 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
         </Text>
       )}
 
-      {(showPlay || showAll) && (
+      {(showEng || showTransliteration || showAll) && (
         <>
           <Divider style={{ opacity: 0 }} />
           <PlaySound audioFileNames={fileNames} onPlayingWord={handlePlayingWord} onFinish={handlePlaybackFinished} />
@@ -78,5 +75,3 @@ EnglishArabic.propTypes = {
   }).isRequired,
   showAll: PropTypes.bool
 }
-
-export default EnglishArabic

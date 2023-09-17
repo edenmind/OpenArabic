@@ -1,15 +1,22 @@
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import { View, FlatList, Pressable } from 'react-native'
-import { Surface, Text, useTheme } from 'react-native-paper'
+import { View, FlatList, Pressable, StyleSheet } from 'react-native'
+import { Surface, Text, useTheme, ProgressBar } from 'react-native-paper'
 
 import { AnswerButton } from '../components/answer-button.js'
-import { Progress } from '../components/progress.js'
 import Spinner from '../components/spinner.js'
-import TakbirCelebrate from '../components/takbir-celebrate.js'
 import { useWordsLogic } from '../hooks/use-words-logic.js'
 import { calculateFontSize } from '../services/ui-services.js'
 import { useSharedStyles } from '../styles/common.js'
+
+const styles = StyleSheet.create({
+  bottomList: {
+    bottom: 25,
+    left: 0,
+    position: 'absolute',
+    right: 0
+  }
+})
 
 const WordsContent = (props) => {
   const theme = useTheme()
@@ -21,15 +28,9 @@ const WordsContent = (props) => {
     buttonPositions,
     handleCorrectAnswer,
     handleWrongAnswer,
-    onDismissSnackBar,
     handlePressOnWord,
     words
-  } = useWordsLogic(
-    props.currentWord,
-    props.handleSetCurrentWord,
-    props.handleSetCurrentWordIndex,
-    props.handleSetCelebrationSnackBarVisibility
-  )
+  } = useWordsLogic(props.currentWord, props.handleSetCurrentWord, props.handleSetCurrentWordIndex)
 
   const fontSize = useMemo(() => calculateFontSize(arabic), [arabic])
 
@@ -51,43 +52,36 @@ const WordsContent = (props) => {
     ].sort((a, b) => a.position - b.position)
   }, [words, props.currentWord, handleCorrectAnswer, handleWrongAnswer, buttonPositions])
 
-  const listHeader = (
+  return (
     <>
-      <Progress progress={props.currentWordIndex / (props.numberOfWordsToPractice + answeredWrongWords.length)} />
       <Surface style={sharedStyle.wordSurface}>
+        <ProgressBar
+          color={theme.colors.tertiary}
+          progress={props.currentWordIndex / (props.numberOfWordsToPractice + answeredWrongWords.length)}
+          style={{ ...sharedStyle.progressBar, width: '100%' }}
+        />
         <View style={sharedStyle.wordCenteredView}>
           <Pressable onPress={handlePressOnWord}>
             <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
           </Pressable>
         </View>
       </Surface>
-      <TakbirCelebrate
-        visible={props.celebrationSnackBarVisibility}
-        onDismissSnackBar={onDismissSnackBar}
-        text="Session Completed Successfully!"
+      <FlatList
+        style={[sharedStyle.wordContainer, styles.bottomList]}
+        data={buttons}
+        renderItem={renderItem}
+        ListEmptyComponent={<Spinner />}
+        keyExtractor={(item) => item.position.toString()}
       />
     </>
-  )
-
-  return (
-    <FlatList
-      style={sharedStyle.wordContainer}
-      data={buttons}
-      renderItem={renderItem}
-      ListEmptyComponent={<Spinner />}
-      keyExtractor={(item) => item.position.toString()}
-      ListHeaderComponent={listHeader}
-    />
   )
 }
 
 export default WordsContent
 
 WordsContent.propTypes = {
-  celebrationSnackBarVisibility: PropTypes.bool.isRequired,
   currentWord: PropTypes.number.isRequired,
   currentWordIndex: PropTypes.number.isRequired,
-  handleSetCelebrationSnackBarVisibility: PropTypes.func.isRequired,
   handleSetCurrentWord: PropTypes.func.isRequired,
   handleSetCurrentWordIndex: PropTypes.func.isRequired,
   numberOfWordsToPractice: PropTypes.number.isRequired

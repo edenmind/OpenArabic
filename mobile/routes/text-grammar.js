@@ -25,7 +25,6 @@ export default function TextGrammar() {
           component={defaultExport}
           options={{
             headerBackTitle: 'Back',
-            headerLargeTitle: false,
             headerShown: true,
             headerStyle: {
               backgroundColor: isDarkModeOn.isDarkMode

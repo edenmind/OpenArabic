@@ -11,7 +11,6 @@ const FONT_WEIGHTS = {
 }
 
 const BASE_MARGIN = 5
-const EXTRA_MARGIN = 33
 const BASE_PADDING = 10
 const EXTRA_PADDING = 75
 
@@ -29,7 +28,7 @@ const englishSelector = (state) => state.englishFontSize
 const arabicFontNameSelector = (state) => state.arabicFontName
 
 export const useSharedStyles = (theme) => {
-  const { primary, tertiary, error, elevation, outline, onSurface, secondary, onPrimary } = theme.colors
+  const { primary, tertiary, error, elevation, onSurface, secondary, onPrimary } = theme.colors
 
   const { arabicFontSize } = useSelector(arabicSelector) || { arabicFontSize: 19 }
   const { englishFontSize } = useSelector(englishSelector) || { englishFontSize: 17 }
@@ -52,16 +51,15 @@ export const useSharedStyles = (theme) => {
         writingDirection: 'rtl'
       },
       arabicDateArabic: {
-        ...getTextStyle(tertiary, 21, 'normal', undefined, 'center'),
+        ...getTextStyle(tertiary, 19, 'normal', undefined, 'center'),
         fontFamily: 'amiri',
         paddingHorizontal: EXTRA_PADDING,
         paddingTop: BASE_PADDING
       },
       arabicDateLatin: {
-        ...getTextStyle(tertiary, 17, 'normal', undefined, 'center'),
+        ...getTextStyle(onSurface, 17, 'normal', undefined, 'left'),
         fontFamily: 'philosopher',
-        paddingBottom: BASE_PADDING,
-        paddingHorizontal: EXTRA_PADDING
+        paddingBottom: BASE_PADDING
       },
       arabicFooter: {
         ...getTextStyle(secondary, 19, 'normal', undefined, 'center'),
@@ -115,7 +113,6 @@ export const useSharedStyles = (theme) => {
         marginRight: BASE_MARGIN,
         paddingBottom: BASE_PADDING * 4
       },
-
       cardTitle: {
         fontFamily: 'philosopher',
         fontSize: 21
@@ -140,7 +137,7 @@ export const useSharedStyles = (theme) => {
         opacity: 0
       },
       englishBody: {
-        ...getTextStyle(outline, englishFontSize * 1.1, 'normal', englishFontSize * 1.5),
+        ...getTextStyle(onSurface, englishFontSize * 1.1, 'normal', englishFontSize * 1.5),
         direction: 'ltr',
         fontFamily: 'philosopher',
         paddingBottom: BASE_PADDING,
@@ -164,6 +161,7 @@ export const useSharedStyles = (theme) => {
       },
       labelText: {
         ...getTextStyle(secondary, 10, '700'),
+        color: theme.colors.tertiary,
         letterSpacing: 0.5
       },
       logoStyle: {
@@ -191,11 +189,10 @@ export const useSharedStyles = (theme) => {
       },
       scrollView: {
         direction: 'rtl',
-        marginLeft: EXTRA_MARGIN,
+        marginLeft: BASE_MARGIN,
         padding: BASE_PADDING,
         writingDirection: 'ltr'
       },
-
       scrollViewLTR: {
         direction: 'ltr',
         padding: BASE_PADDING,
@@ -224,16 +221,13 @@ export const useSharedStyles = (theme) => {
         margin: 10
       },
       wordSurface: {
-        alignItems: 'center',
         backgroundColor: theme.colors.elevation.level0,
-        flex: 1,
-        minHeight: 320
+        height: '100%',
+        width: '100%'
       },
       wordText: {
         fontFamily: 'uthman',
-        paddingBottom: 60,
-        textAlign: 'center',
-        width: '97%'
+        paddingBottom: 200
       }
     })
   }, [
@@ -244,6 +238,7 @@ export const useSharedStyles = (theme) => {
     arabicFontSize,
     arabicFontName,
     tertiary,
+    onSurface,
     error,
     englishFontSize,
     elevation.tertiaryContainer,
@@ -251,11 +246,10 @@ export const useSharedStyles = (theme) => {
     elevation.level5,
     theme.colors.onSurfaceVariant,
     theme.colors.secondary,
+    theme.colors.tertiary,
     theme.colors.elevation.level0,
     theme.colors.elevation.level5,
     theme.colors.outline,
-    theme.colors.onBackground,
-    outline,
-    onSurface
+    theme.colors.onBackground
   ])
 }

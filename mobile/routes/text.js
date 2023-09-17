@@ -21,9 +21,7 @@ function Text() {
   const theme = useTheme()
   const isDarkModeOn = useSelector(darkModeSelector)
 
-  const [isTransliterationOn, setIsTransliterationOn] = React.useState(false)
   const [isEngOn, setIsEngOn] = React.useState(false)
-  const [isPlayOn, setIsPlayOn] = React.useState(false)
 
   useEffect(() => {
     const initSettings = async () => {
@@ -42,15 +40,12 @@ function Text() {
         settings[key] = value || settings[key]
       }
 
-      setIsTransliterationOn(settings.isTransliterationOn === 'on')
       setIsEngOn(settings.isEngOn === 'on')
-      setIsPlayOn(settings.isPlayOn === 'on')
 
       dispatch({ payload: Number(settings.arabicFontSize), type: 'SET_ARABIC_FONT_SIZE' })
       dispatch({ payload: Number(settings.englishFontSize), type: 'SET_ENGLISH_FONT_SIZE' })
       dispatch({ payload: settings.isTransliterationOn, type: 'SET_TRANSLITERATION' })
       dispatch({ payload: settings.isEngOn, type: 'SET_ENG' })
-      dispatch({ payload: settings.isPlayOn, type: 'SET_PLAY' })
       dispatch({ payload: settings.arabicFontName, type: 'SET_ARABIC_FONT_NAME' })
       dispatch({ payload: settings.isDarkModeOn === 'off', type: 'SET_DARK_MODE' })
     }
@@ -68,7 +63,11 @@ function Text() {
   }
 
   const renderButton = (label, state, toggleFunc) => (
-    <Button textColor={state ? theme.colors.tertiary : theme.colors.onSurfaceDisabled} onPress={toggleFunc}>
+    <Button
+      textColor={state ? theme.colors.tertiary : theme.colors.onSurfaceDisabled}
+      onPress={toggleFunc}
+      icon={state ? 'eye' : 'eye-off'}
+    >
       {label}
     </Button>
   )
@@ -117,11 +116,7 @@ function Text() {
           headerBackTitle: 'Back',
           headerRight: () => (
             <View style={{ flexDirection: 'row' }}>
-              {renderButton('LATIN', isTransliterationOn, () =>
-                toggleState(isTransliterationOn, setIsTransliterationOn, 'SET_TRANSLITERATION', 'isTransliterationOn')
-              )}
-              {renderButton('ENG', isEngOn, () => toggleState(isEngOn, setIsEngOn, 'SET_ENG', 'isEngOn'))}
-              {renderButton('PLAY', isPlayOn, () => toggleState(isPlayOn, setIsPlayOn, 'SET_PLAY', 'isPlayOn'))}
+              {renderButton('English', isEngOn, () => toggleState(isEngOn, setIsEngOn, 'SET_ENG', 'isEngOn'))}
             </View>
           ),
           headerShown: true,

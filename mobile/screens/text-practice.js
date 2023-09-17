@@ -13,7 +13,7 @@ import { useSharedStyles } from '../styles/common.js'
 
 const styles = StyleSheet.create({
   bottomView: {
-    bottom: 25,
+    bottom: 50,
     position: 'absolute',
     width: '100%'
   }
@@ -69,7 +69,15 @@ const TextPractice = () => {
           progress={currentSentence / (sentencesInText.length - 1)}
           style={sharedStyle.progressBar}
         />
-        <Surface style={{ backgroundColor: theme.colors.elevation.level0, paddingTop: 25 }}>
+        <Surface
+          style={{
+            backgroundColor: theme.colors.elevation.level0,
+            flex: 1,
+            justifyContent: 'center',
+            minHeight: 400,
+            paddingTop: 25
+          }}
+        >
           {!sentenceIsComplete && renderHighlightedWords()}
         </Surface>
       </ScrollView>

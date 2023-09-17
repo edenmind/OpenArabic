@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import * as Haptics from 'expo-haptics'
 import React, { useState, useEffect, useCallback } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { HOST } from '../constants/urls.js'
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
@@ -24,6 +24,8 @@ function useTextPracticeLogic() {
   const [sentenceIsComplete, setSentenceIsComplete] = useState(false)
   const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = useState(false)
   const { playSound } = useAudioPlayer()
+
+  const dispatch = useDispatch()
 
   // Check if the current word is the last word in the sentence
   useEffect(() => {
@@ -104,7 +106,28 @@ function useTextPracticeLogic() {
   const handlePress = useCallback(
     async (id) => {
       if (id !== currentWord) {
+        const currentEnglishWord = sentencesInText[currentSentence]?.englishWordsUnsorted[currentWord].english
+        const correspondingArabicWord = sentencesInText[currentSentence]?.arabicWords[currentWord].arabic
+
+        const alternatives = sentencesInText[currentSentence]?.englishWords
+          .filter((altWord) => altWord.english !== currentEnglishWord)
+          .slice(0, 2) // Take the first two alternatives.
+          .map((alt) => alt.english)
+
+        const wordInDesiredFormat = {
+          alternative1: alternatives[0],
+          alternative2: alternatives[1],
+          arabic: correspondingArabicWord,
+          english: currentEnglishWord
+        }
+
+        console.log('wordsInDesiredFormat', wordInDesiredFormat)
+
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
+        dispatch({
+          payload: wordInDesiredFormat,
+          type: 'ADD_WORD'
+        })
         return
       }
 
