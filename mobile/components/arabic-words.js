@@ -23,8 +23,8 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
 
   const handleWordSelect = useCallback(
     (filename, wordIndex) => {
-      setSingleWordPressed(true)
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+      setSingleWordPressed(true)
       setSelectedWordIndex((prevIndex) => (prevIndex === wordIndex ? undefined : wordIndex)) // Toggle selection on repeat press
       playSound(filename)
     },

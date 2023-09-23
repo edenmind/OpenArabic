@@ -84,11 +84,6 @@ export const useAudioPlayer = () => {
 
   const stopSound = useCallback(async () => {
     try {
-      if (!sound) return
-
-      const status = await sound.getStatusAsync()
-      if (!status.isLoaded) return
-
       // Always attempt to stop and unload the sound
       await sound.stopAsync()
       await sound.unloadAsync()

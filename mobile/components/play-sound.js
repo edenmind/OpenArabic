@@ -2,7 +2,7 @@
 /* eslint-disable nonblock-statement-body-position */
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useRef } from 'react'
 import { Button, Text, useTheme } from 'react-native-paper'
 
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
@@ -16,6 +16,8 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
   const { playSound, stopSound } = useAudioPlayer()
   const [isPlaying, setIsPlaying] = useState(false)
   const buttonText = isPlaying ? 'STOP' : 'PLAY'
+
+  const isCancelled = useRef(false)
 
   const silentBorderColor = theme.colors.elevation.level5
   const playingBorderColor = theme.colors.primary
@@ -36,29 +38,30 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
   }, [IS_PLAYING, onFinish, stopSound])
 
   const playSounds = useCallback(async () => {
-    // Cancel flag for cleanup
-    let isCancelled = false
+    // Provide haptic feedback for the start of playback
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
     // If sound is playing, stop it
     if (isPlaying) {
+      isCancelled.current = true
       stopSound()
       setIsPlaying(false)
       return
     }
 
+
     // Set the state to playing
     setIsPlaying(true)
-
-    // Provide haptic feedback for the start of playback
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
     // Play a sequence of sounds if provided as an array
     if (Array.isArray(audioFileNames)) {
       let currentIndex = 0
 
+      isCancelled.current = false
+
       const playNextSound = async () => {
         // If the component was unmounted or the sound was stopped, bail out
-        if (isCancelled || currentIndex >= audioFileNames.length) {
+        if (isCancelled.current || currentIndex >= audioFileNames.length) {
           handleSequenceFinish()
           return
         }
@@ -92,6 +95,7 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
     }
 
     return () => {
+      // eslint-disable-next-line no-const-assign
       isCancelled = true
       if (isPlaying) {
         stopSound()

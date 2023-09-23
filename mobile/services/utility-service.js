@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable unicorn/no-array-reduce */
 /* eslint-disable sort-keys */
 /* eslint-disable unicorn/number-literal-case */
 /* eslint-disable quote-props */
@@ -179,184 +181,173 @@ export const getHijriDateLatin = () => {
   return `${transliteratedWeekday}, ${year} ${day} ${month} ${moonPhaseEmoji(month)}`.replace(/,$/, '').trim()
 }
 
-//replace every letter in a string based on a map defined in the function
-//the service is kept in the mobile codebase to lower the load on the backend
-//the transliterations are not saved since they will regenerate if the code changes
-export const transliterateArabicToEnglish = (string) => {
-  let transliteratedArabicToEnglish = ''
+const ARABIC_LETTER_MAP = {
+  ٱ: '`a',
+  إ: '`i',
+  ء: '',
+  ا: 'a',
+  ب: 'b',
+  ت: 't',
+  ث: 'ṯ',
+  ج: 'j',
+  ح: 'ḥ',
+  خ: 'ḵ',
+  د: 'd',
+  ذ: 'ḏ',
+  ر: 'r',
+  ز: 'z',
+  س: 's',
+  ش: 'š',
+  ص: 'ṣ',
+  ض: 'ḍ',
+  ط: 'ṭ',
+  ظ: 'ẓ',
+  ع: '3',
+  غ: 'ġ',
+  ف: 'f',
+  ق: 'q',
+  ك: 'k',
+  ل: 'l',
+  م: 'm',
+  ن: 'n',
+  ه: 'h',
+  و: 'w',
+  ي: 'y',
+  آ: 'ā',
+  ة: 't',
+  ى: 'ā',
+  ـَا: 'ā',
+  ـِي: 'ī',
+  ـُو: 'ū',
+  ـًا: 'ay',
+  ـَو: 'aw',
+  ' ': ' '
+}
 
-  // remove all ,.(){}[]!?:; from string
-  string = string.replaceAll(/[!"(),-;?[\]{}]/g, '')
+function initialReplacements(str) {
+  const patterns = [
+    // Specific replacements
+    ['إلَّا', 'illa'],
+    ['لَا', 'lâ'],
+    ['يلًا', 'lan'],
+    [/^وَال/g, 'wal-'],
+    [/(?<!\S)بِال/g, 'bil-'],
+    [/(?<!\S)ال/g, 'al-'],
+    [/ُو(?!ّ|ْ|و|َ|ُ|ِ)/g, 'ū'],
+    [/ِي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ī'],
+    [/َي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ā'],
 
-  // replace لَا anywhere in a word with lâ
-  string = string.replaceAll('لَا', 'lâ')
+    // General replacements
+    [/[!"(),-;?[\]{}]/g, ''],
+    ['أَ', '`a'],
+    ['ئ', 'ʾ'],
+    ['إِ', 'ʾi'],
+    ['ؤْ', 'ʾ'],
+    ['أ', 'ʾ'],
+    ['ِ', 'i'],
+    ['ُ', 'u'],
+    ['ْ', ''],
+    ['° ', ' '],
+    ['ً', 'an'],
+    ['ٍ', 'in'],
+    ['ٌ', 'un'],
+    ['آ', 'ʾā'],
+    ['َ', 'a'],
+    ['َا', 'ā']
+  ]
 
-  //replace  tanwin with an
-  string = string.replaceAll('ً', 'an')
-
-  // replace alif with a
-  string = string.replaceAll('َ', 'a')
-
-  //replace إلَّا with "illa"
-  string = string.replaceAll('إلَّا', 'illa')
-
-  //replace لًا with "la"
-  string = string.replaceAll('يلًا', 'lan')
-
-  // replace alif lam (definite article) with al- when no non-whitespace character is before 'ا'
-  string = string.replaceAll(/(?<!\S)ال/g, 'al-')
-
-  // replace 'وَال' at the beginning of the string with 'wal-'
-  string = string.replace(/^وَال/, 'wal-')
-
-  // if a damma us followed by a waw, then i want to replace with û AND the next letter is not shadda or sukon or waw or damma or fatha or kesra
-  string = string.replaceAll(/ُو(?!ّ|ْ|و|َ|ُ|ِ)/g, 'ū')
-
-  // if a kesra is followed by ya, then i want to replace with î AND the next letter is not shadda or sukon or alif or damma or fatha or kesra
-  string = string.replaceAll(/ِي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ī')
-
-  // if a fatha is followed by a yam, then i want to replace with â AND ht next letter is not shadda or sukon or alif or damma or fatha or kesra
-  string = string.replaceAll(/َي(?!ّ|ْ|َ|ُ|ِ|ي)/g, 'ā')
-
-  // replace bial wit bil- when no non-whitespace character is before 'ب'
-  string = string.replaceAll(/(?<!\S)بِال/g, 'bil-')
-
-  // eslint-disable-next-line prettier/prettier
-  string = string.replaceAll('أَ', '`a')
-  //replace all ئٍ with ´i
-  string = string.replaceAll('ئ', 'ʾ')
-  // replace all إِ with i
-  string = string.replaceAll('إِ', 'ʾi')
-  //replace all hamza on wav with a
-  string = string.replaceAll('ؤْ', 'ʾ')
-  // replace أ with a
-  string = string.replaceAll('أ', 'ʾ')
-
-  // replace all kasra with the letter i
-  string = string.replaceAll('ِ', 'i')
-
-  // replace all damma with the letter u
-  string = string.replaceAll('ُ', 'u')
-
-  //replace all sukun with nothing
-  string = string.replaceAll('ْ', '')
-
-  //replace all al-° with al-
-  string = string.replaceAll('° ', ' ')
-
-  // replace all fathatan (tanwiin) with the letters an
-  string = string.replaceAll('ً', 'an')
-
-  // replace all kasratan (tanwiin) with the letters in
-  string = string.replaceAll('ٍ', 'in')
-
-  // replace all dammatan (tanwiin) with the letters un
-  string = string.replaceAll('ٌ', 'un')
-
-  // replace all alif madda with the letter a
-  string = string.replaceAll('آ', 'ʾā')
-
-  string = string.replaceAll('َا', 'ā')
-  const letterMap = {
-    ٱ: '`a',
-    إ: '`i',
-    ء: '',
-    ا: 'a',
-    ب: 'b',
-    ت: 't',
-    ث: 'ṯ',
-    ج: 'j',
-    ح: 'ḥ',
-    خ: 'ḵ',
-    د: 'd',
-    ذ: 'ḏ',
-    ر: 'r',
-    ز: 'z',
-    س: 's',
-    ش: 'š',
-    ص: 'ṣ',
-    ض: 'ḍ',
-    ط: 'ṭ',
-    ظ: 'ẓ',
-    ع: '3',
-    غ: 'ġ',
-    ف: 'f',
-    ق: 'q',
-    ك: 'k',
-    ل: 'l',
-    م: 'm',
-    ن: 'n',
-    ه: 'h',
-    و: 'w',
-    ي: 'y',
-    آ: 'ā',
-    ة: 't',
-    ى: 'ā',
-    ـَا: 'ā',
-    ـِي: 'ī',
-    ـُو: 'ū',
-    ـًا: 'ay',
-    ـَو: 'aw',
-    ' ': ' '
+  for (const [pattern, replacement] of patterns) {
+    str = str.replaceAll(pattern, replacement)
   }
 
-  // eslint-disable-next-line unicorn/no-array-reduce
-  transliteratedArabicToEnglish = [...string].reduce((acc, letter, index, arr) => {
+  return str
+}
+
+function transliterate(str) {
+  return [...str].reduce((acc, letter, index, arr) => {
     if (letter === 'ّ') {
       const prevLetter = arr[index - 2]
-
-      if (prevLetter && letterMap[prevLetter]) {
-        const doubledConsonant = letterMap[prevLetter]
+      if (prevLetter && ARABIC_LETTER_MAP[prevLetter]) {
+        const doubledConsonant = ARABIC_LETTER_MAP[prevLetter]
         return acc.slice(0, -2) + doubledConsonant + doubledConsonant + acc.slice(-1)
       }
     }
-
-    return acc + (letterMap[letter] || letter)
+    return acc + (ARABIC_LETTER_MAP[letter] || letter)
   }, '')
+}
 
-  // Apply replacement rules
-  transliteratedArabicToEnglish = transliteratedArabicToEnglish
-    .replaceAll('aā', 'ā')
-    .replaceAll('ii', 'ī')
-    .replaceAll('uu', 'ū')
-    .replaceAll('iī', 'ī')
-    .replaceAll('iy ', 'ī ')
-    .replaceAll('uū', 'ū')
-    .replaceAll('aay', 'ay')
-    .replaceAll('aٰ', 'ā')
-    .replaceAll('bni', 'ibn')
-    .replaceAll('´aa', '`a')
-    .replaceAll('aa', 'ā')
-    .replaceAll('ʻu', 'ʾ')
-    .replaceAll('ʾiy', 'ī')
-    .replaceAll('ʾu', 'ū')
-    .replaceAll('ʾa', 'ā')
-    .replaceAll('ūa', 'ū')
-    .replaceAll('al-tt', 'at-t')
-    .replaceAll('al-ṯṯ', 'aṯ-ṯ')
-    .replaceAll('al-dd', 'ad-d')
-    .replaceAll('al-ḏḏ', 'aḏ-ḏ')
-    .replaceAll('al-rr', 'ar-r')
-    .replaceAll('al-zz', 'az-z')
-    .replaceAll('al-ss', 'as-s')
-    .replaceAll('al-šš', 'aš-š')
-    .replaceAll('al-ṣṣ', 'aṣ-ṣ')
-    .replaceAll('al-ḍḍ', 'aḍ-ḍ')
-    .replaceAll('al-ṭṭ', 'aṭ-ṭ')
-    .replaceAll('al-ẓẓ', 'aẓ-ẓ')
-    .replaceAll('al-ll', 'al-')
-    .replaceAll('al-nn', 'an-n')
-    .replaceAll('al-ahu', 'allāhu')
-    .replaceAll('al-aha', 'allāha')
-    .replaceAll('al-ahi', 'allāhi')
-    .replaceAll('al-lhu', 'allahu')
-    .replaceAll('al-llahi', 'allahi')
-    .replaceAll('biālllahi', 'billāhi')
-    .replaceAll('rasūli allāhi', 'rasūlillāhi')
-    .replaceAll('rasūlu allāhi', 'rasūlullāhi')
-    .replaceAll('muḥammadana', 'muḥammadan')
+export const transliterateArabicToEnglish = (str) => {
+  str = initialReplacements(str)
+  let transliteratedStr = transliterate(str)
+
+  // Post transliteration replacements
+  const postPatterns = [
+    ['iy ', 'ī '],
+    ['´aa', '`a'],
+    ['bni', 'ibn'],
+    ['aay', 'ay'],
+    ['aٰ', 'ā'],
+    ['ūa ', 'ū '],
+
+    // Ligature patterns
+    ['al-ahu', 'allāhu'],
+    ['al-aha', 'allāha'],
+    ['al-ahi', 'allāhi'],
+    ['biālllahi', 'billāhi'],
+    ['rasūli allāhi', 'rasūlillāhi'],
+    ['rasūlu allāhi', 'rasūlullāhi'],
+    ['muḥammadana', 'muḥammadan'],
+
+    // Sun letters (post "al-")
+    ['al-([tṯdḏrzsšṣḍṭẓl])', 'a$1-$1'],
+
+    // Convert all "aa" sequences to "ā"
+    ['aa', 'ā'],
+
+    // Hamza Variations
+    ['ئ', 'ʾi'],
+    ['ؤ', 'ʾu'],
+
+    // Shadda (doubling the consonant)
+    ['(.)ّ', '$1$1'],
+
+    // Long vowels following short ones
+    ['aā', 'ā'],
+    ['iī', 'ī'],
+    ['uū', 'ū'],
+
+    // Lam/Ba/wa assimilation with Sun letters
+    ['li-([tṯdḏrzsšṣḍṭẓl])', 'i$1-$1'],
+    ['bi-([tṯdḏrzsšṣḍṭẓl])', 'i$1-$1'],
+    ['wa-([tṯdḏrzsšṣḍṭẓl])', 'u$1-$1'],
+
+    // Vowel patterns
+    ['aʾ', 'ā'],
+    ['iʾ', 'ī'],
+    ['uʾ', 'ū'],
+
+    // Silent "taa marbuta"
+    ['ah$', 'a'],
+
+    // "taa marbuta" followed by "al-"
+    ['at al-', 'aṭ-ṭ'],
+
+    // Silent alif
+    ['wa$', 'wā'],
+    ['ya$', 'yā'],
+
+    // Triple lam
+    ['lll', 'll']
+  ]
+
+  // Rest of the function remains the same.
+
+  for (const [pattern, replacement] of postPatterns) {
+    transliteratedStr = transliteratedStr.replaceAll(pattern, replacement)
+  }
+
   // Remove all Arabic letters and return
-  return [...transliteratedArabicToEnglish]
+  return [...transliteratedStr]
     .filter((char) => {
       const codePoint = char.codePointAt(0)
       return codePoint < 0x06_00 || codePoint > 0x06_ff

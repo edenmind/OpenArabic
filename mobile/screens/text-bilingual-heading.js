@@ -59,6 +59,6 @@ TextBilingualHeading.propTypes = {
     title: PropTypes.string.isRequired,
     views: PropTypes.string.isRequired
   }),
-  imageHeight: PropTypes.number,
+  imageHeight: PropTypes.object.isRequired,
   scrollY: PropTypes.object.isRequired
 }

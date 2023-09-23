@@ -73,7 +73,9 @@ export default function TextList({ route, navigation }) {
       style={{
         ...sharedStyle.container,
         alignItems: 'center',
+        borderColor: theme.colors.border,
         borderRadius: 10,
+        borderWidth: 1,
         flexDirection: 'row',
         marginBottom: 5
       }}
@@ -103,18 +105,13 @@ export default function TextList({ route, navigation }) {
       return <TextCategoryIntro text={categoryDescription} />
     }
 
-    if (numberOfPracticeWords > 0) {
-      return (
-        <>
-          <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
-          <CustomSurface showButton={true}>
-            <Text variant="labelMedium">You have {pluralize(numberOfPracticeWords, 'word')} to review.</Text>
-          </CustomSurface>
-        </>
-      )
-    }
-
-    return <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
+    return numberOfPracticeWords > 0 ? (
+      <CustomSurface showButton={true}>
+        <Text variant="labelMedium">You have {pluralize(numberOfPracticeWords, 'word')} to review.</Text>
+      </CustomSurface>
+    ) : (
+      <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
+    )
   }, [categoryDescription, numberOfPracticeWords, sharedStyle.arabicDateLatin])
 
   return textsLoading ? (

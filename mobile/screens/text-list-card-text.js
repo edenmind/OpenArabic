@@ -25,12 +25,12 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
       <Card.Cover source={{ uri: text.image }} />
       <Card.Title
         title={text.title}
-        subtitle={`${text.author} • ${text.category}`}
+        subtitle={text.author}
         titleStyle={{ ...sharedStyle.cardTitle }}
         right={() => <CategoryChip category={`${numberOfWordsInText} words`} />}
       />
       <Card.Content>
-        <Text variant="labelLarge">
+        <Text variant="bodyMedium">
           OpenArabic is a complimentary and open-source platform dedicated to the learning of the Arabic language.
         </Text>
         <Divider style={{ ...sharedStyle.dividerHidden, marginBottom: 5 }} />
