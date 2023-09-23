@@ -8,6 +8,10 @@ export const calculateFontSize = (arabic) => {
   return arabic?.trim().length > 15 ? 95 : 120
 }
 
+export const pluralize = (number, word) => {
+  return number === 1 ? `${number} ${word}` : `${number} ${word}s`
+}
+
 // give me a function that capitalizes all letters in a title
 export const prepareTitle = (title) => {
   const words = title.trim().split(' ')

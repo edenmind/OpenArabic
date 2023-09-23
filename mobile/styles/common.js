@@ -57,9 +57,9 @@ export const useSharedStyles = (theme) => {
         paddingTop: BASE_PADDING
       },
       arabicDateLatin: {
-        ...getTextStyle(onSurface, 17, 'normal', undefined, 'left'),
+        ...getTextStyle(onSurface, 17, 'normal', undefined, 'center'),
         fontFamily: 'philosopher',
-        paddingBottom: BASE_PADDING
+        paddingTop: BASE_PADDING
       },
       arabicFooter: {
         ...getTextStyle(secondary, 19, 'normal', undefined, 'center'),

@@ -4466,13 +4466,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios-retry@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "axios-retry@npm:3.7.0"
+"axios-retry@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "axios-retry@npm:3.8.0"
   dependencies:
     "@babel/runtime": ^7.15.4
     is-retry-allowed: ^2.2.0
-  checksum: ef34b50a86b5cd65ce2bf933aaed422ffb1a17b8fe11a53e444437fb42be400b48271d1ff9fd23a051627b7f3b33bebdeb1d66556aae04d5d6bfbe57fecdfb64
+  checksum: 448d951b971ccd35eaedc0f10ff1129a6bf2b3dfe13ce57749809bd37975332ae0e906ea4e67a41c9c98215bb1bf8a554e6880f1272419c758f91e4d68ca6b55
   languageName: node
   linkType: hard
 
@@ -6923,9 +6923,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:^49.0.10":
-  version: 49.0.10
-  resolution: "expo@npm:49.0.10"
+"expo@npm:^49.0.11":
+  version: 49.0.11
+  resolution: "expo@npm:49.0.11"
   dependencies:
     "@babel/runtime": ^7.20.0
     "@expo/cli": 0.10.12
@@ -6949,7 +6949,7 @@ __metadata:
     uuid: ^3.4.0
   bin:
     expo: bin/cli
-  checksum: 22750da3cda7f616d2c9eea19619a6e0130d624cd4f19301ace3478bd88700a7b4f904e933ed07ffc3b192cdabd2426df217b629072e9d830175fb7308849df3
+  checksum: ab07ecedd9cf7a2741998af64b00da7e461bae6b6e4d9996c6975e2b77caee4637129486364d6b15d6244974e17a8d000a5ec86709496c32ec38eb63e7f28b60
   languageName: node
   linkType: hard
 
@@ -10538,7 +10538,7 @@ __metadata:
     "@types/jest": ^29.5.3
     axios: ^1.5.0
     axios-mock-adapter: ^1.21.5
-    axios-retry: ^3.7.0
+    axios-retry: ^3.8.0
     deepmerge: ^4.3.1
     eslint: ^8.49.0
     eslint-config-prettier: ^9.0.0
@@ -10550,7 +10550,7 @@ __metadata:
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.7.1
     eslint-plugin-unicorn: ^48.0.1
-    expo: ^49.0.10
+    expo: ^49.0.11
     expo-application: ~5.3.1
     expo-av: ~13.6.0
     expo-constants: ~14.4.2
@@ -10573,7 +10573,7 @@ __metadata:
     react-native-error-boundary: ^1.2.3
     react-native-gesture-handler: ~2.12.1
     react-native-pager-view: 6.2.0
-    react-native-paper: 5.10.4
+    react-native-paper: 5.10.6
     react-native-reanimated: ~3.3.0
     react-native-safe-area-context: 4.6.3
     react-native-screens: ~3.22.0
@@ -11833,9 +11833,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:5.10.4":
-  version: 5.10.4
-  resolution: "react-native-paper@npm:5.10.4"
+"react-native-paper@npm:5.10.6":
+  version: 5.10.6
+  resolution: "react-native-paper@npm:5.10.6"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.9
     color: ^3.1.2
@@ -11845,7 +11845,7 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: "*"
     react-native-vector-icons: "*"
-  checksum: 28662d669b728601e7998be3a9488e3b8cf81b0a8cbe4cdc499bb88eac3de872ed5f05f94b14c905d56f3db3e9316eee696b317860e168cd0a52b90f38025cb2
+  checksum: 6793a0ad54ad64894fc6b3d8a2f86c06a4cd553d38d1d22776f04cc9991e33cab83cc01c2ecd600356cd5f0ea7b847660ca1487432a09f772adadc33b0fa4edf
   languageName: node
   linkType: hard
 

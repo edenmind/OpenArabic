@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as Haptics from 'expo-haptics'
 import React, { useEffect } from 'react'
-import { View } from 'react-native'
 import { useTheme, Button } from 'react-native-paper'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -114,11 +113,8 @@ function Text() {
         component={SimpleText}
         options={() => ({
           headerBackTitle: 'Back',
-          headerRight: () => (
-            <View style={{ flexDirection: 'row' }}>
-              {renderButton('English', isEngOn, () => toggleState(isEngOn, setIsEngOn, 'SET_ENG', 'isEngOn'))}
-            </View>
-          ),
+          headerRight: () =>
+            renderButton('English', isEngOn, () => toggleState(isEngOn, setIsEngOn, 'SET_ENG', 'isEngOn')),
           headerShown: true,
           headerStyle: {
             backgroundColor: theme.colors.background,

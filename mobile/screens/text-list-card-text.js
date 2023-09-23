@@ -25,7 +25,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
       <Card.Cover source={{ uri: text.image }} />
       <Card.Title
         title={text.title}
-        subtitle={text.author}
+        subtitle={`${text.author} • ${text.category}`}
         titleStyle={{ ...sharedStyle.cardTitle }}
         right={() => <CategoryChip category={`${numberOfWordsInText} words`} />}
       />

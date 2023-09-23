@@ -72,6 +72,10 @@ const wordsReducer = createReducer(initialStateWords, (builder) => {
     .addCase(actions.RESET_WORDS, () => {
       return { ...initialStateWords }
     })
+    .addCase(actions.REMOVE_WORD, (state, action) => {
+      const arabicToRemove = action.payload
+      state.words = state.words.filter((word) => word.arabic !== arabicToRemove)
+    })
 })
 
 const textReducer = createReducer(initialStateText, (builder) => {

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import * as Haptics from 'expo-haptics'
-import { useState, useCallback, useEffect, useRef } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { HOST } from '../constants/urls.js'
@@ -11,80 +11,51 @@ const wordsSelector = (state) => state.words
 
 const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIndex) => {
   const { words } = useSelector(wordsSelector)
-  const { arabic = '', filename = '' } = words[currentWord] ?? {}
   const { playSound } = useAudioPlayer()
 
   const [buttonPositions, setButtonPositions] = useState(generateUniqueRandomNumbers())
-  const [answeredWrongWords, setAnsweredWrongWords] = useState([])
 
   const dispatch = useDispatch()
 
-  const timeoutIdRef = useRef()
+  const [localWords, setLocalWords] = useState(words)
 
   useEffect(() => {
-    return () => {
-      if (timeoutIdRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        clearTimeout(timeoutIdRef.current)
-      }
-    }
-  }, [])
+    setLocalWords(words)
+  }, []) // Empty dependency array ensures this runs once when the component is mounted.
 
   useEffect(() => {
-    const audioURL = `${HOST.audio}${filename}`
+    const audioURL = `${HOST.audio}${localWords[currentWord].filename}`
     playSound(audioURL)
-  }, [filename])
-
-  const correctAnswer = useCallback(() => {
-    setButtonPositions(generateUniqueRandomNumbers())
-    handleSetCurrentWord((currentWord) => currentWord + 1)
-    handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
-  }, [handleSetCurrentWord, handleSetCurrentWordIndex])
+  }, [localWords[currentWord].filename])
 
   const handleCorrectAnswer = useCallback(() => {
-    if (currentWord === words.length - 1) {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
-
-      return
-    }
-
-    correctAnswer()
-  }, [correctAnswer, currentWord, handleSetCurrentWordIndex, words])
-
-  const handleWrongAnswer = useCallback(() => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
-
-    const currentWordArabic = words[currentWord].arabic
-
-    if (answeredWrongWords.includes(currentWordArabic)) {
-      return
-    }
-
-    //add the word to the wrongAnswerAlreadyAdded array so that we don't add it again
-    setAnsweredWrongWords((prevWrongAnswerAlreadyAdded) => [...prevWrongAnswerAlreadyAdded, currentWordArabic])
-
-    // add the wrong answer so that we can practice it again
+    handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
     dispatch({
-      payload: words[currentWord],
-      type: 'ADD_WORD'
+      payload: localWords[currentWord].arabic,
+      type: 'REMOVE_WORD'
     })
-  }, [answeredWrongWords, currentWord, dispatch, words])
+
+    if (currentWord === localWords.length - 1) {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+      return
+    }
+    setButtonPositions(generateUniqueRandomNumbers())
+    handleSetCurrentWord((currentWord) => currentWord + 1)
+  }, [currentWord])
 
   const handlePressOnWord = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-    playSound(`${HOST.audio}${filename}`)
-  }, [filename, playSound])
+    playSound(`${HOST.audio}${localWords[currentWord].filename}`)
+  }, [localWords[currentWord].filename, playSound])
 
   return {
-    answeredWrongWords,
-    arabic,
+    arabic: localWords[currentWord].arabic,
     buttonPositions,
-    filename,
+    filename: localWords[currentWord].filename,
     handleCorrectAnswer,
     handlePressOnWord,
-    handleWrongAnswer,
-    playSound,
-    words
+    localWords,
+    playSound
   }
 }
 

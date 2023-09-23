@@ -159,8 +159,7 @@ export const getHijriDateLatin = () => {
       break
     }
     case 5: {
-      ;[weekday, day, month, year] = [parts[0], parts[1], parts[3], parts[4]]
-
+      ;[weekday, day, month, year] = [parts[0], parts[1], `${parts[2]} ${parts[3]}`, parts[4]]
       break
     }
     case 6: {

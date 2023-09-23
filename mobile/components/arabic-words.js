@@ -1,69 +1,71 @@
 import 'react-native-gesture-handler'
-import { Audio } from 'expo-av'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect, useCallback } from 'react'
-import { View, StyleSheet } from 'react-native'
-import { useTheme } from 'react-native-paper'
+import React, { useState, useCallback, useEffect } from 'react'
+import { Platform, View, StyleSheet } from 'react-native'
+import { useTheme, Text, Button } from 'react-native-paper'
 
-import { ArabicWordButton } from './arabic-words-button.js'
+import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function ArabicWords({ sentence: { words }, currentPlayingWordIndex }) {
-  const [sound, setSound] = useState()
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const [selectedWordIndex, setSelectedWordIndex] = useState()
+  const [singleWordPressed, setSingleWordPressed] = useState(false)
 
-  const playSound = useCallback(async (filename) => {
-    const { sound: newSound } = await Audio.Sound.createAsync(
-      { uri: filename },
-      {
-        isLooping: false,
-        isMuted: false,
-        rate: 1,
-        shouldCorrectPitch: false,
-        shouldPlay: true,
-        volume: 1
-      }
-    )
-
-    setSound(newSound)
-    await Audio.setAudioModeAsync({
-      playsInSilentModeIOS: true
-    })
-    await newSound.playAsync()
-  }, [])
+  const { playSound } = useAudioPlayer()
 
   useEffect(() => {
-    return sound
-      ? () => {
-          sound.unloadAsync()
-        }
-      : undefined
-  }, [sound])
+    setSelectedWordIndex()
+    setSingleWordPressed(false)
+  }, [currentPlayingWordIndex])
+
+  const handleWordSelect = useCallback(
+    (filename, wordIndex) => {
+      setSingleWordPressed(true)
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+      setSelectedWordIndex((prevIndex) => (prevIndex === wordIndex ? undefined : wordIndex)) // Toggle selection on repeat press
+      playSound(filename)
+    },
+    [playSound]
+  )
 
   return (
     <View style={styles.container}>
-      {words.map((word, wordIndex) => (
-        <ArabicWordButton
-          key={wordIndex}
-          word={word}
-          isSelected={currentPlayingWordIndex === wordIndex || selectedWordIndex === wordIndex}
-          theme={theme}
-          sharedStyle={sharedStyle}
-          onSelect={() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-            setSelectedWordIndex(wordIndex)
-            playSound(word.filename)
-          }}
-        />
-      ))}
+      {words.map((word, wordIndex) => {
+        const isSelected =
+          (currentPlayingWordIndex === wordIndex && !singleWordPressed) || selectedWordIndex === wordIndex
+        const backgroundColor = isSelected ? theme.colors.tertiary : theme.colors.elevation.level0
+        const textColor = isSelected ? theme.colors.tertiary : theme.colors.secondary
+        const lineHeight = Platform.OS === 'android' ? 90 : 55
+
+        const textStyles = [
+          sharedStyle.arabicBody,
+          styles.text,
+          {
+            color: textColor,
+            lineHeight
+          }
+        ]
+
+        return (
+          <Button style={styles.button} onPress={() => handleWordSelect(word.filename, wordIndex)} key={wordIndex}>
+            <View style={{ borderBottomColor: backgroundColor, borderBottomWidth: 3 }}>
+              <Text style={textStyles}>{word.arabic}</Text>
+            </View>
+          </Button>
+        )
+      })}
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  button: {
+    marginBottom: -10,
+    marginHorizontal: -8
+  },
   container: {
     flexDirection: 'row-reverse',
     flexWrap: 'wrap',

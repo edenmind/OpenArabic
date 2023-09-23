@@ -7,6 +7,8 @@ export const useAudioPlayer = () => {
   const [sound, setSound] = useState(null)
   const [isSoundLoaded, setIsSoundLoaded] = useState(false)
 
+  let currentRequestId = 0
+
   useEffect(() => {
     const cleanupSound = () => {
       if (sound) {
@@ -38,6 +40,9 @@ export const useAudioPlayer = () => {
       // return if audioFileName does not end with .mp3
       if (!audioFileName.endsWith('.mp3')) return
 
+      currentRequestId++
+      const thisRequestId = currentRequestId
+
       try {
         const audioSettings = {
           interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
@@ -48,7 +53,6 @@ export const useAudioPlayer = () => {
           isPlaybackAllowed: true,
           playsInSilentModeIOS: true,
           rate: 1,
-          shouldCorrectPitch: true,
           shouldPlay: true,
           volume: 1
         }
@@ -58,6 +62,12 @@ export const useAudioPlayer = () => {
           audioSettings,
           onDidFinishCallback
         )
+
+        if (thisRequestId !== currentRequestId) {
+          // Another sound request was made while this was loading, so ignore this one
+          await audioSound.unloadAsync()
+          return
+        }
 
         setSound(audioSound)
         setIsSoundLoaded(true)
@@ -70,20 +80,26 @@ export const useAudioPlayer = () => {
         console.error('Error playing:', error)
       }
     },
-    [sound]
+    [currentRequestId, sound]
   )
 
   const stopSound = useCallback(async () => {
-    if (!sound) return
+    try {
+      if (!sound) return
 
-    const status = await sound.getStatusAsync()
-    if (!status.isLoaded) return
+      const status = await sound.getStatusAsync()
+      if (!status.isLoaded) return
 
-    await sound.stopAsync()
-    await sound.unloadAsync()
+      // Always attempt to stop and unload the sound
+      await sound.stopAsync()
+      await sound.unloadAsync()
 
-    setSound(null)
-    setIsSoundLoaded(false)
+      sound.setOnPlaybackStatusUpdate(null)
+      setSound(null)
+      setIsSoundLoaded(false)
+    } catch (error) {
+      console.log('Error stopping sound (stringified):', JSON.stringify(error))
+    }
   }, [sound])
 
   const isLoaded = useCallback(() => {

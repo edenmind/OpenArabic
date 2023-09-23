@@ -118,10 +118,9 @@ function useTextPracticeLogic() {
           alternative1: alternatives[0],
           alternative2: alternatives[1],
           arabic: correspondingArabicWord,
-          english: currentEnglishWord
+          english: currentEnglishWord,
+          filename: sentencesInText[currentSentence]?.wordFilename[currentWord]
         }
-
-        console.log('wordsInDesiredFormat', wordInDesiredFormat)
 
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
         dispatch({

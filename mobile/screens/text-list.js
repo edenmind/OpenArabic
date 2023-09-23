@@ -14,6 +14,7 @@ import ModalScrollView from '../components/modal-scroll-view.js'
 import Spinner from '../components/spinner.js'
 import TextCategoryIntro from '../components/text-category-intro.js'
 import * as api from '../services/api-service.js'
+import { pluralize } from '../services/ui-services.js'
 import { getHijriDateLatin } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
@@ -86,7 +87,7 @@ export default function TextList({ route, navigation }) {
             setVisiblePractice(true)
           }}
         >
-          Review
+          Practice
         </Button>
       )}
     </Surface>
@@ -104,19 +105,16 @@ export default function TextList({ route, navigation }) {
 
     if (numberOfPracticeWords > 0) {
       return (
-        <CustomSurface showButton={true}>
+        <>
           <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
-          <Text variant="labelMedium">You have {numberOfPracticeWords} words to review.</Text>
-        </CustomSurface>
+          <CustomSurface showButton={true}>
+            <Text variant="labelMedium">You have {pluralize(numberOfPracticeWords, 'word')} to review.</Text>
+          </CustomSurface>
+        </>
       )
     }
 
-    return (
-      <CustomSurface>
-        <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
-        <Text variant="labelMedium">All Done! You have 0 words to review.</Text>
-      </CustomSurface>
-    )
+    return <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
   }, [categoryDescription, numberOfPracticeWords, sharedStyle.arabicDateLatin])
 
   return textsLoading ? (
@@ -141,8 +139,8 @@ export default function TextList({ route, navigation }) {
         visible={visiblePractice}
         content={<Words />}
         hideModal={() => {
-          setVisiblePractice(false)
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+          setVisiblePractice(false)
         }}
       />
     </>
