@@ -45,7 +45,6 @@ export const useAudioPlayer = () => {
 
       try {
         const audioSettings = {
-          interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
           isLooping: false,
           isLoopingIOS: false,
           isMuted: false,

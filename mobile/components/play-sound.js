@@ -46,11 +46,11 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
       return
     }
 
-    // Provide haptic feedback for the start of playback
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-
     // Set the state to playing
     setIsPlaying(true)
+
+    // Provide haptic feedback for the start of playback
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
     // Play a sequence of sounds if provided as an array
     if (Array.isArray(audioFileNames)) {

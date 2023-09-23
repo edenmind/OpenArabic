@@ -2,7 +2,7 @@ import 'react-native-gesture-handler'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { ScrollView, View, StyleSheet, RefreshControl, Share } from 'react-native'
+import { View, StyleSheet, RefreshControl, Share, Animated } from 'react-native'
 import { Button, Text, useTheme, AnimatedFAB } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 
@@ -36,6 +36,14 @@ export default function TextBilingual({ visible, animateFrom, style }) {
     }
   })
 
+  const scrollY = new Animated.Value(0)
+
+  const headerImageHeight = scrollY.interpolate({
+    extrapolateRight: 'clamp',
+    inputRange: [-100, 0],
+    outputRange: [300, 250]
+  })
+
   const [refreshing, setRefreshing] = useState(false)
 
   const onRefresh = async () => {
@@ -54,14 +62,6 @@ export default function TextBilingual({ visible, animateFrom, style }) {
     setRefreshing(false)
   }
 
-  const [isExtended, setIsExtended] = React.useState(true)
-
-  const onScroll = ({ nativeEvent }) => {
-    const currentScrollPosition = Math.floor(nativeEvent?.contentOffset?.y) ?? 0
-
-    setIsExtended(currentScrollPosition <= 0)
-  }
-
   const fabStyle = { [animateFrom]: 1 }
 
   const renderedSentences = text.sentences?.map((sentence, index) => (
@@ -76,23 +76,23 @@ export default function TextBilingual({ visible, animateFrom, style }) {
     return (
       <>
         <FadeInView style={{ flex: 1 }}>
-          <ScrollView
-            onScroll={onScroll}
+          <Animated.ScrollView
+            onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
           >
-            <Heading heading={text} />
+            <Heading heading={text} imageHeight={headerImageHeight} scrollY={scrollY} />
+
             {renderedSentences}
             <View style={{ ...sharedStyle.container, paddingBottom: 50, paddingTop: 15 }}>
               <Button onPress={generateTextError(text)} textColor={theme.colors.error}>
                 <Text style={{ color: theme.colors.error }}>{UI.report}</Text>
               </Button>
             </View>
-          </ScrollView>
+          </Animated.ScrollView>
 
           <AnimatedFAB
             icon={'brain'}
             label={'Practice'}
-            extended={isExtended}
             variant="surface"
             onPress={() => {
               setVisiblePractice(true)
@@ -111,7 +111,6 @@ export default function TextBilingual({ visible, animateFrom, style }) {
           content={<TextPractice />}
           hideModal={() => {
             setVisiblePractice(false)
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
           }}
         />
       </>

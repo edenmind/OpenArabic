@@ -1,6 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import * as Haptics from 'expo-haptics'
 import React, { Fragment } from 'react'
 import { Button, useTheme } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
@@ -33,7 +32,6 @@ export default function Words() {
                     textColor={theme.colors.error}
                     style={{ marginRight: -5 }}
                     onPress={() => {
-                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
                       dispatch({
                         payload: false,
                         type: 'SET_PRACTICING_WORDS'

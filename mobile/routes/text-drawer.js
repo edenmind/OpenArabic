@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import icon from '../assets/logo.png'
 import SCREENS from '../constants/screens.js'
 import packageJson from '../package.json'
-import { TextSettings } from '../screens/settings'
 import TextList from '../screens/text-list.js'
 import { getCategories } from '../services/api-service.js'
 import { getHijriYear } from '../services/utility-service.js'
@@ -17,6 +16,7 @@ const selector = (state) => state.categories
 
 export default function TextDrawer() {
   const Drawer = createDrawerNavigator()
+
   const { categories } = useSelector(selector)
   const dispatch = useDispatch()
   const versionAndHijriYear = `${packageJson.version} ${getHijriYear()}`
@@ -121,11 +121,7 @@ export default function TextDrawer() {
       options={({ navigation }) => ({
         drawerLabel: SCREENS.home,
         headerRight: () => (
-          <Button
-            textColor={theme.colors.secondary}
-            icon={'cog'}
-            onPress={() => navigation.navigate(SCREENS.settings)}
-          />
+          <Button textColor={theme.colors.secondary} icon={'cog'} onPress={() => navigation.navigate('Settings')} />
         ),
         headerShown: true,
         title: SCREENS.home
@@ -154,8 +150,6 @@ export default function TextDrawer() {
         unmountOnBlur: true
       }}
     >
-      <Drawer.Screen name="Settings" component={TextSettings} options={{ drawerLabel: '', title: 'Settings' }} />
-
       {homeScreen}
       {categoryItems}
     </Drawer.Navigator>

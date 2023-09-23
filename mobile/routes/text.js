@@ -9,6 +9,7 @@ import TextDrawer from './text-drawer.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import SCREENS from '../constants/screens.js'
 import About from '../screens/about.js'
+import Settings from '../screens/settings.js'
 import TextGrammar from '../screens/text-grammar.js'
 import { getData, storeData } from '../services/storage.js'
 
@@ -121,6 +122,24 @@ function Text() {
             color: theme.colors.onSurface
           },
           headerTitle: ''
+        })}
+      />
+      <Stack.Screen
+        name={SCREENS.settings}
+        component={Settings}
+        options={() => ({
+          headerBackTitle: 'Back',
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+            color: theme.colors.onSurface
+          },
+          headerTitle: 'Settings',
+          headerTitleStyle: {
+            color: theme.colors.onSurface,
+            fontFamily: 'philosopher',
+            fontSize: 23
+          }
         })}
       />
     </Stack.Navigator>

@@ -84,6 +84,16 @@ export const TextSettings = () => {
     }
   }
 
+  const getDarkMode = async () => {
+    const value = await getData('isDarkModeOn')
+
+    setIsDarkModeOn(value === 'on')
+  }
+
+  React.useEffect(() => {
+    getDarkMode()
+  }, [])
+
   React.useEffect(() => {
     getEnglishFontSize()
   }, [])

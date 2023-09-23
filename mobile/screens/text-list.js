@@ -83,7 +83,7 @@ export default function TextList({ route, navigation }) {
         <Button
           icon={'brain'}
           onPress={() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
             setVisiblePractice(true)
           }}
         >
@@ -139,7 +139,6 @@ export default function TextList({ route, navigation }) {
         visible={visiblePractice}
         content={<Words />}
         hideModal={() => {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
           setVisiblePractice(false)
         }}
       />
