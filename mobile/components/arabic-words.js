@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
 import { useTheme, Text, Button, Tooltip } from 'react-native-paper'
 
@@ -14,6 +14,8 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
   const [selectedWordIndex, setSelectedWordIndex] = useState()
   const [singleWordPressed, setSingleWordPressed] = useState(false)
 
+  const selectionTimerRef = useRef(null)
+
   const { playSound } = useAudioPlayer()
 
   useEffect(() => {
@@ -21,12 +23,32 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
     setSingleWordPressed(false)
   }, [currentPlayingWordIndex])
 
+  useEffect(() => {
+    return () => {
+      if (selectionTimerRef.current) {
+        clearTimeout(selectionTimerRef.current)
+      }
+    }
+  }, [])
+
   const handleWordSelect = useCallback(
     (filename, wordIndex) => {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+
+      // Clear any existing timer
+      if (selectionTimerRef.current) {
+        clearTimeout(selectionTimerRef.current)
+      }
+
       setSingleWordPressed(true)
-      setSelectedWordIndex((prevIndex) => (prevIndex === wordIndex ? undefined : wordIndex)) // Toggle selection on repeat press
+      setSelectedWordIndex(wordIndex)
       playSound(filename)
+
+      // Start a new timer to reset selectedWordIndex after 1500ms
+      selectionTimerRef.current = setTimeout(() => {
+        setSelectedWordIndex()
+        setSingleWordPressed(false)
+      }, 1500)
     },
     [playSound]
   )
