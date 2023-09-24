@@ -3,7 +3,7 @@ import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useEffect } from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
-import { useTheme, Text, Button } from 'react-native-paper'
+import { useTheme, Text, Button, Tooltip } from 'react-native-paper'
 
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { useSharedStyles } from '../styles/common.js'
@@ -50,11 +50,13 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
         ]
 
         return (
-          <Button style={styles.button} onPress={() => handleWordSelect(word.filename, wordIndex)} key={wordIndex}>
-            <View style={{ borderBottomColor: backgroundColor, borderBottomWidth: 3 }}>
-              <Text style={textStyles}>{word.arabic}</Text>
-            </View>
-          </Button>
+          <Tooltip title={word.english} key={wordIndex}>
+            <Button style={styles.button} onPress={() => handleWordSelect(word.filename, wordIndex)} key={wordIndex}>
+              <View style={{ borderBottomColor: backgroundColor, borderBottomWidth: 3 }}>
+                <Text style={textStyles}>{word.arabic}</Text>
+              </View>
+            </Button>
+          </Tooltip>
         )
       })}
     </View>

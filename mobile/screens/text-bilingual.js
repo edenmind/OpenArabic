@@ -2,7 +2,7 @@ import 'react-native-gesture-handler'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { View, StyleSheet, RefreshControl, Share, Animated } from 'react-native'
+import { View, StyleSheet, RefreshControl, Share, ScrollView } from 'react-native'
 import { Button, Text, useTheme, AnimatedFAB } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 
@@ -36,13 +36,13 @@ export default function TextBilingual({ visible, animateFrom, style }) {
     }
   })
 
-  const scrollY = new Animated.Value(0)
+  const [isExtended, setIsExtended] = React.useState(true)
 
-  const headerImageHeight = scrollY.interpolate({
-    extrapolateRight: 'clamp',
-    inputRange: [-100, 0],
-    outputRange: [300, 250]
-  })
+  const onScroll = ({ nativeEvent }) => {
+    const currentScrollPosition = Math.floor(nativeEvent?.contentOffset?.y) ?? 0
+
+    setIsExtended(currentScrollPosition <= 0)
+  }
 
   const [refreshing, setRefreshing] = useState(false)
 
@@ -76,11 +76,11 @@ export default function TextBilingual({ visible, animateFrom, style }) {
     return (
       <>
         <FadeInView style={{ flex: 1 }}>
-          <Animated.ScrollView
-            onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
+          <ScrollView
+            onScroll={onScroll}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
           >
-            <Heading heading={text} imageHeight={headerImageHeight} scrollY={scrollY} />
+            <Heading heading={text} />
 
             {renderedSentences}
             <View style={{ ...sharedStyle.container, paddingBottom: 50, paddingTop: 15 }}>
@@ -88,11 +88,12 @@ export default function TextBilingual({ visible, animateFrom, style }) {
                 <Text style={{ color: theme.colors.error }}>{UI.report}</Text>
               </Button>
             </View>
-          </Animated.ScrollView>
+          </ScrollView>
 
           <AnimatedFAB
             icon={'brain'}
             label={'Practice'}
+            extended={isExtended}
             variant="surface"
             onPress={() => {
               setVisiblePractice(true)

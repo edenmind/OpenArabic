@@ -38,7 +38,7 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
     <>
       <ArabicWords sentence={{ arabic, english, words }} currentPlayingWordIndex={currentPlayingWordIndex} />
 
-      {(showEng || showTransliteration || showAll) && (
+      {((showEng && showTransliteration) || showAll) && (
         <Text style={[sharedStyle.englishBody, { color: theme.colors.outline }]} variant="bodyLarge">
           {transliteratedText}
         </Text>
@@ -50,7 +50,7 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
         </Text>
       )}
 
-      {(showEng || showTransliteration || showAll) && (
+      {((showEng && showTransliteration) || showAll) && (
         <>
           <Divider style={{ opacity: 0 }} />
           <PlaySound audioFileNames={fileNames} onPlayingWord={handlePlayingWord} onFinish={handlePlaybackFinished} />

@@ -101,11 +101,15 @@ export const useSharedStyles = (theme) => {
       buttonAnswer: {
         backgroundColor: elevation.transparent,
         borderBottomWidth: 4,
-        borderColor: elevation.level5,
+        borderColor: elevation.level3,
         borderWidth: 2,
         marginVertical: BASE_MARGIN
       },
       card: {
+        borderBottomWidth: 4,
+        borderColor: elevation.level3,
+        borderTopWidth: 0,
+        borderWidth: 2,
         marginHorizontal: 3 * BASE_MARGIN,
         marginVertical: 1.5 * BASE_MARGIN
       },

@@ -73,9 +73,12 @@ export default function TextList({ route, navigation }) {
       style={{
         ...sharedStyle.container,
         alignItems: 'center',
-        borderColor: theme.colors.border,
+        backgroundColor: theme.colors.background,
+        borderBottomWidth: 4,
+        borderColor: theme.colors.elevation.level3,
         borderRadius: 10,
-        borderWidth: 1,
+        borderTopWidth: 1,
+        borderWidth: 2,
         flexDirection: 'row',
         marginBottom: 5
       }}
@@ -107,7 +110,7 @@ export default function TextList({ route, navigation }) {
 
     return numberOfPracticeWords > 0 ? (
       <CustomSurface showButton={true}>
-        <Text variant="labelMedium">You have {pluralize(numberOfPracticeWords, 'word')} to review.</Text>
+        <Text variant="labelMedium">You have {pluralize(numberOfPracticeWords, 'word')} to review</Text>
       </CustomSurface>
     ) : (
       <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>

@@ -66,7 +66,9 @@ export const PressableCard = ({ onPress, content, animationDuration = ANIMATION_
   return (
     <Pressable onPressIn={handlePressIn} onPressOut={handleReleaseOrCancel} onPress={handlePressOut}>
       <Animated.View style={[styles.animatedView, animatedStyle]}>
-        <Card style={sharedStyle.card}>{content}</Card>
+        <Card style={sharedStyle.card} mode="outlined">
+          {content}
+        </Card>
       </Animated.View>
     </Pressable>
   )
