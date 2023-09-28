@@ -75,12 +75,11 @@ export default function TextList({ route, navigation }) {
         alignItems: 'center',
         backgroundColor: theme.colors.background,
         borderBottomWidth: 4,
-        borderColor: theme.colors.elevation.level3,
+        borderColor: theme.colors.elevation.level2,
         borderRadius: 10,
-        borderTopWidth: 1,
         borderWidth: 2,
         flexDirection: 'row',
-        marginBottom: 5
+        marginBottom: 4
       }}
     >
       <View style={{ ...sharedStyle.container, flex: 1 }}>{children}</View>
@@ -119,7 +118,7 @@ export default function TextList({ route, navigation }) {
 
   return textsLoading ? (
     <>
-      <FadeInView style={{ flex: 1 }}>
+      <FadeInView>
         <FlatList
           initialNumToRender={5}
           removeClippedSubviews={true}

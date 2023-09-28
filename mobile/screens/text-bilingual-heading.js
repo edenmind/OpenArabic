@@ -1,6 +1,7 @@
+import { LinearGradient } from 'expo-linear-gradient'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Image } from 'react-native'
+import { Image, View, StyleSheet } from 'react-native'
 import { Text, Divider, useTheme } from 'react-native-paper'
 
 import { useSharedStyles } from '../styles/common.js'
@@ -13,7 +14,15 @@ export default function TextBilingualHeading({ heading }) {
 
   return (
     <>
-      <Image source={{ uri: image }} style={style.image} />
+      <View>
+        <Image source={{ uri: image }} style={style.image} />
+        <LinearGradient
+          colors={['transparent', theme.colors.background]} // Change rgba values to your desired color and opacity
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 1 }}
+          style={StyleSheet.absoluteFill}
+        />
+      </View>
       <Text variant="headlineLarge" style={style.title}>
         {title}
       </Text>

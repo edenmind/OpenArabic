@@ -2309,10 +2309,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.49.0":
-  version: 8.49.0
-  resolution: "@eslint/js@npm:8.49.0"
-  checksum: a6601807c8aeeefe866926ad92ed98007c034a735af20ff709009e39ad1337474243d47908500a3bde04e37bfba16bcf1d3452417f962e1345bc8756edd6b830
+"@eslint/js@npm:8.50.0":
+  version: 8.50.0
+  resolution: "@eslint/js@npm:8.50.0"
+  checksum: 302478f2acaaa7228729ec6a04f56641590185e1d8cd1c836a6db8a6b8009f80a57349341be9fbb9aa1721a7a569d1be3ffc598a33300d22816f11832095386c
   languageName: node
   linkType: hard
 
@@ -2332,9 +2332,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/cli@npm:0.10.12":
-  version: 0.10.12
-  resolution: "@expo/cli@npm:0.10.12"
+"@expo/cli@npm:0.10.13":
+  version: 0.10.13
+  resolution: "@expo/cli@npm:0.10.13"
   dependencies:
     "@babel/runtime": ^7.20.0
     "@expo/code-signing-certificates": 0.0.5
@@ -2400,7 +2400,7 @@ __metadata:
     ws: ^8.12.1
   bin:
     expo-internal: build/bin/cli
-  checksum: c9fe63a9c2a7c688bf5cbb7a2766aa06e1ba71f5d7fbc976f6a2ea24d54772018df1c3e7c4f927bf4dc75fd866311be2e86405f7b5137c714d17c2e6f821ab72
+  checksum: 3dda76f39a9658317bd80715fe075e8f6d3e09c0ca2ce38b5042f72c2ac7d5c8d2229beed614104d396a1dd1d40d09755707e671a8dab6fbdc9d9b5dd9d060e2
   languageName: node
   linkType: hard
 
@@ -3546,11 +3546,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/drawer@npm:^6.6.3":
-  version: 6.6.3
-  resolution: "@react-navigation/drawer@npm:6.6.3"
+"@react-navigation/drawer@npm:^6.6.4":
+  version: 6.6.4
+  resolution: "@react-navigation/drawer@npm:6.6.4"
   dependencies:
-    "@react-navigation/elements": ^1.3.18
+    "@react-navigation/elements": ^1.3.19
     color: ^4.2.3
     warn-once: ^0.1.0
   peerDependencies:
@@ -3561,43 +3561,27 @@ __metadata:
     react-native-reanimated: ">= 1.0.0"
     react-native-safe-area-context: ">= 3.0.0"
     react-native-screens: ">= 3.0.0"
-  checksum: 1ade784d01afc77f645ad4805ed5af4d3b0511bcc2803dee97799107b6a19cf3c557a9e4dd5542c7f307c01f6f4891115967781fb772caf229b1d7dcf2622b1b
+  checksum: 9eb3c72b819b7ecdda5ceb5d971815619ec05822e0080724add6828576ed0ae0b9af57746153596fe9f44b560d9b8965090486017788fed8e752f44f8ddd121b
   languageName: node
   linkType: hard
 
-"@react-navigation/elements@npm:^1.3.18":
-  version: 1.3.18
-  resolution: "@react-navigation/elements@npm:1.3.18"
+"@react-navigation/elements@npm:^1.3.19":
+  version: 1.3.19
+  resolution: "@react-navigation/elements@npm:1.3.19"
   peerDependencies:
     "@react-navigation/native": ^6.0.0
     react: "*"
     react-native: "*"
     react-native-safe-area-context: ">= 3.0.0"
-  checksum: 02293f0932e5f53bb9c4df46f97063bfa27f05a1f606ea556de42189e6bf3e928f70a531ae64e0f56072d6525178cee9bd41eafbcbbce4653476f4aa2346524a
+  checksum: fd095ce1d5ba3c9225f0e861dcad4f72ab96436d8ef60f55731fb517ec1d0397eccde0a69ad9e5844333b82e48e922463d9b2a7f3bffd478a210d26f1b41bc7a
   languageName: node
   linkType: hard
 
-"@react-navigation/material-top-tabs@npm:^6.6.3":
-  version: 6.6.3
-  resolution: "@react-navigation/material-top-tabs@npm:6.6.3"
+"@react-navigation/native-stack@npm:^6.9.14":
+  version: 6.9.14
+  resolution: "@react-navigation/native-stack@npm:6.9.14"
   dependencies:
-    color: ^4.2.3
-    warn-once: ^0.1.0
-  peerDependencies:
-    "@react-navigation/native": ^6.0.0
-    react: "*"
-    react-native: "*"
-    react-native-pager-view: ">= 4.0.0"
-    react-native-tab-view: ">= 3.0.0"
-  checksum: cf967a4d0c775576d7e319c0d78b0f4999cae37d1b8d5e423ecf70b0d84d2b6f6c31a0f626731a6994520cfdcd05454d8a8046dc9c73f4510ff38453f3540001
-  languageName: node
-  linkType: hard
-
-"@react-navigation/native-stack@npm:^6.9.13":
-  version: 6.9.13
-  resolution: "@react-navigation/native-stack@npm:6.9.13"
-  dependencies:
-    "@react-navigation/elements": ^1.3.18
+    "@react-navigation/elements": ^1.3.19
     warn-once: ^0.1.0
   peerDependencies:
     "@react-navigation/native": ^6.0.0
@@ -3605,13 +3589,13 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: ">= 3.0.0"
     react-native-screens: ">= 3.0.0"
-  checksum: 10d1f2ef4f1f2f4543f77b9c378dd3b49ee3c20e6e9d15b1b3ce3489d46c634411f6bc4c3cda379e47e7f3a669fb765c99954229479cd20aff5fae800e886574
+  checksum: b983eb728a5fbcb88320da0dbaffd263375da3ddb9317fc4fb0fddf53c1c034a201662abfae6ced75c5b2b799aecca27046be71d917d743ae24697dc71369d4b
   languageName: node
   linkType: hard
 
-"@react-navigation/native@npm:^6.1.7":
-  version: 6.1.7
-  resolution: "@react-navigation/native@npm:6.1.7"
+"@react-navigation/native@npm:^6.1.8":
+  version: 6.1.8
+  resolution: "@react-navigation/native@npm:6.1.8"
   dependencies:
     "@react-navigation/core": ^6.4.9
     escape-string-regexp: ^4.0.0
@@ -3620,7 +3604,7 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 917be90290b2de6aa6d32f0798369757d5577814fa1cf3b6b7fb62efdc6341f0db2c85a1826f1f83ccd563ffd7c2ce3c98ff7560e80f868641a66f162650a992
+  checksum: e19c013eab0d89dc2ca587dd2a00865883b28942ad3f2d2430ef0bdb3c5e6685951d166ac9b066df5e2f2d27937e4c25623eb82d49aa1b3b29599227cf2a0425
   languageName: node
   linkType: hard
 
@@ -3633,9 +3617,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reduxjs/toolkit@npm:^1.9.5":
-  version: 1.9.5
-  resolution: "@reduxjs/toolkit@npm:1.9.5"
+"@reduxjs/toolkit@npm:^1.9.6":
+  version: 1.9.6
+  resolution: "@reduxjs/toolkit@npm:1.9.6"
   dependencies:
     immer: ^9.0.21
     redux: ^4.2.1
@@ -3649,7 +3633,7 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: 54672c5593d05208af577e948a338f23128d3aa01ef056ab0d40bcfa14400cf6566be99e11715388f12c1d7655cdf7c5c6b63cb92eb0fecf996c454a46a3914c
+  checksum: 61d445f7e084c79f9601f61fcfc4eb65152b850b2a4330239d982297605bd870e63dc1e0211deb3822392cd3bc0c88ca0cdb236a9711a4311dfb199c607b6ac5
   languageName: node
   linkType: hard
 
@@ -3711,11 +3695,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-native@npm:^12.2.0":
-  version: 12.2.0
-  resolution: "@testing-library/react-native@npm:12.2.0"
+"@testing-library/react-native@npm:^12.3.0":
+  version: 12.3.0
+  resolution: "@testing-library/react-native@npm:12.3.0"
   dependencies:
-    pretty-format: ^29.0.0
+    jest-matcher-utils: ^29.6.2
+    pretty-format: ^29.6.2
+    redent: ^3.0.0
   peerDependencies:
     jest: ">=28.0.0"
     react: ">=16.8.0"
@@ -3724,7 +3710,7 @@ __metadata:
   peerDependenciesMeta:
     jest:
       optional: true
-  checksum: 24f8d602567564b6e124b01805ca9d091c969855d76697e86f71030af9ecde79b779f2f3f71acdfb5ad1a15f2cd769348a44a6b8ca03c0709a283738fca9ecbf
+  checksum: 409b64207b4c7319926e5ce590adf84fe7ddb17ebdec4a92d4562c2ddcb3c23d7cf2ffd8f1810ab3241590817296b019869116f6d91f4125b452bb88c90e9031
   languageName: node
   linkType: hard
 
@@ -3827,13 +3813,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.5.3":
-  version: 29.5.3
-  resolution: "@types/jest@npm:29.5.3"
+"@types/jest@npm:^29.5.5":
+  version: 29.5.5
+  resolution: "@types/jest@npm:29.5.5"
   dependencies:
     expect: ^29.0.0
     pretty-format: ^29.0.0
-  checksum: e36bb92e0b9e5ea7d6f8832baa42f087fc1697f6cd30ec309a07ea4c268e06ec460f1f0cfd2581daf5eff5763475190ec1ad8ac6520c49ccfe4f5c0a48bfa676
+  checksum: 56e55cde9949bcc0ee2fa34ce5b7c32c2bfb20e53424aa4ff3a210859eeaaa3fdf6f42f81a3f655238039cdaaaf108b054b7a8602f394e6c52b903659338d8c6
   languageName: node
   linkType: hard
 
@@ -4454,15 +4440,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios-mock-adapter@npm:^1.21.5":
-  version: 1.21.5
-  resolution: "axios-mock-adapter@npm:1.21.5"
+"axios-mock-adapter@npm:^1.22.0":
+  version: 1.22.0
+  resolution: "axios-mock-adapter@npm:1.22.0"
   dependencies:
     fast-deep-equal: ^3.1.3
     is-buffer: ^2.0.5
   peerDependencies:
     axios: ">= 0.17.0"
-  checksum: e3c2ccf220a2ddd316ccdff36b65754ddaf9b7a8dc70a64e9ff94da335a0694aaba3d925e6d7d5f71dd4badfe9af581bd7e6dd2dc09414d9900298afe12a71a0
+  checksum: 3c0b1473a8263958f4409525fc4c9872cc1c055b69b0a9dba84084e8827e22e7b0d0241061b512a67c763f2116dee272761dd5907f235e5337df0d18ead00294
   languageName: node
   linkType: hard
 
@@ -4476,14 +4462,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "axios@npm:1.5.0"
+"axios@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "axios@npm:1.5.1"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: e7405a5dbbea97760d0e6cd58fecba311b0401ddb4a8efbc4108f5537da9b3f278bde566deb777935a960beec4fa18e7b8353881f2f465e4f2c0e949fead35be
+  checksum: 4444f06601f4ede154183767863d2b8e472b4a6bfc5253597ed6d21899887e1fd0ee2b3de792ac4f8459fe2e359d2aa07c216e45fd8b9e4e0688a6ebf48a5a8d
   languageName: node
   linkType: hard
 
@@ -6493,14 +6479,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.49.0":
-  version: 8.49.0
-  resolution: "eslint@npm:8.49.0"
+"eslint@npm:^8.50.0":
+  version: 8.50.0
+  resolution: "eslint@npm:8.50.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@eslint-community/regexpp": ^4.6.1
     "@eslint/eslintrc": ^2.1.2
-    "@eslint/js": 8.49.0
+    "@eslint/js": 8.50.0
     "@humanwhocodes/config-array": ^0.11.11
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -6536,7 +6522,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 4dfe257e1e42da2f9da872b05aaaf99b0f5aa022c1a91eee8f2af1ab72651b596366320c575ccd4e0469f7b4c97aff5bb85ae3323ebd6a293c3faef4028b0d81
+  checksum: 9ebfe5615dc84700000d218e32ddfdcfc227ca600f65f18e5541ec34f8902a00356a9a8804d9468fd6c8637a5ef6a3897291dad91ba6579d5b32ffeae5e31768
   languageName: node
   linkType: hard
 
@@ -6827,6 +6813,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-linear-gradient@npm:^12.5.0":
+  version: 12.5.0
+  resolution: "expo-linear-gradient@npm:12.5.0"
+  peerDependencies:
+    expo: "*"
+  checksum: b6a3c46f1b1750a294c1c2ceeed4ebfaf13fb60c8b32c7de2c3ebb47b3137ebf489cc184b9ab6ffa3b3ab3a50939686ef10477b5febe774d490c3657716b7268
+  languageName: node
+  linkType: hard
+
 "expo-mail-composer@npm:~12.5.0":
   version: 12.5.0
   resolution: "expo-mail-composer@npm:12.5.0"
@@ -6923,12 +6918,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:^49.0.11":
-  version: 49.0.11
-  resolution: "expo@npm:49.0.11"
+"expo@npm:^49.0.13":
+  version: 49.0.13
+  resolution: "expo@npm:49.0.13"
   dependencies:
     "@babel/runtime": ^7.20.0
-    "@expo/cli": 0.10.12
+    "@expo/cli": 0.10.13
     "@expo/config": 8.1.2
     "@expo/config-plugins": 7.2.5
     "@expo/vector-icons": ^13.0.0
@@ -6949,7 +6944,7 @@ __metadata:
     uuid: ^3.4.0
   bin:
     expo: bin/cli
-  checksum: ab07ecedd9cf7a2741998af64b00da7e461bae6b6e4d9996c6975e2b77caee4637129486364d6b15d6244974e17a8d000a5ec86709496c32ec38eb63e7f28b60
+  checksum: 66ec9f5fbb9dc444e6e65c255732923f0329748e522a5e66c03ead232bd4cbe4d940cd2b51dd51b86955605542e07e7b2cf36274a8d7f696633260a2d10e9541
   languageName: node
   linkType: hard
 
@@ -10529,18 +10524,17 @@ __metadata:
     "@bugsnag/source-maps": ^2.3.1
     "@react-native-async-storage/async-storage": 1.18.2
     "@react-native-community/netinfo": 9.3.10
-    "@react-navigation/drawer": ^6.6.3
-    "@react-navigation/material-top-tabs": ^6.6.3
-    "@react-navigation/native": ^6.1.7
-    "@react-navigation/native-stack": ^6.9.13
-    "@reduxjs/toolkit": ^1.9.5
-    "@testing-library/react-native": ^12.2.0
-    "@types/jest": ^29.5.3
-    axios: ^1.5.0
-    axios-mock-adapter: ^1.21.5
+    "@react-navigation/drawer": ^6.6.4
+    "@react-navigation/native": ^6.1.8
+    "@react-navigation/native-stack": ^6.9.14
+    "@reduxjs/toolkit": ^1.9.6
+    "@testing-library/react-native": ^12.3.0
+    "@types/jest": ^29.5.5
+    axios: ^1.5.1
+    axios-mock-adapter: ^1.22.0
     axios-retry: ^3.8.0
     deepmerge: ^4.3.1
-    eslint: ^8.49.0
+    eslint: ^8.50.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.28.1
     eslint-plugin-prettier: ^5.0.0
@@ -10550,7 +10544,7 @@ __metadata:
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.7.1
     eslint-plugin-unicorn: ^48.0.1
-    expo: ^49.0.11
+    expo: ^49.0.13
     expo-application: ~5.3.1
     expo-av: ~13.6.0
     expo-constants: ~14.4.2
@@ -10559,6 +10553,7 @@ __metadata:
     expo-file-system: ~15.6.0
     expo-font: ~11.4.0
     expo-haptics: ~12.6.0
+    expo-linear-gradient: ^12.5.0
     expo-mail-composer: ~12.5.0
     expo-splash-screen: ~0.22.0
     expo-updates: ~0.18.12

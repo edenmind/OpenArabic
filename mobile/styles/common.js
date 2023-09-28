@@ -34,6 +34,12 @@ export const useSharedStyles = (theme) => {
   const { englishFontSize } = useSelector(englishSelector) || { englishFontSize: 17 }
   const { arabicFontName } = useSelector(arabicFontNameSelector) || { arabicFontName: 'uthman' }
 
+  // Branded components
+  const BACKGROUND_COLOR = theme.colors.transparent
+  const BORDER_BOTTOM_WIDTH = 4
+  const BORDER_WIDTH = 2
+  const BORDER_COLOR = theme.colors.elevation.level2
+
   const arabicFontSizeWeighted = arabicFontSize * (FONT_WEIGHTS[arabicFontName] || 1)
 
   return useMemo(() => {
@@ -99,17 +105,17 @@ export const useSharedStyles = (theme) => {
         marginTop: BASE_MARGIN
       },
       buttonAnswer: {
-        backgroundColor: elevation.transparent,
-        borderBottomWidth: 4,
-        borderColor: elevation.level2,
-        borderWidth: 2,
+        backgroundColor: BACKGROUND_COLOR,
+        borderBottomWidth: BORDER_BOTTOM_WIDTH,
+        borderColor: BORDER_COLOR,
+        borderWidth: BORDER_WIDTH,
         marginVertical: BASE_MARGIN
       },
       card: {
-        borderBottomWidth: 4,
-        borderColor: elevation.level2,
-        borderTopWidth: 0,
-        borderWidth: 2,
+        backgroundColor: BACKGROUND_COLOR,
+        borderBottomWidth: BORDER_BOTTOM_WIDTH,
+        borderColor: BORDER_COLOR,
+        borderWidth: BORDER_WIDTH,
         marginHorizontal: 3 * BASE_MARGIN,
         marginVertical: 1.5 * BASE_MARGIN
       },
@@ -120,6 +126,14 @@ export const useSharedStyles = (theme) => {
       cardTitle: {
         fontFamily: 'philosopher',
         fontSize: 21
+      },
+      chip: {
+        backgroundColor: BACKGROUND_COLOR,
+        borderBottomWidth: BORDER_BOTTOM_WIDTH,
+        borderColor: BORDER_COLOR,
+        borderWidth: BORDER_WIDTH,
+        marginRight: 15,
+        marginTop: -20
       },
       container: {
         margin: BASE_MARGIN * 3
@@ -212,7 +226,6 @@ export const useSharedStyles = (theme) => {
         color: theme.colors.onBackground,
         fontFamily: 'philosopher',
         paddingHorizontal: 25,
-        paddingTop: 25,
         textAlign: 'center'
       },
       wordCenteredView: {
@@ -246,14 +259,14 @@ export const useSharedStyles = (theme) => {
     error,
     englishFontSize,
     elevation.tertiaryContainer,
-    elevation.transparent,
-    elevation.level2,
     theme.colors.onSurfaceVariant,
     theme.colors.secondary,
     theme.colors.tertiary,
     theme.colors.elevation.level0,
     theme.colors.elevation.level5,
     theme.colors.outline,
-    theme.colors.onBackground
+    theme.colors.onBackground,
+    BACKGROUND_COLOR,
+    BORDER_COLOR
   ])
 }

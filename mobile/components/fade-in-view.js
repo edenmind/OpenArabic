@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import { Animated } from 'react-native'
 
-const FadeInView = ({ children, style }) => {
+const FadeInView = ({ children }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
@@ -19,16 +19,11 @@ const FadeInView = ({ children, style }) => {
     return () => animation.stop()
   }, []) // Empty dependency array to run effect only once
 
-  return <Animated.View style={[style, { opacity: fadeAnim }]}>{children}</Animated.View>
+  return <Animated.View style={{ opacity: fadeAnim }}>{children}</Animated.View>
 }
 
 FadeInView.propTypes = {
-  children: PropTypes.node.isRequired,
-  style: PropTypes.object.isRequired
-}
-
-FadeInView.defaultProps = {
-  style: {}
+  children: PropTypes.node.isRequired
 }
 
 export default FadeInView
