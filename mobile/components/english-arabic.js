@@ -50,13 +50,11 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
         </Text>
       )}
 
-      {((showEng && showTransliteration) || showAll) && (
-        <>
-          <Divider style={{ opacity: 0 }} />
-          <PlaySound audioFileNames={fileNames} onPlayingWord={handlePlayingWord} onFinish={handlePlaybackFinished} />
-          <Divider style={{ opacity: 0, paddingBottom }} />
-        </>
-      )}
+      <>
+        <Divider style={{ opacity: 0, paddingTop: 25 }} />
+        <PlaySound audioFileNames={fileNames} onPlayingWord={handlePlayingWord} onFinish={handlePlaybackFinished} />
+        <Divider style={{ opacity: 0, paddingBottom }} />
+      </>
     </>
   )
 }

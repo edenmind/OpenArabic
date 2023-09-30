@@ -12,6 +12,24 @@ export const pluralize = (number, word) => {
   return number === 1 ? `${number} ${word}` : `${number} ${word}s`
 }
 
+export function getAdaptiveFontSize(word) {
+  const minFontSize = 14
+  const maxFontSize = 16
+  const minWordLength = 5
+  const maxWordLength = 10
+
+  const computeFontSize = (wordLength) => {
+    if (wordLength <= minWordLength) return maxFontSize
+    if (wordLength >= maxWordLength) return minFontSize
+
+    // Interpolate the font size
+    const proportion = (wordLength - minWordLength) / (maxWordLength - minWordLength)
+    return maxFontSize - proportion * (maxFontSize - minFontSize)
+  }
+
+  return computeFontSize(word.length)
+}
+
 // give me a function that capitalizes all letters in a title
 export const prepareTitle = (title) => {
   const words = title.trim().split(' ')

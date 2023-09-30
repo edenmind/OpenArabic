@@ -3,9 +3,10 @@ import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
-import { useTheme, Text, Button, Tooltip } from 'react-native-paper'
+import { useTheme, Text, Button } from 'react-native-paper'
 
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
+import { getAdaptiveFontSize } from '../services/ui-services.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function ArabicWords({ sentence: { words }, currentPlayingWordIndex }) {
@@ -13,6 +14,7 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
   const sharedStyle = useSharedStyles(theme)
   const [selectedWordIndex, setSelectedWordIndex] = useState()
   const [singleWordPressed, setSingleWordPressed] = useState(false)
+  const [shownWords, setShownWords] = useState([])
 
   const selectionTimerRef = useRef(null)
 
@@ -44,13 +46,18 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
       setSelectedWordIndex(wordIndex)
       playSound(filename)
 
+      // Add wordIndex to shownWords if it's not there yet
+      if (!shownWords.includes(wordIndex)) {
+        setShownWords((prev) => [...prev, wordIndex])
+      }
+
       // Start a new timer to reset selectedWordIndex after 1500ms
       selectionTimerRef.current = setTimeout(() => {
         setSelectedWordIndex()
         setSingleWordPressed(false)
-      }, 1500)
+      }, 3000)
     },
-    [playSound]
+    [playSound, shownWords]
   )
 
   return (
@@ -58,27 +65,41 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
       {words.map((word, wordIndex) => {
         const isSelected =
           (currentPlayingWordIndex === wordIndex && !singleWordPressed) || selectedWordIndex === wordIndex
-        const backgroundColor = isSelected ? theme.colors.tertiary : theme.colors.elevation.level0
         const textColor = isSelected ? theme.colors.tertiary : theme.colors.secondary
-        const lineHeight = Platform.OS === 'android' ? 90 : 55
+        const lineHeight = Platform.OS === 'android' ? 90 : 105
 
         const textStyles = [
           sharedStyle.arabicBody,
           styles.text,
           {
             color: textColor,
+            fontSize: 55,
             lineHeight
           }
         ]
 
+        const englishFontSize = getAdaptiveFontSize(word.english)
+
+        const textStylesEnglish = [
+          {
+            bottom: -10,
+            color: theme.colors.tertiary,
+            fontSize: englishFontSize,
+            position: 'absolute'
+          }
+        ]
+
         return (
-          <Tooltip title={word.english} key={wordIndex}>
-            <Button style={styles.button} onPress={() => handleWordSelect(word.filename, wordIndex)} key={wordIndex}>
-              <View style={{ borderBottomColor: backgroundColor, borderBottomWidth: 3 }}>
-                <Text style={textStyles}>{word.arabic}</Text>
-              </View>
-            </Button>
-          </Tooltip>
+          <Button
+            style={{ ...styles.button }}
+            onPress={() => handleWordSelect(word.filename, wordIndex)}
+            key={wordIndex}
+          >
+            <View style={{ alignItems: 'center', position: 'relative' }}>
+              <Text style={textStyles}>{word.arabic}</Text>
+              <Text style={[textStylesEnglish, { marginHorizontal: -6 }]}>{isSelected && word.english}</Text>
+            </View>
+          </Button>
         )
       })}
     </View>
@@ -87,13 +108,13 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
 
 const styles = StyleSheet.create({
   button: {
-    marginBottom: -10,
-    marginHorizontal: -8
+    flexWrap: 'wrap',
+    marginHorizontal: -4,
+    marginVertical: -5
   },
   container: {
     flexDirection: 'row-reverse',
-    flexWrap: 'wrap',
-    paddingTop: 15
+    flexWrap: 'wrap'
   }
 })
 

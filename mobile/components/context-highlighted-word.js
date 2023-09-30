@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-import { Animated, StyleSheet } from 'react-native'
+import { Animated, StyleSheet, View } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
 
 import { useSharedStyles } from '../styles/common.js'
 
-const HighlightedWord = ({ word: { arabic } }) => {
+const HighlightedWord = ({ word: { arabic, english } }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -39,16 +39,20 @@ const HighlightedWord = ({ word: { arabic } }) => {
 
   return (
     <Animated.View style={{ opacity: borderOpacity }}>
-      <Text style={textStyles.arabicText} onPress={animateBorderOpacity}>
-        {arabic}
-      </Text>
+      <View style={{ alignItems: 'center' }}>
+        <Text style={textStyles.arabicText} onPress={animateBorderOpacity}>
+          {arabic}
+        </Text>
+        <Text style={{ textAlign: 'center' }}>{english}</Text>
+      </View>
     </Animated.View>
   )
 }
 
 HighlightedWord.propTypes = {
   word: PropTypes.shape({
-    arabic: PropTypes.string.isRequired
+    arabic: PropTypes.string.isRequired,
+    english: PropTypes.string.isRequired
   }).isRequired
 }
 

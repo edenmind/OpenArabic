@@ -49,7 +49,6 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
       return
     }
 
-
     // Set the state to playing
     setIsPlaying(true)
 
@@ -68,11 +67,13 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
 
         const audioFileName = audioFileNames[currentIndex]
         try {
-          await playSound(audioFileName, (status) => {
-            if (status.didJustFinish) {
-              currentIndex++
-              playNextSound()
+          await playSound(audioFileName, async (status) => {
+            if (!status.didJustFinish) {
+              return
             }
+            currentIndex++
+            await new Promise((resolve) => setTimeout(resolve, 1300))
+            playNextSound()
           })
 
           // Call the onPlayingWord callback, if provided
