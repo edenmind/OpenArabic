@@ -155,9 +155,10 @@ export const useSharedStyles = (theme) => {
         opacity: 0
       },
       englishBody: {
-        ...getTextStyle(onSurface, englishFontSize * 1.1, 'normal', englishFontSize * 1.5),
+        ...getTextStyle(onSurface, englishFontSize * 1.1, 'normal', englishFontSize * 1.7),
         direction: 'ltr',
         fontFamily: 'philosopher',
+        margin: BASE_MARGIN,
         paddingBottom: BASE_PADDING,
         textAlign: 'left',
         writingDirection: 'ltr'

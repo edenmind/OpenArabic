@@ -2,12 +2,12 @@ import { LinearGradient } from 'expo-linear-gradient'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Image, View, StyleSheet } from 'react-native'
-import { Text, Divider, useTheme } from 'react-native-paper'
+import { Text, useTheme } from 'react-native-paper'
 
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextBilingualHeading({ heading }) {
-  const { author, source, readingTime, views, timeAgo, image, title } = heading
+  const { author, source, readingTime, views, timeAgo, image, title, introduction } = heading
   const caption = `${readingTime} · ${views} views · ${timeAgo}`
   const theme = useTheme()
   const style = useSharedStyles(theme)
@@ -37,7 +37,11 @@ export default function TextBilingualHeading({ heading }) {
         {caption}
       </Text>
 
-      <Divider style={style.dividerHidden} />
+      <View style={style.container}>
+        <Text variant="bodyLarge" style={{ textAlign: 'center' }}>
+          {introduction}
+        </Text>
+      </View>
     </>
   )
 }
@@ -46,6 +50,7 @@ TextBilingualHeading.propTypes = {
   heading: PropTypes.shape({
     author: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
+    introduction: PropTypes.string.isRequired,
     readingTime: PropTypes.string.isRequired,
     source: PropTypes.string.isRequired,
     timeAgo: PropTypes.string.isRequired,

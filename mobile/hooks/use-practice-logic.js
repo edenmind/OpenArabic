@@ -139,6 +139,10 @@ function useTextPracticeLogic() {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }
 
+        // Progress to the next sentence
+        setIsLastWordInSentence(false)
+        setCurrentSentence((prev) => prev + 1)
+        setCurrentWord(0)
         return
       }
       setCurrentWord((prev) => prev + 1)
@@ -194,6 +198,7 @@ function useTextPracticeLogic() {
     onDismissSnackBar,
     sentenceIsComplete,
     sentencesInText,
+    setSentenceIsComplete,
     text,
     textLoading
   }

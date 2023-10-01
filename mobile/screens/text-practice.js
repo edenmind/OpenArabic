@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, ScrollView, StyleSheet } from 'react-native'
 import { Surface, useTheme, Divider, ProgressBar } from 'react-native-paper'
 
@@ -27,6 +27,7 @@ const TextPractice = () => {
     currentArabicWord,
     currentSentence,
     sentenceIsComplete,
+    setSentenceIsComplete,
     currentWordsInSentence,
     textLoading,
     sentencesInText,
@@ -37,10 +38,22 @@ const TextPractice = () => {
     handlePress
   } = useTextPracticeLogic()
 
-  const sentenceControlMemoized = useMemo(
-    () => <SentenceControl {...{ currentSentence, handleContinue, handleReset, isLastSentence, text }} />,
-    [currentSentence, handleContinue, handleReset, isLastSentence, text]
-  )
+  const [showWordsPractice, setShowWordsPractice] = useState(false)
+
+  useEffect(() => {
+    if (sentenceIsComplete) {
+      setShowWordsPractice(false)
+    }
+  }, [sentenceIsComplete])
+
+  const handleStartPractice = () => {
+    setShowWordsPractice(true)
+  }
+
+  const handlePracticeComplete = () => {
+    handleContinue()
+    setShowWordsPractice(false)
+  }
 
   const renderHighlightedWords = () => (
     <>
@@ -56,10 +69,15 @@ const TextPractice = () => {
   const renderTextPracticeWords = () => (
     <View style={styles.bottomView}>
       {currentWordsInSentence.map((word, index) => (
-        <AnimatedButton key={`${word.english}-${index}`} word={word} handlePress={handlePress} />
+        <AnimatedButton key={`${word.english}-${index}`} word={word} handlePress={onWordPressed} />
       ))}
     </View>
   )
+
+  const onWordPressed = (wordId, wordArabic) => {
+    handlePress(wordId, wordArabic)
+    if (sentenceIsComplete) handlePracticeComplete()
+  }
 
   return textLoading ? (
     <>
@@ -69,35 +87,50 @@ const TextPractice = () => {
           progress={currentSentence / (sentencesInText.length - 1)}
           style={sharedStyle.progressBar}
         />
-        <Surface
-          style={{
-            backgroundColor: theme.colors.elevation.level0,
-            flex: 1,
-            justifyContent: 'center',
-            minHeight: 400,
-            paddingTop: 25
-          }}
-        >
-          {!sentenceIsComplete && renderHighlightedWords()}
-        </Surface>
+
+        {showWordsPractice && renderHighlightedWords()}
       </ScrollView>
 
-      {sentenceIsComplete ? sentenceControlMemoized : renderTextPracticeWords()}
+      {showWordsPractice ? (
+        renderTextPracticeWords()
+      ) : (
+        <SentenceControl
+          {...{
+            currentSentence,
+            handleContinue: handleStartPractice,
+            handleReset,
+            isLastSentence,
+            setSentenceIsComplete,
+            text
+          }}
+        />
+      )}
     </>
   ) : (
     <Spinner />
   )
 }
 
-export default TextPractice
-
-const SentenceControl = ({ text, currentSentence, isLastSentence, handleReset, handleContinue }) => (
+const SentenceControl = ({
+  text,
+  currentSentence,
+  isLastSentence,
+  handleReset,
+  handleContinue,
+  setSentenceIsComplete
+}) => (
   <View style={{ bottom: 50, position: 'absolute', width: '100%' }}>
     <EnglishArabic sentence={text.sentences[currentSentence]} paddingBottom={0} showAll={true} />
     {isLastSentence ? (
       <ActionButton onPress={handleReset} text="PRACTICE AGAIN" />
     ) : (
-      <ActionButton onPress={handleContinue} text="CONTINUE" />
+      <ActionButton
+        onPress={() => {
+          handleContinue()
+          setSentenceIsComplete(false)
+        }}
+        text="CONTINUE"
+      />
     )}
   </View>
 )
@@ -107,5 +140,8 @@ SentenceControl.propTypes = {
   handleContinue: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   isLastSentence: PropTypes.bool.isRequired,
+  setSentenceIsComplete: PropTypes.func.isRequired,
   text: PropTypes.object.isRequired
 }
+
+export default TextPractice

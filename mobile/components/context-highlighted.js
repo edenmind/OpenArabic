@@ -13,14 +13,14 @@ const WordsContextHighLighted = ({ arabicSentence, arabicWord, sentenceIsComplet
     arabicText: {
       ...sharedStyle.arabicBody,
       fontSize: 55,
-      lineHeight: 95,
+      lineHeight: 105,
       paddingHorizontal: 5
     },
     arabicTextInactive: {
       ...sharedStyle.arabicBody,
       color: theme.colors.outline,
       fontSize: 55,
-      lineHeight: 95,
+      lineHeight: 105,
       paddingHorizontal: 5
     }
   })
@@ -45,9 +45,7 @@ const WordsContextHighLighted = ({ arabicSentence, arabicWord, sentenceIsComplet
     })
 
   return (
-    <View style={{ direction: 'rtl', flexDirection: 'row', flexWrap: 'wrap', padding: 0, paddingBottom: 10 }}>
-      {renderWords()}
-    </View>
+    <View style={{ direction: 'rtl', flexDirection: 'row', flexWrap: 'wrap', paddingTop: 50 }}>{renderWords()}</View>
   )
 }
 

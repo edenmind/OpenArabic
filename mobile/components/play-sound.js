@@ -72,7 +72,7 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
               return
             }
             currentIndex++
-            await new Promise((resolve) => setTimeout(resolve, 1300))
+            await new Promise((resolve) => setTimeout(resolve, 500))
             playNextSound()
           })
 

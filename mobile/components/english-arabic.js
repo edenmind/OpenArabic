@@ -1,30 +1,19 @@
 /* eslint-disable unicorn/no-null */
 import PropTypes from 'prop-types'
-import React, { useMemo, useState, useCallback } from 'react'
-import { Text, useTheme, Divider } from 'react-native-paper'
-import { useSelector } from 'react-redux'
+import React, { useState, useCallback } from 'react'
+import { Text, useTheme, Divider, Surface } from 'react-native-paper'
 
 import ArabicWords from './arabic-words.js'
 import PlaySound from './play-sound.js'
-import { transliterateArabicToEnglish } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
-const isTransliterationOnSelector = (state) => state.isTransliterationOn
-const isEngOnSelector = (state) => state.isEngOn
-
-export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, showAll, paddingBottom = 45 }) => {
+export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, paddingBottom = 45 }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
   const [currentPlayingWordIndex, setCurrentPlayingWordIndex] = useState(null)
-  const transliteratedText = useMemo(() => transliterateArabicToEnglish(arabic), [arabic])
+
   const fileNames = words.map((word) => word.filename)
-
-  const { isTransliterationOn } = useSelector(isTransliterationOnSelector)
-  const { isEngOn } = useSelector(isEngOnSelector)
-
-  const showTransliteration = isTransliterationOn === 'on'
-  const showEng = isEngOn === 'on'
 
   const handlePlayingWord = useCallback((index) => {
     setCurrentPlayingWordIndex(index)
@@ -35,27 +24,24 @@ export const EnglishArabic = ({ sentence: { arabic, english, words = [] } = {}, 
   }, [])
 
   return (
-    <>
+    <Surface
+      style={{
+        backgroundColor: theme.colors.elevation.level0,
+        flex: 1,
+        justifyContent: 'center'
+      }}
+    >
       <ArabicWords sentence={{ arabic, english, words }} currentPlayingWordIndex={currentPlayingWordIndex} />
-
-      {((showEng && showTransliteration) || showAll) && (
-        <Text style={[sharedStyle.englishBody, { color: theme.colors.outline }]} variant="bodyLarge">
-          {transliteratedText}
-        </Text>
-      )}
-
-      {(showEng || showAll) && (
-        <Text variant="bodyLarge" style={sharedStyle.englishBody}>
-          {english}
-        </Text>
-      )}
-
+      <Divider style={sharedStyle.dividerHidden} />
+      <Text variant="bodyLarge" style={[sharedStyle.englishBody, { color: theme.colors.secondary }]}>
+        {english.charAt(0).toUpperCase() + english.slice(1)}
+      </Text>
       <>
         <Divider style={{ opacity: 0, paddingTop: 25 }} />
         <PlaySound audioFileNames={fileNames} onPlayingWord={handlePlayingWord} onFinish={handlePlaybackFinished} />
         <Divider style={{ opacity: 0, paddingBottom }} />
       </>
-    </>
+    </Surface>
   )
 }
 
@@ -70,6 +56,5 @@ EnglishArabic.propTypes = {
         filename: PropTypes.string.isRequired
       })
     )
-  }).isRequired,
-  showAll: PropTypes.bool
+  }).isRequired
 }
