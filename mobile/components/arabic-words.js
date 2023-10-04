@@ -74,7 +74,8 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
           {
             color: textColor,
             fontSize: 55,
-            lineHeight
+            lineHeight,
+            paddingHorizontal: 5
           }
         ]
 
@@ -85,6 +86,7 @@ export default function ArabicWords({ sentence: { words }, currentPlayingWordInd
             bottom: -10,
             color: theme.colors.tertiary,
             fontSize: englishFontSize,
+            paddingHorizontal: 5,
             position: 'absolute'
           }
         ]

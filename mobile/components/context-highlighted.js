@@ -45,7 +45,9 @@ const WordsContextHighLighted = ({ arabicSentence, arabicWord, sentenceIsComplet
     })
 
   return (
-    <View style={{ direction: 'rtl', flexDirection: 'row', flexWrap: 'wrap', paddingTop: 50 }}>{renderWords()}</View>
+    <View style={{ direction: 'rtl', flexDirection: 'row', flexWrap: 'wrap', marginLeft: 7, paddingTop: 30 }}>
+      {renderWords()}
+    </View>
   )
 }
 

@@ -2,20 +2,27 @@
 /* eslint-disable nonblock-statement-body-position */
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import React, { useState, useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useEffect } from 'react'
 import { Button, Text, useTheme } from 'react-native-paper'
 
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
+export default function PlaySound({
+  audioFileNames,
+  onPlayingWord,
+  onFinish,
+  isPlaying,
+  setIsPlaying,
+  showRepeat,
+  setShowRepeat
+}) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const IS_PLAYING = true
 
   const { playSound, stopSound } = useAudioPlayer()
-  const [isPlaying, setIsPlaying] = useState(false)
-  const buttonText = isPlaying ? 'STOP' : 'PLAY'
+  const buttonText = isPlaying ? 'STOP' : 'REPEAT'
 
   const isCancelled = useRef(false)
 
@@ -33,9 +40,15 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
     if (!onFinish) return
 
     setIsPlaying(!IS_PLAYING)
+    setShowRepeat(true)
     stopSound()
     onFinish()
   }, [IS_PLAYING, onFinish, stopSound])
+
+  // start playSounds when component is mounted
+  useEffect(() => {
+    playSounds()
+  }, [])
 
   const playSounds = useCallback(async () => {
     // Provide haptic feedback for the start of playback
@@ -105,20 +118,26 @@ export default function PlaySound({ audioFileNames, onPlayingWord, onFinish }) {
   }, [audioFileNames, handleSoundFinish, handleSequenceFinish, isPlaying, onPlayingWord, playSound, stopSound])
 
   return (
-    <Button
-      onPress={playSounds}
-      style={{
-        ...sharedStyle.buttonAnswer,
-        borderColor: isPlaying ? playingBorderColor : silentBorderColor
-      }}
-    >
-      <Text style={{ ...sharedStyle.actionTextPrimary }}>{buttonText}</Text>
-    </Button>
+    showRepeat && (
+      <Button
+        onPress={playSounds}
+        style={{
+          ...sharedStyle.buttonAnswer,
+          borderColor: isPlaying ? playingBorderColor : silentBorderColor
+        }}
+      >
+        <Text style={{ ...sharedStyle.actionTextPrimary }}>{buttonText}</Text>
+      </Button>
+    )
   )
 }
 
 PlaySound.propTypes = {
   audioFileNames: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+  isPlaying: PropTypes.bool,
   onFinish: PropTypes.func,
-  onPlayingWord: PropTypes.func
+  onPlayingWord: PropTypes.func,
+  setIsPlaying: PropTypes.func,
+  setShowRepeat: PropTypes.func,
+  showRepeat: PropTypes.bool
 }

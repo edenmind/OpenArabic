@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { View, ScrollView, StyleSheet } from 'react-native'
-import { Surface, useTheme, Divider, ProgressBar } from 'react-native-paper'
+import { useTheme, Divider, ProgressBar } from 'react-native-paper'
 
 import { ActionButton } from '../components/action-button.js'
 import { AnimatedButton } from '../components/animated-button.js'
@@ -39,6 +39,8 @@ const TextPractice = () => {
   } = useTextPracticeLogic()
 
   const [showWordsPractice, setShowWordsPractice] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [showRepeat, setShowRepeat] = useState(false)
 
   useEffect(() => {
     if (sentenceIsComplete) {
@@ -100,7 +102,11 @@ const TextPractice = () => {
             handleContinue: handleStartPractice,
             handleReset,
             isLastSentence,
+            isPlaying,
+            setIsPlaying,
             setSentenceIsComplete,
+            setShowRepeat,
+            showRepeat,
             text
           }}
         />
@@ -115,24 +121,43 @@ const SentenceControl = ({
   text,
   currentSentence,
   isLastSentence,
+  isPlaying,
   handleReset,
   handleContinue,
-  setSentenceIsComplete
+  setIsPlaying,
+  setSentenceIsComplete,
+  showRepeat,
+  setShowRepeat
 }) => (
-  <View style={{ bottom: 50, position: 'absolute', width: '100%' }}>
-    <EnglishArabic sentence={text.sentences[currentSentence]} paddingBottom={0} showAll={true} />
-    {isLastSentence ? (
-      <ActionButton onPress={handleReset} text="PRACTICE AGAIN" />
-    ) : (
-      <ActionButton
-        onPress={() => {
-          handleContinue()
-          setSentenceIsComplete(false)
-        }}
-        text="CONTINUE"
+  <>
+    <View style={{ position: 'absolute', top: 150, width: '100%' }}>
+      <EnglishArabic
+        sentence={text.sentences[currentSentence]}
+        paddingBottom={0}
+        showAll={true}
+        isPlaying={isPlaying}
+        showRepeat={showRepeat}
+        setIsPlaying={setIsPlaying}
+        setShowRepeat={setShowRepeat}
       />
-    )}
-  </View>
+    </View>
+    <View style={{ bottom: 50, position: 'absolute', width: '100%' }}>
+      {isLastSentence ? (
+        <ActionButton onPress={handleReset} text="PRACTICE AGAIN" />
+      ) : (
+        showRepeat && (
+          <ActionButton
+            onPress={() => {
+              handleContinue()
+              setSentenceIsComplete(false)
+              setShowRepeat(false)
+            }}
+            text="CONTINUE"
+          />
+        )
+      )}
+    </View>
+  </>
 )
 
 SentenceControl.propTypes = {
@@ -140,7 +165,11 @@ SentenceControl.propTypes = {
   handleContinue: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   isLastSentence: PropTypes.bool.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
+  setIsPlaying: PropTypes.func.isRequired,
   setSentenceIsComplete: PropTypes.func.isRequired,
+  setShowRepeat: PropTypes.func.isRequired,
+  showRepeat: PropTypes.bool.isRequired,
   text: PropTypes.object.isRequired
 }
 
