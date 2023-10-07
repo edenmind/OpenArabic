@@ -100,6 +100,11 @@ export const useSharedStyles = (theme) => {
         paddingTop: 15,
         textAlign: 'center'
       },
+      bottomView: {
+        bottom: 50,
+        position: 'absolute',
+        width: '100%'
+      },
       button: {
         marginBottom: BASE_MARGIN,
         marginTop: BASE_MARGIN

@@ -2309,10 +2309,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.50.0":
-  version: 8.50.0
-  resolution: "@eslint/js@npm:8.50.0"
-  checksum: 302478f2acaaa7228729ec6a04f56641590185e1d8cd1c836a6db8a6b8009f80a57349341be9fbb9aa1721a7a569d1be3ffc598a33300d22816f11832095386c
+"@eslint/js@npm:8.51.0":
+  version: 8.51.0
+  resolution: "@eslint/js@npm:8.51.0"
+  checksum: 0228bf1e1e0414843e56d9ff362a2a72d579c078f93174666f29315690e9e30a8633ad72c923297f7fd7182381b5a476805ff04dac8debe638953eb1ded3ac73
   languageName: node
   linkType: hard
 
@@ -3617,9 +3617,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reduxjs/toolkit@npm:^1.9.6":
-  version: 1.9.6
-  resolution: "@reduxjs/toolkit@npm:1.9.6"
+"@reduxjs/toolkit@npm:^1.9.7":
+  version: 1.9.7
+  resolution: "@reduxjs/toolkit@npm:1.9.7"
   dependencies:
     immer: ^9.0.21
     redux: ^4.2.1
@@ -3633,7 +3633,7 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: 61d445f7e084c79f9601f61fcfc4eb65152b850b2a4330239d982297605bd870e63dc1e0211deb3822392cd3bc0c88ca0cdb236a9711a4311dfb199c607b6ac5
+  checksum: ac25dec73a5d2df9fc7fbe98c14ccc73919e5ee1d6f251db0d2ec8f90273f92ef39c26716704bf56b5a40189f72d94b4526dc3a8c7ac3986f5daf44442bcc364
   languageName: node
   linkType: hard
 
@@ -6479,14 +6479,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.50.0":
-  version: 8.50.0
-  resolution: "eslint@npm:8.50.0"
+"eslint@npm:^8.51.0":
+  version: 8.51.0
+  resolution: "eslint@npm:8.51.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@eslint-community/regexpp": ^4.6.1
     "@eslint/eslintrc": ^2.1.2
-    "@eslint/js": 8.50.0
+    "@eslint/js": 8.51.0
     "@humanwhocodes/config-array": ^0.11.11
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -6522,7 +6522,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 9ebfe5615dc84700000d218e32ddfdcfc227ca600f65f18e5541ec34f8902a00356a9a8804d9468fd6c8637a5ef6a3897291dad91ba6579d5b32ffeae5e31768
+  checksum: 214fa5d1fcb67af1b8992ce9584ccd85e1aa7a482f8b8ea5b96edc28fa838a18a3b69456db45fc1ed3ef95f1e9efa9714f737292dc681e572d471d02fda9649c
   languageName: node
   linkType: hard
 
@@ -6904,9 +6904,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-updates@npm:~0.18.12":
-  version: 0.18.12
-  resolution: "expo-updates@npm:0.18.12"
+"expo-updates@npm:~0.18.15":
+  version: 0.18.16
+  resolution: "expo-updates@npm:0.18.16"
   dependencies:
     "@expo/code-signing-certificates": 0.0.5
     "@expo/config": ~8.1.0
@@ -6923,13 +6923,13 @@ __metadata:
     expo: "*"
   bin:
     expo-updates: bin/cli.js
-  checksum: c0e3abdc4b807a5998f8b2c04910c2e3536b1ec7dc20ea337b986aa74496b961cebe054b0670a74bcea06fc9ac759982e6cd5a369fa94eafcfd94fbacc25797e
+  checksum: 3931b12ec41d6d7f609eb92b51ea6e6133414ec60e068c02088695d8c84b416457210f4227030c26dcfa862098cf5b27240b4aa88aefbdd34f1540f829fe2a13
   languageName: node
   linkType: hard
 
-"expo@npm:^49.0.13":
-  version: 49.0.13
-  resolution: "expo@npm:49.0.13"
+"expo@npm:^49.0.14":
+  version: 49.0.14
+  resolution: "expo@npm:49.0.14"
   dependencies:
     "@babel/runtime": ^7.20.0
     "@expo/cli": 0.10.13
@@ -6953,7 +6953,7 @@ __metadata:
     uuid: ^3.4.0
   bin:
     expo: bin/cli
-  checksum: 66ec9f5fbb9dc444e6e65c255732923f0329748e522a5e66c03ead232bd4cbe4d940cd2b51dd51b86955605542e07e7b2cf36274a8d7f696633260a2d10e9541
+  checksum: 56a1cb91b5cfaaa3e2ccf722252746af50bcfd972ed45a708fd177efc08b2b2449803565683524b60a2e7b546dd6bd660516b1cf8b035566b065202b2f388c40
   languageName: node
   linkType: hard
 
@@ -10445,14 +10445,14 @@ __metadata:
     "@react-navigation/drawer": ^6.6.4
     "@react-navigation/native": ^6.1.8
     "@react-navigation/native-stack": ^6.9.14
-    "@reduxjs/toolkit": ^1.9.6
+    "@reduxjs/toolkit": ^1.9.7
     "@testing-library/react-native": ^12.3.0
     "@types/jest": ^29.5.5
     axios: ^1.5.1
     axios-mock-adapter: ^1.22.0
     axios-retry: ^3.8.0
     deepmerge: ^4.3.1
-    eslint: ^8.50.0
+    eslint: ^8.51.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.28.1
     eslint-plugin-prettier: ^5.0.0
@@ -10462,7 +10462,7 @@ __metadata:
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-security: ^1.7.1
     eslint-plugin-unicorn: ^48.0.1
-    expo: ^49.0.13
+    expo: ^49.0.14
     expo-application: ~5.4.0
     expo-av: ~13.6.0
     expo-constants: ~14.4.2
@@ -10474,7 +10474,7 @@ __metadata:
     expo-linear-gradient: ^12.5.0
     expo-mail-composer: ~12.5.0
     expo-splash-screen: ~0.22.0
-    expo-updates: ~0.18.12
+    expo-updates: ~0.18.15
     jest: ^29.6.2
     jest-expo: ^49.0.0
     node-notifier: ^10.0.1

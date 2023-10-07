@@ -1,20 +1,26 @@
+/* eslint-disable import/order */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable nonblock-statement-body-position */
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import React, { useCallback, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Button, Text, useTheme } from 'react-native-paper'
 
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { useSharedStyles } from '../styles/common.js'
+import { useSelector, useDispatch } from 'react-redux'
+
+const audioSelector = (state) => state.audio
 
 export default function PlaySound({
+  autoStart,
   audioFileNames,
   onPlayingWord,
   onFinish,
   isPlaying,
   setIsPlaying,
   showRepeat,
+  showPlay,
   setShowRepeat
 }) {
   const theme = useTheme()
@@ -22,12 +28,16 @@ export default function PlaySound({
   const IS_PLAYING = true
 
   const { playSound, stopSound } = useAudioPlayer()
-  const buttonText = isPlaying ? 'STOP' : 'REPEAT'
+  const buttonText = isPlaying ? 'STOP' : 'PLAY'
 
   const isCancelled = useRef(false)
 
   const silentBorderColor = theme.colors.elevation.level5
   const playingBorderColor = theme.colors.primary
+
+  const { shouldPlay } = useSelector(audioSelector)
+
+  const dispatch = useDispatch()
 
   const handleSoundFinish = (status) => {
     if (status.didJustFinish && typeof audioFileNames === 'string') {
@@ -36,21 +46,29 @@ export default function PlaySound({
     }
   }
 
-  const handleSequenceFinish = useCallback(() => {
+  const handleSequenceFinish = () => {
     if (!onFinish) return
 
     setIsPlaying(!IS_PLAYING)
     setShowRepeat(true)
     stopSound()
     onFinish()
-  }, [IS_PLAYING, onFinish, stopSound])
+  }
 
   // start playSounds when component is mounted
   useEffect(() => {
-    playSounds()
+    if (autoStart) {
+      playSounds()
+    }
   }, [])
 
-  const playSounds = useCallback(async () => {
+  useEffect(() => {
+    isCancelled.current = shouldPlay ? false : true
+  }, [shouldPlay])
+
+  const playSounds = async () => {
+    dispatch({ payload: true, type: 'SET_AUDIO' })
+
     // Provide haptic feedback for the start of playback
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
@@ -59,6 +77,7 @@ export default function PlaySound({
       isCancelled.current = true
       stopSound()
       setIsPlaying(false)
+      dispatch({ payload: false, type: 'SET_AUDIO' })
       return
     }
 
@@ -86,6 +105,7 @@ export default function PlaySound({
             }
             currentIndex++
             await new Promise((resolve) => setTimeout(resolve, 500))
+
             playNextSound()
           })
 
@@ -97,6 +117,7 @@ export default function PlaySound({
       }
 
       // Start the sequence
+
       playNextSound()
       return
     }
@@ -115,15 +136,17 @@ export default function PlaySound({
         stopSound()
       }
     }
-  }, [audioFileNames, handleSoundFinish, handleSequenceFinish, isPlaying, onPlayingWord, playSound, stopSound])
+  }
 
   return (
-    showRepeat && (
+    (showRepeat || showPlay) && (
       <Button
         onPress={playSounds}
         style={{
+          width: '100%',
           ...sharedStyle.buttonAnswer,
-          borderColor: isPlaying ? playingBorderColor : silentBorderColor
+          borderColor: isPlaying ? playingBorderColor : silentBorderColor,
+          marginBottom: 50
         }}
       >
         <Text style={{ ...sharedStyle.actionTextPrimary }}>{buttonText}</Text>
@@ -134,10 +157,12 @@ export default function PlaySound({
 
 PlaySound.propTypes = {
   audioFileNames: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+  autoStart: PropTypes.bool,
   isPlaying: PropTypes.bool,
   onFinish: PropTypes.func,
   onPlayingWord: PropTypes.func,
   setIsPlaying: PropTypes.func,
   setShowRepeat: PropTypes.func,
+  showPlay: PropTypes.bool,
   showRepeat: PropTypes.bool
 }

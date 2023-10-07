@@ -7,7 +7,7 @@ import { HOST } from '../constants/urls.js'
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { getThreeRandomWords } from '../services/utility-service.js'
 
-function useTextPracticeLogic() {
+function useTextPracticeLogic(isComponentVisible = false) {
   const getText = (state) => state.text
   const { text } = useSelector(getText)
   const getTextLoading = (state) => state.textLoading
@@ -47,12 +47,14 @@ function useTextPracticeLogic() {
 
   // Play the audio for the current word
   useEffect(() => {
+    if (!isComponentVisible) return // Only play the audio if the component is visible
+
     const wordFilename = sentencesInText?.[currentSentence]?.wordFilename[currentWord]
     if (!wordFilename) return
 
     const audioURL = HOST.audio + wordFilename
     playSound(audioURL)
-  }, [currentWord])
+  }, [currentWord, isComponentVisible])
 
   // Update the current sentence and word when the text is loaded
   useEffect(() => {
@@ -86,6 +88,7 @@ function useTextPracticeLogic() {
     setCurrentSentence(0)
     setCurrentWord(0)
     setSentenceIsComplete(false)
+    setCurrentWordsInSentence([])
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -132,7 +135,6 @@ function useTextPracticeLogic() {
 
       if (isLastWordInSentence) {
         setSentenceIsComplete(true)
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
 
         if (isLastSentence) {
           setCelebrationSnackBarVisibility(true)

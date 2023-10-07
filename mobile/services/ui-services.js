@@ -13,8 +13,8 @@ export const pluralize = (number, word) => {
 }
 
 export function getAdaptiveFontSize(word) {
-  const minFontSize = 14
-  const maxFontSize = 16
+  const minFontSize = 13
+  const maxFontSize = 15
   const minWordLength = 5
   const maxWordLength = 10
 

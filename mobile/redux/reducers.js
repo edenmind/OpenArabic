@@ -2,6 +2,9 @@ import { createReducer } from '@reduxjs/toolkit'
 
 import * as actions from './actions.js'
 
+const initialStateAudio = {
+  shouldPlay: true
+}
 const initialStateCategories = { categories: [] }
 const initialStateText = { text: {} }
 const initialStateTexts = { texts: [] }
@@ -20,6 +23,12 @@ const initialStateUI = {
   textLoading: false,
   textsLoading: false
 }
+
+const audioReducer = createReducer(initialStateAudio, (builder) => {
+  builder.addCase(actions.SET_AUDIO, (state, action) => {
+    state.shouldPlay = action.payload
+  })
+})
 
 const UIStateReducer = createReducer(initialStateUI, (builder) => {
   builder
@@ -94,4 +103,4 @@ const textsReducer = createReducer(initialStateTexts, (builder) => {
   })
 })
 
-export { categoriesReducer, textReducer, textsReducer, UIStateReducer, wordsReducer }
+export { audioReducer, categoriesReducer, textReducer, textsReducer, UIStateReducer, wordsReducer }

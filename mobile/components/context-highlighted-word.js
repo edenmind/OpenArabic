@@ -15,8 +15,8 @@ const HighlightedWord = ({ word: { arabic } }) => {
   const textStyles = StyleSheet.create({
     arabicText: {
       ...sharedStyle.arabicBody,
-      fontSize: 55,
-      lineHeight: 105,
+      fontSize: 50,
+      lineHeight: 95,
       paddingHorizontal: 5
     }
   })

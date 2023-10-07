@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
-import { View, ScrollView, StyleSheet } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import { useTheme, Divider, ProgressBar } from 'react-native-paper'
 
 import { ActionButton } from '../components/action-button.js'
@@ -11,17 +11,14 @@ import Spinner from '../components/spinner.js'
 import useTextPracticeLogic from '../hooks/use-practice-logic.js'
 import { useSharedStyles } from '../styles/common.js'
 
-const styles = StyleSheet.create({
-  bottomView: {
-    bottom: 50,
-    position: 'absolute',
-    width: '100%'
-  }
-})
-
 const TextPractice = () => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
+  const [showWordsPractice, setShowWordsPractice] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [showRepeat, setShowRepeat] = useState(false)
+  const [isComponentVisible, setIsComponentVisible] = useState(false)
+
   const {
     isLastSentence,
     currentArabicWord,
@@ -36,11 +33,7 @@ const TextPractice = () => {
     handleReset,
     handleContinue,
     handlePress
-  } = useTextPracticeLogic()
-
-  const [showWordsPractice, setShowWordsPractice] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [showRepeat, setShowRepeat] = useState(false)
+  } = useTextPracticeLogic(isComponentVisible)
 
   useEffect(() => {
     if (sentenceIsComplete) {
@@ -48,13 +41,26 @@ const TextPractice = () => {
     }
   }, [sentenceIsComplete])
 
+  useEffect(() => {
+    if (showWordsPractice) {
+      setIsComponentVisible(true)
+    } else {
+      setIsComponentVisible(false)
+    }
+  }, [showWordsPractice])
+
   const handleStartPractice = () => {
     setShowWordsPractice(true)
   }
 
   const handlePracticeComplete = () => {
-    handleContinue()
     setShowWordsPractice(false)
+    handleContinue()
+  }
+
+  const onWordPressed = (wordId, wordArabic) => {
+    handlePress(wordId, wordArabic)
+    if (sentenceIsComplete) handlePracticeComplete()
   }
 
   const renderHighlightedWords = () => (
@@ -69,17 +75,12 @@ const TextPractice = () => {
   )
 
   const renderTextPracticeWords = () => (
-    <View style={styles.bottomView}>
+    <View style={sharedStyle.bottomView}>
       {currentWordsInSentence.map((word, index) => (
         <AnimatedButton key={`${word.english}-${index}`} word={word} handlePress={onWordPressed} />
       ))}
     </View>
   )
-
-  const onWordPressed = (wordId, wordArabic) => {
-    handlePress(wordId, wordArabic)
-    if (sentenceIsComplete) handlePracticeComplete()
-  }
 
   return textLoading ? (
     <>
@@ -96,13 +97,14 @@ const TextPractice = () => {
       {showWordsPractice ? (
         renderTextPracticeWords()
       ) : (
-        <SentenceControl
+        <PrepareForPractice
           {...{
             currentSentence,
             handleContinue: handleStartPractice,
             handleReset,
             isLastSentence,
             isPlaying,
+            setIsComponentVisible,
             setIsPlaying,
             setSentenceIsComplete,
             setShowRepeat,
@@ -117,13 +119,14 @@ const TextPractice = () => {
   )
 }
 
-const SentenceControl = ({
+const PrepareForPractice = ({
   text,
   currentSentence,
   isLastSentence,
   isPlaying,
   handleReset,
   handleContinue,
+  setIsComponentVisible,
   setIsPlaying,
   setSentenceIsComplete,
   showRepeat,
@@ -135,7 +138,9 @@ const SentenceControl = ({
         sentence={text.sentences[currentSentence]}
         paddingBottom={0}
         showAll={true}
+        autoStart={true}
         isPlaying={isPlaying}
+        showPlay={false}
         showRepeat={showRepeat}
         setIsPlaying={setIsPlaying}
         setShowRepeat={setShowRepeat}
@@ -148,9 +153,10 @@ const SentenceControl = ({
         showRepeat && (
           <ActionButton
             onPress={() => {
-              handleContinue()
+              setIsComponentVisible(true)
               setSentenceIsComplete(false)
               setShowRepeat(false)
+              handleContinue()
             }}
             text="CONTINUE"
           />
@@ -160,12 +166,13 @@ const SentenceControl = ({
   </>
 )
 
-SentenceControl.propTypes = {
+PrepareForPractice.propTypes = {
   currentSentence: PropTypes.number.isRequired,
   handleContinue: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   isLastSentence: PropTypes.bool.isRequired,
   isPlaying: PropTypes.bool.isRequired,
+  setIsComponentVisible: PropTypes.func.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
   setSentenceIsComplete: PropTypes.func.isRequired,
   setShowRepeat: PropTypes.func.isRequired,

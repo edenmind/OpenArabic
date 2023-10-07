@@ -1,13 +1,15 @@
 import 'react-native-gesture-handler'
 
+import * as Haptics from 'expo-haptics'
 import React, { useState } from 'react'
 import { RefreshControl, Share, ScrollView, View } from 'react-native'
-import { useTheme } from 'react-native-paper'
-import { useSelector } from 'react-redux'
+import { useTheme, Button, Text } from 'react-native-paper'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Heading from './text-bilingual-heading.js'
 import TextPractice from './text-practice.js'
 import { ActionButton } from '../components/action-button.js'
+import { EnglishArabic } from '../components/english-arabic.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import Spinner from '../components/spinner.js'
 import { HOST, ENDPOINT } from '../constants/urls.js'
@@ -17,9 +19,12 @@ const selector = (state) => state.text
 
 export default function TextBilingual() {
   const { text } = useSelector(selector)
+  const dispatch = useDispatch()
 
-  const [visiblePractice, setVisiblePractice] = useState(false)
-
+  const [visible, setVisible] = useState(false)
+  const [content, setContent] = useState()
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [showRepeat, setShowRepeat] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
   const theme = useTheme()
 
@@ -41,6 +46,25 @@ export default function TextBilingual() {
     setRefreshing(false)
   }
 
+  //loop through the text and use the EnglishArabic component to display the texts in a component called ReadText
+  const ReadText = ({ isPlaying, setIsPlaying, showRepeat, setShowRepeat }) => {
+    return text.sentences.map((sentence, index) => {
+      return (
+        <EnglishArabic
+          key={index}
+          autoStart={false}
+          sentence={sentence}
+          showAll={true}
+          showRepeat={showRepeat}
+          showPlay={true}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          setShowRepeat={setShowRepeat}
+        />
+      )
+    })
+  }
+
   return text.title == undefined ? (
     <Spinner />
   ) : (
@@ -48,20 +72,55 @@ export default function TextBilingual() {
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
         <Heading heading={text} />
         <View style={sharedStyle.container}>
+          <Button
+            onPress={() => {
+              setVisible(true)
+              setContent(
+                <ScrollView>
+                  <ReadText
+                    {...{
+                      isPlaying,
+                      setIsPlaying,
+                      setShowRepeat,
+                      showRepeat
+                    }}
+                  />
+                </ScrollView>
+              )
+            }}
+            style={{
+              ...sharedStyle.buttonAnswer
+            }}
+          >
+            <Text style={{ ...sharedStyle.actionTextPrimary }}>READ</Text>
+          </Button>
+
           <ActionButton
             onPress={() => {
-              setVisiblePractice(true)
+              setContent(<TextPractice />)
+              setVisible(true)
+              setIsPlaying(true)
+              dispatch({
+                payload: true,
+                type: 'SET_AUDIO'
+              })
             }}
-            text="START LEARNING"
+            text="PRACTICE"
           />
         </View>
       </ScrollView>
 
       <ModalScrollView
-        visible={visiblePractice}
-        content={<TextPractice />}
+        visible={visible}
+        content={content}
         hideModal={() => {
-          setVisiblePractice(false)
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+          setVisible(false)
+          setIsPlaying(false)
+          dispatch({
+            payload: false,
+            type: 'SET_AUDIO'
+          })
         }}
       />
     </>

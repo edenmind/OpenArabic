@@ -6,7 +6,6 @@ import { Surface, Text, useTheme, ProgressBar } from 'react-native-paper'
 
 import icon from '../assets/logo.png'
 import { AnswerButton } from '../components/answer-button.js'
-import FadeInView from '../components/fade-in-view.js'
 import Spinner from '../components/spinner.js'
 import { useWordsLogic } from '../hooks/use-words-logic.js'
 import { calculateFontSize, pluralize } from '../services/ui-services.js'
@@ -71,7 +70,7 @@ const Words = () => {
   }
 
   return (
-    <FadeInView style={{ alignItems: 'center', flex: 1, height: '100%', width: '100%' }}>
+    <>
       <Surface style={sharedStyle.wordSurface}>
         <ProgressBar
           color={theme.colors.tertiary}
@@ -91,7 +90,7 @@ const Words = () => {
         ListEmptyComponent={<Spinner />}
         keyExtractor={(item) => item.position.toString()}
       />
-    </FadeInView>
+    </>
   )
 }
 

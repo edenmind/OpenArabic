@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/no-null */
 import PropTypes from 'prop-types'
 import React, { useState, useCallback } from 'react'
-import { Text, useTheme, Divider } from 'react-native-paper'
+import { Text, useTheme } from 'react-native-paper'
 
 import ArabicWords from './arabic-words.js'
 import PlaySound from './play-sound.js'
@@ -9,15 +9,16 @@ import { useSharedStyles } from '../styles/common.js'
 
 export const EnglishArabic = ({
   sentence: { arabic, english, words = [] } = {},
-  isPlaying,
-  setIsPlaying,
+  autoStart,
   showRepeat,
+  showPlay,
   setShowRepeat
 }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
   const [currentPlayingWordIndex, setCurrentPlayingWordIndex] = useState(null)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   const fileNames = words.map((word) => word.filename)
 
@@ -32,27 +33,26 @@ export const EnglishArabic = ({
   return (
     <>
       <ArabicWords sentence={{ arabic, english, words }} currentPlayingWordIndex={currentPlayingWordIndex} />
-      <Divider style={sharedStyle.dividerHidden} />
-      <Text variant="bodyLarge" style={[sharedStyle.englishBody, { color: theme.colors.secondary }]}>
+      <Text style={[sharedStyle.englishBody, { color: theme.colors.secondary, fontSize: 21 }]}>
         {showRepeat && english.charAt(0).toUpperCase() + english.slice(1)}
       </Text>
-      <>
-        <PlaySound
-          audioFileNames={fileNames}
-          onPlayingWord={handlePlayingWord}
-          onFinish={handlePlaybackFinished}
-          isPlaying={isPlaying}
-          showRepeat={showRepeat}
-          setIsPlaying={setIsPlaying}
-          setShowRepeat={setShowRepeat}
-        />
-      </>
+
+      <PlaySound
+        audioFileNames={fileNames}
+        autoStart={autoStart}
+        onPlayingWord={handlePlayingWord}
+        onFinish={handlePlaybackFinished}
+        isPlaying={isPlaying}
+        showPlay={showPlay}
+        setIsPlaying={setIsPlaying}
+        setShowRepeat={setShowRepeat}
+      />
     </>
   )
 }
 
 EnglishArabic.propTypes = {
-  isPlaying: PropTypes.bool.isRequired,
+  autoStart: PropTypes.bool,
   sentence: PropTypes.shape({
     arabic: PropTypes.string.isRequired,
     english: PropTypes.string.isRequired,
@@ -63,7 +63,7 @@ EnglishArabic.propTypes = {
       })
     )
   }).isRequired,
-  setIsPlaying: PropTypes.func.isRequired,
   setShowRepeat: PropTypes.func.isRequired,
+  showPlay: PropTypes.bool,
   showRepeat: PropTypes.bool.isRequired
 }
