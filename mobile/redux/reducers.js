@@ -3,7 +3,8 @@ import { createReducer } from '@reduxjs/toolkit'
 import * as actions from './actions.js'
 
 const initialStateAudio = {
-  shouldPlay: true
+  shouldPlay: true,
+  shouldPlayPracticeWord: false
 }
 const initialStateCategories = { categories: [] }
 const initialStateText = { text: {} }
@@ -25,9 +26,14 @@ const initialStateUI = {
 }
 
 const audioReducer = createReducer(initialStateAudio, (builder) => {
-  builder.addCase(actions.SET_AUDIO, (state, action) => {
-    state.shouldPlay = action.payload
-  })
+  builder
+    .addCase(actions.SET_AUDIO, (state, action) => {
+      state.shouldPlay = action.payload
+    })
+    .addCase(actions.SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS, (state, action) => {
+      console.log('setting should play practice words to', action.payload)
+      state.shouldPlayPracticeWord = action.payload
+    })
 })
 
 const UIStateReducer = createReducer(initialStateUI, (builder) => {

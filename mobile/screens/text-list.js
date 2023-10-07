@@ -138,6 +138,7 @@ export default function TextList({ route, navigation }) {
         visible={visiblePractice}
         content={<Words />}
         hideModal={() => {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           setVisiblePractice(false)
         }}
       />

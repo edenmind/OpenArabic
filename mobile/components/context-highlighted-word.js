@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useRef, useState, useEffect, useCallback } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Animated, StyleSheet } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
 
@@ -22,7 +22,7 @@ const HighlightedWord = ({ word: { arabic } }) => {
   })
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const animateBorderOpacity = useCallback(() => {
+  const animateBorderOpacity = () => {
     const toValue = isBorderVisible ? 0.2 : 1
     Animated.timing(borderOpacity, {
       duration: 750,
@@ -31,7 +31,7 @@ const HighlightedWord = ({ word: { arabic } }) => {
     }).start(() => {
       setIsBorderVisible(!isBorderVisible)
     })
-  })
+  }
 
   useEffect(() => {
     animateBorderOpacity()

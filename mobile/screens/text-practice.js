@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { View, ScrollView } from 'react-native'
 import { useTheme, Divider, ProgressBar } from 'react-native-paper'
+import { useDispatch } from 'react-redux'
 
 import { ActionButton } from '../components/action-button.js'
 import { AnimatedButton } from '../components/animated-button.js'
@@ -17,7 +18,7 @@ const TextPractice = () => {
   const [showWordsPractice, setShowWordsPractice] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [showRepeat, setShowRepeat] = useState(false)
-  const [isComponentVisible, setIsComponentVisible] = useState(false)
+  const dispatch = useDispatch()
 
   const {
     isLastSentence,
@@ -33,21 +34,13 @@ const TextPractice = () => {
     handleReset,
     handleContinue,
     handlePress
-  } = useTextPracticeLogic(isComponentVisible)
+  } = useTextPracticeLogic()
 
   useEffect(() => {
     if (sentenceIsComplete) {
       setShowWordsPractice(false)
     }
   }, [sentenceIsComplete])
-
-  useEffect(() => {
-    if (showWordsPractice) {
-      setIsComponentVisible(true)
-    } else {
-      setIsComponentVisible(false)
-    }
-  }, [showWordsPractice])
 
   const handleStartPractice = () => {
     setShowWordsPractice(true)
@@ -84,7 +77,7 @@ const TextPractice = () => {
 
   return textLoading ? (
     <>
-      <ScrollView>
+      <ScrollView style={{ width: '100%' }}>
         <ProgressBar
           color={theme.colors.tertiary}
           progress={currentSentence / (sentencesInText.length - 1)}
@@ -100,11 +93,11 @@ const TextPractice = () => {
         <PrepareForPractice
           {...{
             currentSentence,
+            dispatch,
             handleContinue: handleStartPractice,
             handleReset,
             isLastSentence,
             isPlaying,
-            setIsComponentVisible,
             setIsPlaying,
             setSentenceIsComplete,
             setShowRepeat,
@@ -126,11 +119,11 @@ const PrepareForPractice = ({
   isPlaying,
   handleReset,
   handleContinue,
-  setIsComponentVisible,
   setIsPlaying,
   setSentenceIsComplete,
   showRepeat,
-  setShowRepeat
+  setShowRepeat,
+  dispatch
 }) => (
   <>
     <View style={{ position: 'absolute', top: 150, width: '100%' }}>
@@ -153,10 +146,13 @@ const PrepareForPractice = ({
         showRepeat && (
           <ActionButton
             onPress={() => {
-              setIsComponentVisible(true)
               setSentenceIsComplete(false)
               setShowRepeat(false)
               handleContinue()
+              dispatch({
+                payload: true,
+                type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS'
+              })
             }}
             text="CONTINUE"
           />
@@ -168,11 +164,11 @@ const PrepareForPractice = ({
 
 PrepareForPractice.propTypes = {
   currentSentence: PropTypes.number.isRequired,
+  dispatch: PropTypes.func.isRequired,
   handleContinue: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   isLastSentence: PropTypes.bool.isRequired,
   isPlaying: PropTypes.bool.isRequired,
-  setIsComponentVisible: PropTypes.func.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
   setSentenceIsComplete: PropTypes.func.isRequired,
   setShowRepeat: PropTypes.func.isRequired,

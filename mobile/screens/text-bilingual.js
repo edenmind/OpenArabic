@@ -121,6 +121,10 @@ export default function TextBilingual() {
             payload: false,
             type: 'SET_AUDIO'
           })
+          dispatch({
+            payload: false,
+            type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS'
+          })
         }}
       />
     </>

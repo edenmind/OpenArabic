@@ -7,7 +7,9 @@ import { HOST } from '../constants/urls.js'
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { getThreeRandomWords } from '../services/utility-service.js'
 
-function useTextPracticeLogic(isComponentVisible = false) {
+const audioSelector = (state) => state.audio
+
+function useTextPracticeLogic() {
   const getText = (state) => state.text
   const { text } = useSelector(getText)
   const getTextLoading = (state) => state.textLoading
@@ -24,6 +26,7 @@ function useTextPracticeLogic(isComponentVisible = false) {
   const [sentenceIsComplete, setSentenceIsComplete] = useState(false)
   const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = useState(false)
   const { playSound } = useAudioPlayer()
+  const { shouldPlayPracticeWord } = useSelector(audioSelector)
 
   const dispatch = useDispatch()
 
@@ -47,14 +50,16 @@ function useTextPracticeLogic(isComponentVisible = false) {
 
   // Play the audio for the current word
   useEffect(() => {
-    if (!isComponentVisible) return // Only play the audio if the component is visible
-
     const wordFilename = sentencesInText?.[currentSentence]?.wordFilename[currentWord]
     if (!wordFilename) return
 
     const audioURL = HOST.audio + wordFilename
-    playSound(audioURL)
-  }, [currentWord, isComponentVisible])
+    if (shouldPlayPracticeWord) {
+      console.log('shouldPlayPracticeWord:', shouldPlayPracticeWord)
+
+      playSound(audioURL)
+    }
+  }, [currentWord, shouldPlayPracticeWord])
 
   // Update the current sentence and word when the text is loaded
   useEffect(() => {
@@ -93,7 +98,7 @@ function useTextPracticeLogic(isComponentVisible = false) {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleContinue = () => {
-    setSentenceIsComplete(false)
+    setSentenceIsComplete(true)
 
     if (currentSentence === sentencesInText?.length) {
       setCelebrationSnackBarVisibility(true)
@@ -134,6 +139,11 @@ function useTextPracticeLogic(isComponentVisible = false) {
       }
 
       if (isLastWordInSentence) {
+        dispatch({
+          payload: false,
+          type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS'
+        })
+
         setSentenceIsComplete(true)
 
         if (isLastSentence) {

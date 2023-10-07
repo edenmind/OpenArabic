@@ -203,7 +203,8 @@ export const useSharedStyles = (theme) => {
         backgroundColor: theme.colors.elevation.level5,
         borderRadius: 10,
         height: 15,
-        marginVertical: 10
+        marginVertical: 10,
+        width: '100%'
       },
       reading: {
         color: theme.colors.outline,
