@@ -21,7 +21,6 @@ module.exports = {
     'react-hooks',
     'prettier',
     'react-redux',
-    'mui-unused-classes',
     'react-redux',
     'putout',
     'security',
