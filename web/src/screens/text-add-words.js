@@ -22,21 +22,7 @@ function TextAddWords() {
   const [currentPage, setCurrentPage] = React.useState(1)
   const [suggestions, setSuggestions] = React.useState(Array(text.sentences.length).fill(''))
 
-  const handleChangeExplanation = useCallback(
-    (indexSentence, indexArabicWord, explanation) => {
-      const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
-      dispatch({ type: 'UPDATE_EXPLANATION', value: { indexSentence: sentenceIndex, indexArabicWord, explanation } })
-    },
-    [currentPage, dispatch, PAGE_SIZE]
-  )
-
-  const handleChangeExplanationSentence = useCallback(
-    (indexSentence, explanations) => {
-      const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
-      dispatch({ type: 'UPDATE_EXPLANATION_SENTENCE', value: { indexSentence: sentenceIndex, explanations } })
-    },
-    [currentPage, dispatch, PAGE_SIZE]
-  )
+  // 
 
   const handleChangeArabic = useCallback(
     (indexSentence, indexArabicWord, englishWord) => {
@@ -49,7 +35,9 @@ function TextAddWords() {
   const handleChangeArabicFullSentence = useCallback(
     (indexSentence, englishWords) => {
       const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
-      dispatch({ type: 'UPDATE_FULL_SENTENCE', value: { indexSentence: sentenceIndex, englishWords } })
+      const words = englishWords.words;
+      const translation = englishWords.translation;
+      dispatch({ type: 'UPDATE_FULL_SENTENCE', value: { indexSentence: sentenceIndex, englishWords: words, translation } })
     },
     [currentPage, dispatch, PAGE_SIZE]
   )
@@ -75,8 +63,10 @@ function TextAddWords() {
           </h2>
           <h1 style={{ direction: 'rtl', fontSize: 45 }}>{sentence.arabic}</h1>
           <h3>Google Translation: </h3>
-          <h3>{sentence.googleTranslation}</h3>
-          <h3>English Sentence: </h3>
+           {sentence.googleTranslation}
+           <h3>Original Sentence: </h3>
+           {`${sentence.english}`} 
+          <h3>New Translation: </h3>
           <TextField
             InputProps={{ style: { fontSize: 18 } }}
             value={sentence.english}
@@ -89,7 +79,7 @@ function TextAddWords() {
           <h3>Words: </h3>
           {sentence.words.map((word, indexArabicWord) => (
             <Box sx={{ fontSize: 'h4.fontSize', fontWeight: 'bold' }} key={indexArabicWord + currentPage}>
-              <br />
+             
               <Stack spacing={5} direction="row" style={{ marginBottom: -25 }}>
                 <Box sx={{ minWidth: '90px' }}>
                   <h3 style={{ direction: 'rtl', fontSize: 33, marginTop: 5 }}>{word.arabic}</h3>
@@ -101,20 +91,6 @@ function TextAddWords() {
                   onChange={(event) => handleChangeArabic(indexSentence, indexArabicWord, event.target.value)}
                   rows={1}
                   fullWidth
-                />
-              </Stack>
-              <Stack spacing={5} direction="row" style={{ marginBottom: 0 }}>
-                <Box sx={{ minWidth: '90px' }}>
-                  <h6 style={{ direction: 'rtl', fontSize: 15, marginTop: 5 }}>Explanation</h6>
-                </Box>
-
-                <TextField
-                  InputProps={{ style: { fontSize: 15 } }}
-                  value={word.explanation || ''}
-                  onChange={(event) => handleChangeExplanation(indexSentence, indexArabicWord, event.target.value)}
-                  fullWidth
-                  multiline
-                  rows={5}
                 />
               </Stack>
               <Chip
@@ -129,21 +105,6 @@ function TextAddWords() {
                 }}
               >
                 Fetch from Google
-              </Button>
-
-              <Button
-                onClick={async () => {
-                  handleChangeArabic(indexSentence, indexArabicWord, `the ${word.english}`)
-                }}
-              >
-                Add the
-              </Button>
-              <Button
-                onClick={async () => {
-                  handleChangeArabic(indexSentence, indexArabicWord, `[the] ${word.english}`)
-                }}
-              >
-                Add [the]
               </Button>
 
               <Button
@@ -167,15 +128,17 @@ function TextAddWords() {
               >
                 almaany.com
               </Button>
-
-              <Divider style={{ paddingBottom: '5px', opacity: 0 }} />
+               <br />
+                <br />
             </Box>
           ))}
         </Stack>
 
         <Button
           onClick={async () => {
-            const jsonString = await getChatCompletionMessage(prompts.getArabicAndEnglishSentence(sentence, text))
+            const prompt = prompts.getArabicAndEnglishSentence(sentence, text)
+           
+            const jsonString = await getChatCompletionMessage(prompt)
             const result = JSON.parse(jsonString)
 
             handleChangeArabicFullSentence(indexSentence, result)
@@ -185,21 +148,6 @@ function TextAddWords() {
           style={{ marginLeft: '130px' }}
         >
           Translate
-        </Button>
-        <Button
-          onClick={async () => {
-            const wordsPairs = sentence.words.map((word) => `${word.arabic} ${word.english}`).join('\n')
-
-            const jsonString = await getChatCompletionMessage(prompts.getExplanation(wordsPairs, text))
-            const result = JSON.parse(jsonString)
-
-            handleChangeExplanationSentence(indexSentence, result)
-          }}
-          variant="contained"
-          color="primary"
-          style={{ marginLeft: '10px' }}
-        >
-          Explain
         </Button>
         <Button
           onClick={async () => {
@@ -242,9 +190,7 @@ function TextAddWords() {
     suggestions,
     handleChangeEnglishSentence,
     handleChangeArabic,
-    handleChangeExplanation,
-    handleChangeArabicFullSentence,
-    handleChangeExplanationSentence
+    handleChangeArabicFullSentence
   ])
 
   const numPages = Math.ceil(text.sentences.length / PAGE_SIZE)

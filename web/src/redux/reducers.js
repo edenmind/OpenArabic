@@ -83,11 +83,12 @@ const textReducer = createReducer(initialState, (builder) => {
       const { indexSentence, indexArabicWord, explanation } = action.value
       state.text.sentences[indexSentence].words[indexArabicWord].explanation = explanation
     })
-    .addCase(actions.UPDATE_FULL_SENTENCE, (state, action) => {
-      const { indexSentence, englishWords } = action.value
+ .addCase(actions.UPDATE_FULL_SENTENCE, (state, action) => {
+      const { indexSentence, englishWords, translation } = action.value
       state.text.sentences[indexSentence].words.forEach((word, index) => {
         word.english = englishWords[index].english
       })
+      state.text.sentences[indexSentence].english = translation
     })
     .addCase(actions.UPDATE_EXPLANATION_SENTENCE, (state, action) => {
       const { indexSentence, explanations } = action.value

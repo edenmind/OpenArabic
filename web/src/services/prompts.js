@@ -53,12 +53,13 @@ ${text.texts.english}
 --- INSTRUCTIONS:
 As an Islamic scholar, summarize the Full English Text considering the following criteria:
 
-- The summary should be brief and concise.
+- The summary should be very brief and concise.
 - Remain faithful to the original text.
 - Make the summary easily comprehensible.
+- Prefer short words over long words.
+- Prefer simple words over complex.
 - Maintain the beauty and grace of the original text.
 - Adhere to Sunni Islam interpretations.
-- Limit the summary to a maximum of 50 words.
 - Ensure the title's character count, including spaces, does not exceed 25.
 - The output must be only in JSON format.
 ---
@@ -66,7 +67,7 @@ As an Islamic scholar, summarize the Full English Text considering the following
 --- EXAMPLE OUTPUT:
 {
 "title": "Decree and Human Actions",
-"summary": "This Hadith conveys that our creation, lifespan, sustenance, deeds, and destiny are ordained by Allah. Regardless of our earthly deeds appearing righteous or sinful, our ultimate fate aligns with this divine decree, demonstrating the intertwining of human actions and divine will."
+"summary": "In this Hadith we learn that our creation, lifespan, sustenance, deeds, and destiny are ordained by Allah."
 }
 `.trimStart()
 }
@@ -479,7 +480,7 @@ export const getArabicAndEnglishSentence = (sentence, text) => {
 ${text.texts.arabic}
 ---
 
---- Arabic Sentence from Full Arabic Text to Translate:
+--- Arabic Sentence:
 ${sentence.arabic}
 ---
 
@@ -495,50 +496,71 @@ ${text.source}
 ${text.category}
 ---
 
-
 --- INSTRUCTIONS:
-Act as a Translator of Classic Arabic to English and do a Word-for-Word Translation of the Arabic Sentence to English according to the following criteria:
+Act as a Translator of Classic Arabic to English and provide a Word-for-Word Translation of the Arabic Sentence to English according to the following criteria:
 
-- The text that you are translating is a Sunni Islamic text.
+- The text that you are translating is a Sunni Islamic hadith from Sahih al-Bukhari.
 - Maintain the original word order from the Arabic sentence in your translation.
-- Insert additional words that gives better readability of the word-for-word translation, enclosing them in square brackets [].
-- Insert additional words so that the english translation is as close to the original Arabic Sentence as possible, enclosing them in square brackets [].
-- Always use the definite article "the" in the english translation when the Arabic word is in the definite form.
-- Stay true to the meaning and context of the original Arabic sentence.
 - Ensure that names of Prophets and Sahaba are accompanied by respectful annotations such as Alayhis Salam (Peace be upon him) for Prophets and Radhi Allahu Anhu/Anha (May Allah be pleased with him/her) for Sahaba.
-- Return the result in a valid JSON array with the property "arabic" that contains the arabic word and the property "english "that contains the english translation.
-- Give at least three examples for every translation separated by a comma and begin with the one that best connects with the english translation before and after.
-- When an Arabic word starts with "وَ" then do not treat it as a separate word but as a prefix that joins with the next word.
-- Translate ﷺ as "peace and blessings be upon him" without [].
----
+- Return the result as a valid JSON object with an array that contains the property "arabic" that contains the single Arabic word and the property "english" that contains the English translation.
+- The JSON object should also contain the property "translation" that contains the the entire sentence.
+- Add extra words in brackets [] in the English translation (JSON property: translation) so that the sentence can be read in a grammatically correct way.
+- Do not add brackets [] to the single word translation to English (JSON property: english).
+- Only use english words in the translation (JSON property: english).
+- Do not use transliterated arabic words in the translation (JSON property: english).
+- The word-for-word translation (JSON property: english) should focus on the correctness of the single word in isolation.
+- Make sure that the word-for-word translation (JSON property: english) is grammatically correct according to the rules of Classical Arabic and that no brackets are added.
+- When an Arabic word starts with "وَ," treat it as a prefix that joins with the next word.
+- Translate ﷺ as "ﷺ" but do not add it if it is not in the original sentence.
+- Prefer easy and short words over long and complex.
+- This translation will be reviewed by English and Arabic experts, so ensure its correctness.
 
 --- EXAMPLE OUTPUT:
-[
-  {
-    "arabic": "إنَّ",
-    "english": "Indeed, Verily"
-  },
-  {
-    "arabic": "الْحَلَالَ",
-    "english": "the lawful, the permissible"
-  },
-  {
-    "arabic": "بَيِّنٌ",
-    "english": "[is] clear, [is] manifest"
-  },
-  {
-    "arabic": "وَإِنَّ",
-    "english": "and indeed, and verily"
-  }, 
-  { 
-    "arabic":" الْحَرَامَ", 
-    "english": "[that which is] the unlawful, [that which is] the prohibited"
-  }, 
-  { 
-   	"arabic": "بَيِّنٌ",	  
-   	"english": "[is] clear, [is] manifest"
-	}
-]
+{
+  "words": [
+    {
+      "arabic": "أَنَّ",
+      "english": "that"
+    },
+    {
+      "arabic": "نَاسًا",
+      "english": "people"
+    },
+    {
+      "arabic": "مِنْ",
+      "english": "from"
+    },
+    { 
+      "arabic": "أَصْحَابِ", 
+      "english": "companions"
+    }, 
+    { 
+      "arabic": "رَسُولِ",    
+      "english": "messenger"
+    }, 
+    { 
+      "arabic": "اللَّهِ",    
+      "english": "of Allah"
+    }, 
+    { 
+      "arabic": "ﷺ",    
+      "english": "ﷺ"
+    }, 
+    { 
+      "arabic": "قَالُوا",    
+      "english": "they said"
+    }, 
+    { 
+      "arabic": "لِلنَّبِيِّ",    
+      "english": "to the Prophet"
+    }, 
+    { 
+      "arabic": "ﷺ",    
+      "english": "ﷺ"
+    }
+  ],
+  "translation": "That people from [the] companions of [the] messenger of Allah ﷺ, they said to the Prophet ﷺ."
+}
 ---
 `
   return result.trimStart()

@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: [
     'import',
-    'react',
+    // 'react',
     'react-hooks',
     'prettier',
     'react-redux',
@@ -73,8 +73,8 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react-redux/recommended',
     'plugin:react-redux/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react/recommended',
+    // 'plugin:react/jsx-runtime',
+    // 'plugin:react/recommended',
     'plugin:security/recommended',
     'plugin:sonarjs/recommended',
     'plugin:array-func/recommended'

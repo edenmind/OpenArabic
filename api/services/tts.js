@@ -1,31 +1,51 @@
-/* eslint-disable putout/putout */
+'use strict';
 
-'use strict'
+const { exec } = require('child_process');
+const { copyFileToS3 } = require('./utils.js');
 
-const textToSpeech = require('@google-cloud/text-to-speech')
-const { copyFileToS3 } = require('./utils.js')
+async function synthesize(text, fileName) {
+  // Access the environment variable for the API key
+  const apiKey = process.env.ELEVENLABS_API_KEY;
 
-const client = new textToSpeech.TextToSpeechClient()
-
-async function synthesize(text, languageCode, fileName) {
-  // Construct the request
-  const request = {
-    input: { text },
-    voice: { languageCode, ssmlGender: 'MALE', name: 'ar-XA-Wavenet-B' },
-    audioConfig: { audioEncoding: 'MP3' },
-    speakingRate: 0.7
+  // Ensure the API key is available
+  if (!apiKey) {
+    throw new Error('Missing ELEVENLABS_API_KEY environment variable');
   }
 
-  // Performs the text-to-speech request
-  const [response] = await client.synthesizeSpeech(request)
+  const cmd = `
+    curl -X 'POST' \
+      'https://api.elevenlabs.io/v1/text-to-speech/ErXwobaYiN019PkySvjV' \
+      --header 'accept: audio/mpeg' \
+      --header 'xi-api-key: ${apiKey}' \
+      --header 'Content-Type: application/json' \
+      --data '{
+        "text": "${text}",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.5,
+          "similarity_boost": 0.5
+        }
+      }'
+  `;
 
-  //verify that the response is not empty
-  if (!response.audioContent) {
-    throw new Error('Received empty audioContent')
-  }
+  return new Promise((resolve, reject) => {
+    // Execute the curl command
+    exec(cmd, { maxBuffer: 50 * 1024 * 1024 }, async (error, stdout) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+        reject(error);
+        return;
+      }
 
-  // Write the binary audio content to S3 compatible storage
-  await copyFileToS3(response.audioContent, fileName)
+      // Use stdout directly as it contains the audio data
+      const audioContent = Buffer.from(stdout, 'binary');
+
+      // Write the binary audio content to S3 compatible storage
+      await copyFileToS3(audioContent, fileName);
+      
+      resolve();
+    });
+  });
 }
 
 module.exports = {
