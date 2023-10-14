@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-use-of-empty-return-value */
 /* link to check root word
 add property for when the word was added
 */

@@ -7,15 +7,13 @@ ARG REACT_APP_API_KEY
 ARG REACT_APP_API_URL
 ARG REACT_APP_GOOGLE_API_KEY
 
-ENV NODE_ENV=production
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
 ENV REACT_APP_GOOGLE_API_KEY=$REACT_APP_GOOGLE_API_KEY
 ENV REACT_APP_KEY=$REACT_APP_KEY
 
 WORKDIR /usr/src/app
 COPY ["package.json", "yarn.lock", "./"]
-# add curl
-RUN apk add --no-cache curl
+
 RUN yarn install && mv node_modules ../
 COPY . .
 

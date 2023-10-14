@@ -6,13 +6,13 @@
 module.exports = {
   env: {
     browser: false,
-    es2022: true,
+    es2023: true,
     es6: true,
     node: true,
     commonjs: true
   },
   parserOptions: {
-    ecmaVersion: 13,
+    ecmaVersion: 14,
     sourceType: 'module'
   },
   plugins: ['import', 'prettier', 'security', 'putout'],

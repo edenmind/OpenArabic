@@ -1,4 +1,3 @@
-/* eslint-disable putout/nonblock-statement-body-newline */
 import { Button, Container, Box, Stack, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material'
 import * as api from '../services/api-service.js'
 import Footer from '../components/footer.js'

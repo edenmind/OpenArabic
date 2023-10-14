@@ -6,6 +6,9 @@ ENV FASTIFY_ADDRESS=0.0.0.0
 
 WORKDIR /usr/src/app
 
+# install curl
+RUN apk add --no-cache curl
+
 # Copy only what's necessary
 COPY ["package.json", "yarn.lock", "./"]
 

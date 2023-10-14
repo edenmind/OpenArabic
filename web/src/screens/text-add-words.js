@@ -1,8 +1,6 @@
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable no-trailing-spaces */
-/* eslint-disable putout/newline-function-call-arguments */
 /* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable security/detect-non-literal-fs-filename */
 import * as api from '../services/api-service.js'
 import { Box, Button, Chip, Stack, TextField, Divider } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
@@ -22,7 +20,7 @@ function TextAddWords() {
   const [currentPage, setCurrentPage] = React.useState(1)
   const [suggestions, setSuggestions] = React.useState(Array(text.sentences.length).fill(''))
 
-  // 
+  //
 
   const handleChangeArabic = useCallback(
     (indexSentence, indexArabicWord, englishWord) => {
@@ -35,9 +33,12 @@ function TextAddWords() {
   const handleChangeArabicFullSentence = useCallback(
     (indexSentence, englishWords) => {
       const sentenceIndex = (currentPage - 1) * PAGE_SIZE + indexSentence
-      const words = englishWords.words;
-      const translation = englishWords.translation;
-      dispatch({ type: 'UPDATE_FULL_SENTENCE', value: { indexSentence: sentenceIndex, englishWords: words, translation } })
+      const words = englishWords.words
+      const translation = englishWords.translation
+      dispatch({
+        type: 'UPDATE_FULL_SENTENCE',
+        value: { indexSentence: sentenceIndex, englishWords: words, translation }
+      })
     },
     [currentPage, dispatch, PAGE_SIZE]
   )
@@ -63,9 +64,9 @@ function TextAddWords() {
           </h2>
           <h1 style={{ direction: 'rtl', fontSize: 45 }}>{sentence.arabic}</h1>
           <h3>Google Translation: </h3>
-           {sentence.googleTranslation}
-           <h3>Original Sentence: </h3>
-           {`${sentence.english}`} 
+          {sentence.googleTranslation}
+          <h3>Original Sentence: </h3>
+          {`${sentence.english}`}
           <h3>New Translation: </h3>
           <TextField
             InputProps={{ style: { fontSize: 18 } }}
@@ -79,7 +80,6 @@ function TextAddWords() {
           <h3>Words: </h3>
           {sentence.words.map((word, indexArabicWord) => (
             <Box sx={{ fontSize: 'h4.fontSize', fontWeight: 'bold' }} key={indexArabicWord + currentPage}>
-             
               <Stack spacing={5} direction="row" style={{ marginBottom: -25 }}>
                 <Box sx={{ minWidth: '90px' }}>
                   <h3 style={{ direction: 'rtl', fontSize: 33, marginTop: 5 }}>{word.arabic}</h3>
@@ -128,8 +128,8 @@ function TextAddWords() {
               >
                 almaany.com
               </Button>
-               <br />
-                <br />
+              <br />
+              <br />
             </Box>
           ))}
         </Stack>
@@ -137,7 +137,7 @@ function TextAddWords() {
         <Button
           onClick={async () => {
             const prompt = prompts.getArabicAndEnglishSentence(sentence, text)
-           
+
             const jsonString = await getChatCompletionMessage(prompt)
             const result = JSON.parse(jsonString)
 
@@ -184,14 +184,7 @@ function TextAddWords() {
         <Divider style={{ marginTop: 75, marginBottom: 75, height: 15 }} />
       </Fragment>
     ))
-  }, [
-    currentPage,
-    text,
-    suggestions,
-    handleChangeEnglishSentence,
-    handleChangeArabic,
-    handleChangeArabicFullSentence
-  ])
+  }, [currentPage, text, suggestions, handleChangeEnglishSentence, handleChangeArabic, handleChangeArabicFullSentence])
 
   const numPages = Math.ceil(text.sentences.length / PAGE_SIZE)
   const pageButtons = []
