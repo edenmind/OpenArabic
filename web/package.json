@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1444.12.217",
+  "version": "1444.12.218",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -17,9 +17,9 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
-    "@mui/base": "^5.0.0-beta.12",
-    "@mui/icons-material": "^5.14.6",
-    "@mui/lab": "^5.0.0-alpha.141",
+    "@mui/base": "^5.0.0-beta.19",
+    "@mui/icons-material": "^5.14.13",
+    "@mui/lab": "^5.0.0-alpha.148",
     "@mui/material": "^5.14.13",
     "@mui/system": "^5.14.13",
     "@mui/utils": "^5.14.13",
@@ -30,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "axios": "^1.5.1",
     "axios-mock-adapter": "^1.22.0",
+    "caniuse-lite": "^1.0.30001549",
     "dayjs": "^1.11.10",
     "history": "^5.3.0",
     "moment": "^2.29.4",
@@ -78,7 +79,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
     "eslint": "^8.51.0",
@@ -86,7 +87,7 @@
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-mui-unused-classes": "^2.0.2",
     "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-putout": "^19.6.0",
+    "eslint-plugin-putout": "^20.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-redux": "^4.0.0",

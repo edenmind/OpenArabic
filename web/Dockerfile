@@ -14,6 +14,8 @@ ENV REACT_APP_KEY=$REACT_APP_KEY
 
 WORKDIR /usr/src/app
 COPY ["package.json", "yarn.lock", "./"]
+# add curl
+RUN apk add --no-cache curl
 RUN yarn install && mv node_modules ../
 COPY . .
 
