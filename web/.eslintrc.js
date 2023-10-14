@@ -68,7 +68,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/recommended',
     'plugin:import/warnings',
-    'plugin:mui-unused-classes/recommended',
+    // 'plugin:mui-unused-classes/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react-redux/recommended',
     'plugin:react-redux/recommended',
