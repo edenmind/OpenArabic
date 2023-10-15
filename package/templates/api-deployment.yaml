@@ -72,6 +72,11 @@ spec:
                 secretKeyRef:
                   name: api-config
                   key: GOOGLE_APPLICATION_CREDENTIALS
+            - name: ELEVENLABS_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-config
+                  key: ELEVENLABS_API_KEY
           resources:
             limits:
               memory: 512Mi

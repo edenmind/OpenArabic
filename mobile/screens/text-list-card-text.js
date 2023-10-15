@@ -18,7 +18,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     })
   }
 
-  const numberOfWordsInText = text?.sentences?.reduce((acc, sentence) => acc + sentence?.words?.length, 0) ?? 0
+  // const numberOfWordsInText = text?.sentences?.reduce((acc, sentence) => acc + sentence?.words?.length, 0) ?? 0
 
   const content = (
     <>
@@ -27,7 +27,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
         title={text.title}
         subtitle={text.author}
         titleStyle={{ ...sharedStyle.cardTitle }}
-        right={() => <CategoryChip category={`${numberOfWordsInText} words`} />}
+        right={() => <CategoryChip category={text.category} />}
       />
       <Card.Content>
         <Text variant="bodyMedium">{text.introduction}</Text>

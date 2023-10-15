@@ -47,9 +47,12 @@ export const useSharedStyles = (theme) => {
       actionButton: {
         marginVertical: BASE_MARGIN
       },
+      // color, fontSize, fontWeight, lineHeight, textAlign = 'center', letterSpacing = 0
       actionText: getTextStyle(onPrimary, 18, '800', 40, 'center', 2.5),
       actionTextPrimary: getTextStyle(primary, 18, '800', 40, 'center', 2.5),
+      actionTextPrimarySmall: getTextStyle(onPrimary, 17, '800', 25, 'center', 2.5),
       answerText: getTextStyle(primary, 23, '600', 40),
+      answerTextSmall: getTextStyle(primary, 17, '800', 25, 'center', 2.5),
       arabicBody: {
         ...getTextStyle(secondary, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9, 'right'),
         fontFamily: arabicFontName,

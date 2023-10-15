@@ -53,12 +53,11 @@ ${text.texts.english}
 --- INSTRUCTIONS:
 As an Islamic scholar, summarize the Full English Text considering the following criteria:
 
-- The summary should be very brief and concise.
+- The summary should be very brief and very concise and only contain one short sentence.
 - Remain faithful to the original text.
-- Make the summary easily comprehensible.
-- Prefer short words over long words.
-- Prefer simple words over complex.
-- Maintain the beauty and grace of the original text.
+- Make the summary easily comprehensible and as short as possible.
+- Use short words instead of long words.
+- Use simple words instead of complex.
 - Adhere to Sunni Islam interpretations.
 - Ensure the title's character count, including spaces, does not exceed 25.
 - The output must be only in JSON format.
