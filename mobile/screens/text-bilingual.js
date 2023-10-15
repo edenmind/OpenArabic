@@ -92,7 +92,7 @@ export default function TextBilingual() {
               ...sharedStyle.buttonAnswer
             }}
           >
-            <Text style={{ ...sharedStyle.actionTextPrimary }}>READ</Text>
+            <Text style={{ ...sharedStyle.actionTextPrimary }}>PREVIEW</Text>
           </Button>
 
           <ActionButton

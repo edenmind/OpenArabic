@@ -2,41 +2,74 @@ import { LinearGradient } from 'expo-linear-gradient'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Image, View, StyleSheet } from 'react-native'
-import { Text, useTheme } from 'react-native-paper'
+import { Text, useTheme, Checkbox } from 'react-native-paper'
 
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextBilingualHeading({ heading }) {
-  const { source, readingTime, views, timeAgo, image, title, introduction } = heading
-  const caption = `${readingTime} · ${views} views · ${timeAgo}`
+  const { image } = heading
+
   const theme = useTheme()
   const style = useSharedStyles(theme)
+  const [checked, setChecked] = React.useState(true)
 
   return (
     <>
       <View>
         <Image source={{ uri: image }} style={style.image} />
         <LinearGradient
-          colors={['transparent', theme.colors.background]} // Change rgba values to your desired color and opacity
+          colors={['transparent', theme.colors.background]}
           start={{ x: 0.5, y: 0 }}
           end={{ x: 0.5, y: 1 }}
           style={StyleSheet.absoluteFill}
         />
       </View>
-      <Text variant="headlineLarge" style={style.title}>
-        {title}
-      </Text>
-      <Text variant="titleMedium" style={style.author}>
-        {source}
-      </Text>
-      <Text variant="labelMedium" style={style.reading}>
-        {caption}
+
+      <Text variant="labelMedium" style={{ ...style.reading, paddingLeft: 15, textAlign: 'left' }}>
+        Setup Practice Session
       </Text>
 
-      <View style={style.container}>
-        <Text variant="bodyLarge" style={{ textAlign: 'center' }}>
-          {introduction}
-        </Text>
+      <View style={{ alignItems: 'center', flexDirection: 'row', marginHorizontal: 15, marginVertical: 10 }}>
+        <Checkbox
+          uncheckedColor="red"
+          checkedColor="green"
+          status={checked ? 'checked' : 'unchecked'}
+          onPress={() => {
+            setChecked(!checked)
+          }}
+        />
+        <View>
+          <Text variant="headlineSmall">Listening</Text>
+          <Text variant="labelLarge">This is a small explanatory note.</Text>
+        </View>
+      </View>
+      <View style={{ alignItems: 'center', flexDirection: 'row', marginHorizontal: 15, marginVertical: 10 }}>
+        <Checkbox
+          uncheckedColor="red"
+          checkedColor="green"
+          status={checked ? 'checked' : 'unchecked'}
+          onPress={() => {
+            setChecked(!checked)
+          }}
+        />
+        <View>
+          <Text variant="headlineSmall">Reading</Text>
+          <Text variant="labelLarge">This is another small explanatory note.</Text>
+        </View>
+      </View>
+      <View style={{ alignItems: 'center', flexDirection: 'row', marginHorizontal: 15, marginVertical: 10 }}>
+        <Checkbox
+          uncheckedColor="red"
+          checkedColor="green"
+          status={checked ? 'checked' : 'unchecked'}
+          onPress={() => {
+            setChecked(!checked)
+          }}
+        />
+        <View>
+          <Text variant="headlineSmall">Vocabulary</Text>
+          <Text variant="labelLarge">This is yet another small explanatory note.</Text>
+        </View>
       </View>
     </>
   )

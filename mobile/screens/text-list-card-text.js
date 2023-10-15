@@ -18,21 +18,25 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     })
   }
 
-  // const numberOfWordsInText = text?.sentences?.reduce((acc, sentence) => acc + sentence?.words?.length, 0) ?? 0
+  const numberOfWordsInText = text?.sentences?.reduce((acc, sentence) => acc + sentence?.words?.length, 0) ?? 0
 
   const content = (
     <>
       <Card.Cover source={{ uri: text.image }} />
       <Card.Title
         title={text.title}
-        subtitle={text.author}
+        subtitle={text.category}
         titleStyle={{ ...sharedStyle.cardTitle }}
-        right={() => <CategoryChip category={text.category} />}
+        right={() => <CategoryChip category={`${numberOfWordsInText} words`} />}
       />
       <Card.Content>
         <Text variant="bodyMedium">{text.introduction}</Text>
-        <Divider style={{ ...sharedStyle.dividerHidden, marginBottom: 5 }} />
       </Card.Content>
+      <Card.Actions style={{ ...sharedStyle.cardAction }}>
+        <Text variant="bodySmall" style={{ color: theme.colors.secondary, left: 10, position: 'absolute' }}>
+          {text.source}
+        </Text>
+      </Card.Actions>
     </>
   )
 
