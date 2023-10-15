@@ -43,7 +43,8 @@ async function listTexts(request, reply) {
         readingTime: readingTime(text.texts.arabic),
         numberOfSentences: text.sentences.length,
         numberOfWords: text.sentences.reduce((total, sentence) => total + sentence.words.length, 0),
-        image: process.env.IMAGES_URL + text.image
+        image: process.env.IMAGES_URL + text.image,
+        introduction: text.introduction
       })
     })
 

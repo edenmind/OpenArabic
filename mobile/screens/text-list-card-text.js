@@ -30,9 +30,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
         right={() => <CategoryChip category={`${numberOfWordsInText} words`} />}
       />
       <Card.Content>
-        <Text variant="bodyMedium">
-          OpenArabic is a complimentary and open-source platform dedicated to the learning of the Arabic language.
-        </Text>
+        <Text variant="bodyMedium">{text.introduction}</Text>
         <Divider style={{ ...sharedStyle.dividerHidden, marginBottom: 5 }} />
       </Card.Content>
     </>

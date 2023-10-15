@@ -47,6 +47,7 @@ const getTextsWithIdOptions = {
           type: 'object',
           properties: {
             id: { type: 'string' },
+            introduction: { type: 'string' },
             title: { type: 'string' },
             status: { type: 'string' },
             slug: { type: 'string' },
