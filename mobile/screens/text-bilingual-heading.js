@@ -7,7 +7,7 @@ import { Text, useTheme } from 'react-native-paper'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextBilingualHeading({ heading }) {
-  const { author, source, readingTime, views, timeAgo, image, title, introduction } = heading
+  const { source, readingTime, views, timeAgo, image, title, introduction } = heading
   const caption = `${readingTime} · ${views} views · ${timeAgo}`
   const theme = useTheme()
   const style = useSharedStyles(theme)
@@ -25,10 +25,6 @@ export default function TextBilingualHeading({ heading }) {
       </View>
       <Text variant="headlineLarge" style={style.title}>
         {title}
-      </Text>
-
-      <Text variant="titleMedium" style={style.author}>
-        {author}
       </Text>
       <Text variant="titleMedium" style={style.author}>
         {source}
