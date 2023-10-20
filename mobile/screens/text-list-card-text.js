@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Card, useTheme, Text, Divider } from 'react-native-paper'
+import { Card, useTheme, Text } from 'react-native-paper'
 
 import { CategoryChip } from '../components/category-chip.js'
 import { PressableCard } from '../components/pressable-card.js'
@@ -33,7 +33,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
         <Text variant="bodyMedium">{text.introduction}</Text>
       </Card.Content>
       <Card.Actions style={{ ...sharedStyle.cardAction }}>
-        <Text variant="bodySmall" style={{ color: theme.colors.secondary, left: 10, position: 'absolute' }}>
+        <Text variant="bodySmall" style={{ color: theme.colors.outline, left: 10, position: 'absolute' }}>
           {text.source}
         </Text>
       </Card.Actions>

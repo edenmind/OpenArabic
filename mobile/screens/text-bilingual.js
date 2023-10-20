@@ -1,8 +1,7 @@
 import 'react-native-gesture-handler'
 
-import * as Haptics from 'expo-haptics'
 import React, { useState } from 'react'
-import { RefreshControl, Share, ScrollView, View } from 'react-native'
+import { RefreshControl, Share, ScrollView, View, StyleSheet } from 'react-native'
 import { useTheme, Button, Text } from 'react-native-paper'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -29,6 +28,17 @@ export default function TextBilingual() {
   const theme = useTheme()
 
   const sharedStyle = useSharedStyles(theme)
+
+  const style = StyleSheet.create({
+    arabic: {
+      color: theme.colors.secondary,
+      direction: 'rtl',
+      fontFamily: 'philosopher',
+      fontSize: 45,
+      paddingVertical: 100,
+      textAlign: 'center'
+    }
+  })
 
   const onRefresh = async () => {
     setRefreshing(true)
@@ -77,6 +87,9 @@ export default function TextBilingual() {
               setVisible(true)
               setContent(
                 <ScrollView>
+                  <Text variant="displaySmall" style={style.arabic}>
+                    ﷽
+                  </Text>
                   <ReadText
                     {...{
                       isPlaying,
@@ -114,7 +127,6 @@ export default function TextBilingual() {
         visible={visible}
         content={content}
         hideModal={() => {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
           setVisible(false)
           setIsPlaying(false)
           dispatch({
