@@ -11,8 +11,6 @@ const ModalScrollView = ({ content, visible, hideModal }) => {
       alignSelf: 'flex-start'
     },
     containerStyle: {
-      alignItems: 'center',
-      alignSelf: 'flex-start',
       backgroundColor: theme.colors.background,
       height: Dimensions.get('window').height,
       padding: 10,

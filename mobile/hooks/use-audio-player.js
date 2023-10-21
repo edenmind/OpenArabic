@@ -89,7 +89,6 @@ export const useAudioPlayer = () => {
       setIsSoundLoaded(true)
 
       if (audioSound._loaded && !audioSound._playing && !shouldStop) {
-        console.log('Playing sound:', shouldPlay)
         await audioSound.playAsync()
       }
     } catch (error) {

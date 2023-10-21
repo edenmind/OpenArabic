@@ -55,8 +55,6 @@ function useTextPracticeLogic() {
 
     const audioURL = HOST.audio + wordFilename
     if (shouldPlayPracticeWord) {
-      console.log('shouldPlayPracticeWord:', shouldPlayPracticeWord)
-
       playSound(audioURL)
     }
   }, [currentWord, shouldPlayPracticeWord])
@@ -108,6 +106,47 @@ function useTextPracticeLogic() {
 
     setCurrentSentence((prev) => prev + 1)
     setCurrentWord(0)
+  }
+
+  // Add all words from the current sentence to the practice list
+  const addAllWordsFromCurrentSentence = () => {
+    const currentSentenceData = sentencesInText[currentSentence]
+
+    if (!currentSentenceData) return
+
+    dispatch({
+      type: 'RESET_WORDS'
+    })
+
+    for (const wordData of currentSentenceData.englishWords) {
+      const currentEnglishWord = wordData.english
+
+      // Find the corresponding Arabic word and its filename
+      const correspondingArabicData = currentSentenceData.arabicWords.find((aw) => aw.id === wordData.id)
+      const correspondingArabicWord = correspondingArabicData ? correspondingArabicData.arabic : undefined
+      const wordFilename = correspondingArabicData
+        ? currentSentenceData.wordFilename[correspondingArabicData.id]
+        : undefined
+
+      // Get alternative English words
+      const shuffledAlternatives = currentSentenceData.englishWords
+        .filter((altWord) => altWord.english !== currentEnglishWord)
+        .sort(() => Math.random() - 0.5)
+      const alternatives = shuffledAlternatives.slice(0, 2).map((alt) => alt.english)
+
+      const wordInDesiredFormat = {
+        alternative1: alternatives[0],
+        alternative2: alternatives[1],
+        arabic: correspondingArabicWord,
+        english: currentEnglishWord,
+        filename: wordFilename
+      }
+
+      dispatch({
+        payload: wordInDesiredFormat,
+        type: 'ADD_WORD'
+      })
+    }
   }
 
   // When a word is pressed in the sentence, check if it is the correct word
@@ -198,6 +237,7 @@ function useTextPracticeLogic() {
   }, [text])
 
   return {
+    addAllWordsFromCurrentSentence,
     celebrationSnackBarVisibility,
     currentArabicWord,
     currentSentence,

@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
-import React, { useState, useMemo } from 'react'
+import PropTypes from 'prop-types'
+import React, { useState, useMemo, useEffect } from 'react'
 import { View, FlatList, Pressable, StyleSheet } from 'react-native'
-import { Surface, Text, useTheme, ProgressBar } from 'react-native-paper'
+import { Surface, Text, useTheme } from 'react-native-paper'
 
-import { CompletedView } from './words-completed.js'
 import { ButtonAnswer } from '../components/button-answer.js'
 import Spinner from '../components/spinner.js'
 import { useWordsLogic } from '../hooks/use-words-logic.js'
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const Words = () => {
+export const PracticeVocabulary = (props) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -39,6 +40,12 @@ const Words = () => {
     <ButtonAnswer text={text} onPress={onPress} correct={isCorrect} incorrect={!isCorrect} />
   )
 
+  useEffect(() => {
+    if (currentWordIndex === localWords.length) {
+      props.handleContinue()
+    }
+  }, [currentWordIndex])
+
   const buttons = useMemo(() => {
     const mainButton = generateAnswerButton(localWords[currentWord]?.english, handleCorrectAnswer, true)
     const altButton1 = generateAnswerButton(localWords[currentWord]?.alternative1)
@@ -53,18 +60,9 @@ const Words = () => {
 
   const renderItem = ({ item }) => <>{item.button}</>
 
-  if (currentWordIndex === localWords.length) {
-    return <CompletedView localWords={localWords} />
-  }
-
   return (
     <>
       <Surface style={sharedStyle.wordSurface}>
-        <ProgressBar
-          color={theme.colors.tertiary}
-          progress={currentWordIndex / localWords.length}
-          style={{ ...sharedStyle.progressBar, width: '100%' }}
-        />
         <View style={sharedStyle.wordCenteredView}>
           <Pressable onPress={handlePressOnWord}>
             <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
@@ -82,4 +80,6 @@ const Words = () => {
   )
 }
 
-export default Words
+PracticeVocabulary.propTypes = {
+  handleContinue: PropTypes.func.isRequired
+}
