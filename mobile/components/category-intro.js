@@ -4,7 +4,7 @@ import { Text, Surface, useTheme } from 'react-native-paper'
 
 import { useSharedStyles } from '../styles/common.js'
 
-const TextCategoryIntro = ({ text }) => {
+const CategoryIntro = ({ text }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -15,8 +15,8 @@ const TextCategoryIntro = ({ text }) => {
   )
 }
 
-export default TextCategoryIntro
+export default CategoryIntro
 
-TextCategoryIntro.propTypes = {
+CategoryIntro.propTypes = {
   text: PropTypes.string.isRequired
 }

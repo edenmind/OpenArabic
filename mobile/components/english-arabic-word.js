@@ -10,7 +10,7 @@ import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { getAdaptiveFontSize } from '../services/ui-services.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export default function ArabicWords({ sentence: { words }, currentPlayingWordIndex }) {
+export default function EnglishArabicWord({ sentence: { words }, currentPlayingWordIndex }) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const [selectedWordIndex, setSelectedWordIndex] = useState()
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   }
 })
 
-ArabicWords.propTypes = {
+EnglishArabicWord.propTypes = {
   currentPlayingWordIndex: PropTypes.number,
   sentence: PropTypes.shape({
     arabic: PropTypes.string.isRequired,

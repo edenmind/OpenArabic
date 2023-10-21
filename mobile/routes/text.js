@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 import { useTheme } from 'react-native-paper'
 import { useSelector, useDispatch } from 'react-redux'
 
-import SimpleText from './simple-text.js'
 import TextDrawer from './text-drawer.js'
+import TextSimple from './text-simple.js'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import SCREENS from '../constants/screens.js'
 import About from '../screens/about.js'
@@ -88,7 +88,7 @@ function Text() {
       />
       <Stack.Screen
         name={SCREENS.textScreen}
-        component={SimpleText}
+        component={TextSimple}
         options={() => ({
           headerBackTitle: 'Home',
           headerShown: true,

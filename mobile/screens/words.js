@@ -5,7 +5,7 @@ import { View, FlatList, Pressable, StyleSheet, Image } from 'react-native'
 import { Surface, Text, useTheme, ProgressBar } from 'react-native-paper'
 
 import icon from '../assets/logo.png'
-import { AnswerButton } from '../components/answer-button.js'
+import { ButtonAnswer } from '../components/button-answer.js'
 import Spinner from '../components/spinner.js'
 import { useWordsLogic } from '../hooks/use-words-logic.js'
 import { calculateFontSize, pluralize } from '../services/ui-services.js'
@@ -36,7 +36,7 @@ const Words = () => {
   const fontSize = useMemo(() => calculateFontSize(arabic), [arabic])
 
   const generateAnswerButton = (text, onPress, isCorrect = false) => (
-    <AnswerButton text={text} onPress={onPress} correct={isCorrect} incorrect={!isCorrect} />
+    <ButtonAnswer text={text} onPress={onPress} correct={isCorrect} incorrect={!isCorrect} />
   )
 
   const buttons = useMemo(() => {

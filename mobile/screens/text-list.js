@@ -2,17 +2,18 @@ import { useFocusEffect, useScrollToTop } from '@react-navigation/native'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useRef, useMemo } from 'react'
-import { FlatList, View } from 'react-native'
-import { useTheme, Text, Surface, Button } from 'react-native-paper'
+import { FlatList } from 'react-native'
+import { useTheme, Text } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 
 import TextListCard from './text-list-card.js'
+import { PracticeNotify } from './text-list-practice-notify.js'
 import Words from './words.js'
+import CategoryIntro from '../components/category-intro.js'
 import FadeInView from '../components/fade-in-view.js'
 import Footer from '../components/footer.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
 import Spinner from '../components/spinner.js'
-import TextCategoryIntro from '../components/text-category-intro.js'
 import * as api from '../services/api-service.js'
 import { pluralize } from '../services/ui-services.js'
 import { getHijriDateLatin } from '../services/utility-service.js'
@@ -67,50 +68,15 @@ export default function TextList({ route, navigation }) {
   const categoryDescriptions = categories.filter((cat) => cat.name === category).map((cat) => cat.description)
   const categoryDescription = categoryDescriptions.length > 0 ? categoryDescriptions[0] : ''
 
-  const CustomSurface = ({ children, showButton = false }) => (
-    <Surface
-      elevation={1}
-      style={{
-        ...sharedStyle.container,
-        alignItems: 'center',
-        backgroundColor: theme.colors.background,
-        borderBottomWidth: 4,
-        borderColor: theme.colors.elevation.level2,
-        borderRadius: 10,
-        borderWidth: 2,
-        flexDirection: 'row',
-        marginBottom: 4
-      }}
-    >
-      <View style={{ ...sharedStyle.container, flex: 1 }}>{children}</View>
-      {showButton && (
-        <Button
-          icon={'brain'}
-          onPress={() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
-            setVisiblePractice(true)
-          }}
-        >
-          Practice
-        </Button>
-      )}
-    </Surface>
-  )
-
-  CustomSurface.propTypes = {
-    children: PropTypes.node.isRequired,
-    showButton: PropTypes.bool
-  }
-
   const HeaderComponent = useMemo(() => {
     if (categoryDescription && categoryDescription.length > 0) {
-      return <TextCategoryIntro text={categoryDescription} />
+      return <CategoryIntro text={categoryDescription} />
     }
 
     return numberOfPracticeWords > 0 ? (
-      <CustomSurface showButton={true}>
+      <PracticeNotify showButton={true} setVisiblePractice={setVisiblePractice}>
         <Text variant="labelMedium">You have {pluralize(numberOfPracticeWords, 'word')} to review</Text>
-      </CustomSurface>
+      </PracticeNotify>
     ) : (
       <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
     )

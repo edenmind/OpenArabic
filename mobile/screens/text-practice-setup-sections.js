@@ -2,47 +2,13 @@ import * as Haptics from 'expo-haptics'
 import { LinearGradient } from 'expo-linear-gradient'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Image, View, StyleSheet, TouchableOpacity } from 'react-native'
-import { Text, useTheme, Checkbox } from 'react-native-paper'
+import { Image, View, StyleSheet } from 'react-native'
+import { Text, useTheme } from 'react-native-paper'
 
+import { PracticeCheckbox } from '../components/practice-checkbox.js'
 import { useSharedStyles } from '../styles/common.js'
 
-function PracticeCheckbox({ label, note, isChecked, onToggle }) {
-  const theme = useTheme()
-  const textColor = isChecked ? theme.colors.onBackground : theme.colors.outline
-
-  return (
-    <TouchableOpacity onPress={onToggle} activeOpacity={0.7}>
-      <View
-        style={{
-          alignItems: 'center',
-          flexDirection: 'row',
-          marginHorizontal: 15,
-          marginVertical: 10
-        }}
-      >
-        <Checkbox status={isChecked ? 'checked' : 'unchecked'} />
-        <View>
-          <Text variant="headlineSmall" style={{ color: textColor }}>
-            {label}
-          </Text>
-          <Text variant="labelLarge" style={{ color: textColor }}>
-            {note}
-          </Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-  )
-}
-
-PracticeCheckbox.propTypes = {
-  isChecked: PropTypes.bool.isRequired,
-  label: PropTypes.string.isRequired,
-  note: PropTypes.string.isRequired,
-  onToggle: PropTypes.func.isRequired
-}
-
-export default function TextBilingualHeading({ heading: { image } }) {
+export default function TextPracticeSetupSections({ heading: { image } }) {
   const theme = useTheme()
   const style = useSharedStyles(theme)
   const [checkedListening, setCheckedListening] = React.useState(true)
@@ -119,7 +85,7 @@ export default function TextBilingualHeading({ heading: { image } }) {
   )
 }
 
-TextBilingualHeading.propTypes = {
+TextPracticeSetupSections.propTypes = {
   heading: PropTypes.shape({
     author: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,

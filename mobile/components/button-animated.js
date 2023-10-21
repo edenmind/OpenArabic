@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import { Animated } from 'react-native'
 
-import { AnswerButton } from '../components/answer-button.js'
+import { ButtonAnswer } from './button-answer.js'
 
-export const AnimatedButton = ({ word, handlePress }) => {
+export const ButtonAnimated = ({ word, handlePress }) => {
   const fadeInValue = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export const AnimatedButton = ({ word, handlePress }) => {
 
   return (
     <Animated.View style={{ opacity: fadeInValue }}>
-      <AnswerButton
+      <ButtonAnswer
         text={word.english}
         onPress={() => handlePress(word.id, word.arabic)}
         {...(word.correct ? { correct: true } : { incorrect: true })}
@@ -27,7 +27,7 @@ export const AnimatedButton = ({ word, handlePress }) => {
   )
 }
 
-AnimatedButton.propTypes = {
+ButtonAnimated.propTypes = {
   handlePress: PropTypes.func.isRequired,
   word: PropTypes.shape({
     arabic: PropTypes.string,

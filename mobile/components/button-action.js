@@ -8,7 +8,7 @@ import { Button, Text, useTheme } from 'react-native-paper'
 import { UIElements } from '../constants/ui.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export const ActionButton = ({ text, onPress }) => {
+export const ButtonAction = ({ text, onPress }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const scaleValue = useRef(new Animated.Value(1)).current
@@ -66,7 +66,7 @@ export const ActionButton = ({ text, onPress }) => {
   )
 }
 
-ActionButton.propTypes = {
+ButtonAction.propTypes = {
   onPress: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired
 }

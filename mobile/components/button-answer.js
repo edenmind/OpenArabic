@@ -11,7 +11,7 @@ import { UIElements } from '../constants/ui.js'
 import { capitalizeFirstLetter } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export const AnswerButton = ({ text = '', onPress, haptic, correct, incorrect }) => {
+export const ButtonAnswer = ({ text = '', onPress, haptic, correct, incorrect }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const [color, setColor] = useState(theme.colors.elevation.level5)
@@ -111,7 +111,7 @@ export const AnswerButton = ({ text = '', onPress, haptic, correct, incorrect })
   )
 }
 
-AnswerButton.propTypes = {
+ButtonAnswer.propTypes = {
   correct: PropTypes.bool,
   haptic: PropTypes.bool,
   incorrect: PropTypes.bool,

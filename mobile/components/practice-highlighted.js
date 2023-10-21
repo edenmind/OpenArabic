@@ -3,10 +3,10 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Text, useTheme } from 'react-native-paper'
 
-import HighlightedWord from './context-highlighted-word.js'
+import HighlightedWord from './practice-highlighted-word.js'
 import { useSharedStyles } from '../styles/common.js'
 
-const WordsContextHighLighted = ({ arabicSentence, arabicWord, sentenceIsComplete }) => {
+const PracticeHighlighted = ({ arabicSentence, arabicWord, sentenceIsComplete }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const textStyles = StyleSheet.create({
@@ -45,16 +45,14 @@ const WordsContextHighLighted = ({ arabicSentence, arabicWord, sentenceIsComplet
     })
 
   return (
-    <View style={{ direction: 'rtl', flexDirection: 'row', flexWrap: 'wrap', marginLeft: 7, paddingTop: 30 }}>
-      {renderWords()}
-    </View>
+    <View style={{ direction: 'rtl', flexDirection: 'row', flexWrap: 'wrap', marginLeft: 7 }}>{renderWords()}</View>
   )
 }
 
-WordsContextHighLighted.propTypes = {
+PracticeHighlighted.propTypes = {
   arabicSentence: PropTypes.arrayOf(PropTypes.object).isRequired,
   arabicWord: PropTypes.object.isRequired,
   sentenceIsComplete: PropTypes.bool
 }
 
-export default WordsContextHighLighted
+export default PracticeHighlighted

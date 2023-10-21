@@ -8,13 +8,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-theme.js'
 import SCREENS from '../constants/screens.js'
 import { UIElements } from '../constants/ui.js'
-import TextBilingual from '../screens/text-bilingual.js'
+import TextSetupPractice from '../screens/text-practice-setup.js'
 import { getText } from '../services/api-service.js'
 
 const Stack = createNativeStackNavigator()
 const darkModeSelector = (state) => state.isDarkMode
 
-export default function SimpleText({ route }) {
+export default function TextSimple({ route }) {
   const isDarkModeOn = useSelector(darkModeSelector)
   const theme = useTheme()
 
@@ -34,7 +34,7 @@ export default function SimpleText({ route }) {
       <Stack.Navigator>
         <Stack.Screen
           name={SCREENS.textBilingual}
-          component={TextBilingual}
+          component={TextSetupPractice}
           options={{
             headerLargeTitle: false,
             headerShown: false,
@@ -56,6 +56,6 @@ export default function SimpleText({ route }) {
   )
 }
 
-SimpleText.propTypes = {
+TextSimple.propTypes = {
   route: PropTypes.object
 }

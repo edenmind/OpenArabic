@@ -5,7 +5,7 @@ import { Text, useTheme } from 'react-native-paper'
 
 import { useSharedStyles } from '../styles/common.js'
 
-const HighlightedWord = ({ word: { arabic } }) => {
+const PracticeHighlightedWord = ({ word: { arabic } }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -46,11 +46,11 @@ const HighlightedWord = ({ word: { arabic } }) => {
   )
 }
 
-HighlightedWord.propTypes = {
+PracticeHighlightedWord.propTypes = {
   word: PropTypes.shape({
     arabic: PropTypes.string.isRequired,
     english: PropTypes.string.isRequired
   }).isRequired
 }
 
-export default HighlightedWord
+export default PracticeHighlightedWord

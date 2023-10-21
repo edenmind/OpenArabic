@@ -53,6 +53,14 @@ export const useSharedStyles = (theme) => {
       actionTextPrimarySmall: getTextStyle(onPrimary, 17, '800', 25, 'center', 2.5),
       answerText: getTextStyle(primary, 23, '600', 40),
       answerTextSmall: getTextStyle(primary, 17, '800', 25, 'center', 2.5),
+      arabic: {
+        color: theme.colors.secondary,
+        direction: 'rtl',
+        fontFamily: 'philosopher',
+        fontSize: 45,
+        paddingVertical: 100,
+        textAlign: 'center'
+      },
       arabicBody: {
         ...getTextStyle(secondary, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9, 'right'),
         fontFamily: arabicFontName,

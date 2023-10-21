@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import React, { useState, useCallback } from 'react'
 import { Text, useTheme } from 'react-native-paper'
 
-import ArabicWords from './arabic-words.js'
+import ArabicWords from './english-arabic-word.js'
 import PlaySound from './play-sound.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export const EnglishArabic = ({
+export const EnglishArabicText = ({
   sentence: { arabic, english, words = [] } = {},
   autoStart,
   showRepeat,
@@ -51,7 +51,7 @@ export const EnglishArabic = ({
   )
 }
 
-EnglishArabic.propTypes = {
+EnglishArabicText.propTypes = {
   autoStart: PropTypes.bool,
   sentence: PropTypes.shape({
     arabic: PropTypes.string.isRequired,

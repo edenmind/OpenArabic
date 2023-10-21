@@ -3,7 +3,7 @@ import React, { useMemo } from 'react'
 import { Text, Card, Divider, useTheme } from 'react-native-paper'
 
 import { CategoryChip } from '../components/category-chip.js'
-import { EnglishArabic } from '../components/english-arabic.js'
+import { EnglishArabicText } from '../components/english-arabic-text.js'
 import { PressableCard } from '../components/pressable-card.js'
 import { HOST } from '../constants/urls.js'
 import { useSharedStyles } from '../styles/common.js'
@@ -29,7 +29,7 @@ export default function TextListCardQuote({ text }) {
       <Card.Content>
         <CategoryChip category="QUOTE" />
         <Divider style={sharedStyle.dividerHidden} />
-        <EnglishArabic sentence={sentenceForComponent} />
+        <EnglishArabicText sentence={sentenceForComponent} />
       </Card.Content>
       <Card.Actions>
         <Text variant="labelMedium" style={{ color: theme.colors.outline, paddingBottom: 10 }}>
