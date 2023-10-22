@@ -24,7 +24,7 @@ function useTextPracticeLogic() {
 
   const [currentArabicWord, setCurrentArabicWord] = useState(0)
   const [sentenceIsComplete, setSentenceIsComplete] = useState(false)
-  const [celebrationSnackBarVisibility, setCelebrationSnackBarVisibility] = useState(false)
+
   const { playSound } = useAudioPlayer()
   const { shouldPlayPracticeWord } = useSelector(audioSelector)
 
@@ -83,10 +83,6 @@ function useTextPracticeLogic() {
     setCurrentArabicWord(currentArabicWordData)
   }, [currentSentence, currentWord, sentencesInText, textLoading])
 
-  const onDismissSnackBar = useCallback(() => {
-    setCelebrationSnackBarVisibility(false)
-  }, [setCelebrationSnackBarVisibility])
-
   const handleReset = () => {
     setCurrentSentence(0)
     setCurrentWord(0)
@@ -95,17 +91,11 @@ function useTextPracticeLogic() {
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleContinue = () => {
+  const handleProgressToNextSentence = () => {
+    console.log('handleProgressToNextSentence')
     setSentenceIsComplete(true)
 
-    if (currentSentence === sentencesInText?.length) {
-      setCelebrationSnackBarVisibility(true)
-
-      return
-    }
-
     setCurrentSentence((prev) => prev + 1)
-    setCurrentWord(0)
   }
 
   // Add all words from the current sentence to the practice list
@@ -186,13 +176,11 @@ function useTextPracticeLogic() {
         setSentenceIsComplete(true)
 
         if (isLastSentence) {
-          setCelebrationSnackBarVisibility(true)
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }
 
         // Progress to the next sentence
         setIsLastWordInSentence(false)
-        setCurrentSentence((prev) => prev + 1)
         setCurrentWord(0)
         return
       }
@@ -238,16 +226,14 @@ function useTextPracticeLogic() {
 
   return {
     addAllWordsFromCurrentSentence,
-    celebrationSnackBarVisibility,
     currentArabicWord,
     currentSentence,
     currentWord,
     currentWordsInSentence,
-    handleContinue,
     handlePress,
+    handleProgressToNextSentence,
     handleReset,
     isLastSentence,
-    onDismissSnackBar,
     sentenceIsComplete,
     sentencesInText,
     setSentenceIsComplete,

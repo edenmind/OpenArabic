@@ -9,6 +9,7 @@ import { PracticeReading } from './text-practice-reading.js'
 import { PracticeVocabulary } from './text-practice-vocabulary.js'
 import Spinner from '../components/spinner.js'
 import useTextPracticeLogic from '../hooks/use-practice-logic.js'
+import { useWordsLogic } from '../hooks/use-words-logic.js'
 import { useSharedStyles } from '../styles/common.js'
 
 const TextPractice = () => {
@@ -20,21 +21,23 @@ const TextPractice = () => {
   const [showRepeat, setShowRepeat] = useState(false)
   const dispatch = useDispatch()
 
+  const { isFinishedVocabularySentence } = useWordsLogic()
+
   const {
     addAllWordsFromCurrentSentence,
-    isLastSentence,
     currentArabicWord,
     currentSentence,
-    sentenceIsComplete,
-    setSentenceIsComplete,
-    currentWordsInSentence,
-    textLoading,
-    sentencesInText,
     currentWord,
-    text,
+    currentWordsInSentence,
+    handlePress,
+    handleProgressToNextSentence,
     handleReset,
-    handleContinue,
-    handlePress
+    isLastSentence,
+    sentenceIsComplete,
+    sentencesInText,
+    setSentenceIsComplete,
+    text,
+    textLoading
   } = useTextPracticeLogic()
 
   useEffect(() => {
@@ -51,7 +54,6 @@ const TextPractice = () => {
 
   const handlePracticeComplete = () => {
     setExerciseType()
-    handleContinue()
   }
 
   const handleStartReadingPractice = () => {
@@ -64,12 +66,22 @@ const TextPractice = () => {
   }
 
   const handleStartListeningPractice = () => {
+    handleProgressToNextSentence()
     setExerciseType('listening')
   }
 
   const onWordPressed = (wordId, wordArabic) => {
     handlePress(wordId, wordArabic)
   }
+
+  useEffect(() => {
+    console.log('isLastWordInVocabulary triggered in useEffect 1 :' + isFinishedVocabularySentence)
+
+    if (isFinishedVocabularySentence) {
+      console.log('isLastWordInVocabulary triggered in useEffect 2 :' + isFinishedVocabularySentence)
+      handleProgressToNextSentence()
+    }
+  }, [isFinishedVocabularySentence])
 
   return textLoading ? (
     <View style={{ flex: 1 }}>

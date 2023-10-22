@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Image, View, StyleSheet } from 'react-native'
-import { Text, useTheme } from 'react-native-paper'
+import { useTheme } from 'react-native-paper'
 
 import { PracticeCheckbox } from '../components/practice-checkbox.js'
 import { useSharedStyles } from '../styles/common.js'
@@ -68,9 +68,9 @@ export default function TextPracticeSetupSections({ heading: { image } }) {
         />
       </View>
 
-      <Text variant="labelLarge" style={{ paddingLeft: 15, paddingTop: 10, textAlign: 'left' }}>
+      {/* <Text variant="labelLarge" style={{ paddingLeft: 15, paddingTop: 10, textAlign: 'left' }}>
         Setup Practice Session
-      </Text>
+      </Text> */}
 
       {checkboxes.map((checkbox, index) => (
         <PracticeCheckbox

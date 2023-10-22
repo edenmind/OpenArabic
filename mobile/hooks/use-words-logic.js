@@ -12,6 +12,8 @@ const wordsSelector = (state) => state.words
 const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIndex) => {
   const { words } = useSelector(wordsSelector)
   const { playSound } = useAudioPlayer()
+  const [isLastWordInVocabulary, setIsLastWordInVocabulary] = useState(false)
+  const [isFinishedVocabularySentence, setIsFinishedVocabularySentence] = useState(false)
 
   const [buttonPositions, setButtonPositions] = useState(generateUniqueRandomNumbers())
 
@@ -24,11 +26,22 @@ const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIn
   }, []) // Empty dependency array ensures this runs once when the component is mounted.
 
   useEffect(() => {
-    const audioURL = `${HOST.audio}${localWords[currentWord].filename}`
-    playSound(audioURL)
-  }, [localWords[currentWord].filename])
+    if (localWords[currentWord]) {
+      const audioURL = `${HOST.audio}${localWords[currentWord].filename}`
+      playSound(audioURL)
+    }
+  }, [currentWord])
 
-  const handleCorrectAnswer = useCallback(() => {
+  useEffect(() => {
+    if (isLastWordInVocabulary) {
+      setIsFinishedVocabularySentence(true)
+    }
+  }, [isLastWordInVocabulary])
+
+  const handleCorrectAnswer = () => {
+    if (!localWords[currentWord]) {
+      return
+    }
     handleSetCurrentWordIndex((currentIndex) => currentIndex + 1)
     dispatch({
       payload: localWords[currentWord].arabic,
@@ -36,24 +49,30 @@ const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIn
     })
 
     if (currentWord === localWords.length - 1) {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Success)
+      console.log('currentWord === localWords.length - 1')
+      setIsLastWordInVocabulary(true)
+      setIsFinishedVocabularySentence(true)
       return
     }
+
     setButtonPositions(generateUniqueRandomNumbers())
     handleSetCurrentWord((currentWord) => currentWord + 1)
-  }, [currentWord])
+  }
 
   const handlePressOnWord = useCallback(() => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-    playSound(`${HOST.audio}${localWords[currentWord].filename}`)
-  }, [localWords[currentWord].filename, playSound])
+    if (localWords[currentWord]) {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+      playSound(`${HOST.audio}${localWords[currentWord].filename}`)
+    }
+  }, [localWords, currentWord, playSound])
 
   return {
-    arabic: localWords[currentWord].arabic,
+    arabic: localWords[currentWord] ? localWords[currentWord].arabic : '',
     buttonPositions,
-    filename: localWords[currentWord].filename,
+    filename: localWords[currentWord] ? localWords[currentWord].filename : '',
     handleCorrectAnswer,
     handlePressOnWord,
+    isFinishedVocabularySentence,
     localWords,
     playSound
   }
