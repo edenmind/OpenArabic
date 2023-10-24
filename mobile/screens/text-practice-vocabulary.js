@@ -3,7 +3,7 @@
 /* eslint-disable react-native/no-color-literals */
 import PropTypes from 'prop-types'
 import React, { useState, useMemo, useEffect } from 'react'
-import { View, FlatList, Pressable, StyleSheet } from 'react-native'
+import { FlatList, Pressable, StyleSheet } from 'react-native'
 import { Surface, Text, useTheme } from 'react-native-paper'
 
 import { ButtonAnswer } from '../components/button-answer.js'
@@ -14,7 +14,7 @@ import { useSharedStyles } from '../styles/common.js'
 
 const styles = StyleSheet.create({
   bottomList: {
-    bottom: 25,
+    bottom: 40,
     left: 0,
     position: 'absolute',
     right: 0
@@ -63,11 +63,9 @@ export const PracticeVocabulary = (props) => {
   return (
     <>
       <Surface style={sharedStyle.wordSurface}>
-        <View style={sharedStyle.wordCenteredView}>
-          <Pressable onPress={handlePressOnWord}>
-            <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
-          </Pressable>
-        </View>
+        <Pressable onPress={handlePressOnWord}>
+          <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
+        </Pressable>
       </Surface>
       <FlatList
         style={[sharedStyle.wordContainer, styles.bottomList]}

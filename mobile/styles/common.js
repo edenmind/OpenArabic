@@ -137,7 +137,7 @@ export const useSharedStyles = (theme) => {
       },
       cardAction: {
         marginRight: BASE_MARGIN,
-        paddingBottom: BASE_PADDING * 4
+        paddingBottom: BASE_PADDING
       },
       cardTitle: {
         fontFamily: 'philosopher',
@@ -147,9 +147,7 @@ export const useSharedStyles = (theme) => {
         backgroundColor: BACKGROUND_COLOR,
         borderBottomWidth: BORDER_BOTTOM_WIDTH,
         borderColor: BORDER_COLOR,
-        borderWidth: BORDER_WIDTH,
-        marginRight: 15,
-        marginTop: -20
+        borderWidth: BORDER_WIDTH
       },
       container: {
         margin: BASE_MARGIN * 3
@@ -256,13 +254,16 @@ export const useSharedStyles = (theme) => {
         margin: 10
       },
       wordSurface: {
+        alignItems: 'center',
         backgroundColor: theme.colors.elevation.level0,
+        flex: 1,
         height: '100%',
+        justifyContent: 'center',
+        paddingBottom: 200,
         width: '100%'
       },
       wordText: {
-        fontFamily: 'uthman',
-        paddingBottom: 200
+        fontFamily: 'uthman'
       }
     })
   }, [

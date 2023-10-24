@@ -23,12 +23,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
   const content = (
     <>
       <Card.Cover source={{ uri: text.image }} />
-      <Card.Title
-        title={text.title}
-        subtitle={text.category}
-        titleStyle={{ ...sharedStyle.cardTitle }}
-        right={() => <CategoryChip category={`${numberOfWordsInText} words`} />}
-      />
+      <Card.Title title={text.title} subtitle={text.category} titleStyle={{ ...sharedStyle.cardTitle }} />
       <Card.Content>
         <Text variant="bodyMedium">{text.introduction}</Text>
       </Card.Content>
@@ -36,6 +31,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
         <Text variant="bodySmall" style={{ color: theme.colors.outline, left: 10, position: 'absolute' }}>
           {text.source}
         </Text>
+        <CategoryChip category={`${numberOfWordsInText} words`} />
       </Card.Actions>
     </>
   )
