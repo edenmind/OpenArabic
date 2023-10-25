@@ -9,7 +9,7 @@ import { PracticeReading } from './text-practice-reading.js'
 import { PracticeVocabulary } from './text-practice-vocabulary.js'
 import Spinner from '../components/spinner.js'
 import useTextPracticeLogic from '../hooks/use-practice-logic.js'
-import { useWordsLogic } from '../hooks/use-words-logic.js'
+import { useVocabularyLogic } from '../hooks/use-vocabulary-logic.js'
 import { useSharedStyles } from '../styles/common.js'
 
 const TextPractice = () => {
@@ -21,7 +21,7 @@ const TextPractice = () => {
   const [showRepeat, setShowRepeat] = useState(false)
   const dispatch = useDispatch()
 
-  const { isVocabularyComplete } = useWordsLogic()
+  const { isVocabularyComplete } = useVocabularyLogic()
 
   const {
     addAllWordsFromCurrentSentence,
@@ -59,7 +59,7 @@ const TextPractice = () => {
   }, [isVocabularyComplete])
 
   const handleListeningComplete = () => {
-    setExerciseType()
+    handleProgressToNextSentence()
   }
 
   const handleStartListeningPractice = () => {

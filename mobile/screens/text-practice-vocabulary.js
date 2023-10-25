@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
@@ -8,7 +9,7 @@ import { Surface, Text, useTheme } from 'react-native-paper'
 
 import { ButtonAnswer } from '../components/button-answer.js'
 import Spinner from '../components/spinner.js'
-import { useWordsLogic } from '../hooks/use-words-logic.js'
+import { useVocabularyLogic } from '../hooks/use-vocabulary-logic.js'
 import { calculateFontSize } from '../services/ui-services.js'
 import { useSharedStyles } from '../styles/common.js'
 
@@ -28,7 +29,7 @@ export const PracticeVocabulary = (props) => {
   const [currentWord, setCurrentWord] = useState(0)
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
 
-  const { arabic, buttonPositions, handleCorrectAnswer, handlePressOnWord, localWords } = useWordsLogic(
+  const { arabic, buttonPositions, handleCorrectAnswer, handlePressOnWord, localWords } = useVocabularyLogic(
     currentWord,
     setCurrentWord,
     setCurrentWordIndex

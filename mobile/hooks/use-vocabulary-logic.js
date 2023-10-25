@@ -3,13 +3,13 @@ import * as Haptics from 'expo-haptics'
 import { useState, useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { useAudioPlayer } from './use-audio-player.js'
 import { HOST } from '../constants/urls.js'
-import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { generateUniqueRandomNumbers } from '../services/utility-service.js'
 
 const wordsSelector = (state) => state.words
 
-const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIndex) => {
+const useVocabularyLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIndex) => {
   const { words } = useSelector(wordsSelector)
   const { playSound } = useAudioPlayer()
   const [isLastWordInVocabulary, setIsLastWordInVocabulary] = useState(false)
@@ -77,4 +77,4 @@ const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIn
   }
 }
 
-export { useWordsLogic }
+export { useVocabularyLogic }

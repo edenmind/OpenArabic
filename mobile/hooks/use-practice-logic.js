@@ -30,58 +30,47 @@ function useTextPracticeLogic() {
 
   const dispatch = useDispatch()
 
-  // Check if the current word is the last word in the sentence
   useEffect(() => {
+    // Check if the current word is the last word in the sentence
     if (currentWord > 0 && currentWord === sentencesInText?.[currentSentence].englishWords.length - 1) {
       setIsLastWordInSentence(true)
     } else {
       setIsLastWordInSentence(false)
     }
-  }, [currentWord, currentSentence, sentencesInText])
 
-  // Check if the current sentence is the last sentence in the text
-  useEffect(() => {
+    // Check if the current sentence is the last sentence in the text
     if (currentSentence > 0 && currentSentence === sentencesInText?.length - 1) {
       setIsListeningComplete(true)
     } else {
       setIsListeningComplete(false)
     }
-  }, [currentSentence, sentencesInText])
 
-  // Play the audio for the current word
-  useEffect(() => {
+    // Play the audio for the current word
     const wordFilename = sentencesInText?.[currentSentence]?.wordFilename[currentWord]
-    if (!wordFilename) return
-
-    const audioURL = HOST.audio + wordFilename
-    if (shouldPlayPracticeWord) {
+    if (wordFilename && shouldPlayPracticeWord) {
+      const audioURL = HOST.audio + wordFilename
       playSound(audioURL)
     }
-  }, [currentWord, shouldPlayPracticeWord])
 
-  // Update the current sentence and word when the text is loaded
-  useEffect(() => {
-    if (!textLoading) return
+    // Update the current sentence and word when the text is loaded
+    if (textLoading) {
+      const currentSentenceData = sentencesInText?.[currentSentence]
+      if (currentSentenceData) {
+        const currentArabicWordData = currentSentenceData.arabicWords[currentWord]
+        const englishWords = currentSentenceData.englishWords
+        const arabicWordId = currentArabicWordData.id
 
-    const currentSentenceData = sentencesInText?.[currentSentence]
-    if (!currentSentenceData) return
+        const randomWords = getThreeRandomWords(englishWords, arabicWordId, sentencesInText)
+        const enhancedEnglishWords = randomWords.map((word) => ({
+          ...word,
+          correct: word.id === currentWord
+        }))
 
-    const currentArabicWordData = currentSentenceData.arabicWords[currentWord]
-    if (!currentArabicWordData) return
-
-    const englishWords = currentSentenceData.englishWords
-    const arabicWordId = currentArabicWordData.id
-
-    const randomWords = getThreeRandomWords(englishWords, arabicWordId, sentencesInText)
-
-    const enhancedEnglishWords = randomWords.map((word) => ({
-      ...word,
-      correct: word.id === currentWord
-    }))
-
-    setCurrentWordsInSentence(enhancedEnglishWords)
-    setCurrentArabicWord(currentArabicWordData)
-  }, [currentSentence, currentWord, sentencesInText, textLoading])
+        setCurrentWordsInSentence(enhancedEnglishWords)
+        setCurrentArabicWord(currentArabicWordData)
+      }
+    }
+  }, [currentWord, currentSentence, sentencesInText, textLoading, shouldPlayPracticeWord])
 
   const handleReset = () => {
     setCurrentSentence(0)
