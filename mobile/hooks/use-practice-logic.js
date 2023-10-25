@@ -20,10 +20,10 @@ function useTextPracticeLogic() {
   const [currentWordsInSentence, setCurrentWordsInSentence] = useState([])
 
   const [isLastWordInSentence, setIsLastWordInSentence] = useState(false)
-  const [isLastSentence, setIsLastSentence] = useState(false)
+  const [isListeningComplete, setIsListeningComplete] = useState(false)
 
   const [currentArabicWord, setCurrentArabicWord] = useState(0)
-  const [sentenceIsComplete, setSentenceIsComplete] = useState(false)
+  const [isReadingComplete, setIsReadingComplete] = useState(false)
 
   const { playSound } = useAudioPlayer()
   const { shouldPlayPracticeWord } = useSelector(audioSelector)
@@ -42,9 +42,9 @@ function useTextPracticeLogic() {
   // Check if the current sentence is the last sentence in the text
   useEffect(() => {
     if (currentSentence > 0 && currentSentence === sentencesInText?.length - 1) {
-      setIsLastSentence(true)
+      setIsListeningComplete(true)
     } else {
-      setIsLastSentence(false)
+      setIsListeningComplete(false)
     }
   }, [currentSentence, sentencesInText])
 
@@ -86,14 +86,13 @@ function useTextPracticeLogic() {
   const handleReset = () => {
     setCurrentSentence(0)
     setCurrentWord(0)
-    setSentenceIsComplete(false)
+    setIsReadingComplete(false)
     setCurrentWordsInSentence([])
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleProgressToNextSentence = () => {
-    console.log('handleProgressToNextSentence')
-    setSentenceIsComplete(true)
+    setIsReadingComplete(true)
 
     setCurrentSentence((prev) => prev + 1)
   }
@@ -173,9 +172,9 @@ function useTextPracticeLogic() {
           type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS'
         })
 
-        setSentenceIsComplete(true)
+        setIsReadingComplete(true)
 
-        if (isLastSentence) {
+        if (isListeningComplete) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
         }
 
@@ -187,10 +186,10 @@ function useTextPracticeLogic() {
       setCurrentWord((prev) => prev + 1)
 
       if (currentSentence === sentencesInText?.length - 1) {
-        setIsLastSentence(true)
+        setIsListeningComplete(true)
       }
     },
-    [currentWord, isLastWordInSentence, sentencesInText, currentSentence, isLastSentence]
+    [currentWord, isLastWordInSentence, sentencesInText, currentSentence, isListeningComplete]
   )
 
   // Create an array of sentences with the words in each sentence shuffled
@@ -233,10 +232,10 @@ function useTextPracticeLogic() {
     handlePress,
     handleProgressToNextSentence,
     handleReset,
-    isLastSentence,
-    sentenceIsComplete,
+    isListeningComplete,
+    isReadingComplete,
     sentencesInText,
-    setSentenceIsComplete,
+    setIsReadingComplete,
     text,
     textLoading
   }

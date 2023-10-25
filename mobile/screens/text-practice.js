@@ -21,7 +21,7 @@ const TextPractice = () => {
   const [showRepeat, setShowRepeat] = useState(false)
   const dispatch = useDispatch()
 
-  const { isFinishedVocabularySentence } = useWordsLogic()
+  const { isVocabularyComplete } = useWordsLogic()
 
   const {
     addAllWordsFromCurrentSentence,
@@ -32,37 +32,34 @@ const TextPractice = () => {
     handlePress,
     handleProgressToNextSentence,
     handleReset,
-    isLastSentence,
-    sentenceIsComplete,
+    isListeningComplete,
+    isReadingComplete,
     sentencesInText,
-    setSentenceIsComplete,
+    setIsReadingComplete,
     text,
     textLoading
   } = useTextPracticeLogic()
 
   useEffect(() => {
-    if (sentenceIsComplete) {
-      handleStartVocabularyPractice()
+    if (isListeningComplete) {
+      handleListeningComplete()
     }
-  }, [sentenceIsComplete])
+  }, [isListeningComplete])
 
   useEffect(() => {
-    if (isLastSentence) {
-      handlePracticeComplete()
+    if (isReadingComplete) {
+      handleReadingComplete()
     }
-  }, [isLastSentence])
+  }, [isReadingComplete])
 
-  const handlePracticeComplete = () => {
+  useEffect(() => {
+    if (isVocabularyComplete) {
+      handleProgressToNextSentence()
+    }
+  }, [isVocabularyComplete])
+
+  const handleListeningComplete = () => {
     setExerciseType()
-  }
-
-  const handleStartReadingPractice = () => {
-    setExerciseType('reading')
-    addAllWordsFromCurrentSentence()
-  }
-
-  const handleStartVocabularyPractice = () => {
-    setExerciseType('vocabulary')
   }
 
   const handleStartListeningPractice = () => {
@@ -70,18 +67,18 @@ const TextPractice = () => {
     setExerciseType('listening')
   }
 
+  const handleStartReadingPractice = () => {
+    addAllWordsFromCurrentSentence()
+    setExerciseType('reading')
+  }
+
+  const handleReadingComplete = () => {
+    setExerciseType('vocabulary')
+  }
+
   const onWordPressed = (wordId, wordArabic) => {
     handlePress(wordId, wordArabic)
   }
-
-  useEffect(() => {
-    console.log('isLastWordInVocabulary triggered in useEffect 1 :' + isFinishedVocabularySentence)
-
-    if (isFinishedVocabularySentence) {
-      console.log('isLastWordInVocabulary triggered in useEffect 2 :' + isFinishedVocabularySentence)
-      handleProgressToNextSentence()
-    }
-  }, [isFinishedVocabularySentence])
 
   return textLoading ? (
     <View style={{ flex: 1 }}>
@@ -97,10 +94,10 @@ const TextPractice = () => {
           dispatch={dispatch}
           handleContinue={handleStartReadingPractice}
           handleReset={handleReset}
-          isLastSentence={isLastSentence}
+          isListeningComplete={isListeningComplete}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
-          setSentenceIsComplete={setSentenceIsComplete}
+          setIsReadingComplete={setIsReadingComplete}
           setShowRepeat={setShowRepeat}
           showRepeat={showRepeat}
           text={text}

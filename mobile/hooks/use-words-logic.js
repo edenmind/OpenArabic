@@ -13,7 +13,7 @@ const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIn
   const { words } = useSelector(wordsSelector)
   const { playSound } = useAudioPlayer()
   const [isLastWordInVocabulary, setIsLastWordInVocabulary] = useState(false)
-  const [isFinishedVocabularySentence, setIsFinishedVocabularySentence] = useState(false)
+  const [isVocabularyComplete, setIsVocabularyComplete] = useState(false)
 
   const [buttonPositions, setButtonPositions] = useState(generateUniqueRandomNumbers())
 
@@ -34,7 +34,7 @@ const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIn
 
   useEffect(() => {
     if (isLastWordInVocabulary) {
-      setIsFinishedVocabularySentence(true)
+      setIsVocabularyComplete(true)
     }
   }, [isLastWordInVocabulary])
 
@@ -49,9 +49,8 @@ const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIn
     })
 
     if (currentWord === localWords.length - 1) {
-      console.log('currentWord === localWords.length - 1')
       setIsLastWordInVocabulary(true)
-      setIsFinishedVocabularySentence(true)
+      setIsVocabularyComplete(true)
       return
     }
 
@@ -72,7 +71,7 @@ const useWordsLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIn
     filename: localWords[currentWord] ? localWords[currentWord].filename : '',
     handleCorrectAnswer,
     handlePressOnWord,
-    isFinishedVocabularySentence,
+    isVocabularyComplete,
     localWords,
     playSound
   }

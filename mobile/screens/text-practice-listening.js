@@ -13,7 +13,7 @@ export const PracticeListening = ({
   handleReset,
   handleContinue,
   setIsPlaying,
-  setSentenceIsComplete,
+  setIsReadingComplete,
   showRepeat,
   setShowRepeat,
   dispatch
@@ -39,7 +39,7 @@ export const PracticeListening = ({
         showRepeat && (
           <ButtonAction
             onPress={() => {
-              setSentenceIsComplete(false)
+              setIsReadingComplete(false)
               setShowRepeat(false)
               handleContinue()
               dispatch({
@@ -63,7 +63,7 @@ PracticeListening.propTypes = {
   isLastSentence: PropTypes.bool.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
-  setSentenceIsComplete: PropTypes.func.isRequired,
+  setIsReadingComplete: PropTypes.func.isRequired,
   setShowRepeat: PropTypes.func.isRequired,
   showRepeat: PropTypes.bool.isRequired,
   text: PropTypes.object.isRequired
