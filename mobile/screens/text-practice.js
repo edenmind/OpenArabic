@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { View } from 'react-native'
 import { useTheme, ProgressBar } from 'react-native-paper'
 import { useDispatch } from 'react-redux'
@@ -13,9 +13,15 @@ import { useVocabularyLogic } from '../hooks/use-vocabulary-logic.js'
 import { useSharedStyles } from '../styles/common.js'
 
 const TextPractice = () => {
+  const EXERCISE_TYPES = {
+    LISTENING: 'listening',
+    READING: 'reading',
+    VOCABULARY: 'vocabulary'
+  }
+
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
-  const [exerciseType, setExerciseType] = useState('listening')
+  const [currentExerciseType, setCurrentExerciseType] = useState(EXERCISE_TYPES.LISTENING)
 
   const [isPlaying, setIsPlaying] = useState(false)
   const [showRepeat, setShowRepeat] = useState(false)
@@ -39,6 +45,8 @@ const TextPractice = () => {
     text,
     textLoading
   } = useTextPracticeLogic()
+
+  const progress = sentencesInText.length > 1 ? currentSentence / (sentencesInText.length - 1) : 0
 
   useEffect(() => {
     if (isListeningComplete) {
@@ -64,31 +72,34 @@ const TextPractice = () => {
 
   const handleStartListeningPractice = () => {
     handleProgressToNextSentence()
-    setExerciseType('listening')
+    setCurrentExerciseType(EXERCISE_TYPES.LISTENING)
   }
 
   const handleStartReadingPractice = () => {
     addAllWordsFromCurrentSentence()
-    setExerciseType('reading')
+    setCurrentExerciseType(EXERCISE_TYPES.READING)
   }
 
   const handleReadingComplete = () => {
-    setExerciseType('vocabulary')
+    setCurrentExerciseType(EXERCISE_TYPES.VOCABULARY)
   }
 
-  const onWordPressed = (wordId, wordArabic) => {
-    handlePress(wordId, wordArabic)
+  const onWordPressed = useCallback(
+    (wordId, wordArabic) => {
+      handlePress(wordId, wordArabic)
+    },
+    [handlePress]
+  )
+
+  if (!textLoading) {
+    return <Spinner />
   }
 
-  return textLoading ? (
+  return (
     <View style={{ flex: 1 }}>
-      <ProgressBar
-        color={theme.colors.tertiary}
-        progress={currentSentence / (sentencesInText.length - 1)}
-        style={sharedStyle.progressBar}
-      />
+      <ProgressBar color={theme.colors.tertiary} progress={progress} style={sharedStyle.progressBar} />
 
-      {exerciseType === 'listening' && (
+      {currentExerciseType === EXERCISE_TYPES.LISTENING && (
         <PracticeListening
           currentSentence={currentSentence}
           dispatch={dispatch}
@@ -104,7 +115,7 @@ const TextPractice = () => {
         />
       )}
 
-      {exerciseType === 'reading' && (
+      {currentExerciseType === EXERCISE_TYPES.READING && (
         <PracticeReading
           currentArabicWord={currentArabicWord}
           currentSentence={currentSentence}
@@ -115,10 +126,10 @@ const TextPractice = () => {
         />
       )}
 
-      {exerciseType === 'vocabulary' && <PracticeVocabulary handleContinue={handleStartListeningPractice} />}
+      {currentExerciseType === EXERCISE_TYPES.VOCABULARY && (
+        <PracticeVocabulary handleContinue={handleStartListeningPractice} />
+      )}
     </View>
-  ) : (
-    <Spinner />
   )
 }
 
