@@ -251,7 +251,7 @@ export const useSharedStyles = (theme) => {
       },
       wordContainer: {
         flex: 1,
-        margin: 10
+        marginVertical: 10
       },
       wordSurface: {
         alignItems: 'center',

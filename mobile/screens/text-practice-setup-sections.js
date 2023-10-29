@@ -2,18 +2,23 @@ import * as Haptics from 'expo-haptics'
 import { LinearGradient } from 'expo-linear-gradient'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Image, View, StyleSheet } from 'react-native'
+import { Image, View, StyleSheet, Text } from 'react-native'
 import { useTheme } from 'react-native-paper'
 
 import { PracticeCheckbox } from '../components/practice-checkbox.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export default function TextPracticeSetupSections({ heading: { image } }) {
+export default function TextPracticeSetupSections({
+  heading: { image },
+  checkedListening,
+  checkedReading,
+  checkedVocabulary,
+  setCheckedListening,
+  setCheckedReading,
+  setCheckedVocabulary
+}) {
   const theme = useTheme()
   const style = useSharedStyles(theme)
-  const [checkedListening, setCheckedListening] = React.useState(true)
-  const [checkedReading, setCheckedReading] = React.useState(true)
-  const [checkedVocabulary, setCheckedVocabulary] = React.useState(true)
 
   const totalChecked = [checkedListening, checkedReading, checkedVocabulary].filter(Boolean).length
 
@@ -68,9 +73,12 @@ export default function TextPracticeSetupSections({ heading: { image } }) {
         />
       </View>
 
-      {/* <Text variant="labelLarge" style={{ paddingLeft: 15, paddingTop: 10, textAlign: 'left' }}>
-        Setup Practice Session
-      </Text> */}
+      <Text
+        variant="labelLarge"
+        style={{ color: theme.colors.onBackground, paddingLeft: 15, paddingTop: 10, textAlign: 'left' }}
+      >
+        Setup Practice Sessions
+      </Text>
 
       {checkboxes.map((checkbox, index) => (
         <PracticeCheckbox
@@ -86,6 +94,9 @@ export default function TextPracticeSetupSections({ heading: { image } }) {
 }
 
 TextPracticeSetupSections.propTypes = {
+  checkedListening: PropTypes.bool.isRequired,
+  checkedReading: PropTypes.bool.isRequired,
+  checkedVocabulary: PropTypes.bool.isRequired,
   heading: PropTypes.shape({
     author: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -94,6 +105,10 @@ TextPracticeSetupSections.propTypes = {
     source: PropTypes.string.isRequired,
     timeAgo: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    views: PropTypes.string.isRequired
-  })
+    views: PropTypes.string.isRequired,
+    words: PropTypes.string.isRequired
+  }),
+  setCheckedListening: PropTypes.func.isRequired,
+  setCheckedReading: PropTypes.func.isRequired,
+  setCheckedVocabulary: PropTypes.func.isRequired
 }

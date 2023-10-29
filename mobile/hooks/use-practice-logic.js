@@ -38,13 +38,6 @@ function useTextPracticeLogic() {
       setIsLastWordInSentence(false)
     }
 
-    // Check if the current sentence is the last sentence in the text
-    if (currentSentence > 0 && currentSentence === sentencesInText?.length - 1) {
-      setIsListeningComplete(true)
-    } else {
-      setIsListeningComplete(false)
-    }
-
     // Play the audio for the current word
     const wordFilename = sentencesInText?.[currentSentence]?.wordFilename[currentWord]
     if (wordFilename && shouldPlayPracticeWord) {
@@ -224,6 +217,8 @@ function useTextPracticeLogic() {
     isListeningComplete,
     isReadingComplete,
     sentencesInText,
+    setCurrentSentence,
+    setIsListeningComplete,
     setIsReadingComplete,
     text,
     textLoading

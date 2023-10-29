@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
-import PropTypes from 'prop-types'
 import React, { useState, useMemo, useEffect } from 'react'
 import { FlatList, Pressable, StyleSheet } from 'react-native'
 import { Surface, Text, useTheme } from 'react-native-paper'
@@ -80,5 +79,5 @@ export const PracticeVocabulary = (props) => {
 }
 
 PracticeVocabulary.propTypes = {
-  handleContinue: PropTypes.func.isRequired
+  handleContinue: () => {}
 }

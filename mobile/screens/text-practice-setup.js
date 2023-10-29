@@ -25,6 +25,10 @@ export default function TextPracticeSetup() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [showRepeat, setShowRepeat] = useState(true)
 
+  const [checkedListening, setCheckedListening] = React.useState(true)
+  const [checkedReading, setCheckedReading] = React.useState(true)
+  const [checkedVocabulary, setCheckedVocabulary] = React.useState(true)
+
   // Close the modal and stop audio if playing
   const handleClosePracticeModal = () => {
     setPracticeOrPreviewVisible(false)
@@ -35,7 +39,16 @@ export default function TextPracticeSetup() {
 
   // Start the practice and open the modal with practice content
   const handleStartPractice = () => {
-    setContent(<TextPractice />)
+    setContent(
+      <TextPractice
+        checkedListening={checkedListening}
+        checkedReading={checkedReading}
+        checkedVocabulary={checkedVocabulary}
+        isListeningSelected={checkedListening}
+        isReadingSelected={checkedReading}
+        isVocabularySelected={checkedVocabulary}
+      />
+    )
     setPracticeOrPreviewVisible(true)
     setIsPlaying(true)
     dispatch({ payload: true, type: 'SET_AUDIO' })
@@ -62,7 +75,15 @@ export default function TextPracticeSetup() {
 
   return (
     <>
-      <TextPracticeHeading heading={text} />
+      <TextPracticeHeading
+        heading={text}
+        checkedListening={checkedListening}
+        checkedReading={checkedReading}
+        checkedVocabulary={checkedVocabulary}
+        setCheckedListening={setCheckedListening}
+        setCheckedReading={setCheckedReading}
+        setCheckedVocabulary={setCheckedVocabulary}
+      />
       <View style={sharedStyle.container}>
         <Button onPress={handlePreviewContent} style={sharedStyle.buttonAnswer}>
           <Text style={sharedStyle.actionTextPrimary}>PREVIEW</Text>

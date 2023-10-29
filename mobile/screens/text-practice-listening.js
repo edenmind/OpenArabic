@@ -11,9 +11,8 @@ export const PracticeListening = ({
   isLastSentence,
   isPlaying,
   handleReset,
-  handleContinue,
+  setIsListeningComplete,
   setIsPlaying,
-  setIsReadingComplete,
   showRepeat,
   setShowRepeat,
   dispatch
@@ -39,9 +38,8 @@ export const PracticeListening = ({
         showRepeat && (
           <ButtonAction
             onPress={() => {
-              setIsReadingComplete(false)
+              setIsListeningComplete(true)
               setShowRepeat(false)
-              handleContinue()
               dispatch({
                 payload: true,
                 type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS'
@@ -58,12 +56,11 @@ export const PracticeListening = ({
 PracticeListening.propTypes = {
   currentSentence: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired,
-  handleContinue: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   isLastSentence: PropTypes.bool.isRequired,
   isPlaying: PropTypes.bool.isRequired,
+  setIsListeningComplete: PropTypes.func.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
-  setIsReadingComplete: PropTypes.func.isRequired,
   setShowRepeat: PropTypes.func.isRequired,
   showRepeat: PropTypes.bool.isRequired,
   text: PropTypes.object.isRequired

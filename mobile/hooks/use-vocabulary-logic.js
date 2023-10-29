@@ -73,7 +73,8 @@ const useVocabularyLogic = (currentWord, handleSetCurrentWord, handleSetCurrentW
     handlePressOnWord,
     isVocabularyComplete,
     localWords,
-    playSound
+    playSound,
+    setIsVocabularyComplete
   }
 }
 
