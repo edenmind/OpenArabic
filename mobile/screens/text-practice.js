@@ -27,7 +27,6 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
-  const [isPlaying, setIsPlaying] = useState(false)
   const [showRepeat, setShowRepeat] = useState(false)
   const dispatch = useDispatch()
 
@@ -60,7 +59,7 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
     // Reset to the first exercise type
     setProgressionIndex(0)
 
-    // Move to the next sentence 
+    // Move to the next sentence
     if (currentSentence < sentencesInText.length - 1) {
       setCurrentSentence((prevSentence) => prevSentence + 1)
     } else {
@@ -82,6 +81,16 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
   }, [isListeningComplete, isReadingComplete, isVocabularyComplete])
 
   useEffect(() => {
+    // hack to make sure the audio plays if only reading is selected
+    if (checkedReading && !checkedListening && !checkedVocabulary) {
+      dispatch({ payload: true, type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS' })
+    }
+
+    // hack to make sure the audio doesn't play if only reading and listening are selected
+    if (checkedReading && checkedListening && !checkedVocabulary) {
+      dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS' })
+    }
+
     addAllWordsFromCurrentSentence()
   }, [currentSentence])
 
@@ -106,13 +115,10 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
 
       {currentExerciseType === EXERCISE_TYPES.LISTENING && (
         <PracticeListening
+          key={currentSentence}
           currentSentence={currentSentence}
           dispatch={dispatch}
           handleReset={handleReset}
-          isListeningComplete={isListeningComplete}
-          isPlaying={isPlaying}
-          setIsPlaying={setIsPlaying}
-          setIsReadingComplete={setIsReadingComplete}
           setIsListeningComplete={setIsListeningComplete}
           setShowRepeat={setShowRepeat}
           showRepeat={showRepeat}
@@ -122,6 +128,7 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
 
       {currentExerciseType === EXERCISE_TYPES.READING && (
         <PracticeReading
+          key={currentSentence}
           currentArabicWord={currentArabicWord}
           currentSentence={currentSentence}
           currentWord={currentWord}
@@ -131,7 +138,9 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
         />
       )}
 
-      {currentExerciseType === EXERCISE_TYPES.VOCABULARY && <PracticeVocabulary handleContinue={finishVocabulary} />}
+      {currentExerciseType === EXERCISE_TYPES.VOCABULARY && (
+        <PracticeVocabulary key={currentSentence} handleContinue={finishVocabulary} />
+      )}
     </View>
   )
 }

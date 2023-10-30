@@ -1,29 +1,40 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { View } from 'react-native'
 import { useTheme, Divider } from 'react-native-paper'
 
 import { ButtonAnimated } from '../components/button-animated.js'
-import WordsContextHighLighted from '../components/practice-highlighted.js'
+import PracticeHighlighted from '../components/practice-highlighted.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export const PracticeReading = (props) => {
+export const PracticeReading = ({
+  currentArabicWord,
+  currentSentence,
+  currentWord,
+  currentWordsInSentence,
+  onWordPressed,
+  sentencesInText
+}) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
+  const renderedButtons = useMemo(
+    () =>
+      currentWordsInSentence.map((word, index) => (
+        <ButtonAnimated key={`${word.english}-${index}`} word={word} handlePress={onWordPressed} />
+      )),
+    [currentWordsInSentence, onWordPressed]
+  )
+
   return (
     <View style={{ flex: 1 }}>
-      <WordsContextHighLighted
-        arabicSentence={props.sentencesInText[props.currentSentence].arabicWords}
-        currentWord={props.currentWord}
-        arabicWord={props.currentArabicWord}
+      <PracticeHighlighted
+        arabicSentence={sentencesInText[currentSentence].arabicWords}
+        currentWord={currentWord}
+        arabicWord={currentArabicWord}
       />
       <Divider style={sharedStyle.dividerHidden} />
-      <View style={sharedStyle.bottomView}>
-        {props.currentWordsInSentence.map((word, index) => (
-          <ButtonAnimated key={`${word.english}-${index}`} word={word} handlePress={props.onWordPressed} />
-        ))}
-      </View>
+      <View style={sharedStyle.bottomView}>{renderedButtons}</View>
     </View>
   )
 }

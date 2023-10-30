@@ -117,7 +117,6 @@ export default function PlaySound({
       }
 
       // Start the sequence
-
       playNextSound()
       return
     }

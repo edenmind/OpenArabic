@@ -58,7 +58,8 @@ export const useSharedStyles = (theme) => {
         direction: 'rtl',
         fontFamily: 'philosopher',
         fontSize: 45,
-        paddingVertical: 100,
+        paddingBottom: 100,
+        paddingTop: 50,
         textAlign: 'center'
       },
       arabicBody: {

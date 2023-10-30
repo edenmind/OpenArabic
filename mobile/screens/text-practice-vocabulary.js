@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export const PracticeVocabulary = (props) => {
+export const PracticeVocabulary = ({ handleContinue }) => {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
@@ -42,7 +42,7 @@ export const PracticeVocabulary = (props) => {
 
   useEffect(() => {
     if (currentWordIndex === localWords.length) {
-      props.handleContinue()
+      handleContinue()
     }
   }, [currentWordIndex])
 

@@ -9,10 +9,8 @@ export const PracticeListening = ({
   text,
   currentSentence,
   isLastSentence,
-  isPlaying,
   handleReset,
   setIsListeningComplete,
-  setIsPlaying,
   showRepeat,
   setShowRepeat,
   dispatch
@@ -24,10 +22,8 @@ export const PracticeListening = ({
         paddingBottom={0}
         showAll={true}
         autoStart={true}
-        isPlaying={isPlaying}
         showPlay={false}
         showRepeat={showRepeat}
-        setIsPlaying={setIsPlaying}
         setShowRepeat={setShowRepeat}
       />
     </View>
@@ -58,9 +54,7 @@ PracticeListening.propTypes = {
   dispatch: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   isLastSentence: PropTypes.bool.isRequired,
-  isPlaying: PropTypes.bool.isRequired,
   setIsListeningComplete: PropTypes.func.isRequired,
-  setIsPlaying: PropTypes.func.isRequired,
   setShowRepeat: PropTypes.func.isRequired,
   showRepeat: PropTypes.bool.isRequired,
   text: PropTypes.object.isRequired
