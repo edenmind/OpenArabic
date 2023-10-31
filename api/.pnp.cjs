@@ -26,7 +26,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@aws-sdk/client-s3", "npm:3.438.0"],\
+          ["@aws-sdk/client-s3", "npm:3.440.0"],\
           ["@fastify/autoload", "npm:5.8.0"],\
           ["@fastify/cors", "npm:8.4.1"],\
           ["@fastify/env", "npm:4.3.0"],\
@@ -197,10 +197,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/client-s3", [\
-      ["npm:3.438.0", {\
-        "packageLocation": "../../../.yarn/berry/cache/@aws-sdk-client-s3-npm-3.438.0-86578b9aba-10c0.zip/node_modules/@aws-sdk/client-s3/",\
+      ["npm:3.440.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/@aws-sdk-client-s3-npm-3.440.0-0932342a5b-10c0.zip/node_modules/@aws-sdk/client-s3/",\
         "packageDependencies": [\
-          ["@aws-sdk/client-s3", "npm:3.438.0"],\
+          ["@aws-sdk/client-s3", "npm:3.440.0"],\
           ["@aws-crypto/sha1-browser", "npm:3.0.0"],\
           ["@aws-crypto/sha256-browser", "npm:3.0.0"],\
           ["@aws-crypto/sha256-js", "npm:3.0.0"],\
@@ -214,7 +214,7 @@ const RAW_RUNTIME_STATE =
           ["@aws-sdk/middleware-location-constraint", "npm:3.433.0"],\
           ["@aws-sdk/middleware-logger", "npm:3.433.0"],\
           ["@aws-sdk/middleware-recursion-detection", "npm:3.433.0"],\
-          ["@aws-sdk/middleware-sdk-s3", "npm:3.433.0"],\
+          ["@aws-sdk/middleware-sdk-s3", "npm:3.440.0"],\
           ["@aws-sdk/middleware-signing", "npm:3.433.0"],\
           ["@aws-sdk/middleware-ssec", "npm:3.433.0"],\
           ["@aws-sdk/middleware-user-agent", "npm:3.438.0"],\
@@ -558,10 +558,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/middleware-sdk-s3", [\
-      ["npm:3.433.0", {\
-        "packageLocation": "../../../.yarn/berry/cache/@aws-sdk-middleware-sdk-s3-npm-3.433.0-2c97bed00f-10c0.zip/node_modules/@aws-sdk/middleware-sdk-s3/",\
+      ["npm:3.440.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/@aws-sdk-middleware-sdk-s3-npm-3.440.0-c747652356-10c0.zip/node_modules/@aws-sdk/middleware-sdk-s3/",\
         "packageDependencies": [\
-          ["@aws-sdk/middleware-sdk-s3", "npm:3.433.0"],\
+          ["@aws-sdk/middleware-sdk-s3", "npm:3.440.0"],\
           ["@aws-sdk/types", "npm:3.433.0"],\
           ["@aws-sdk/util-arn-parser", "npm:3.310.0"],\
           ["@smithy/protocol-http", "npm:3.0.8"],\
@@ -7327,7 +7327,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["api", "workspace:."],\
-          ["@aws-sdk/client-s3", "npm:3.438.0"],\
+          ["@aws-sdk/client-s3", "npm:3.440.0"],\
           ["@fastify/autoload", "npm:5.8.0"],\
           ["@fastify/cors", "npm:8.4.1"],\
           ["@fastify/env", "npm:4.3.0"],\
