@@ -56,6 +56,7 @@ const RAW_RUNTIME_STATE =
           ["sinon", "npm:16.1.3"],\
           ["tap", "npm:18.5.3"],\
           ["try-to-catch", "npm:3.0.1"],\
+          ["tslib", "npm:2.6.2"],\
           ["twitter-api-v2", "npm:1.15.2"],\
           ["typescript-eslint", "npm:0.0.1-alpha.0"],\
           ["uuid", "npm:9.0.1"]\
@@ -7356,6 +7357,7 @@ const RAW_RUNTIME_STATE =
           ["sinon", "npm:16.1.3"],\
           ["tap", "npm:18.5.3"],\
           ["try-to-catch", "npm:3.0.1"],\
+          ["tslib", "npm:2.6.2"],\
           ["twitter-api-v2", "npm:1.15.2"],\
           ["typescript-eslint", "npm:0.0.1-alpha.0"],\
           ["uuid", "npm:9.0.1"]\

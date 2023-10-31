@@ -17,7 +17,7 @@ jobs:
           MONGO_INITDB_DATABASE: openarabic
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: 🍃 Install mongosh
         run: |
@@ -33,7 +33,7 @@ jobs:
           mongosh --host localhost --port 27017 --username root --password password --authenticationDatabase "admin" --file ./database/init-database-and-user.js
 
       - name: 🏗  Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           check-latest: true
