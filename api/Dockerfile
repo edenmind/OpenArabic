@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:latest
 
 ENV NODE_ENV=production
 ENV FASTIFY_PORT=3030
@@ -6,14 +6,14 @@ ENV FASTIFY_ADDRESS=0.0.0.0
 
 WORKDIR /usr/src/app
 
-# install curl
-RUN apk add --no-cache curl
+# Install curl
+RUN apt-get update && apt-get install -y curl && apt-get clean
 
 # Copy only what's necessary
 COPY ["package.json", "yarn.lock", "./"]
 
 # Install dependencies in a separate layer
-RUN yarn install --production && mv node_modules ../ && yarn global add fastify-cli && yarn cache clean
+RUN yarn install --production && mv node_modules ../ && yarn global add fastify-cli@5.9.0 && yarn cache clean
 
 # Copy only the source code
 COPY . .
