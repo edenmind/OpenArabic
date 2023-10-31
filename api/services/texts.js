@@ -99,7 +99,7 @@ const generateAudio = async (words, textGuid, hashTable, sentenceGuid = 'sentenc
     sentence.filename = fileNameWithoutHost
 
     // Synthesize the sentence
-    const [error] = await tryToCatch(synthesize, arabic, 'ar-XA', fileName)
+    const [error] = await tryToCatch(synthesize, arabic, fileName)
 
     if (error) {
       throw new Error(error)
