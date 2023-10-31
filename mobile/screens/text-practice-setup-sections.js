@@ -77,7 +77,7 @@ export default function TextPracticeSetupSections({
         variant="labelLarge"
         style={{ color: theme.colors.onBackground, paddingLeft: 15, paddingTop: 10, textAlign: 'left' }}
       >
-        Setup Practice Sessions
+        Setup Practice Session
       </Text>
 
       {checkboxes.map((checkbox, index) => (

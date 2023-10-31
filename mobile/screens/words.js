@@ -72,7 +72,7 @@ const Words = () => {
         </View>
       </Surface>
       <FlatList
-        style={[sharedStyle.wordContainer, styles.bottomList]}
+        style={[sharedStyle.wordContainer, styles.bottomList, { marginHorizontal: 10 }]}
         data={buttons}
         renderItem={renderItem}
         ListEmptyComponent={<Spinner />}
