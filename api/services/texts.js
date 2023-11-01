@@ -85,14 +85,16 @@ const batchGenerateAudio = async (data) => {
 
 //generate audio for sentences and words
 const generateAudio = async (words, textGuid, hashTable, sentenceGuid = 'sentence') => {
-  return words.map(async ({ arabic, id }) => {
+  for (let word of words) {
+    const { arabic, id } = word
+
     // Build the MP3 filename
     const fileName = mp3Filename(textGuid, sentenceGuid, 'ar', id)
 
     // Get the sentence data from the hash table
     const sentence = hashTable.get(id)
 
-    //remove host from the url
+    // Remove host from the url
     const fileNameWithoutHost = removeHost(fileName)
 
     // Add the filename as a property to the sentence
@@ -104,7 +106,10 @@ const generateAudio = async (words, textGuid, hashTable, sentenceGuid = 'sentenc
     if (error) {
       throw new Error(error)
     }
-  })
+
+    // Wait one second to avoid rate limiting
+    await new Promise((resolve) => setTimeout(resolve, 100))
+  }
 }
 
 //return time to read based on length of text

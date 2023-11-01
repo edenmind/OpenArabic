@@ -1,60 +1,30 @@
-'use strict';
+/* eslint-disable putout/putout */
 
-const fs = require('fs');
-const path = require('path');
-const { exec } = require('child_process');
-const { copyFileToS3 } = require('./utils.js');
+'use strict'
 
-async function synthesize(text, fileName) {
-  // Access the environment variable for the API key
-  const apiKey = process.env.ELEVENLABS_API_KEY;
+const textToSpeech = require('@google-cloud/text-to-speech')
+const { copyFileToS3 } = require('./utils.js')
 
-  // Ensure the API key is available
-  if (!apiKey) {
-    throw new Error('Missing ELEVENLABS_API_KEY environment variable');
+const client = new textToSpeech.TextToSpeechClient()
+
+async function synthesize(text, languageCode, fileName) {
+  // Construct the request
+  const request = {
+    input: { text },
+    voice: { languageCode, ssmlGender: 'MALE', name: 'ar-XA-Wavenet-C' },
+    audioConfig: { audioEncoding: 'MP3', speakingRate: 0.5, pitch: -5, effectsProfileId: ['headphone-class-device'] }
   }
 
-  // Generate a temporary path for the audio file
-  const tmpFilePath = path.join(__dirname, `${fileName}.mp3`);
+  // Performs the text-to-speech request
+  const [response] = await client.synthesizeSpeech(request)
 
-  const cmd = `
-    curl -X 'POST' \
-      'https://api.elevenlabs.io/v1/text-to-speech/ErXwobaYiN019PkySvjV' \
-      --header 'accept: audio/mpeg' \
-      --header 'xi-api-key: ${apiKey}' \
-      --header 'Content-Type: application/json' \
-      --data '{
-        "text": "${text}",
-        "model_id": "eleven_multilingual_v2",
-        "voice_settings": {
-          "stability": 0.5,
-          "similarity_boost": 0.5
-        }
-      }' \
-      --output '${tmpFilePath}'
-  `;
+  //verify that the response is not empty
+  if (!response.audioContent) {
+    throw new Error('Received empty audioContent')
+  }
 
-  return new Promise((resolve, reject) => {
-    // Execute the curl command
-    exec(cmd, { maxBuffer: 50 * 1024 * 1024 }, async (error) => {
-      if (error) {
-        console.error(`exec error: ${error}`);
-        reject(error);
-        return;
-      }
-
-      // Read the audio data from the temporary file
-      const audioContent = fs.readFileSync(tmpFilePath);
-
-      // Write the binary audio content to S3 compatible storage
-      await copyFileToS3(audioContent, fileName);
-      
-      // Remove the temporary file after copying to S3
-      fs.unlinkSync(tmpFilePath);
-
-      resolve();
-    });
-  });
+  // Write the binary audio content to S3 compatible storage
+  await copyFileToS3(response.audioContent, fileName)
 }
 
 module.exports = {
