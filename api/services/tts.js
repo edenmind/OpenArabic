@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
 const { exec } = require('child_process');
 const { copyFileToS3 } = require('./utils.js');
 
@@ -11,6 +13,9 @@ async function synthesize(text, fileName) {
   if (!apiKey) {
     throw new Error('Missing ELEVENLABS_API_KEY environment variable');
   }
+
+  // Generate a temporary path for the audio file
+  const tmpFilePath = path.join(__dirname, `${fileName}.mp3`);
 
   const cmd = `
     curl -X 'POST' \
@@ -25,24 +30,28 @@ async function synthesize(text, fileName) {
           "stability": 0.5,
           "similarity_boost": 0.5
         }
-      }'
+      }' \
+      --output '${tmpFilePath}'
   `;
 
   return new Promise((resolve, reject) => {
     // Execute the curl command
-    exec(cmd, { maxBuffer: 50 * 1024 * 1024 }, async (error, stdout) => {
+    exec(cmd, { maxBuffer: 50 * 1024 * 1024 }, async (error) => {
       if (error) {
         console.error(`exec error: ${error}`);
         reject(error);
         return;
       }
 
-      // Use stdout directly as it contains the audio data
-      const audioContent = Buffer.from(stdout, 'binary');
+      // Read the audio data from the temporary file
+      const audioContent = fs.readFileSync(tmpFilePath);
 
       // Write the binary audio content to S3 compatible storage
       await copyFileToS3(audioContent, fileName);
       
+      // Remove the temporary file after copying to S3
+      fs.unlinkSync(tmpFilePath);
+
       resolve();
     });
   });
