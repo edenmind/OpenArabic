@@ -6,9 +6,6 @@ ENV FASTIFY_ADDRESS=0.0.0.0
 
 WORKDIR /usr/src/app
 
-# Install curl
-RUN apt-get update && apt-get install -y curl && apt-get clean
-
 # Copy only what's necessary
 COPY ["package.json", "yarn.lock", "./"]
 

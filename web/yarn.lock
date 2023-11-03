@@ -49,15 +49,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth0/auth0-react@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "@auth0/auth0-react@npm:2.2.2"
+"@auth0/auth0-react@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@auth0/auth0-react@npm:2.2.3"
   dependencies:
     "@auth0/auth0-spa-js": "npm:^2.1.2"
   peerDependencies:
     react: ^16.11.0 || ^17 || ^18
     react-dom: ^16.11.0 || ^17 || ^18
-  checksum: 352f131f353c02e4c069f08549d5e7ba7ebcd3b8e32bf465f1941087a9d4f43f93d97b0668c07e2a841ac47a9e6156e50c8975c2effa460c40730d963b933c7f
+  checksum: 6db93a198178ce21e2c29f7771f5c3f35ba3da59a305809eb9bd2d23b0cf72ec61f8b430fc4f7852eeeba675f17ecc48c988a8f26bae8aaff904a445202cc2b8
   languageName: node
   linkType: hard
 
@@ -2873,7 +2873,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/base@npm:5.0.0-beta.22, @mui/base@npm:^5.0.0-beta.20":
+"@mui/base@npm:5.0.0-beta.22, @mui/base@npm:^5.0.0-beta.22":
   version: 5.0.0-beta.22
   resolution: "@mui/base@npm:5.0.0-beta.22"
   dependencies:
@@ -3155,7 +3155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/utils@npm:^5.14.14, @mui/utils@npm:^5.14.16":
+"@mui/utils@npm:^5.14.16":
   version: 5.14.16
   resolution: "@mui/utils@npm:5.14.16"
   dependencies:
@@ -3173,12 +3173,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-data-grid@npm:^6.17.0":
-  version: 6.17.0
-  resolution: "@mui/x-data-grid@npm:6.17.0"
+"@mui/x-data-grid@npm:^6.18.0":
+  version: 6.18.0
+  resolution: "@mui/x-data-grid@npm:6.18.0"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-    "@mui/utils": "npm:^5.14.14"
+    "@mui/utils": "npm:^5.14.16"
     clsx: "npm:^2.0.0"
     prop-types: "npm:^15.8.1"
     reselect: "npm:^4.1.8"
@@ -3187,17 +3187,17 @@ __metadata:
     "@mui/system": ^5.4.1
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
-  checksum: 35bf3495eaabae5717de36dd1676e355201af80cbe2b4d3d25b63051b93e78bb5a4b4e81f26048d38658a11483beb0a0fd4281f8ee543667ea63ec478e29c31b
+  checksum: 2929c38f2b926c62574b476b8d6beea3b95d1ab10042feabd211f843a50dc70c9343a77c9e8cfff46cce83b85818c0c4fae42f60acf7a47a29eab1b9b2192fe2
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:^6.17.0":
-  version: 6.17.0
-  resolution: "@mui/x-date-pickers@npm:6.17.0"
+"@mui/x-date-pickers@npm:^6.18.0":
+  version: 6.18.0
+  resolution: "@mui/x-date-pickers@npm:6.18.0"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-    "@mui/base": "npm:^5.0.0-beta.20"
-    "@mui/utils": "npm:^5.14.14"
+    "@mui/base": "npm:^5.0.0-beta.22"
+    "@mui/utils": "npm:^5.14.16"
     "@types/react-transition-group": "npm:^4.4.8"
     clsx: "npm:^2.0.0"
     prop-types: "npm:^15.8.1"
@@ -3235,7 +3235,7 @@ __metadata:
       optional: true
     moment-jalaali:
       optional: true
-  checksum: a607739a55c8ace9973e9b176b10c5c42461c2acbacb3c9c083d0cde15ec388e535e1de28ed7eb598d5f99b03cc67b62991ba5d3ba143aaabba6a285c4f97efb
+  checksum: e06642f5b941df221a0c417e6db5d61e0619e8790c454258df97a7cb28a150ad4ebc5b573d6fc54d150d3bf8637ccabe948aea0118aad3fdaa4eb8e22f1e8ed2
   languageName: node
   linkType: hard
 
@@ -3394,13 +3394,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/cli-choose@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "@putout/cli-choose@npm:1.0.1"
+"@putout/cli-choose-formatter@npm:^1.0.0":
+  version: 1.2.1
+  resolution: "@putout/cli-choose-formatter@npm:1.2.1"
+  dependencies:
+    "@putout/cli-choose": "npm:^1.1.0"
+    find-up: "npm:^6.3.0"
+  peerDependencies:
+    putout: ">=32"
+  checksum: 4962686350f5017714b725360b771c01191f4dd322bc716c8358f0fa93e21040c3aba5f16a5fab3b8e5ad01b4357bd4702e21caf241352cdc02cfed7c923bf5c
+  languageName: node
+  linkType: hard
+
+"@putout/cli-choose@npm:^1.1.0":
+  version: 1.1.1
+  resolution: "@putout/cli-choose@npm:1.1.1"
   dependencies:
     enquirer: "npm:^2.4.1"
     try-to-catch: "npm:^3.0.1"
-  checksum: 0f5f0ba578a01da0d9b39c75780cbd45f56ef33e61bb5ad8f0f253e667795d8923bd601a2fb4d7ea99e92e37104fad911c34e1bf28849eec174db7b3d5e464c4
+  checksum: a6f2cc39261a88ffe9d3435d61a831a0c326d87291a5e6aaaa6d009cfbb3402585039220bc5d702635c321c8c9f2c2017f10fac4a037e1c2da863e652cc454eb
   languageName: node
   linkType: hard
 
@@ -4093,12 +4105,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@putout/plugin-maybe@npm:^1.0.0":
-  version: 1.1.4
-  resolution: "@putout/plugin-maybe@npm:1.1.4"
+"@putout/plugin-maybe@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "@putout/plugin-maybe@npm:2.0.1"
   peerDependencies:
-    putout: ">=29"
-  checksum: 1d8b7f51e32f83e91c46491cc23093e8ea6b963640ef3b66e1b3d169a46fd399aafc53862bdd45603f133a82b65c1b8eb18036c883a656de102d9c4fff7b58a9
+    putout: ">=32"
+  checksum: 3d4f76a8b0bd85b062968c2079e5ca87fcb21c52d8466d022c1a6fbaf60b42fbbca01317a20fa8e7b9cbee237564d3f8ec3ad58501f7444602acb8570750bba3
   languageName: node
   linkType: hard
 
@@ -9246,16 +9258,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-redux@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "eslint-plugin-react-redux@npm:4.0.0"
+"eslint-plugin-react-redux@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "eslint-plugin-react-redux@npm:4.1.0"
   dependencies:
     eslint-plugin-react: "npm:^7.28.0"
     eslint-rule-composer: "npm:^0.3.0"
   peerDependencies:
     eslint: ^7 || ^8
     eslint-plugin-react: ^7.28.0
-  checksum: 2825650215c08ed76695331266cebcbbcf348a07976feb2528bb36ecfbf5bd737a72f9dc6fe1ee781ccbe7f7e0f30ac1a940b92bed963e098dfc7e0e82f18f9e
+  checksum: d26dc8c187525393426ee7c610091dfcf0d7e16ef014029544ba08dbfac36263d1e5c3fd1968f5fb126934df020d070f0963490b23aaa447e6865105f4ba3bd3
   languageName: node
   linkType: hard
 
@@ -9294,12 +9306,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:^0.21.0":
-  version: 0.21.0
-  resolution: "eslint-plugin-sonarjs@npm:0.21.0"
+"eslint-plugin-sonarjs@npm:^0.23.0":
+  version: 0.23.0
+  resolution: "eslint-plugin-sonarjs@npm:0.23.0"
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 6377b43ed2e65ef3b3b1fff2de27603beed1d411b03a8669479fdfbdc76bff4f1392a004e792e6130e0e273121927532e792e11262f2fa640e99e26c6246ef8c
+  checksum: 251f699f2ccce2a751aa0408db8cd08328777c56b670e21561e417c9d542d6b3ef5dde4808e5c61838eaa25d6f24af7eeb21071043c72047b731b975a60f1a73
   languageName: node
   linkType: hard
 
@@ -15512,13 +15524,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"putout@npm:^32.11.0":
-  version: 32.11.0
-  resolution: "putout@npm:32.11.0"
+"putout@npm:^32.15.1":
+  version: 32.15.1
+  resolution: "putout@npm:32.15.1"
   dependencies:
     "@putout/babel": "npm:^1.0.0"
     "@putout/cli-cache": "npm:^2.0.1"
-    "@putout/cli-choose": "npm:^1.0.0"
+    "@putout/cli-choose-formatter": "npm:^1.0.0"
     "@putout/cli-keypress": "npm:^2.0.0"
     "@putout/cli-match": "npm:^2.0.0"
     "@putout/cli-ruler": "npm:^3.0.0"
@@ -15583,7 +15595,7 @@ __metadata:
     "@putout/plugin-logical-expressions": "npm:^5.0.0"
     "@putout/plugin-madrun": "npm:^17.0.0"
     "@putout/plugin-math": "npm:^2.0.0"
-    "@putout/plugin-maybe": "npm:^1.0.0"
+    "@putout/plugin-maybe": "npm:^2.0.0"
     "@putout/plugin-merge-destructuring-properties": "npm:^8.0.0"
     "@putout/plugin-merge-duplicate-functions": "npm:^2.0.0"
     "@putout/plugin-merge-duplicate-imports": "npm:^9.0.0"
@@ -15664,7 +15676,7 @@ __metadata:
     yargs-parser: "npm:^21.0.0"
   bin:
     putout: bin/putout.mjs
-  checksum: 39bbf6dab0c0cb4918c120d56fe18604e37b2fbb6cbaf49e9b25ef54d90066212a4f539893549643f8fbd7f73ccbc0c87b0d0852a08bd06c405a579dd07b0119
+  checksum: a6d158da0b223bbee3b405c6088da00926135cf63c8bedeacb1cdcb18c7b70fcc1d61af98af920928d237ef214cc2b546ffd80d598b31eea513842f1a6d2b8dc
   languageName: node
   linkType: hard
 
@@ -18913,7 +18925,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:."
   dependencies:
-    "@auth0/auth0-react": "npm:^2.2.2"
+    "@auth0/auth0-react": "npm:^2.2.3"
     "@babel/eslint-parser": "npm:^7.22.15"
     "@babel/eslint-plugin": "npm:^7.22.10"
     "@babel/plugin-transform-private-property-in-object": "npm:^7.22.11"
@@ -18930,8 +18942,8 @@ __metadata:
     "@mui/material": "npm:^5.14.16"
     "@mui/system": "npm:^5.14.16"
     "@mui/utils": "npm:^5.14.16"
-    "@mui/x-data-grid": "npm:^6.17.0"
-    "@mui/x-date-pickers": "npm:^6.17.0"
+    "@mui/x-data-grid": "npm:^6.18.0"
+    "@mui/x-date-pickers": "npm:^6.18.0"
     "@reduxjs/toolkit": "npm:^1.9.7"
     "@testing-library/jest-dom": "npm:^6.1.4"
     "@testing-library/react": "npm:^14.0.0"
@@ -18950,9 +18962,9 @@ __metadata:
     eslint-plugin-putout: "npm:^21.0.1"
     eslint-plugin-react: "npm:^7.33.2"
     eslint-plugin-react-hooks: "npm:^4.6.0"
-    eslint-plugin-react-redux: "npm:^4.0.0"
+    eslint-plugin-react-redux: "npm:^4.1.0"
     eslint-plugin-security: "npm:^1.7.1"
-    eslint-plugin-sonarjs: "npm:^0.21.0"
+    eslint-plugin-sonarjs: "npm:^0.23.0"
     history: "npm:^5.3.0"
     moment: "npm:^2.29.4"
     moment-timezone: "npm:^0.5.43"
@@ -18960,7 +18972,7 @@ __metadata:
     openai: "npm:^4.14.2"
     prettier: "npm:^3.0.3"
     prop-types: "npm:^15.8.1"
-    putout: "npm:^32.11.0"
+    putout: "npm:^32.15.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-moment: "npm:^1.1.3"

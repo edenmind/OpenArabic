@@ -12,7 +12,7 @@ async function synthesize(text, languageCode, fileName) {
   const request = {
     input: { text },
     voice: { languageCode, ssmlGender: 'MALE', name: 'ar-XA-Wavenet-C' },
-    audioConfig: { audioEncoding: 'MP3', speakingRate: 0.5, pitch: -5, effectsProfileId: ['headphone-class-device'] }
+    audioConfig: { audioEncoding: 'MP3', speakingRate: 0.6, pitch: -4, effectsProfileId: ['headphone-class-device'] }
   }
 
   // Performs the text-to-speech request

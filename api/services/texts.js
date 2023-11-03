@@ -85,9 +85,7 @@ const batchGenerateAudio = async (data) => {
 
 //generate audio for sentences and words
 const generateAudio = async (words, textGuid, hashTable, sentenceGuid = 'sentence') => {
-  for (let word of words) {
-    const { arabic, id } = word
-
+  return words.map(async ({ arabic, id }) => {
     // Build the MP3 filename
     const fileName = mp3Filename(textGuid, sentenceGuid, 'ar', id)
 
@@ -101,15 +99,12 @@ const generateAudio = async (words, textGuid, hashTable, sentenceGuid = 'sentenc
     sentence.filename = fileNameWithoutHost
 
     // Synthesize the sentence
-    const [error] = await tryToCatch(synthesize, arabic, fileName)
+    const [error] = await tryToCatch(synthesize, arabic, 'ar-XA', fileName)
 
     if (error) {
       throw new Error(error)
     }
-
-    // Wait one second to avoid rate limiting
-    await new Promise((resolve) => setTimeout(resolve, 100))
-  }
+  })
 }
 
 //return time to read based on length of text

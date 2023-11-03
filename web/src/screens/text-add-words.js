@@ -8,6 +8,7 @@ import React, { Fragment, useCallback, useMemo } from 'react'
 import TextAddWordsGenerate from './text-add-words-generate.js'
 import * as prompts from '../services/prompts.js'
 import { getChatCompletionMessage } from '../services/ai-service.js'
+import { CircularProgress } from '@mui/material'
 
 const selectorText = (state) => state.text
 
@@ -19,8 +20,30 @@ function TextAddWords() {
 
   const [currentPage, setCurrentPage] = React.useState(1)
   const [suggestions, setSuggestions] = React.useState(Array(text.sentences.length).fill(''))
+  const [loadingState, setLoadingState] = React.useState({})
 
-  //
+  const handleTranslate = async (indexSentence, sentence) => {
+    setLoadingState((prevLoadingState) => ({
+      ...prevLoadingState,
+      [indexSentence]: true // Set loading to true for this specific sentence
+    }))
+
+    try {
+      const prompt = prompts.getArabicAndEnglishSentence(sentence, text)
+
+      const jsonString = await getChatCompletionMessage(prompt)
+      const result = JSON.parse(jsonString)
+
+      handleChangeArabicFullSentence(indexSentence, result)
+    } catch (error) {
+      console.error('Error during translation:', error)
+    } finally {
+      setLoadingState((prevLoadingState) => ({
+        ...prevLoadingState,
+        [indexSentence]: false // Reset loading state for this specific sentence
+      }))
+    }
+  }
 
   const handleChangeArabic = useCallback(
     (indexSentence, indexArabicWord, englishWord) => {
@@ -135,20 +158,15 @@ function TextAddWords() {
         </Stack>
 
         <Button
-          onClick={async () => {
-            const prompt = prompts.getArabicAndEnglishSentence(sentence, text)
-
-            const jsonString = await getChatCompletionMessage(prompt)
-            const result = JSON.parse(jsonString)
-
-            handleChangeArabicFullSentence(indexSentence, result)
-          }}
+          onClick={() => handleTranslate(indexSentence, sentence)}
           variant="contained"
           color="primary"
           style={{ marginLeft: '130px' }}
+          disabled={loadingState[indexSentence]} // Check loading state for this specific button
         >
-          Translate
+          {loadingState[indexSentence] ? <CircularProgress size={24} /> : 'Translate'}
         </Button>
+
         <Button
           onClick={async () => {
             const words = sentence.words.map((word) => {
@@ -184,7 +202,15 @@ function TextAddWords() {
         <Divider style={{ marginTop: 75, marginBottom: 75, height: 15 }} />
       </Fragment>
     ))
-  }, [currentPage, text, suggestions, handleChangeEnglishSentence, handleChangeArabic, handleChangeArabicFullSentence])
+  }, [
+    currentPage,
+    text.sentences,
+    loadingState,
+    suggestions,
+    handleChangeEnglishSentence,
+    handleChangeArabic,
+    handleTranslate
+  ])
 
   const numPages = Math.ceil(text.sentences.length / PAGE_SIZE)
   const pageButtons = []
