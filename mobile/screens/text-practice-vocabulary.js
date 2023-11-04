@@ -10,6 +10,7 @@ import { ButtonAnswer } from '../components/button-answer.js'
 import Spinner from '../components/spinner.js'
 import { useVocabularyLogic } from '../hooks/use-vocabulary-logic.js'
 import { calculateFontSize } from '../services/ui-services.js'
+import { transliterateArabicToEnglish } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
 const styles = StyleSheet.create({
@@ -47,12 +48,12 @@ export const PracticeVocabulary = ({ handleContinue }) => {
   }, [currentWordIndex])
 
   const buttons = useMemo(() => {
-    const mainButton = generateAnswerButton(localWords[currentWord]?.english, handleCorrectAnswer, true)
+    const correctButton = generateAnswerButton(localWords[currentWord]?.english, handleCorrectAnswer, true)
     const altButton1 = generateAnswerButton(localWords[currentWord]?.alternative1)
     const altButton2 = generateAnswerButton(localWords[currentWord]?.alternative2)
 
     return [
-      { button: mainButton, position: buttonPositions[0] },
+      { button: correctButton, position: buttonPositions[0] },
       { button: altButton1, position: buttonPositions[1] },
       { button: altButton2, position: buttonPositions[2] }
     ].sort((a, b) => a.position - b.position)
@@ -66,6 +67,9 @@ export const PracticeVocabulary = ({ handleContinue }) => {
         <Pressable onPress={handlePressOnWord}>
           <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
         </Pressable>
+        <Text style={[sharedStyle.englishBody, { color: theme.colors.tertiary, fontSize: 23 }]}>
+          {transliterateArabicToEnglish(arabic)}
+        </Text>
       </Surface>
       <FlatList
         style={[sharedStyle.wordContainer, styles.bottomList]}

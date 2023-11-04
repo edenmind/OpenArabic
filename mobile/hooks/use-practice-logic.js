@@ -3,6 +3,7 @@ import * as Haptics from 'expo-haptics'
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
+import { wordsToExclude } from '../constants/exclude-words.js'
 import { HOST } from '../constants/urls.js'
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { getThreeRandomWords } from '../services/utility-service.js'
@@ -90,7 +91,12 @@ function useTextPracticeLogic() {
     })
 
     for (const wordData of currentSentenceData.englishWords) {
-      const currentEnglishWord = wordData.english
+      const currentEnglishWord = wordData.english.trim()
+
+      // do not add the word if it is found in wordsToExclude
+      if (wordsToExclude.includes(currentEnglishWord)) {
+        continue
+      }
 
       // Find the corresponding Arabic word and its filename
       const correspondingArabicData = currentSentenceData.arabicWords.find((aw) => aw.id === wordData.id)
@@ -99,11 +105,39 @@ function useTextPracticeLogic() {
         ? currentSentenceData.wordFilename[correspondingArabicData.id]
         : undefined
 
-      // Get alternative English words
+      const fallbackWords = ['Eternal', 'Thought', 'Brace', 'Every', 'Single', 'Day', 'Night', 'Morning', 'Evening']
+
+      // First, make sure the fallbackWords do not contain the currentEnglishWord
+      const filteredFallbackWords = fallbackWords.filter((word) => word !== currentEnglishWord.trim())
+
       const shuffledAlternatives = currentSentenceData.englishWords
         .filter((altWord) => altWord.english !== currentEnglishWord)
         .sort(() => Math.random() - 0.5)
-      const alternatives = shuffledAlternatives.slice(0, 2).map((alt) => alt.english)
+
+      // Aim to get 4 alternatives because 1 word is the currentEnglishWord
+      const alternativesNeeded = 4
+      let alternatives = shuffledAlternatives.slice(0, alternativesNeeded).map((alt) => alt.english)
+
+      // Check if we have enough alternatives and ensure there are no duplicates
+      if (new Set(alternatives).size < alternativesNeeded) {
+        // Create a Set to efficiently manage uniqueness
+        const uniqueAlternatives = new Set(alternatives)
+
+        // Use the Set to check if we have enough unique alternatives
+        for (let i = 0; uniqueAlternatives.size < alternativesNeeded && i < filteredFallbackWords.length; i++) {
+          uniqueAlternatives.add(filteredFallbackWords[i])
+        }
+
+        // Convert the Set back to an Array
+        alternatives = [...uniqueAlternatives]
+      }
+
+      // make sure that no word in the array alternatives is present in wordsToExclude
+      for (let i = 0; i < alternatives.length; i++) {
+        if (wordsToExclude.includes(alternatives[i].trim())) {
+          alternatives[i] = filteredFallbackWords[i]
+        }
+      }
 
       const wordInDesiredFormat = {
         alternative1: alternatives[0],

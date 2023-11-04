@@ -1,7 +1,7 @@
 export const HOST = {
-  backend: 'http://localhost:3030',
+  // backend: 'http://localhost:3030',
   audio: 'https://openarabic.ams3.digitaloceanspaces.com/audio/',
-  // backend: 'https://backend.openarabic.io',
+  backend: 'https://backend.openarabic.io',
   frontend: 'https://web.openarabic.io'
 }
 

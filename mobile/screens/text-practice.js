@@ -81,9 +81,14 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
   }, [isListeningComplete, isReadingComplete, isVocabularyComplete])
 
   useEffect(() => {
-    if (checkedReading) {
-      const shouldPlay = (!checkedListening || checkedVocabulary) && !checkedListening
-      dispatch({ payload: shouldPlay, type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS' })
+    // hack to make sure the audio plays if only reading is selected
+    if (checkedReading && !checkedListening && !checkedVocabulary) {
+      dispatch({ payload: true, type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS' })
+    }
+
+    // hack to make sure the audio doesn't play if only reading and listening are selected
+    if (checkedReading && checkedListening && !checkedVocabulary) {
+      dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS' })
     }
 
     addAllWordsFromCurrentSentence()

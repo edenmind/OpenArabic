@@ -2649,9 +2649,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "@eslint/eslintrc@npm:2.1.2"
+"@eslint/eslintrc@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "@eslint/eslintrc@npm:2.1.3"
   dependencies:
     ajv: "npm:^6.12.4"
     debug: "npm:^4.3.2"
@@ -2662,14 +2662,14 @@ __metadata:
     js-yaml: "npm:^4.1.0"
     minimatch: "npm:^3.1.2"
     strip-json-comments: "npm:^3.1.1"
-  checksum: fa25638f2666cac6810f98ee7d0f4b912f191806467c1b40d72bac759fffef0b3357f12a1869817286837b258e4de3517e0c7408520e156ca860fc53a1fbaed9
+  checksum: 77b70a89232fe702c2f765b5b92970f5e4224b55363b923238b996c66fcd991504f40d3663c0543ae17d6c5049ab9b07ab90b65d7601e6f25e8bcd4caf69ac75
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.52.0":
-  version: 8.52.0
-  resolution: "@eslint/js@npm:8.52.0"
-  checksum: 86beff213d0ae4ced203a922b74e2cc4d767d109e7815f985bf648946ba072198977102e32afc9fa04f7825a6de83a831874f6b6675ba0c1d0743ade2dc2d53d
+"@eslint/js@npm:8.53.0":
+  version: 8.53.0
+  resolution: "@eslint/js@npm:8.53.0"
+  checksum: a372d55aa2bbe0d9399acc8de3c892dcfe507fd914d29fde6826ae54a13452619be626aa7eb70b1ec4d4da5302b6ed8e8ac9bf1f830003f15c0ad56c30b4f520
   languageName: node
   linkType: hard
 
@@ -3716,14 +3716,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:1.19.3":
-  version: 1.19.3
-  resolution: "@react-native-async-storage/async-storage@npm:1.19.3"
+"@react-native-async-storage/async-storage@npm:1.19.4":
+  version: 1.19.4
+  resolution: "@react-native-async-storage/async-storage@npm:1.19.4"
   dependencies:
     merge-options: "npm:^3.0.4"
   peerDependencies:
     react-native: ^0.0.0-0 || 0.60 - 0.72 || 1000.0.0
-  checksum: 4eb279f4c6e407f7df030b5e85bfd9cb9b3f094fc974ad8619fa20eb92f8e6f0bf4a90206f13a403bffed17238ec52f4adac1be20bc404c88f28073c0428e9af
+  checksum: 97f31adf68201d9a1d9b0bfbeea6ed575f07991ecc70bcf0339028938683130ff7104552e48ac23e0de487f16acbbd79bc7897ec3776d7466e5196f12ba6810c
   languageName: node
   linkType: hard
 
@@ -3917,12 +3917,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-community/netinfo@npm:9.4.1":
-  version: 9.4.1
-  resolution: "@react-native-community/netinfo@npm:9.4.1"
+"@react-native-community/netinfo@npm:11.0.0":
+  version: 11.0.0
+  resolution: "@react-native-community/netinfo@npm:11.0.0"
   peerDependencies:
     react-native: ">=0.59"
-  checksum: 6ca94b1d6ac4243da1210067f01b239ad4f590a101212e87a2609a6eafacc658f7cf85c285f8d4f39b832341a1b8e69a6ea56e585e1ea59d9fd6ee1c29b915d1
+  checksum: dce8a51b544fe5a550055f81241101df953192050f48f983a6bf92a5c4d0838ab9686c308a914a4841d82257ad99b32f1fa485e9164fb066fddfe4389e91aeaf
   languageName: node
   linkType: hard
 
@@ -7208,14 +7208,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.52.0":
-  version: 8.52.0
-  resolution: "eslint@npm:8.52.0"
+"eslint@npm:^8.53.0":
+  version: 8.53.0
+  resolution: "eslint@npm:8.53.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.6.1"
-    "@eslint/eslintrc": "npm:^2.1.2"
-    "@eslint/js": "npm:8.52.0"
+    "@eslint/eslintrc": "npm:^2.1.3"
+    "@eslint/js": "npm:8.53.0"
     "@humanwhocodes/config-array": "npm:^0.11.13"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
     "@nodelib/fs.walk": "npm:^1.2.8"
@@ -7252,7 +7252,7 @@ __metadata:
     text-table: "npm:^0.2.0"
   bin:
     eslint: bin/eslint.js
-  checksum: 01784ab15351d749bc95446039ed7acd5124f7cc84acdbf98c7199272eae06212a8f3ea4a9b47e7cc54ab17ca094c3a664bbfc3002c7de27936220e278b5028a
+  checksum: e305a71ce2b9a8631b293266fe53e346c76f28bc8d004af33f10e537cf133db1fb87af3599376e70ed6e0f89a78be10c4f08ddd0c1c9c0c497cd143b4a270420
   languageName: node
   linkType: hard
 
@@ -11404,8 +11404,8 @@ __metadata:
     "@bugsnag/expo": "npm:^49.0.1"
     "@bugsnag/plugin-expo-eas-sourcemaps": "npm:^49.0.0"
     "@bugsnag/source-maps": "npm:^2.3.1"
-    "@react-native-async-storage/async-storage": "npm:1.19.3"
-    "@react-native-community/netinfo": "npm:9.4.1"
+    "@react-native-async-storage/async-storage": "npm:1.19.4"
+    "@react-native-community/netinfo": "npm:11.0.0"
     "@react-navigation/drawer": "npm:^6.6.6"
     "@react-navigation/native": "npm:^6.1.9"
     "@react-navigation/native-stack": "npm:^6.9.17"
@@ -11416,7 +11416,7 @@ __metadata:
     axios-mock-adapter: "npm:^1.22.0"
     axios-retry: "npm:^3.8.1"
     deepmerge: "npm:^4.3.1"
-    eslint: "npm:^8.52.0"
+    eslint: "npm:^8.53.0"
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-import: "npm:^2.29.0"
     eslint-plugin-prettier: "npm:^5.0.1"
@@ -11448,11 +11448,11 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-native: "npm:0.72.6"
     react-native-error-boundary: "npm:^1.2.3"
-    react-native-gesture-handler: "npm:~2.12.1"
-    react-native-pager-view: "npm:6.2.0"
+    react-native-gesture-handler: "npm:~2.13.4"
+    react-native-pager-view: "npm:6.2.2"
     react-native-paper: "npm:5.11.1"
     react-native-reanimated: "npm:~3.3.0"
-    react-native-safe-area-context: "npm:4.6.3"
+    react-native-safe-area-context: "npm:4.7.4"
     react-native-screens: "npm:~3.27.0"
     react-native-tab-view: "npm:^3.5.2"
     react-native-vector-icons: "npm:^10.0.1"
@@ -12717,9 +12717,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gesture-handler@npm:~2.12.1":
-  version: 2.12.1
-  resolution: "react-native-gesture-handler@npm:2.12.1"
+"react-native-gesture-handler@npm:~2.13.4":
+  version: 2.13.4
+  resolution: "react-native-gesture-handler@npm:2.13.4"
   dependencies:
     "@egjs/hammerjs": "npm:^2.0.17"
     hoist-non-react-statics: "npm:^3.3.0"
@@ -12729,17 +12729,17 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: b83590b50a113fae6afcee580f5019c29b6a7da144dd8c11ea8676ec580a5dc5776d595d88745989da5918669279f577cd2cd8ae02d43ea04a0d34efc6a1553b
+  checksum: 697e25e44d1fcd9da9f1e9139f8f6cdb946dde54f33795f395e0b57cd8c821e1eb79f9777e8a20f032b4e6749778c2c0ab1eb3bfad75e80d4dc80c5dc596e330
   languageName: node
   linkType: hard
 
-"react-native-pager-view@npm:6.2.0":
-  version: 6.2.0
-  resolution: "react-native-pager-view@npm:6.2.0"
+"react-native-pager-view@npm:6.2.2":
+  version: 6.2.2
+  resolution: "react-native-pager-view@npm:6.2.2"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 8fef15bd3ff1f2e1b4aabb1d80d8c414248281c426ad015c1720a72527ce85de5f0b96768c4ead9ae534020a8167d6edb000ce756609534a90fc54ec0c5de27b
+  checksum: ff1188ba973416e0e7b7f0b3c01c91c2b4ad98b941c85d31f63af0a1355445961695b019791a2086b95f6c09a43fa8b0b8f653ce95e62ba144dd25a8a7dcc138
   languageName: node
   linkType: hard
 
@@ -12780,13 +12780,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:4.6.3":
-  version: 4.6.3
-  resolution: "react-native-safe-area-context@npm:4.6.3"
+"react-native-safe-area-context@npm:4.7.4":
+  version: 4.7.4
+  resolution: "react-native-safe-area-context@npm:4.7.4"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: a37d169e5ebee93c67a42a10580ca1180a6fea6c5705be82bc1d5af22eec086245a19f417e86b46e1daf5950ef5779e7daa8b3ca106d441f11d60cf5142b3ab2
+  checksum: 80f4d7a53a1392017d70642e22037abacdb99b191b83541960f18edc9be7f8fabfa99cfec9efd808ed68295d32262ece9771135f8e2af97edc6b095654986722
   languageName: node
   linkType: hard
 

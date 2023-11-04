@@ -23,7 +23,7 @@ const useVocabularyLogic = (currentWord, handleSetCurrentWord, handleSetCurrentW
 
   useEffect(() => {
     setLocalWords(words)
-  }, []) // Empty dependency array ensures this runs once when the component is mounted.
+  }, [])
 
   useEffect(() => {
     if (localWords[currentWord]) {
