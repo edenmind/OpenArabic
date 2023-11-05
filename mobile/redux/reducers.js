@@ -4,7 +4,9 @@ import * as actions from './actions.js'
 
 const initialStateAudio = {
   shouldPlay: true,
-  shouldPlayPracticeWord: false
+  shouldPlayListening: false,
+  shouldPlayReading: false,
+  shouldPlayVocabulary: false
 }
 const initialStateCategories = { categories: [] }
 const initialStateText = { text: {} }
@@ -30,9 +32,14 @@ const audioReducer = createReducer(initialStateAudio, (builder) => {
     .addCase(actions.SET_AUDIO, (state, action) => {
       state.shouldPlay = action.payload
     })
-    .addCase(actions.SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS, (state, action) => {
-      console.log('setting should play practice words to', action.payload)
-      state.shouldPlayPracticeWord = action.payload
+    .addCase(actions.SET_AUDIO_SHOULD_PLAY_READING, (state, action) => {
+      state.shouldPlayReading = action.payload
+    })
+    .addCase(actions.SET_AUDIO_SHOULD_PLAY_VOCABULARY, (state, action) => {
+      state.shouldPlayVocabulary = action.payload
+    })
+    .addCase(actions.SET_AUDIO_SHOULD_PLAY_LISTENING, (state, action) => {
+      state.shouldPlayListening = action.payload
     })
 })
 

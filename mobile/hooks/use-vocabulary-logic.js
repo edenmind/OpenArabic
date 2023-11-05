@@ -8,12 +8,14 @@ import { HOST } from '../constants/urls.js'
 import { generateUniqueRandomNumbers } from '../services/utility-service.js'
 
 const wordsSelector = (state) => state.words
+const audioSelector = (state) => state.audio
 
 const useVocabularyLogic = (currentWord, handleSetCurrentWord, handleSetCurrentWordIndex) => {
   const { words } = useSelector(wordsSelector)
   const { playSound } = useAudioPlayer()
   const [isLastWordInVocabulary, setIsLastWordInVocabulary] = useState(false)
   const [isVocabularyComplete, setIsVocabularyComplete] = useState(false)
+  const { shouldPlayVocabulary } = useSelector(audioSelector)
 
   const [buttonPositions, setButtonPositions] = useState(generateUniqueRandomNumbers())
 
@@ -26,11 +28,11 @@ const useVocabularyLogic = (currentWord, handleSetCurrentWord, handleSetCurrentW
   }, [])
 
   useEffect(() => {
-    if (localWords[currentWord]) {
+    if (localWords[currentWord] && shouldPlayVocabulary) {
       const audioURL = `${HOST.audio}${localWords[currentWord].filename}`
       playSound(audioURL)
     }
-  }, [currentWord])
+  }, [currentWord, shouldPlayVocabulary])
 
   useEffect(() => {
     if (isLastWordInVocabulary) {

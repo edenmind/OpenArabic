@@ -34,7 +34,9 @@ export default function TextPracticeSetup() {
     setPracticeOrPreviewVisible(false)
     setIsPlaying(false)
     dispatch({ payload: false, type: 'SET_AUDIO' })
-    dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS' })
+    dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_READING' })
+    dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_VOCABULARY' })
+    dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_LISTENING' })
   }
 
   // Start the practice and open the modal with practice content

@@ -27,7 +27,7 @@ function useTextPracticeLogic() {
   const [isReadingComplete, setIsReadingComplete] = useState(false)
 
   const { playSound } = useAudioPlayer()
-  const { shouldPlayPracticeWord } = useSelector(audioSelector)
+  const { shouldPlayReading, shouldPlayListening } = useSelector(audioSelector)
 
   const dispatch = useDispatch()
 
@@ -41,7 +41,7 @@ function useTextPracticeLogic() {
 
     // Play the audio for the current word
     const wordFilename = sentencesInText?.[currentSentence]?.wordFilename[currentWord]
-    if (wordFilename && shouldPlayPracticeWord) {
+    if (wordFilename && (shouldPlayListening || shouldPlayReading)) {
       const audioURL = HOST.audio + wordFilename
       playSound(audioURL)
     }
@@ -64,7 +64,7 @@ function useTextPracticeLogic() {
         setCurrentArabicWord(currentArabicWordData)
       }
     }
-  }, [currentWord, currentSentence, sentencesInText, textLoading, shouldPlayPracticeWord])
+  }, [currentWord, currentSentence, sentencesInText, textLoading, shouldPlayReading, shouldPlayListening])
 
   const handleReset = () => {
     setCurrentSentence(0)
@@ -183,12 +183,12 @@ function useTextPracticeLogic() {
       }
 
       if (isLastWordInSentence) {
+        setIsReadingComplete(true)
+
         dispatch({
           payload: false,
-          type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS'
+          type: 'SET_AUDIO_SHOULD_PLAY_READING'
         })
-
-        setIsReadingComplete(true)
 
         if (isListeningComplete) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)

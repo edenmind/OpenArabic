@@ -12,8 +12,7 @@ export const PracticeListening = ({
   handleReset,
   setIsListeningComplete,
   showRepeat,
-  setShowRepeat,
-  dispatch
+  setShowRepeat
 }) => (
   <View style={{ flex: 1 }}>
     <View style={{ flex: 1 }}>
@@ -36,10 +35,6 @@ export const PracticeListening = ({
             onPress={() => {
               setIsListeningComplete(true)
               setShowRepeat(false)
-              dispatch({
-                payload: true,
-                type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS'
-              })
             }}
             text="CONTINUE"
           />
@@ -51,7 +46,6 @@ export const PracticeListening = ({
 
 PracticeListening.propTypes = {
   currentSentence: PropTypes.number.isRequired,
-  dispatch: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   isLastSentence: PropTypes.bool.isRequired,
   setIsListeningComplete: PropTypes.func.isRequired,

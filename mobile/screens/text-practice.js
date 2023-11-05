@@ -56,6 +56,7 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
       setProgressionIndex((prevIndex) => prevIndex + 1)
       return
     }
+
     // Reset to the first exercise type
     setProgressionIndex(0)
 
@@ -75,24 +76,46 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
   const progress = sentencesInText.length > 1 ? currentSentence / (sentencesInText.length - 1) : 0
 
   useEffect(() => {
+    addAllWordsFromCurrentSentence()
+
+    // Determine if listening should play
+    function shouldPlayListening() {
+      const isListeningSelectedAndIncomplete = checkedListening && !isListeningComplete
+      const isReadingNotAConcern = !checkedReading || isReadingComplete
+
+      return isListeningSelectedAndIncomplete && isReadingNotAConcern
+    }
+
+    // Determine if practice words should play
+    function shouldPlayReadingWords() {
+      const isReadingSelectedAndIncomplete = checkedReading && !isReadingComplete
+      const isListeningNotAConcern = !checkedListening || isListeningComplete
+
+      return isReadingSelectedAndIncomplete && isListeningNotAConcern
+    }
+
+    // Determine if vocabulary should play
+    function shouldPlayVocabularyAudio() {
+      return checkedVocabulary && !isVocabularyComplete
+    }
+
+    // Dispatch actions based on the audio that should be played
+    dispatch({ payload: shouldPlayListening(), type: 'SET_AUDIO_SHOULD_PLAY_LISTENING' })
+    dispatch({ payload: shouldPlayReadingWords(), type: 'SET_AUDIO_SHOULD_PLAY_READING' })
+    dispatch({ payload: shouldPlayVocabularyAudio(), type: 'SET_AUDIO_SHOULD_PLAY_VOCABULARY' })
+
+    // Progresses to the next exercise if any of the exercises are complete
     if (isListeningComplete || isReadingComplete || isVocabularyComplete) {
       progressToNextExercise()
     }
-  }, [isListeningComplete, isReadingComplete, isVocabularyComplete])
-
-  useEffect(() => {
-    // hack to make sure the audio plays if only reading is selected
-    if (checkedReading && !checkedListening && !checkedVocabulary) {
-      dispatch({ payload: true, type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS' })
-    }
-
-    // hack to make sure the audio doesn't play if only reading and listening are selected
-    if (checkedReading && checkedListening && !checkedVocabulary) {
-      dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_PRACTICE_WORDS' })
-    }
-
-    addAllWordsFromCurrentSentence()
-  }, [currentSentence])
+  }, [
+    isListeningComplete,
+    isReadingComplete,
+    isVocabularyComplete,
+    checkedReading,
+    checkedVocabulary,
+    checkedListening
+  ])
 
   const onWordPressed = useCallback(
     (wordId, wordArabic) => {

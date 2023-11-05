@@ -92,7 +92,7 @@ export const useAudioPlayer = () => {
         await audioSound.playAsync()
       }
     } catch (error) {
-      console.log('Error playing sound:', audioFileName)
+      console.error('Error playing sound:', audioFileName)
       console.error('Error playing:', error)
     }
   }
@@ -106,7 +106,7 @@ export const useAudioPlayer = () => {
       setSound(null)
       setIsSoundLoaded(false)
     } catch (error) {
-      console.log('Error stopping sound (stringified):', JSON.stringify(error))
+      console.error('Error stopping sound (stringified):', JSON.stringify(error))
     }
   }
 
