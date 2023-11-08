@@ -3,7 +3,7 @@ import React from 'react'
 import { StyleSheet, View, Dimensions } from 'react-native'
 import { Modal, Portal, useTheme, Button } from 'react-native-paper'
 
-const ModalScrollView = ({ content, visible, hideModal }) => {
+const ModalScrollView = ({ content, visible, hideModal, closeText = 'Stop' }) => {
   const theme = useTheme()
 
   const styles = StyleSheet.create({
@@ -23,8 +23,8 @@ const ModalScrollView = ({ content, visible, hideModal }) => {
     <Portal>
       <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.containerStyle}>
         <View style={styles.closeButton}>
-          <Button textColor={theme.colors.outline} onPress={hideModal}>
-            Close
+          <Button textColor={theme.colors.error} onPress={hideModal}>
+            {closeText}
           </Button>
         </View>
 
@@ -37,6 +37,7 @@ const ModalScrollView = ({ content, visible, hideModal }) => {
 export default ModalScrollView
 
 ModalScrollView.propTypes = {
+  closeText: PropTypes.string,
   content: PropTypes.any.isRequired,
   hideModal: PropTypes.func.isRequired,
   visible: PropTypes.bool.isRequired

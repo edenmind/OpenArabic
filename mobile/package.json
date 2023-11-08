@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://openarabic.io",
   "repository": "https://github.com/edenmind/OpenArabic",
-  "version": "1445.2.401",
+  "version": "1445.2.402",
   "authors": [
     "Yunus Andreasson <yunus@edenmind.com> (https://github.com/YunusAndreasson)"
   ],
@@ -31,7 +31,7 @@
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
     "@reduxjs/toolkit": "^1.9.7",
-    "axios": "^1.6.0",
+    "axios": "^1.6.1",
     "axios-retry": "^3.8.1",
     "deepmerge": "^4.3.1",
     "expo": "^49.0.16",
