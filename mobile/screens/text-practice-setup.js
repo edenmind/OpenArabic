@@ -24,6 +24,7 @@ export default function TextPracticeSetup() {
   const [content, setContent] = useState()
   const [isPlaying, setIsPlaying] = useState(false)
   const [showRepeat, setShowRepeat] = useState(true)
+  const [closeText, setCloseText] = useState('Stop')
 
   const [checkedListening, setCheckedListening] = React.useState(true)
   const [checkedReading, setCheckedReading] = React.useState(true)
@@ -41,6 +42,7 @@ export default function TextPracticeSetup() {
 
   // Start the practice and open the modal with practice content
   const handleStartPractice = () => {
+    setCloseText('Stop')
     setContent(
       <TextPractice
         checkedListening={checkedListening}
@@ -59,6 +61,7 @@ export default function TextPracticeSetup() {
   // Open the modal with the preview content
   const handlePreviewContent = () => {
     setPracticeOrPreviewVisible(true)
+    setCloseText('Close')
     setContent(
       <TextPracticeSetupPreview
         isPlaying={isPlaying}
@@ -92,7 +95,12 @@ export default function TextPracticeSetup() {
         </Button>
         <ButtonAction onPress={handleStartPractice} text="PRACTICE" />
       </View>
-      <ModalScrollView visible={practiceOrPreviewVisible} content={content} hideModal={handleClosePracticeModal} />
+      <ModalScrollView
+        visible={practiceOrPreviewVisible}
+        content={content}
+        hideModal={handleClosePracticeModal}
+        closeText={closeText}
+      />
     </>
   )
 }

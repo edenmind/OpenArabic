@@ -38,7 +38,7 @@ export default function TextPracticeSetupSections({
     {
       isChecked: checkedReading,
       label: 'Reading',
-      note: 'Exercises to boost comprehension.',
+      note: 'Reading exercises to boost comprehension.',
       onToggle: () => {
         if (checkedReading && totalChecked === 1) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
@@ -50,7 +50,7 @@ export default function TextPracticeSetupSections({
     {
       isChecked: checkedVocabulary,
       label: 'Vocabulary',
-      note: 'Curated word lists and flashcards.',
+      note: 'Word lists to increase vocabulary.',
       onToggle: () => {
         if (checkedVocabulary && totalChecked === 1) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)

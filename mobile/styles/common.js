@@ -259,8 +259,8 @@ export const useSharedStyles = (theme) => {
         backgroundColor: theme.colors.elevation.level0,
         flex: 1,
         height: '100%',
-        justifyContent: 'center',
-        paddingBottom: 200,
+        paddingTop: 50,
+        verticalAlign: 'middle',
         width: '100%'
       },
       wordText: {
