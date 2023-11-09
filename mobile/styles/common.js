@@ -54,7 +54,7 @@ export const useSharedStyles = (theme) => {
       answerText: getTextStyle(primary, 23, '600', 40),
       answerTextSmall: getTextStyle(primary, 17, '800', 25, 'center', 2.5),
       arabic: {
-        color: theme.colors.secondary,
+        color: theme.colors.onSurface,
         direction: 'rtl',
         fontFamily: 'philosopher',
         fontSize: 45,
@@ -63,7 +63,7 @@ export const useSharedStyles = (theme) => {
         textAlign: 'center'
       },
       arabicBody: {
-        ...getTextStyle(secondary, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9, 'right'),
+        ...getTextStyle(onSurface, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9, 'right'),
         fontFamily: arabicFontName,
         paddingBottom: BASE_PADDING,
         writingDirection: 'rtl'
@@ -270,6 +270,14 @@ export const useSharedStyles = (theme) => {
   }, [
     onPrimary,
     primary,
+    theme.colors.onSurface,
+    theme.colors.onSurfaceVariant,
+    theme.colors.secondary,
+    theme.colors.tertiary,
+    theme.colors.elevation.level0,
+    theme.colors.elevation.level5,
+    theme.colors.outline,
+    theme.colors.onBackground,
     secondary,
     arabicFontSizeWeighted,
     arabicFontSize,
@@ -279,13 +287,6 @@ export const useSharedStyles = (theme) => {
     error,
     englishFontSize,
     elevation.tertiaryContainer,
-    theme.colors.onSurfaceVariant,
-    theme.colors.secondary,
-    theme.colors.tertiary,
-    theme.colors.elevation.level0,
-    theme.colors.elevation.level5,
-    theme.colors.outline,
-    theme.colors.onBackground,
     BACKGROUND_COLOR,
     BORDER_COLOR
   ])

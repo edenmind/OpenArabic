@@ -109,12 +109,12 @@ const generateAudio = async (words, textGuid, hashTable, sentenceGuid = 'sentenc
 
 //return time to read based on length of text
 const readingTime = (text) => {
-  const wordsPerMinute = 50
+  const wordsPerMinute = 20
   const numberOfWords = text.split(/\s/g).length
   const minutes = numberOfWords / wordsPerMinute
   const readTime = Math.ceil(minutes)
 
-  return readTime === 1 ? `${readTime} min read` : `${readTime} mins read`
+  return readTime === 1 ? `${readTime} min lesson` : `${readTime} mins lesson`
 }
 
 // produce a vocabulary collection for the quiz

@@ -5,6 +5,7 @@ import { Text, useTheme } from 'react-native-paper'
 
 import ArabicWords from './english-arabic-word.js'
 import PlaySound from './play-sound.js'
+import { transliterateArabicToEnglish } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export const EnglishArabicText = ({
@@ -33,6 +34,9 @@ export const EnglishArabicText = ({
   return (
     <>
       <ArabicWords sentence={{ arabic, english, words }} currentPlayingWordIndex={currentPlayingWordIndex} />
+      <Text style={[sharedStyle.englishBody, { color: theme.colors.secondary, fontSize: 21 }]}>
+        {showRepeat && transliterateArabicToEnglish(arabic)}
+      </Text>
       <Text style={[sharedStyle.englishBody, { color: theme.colors.secondary, fontSize: 21 }]}>
         {showRepeat && english.charAt(0).toUpperCase() + english.slice(1)}
       </Text>

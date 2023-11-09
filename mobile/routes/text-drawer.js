@@ -5,7 +5,6 @@ import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
 import { Caption, Divider, Text, useTheme, Button, Switch } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 
-
 import icon from '../assets/logo.png'
 import SCREENS from '../constants/screens.js'
 import packageJson from '../package.json'
@@ -48,7 +47,7 @@ export default function TextDrawer() {
     },
     icon: {
       height: 55,
-      marginLeft: 10,
+      marginLeft: 5,
       width: 55
     },
     semver: {
@@ -99,6 +98,7 @@ export default function TextDrawer() {
       initialParams={{ category: category.name }}
       options={{
         drawerLabel: category.name,
+        drawerLabelStyle: { fontFamily: 'philosopher', fontSize: 21 },
         headerShown: true,
         title: category.name
       }}
@@ -112,7 +112,7 @@ export default function TextDrawer() {
       <View style={style.container}>
         <DrawerContentScrollView {...props}>
           <Image source={icon} style={style.icon} />
-          <Text style={style.title} variant="headlineSmall">
+          <Text style={style.title} variant="headlineMedium">
             {packageJson.displayName}
           </Text>
           <Divider style={{ ...style.divider, margin: 5, opacity: 0 }} />
@@ -159,6 +159,7 @@ export default function TextDrawer() {
       initialParams={{ category: 'All' }}
       options={({ navigation }) => ({
         drawerLabel: SCREENS.home,
+        drawerLabelStyle: { fontFamily: 'philosopher', fontSize: 21 },
         headerRight: () => (
           <Button textColor={theme.colors.secondary} icon={'cog'} onPress={() => navigation.navigate('Settings')} />
         ),
@@ -175,7 +176,7 @@ export default function TextDrawer() {
       screenOptions={{
         backgroundColor: theme.colors.surface,
         drawerStyle: {
-          width: 210
+          width: 300
         },
         headerStyle: {
           backgroundColor: theme.colors.background

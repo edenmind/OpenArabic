@@ -71,7 +71,7 @@ export default function EnglishArabicWord({ sentence: { words }, currentPlayingW
       {words.map((word, wordIndex) => {
         const isSelected =
           (currentPlayingWordIndex === wordIndex && !singleWordPressed) || selectedWordIndex === wordIndex
-        const textColor = isSelected ? theme.colors.tertiary : theme.colors.secondary
+        const textColor = isSelected ? theme.colors.tertiary : theme.colors.onSurface
         const lineHeight = Platform.OS === 'android' ? 90 : 95
 
         const textStyles = [
