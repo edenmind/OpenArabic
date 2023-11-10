@@ -1,6 +1,7 @@
 /* eslint-disable react-redux/useSelector-prefer-selectors */
 import 'react-native-gesture-handler'
 
+import * as Haptics from 'expo-haptics'
 import React, { useState } from 'react'
 import { View } from 'react-native'
 import { useTheme, Button, Text } from 'react-native-paper'
@@ -11,7 +12,6 @@ import TextPracticeHeading from './text-practice-setup-sections.js'
 import TextPractice from './text-practice.js'
 import { ButtonAction } from '../components/button-action.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
-import Spinner from '../components/spinner.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextPracticeSetup() {
@@ -26,12 +26,13 @@ export default function TextPracticeSetup() {
   const [showRepeat, setShowRepeat] = useState(true)
   const [closeText, setCloseText] = useState('Stop')
 
-  const [checkedListening, setCheckedListening] = React.useState(true)
-  const [checkedReading, setCheckedReading] = React.useState(true)
-  const [checkedVocabulary, setCheckedVocabulary] = React.useState(true)
+  const [isListeningEnabled, setIsListeningEnabled] = React.useState(true)
+  const [isReadingEnabled, setIsReadingEnabled] = React.useState(true)
+  const [isVocabularyEnabled, setIsVocabularyEnabled] = React.useState(true)
 
   // Close the modal and stop audio if playing
   const handleClosePracticeModal = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
     setPracticeOrPreviewVisible(false)
     setIsPlaying(false)
     dispatch({ payload: false, type: 'SET_AUDIO' })
@@ -39,18 +40,15 @@ export default function TextPracticeSetup() {
     dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_VOCABULARY' })
     dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_LISTENING' })
   }
-
+  // isListeningEnabled, isReadingEnabled, isVocabularyEnabled
   // Start the practice and open the modal with practice content
   const handleStartPractice = () => {
     setCloseText('Stop')
     setContent(
       <TextPractice
-        checkedListening={checkedListening}
-        checkedReading={checkedReading}
-        checkedVocabulary={checkedVocabulary}
-        isListeningSelected={checkedListening}
-        isReadingSelected={checkedReading}
-        isVocabularySelected={checkedVocabulary}
+        isListeningEnabled={isListeningEnabled}
+        isReadingEnabled={isReadingEnabled}
+        isVocabularyEnabled={isVocabularyEnabled}
       />
     )
     setPracticeOrPreviewVisible(true)
@@ -73,21 +71,16 @@ export default function TextPracticeSetup() {
     )
   }
 
-  // If the text title is not available, show a spinner
-  if (!text.title) {
-    return <Spinner />
-  }
-
   return (
     <>
       <TextPracticeHeading
         heading={text}
-        checkedListening={checkedListening}
-        checkedReading={checkedReading}
-        checkedVocabulary={checkedVocabulary}
-        setCheckedListening={setCheckedListening}
-        setCheckedReading={setCheckedReading}
-        setCheckedVocabulary={setCheckedVocabulary}
+        isListeningEnabled={isListeningEnabled}
+        isReadingEnabled={isReadingEnabled}
+        isVocabularyEnabled={isVocabularyEnabled}
+        setIsListeningEnabled={setIsListeningEnabled}
+        setIsReadingEnabled={setIsReadingEnabled}
+        setIsVocabularyEnabled={setIsVocabularyEnabled}
       />
       <View style={sharedStyle.container}>
         <Button onPress={handlePreviewContent} style={sharedStyle.buttonAnswer}>

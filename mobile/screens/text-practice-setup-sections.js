@@ -10,52 +10,52 @@ import { useSharedStyles } from '../styles/common.js'
 
 export default function TextPracticeSetupSections({
   heading: { image },
-  checkedListening,
-  checkedReading,
-  checkedVocabulary,
-  setCheckedListening,
-  setCheckedReading,
-  setCheckedVocabulary
+  isListeningEnabled,
+  isReadingEnabled,
+  isVocabularyEnabled,
+  setIsListeningEnabled,
+  setIsReadingEnabled,
+  setIsVocabularyEnabled
 }) {
   const theme = useTheme()
   const style = useSharedStyles(theme)
 
-  const totalChecked = [checkedListening, checkedReading, checkedVocabulary].filter(Boolean).length
+  const totalChecked = [isListeningEnabled, isReadingEnabled, isVocabularyEnabled].filter(Boolean).length
 
   const checkboxes = [
     {
-      isChecked: checkedListening,
+      isChecked: isListeningEnabled,
       label: 'Listening',
-      note: 'Audio lessons for clear understanding.',
+      note: 'Audio lessons for clear understanding',
       onToggle: () => {
-        if (checkedListening && totalChecked === 1) {
+        if (isListeningEnabled && totalChecked === 1) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
-        } else if (!checkedListening || totalChecked > 1) {
-          setCheckedListening(!checkedListening)
+        } else if (!isListeningEnabled || totalChecked > 1) {
+          setIsListeningEnabled(!isListeningEnabled)
         }
       }
     },
     {
-      isChecked: checkedReading,
+      isChecked: isReadingEnabled,
       label: 'Reading',
-      note: 'Reading exercises to boost comprehension.',
+      note: 'Reading exercises to boost comprehension',
       onToggle: () => {
-        if (checkedReading && totalChecked === 1) {
+        if (isReadingEnabled && totalChecked === 1) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
-        } else if (!checkedReading || totalChecked > 1) {
-          setCheckedReading(!checkedReading)
+        } else if (!isReadingEnabled || totalChecked > 1) {
+          setIsReadingEnabled(!isReadingEnabled)
         }
       }
     },
     {
-      isChecked: checkedVocabulary,
+      isChecked: isVocabularyEnabled,
       label: 'Vocabulary',
-      note: 'Word lists to increase vocabulary.',
+      note: 'Word lists to increase vocabulary',
       onToggle: () => {
-        if (checkedVocabulary && totalChecked === 1) {
+        if (isVocabularyEnabled && totalChecked === 1) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Error)
-        } else if (!checkedVocabulary || totalChecked > 1) {
-          setCheckedVocabulary(!checkedVocabulary)
+        } else if (!isVocabularyEnabled || totalChecked > 1) {
+          setIsVocabularyEnabled(!isVocabularyEnabled)
         }
       }
     }
@@ -73,10 +73,7 @@ export default function TextPracticeSetupSections({
         />
       </View>
 
-      <Text
-        variant="labelLarge"
-        style={{ color: theme.colors.onBackground, paddingLeft: 15, paddingTop: 10, textAlign: 'left' }}
-      >
+      <Text variant="labelLarge" style={{ color: theme.colors.onBackground, paddingLeft: 15, paddingTop: 5 }}>
         Setup Practice Session
       </Text>
 
@@ -94,9 +91,6 @@ export default function TextPracticeSetupSections({
 }
 
 TextPracticeSetupSections.propTypes = {
-  checkedListening: PropTypes.bool.isRequired,
-  checkedReading: PropTypes.bool.isRequired,
-  checkedVocabulary: PropTypes.bool.isRequired,
   heading: PropTypes.shape({
     author: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -108,7 +102,10 @@ TextPracticeSetupSections.propTypes = {
     views: PropTypes.string.isRequired,
     words: PropTypes.string.isRequired
   }),
-  setCheckedListening: PropTypes.func.isRequired,
-  setCheckedReading: PropTypes.func.isRequired,
-  setCheckedVocabulary: PropTypes.func.isRequired
+  isListeningEnabled: PropTypes.bool.isRequired,
+  isReadingEnabled: PropTypes.bool.isRequired,
+  isVocabularyEnabled: PropTypes.bool.isRequired,
+  setIsListeningEnabled: PropTypes.func.isRequired,
+  setIsReadingEnabled: PropTypes.func.isRequired,
+  setIsVocabularyEnabled: PropTypes.func.isRequired
 }

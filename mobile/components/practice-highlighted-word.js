@@ -15,6 +15,7 @@ const PracticeHighlightedWord = ({ word: { arabic } }) => {
   const textStyles = StyleSheet.create({
     arabicText: {
       ...sharedStyle.arabicBody,
+      color: theme.colors.tertiary,
       fontSize: 50,
       lineHeight: 95,
       paddingHorizontal: 5

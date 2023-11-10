@@ -8,17 +8,16 @@ import { useDispatch } from 'react-redux'
 import { PracticeListening } from './text-practice-listening.js'
 import { PracticeReading } from './text-practice-reading.js'
 import { PracticeVocabulary } from './text-practice-vocabulary.js'
-import Spinner from '../components/spinner.js'
 import { EXERCISE_TYPES } from '../constants/exercise.js'
 import useTextPracticeLogic from '../hooks/use-practice-logic.js'
 import { useVocabularyLogic } from '../hooks/use-vocabulary-logic.js'
 import { useSharedStyles } from '../styles/common.js'
 
-const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) => {
+const TextPractice = ({ isListeningEnabled, isReadingEnabled, isVocabularyEnabled }) => {
   const progressionOrder = [
-    ...(checkedListening ? [EXERCISE_TYPES.LISTENING] : []),
-    ...(checkedReading ? [EXERCISE_TYPES.READING] : []),
-    ...(checkedVocabulary ? [EXERCISE_TYPES.VOCABULARY] : [])
+    ...(isListeningEnabled ? [EXERCISE_TYPES.LISTENING] : []),
+    ...(isReadingEnabled ? [EXERCISE_TYPES.READING] : []),
+    ...(isVocabularyEnabled ? [EXERCISE_TYPES.VOCABULARY] : [])
   ]
 
   const [progressionIndex, setProgressionIndex] = useState(0)
@@ -46,8 +45,7 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
     setCurrentSentence,
     setIsReadingComplete,
     setIsListeningComplete,
-    text,
-    textLoading
+    text
   } = useTextPracticeLogic()
 
   const progressToNextExercise = useCallback(() => {
@@ -80,23 +78,23 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
 
     // Determine if listening should play
     function shouldPlayListening() {
-      const isListeningSelectedAndIncomplete = checkedListening && !isListeningComplete
-      const isReadingNotAConcern = !checkedReading || isReadingComplete
+      const isListeningSelectedAndIncomplete = isListeningEnabled && !isListeningComplete
+      const isReadingNotAConcern = !isReadingEnabled || isReadingComplete
 
       return isListeningSelectedAndIncomplete && isReadingNotAConcern
     }
 
     // Determine if practice words should play
     function shouldPlayReadingWords() {
-      const isReadingSelectedAndIncomplete = checkedReading && !isReadingComplete
-      const isListeningNotAConcern = !checkedListening || isListeningComplete
+      const isReadingSelectedAndIncomplete = isReadingEnabled && !isReadingComplete
+      const isListeningNotAConcern = !isListeningEnabled || isListeningComplete
 
       return isReadingSelectedAndIncomplete && isListeningNotAConcern
     }
 
     // Determine if vocabulary should play
     function shouldPlayVocabularyAudio() {
-      return checkedVocabulary && !isVocabularyComplete
+      return isVocabularyEnabled && !isVocabularyComplete
     }
 
     // Dispatch actions based on the audio that should be played
@@ -112,9 +110,9 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
     isListeningComplete,
     isReadingComplete,
     isVocabularyComplete,
-    checkedReading,
-    checkedVocabulary,
-    checkedListening
+    isReadingEnabled,
+    isVocabularyEnabled,
+    isListeningEnabled
   ])
 
   const onWordPressed = useCallback(
@@ -127,10 +125,6 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
   const finishVocabulary = useCallback(() => {
     setIsVocabularyComplete(true)
   })
-
-  if (!textLoading) {
-    return <Spinner />
-  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -171,7 +165,7 @@ const TextPractice = ({ checkedListening, checkedReading, checkedVocabulary }) =
 export default TextPractice
 
 TextPractice.propTypes = {
-  checkedListening: PropTypes.bool.isRequired,
-  checkedReading: PropTypes.bool.isRequired,
-  checkedVocabulary: PropTypes.bool.isRequired
+  isListeningEnabled: PropTypes.bool.isRequired,
+  isReadingEnabled: PropTypes.bool.isRequired,
+  isVocabularyEnabled: PropTypes.bool.isRequired
 }

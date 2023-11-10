@@ -9,7 +9,7 @@ export function PracticeCheckbox({ label, note, isChecked, onToggle }) {
   const textColor = isChecked ? theme.colors.onBackground : theme.colors.outline
 
   return (
-    <TouchableOpacity onPress={onToggle} activeOpacity={0.7}>
+    <TouchableOpacity onPress={onToggle} activeOpacity={0.9}>
       <View
         style={{
           alignItems: 'center',

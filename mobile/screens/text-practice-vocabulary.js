@@ -65,9 +65,9 @@ export const PracticeVocabulary = ({ handleContinue }) => {
     <>
       <Surface style={sharedStyle.wordSurface}>
         <Pressable onPress={handlePressOnWord}>
-          <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
+          <Text style={[sharedStyle.wordText, { color: theme.colors.onBackground, fontSize }]}>{arabic}</Text>
         </Pressable>
-        <Text style={[sharedStyle.englishBody, { color: theme.colors.tertiary, fontSize: 23 }]}>
+        <Text style={[sharedStyle.englishBody, { color: theme.colors.secondary, fontSize: 23 }]}>
           {transliterateArabicToEnglish(arabic)}
         </Text>
       </Surface>

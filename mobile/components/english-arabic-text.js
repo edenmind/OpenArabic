@@ -33,7 +33,11 @@ export const EnglishArabicText = ({
 
   return (
     <>
-      <ArabicWords sentence={{ arabic, english, words }} currentPlayingWordIndex={currentPlayingWordIndex} />
+      <ArabicWords
+        sentence={{ arabic, english, words }}
+        currentPlayingWordIndex={currentPlayingWordIndex}
+        setCurrentPlayingWordIndex={setCurrentPlayingWordIndex}
+      />
       <Text style={[sharedStyle.englishBody, { color: theme.colors.secondary, fontSize: 21 }]}>
         {showRepeat && transliterateArabicToEnglish(arabic)}
       </Text>

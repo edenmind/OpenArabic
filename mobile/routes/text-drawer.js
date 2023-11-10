@@ -98,7 +98,7 @@ export default function TextDrawer() {
       initialParams={{ category: category.name }}
       options={{
         drawerLabel: category.name,
-        drawerLabelStyle: { fontFamily: 'philosopher', fontSize: 21 },
+        drawerLabelStyle: { fontSize: 19 },
         headerShown: true,
         title: category.name
       }}
@@ -159,7 +159,7 @@ export default function TextDrawer() {
       initialParams={{ category: 'All' }}
       options={({ navigation }) => ({
         drawerLabel: SCREENS.home,
-        drawerLabelStyle: { fontFamily: 'philosopher', fontSize: 21 },
+        drawerLabelStyle: { fontSize: 19 },
         headerRight: () => (
           <Button textColor={theme.colors.secondary} icon={'cog'} onPress={() => navigation.navigate('Settings')} />
         ),
@@ -176,7 +176,7 @@ export default function TextDrawer() {
       screenOptions={{
         backgroundColor: theme.colors.surface,
         drawerStyle: {
-          width: 300
+          width: 250
         },
         headerStyle: {
           backgroundColor: theme.colors.background

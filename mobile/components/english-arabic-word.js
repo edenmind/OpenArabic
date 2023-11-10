@@ -10,7 +10,11 @@ import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { getAdaptiveFontSize } from '../services/ui-services.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export default function EnglishArabicWord({ sentence: { words }, currentPlayingWordIndex }) {
+export default function EnglishArabicWord({
+  sentence: { words },
+  currentPlayingWordIndex,
+  setCurrentPlayingWordIndex
+}) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const [selectedWordIndex, setSelectedWordIndex] = useState()
@@ -61,9 +65,10 @@ export default function EnglishArabicWord({ sentence: { words }, currentPlayingW
         dispatch({ payload: false, type: 'SET_AUDIO' })
         setSelectedWordIndex()
         setSingleWordPressed(false)
+        setCurrentPlayingWordIndex()
       }, 3000)
     },
-    [dispatch, playSound, shownWords]
+    [dispatch, playSound, setCurrentPlayingWordIndex, shownWords]
   )
 
   return (
@@ -138,5 +143,6 @@ EnglishArabicWord.propTypes = {
         filename: PropTypes.string
       })
     ).isRequired
-  })
+  }),
+  setCurrentPlayingWordIndex: PropTypes.func.isRequired
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
 import React, { useState, useMemo } from 'react'
-import { View, FlatList, Pressable, StyleSheet } from 'react-native'
+import { FlatList, Pressable, StyleSheet } from 'react-native'
 import { Surface, Text, useTheme, ProgressBar } from 'react-native-paper'
 
 import { CompletedView } from './words-completed.js'
@@ -9,6 +9,7 @@ import { ButtonAnswer } from '../components/button-answer.js'
 import Spinner from '../components/spinner.js'
 import { useVocabularyLogic } from '../hooks/use-vocabulary-logic.js'
 import { calculateFontSize } from '../services/ui-services.js'
+import { transliterateArabicToEnglish } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
 const styles = StyleSheet.create({
@@ -65,11 +66,13 @@ const Words = () => {
           progress={currentWordIndex / localWords.length}
           style={{ ...sharedStyle.progressBar, width: '100%' }}
         />
-        <View style={sharedStyle.wordCenteredView}>
-          <Pressable onPress={handlePressOnWord}>
-            <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
-          </Pressable>
-        </View>
+
+        <Pressable onPress={handlePressOnWord}>
+          <Text style={[sharedStyle.wordText, { color: theme.colors.secondary, fontSize }]}>{arabic}</Text>
+        </Pressable>
+        <Text style={[sharedStyle.englishBody, { color: theme.colors.secondary, fontSize: 23 }]}>
+          {transliterateArabicToEnglish(arabic)}
+        </Text>
       </Surface>
       <FlatList
         style={[sharedStyle.wordContainer, styles.bottomList, { marginHorizontal: 10 }]}
