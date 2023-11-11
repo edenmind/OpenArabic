@@ -3101,9 +3101,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/cli@npm:0.10.14":
-  version: 0.10.14
-  resolution: "@expo/cli@npm:0.10.14"
+"@expo/cli@npm:0.10.15":
+  version: 0.10.15
+  resolution: "@expo/cli@npm:0.10.15"
   dependencies:
     "@babel/runtime": "npm:^7.20.0"
     "@expo/code-signing-certificates": "npm:0.0.5"
@@ -3169,7 +3169,7 @@ __metadata:
     ws: "npm:^8.12.1"
   bin:
     expo-internal: build/bin/cli
-  checksum: c762516695f9118ae2a193c3575d3b9eb0676b483aebfda119cb5f8832265b07e9e7061a782745bea2a1fc33026a84aba842868d29fefaaae7bc3bf96533ac8e
+  checksum: f218926c88e60dfc0ea0e981151379b29384f104f158060ef6bdfe77ddc45cb4a2771b894ff5cd60a1d1495398104099fc7272219177aa61ae38ed0b97c99f32
   languageName: node
   linkType: hard
 
@@ -4128,14 +4128,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:1.19.4":
-  version: 1.19.4
-  resolution: "@react-native-async-storage/async-storage@npm:1.19.4"
+"@react-native-async-storage/async-storage@npm:1.19.5":
+  version: 1.19.5
+  resolution: "@react-native-async-storage/async-storage@npm:1.19.5"
   dependencies:
     merge-options: "npm:^3.0.4"
   peerDependencies:
     react-native: ^0.0.0-0 || 0.60 - 0.72 || 1000.0.0
-  checksum: 97f31adf68201d9a1d9b0bfbeea6ed575f07991ecc70bcf0339028938683130ff7104552e48ac23e0de487f16acbbd79bc7897ec3776d7466e5196f12ba6810c
+  checksum: cc9fe3ceb3a7b12b815a1f074b8a417cf3cb152203c330d3ca53f7b34ef1f11a561bcda9ac7d47d6ccd8da9970bda5a659eeb50ce584af6a1a91cacaa9294701
   languageName: node
   linkType: hard
 
@@ -8082,12 +8082,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:^49.0.16":
-  version: 49.0.16
-  resolution: "expo@npm:49.0.16"
+"expo@npm:^49.0.18":
+  version: 49.0.18
+  resolution: "expo@npm:49.0.18"
   dependencies:
     "@babel/runtime": "npm:^7.20.0"
-    "@expo/cli": "npm:0.10.14"
+    "@expo/cli": "npm:0.10.15"
     "@expo/config": "npm:8.1.2"
     "@expo/config-plugins": "npm:7.2.5"
     "@expo/vector-icons": "npm:^13.0.0"
@@ -8108,7 +8108,7 @@ __metadata:
     uuid: "npm:^3.4.0"
   bin:
     expo: bin/cli
-  checksum: 89cb77728969066a0eba2ed7a2d7906ef64e884157abe94395923283339e24a7b6dd7c5d1ae68b45d3930a2997068e0f1a91a9aa886fac6f995623a4c6fd5b92
+  checksum: 1189047a040cd104dbf15f8c077ff94a297ce29151a81b8cdd792ca53bd8bd31468ba52facd0e30c16c903697b84cd6a0187a300420d5b3c61e241883e3f7bf7
   languageName: node
   linkType: hard
 
@@ -11816,7 +11816,7 @@ __metadata:
     "@bugsnag/expo": "npm:^49.0.1"
     "@bugsnag/plugin-expo-eas-sourcemaps": "npm:^49.0.0"
     "@bugsnag/source-maps": "npm:^2.3.1"
-    "@react-native-async-storage/async-storage": "npm:1.19.4"
+    "@react-native-async-storage/async-storage": "npm:1.19.5"
     "@react-native-community/netinfo": "npm:11.1.0"
     "@react-navigation/drawer": "npm:^6.6.6"
     "@react-navigation/native": "npm:^6.1.9"
@@ -11838,7 +11838,7 @@ __metadata:
     eslint-plugin-react-redux: "npm:^4.1.0"
     eslint-plugin-security: "npm:^1.7.1"
     eslint-plugin-unicorn: "npm:^49.0.0"
-    expo: "npm:^49.0.16"
+    expo: "npm:^49.0.18"
     expo-application: "npm:~5.4.0"
     expo-av: "npm:~13.6.0"
     expo-constants: "npm:~14.4.2"

@@ -58,12 +58,13 @@ export const useSharedStyles = (theme) => {
         direction: 'rtl',
         fontFamily: 'philosopher',
         fontSize: 45,
-        paddingBottom: 100,
+        paddingBottom: 50,
         paddingTop: 50,
         textAlign: 'center'
       },
       arabicBody: {
         ...getTextStyle(onSurface, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9, 'right'),
+        direction: 'rtl',
         fontFamily: arabicFontName,
         paddingBottom: BASE_PADDING,
         writingDirection: 'rtl'
@@ -225,8 +226,7 @@ export const useSharedStyles = (theme) => {
       scrollView: {
         direction: 'rtl',
         marginLeft: BASE_MARGIN,
-        padding: BASE_PADDING,
-        writingDirection: 'ltr'
+        padding: BASE_PADDING
       },
       scrollViewLTR: {
         direction: 'ltr',

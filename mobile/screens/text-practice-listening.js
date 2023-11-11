@@ -4,6 +4,7 @@ import { View } from 'react-native'
 
 import { ButtonAction } from '../components/button-action.js'
 import { EnglishArabicText } from '../components/english-arabic-text.js'
+import { UI } from '../constants/ui.js'
 
 export const PracticeListening = ({
   text,
@@ -28,7 +29,7 @@ export const PracticeListening = ({
     </View>
     <View style={{ marginBottom: 50 }}>
       {isLastSentence ? (
-        <ButtonAction onPress={handleReset} text="PRACTICE AGAIN" />
+        <ButtonAction onPress={handleReset} text={UI.practiceAgain.toUpperCase()} />
       ) : (
         showRepeat && (
           <ButtonAction
@@ -36,7 +37,7 @@ export const PracticeListening = ({
               setIsListeningComplete(true)
               setShowRepeat(false)
             }}
-            text="CONTINUE"
+            text={UI.continue.toUpperCase()}
           />
         )
       )}

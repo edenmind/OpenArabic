@@ -1,4 +1,7 @@
 export const UI = {
+  basmallah: '﷽',
+  close: 'Close',
+  continue: 'Continue',
   explain: 'Explain',
   explainWords: 'Explain',
   explanation: 'Explanation',
@@ -7,9 +10,15 @@ export const UI = {
   openArabic: 'OpenArabic',
   play: 'Play',
   playSentence: 'Play',
+  practice: 'Practice',
+  practiceAgain: 'Practice Again',
+  preview: 'Preview',
+  quote: 'Quote',
   report: 'Report Error',
   root: 'ROOT',
   share: 'Share',
+  space: ' ',
+  stop: 'Stop',
   study: 'Study',
   texts: 'Texts'
 }

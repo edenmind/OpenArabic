@@ -9,6 +9,7 @@ import { Button, Text, useTheme } from 'react-native-paper'
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
 import { useSharedStyles } from '../styles/common.js'
 import { useSelector, useDispatch } from 'react-redux'
+import { UI } from '../constants/ui.js'
 
 const audioSelector = (state) => state.audio
 
@@ -25,10 +26,9 @@ export default function PlaySound({
 }) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
-  const IS_PLAYING = true
 
   const { playSound, stopSound } = useAudioPlayer()
-  const buttonText = isPlaying ? 'STOP' : 'PLAY'
+  const buttonText = isPlaying ? UI.stop.toUpperCase() : UI.play.toUpperCase()
 
   const isCancelled = useRef(false)
 
@@ -49,7 +49,7 @@ export default function PlaySound({
   const handleSequenceFinish = () => {
     if (!onFinish) return
 
-    setIsPlaying(!IS_PLAYING)
+    setIsPlaying(false)
     setShowRepeat(true)
     stopSound()
     onFinish()

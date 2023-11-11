@@ -7,11 +7,12 @@ import { View } from 'react-native'
 import { useTheme, Button, Text } from 'react-native-paper'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { TextPracticeSetupPreview } from './text-practice-setup-preview.js'
+import { TextPracticeReview } from './text-practice-review.js'
 import TextPracticeHeading from './text-practice-setup-sections.js'
 import TextPractice from './text-practice.js'
 import { ButtonAction } from '../components/button-action.js'
 import ModalScrollView from '../components/modal-scroll-view.js'
+import { UI } from '../constants/ui.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextPracticeSetup() {
@@ -24,7 +25,7 @@ export default function TextPracticeSetup() {
   const [content, setContent] = useState()
   const [isPlaying, setIsPlaying] = useState(false)
   const [showRepeat, setShowRepeat] = useState(true)
-  const [closeText, setCloseText] = useState('Stop')
+  const [closeText, setCloseText] = useState(UI.stop)
 
   const [isListeningEnabled, setIsListeningEnabled] = React.useState(true)
   const [isReadingEnabled, setIsReadingEnabled] = React.useState(true)
@@ -40,10 +41,9 @@ export default function TextPracticeSetup() {
     dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_VOCABULARY' })
     dispatch({ payload: false, type: 'SET_AUDIO_SHOULD_PLAY_LISTENING' })
   }
-  // isListeningEnabled, isReadingEnabled, isVocabularyEnabled
+
   // Start the practice and open the modal with practice content
   const handleStartPractice = () => {
-    setCloseText('Stop')
     setContent(
       <TextPractice
         isListeningEnabled={isListeningEnabled}
@@ -51,17 +51,18 @@ export default function TextPracticeSetup() {
         isVocabularyEnabled={isVocabularyEnabled}
       />
     )
+    setCloseText(UI.stop)
     setPracticeOrPreviewVisible(true)
     setIsPlaying(true)
     dispatch({ payload: true, type: 'SET_AUDIO' })
   }
 
   // Open the modal with the preview content
-  const handlePreviewContent = () => {
+  const handleOpenPreview = () => {
     setPracticeOrPreviewVisible(true)
-    setCloseText('Close')
+    setCloseText(UI.close)
     setContent(
-      <TextPracticeSetupPreview
+      <TextPracticeReview
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         setShowRepeat={setShowRepeat}
@@ -83,10 +84,10 @@ export default function TextPracticeSetup() {
         setIsVocabularyEnabled={setIsVocabularyEnabled}
       />
       <View style={sharedStyle.container}>
-        <Button onPress={handlePreviewContent} style={sharedStyle.buttonAnswer}>
-          <Text style={sharedStyle.actionTextPrimary}>PREVIEW</Text>
+        <Button onPress={handleOpenPreview} style={sharedStyle.buttonAnswer}>
+          <Text style={sharedStyle.actionTextPrimary}>{UI.preview.toUpperCase()}</Text>
         </Button>
-        <ButtonAction onPress={handleStartPractice} text="PRACTICE" />
+        <ButtonAction onPress={handleStartPractice} text={UI.practice.toUpperCase()} />
       </View>
       <ModalScrollView
         visible={practiceOrPreviewVisible}

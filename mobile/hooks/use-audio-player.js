@@ -98,15 +98,18 @@ export const useAudioPlayer = () => {
   }
 
   const stopSound = async () => {
-    try {
-      await sound.stopAsync()
-      await sound.unloadAsync()
-
-      sound.setOnPlaybackStatusUpdate(null)
-      setSound(null)
-      setIsSoundLoaded(false)
-    } catch (error) {
-      console.error('Error stopping sound (stringified):', JSON.stringify(error))
+    if (sound) {
+      try {
+        await sound.stopAsync()
+        await sound.unloadAsync()
+        sound.setOnPlaybackStatusUpdate(null)
+      } catch (error) {
+        console.error('Error stopping sound:', error)
+      } finally {
+        // Update the state in the finally block to ensure it's executed regardless of success or error
+        setSound(null)
+        setIsSoundLoaded(false)
+      }
     }
   }
 

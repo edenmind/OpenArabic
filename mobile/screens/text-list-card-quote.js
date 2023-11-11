@@ -5,6 +5,7 @@ import { Text, Card, Divider, useTheme } from 'react-native-paper'
 import { CategoryChip } from '../components/category-chip.js'
 import { EnglishArabicText } from '../components/english-arabic-text.js'
 import { PressableCard } from '../components/pressable-card.js'
+import { UI } from '../constants/ui.js'
 import { HOST } from '../constants/urls.js'
 import { useSharedStyles } from '../styles/common.js'
 
@@ -27,7 +28,7 @@ export default function TextListCardQuote({ text }) {
   const content = (
     <>
       <Card.Content>
-        <CategoryChip category="QUOTE" />
+        <CategoryChip category={UI.quote.toUpperCase()} />
         <Divider style={sharedStyle.dividerHidden} />
         <EnglishArabicText sentence={sentenceForComponent} />
       </Card.Content>
