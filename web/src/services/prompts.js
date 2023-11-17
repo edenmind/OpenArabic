@@ -53,20 +53,21 @@ ${text.texts.english}
 --- INSTRUCTIONS:
 As an Islamic scholar, summarize the Full English Text considering the following criteria:
 
-- The summary should be very brief and very concise and only contain one short sentence.
+- The summary should be brief.
 - Remain faithful to the original text.
-- Make the summary easily comprehensible and as short as possible.
+- Make the summary easily comprehensible.
 - Use short words instead of long words.
 - Use simple words instead of complex.
 - Adhere to Sunni Islam interpretations.
 - Ensure the title's character count, including spaces, does not exceed 25.
 - The output must be only in JSON format.
+- Use ﷺ instead of "peace be upon him"
 ---
 
 --- EXAMPLE OUTPUT:
 {
 "title": "Decree and Human Actions",
-"summary": "In this Hadith we learn that our creation, lifespan, sustenance, deeds, and destiny are ordained by Allah."
+"summary": "This Hadith highlights that each person's creation, lifespan, sustenance, and ultimate fate are predetermined by Allah. It underlines the profound notion that despite one's actions mirroring virtue or vice, it is the divine decree that ultimately determines their final destiny."
 }
 `.trimStart()
 }

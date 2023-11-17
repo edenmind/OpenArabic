@@ -8,10 +8,10 @@ const openai = new OpenAI({
 export async function getChatCompletionMessage(message) {
   const chatCompletion = await openai.chat.completions.create({
     messages: [{ role: 'user', content: message }],
-    model: 'gpt-4', //gpt-4
+    model: 'gpt-4-1106-preview',
     temperature: 0,
     max_tokens: 1024,
-    top_p: 0.7,
+    top_p: 0.5,
     frequency_penalty: 0,
     presence_penalty: 0
   })

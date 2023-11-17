@@ -197,7 +197,6 @@ async function updateText(request, reply) {
   const data = {
     $set: {
       ...rest,
-      textGuid: texts.textGuid,
       texts: {
         ...texts
       },

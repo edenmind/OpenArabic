@@ -213,15 +213,17 @@ const slugifyWithAuthor = (title, author) => {
 }
 
 //return a mp3 filename separated by dashes with text, sentence,, language and word
-const mp3Filename = (text, sentence, language, word) => {
+const mp3Filename = (textGuid, sentenceGuid, language, word) => {
+  console.log('text: ', textGuid, 'sentence: ', sentenceGuid, 'language: ', language, 'word: ', word)
+
   const createSlug = (string) =>
     string
       .toLowerCase()
       .replace(/[^\da-z]+/g, '-')
       .replace(/(^-|-$)+/g, '')
 
-  const textSlug = createSlug(text)
-  const sentenceSlug = createSlug(sentence)
+  const textSlug = createSlug(textGuid)
+  const sentenceSlug = createSlug(sentenceGuid)
   const languageSlug = createSlug(language)
   const wordSlug = createSlug(word)
 
