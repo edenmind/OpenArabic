@@ -73,7 +73,7 @@ function TextAddPublish() {
 
   const updateText = () => {
     //adjust before posting
-
+    console.log('text: ', text)
     api
       .updateText(text, id)
       .then((res) => {

@@ -76,7 +76,9 @@ async function addText(request, reply) {
   const views = 0 //initially, the text has no views
   const slug = slugifyWithAuthor(body.title, body.author) //generate a slug
   const createdAt = new Date()
+  const textGuid = uuidv4().slice(0, 8)
   const data = {
+    textGuid,
     title: body.title,
     slug,
     author: body.author,
@@ -93,6 +95,8 @@ async function addText(request, reply) {
     status: body.status
   }
 
+  console.log('data: ', data)
+
   // Validate that no objects are empty
   // data: the data being validated
   // Returns: true if no objects are empty, false otherwise
@@ -103,9 +107,6 @@ async function addText(request, reply) {
 
   //remove url from text.image with removeHost
   data.image = removeHost(data.image)
-
-  //generate a guid for the text
-  data.textGuid = uuidv4().slice(0, 8)
 
   if (data.status !== 'Draft') {
     //generate a guid for every sentence and word

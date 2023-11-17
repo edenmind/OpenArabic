@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable implicit-arrow-linebreak */
@@ -32,6 +33,7 @@ function TextAddWords() {
       const prompt = prompts.getArabicAndEnglishSentence(sentence, text)
 
       const jsonString = await getChatCompletionMessage(prompt)
+      console.log(jsonString)
       const result = JSON.parse(jsonString)
 
       handleChangeArabicFullSentence(indexSentence, result)
