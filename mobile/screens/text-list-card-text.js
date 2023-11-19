@@ -23,9 +23,9 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
   const content = (
     <>
       <Card.Cover source={{ uri: text.image }} />
-      <Card.Title title={text.title} subtitle={text.source} titleStyle={{ ...sharedStyle.cardTitle }} />
+      <Card.Title title={text.title.trim()} subtitle={text.source.trim()} titleStyle={{ ...sharedStyle.cardTitle }} />
       <Card.Content>
-        <Text variant="bodyMedium">{text.introduction}</Text>
+        <Text variant="bodyMedium">{text.introduction.trim()}</Text>
       </Card.Content>
       <Card.Actions style={{ ...sharedStyle.cardAction }}>
         <Text variant="bodySmall" style={{ color: theme.colors.outline, left: 10, position: 'absolute' }}>

@@ -44,9 +44,7 @@ const PracticeHighlighted = ({ arabicSentence, arabicWord, sentenceIsComplete })
       }
     })
 
-  return (
-    <View style={{ direction: 'rtl', flexDirection: 'row', flexWrap: 'wrap', marginLeft: 7 }}>{renderWords()}</View>
-  )
+  return <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap', marginLeft: 7 }}>{renderWords()}</View>
 }
 
 PracticeHighlighted.propTypes = {

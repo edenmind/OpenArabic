@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import React, { useEffect } from 'react'
-import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Image, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
 import { Caption, Divider, Text, useTheme, Button, Switch } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -31,19 +31,18 @@ export default function TextDrawer() {
     },
     darkLightMode: {
       bottom: 65,
-      left: 0,
-      margin: 15,
+      left: 5,
       position: 'absolute'
     },
     darkModeLabel: {
-      bottom: 100,
+      bottom: 90,
       color: theme.colors.onSurfaceVariant,
       left: 0,
       margin: 15,
       position: 'absolute'
     },
     divider: {
-      margin: 15
+      marginHorizontal: 15
     },
     icon: {
       height: 55,
@@ -98,7 +97,6 @@ export default function TextDrawer() {
       initialParams={{ category: category.name }}
       options={{
         drawerLabel: category.name,
-        drawerLabelStyle: { fontSize: 15 },
         headerShown: true,
         title: category.name
       }}
@@ -115,18 +113,19 @@ export default function TextDrawer() {
           <Text style={style.title} variant="headlineMedium">
             {packageJson.displayName}
           </Text>
-          <Divider style={{ ...style.divider, margin: 5, opacity: 0 }} />
-
-          <DrawerItemList {...props} />
+          <Divider style={{ ...style.divider }} />
+          <ScrollView style={{ maxHeight: '75%' }}>
+            <DrawerItemList {...props} />
+            <TouchableOpacity onPress={() => navigation.navigate('About')}>
+              <Text
+                style={{ color: theme.colors.outline, marginLeft: 10, marginTop: 10, paddingLeft: 9 }}
+                variant="labelLarge"
+              >
+                About
+              </Text>
+            </TouchableOpacity>
+          </ScrollView>
           <Divider style={style.divider} />
-          <TouchableOpacity onPress={() => navigation.navigate('About')}>
-            <Text
-              style={{ color: theme.colors.outline, marginLeft: 10, marginTop: 10, paddingLeft: 9 }}
-              variant="labelLarge"
-            >
-              About
-            </Text>
-          </TouchableOpacity>
         </DrawerContentScrollView>
 
         <View style={{ backgroundColor: theme.colors.surface }}>
@@ -159,7 +158,7 @@ export default function TextDrawer() {
       initialParams={{ category: 'All' }}
       options={({ navigation }) => ({
         drawerLabel: SCREENS.home,
-        drawerLabelStyle: { fontSize: 15 },
+
         headerRight: () => (
           <Button textColor={theme.colors.secondary} icon={'cog'} onPress={() => navigation.navigate('Settings')} />
         ),

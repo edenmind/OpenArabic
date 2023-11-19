@@ -15,7 +15,7 @@ export function PracticeCheckbox({ label, note, isChecked, onToggle }) {
           alignItems: 'center',
           flexDirection: 'row',
           marginHorizontal: 15,
-          marginVertical: 10
+          marginVertical: 5
         }}
       >
         <Checkbox status={isChecked ? 'checked' : 'unchecked'} />

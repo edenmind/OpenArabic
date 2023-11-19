@@ -15,7 +15,7 @@ import { useSharedStyles } from '../styles/common.js'
 
 const styles = StyleSheet.create({
   bottomList: {
-    bottom: 40,
+    bottom: 10,
     left: 0,
     position: 'absolute',
     right: 0

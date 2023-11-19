@@ -88,22 +88,25 @@ export const useSharedStyles = (theme) => {
         writingDirection: 'rtl'
       },
       arabicHeading: {
-        ...getTextStyle(secondary, arabicFontSizeWeighted * 1.3, 'normal', arabicFontSize * 2.9, 'right'),
+        ...getTextStyle(secondary, arabicFontSizeWeighted * 1.3, 'normal', arabicFontSize * 2.9),
         fontFamily: arabicFontName,
+        marginHorizontal: BASE_MARGIN,
         paddingVertical: BASE_PADDING,
-        writingDirection: 'rtl'
+        textAlign: 'left'
       },
       arabicHeadingRemove: {
         ...getTextStyle(error, arabicFontSizeWeighted * 1.1, 'normal', arabicFontSize * 2.9),
         fontFamily: arabicFontName,
+        marginHorizontal: BASE_MARGIN,
         paddingVertical: BASE_PADDING,
-        textAlign: 'right'
+        textAlign: 'left'
       },
       arabicTerm: {
         ...getTextStyle(tertiary, englishFontSize * 1.1, 'normal', englishFontSize * 1.5),
         backgroundColor: elevation.tertiaryContainer,
         direction: 'ltr',
         fontFamily: 'philosopher',
+        marginHorizontal: BASE_MARGIN,
         paddingBottom: BASE_PADDING * 2,
         textAlign: 'left',
         writingDirection: 'ltr'
@@ -114,7 +117,7 @@ export const useSharedStyles = (theme) => {
         textAlign: 'center'
       },
       bottomView: {
-        bottom: 50,
+        bottom: 20,
         position: 'absolute',
         width: '100%'
       },
@@ -182,9 +185,17 @@ export const useSharedStyles = (theme) => {
       englishHeading: {
         ...getTextStyle(onSurface, englishFontSize * 1.1, 'bold', englishFontSize * 1.7),
         direction: 'ltr',
+        marginHorizontal: BASE_MARGIN,
         paddingTop: BASE_PADDING,
         textAlign: 'left',
         writingDirection: 'ltr'
+      },
+      grammarText: {
+        color: theme.colors.onSurface,
+        direction: 'ltr',
+        marginHorizontal: 5,
+        marginVertical: 0,
+        paddingBottom: 0
       },
       headerContainer: {
         marginLeft: BASE_MARGIN,
@@ -259,7 +270,6 @@ export const useSharedStyles = (theme) => {
         backgroundColor: theme.colors.elevation.level0,
         flex: 1,
         height: '100%',
-        paddingTop: 50,
         verticalAlign: 'middle',
         width: '100%'
       },

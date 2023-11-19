@@ -55,13 +55,13 @@ function Text() {
         name={SCREENS.textGrammar}
         component={TextGrammar}
         options={{
-          headerBackTitle: 'Back',
+          headerBackTitle: 'Home',
           headerStyle: {
             backgroundColor: isDarkModeOn.isDarkMode
               ? CombinedDefaultTheme.colors.background
               : CombinedDarkTheme.colors.background
           },
-          headerTitle: 'Vocabulary',
+          headerTitle: 'Grammar',
           headerTitleStyle: {
             color: theme.colors.onSurface,
             fontFamily: 'philosopher',

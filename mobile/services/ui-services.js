@@ -109,8 +109,11 @@ export function formatGrammar(gram, sharedStyle) {
         }
 
         if (line.startsWith('⟶')) {
+          const baseStyle = { ...sharedStyle.arabicHeading }
+          const textStyle = line.length > 15 ? { ...baseStyle, paddingLeft: 15, textAlign: 'left' } : baseStyle
+
           return (
-            <Text key={index} style={{ ...sharedStyle.arabicHeading }}>
+            <Text key={index} style={textStyle}>
               {`${line.slice(2)}`}
             </Text>
           )
@@ -118,7 +121,7 @@ export function formatGrammar(gram, sharedStyle) {
 
         if (line.startsWith('←')) {
           return (
-            <Text key={index} style={sharedStyle.arabicHeadingRemove}>
+            <Text key={index} style={{ ...sharedStyle.arabicHeadingRemove }}>
               {`${line.slice(2)}`}
             </Text>
           )
@@ -132,7 +135,7 @@ export function formatGrammar(gram, sharedStyle) {
           )
         }
 
-        return <Text key={index} style={sharedStyle.englishBody}>{`${line}`}</Text>
+        return <Text key={index} variant="bodyLarge" style={{ ...sharedStyle.grammarText }}>{`${line}`}</Text>
       })}
     </>
   )

@@ -53,7 +53,8 @@ ${text.texts.english}
 --- INSTRUCTIONS:
 As an Islamic scholar, summarize the Full English Text considering the following criteria:
 
-- The summary should be brief.
+- The summary should be brief and only contain on sentence.
+- The sentence may be long.
 - Remain faithful to the original text.
 - Make the summary easily comprehensible.
 - Use short words instead of long words.
@@ -67,7 +68,7 @@ As an Islamic scholar, summarize the Full English Text considering the following
 --- EXAMPLE OUTPUT:
 {
 "title": "Decree and Human Actions",
-"summary": "This Hadith highlights that each person's creation, lifespan, sustenance, and ultimate fate are predetermined by Allah. It underlines the profound notion that despite one's actions mirroring virtue or vice, it is the divine decree that ultimately determines their final destiny."
+"summary": "This Hadith highlights that each person's creation, lifespan, sustenance, and ultimate fate are predetermined by Allah. It underlines the profound notion that despite one's actions mirroring virtue or vice."
 }
 `.trimStart()
 }
@@ -476,44 +477,33 @@ Remember, just as the spice in a dish brings out the flavor, the particle "وَ�
 
 export const getArabicAndEnglishSentence = (sentence, text) => {
   const result = `
---- Full Arabic Text
+--- Full Arabic Text for Context:
 ${text.texts.arabic}
----
 
---- Arabic Sentence:
-${sentence.arabic}
----
 
---- Author of the text:
-${text.author}
----
+--- Arabic Sentence: ${sentence.arabic}
+--- Author: ${text.author}
+--- Source: ${text.source}
 
---- Source of the text:
-${text.source}
----
-
---- Type of text:
-${text.category}
----
 
 --- INSTRUCTIONS:
 Act as a Translator of Classic Arabic to English and provide a Word-for-Word Translation of the Arabic Sentence to English according to the following criteria:
 
-- The text that you are translating is a Sunni Islamic hadith from Sahih al-Bukhari.
-- Maintain the original word order from the Arabic sentence in your translation.
-- Ensure that names of Prophets and Sahaba are accompanied by respectful annotations such as Alayhis Salam (Peace be upon him) for Prophets and Radhi Allahu Anhu/Anha (May Allah be pleased with him/her) for Sahaba.
-- Return the result as a valid JSON object with an array that contains the property "arabic" that contains the single Arabic word and the property "english" that contains the English translation.
-- The JSON object should also contain the property "translation" that contains the the entire sentence.
-- Add extra words in brackets [] in the English translation (JSON property: translation) so that the sentence can be read in a grammatically correct way.
-- Do not add brackets [] to the single word translation to English (JSON property: english).
+- The text that you are translating is a classical Sunni Islamic.
+- Use easy English words when translating since the target audience does not have English as the first language.
+- Return the result as a valid JSON object with an array that contains the property "arabic" that contains the single Arabic word and the property "english" that contains the verbatim English translation.
+- The JSON object should also contain the property "translation" that contains the the entire sentence fluent to read.
+- Add extra words in the JSON property "translation" if necessary so that the sentence can be read as a normal English sentence.
+- Translate Arabic to English words verbatim.
 - Only use english words in the translation (JSON property: english).
 - Do not use transliterated arabic words in the translation (JSON property: english).
 - The word-for-word translation (JSON property: english) should focus on the correctness of the single word in isolation.
 - Make sure that the word-for-word translation (JSON property: english) is grammatically correct according to the rules of Classical Arabic and that no brackets are added.
 - When an Arabic word starts with "وَ," treat it as a prefix that joins with the next word.
 - Translate ﷺ as "ﷺ" but do not add it if it is not in the original sentence.
-- Prefer easy and short words over long and complex.
 - This translation will be reviewed by English and Arabic experts, so ensure its correctness.
+- Make sure that pronouns are added if they are apart of the word.
+- Ensure that names of Prophets and Companions are accompanied by respectful annotations such as ﷺ (Peace be upon him) for the Prophet and Radhi Allahu Anhu/Anha (May Allah be pleased with him/her) for Sahaba.
 
 --- EXAMPLE OUTPUT:
 {

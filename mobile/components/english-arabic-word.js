@@ -2,8 +2,8 @@ import 'react-native-gesture-handler'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
 import React, { useState, useCallback, useEffect, useRef } from 'react'
-import { Platform, View, StyleSheet } from 'react-native'
-import { useTheme, Text, Button } from 'react-native-paper'
+import { Platform, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { useTheme, Text } from 'react-native-paper'
 import { useDispatch } from 'react-redux'
 
 import { useAudioPlayer } from '../hooks/use-audio-player.js'
@@ -77,7 +77,7 @@ export default function EnglishArabicWord({
         const isSelected =
           (currentPlayingWordIndex === wordIndex && !singleWordPressed) || selectedWordIndex === wordIndex
         const textColor = isSelected ? theme.colors.tertiary : theme.colors.onSurface
-        const lineHeight = Platform.OS === 'android' ? 90 : 95
+        const lineHeight = Platform.OS === 'android' ? 125 : 95
 
         const textStyles = [
           sharedStyle.arabicBody,
@@ -94,25 +94,27 @@ export default function EnglishArabicWord({
 
         const textStylesEnglish = [
           {
-            bottom: -10,
+            bottom: 0,
             color: theme.colors.tertiary,
             fontSize: englishFontSize,
+            marginHorizontal: -6,
             paddingHorizontal: 5,
             position: 'absolute'
           }
         ]
 
         return (
-          <Button
+          <TouchableOpacity
             style={{ ...styles.button }}
             onPress={() => handleWordSelect(word.filename, wordIndex)}
             key={wordIndex}
+            activeOpacity={0.8}
           >
-            <View style={{ alignItems: 'center', position: 'relative' }}>
+            <View style={{ alignItems: 'center' }}>
               <Text style={textStyles}>{word.arabic}</Text>
-              <Text style={[textStylesEnglish, { marginHorizontal: -6 }]}>{isSelected && word.english}</Text>
+              {isSelected && word.english ? <Text style={[textStylesEnglish, {}]}>{word.english}</Text> : undefined}
             </View>
-          </Button>
+          </TouchableOpacity>
         )
       })}
     </View>
@@ -122,7 +124,7 @@ export default function EnglishArabicWord({
 const styles = StyleSheet.create({
   button: {
     flexWrap: 'wrap',
-    marginHorizontal: -4,
+    marginHorizontal: 0,
     marginVertical: -5
   },
   container: {

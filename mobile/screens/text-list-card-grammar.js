@@ -2,11 +2,16 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Text, Card, useTheme } from 'react-native-paper'
 
+import { CategoryChip } from '../components/category-chip.js'
 import { PressableCard } from '../components/pressable-card.js'
 import SCREENS from '../constants/screens.js'
+import { UI } from '../constants/ui.js'
+import { useSharedStyles } from '../styles/common.js'
 
 export default function TextListCardGrammar({ text, navigation, setShouldReload }) {
   const theme = useTheme()
+
+  const sharedStyle = useSharedStyles(theme)
 
   const onPress = () => {
     setShouldReload(false)
@@ -19,30 +24,35 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
   }
 
   const content = (
-    <Card.Content>
-      <Text
-        style={{
-          color: theme.colors.primary,
-          fontFamily: 'uthman',
-          fontSize: 100,
-          paddingBottom: 10,
-          textAlign: 'center'
-        }}
-      >
-        {text.arabic}
-      </Text>
-      <Text
-        style={{
-          color: theme.colors.secondary,
-          fontFamily: 'philosopher',
-          fontSize: 25,
-          paddingBottom: 45,
-          textAlign: 'center'
-        }}
-      >
-        {text.english.charAt(0).toUpperCase() + text.english.slice(1)}
-      </Text>
-    </Card.Content>
+    <>
+      <Card.Content>
+        <Text
+          style={{
+            color: theme.colors.primary,
+            fontFamily: 'uthman',
+            fontSize: 100,
+            paddingBottom: 10,
+            textAlign: 'center'
+          }}
+        >
+          {text.arabic}
+        </Text>
+        <Text
+          style={{
+            color: theme.colors.secondary,
+            fontFamily: 'philosopher',
+            fontSize: 25,
+            paddingBottom: 45,
+            textAlign: 'center'
+          }}
+        >
+          {text.english.charAt(0).toUpperCase() + text.english.slice(1)}
+        </Text>
+      </Card.Content>
+      <Card.Actions style={{ ...sharedStyle.cardAction }}>
+        <CategoryChip category={UI.grammar} />
+      </Card.Actions>
+    </>
   )
 
   return <PressableCard content={content} onPress={onPress} />

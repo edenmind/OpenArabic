@@ -5,6 +5,7 @@ export const UI = {
   explain: 'Explain',
   explainWords: 'Explain',
   explanation: 'Explanation',
+  grammar: 'Grammar',
   inSentence: 'Sentence',
   null: '',
   openArabic: 'OpenArabic',

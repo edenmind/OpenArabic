@@ -4,15 +4,12 @@ import { ScrollView } from 'react-native'
 import { Divider, useTheme, Text } from 'react-native-paper'
 
 import { formatGrammar } from '../services/ui-services.js'
-import { transliterateArabicToEnglish } from '../services/utility-service.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextGrammar({ route }) {
-  const { grammar, arabic, english  } = route.params
+  const { grammar, arabic, english } = route.params
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
-
-  const transliteratedArabic = transliterateArabicToEnglish(arabic)
 
   return (
     <ScrollView style={sharedStyle.scrollView}>
@@ -30,7 +27,7 @@ export default function TextGrammar({ route }) {
       </Text>
       <Text
         style={{
-          color: theme.colors.secondary,
+          color: theme.colors.onSurface,
           fontFamily: 'philosopher',
           fontSize: 25,
           paddingBottom: 25,
@@ -38,7 +35,7 @@ export default function TextGrammar({ route }) {
           width: '97%'
         }}
       >
-        {english.charAt(0).toUpperCase() + english.slice(1)} - {transliteratedArabic}
+        {english.charAt(0).toUpperCase() + english.slice(1)}
       </Text>
 
       <Divider style={{ marginBottom: 30, opacity: 0 }} />
