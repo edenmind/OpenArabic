@@ -15,10 +15,10 @@ async function downloadImage(url, filepath) {
 async function fetchAndPostTwitterThread() {
   // Replace with your credentials
   const twitterClient = new TwitterApi({
-    appKey: 'pmLdD4MkcmbhfqdnY5lFRg957',
-    appSecret: 'es6koFAwU3XFlFS9t1MY8jk9fyUKNmPawtPGprOnBXf1HUyNT9',
-    accessToken: '1327982041099595776-rygqzHGAs7ZjxVievNtCzbdnsfSbkH',
-    accessSecret: 'WbtS8bM7Kn54resx5qiGgUAzO6MbfCmj5xaysCsYGHoTk'
+    appKey: 'zzz',
+    appSecret: 'zzz',
+    accessToken: 'zzz',
+    accessSecret: 'zzz'
   })
 
   try {
