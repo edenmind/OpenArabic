@@ -18,7 +18,8 @@ const PracticeHighlightedWord = ({ word: { arabic } }) => {
       color: theme.colors.tertiary,
       fontSize: 50,
       lineHeight: 95,
-      paddingHorizontal: 5
+      margin: 0,
+      paddingRight: 5
     }
   })
 

@@ -14,14 +14,14 @@ const PracticeHighlighted = ({ arabicSentence, arabicWord, sentenceIsComplete })
       ...sharedStyle.arabicBody,
       fontSize: 50,
       lineHeight: 95,
-      paddingHorizontal: 5
+      paddingRight: 5
     },
     arabicTextInactive: {
       ...sharedStyle.arabicBody,
       color: theme.colors.outline,
       fontSize: 50,
       lineHeight: 95,
-      paddingHorizontal: 5
+      paddingRight: 5
     }
   })
 

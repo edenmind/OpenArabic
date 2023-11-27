@@ -2,14 +2,14 @@
   "expo": {
     "name": "Open Arabic",
     "slug": "OpenArabic",
-    "version": "1445.2.335",
+    "version": "1445.5.335",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#323200"
+      "backgroundColor": "#1a1c18"
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
@@ -23,10 +23,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#323200"
+        "backgroundColor": "#1a1c18"
       },
       "package": "com.edenmind.OpenArabic",
-      "versionCode": 116
+      "versionCode": 117
     },
     "web": {
       "favicon": "./assets/favicon.png"

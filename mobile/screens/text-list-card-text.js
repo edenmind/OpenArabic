@@ -18,7 +18,7 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
     })
   }
 
-  const footer = `${text.views} views · ${text.timeAgo}`
+  const footer = `${text.timeAgo} · ${text.views} views`
 
   const content = (
     <>

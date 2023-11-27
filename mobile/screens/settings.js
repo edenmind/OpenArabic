@@ -1,7 +1,7 @@
 import * as Haptics from 'expo-haptics'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, ScrollView } from 'react-native'
-import { Text, Surface, Switch, useTheme } from 'react-native-paper'
+import { Text, Surface, Switch, useTheme, Divider } from 'react-native-paper'
 import { useDispatch } from 'react-redux'
 
 import { SegmentButtonWithHeader } from '../components/segemented-button.js'
@@ -17,9 +17,20 @@ export const TextSettings = () => {
   const [englishFontSizeValue, setEnglishSizeValue] = React.useState(DEFAULT_ENGLISH_FONT_SIZE)
   const [arabicFontSizeValue, setArabicSizeValue] = React.useState(DEFAULT_ARABIC_FONT_SIZE)
   const [isTransliterationOn, setIsTransliterationOn] = React.useState(true)
+  const [isDarkModeOn, setIsDarkModeOn] = React.useState(true)
+
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    const fetchMode = async () => {
+      const value = await getData('isDarkModeOn')
+      setIsDarkModeOn(value === 'on')
+    }
+
+    fetchMode()
+  }, [])
 
   const storeArabicFontName = async (value) => {
     dispatch({ payload: value, type: 'SET_ARABIC_FONT_NAME' })
@@ -91,6 +102,13 @@ export const TextSettings = () => {
   React.useEffect(() => {
     getArabicFontName()
   }, [])
+
+  const storeDarkMode = async (value) => {
+    const boolValuesForDarkMode = value === true ? 'on' : 'off'
+
+    await storeData('isDarkModeOn', boolValuesForDarkMode)
+    dispatch({ payload: !value, type: 'SET_DARK_MODE' })
+  }
 
   return (
     <ScrollView style={{ ...sharedStyle.container }}>
@@ -183,6 +201,20 @@ export const TextSettings = () => {
         ]}
       />
 
+      <View style={{ backgroundColor: theme.colors.surface }}>
+        <Text variant="labelLarge" style={{ ...sharedStyle.element }}>
+          Dark Mode
+        </Text>
+        <Switch
+          value={isDarkModeOn}
+          style={{ marginTop: 0, paddingTop: 0 }}
+          onValueChange={(value) => {
+            storeDarkMode(value)
+            setIsDarkModeOn(value)
+          }}
+        />
+      </View>
+      <Divider style={{ ...sharedStyle.divider }} />
       <View style={{ alignItems: 'flex-start' }}>
         <Text variant="labelLarge" style={{ ...sharedStyle.element }}>
           Transliteration
@@ -195,11 +227,11 @@ export const TextSettings = () => {
             setIsTransliterationOn(value)
           }}
         />
+        <Text variant={'bodySmall'} style={{ paddingTop: 5 }}>
+          Transliteration changes Arabic letters into Latin letters. This helps people who can not read Arabic to
+          understand and say Arabic words using familiar letters.
+        </Text>
       </View>
-      <Text variant={'bodySmall'} style={{ paddingTop: 5 }}>
-        Transliteration changes Arabic letters into Latin letters. This helps people who can not read Arabic to
-        understand and say Arabic words using familiar letters.
-      </Text>
     </ScrollView>
   )
 }

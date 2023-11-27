@@ -500,6 +500,7 @@ Act as a Translator of Classic Arabic to English and provide a Word-for-Word Tra
 - The word-for-word translation (JSON property: english) should focus on the correctness of the single word in isolation.
 - Make sure that the word-for-word translation (JSON property: english) is grammatically correct according to the rules of Classical Arabic and that no brackets are added.
 - When an Arabic word starts with "وَ," treat it as a prefix that joins with the next word.
+- The translation of the entire sentence (JSON property: translation) should be based on the verbatim translation but words can be added between [] or change to make the sentence fluent to read.
 - Translate ﷺ as "ﷺ" but do not add it if it is not in the original sentence.
 - This translation will be reviewed by English and Arabic experts, so ensure its correctness.
 - Make sure that pronouns are added if they are apart of the word.

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import React, { useEffect } from 'react'
-import { Image, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
-import { Caption, Divider, Text, useTheme, Button, Switch } from 'react-native-paper'
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Caption, Divider, Text, useTheme, Button } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 
 import icon from '../assets/logo.png'
@@ -10,7 +10,6 @@ import SCREENS from '../constants/screens.js'
 import packageJson from '../package.json'
 import TextList from '../screens/text-list.js'
 import { getCategories } from '../services/api-service.js'
-import { storeData, getData } from '../services/storage.js'
 import { getHijriYear } from '../services/utility-service.js'
 
 const selector = (state) => state.categories
@@ -22,24 +21,11 @@ export default function TextDrawer() {
   const dispatch = useDispatch()
   const versionAndHijriYear = `${packageJson.version} ${getHijriYear()}`
   const theme = useTheme()
-  const [isDarkModeOn, setIsDarkModeOn] = React.useState(true)
 
   const style = StyleSheet.create({
     container: {
       backgroundColor: theme.colors.surface,
       flex: 1
-    },
-    darkLightMode: {
-      bottom: 65,
-      left: 5,
-      position: 'absolute'
-    },
-    darkModeLabel: {
-      bottom: 90,
-      color: theme.colors.onSurfaceVariant,
-      left: 0,
-      margin: 15,
-      position: 'absolute'
     },
     divider: {
       marginHorizontal: 15
@@ -75,19 +61,10 @@ export default function TextDrawer() {
   useEffect(() => {
     const fetchCategoriesAndMode = async () => {
       dispatch(getCategories())
-      const value = await getData('isDarkModeOn')
-      setIsDarkModeOn(value === 'on')
     }
 
     fetchCategoriesAndMode()
   }, [dispatch])
-
-  const storeDarkMode = async (value) => {
-    const boolValuesForDarkMode = value === true ? 'on' : 'off'
-
-    await storeData('isDarkModeOn', boolValuesForDarkMode)
-    dispatch({ payload: !value, type: 'SET_DARK_MODE' })
-  }
 
   const categoryItems = categories.map((category) => (
     <Drawer.Screen
@@ -113,9 +90,10 @@ export default function TextDrawer() {
           <Text style={style.title} variant="headlineMedium">
             {packageJson.displayName}
           </Text>
-          <Divider style={{ ...style.divider }} />
-          <ScrollView style={{ maxHeight: '75%' }}>
+
+          <View style={{ maxHeight: '85%' }}>
             <DrawerItemList {...props} />
+            <Divider style={style.divider} />
             <TouchableOpacity onPress={() => navigation.navigate('About')}>
               <Text
                 style={{ color: theme.colors.outline, marginLeft: 10, marginTop: 10, paddingLeft: 9 }}
@@ -124,23 +102,8 @@ export default function TextDrawer() {
                 About
               </Text>
             </TouchableOpacity>
-          </ScrollView>
-          <Divider style={style.divider} />
+          </View>
         </DrawerContentScrollView>
-
-        <View style={{ backgroundColor: theme.colors.surface }}>
-          <Text style={style.darkModeLabel} variant="labelMedium">
-            Dark Mode
-          </Text>
-          <Switch
-            value={isDarkModeOn}
-            style={style.darkLightMode}
-            onValueChange={(value) => {
-              storeDarkMode(value)
-              setIsDarkModeOn(value)
-            }}
-          />
-        </View>
 
         <Text style={style.version} variant="labelMedium">
           Version

@@ -5,7 +5,6 @@ import { Text, Card, useTheme } from 'react-native-paper'
 import { CategoryChip } from '../components/category-chip.js'
 import { PressableCard } from '../components/pressable-card.js'
 import SCREENS from '../constants/screens.js'
-import { UI } from '../constants/ui.js'
 import { useSharedStyles } from '../styles/common.js'
 
 export default function TextListCardGrammar({ text, navigation, setShouldReload }) {
@@ -22,6 +21,8 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
       grammar: text.grammar
     })
   }
+
+  const footer = `${text.timeAgo}`
 
   const content = (
     <>
@@ -50,7 +51,10 @@ export default function TextListCardGrammar({ text, navigation, setShouldReload 
         </Text>
       </Card.Content>
       <Card.Actions style={{ ...sharedStyle.cardAction }}>
-        <CategoryChip category={UI.grammar} />
+        <Text variant="bodySmall" style={{ color: theme.colors.outline, left: 10, position: 'absolute' }}>
+          {footer}
+        </Text>
+        <CategoryChip category={text.category} />
       </Card.Actions>
     </>
   )
