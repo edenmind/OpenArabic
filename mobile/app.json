@@ -2,7 +2,7 @@
   "expo": {
     "name": "Open Arabic",
     "slug": "OpenArabic",
-    "version": "1445.5.335",
+    "version": "1445.8.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -26,12 +26,12 @@
         "backgroundColor": "#1a1c18"
       },
       "package": "com.edenmind.OpenArabic",
-      "versionCode": 117
+      "versionCode": 118
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["@bugsnag/plugin-expo-eas-sourcemaps"],
+    "plugins": ["@bugsnag/plugin-expo-eas-sourcemaps", "expo-font"],
     "extra": {
       "bugsnag": {
         "apiKey": "77c30e82c802aed265d4d31617059924"

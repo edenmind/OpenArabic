@@ -23,7 +23,7 @@ async function fetchAndPostTwitterThread() {
 
   try {
     // Fetching the data
-    const response = await axios.get('https://backend.openarabic.io/texts/656395a1279b60af1fc67bd5')
+    const response = await axios.get('https://backend.openarabic.io/texts/6588815ae27be39acf08e434')
     const data = response.data
 
     // Download the image
@@ -48,8 +48,6 @@ async function fetchAndPostTwitterThread() {
       tweets.push(sentence.arabic)
       postNumber++
     }
-
-    tweets.push('📱 Download the OpenArabic app to enhance your Arabic vocabulary skills.')
 
     // Post the thread
     await twitterClient.v2.tweetThread(tweets)
