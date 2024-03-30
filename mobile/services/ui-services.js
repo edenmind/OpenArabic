@@ -56,18 +56,6 @@ export function generateTextError(text) {
   return composeError
 }
 
-export function generateWordError(text) {
-  async function composeError() {
-    await MailComposer.composeAsync({
-      body: `Please describe the error you found in the text: ${text.id}...`,
-      recipients: ['salam@edenmind.com'],
-      subject: `Found an error in the text: ${text.title}`
-    })
-  }
-
-  return composeError
-}
-
 export function moonPhaseEmoji(day) {
   const dayInt = Number.parseInt(day, 10)
 

@@ -2,7 +2,7 @@
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import React, { useEffect } from 'react'
 import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
-import { Caption, Divider, Text, useTheme, Button } from 'react-native-paper'
+import { Caption, Divider, Text, useTheme, IconButton } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 
 import icon from '../assets/logo.png'
@@ -123,7 +123,7 @@ export default function TextDrawer() {
         drawerLabel: SCREENS.home,
 
         headerRight: () => (
-          <Button textColor={theme.colors.secondary} icon={'cog'} onPress={() => navigation.navigate('Settings')} />
+          <IconButton icon="cog" color={theme.colors.secondary} onPress={() => navigation.navigate('Settings')} />
         ),
         headerShown: true,
         title: SCREENS.home
@@ -135,14 +135,8 @@ export default function TextDrawer() {
   return (
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
-      screenOptions={{
-        backgroundColor: theme.colors.surface,
-        drawerStyle: {
-          width: 270
-        },
-        headerStyle: {
-          backgroundColor: theme.colors.background
-        },
+      screenOptions={({ navigation }) => ({
+        headerLeft: () => <IconButton icon="menu" onPress={() => navigation.toggleDrawer()} />,
         headerTintColor: theme.colors.secondary,
         headerTitleStyle: {
           color: theme.colors.onSurface,
@@ -150,7 +144,7 @@ export default function TextDrawer() {
           fontSize: 23
         },
         unmountOnBlur: true
-      }}
+      })}
     >
       {homeScreen}
       {categoryItems}

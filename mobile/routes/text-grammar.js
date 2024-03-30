@@ -18,7 +18,7 @@ export default function TextGrammar() {
   const isDarkModeOn = useSelector(darkModeSelector)
 
   return (
-    <NavigationContainer independent theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
+    <NavigationContainer independent theme={isDarkModeOn.isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
       <Stack.Navigator>
         <Stack.Screen
           name={SCREENS.textGrammar}
@@ -28,8 +28,8 @@ export default function TextGrammar() {
             headerShown: true,
             headerStyle: {
               backgroundColor: isDarkModeOn.isDarkMode
-                ? CombinedDefaultTheme.colors.background
-                : CombinedDarkTheme.colors.background
+                ? CombinedDarkTheme.colors.background
+                : CombinedDefaultTheme.colors.background
             },
             headerTitleStyle: {
               color: theme.colors.onSurface,

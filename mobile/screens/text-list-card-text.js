@@ -7,26 +7,27 @@ import { PressableCard } from '../components/pressable-card.js'
 import SCREENS from '../constants/screens.js'
 import { useSharedStyles } from '../styles/common.js'
 
-export default function TextListCardText({ setShouldReload, navigation, text }) {
+function handlePress(setShouldReload, navigation, textId) {
+  setShouldReload(false)
+  navigation.navigate(SCREENS.textScreen, {
+    id: textId
+  })
+}
+
+export default function TextListCardText({ compact, setShouldReload, navigation, text }) {
   const theme = useTheme()
   const sharedStyle = useSharedStyles(theme)
 
-  const onPress = () => {
-    setShouldReload(false)
-    navigation.navigate(SCREENS.textScreen, {
-      id: text.id
-    })
-  }
-
-  const footer = `${text.timeAgo} · ${text.views} views`
-
+  const footer = `${text.readingTime}`
   const content = (
     <>
       <Card.Cover source={{ uri: text.image }} />
       <Card.Title title={text.title.trim()} subtitle={text.source.trim()} titleStyle={{ ...sharedStyle.cardTitle }} />
-      <Card.Content>
-        <Text variant="bodyMedium">{text.introduction.trim()}</Text>
-      </Card.Content>
+      {compact && (
+        <Card.Content>
+          <Text variant="bodyMedium">{text.introduction.trim()}</Text>
+        </Card.Content>
+      )}
       <Card.Actions style={{ ...sharedStyle.cardAction }}>
         <Text variant="bodySmall" style={{ color: theme.colors.outline, left: 10, position: 'absolute' }}>
           {footer}
@@ -35,17 +36,18 @@ export default function TextListCardText({ setShouldReload, navigation, text }) 
       </Card.Actions>
     </>
   )
-
-  return <PressableCard onPress={onPress} content={content} />
+  return <PressableCard onPress={() => handlePress(setShouldReload, navigation, text.id)} content={content} />
 }
 
 TextListCardText.propTypes = {
+  compact: PropTypes.bool,
   navigation: PropTypes.object.isRequired,
-  setShouldReload: PropTypes.func.isRequired,
+  setShouldReload: PropTypes.func,
   text: PropTypes.shape({
     arabic: PropTypes.string,
     author: PropTypes.string,
     category: PropTypes.string,
+
     createdAt: PropTypes.string,
     english: PropTypes.string,
     id: PropTypes.string,

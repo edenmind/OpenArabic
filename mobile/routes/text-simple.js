@@ -14,13 +14,17 @@ import { getText } from '../services/api-service.js'
 const Stack = createNativeStackNavigator()
 const darkModeSelector = (state) => state.isDarkMode
 
-export default function TextSimple({ route }) {
+export default function TextSimple({ route, navigation }) {
   const isDarkModeOn = useSelector(darkModeSelector)
   const theme = useTheme()
 
   const dispatch = useDispatch()
 
   const { id } = route.params
+
+  function TextSetupComponent() {
+    return <TextSetupPractice navigation={navigation} />
+  }
 
   useEffect(() => {
     const fetchText = async () => {
@@ -30,18 +34,18 @@ export default function TextSimple({ route }) {
   }, [dispatch, id])
 
   return (
-    <NavigationContainer independent theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
+    <NavigationContainer independent theme={isDarkModeOn.isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
       <Stack.Navigator>
         <Stack.Screen
           name={SCREENS.textBilingual}
-          component={TextSetupPractice}
+          component={TextSetupComponent}
           options={{
             headerLargeTitle: false,
             headerShown: false,
             headerStyle: {
               backgroundColor: isDarkModeOn.isDarkMode
-                ? CombinedDefaultTheme.colors.background
-                : CombinedDarkTheme.colors.background
+                ? CombinedDarkTheme.colors.background
+                : CombinedDefaultTheme.colors.background
             },
             headerTitleStyle: {
               color: theme.colors.onSurface,
@@ -57,5 +61,7 @@ export default function TextSimple({ route }) {
 }
 
 TextSimple.propTypes = {
-  route: PropTypes.object
+  route: PropTypes.object,
+  // eslint-disable-next-line sort-keys
+  navigation: PropTypes.object
 }

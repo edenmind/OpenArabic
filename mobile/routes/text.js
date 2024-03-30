@@ -37,12 +37,10 @@ function Text() {
         settings[key] = value || settings[key]
       }
 
-      dispatch({ payload: Number(settings.arabicFontSize), type: 'SET_ARABIC_FONT_SIZE' })
-      dispatch({ payload: Number(settings.englishFontSize), type: 'SET_ENGLISH_FONT_SIZE' })
       dispatch({ payload: settings.isTransliterationOn, type: 'SET_TRANSLITERATION' })
       dispatch({ payload: settings.isEngOn, type: 'SET_ENG' })
       dispatch({ payload: settings.arabicFontName, type: 'SET_ARABIC_FONT_NAME' })
-      dispatch({ payload: settings.isDarkModeOn === 'off', type: 'SET_DARK_MODE' })
+      dispatch({ payload: settings.isDarkModeOn === 'on', type: 'SET_DARK_MODE' })
     }
 
     initSettings()
@@ -58,8 +56,8 @@ function Text() {
           headerBackTitle: 'Home',
           headerStyle: {
             backgroundColor: isDarkModeOn.isDarkMode
-              ? CombinedDefaultTheme.colors.background
-              : CombinedDarkTheme.colors.background
+              ? CombinedDarkTheme.colors.background
+              : CombinedDefaultTheme.colors.background
           },
           headerTitle: 'Grammar',
           headerTitleStyle: {
@@ -75,8 +73,8 @@ function Text() {
         options={{
           headerStyle: {
             backgroundColor: isDarkModeOn.isDarkMode
-              ? CombinedDefaultTheme.colors.background
-              : CombinedDarkTheme.colors.background
+              ? CombinedDarkTheme.colors.background
+              : CombinedDefaultTheme.colors.background
           },
           headerTitle: 'About',
           headerTitleStyle: {

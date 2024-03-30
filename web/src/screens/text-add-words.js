@@ -179,8 +179,9 @@ function TextAddWords() {
             })
 
             const wordsIntoString = words.map((word) => `${word.arabic} ${word.english}`).join(' ')
+              const wordsInArray = words.map((word) => `${word.arabic} ${word.english}`)
 
-            const result = await getChatCompletionMessage(prompts.verifyTranslation(sentence.arabic, wordsIntoString))
+            const result = await getChatCompletionMessage(prompts.verifyTranslation(sentence.arabic, wordsIntoString, wordsInArray))
 
             const newSuggestions = Array.from(suggestions)
             newSuggestions[(currentPage - 1) * PAGE_SIZE + indexSentence] = result

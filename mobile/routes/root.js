@@ -9,11 +9,12 @@ import { CombinedDarkTheme, CombinedDefaultTheme } from '../constants/paper-them
 const darkModeSelector = (state) => state.isDarkMode
 
 function Root() {
-  const isDarkModeOn = useSelector(darkModeSelector)
+  const isDarkMode = useSelector(darkModeSelector)
+  const theme = isDarkMode.isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme
 
   return (
-    <PaperProvider theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
-      <NavigationContainer theme={isDarkModeOn.isDarkMode ? CombinedDefaultTheme : CombinedDarkTheme}>
+    <PaperProvider theme={theme}>
+      <NavigationContainer theme={theme}>
         <Text />
       </NavigationContainer>
     </PaperProvider>

@@ -12,7 +12,7 @@ export default function TextGrammar({ route }) {
   const sharedStyle = useSharedStyles(theme)
 
   return (
-    <ScrollView style={sharedStyle.scrollView}>
+    <ScrollView style={sharedStyle.scrollViewLTR}>
       <Text
         style={{
           color: theme.colors.primary,

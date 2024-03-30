@@ -2,7 +2,7 @@
   "expo": {
     "name": "Open Arabic",
     "slug": "OpenArabic",
-    "version": "1445.8.1",
+    "version": "1445.9.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -18,7 +18,10 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "openarabic"
+      "bundleIdentifier": "openarabic",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "This app does not use the microphone."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -26,12 +29,12 @@
         "backgroundColor": "#1a1c18"
       },
       "package": "com.edenmind.OpenArabic",
-      "versionCode": 118
+      "versionCode": 122
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["@bugsnag/plugin-expo-eas-sourcemaps", "expo-font"],
+    "plugins": ["@bugsnag/plugin-expo-eas-sourcemaps", "expo-font", ["expo-av", { "microphonePermission": false }]],
     "extra": {
       "bugsnag": {
         "apiKey": "77c30e82c802aed265d4d31617059924"

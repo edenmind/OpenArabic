@@ -20,9 +20,20 @@ export const PracticeReading = ({
 
   const renderedButtons = useMemo(
     () =>
-      currentWordsInSentence.map((word, index) => (
-        <ButtonAnimated key={`${word.english}-${index}`} word={word} handlePress={onWordPressed} />
-      )),
+      currentWordsInSentence.map((word, index) => {
+        const bracketsRemoved = word.english
+          .replaceAll(/\[.*?]/g, '')
+          .replaceAll(/\(.*?\)/g, '')
+          .trim()
+
+        return (
+          <ButtonAnimated
+            key={`${bracketsRemoved}-${index}`}
+            word={{ ...word, english: bracketsRemoved }}
+            handlePress={onWordPressed}
+          />
+        )
+      }),
     [currentWordsInSentence, onWordPressed]
   )
 

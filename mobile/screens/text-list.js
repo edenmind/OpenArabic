@@ -1,8 +1,8 @@
 import { useFocusEffect, useScrollToTop } from '@react-navigation/native'
 import * as Haptics from 'expo-haptics'
 import PropTypes from 'prop-types'
-import React, { useState, useCallback, useRef, useMemo } from 'react'
-import { FlatList } from 'react-native'
+import React, { useState, useCallback, useRef, useMemo, Fragment } from 'react'
+import { FlatList, RefreshControl, ScrollView, View } from 'react-native'
 import { useTheme, Text } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -28,84 +28,139 @@ const wordsSelector = (state) => state.words
 export default function TextList({ route, navigation }) {
   const theme = useTheme()
   const { category } = route.params
-  const [shouldReload, setShouldReload] = useState(true)
-  const [numberOfPracticeWords, setNumberOfPracticeWords] = useState(true)
-  const [visiblePractice, setVisiblePractice] = useState(false)
+  const [isReloadRequired, setIsReloadRequired] = useState(true)
+  const [practiceWordCount, setPracticeWordCount] = useState(true)
+  const [isTextVisible, setIsTextVisible] = useState(false)
   const { texts } = useSelector(selector)
   const { categories } = useSelector(categoriesSelector)
   const { textsLoading } = useSelector(textsLoadSelector)
   const { words } = useSelector(wordsSelector)
   const dispatch = useDispatch()
   const sharedStyle = useSharedStyles(theme)
-  const ref = useRef(null)
+  const scrollRef = useRef(null)
 
-  useScrollToTop(ref)
+  useScrollToTop(scrollRef)
+
+  const firstFiveTextsInTexts = texts.slice(0, 5)
 
   const onRefresh = useCallback(() => {
     dispatch(api.getTexts(category === ALL_CATEGORIES ? '' : category))
   }, [dispatch, category])
 
   const fetchData = useCallback(() => {
-    if (shouldReload) {
+    if (isReloadRequired) {
       onRefresh()
-      setShouldReload(false)
+      setIsReloadRequired(false)
     }
-  }, [shouldReload, onRefresh])
+  }, [isReloadRequired, onRefresh])
+
+  const EXCLUDED_CATEGORIES = new Set(['Grammar', 'The Quran'])
+
+  const textsByCategory = useMemo(() => {
+    const textsByCategory = []
+    if (categories && texts) {
+      for (const cat of categories) {
+        if (!EXCLUDED_CATEGORIES.has(cat.name)) {
+          const categoryTexts = texts.filter((text) => text.category === cat.name)
+          textsByCategory.push(categoryTexts, { name: cat.name, texts: categoryTexts.slice(0, 5) })
+        }
+      }
+    }
+    return textsByCategory
+  }, [categories, texts])
 
   useFocusEffect(fetchData)
 
   useFocusEffect(
     React.useCallback(() => {
-      setNumberOfPracticeWords(words.length)
+      setPracticeWordCount(words.length)
     }, [words.length])
   )
 
-  const renderItem = useCallback(
-    ({ item }) => <TextListCard text={item} navigation={navigation} setShouldReload={setShouldReload} />,
+  const renderItemHorizontal = useCallback(
+    ({ item }) => (
+      <View style={{ width: 350 }}>
+        <TextListCard compact={false} text={item} navigation={navigation} setShouldReload={setIsReloadRequired} />
+      </View>
+    ),
     [navigation]
   )
 
-  const categoryDescriptions = categories.filter((cat) => cat.name === category).map((cat) => cat.description)
-  const categoryDescription = categoryDescriptions.length > 0 ? categoryDescriptions[0] : ''
+  const renderItemVertical = useCallback(
+    ({ item }) => (
+      <TextListCard compact={true} text={item} navigation={navigation} setShouldReload={setIsReloadRequired} />
+    ),
+    [navigation]
+  )
+
+  const getDescription = (categories, category) => {
+    const foundCategory = categories.find((cat) => cat.name === category)
+    return foundCategory ? foundCategory.description : ''
+  }
+
+  const categoryDescription = getDescription(categories, category)
 
   const HeaderComponent = useMemo(() => {
-    if (categoryDescription && categoryDescription.length > 0) {
+    const hasCategoryDescription = categoryDescription && categoryDescription.length > 0
+    const hasPracticeWords = practiceWordCount > 0
+
+    if (hasCategoryDescription) {
       return <CategoryIntro text={categoryDescription} />
     }
 
-    return numberOfPracticeWords > 0 ? (
-      <PracticeNotify showButton={true} setVisiblePractice={setVisiblePractice}>
-        <Text variant="labelMedium">You have {pluralize(numberOfPracticeWords, 'word')} to review</Text>
-      </PracticeNotify>
-    ) : (
-      <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
-    )
-  }, [categoryDescription, numberOfPracticeWords, sharedStyle.arabicDateLatin])
+    return hasPracticeWords ? getPracticeNotify() : getHijriDate()
+
+    function getPracticeNotify() {
+      return (
+        <PracticeNotify showButton={true} setVisiblePractice={setIsTextVisible}>
+          <Text variant="labelMedium">You have {pluralize(practiceWordCount, 'word')} to review</Text>
+        </PracticeNotify>
+      )
+    }
+
+    function getHijriDate() {
+      return <Text style={sharedStyle.arabicDateLatin}>{getHijriDateLatin()}</Text>
+    }
+  }, [categoryDescription, practiceWordCount, sharedStyle.arabicDateLatin])
 
   return textsLoading ? (
     <>
       <FadeInView>
-        <FlatList
-          initialNumToRender={5}
-          removeClippedSubviews={true}
-          windowSize={5}
-          data={texts}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          ListEmptyComponent={<Spinner />}
-          ListHeaderComponent={HeaderComponent}
-          ListFooterComponent={Footer}
-          ref={ref}
-          onRefresh={onRefresh}
-          refreshing={false}
-        />
+        <ScrollView refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}>
+          <FlatList
+            initialNumToRender={5}
+            windowSize={5}
+            data={firstFiveTextsInTexts}
+            renderItem={renderItemVertical}
+            keyExtractor={(item) => item.id}
+            ListEmptyComponent={<Spinner />}
+            ListHeaderComponent={HeaderComponent}
+            ref={scrollRef}
+          />
+
+          {category === 'All' &&
+            textsByCategory.map((category, index) => (
+              <Fragment key={index}>
+                <Text style={{ ...sharedStyle.englishHeading, paddingLeft: 15 }}>{category.name}</Text>
+                <FlatList
+                  data={category.texts}
+                  renderItem={renderItemHorizontal}
+                  keyExtractor={(item, index) => index.toString()}
+                  ListEmptyComponent={<Spinner />}
+                  horizontal={true}
+                />
+              </Fragment>
+            ))}
+          <Footer />
+        </ScrollView>
       </FadeInView>
+
       <ModalScrollView
-        visible={visiblePractice}
+        visible={isTextVisible}
         content={<Words />}
         hideModal={() => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-          setVisiblePractice(false)
+          setIsTextVisible(false)
         }}
       />
     </>

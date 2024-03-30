@@ -14,8 +14,8 @@ export function PracticeCheckbox({ label, note, isChecked, onToggle }) {
         style={{
           alignItems: 'center',
           flexDirection: 'row',
-          marginHorizontal: 15,
-          marginVertical: 5
+          marginLeft:15,
+          marginVertical: 15
         }}
       >
         <Checkbox status={isChecked ? 'checked' : 'unchecked'} />
@@ -23,7 +23,7 @@ export function PracticeCheckbox({ label, note, isChecked, onToggle }) {
           <Text variant="headlineSmall" style={{ color: textColor }}>
             {label}
           </Text>
-          <Text variant="labelLarge" style={{ color: textColor }}>
+          <Text variant="labelLarge" style={{ color: textColor, marginRight: 75 }}>
             {note}
           </Text>
         </View>

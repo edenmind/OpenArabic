@@ -21,7 +21,6 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:react-redux/recommended',
     'plugin:unicorn/recommended',
-    'plugin:security/recommended',
     'plugin:prettier/recommended'
   ],
   parserOptions: {

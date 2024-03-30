@@ -11,100 +11,39 @@ axiosRetry(axios, {
   },
   retryDelay: axiosRetry.exponentialDelay
 })
-export const getTexts = (id) => async (dispatch) => {
-  try {
-    dispatch({
-      payload: false,
-      type: 'SET_TEXTS_LOADED'
-    })
-
-    let textRes
-    let wordsRes
-
-    if (!id) {
-      // Home
-      wordsRes = await axios.get(url.wordsHome())
-      textRes = await axios.get(url.categoryWithId())
-    } else if (id === 'Grammar') {
-      // Grammar
-      wordsRes = await axios.get(url.wordsHome())
-    } else {
-      // Category
-      textRes = await axios.get(url.categoryWithId(id))
-    }
-
-    // remove all items from wordRes in which the grammar property is empty
-    // this should be done in the backend
-    if (wordsRes) {
-      wordsRes.data = wordsRes.data.filter((item) => item.grammar)
-    }
-
-    if (textRes && wordsRes) {
-      // Home
-      const combinedData = [...textRes.data, ...wordsRes.data]
-
-      combinedData.sort((a, b) => {
-        const dateA = new Date(a.publishDate || a.publishAt)
-        const dateB = new Date(b.publishDate || b.publishAt)
-
-        return dateB - dateA
-      })
-
-      dispatch({
-        payload: combinedData,
-        type: 'SET_TEXTS'
-      })
-    } else if (textRes) {
-      // Category
-      const filteredData = textRes.data
-
-      filteredData.sort((a, b) => {
-        const dateA = new Date(a.publishDate || a.publishAt)
-        const dateB = new Date(b.publishDate || b.publishAt)
-
-        return dateB - dateA
-      })
-
-      dispatch({
-        payload: filteredData,
-        type: 'SET_TEXTS'
-      })
-    } else if (wordsRes) {
-      // Grammar
-      dispatch({
-        payload: wordsRes.data,
-        type: 'SET_TEXTS'
-      })
-    }
-  } catch (error) {
-    console.log(error)
-  } finally {
-    dispatch({
-      payload: true,
-      type: 'SET_TEXTS_LOADED'
-    })
-  }
-}
 
 export const getCategories = () => async (dispatch) => {
   const res = await axios.get(url.categories())
-
-  const filteredCategories = res.data.filter((category) => category.name !== 'Quotes')
-
   dispatch({
-    payload: filteredCategories,
+    payload: res.data,
     type: 'SET_CATEGORIES'
   })
 }
 
-export const getWords = (difficultyLevel, numberOfWordsToPractice) => async (dispatch) => {
-  const urlWordsWithParameters = `${url.words()}?numberOfWordsToPractice=${numberOfWordsToPractice}&difficultyLevel=${difficultyLevel}`
-  const res = await axios.get(urlWordsWithParameters)
+export const getTexts = (id) => async (dispatch) => {
+  dispatch({ payload: false, type: 'SET_TEXTS_LOADED' })
 
-  dispatch({
-    payload: res.data,
-    type: 'SET_WORDS'
-  })
+  try {
+    const texts = await fetchTextTypes(id)
+
+    const processedTexts = texts
+      .filter(({ grammar, status }) => grammar || status)
+      .map((item) => ({
+        ...item,
+        grammar: item.grammar ? filterAndSortData(item.grammar, 'grammar') : undefined,
+        status: item.status ? filterAndSortData(item.status, 'status') : undefined
+      }))
+      .sort((a, b) => getPublishDate(b) - getPublishDate(a))
+
+    dispatch({
+      payload: processedTexts,
+      type: 'SET_TEXTS'
+    })
+  } catch (error) {
+    console.error(error) // Prefer console.error for errors
+  } finally {
+    dispatch({ payload: true, type: 'SET_TEXTS_LOADED' })
+  }
 }
 
 export const getText = (id) => async (dispatch) => {
@@ -130,4 +69,37 @@ export const getText = (id) => async (dispatch) => {
       type: 'SET_TEXT_LOADED'
     })
   }
+}
+
+// Private functions
+
+const filterAndSortData = (data, prop) => {
+  if (data && Array.isArray(data)) {
+    data = data.filter((item) => item[prop])
+    data.sort((a, b) => {
+      return new Date(b.publishDate || b.publishAt) - new Date(a.publishDate || a.publishAt)
+    })
+  }
+  return data
+}
+
+const getPublishDate = (item) => {
+  return new Date(item.publishDate || item.publishAt)
+}
+
+const fetchTextTypes = async (id) => {
+  if (!id) {
+    const wordsHomeData = await axios.get(url.wordsHome())
+    const categoryData = await axios.get(url.categoryWithId())
+
+    return [...wordsHomeData.data, ...categoryData.data]
+  }
+
+  if (id === 'Grammar') {
+    const wordsHomeData = await axios.get(url.wordsHome())
+    return wordsHomeData.data
+  }
+
+  const categoryData = await axios.get(url.categoryWithId(id))
+  return categoryData.data
 }

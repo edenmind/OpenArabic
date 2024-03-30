@@ -54,6 +54,5 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/recommended',
     'plugin:import/warnings',
-    'plugin:security/recommended'
   ]
 }

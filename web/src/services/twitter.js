@@ -15,15 +15,15 @@ async function downloadImage(url, filepath) {
 async function fetchAndPostTwitterThread() {
   // Replace with your credentials
   const twitterClient = new TwitterApi({
-    appKey: 'zzz',
-    appSecret: 'zzz',
-    accessToken: 'zzz',
-    accessSecret: 'zzz'
+    appKey: 'stsyt5ZEGbj0MsSqRlFzpiXRX',
+    appSecret: '3vRrj9tLsytT6a60680bUnRSjap5tLn3Sp7ZBSs2IoYxC44owK',
+    accessToken: '1327982041099595776-5MzPe430egDHnPxkzjigPfnisppe2d',
+    accessSecret: 'NVC7f9nacUyB0b2mvFFr5zvb8aX03c99inMO208oLz4VD'
   })
 
   try {
     // Fetching the data
-    const response = await axios.get('https://backend.openarabic.io/texts/6588815ae27be39acf08e434')
+    const response = await axios.get('https://backend.openarabic.io/texts/66073f3de27be39acf08e454')
     const data = response.data
 
     // Download the image

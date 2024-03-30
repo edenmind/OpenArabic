@@ -53,14 +53,14 @@ ${text.texts.english}
 --- INSTRUCTIONS:
 As an Islamic scholar, summarize the Full English Text considering the following criteria:
 
-- The summary should be brief and only contain on sentence.
-- The sentence may be long.
+- The summary should be brief and only contain one sentence.
+- The one sentence may be long.
 - Remain faithful to the original text.
 - Make the summary easily comprehensible.
 - Use short words instead of long words.
 - Use simple words instead of complex.
 - Adhere to Sunni Islam interpretations.
-- Ensure the title's character count, including spaces, does not exceed 25.
+- Make the title short.
 - The output must be only in JSON format.
 - Use ﷺ instead of "peace be upon him"
 ---
@@ -477,35 +477,51 @@ Remember, just as the spice in a dish brings out the flavor, the particle "وَ�
 
 export const getArabicAndEnglishSentence = (sentence, text) => {
   const result = `
---- Full Arabic Text for Context:
+---
+Full Arabic Text for Context:
 ${text.texts.arabic}
 
+---
+Arabic Sentence: 
+${sentence.arabic}
 
---- Arabic Sentence: ${sentence.arabic}
---- Author: ${text.author}
---- Source: ${text.source}
+---
+English Reference Translation: 
+${sentence.english}
+
+---
+Author: ${text.author}
+
+---
+Source: ${text.source}
 
 
 --- INSTRUCTIONS:
 Act as a Translator of Classic Arabic to English and provide a Word-for-Word Translation of the Arabic Sentence to English according to the following criteria:
 
-- The text that you are translating is a classical Sunni Islamic.
-- Use easy English words when translating since the target audience does not have English as the first language.
-- Return the result as a valid JSON object with an array that contains the property "arabic" that contains the single Arabic word and the property "english" that contains the verbatim English translation.
+- The text that you are translating is Sunni Islamic.
+- A English reference translation is provided for inspiration but you should not copy it.
+- Make sure that your translation is more accurate and true to the original Arabic sentence than the English reference translation.
+- Return the result as valid JSON object with an array that contains the property "arabic" that contains the single Arabic word and the property "english" that contains the English translation.
 - The JSON object should also contain the property "translation" that contains the the entire sentence fluent to read.
-- Add extra words in the JSON property "translation" if necessary so that the sentence can be read as a normal English sentence.
-- Translate Arabic to English words verbatim.
-- Only use english words in the translation (JSON property: english).
-- Do not use transliterated arabic words in the translation (JSON property: english).
-- The word-for-word translation (JSON property: english) should focus on the correctness of the single word in isolation.
-- Make sure that the word-for-word translation (JSON property: english) is grammatically correct according to the rules of Classical Arabic and that no brackets are added.
+- Only use English words in the translation (JSON property: english).
+- Do not use transliterated Arabic words in the translation (JSON property: english).
+- Do not put pronouns in brackets [] such as you, he, them if they can be understood from the verb.
+- Add words within brackets [] additional to the single word in isolation in the JSON property "english" to make it fit into the context with the other words.
+- If every single word is added after each other, then it should be possible to read them as a fluent sentence and because of that words in brackets [] are necessary.
+- Make sure that additional words always are added within brackets [] even the tiniest added word.
+- If there is only one word, then it should not be between brackets [].
+- Do not use brackets [] for the translation if the meaning of the word is present in the Arabic word.
+- Nothing should be implicit, always use [] to add hidden meanings.
+- Do no not add [the]
+- If there are alternative ways of translating a word, then choose the one that best matches the Islamic context.
 - When an Arabic word starts with "وَ," treat it as a prefix that joins with the next word.
-- The translation of the entire sentence (JSON property: translation) should be based on the verbatim translation but words can be added between [] or change to make the sentence fluent to read.
+- Choose the words that will make the single words in isolation fit into the context and so that they can be read as a sentence if joined.
+- The translation of the entire sentence (JSON property: translation) should be based on the verbatim translation but words can be added within [] or adapted to make the sentence fluent to read.
 - Translate ﷺ as "ﷺ" but do not add it if it is not in the original sentence.
 - This translation will be reviewed by English and Arabic experts, so ensure its correctness.
-- Make sure that pronouns are added if they are apart of the word.
+- Make sure that pronouns are added if they are apart of the word but do not add within brackets []
 - Ensure that names of Prophets and Companions are accompanied by respectful annotations such as ﷺ (Peace be upon him) for the Prophet and Radhi Allahu Anhu/Anha (May Allah be pleased with him/her) for Sahaba.
-
 --- EXAMPLE OUTPUT:
 {
   "words": [
@@ -523,15 +539,15 @@ Act as a Translator of Classic Arabic to English and provide a Word-for-Word Tra
     },
     { 
       "arabic": "أَصْحَابِ", 
-      "english": "companions"
+      "english": "[the] companions"
     }, 
     { 
       "arabic": "رَسُولِ",    
-      "english": "messenger"
+      "english": "[of the] messenger"
     }, 
     { 
       "arabic": "اللَّهِ",    
-      "english": "of Allah"
+      "english": "[of] Allah"
     }, 
     { 
       "arabic": "ﷺ",    
@@ -550,7 +566,7 @@ Act as a Translator of Classic Arabic to English and provide a Word-for-Word Tra
       "english": "ﷺ"
     }
   ],
-  "translation": "That people from [the] companions of [the] messenger of Allah ﷺ, they said to the Prophet ﷺ."
+  "translation": "That people from [the] companions of [the] messenger [of] Allah ﷺ, they said to the Prophet ﷺ."
 }
 ---
 `
@@ -622,7 +638,7 @@ Act as a Teacher in Classical Arabic and explain the English Word for Word Trans
   return result.trimStart()
 }
 
-export const verifyTranslation = (arabic, translation) => {
+export const verifyTranslation = (arabic, translation, translationOfWords) => {
   const result = `
 
 --- Arabic Sentence:
@@ -633,16 +649,20 @@ ${arabic}
 ${translation}
 ---
 
+--- Single word translations to improve:
+${translationOfWords}
+---
+
 --- INSTRUCTIONS:
 Act as a critical expert in Arabic and English and verify the English Word-for-Word Translation of the Arabic Sentence according to the following criteria:
 
 - The text you are verifying is a Sunni Islamic text.
 - The English Translation is a Word-for-Word Translation of the Arabic Sentence.
-- If the English Translation does not match good English, then it is becasue it is a Word-for-Word Translation of the Arabic Sentence and that is expected.
+- If the English Translation does not match good English, then it is because it is a Word-for-Word Translation of the Arabic Sentence and that is expected.
 - Ensure that the Word-for-Word Translation of the Arabic Sentence is correct.
-- Words betheen [] are added to make the Word-for-Word translation readable.
-- It is much more important that you find misstakes than that you confirm that the translation is correct.
-- Be extremly critical and be sure to find as many misstakes as possible.
+- Words between [] are added to make the Word-for-Word translation readable.
+- It is much more important that you find mistakes than that you confirm that the translation is correct.
+- Be extremely critical and be sure to find as many mistakes as possible.
 - Confirm that the English Word-for-Word translation accurately represents the original Arabic Sentence.
 - Ensure that the English Translation does not include any characters outside the Latin alphabet (A-Z, a-z), with the exception of square brackets ([]).
 - Ensure that all English words are completely correctly spelled.
@@ -652,15 +672,19 @@ Act as a critical expert in Arabic and English and verify the English Word-for-W
 - Ensure that the translation is strictly correct according to Sunni Islam.
 - Suggest an improved Word-for-Word translation of the Arabic sentence that is as close to the original Arabic Sentence as possible.
 - Add as many words as necessary between [] to make the Word-for-Word translation readable.
-- Compare the improved Word-for-Word translation with the English Translation and try to fins as many misstakes as possible.
-- Make your answer very brief while including all misstakes.
+- Suggest words to add in brackets [] to make the Sentence Translation and Single Word translation better than.
+- Do your best to provide a better translation than the original of the sentence and the single words.
 ---
 
 --- EXAMPLE OUTPUT:
-The word-for-word translation is correct. However, "feared" could be replaced with "avoided" to better match the provided English translation and to convey the meaning more accurately in this context.
 
-Improved Word-for-Word Translation:
+Improved Sentence Translation:
 "So [whoever] avoided [the] doubts"
+
+Improved Single Word translations:
+أُغْلِقَ: [was] closed
+دَخَلُوا: [they] entered
+
 ---
 `
   console.log(result.trimStart())
